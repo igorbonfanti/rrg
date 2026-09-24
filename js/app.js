@@ -1,5 +1,6 @@
-/* app.js — stato, viste (Monitor, RRG), barra comandi e scorciatoie. */
+/* app.js — stato, viste (Monitor, RRG, Bottom Map, Settore, Alert), barra comandi e scorciatoie. */
 import { build, stats, CENTER } from './engine.js';
+import { createBottom } from './bottom.js';
 import { priceMetrics } from './metrics.js';
 import { drawRRG, nearestHead } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
@@ -7,7 +8,7 @@ import { expectedSession, sessionsBetween } from './calendar.js';
 import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY } from './format.js';
 
 const $ = (id) => document.getElementById(id);
-const VIEWS = ['mon', 'rrg'];
+const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr'];
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 
 // preferenze del singolo browser (se lo storage non è disponibile si usano i default)
@@ -21,17 +22,27 @@ const state = {
   group: null, benchmark: null, timeframe: store.get('timeframe', 'weekly'), formula: store.get('formula', 'nuova'),
   tail: store.get('tail', 10), scale: 'fit', perfDays: store.get('perfDays', 126),
   frame: 0, focus: null, pinned: null, hidden: new Set(), timer: null,
-  sort: { key: 'rot', dir: 1 },
-  model: null, modelKey: '', metrics: {},
+  sort: { key: 'rot', dir: 1 }, tableMode: 'rot',
+  model: null, modelKey: '', metrics: {}, bottom: null, sectorModels: {},
 };
 
 // ---------- avvio ----------
-fetch('data/prices.json')
-  .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-  .then((d) => { state.data = d; init(); })
-  .catch((e) => {
-    $('v-mon').innerHTML = `<div class="panel"><div class="pb"><p class="note">Impossibile caricare i dati (${esc(e.message)}). In locale esegui <span class="mono">node scripts/fetch_data.js</span> e servi la cartella con un server statico.</p></div></div>`;
-  });
+const getJSON = (url, optional) => fetch(url).then((r) => {
+  if (r.ok) return r.json();
+  if (optional) return null;
+  throw new Error(`${url}: HTTP ${r.status}`);
+}).catch((e) => { if (optional) return null; throw e; });
+
+Promise.all([
+  getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
+  getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true),
+]).then(([prices, sectors, breadth, config, latest, alertLog]) => {
+  state.data = prices;
+  state.extra = { sectors, breadth, config, latest, alertLog };
+  init();
+}).catch((e) => {
+  $('v-mon').innerHTML = `<div class="panel"><div class="pb"><p class="note">Impossibile caricare i dati (${esc(e.message)}). In locale esegui gli script in <span class="mono">scripts/</span> e servi la cartella con un server statico.</p></div></div>`;
+});
 
 function init() {
   const d = state.data;
@@ -43,12 +54,36 @@ function init() {
   state.benchmark = savedBench && d.tickers[savedBench] ? savedBench : d.groups[state.group].defaultBenchmark;
   for (const s of Object.keys(d.tickers)) state.metrics[s] = priceMetrics(d.dates, d.tickers[s].close);
   if (store.get('cvd', false)) { $('term').classList.add('cvd'); $('cvdBtn').setAttribute('aria-pressed', 'true'); }
+  const x = state.extra;
+  state.bottom = createBottom({
+    $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store,
+    rotation: sectorRotation, setView: (v) => setView(v), openRRG: focusSymbol,
+  });
   renderHeader();
   bind();
+  state.bottom.bind();
   syncControls();
   recompute(true);
-  const initial = location.hash.replace('#', '');
-  setView(VIEWS.includes(initial) ? initial : 'mon', true);
+  routeHash(true);
+}
+
+// #mon #rrg #btm #sec #alr, oppure #XLU per il dettaglio di un settore
+function routeHash(silent) {
+  const h = location.hash.replace('#', '').toUpperCase();
+  if (state.bottom.isSector(h)) { state.bottom.openSector(h); return; }
+  const v = h.toLowerCase();
+  setView(VIEWS.includes(v) ? v : 'mon', silent);
+}
+
+// quadrante e direzione di un ETF settoriale vs SPY (settimanale), per la tabella dei settori
+function sectorRotation(s) {
+  const key = state.formula;
+  if (!state.sectorModels[key]) {
+    const group = Object.keys(state.data.groups).find((g) => state.data.groups[g].tickers.includes('XLK'));
+    state.sectorModels[key] = group ? build(state.data, { symbols: state.data.groups[group].tickers, benchmark: 'SPY', timeframe: 'weekly', formula: key }) : null;
+  }
+  const m = state.sectorModels[key];
+  return m && m.series[s] ? stats(m.series[s], m.dates.length - 1, 10) : null;
 }
 
 function renderHeader() {
@@ -83,10 +118,15 @@ const isProvisional = () => state.model.provisional && state.frame === lastFrame
 const unit = () => (state.timeframe === 'weekly' ? 'sett.' : 'sedute');
 
 function renderAll() {
-  if (state.view === 'mon') renderMonitor(); else renderRRGView();
+  const b = state.bottom;
+  if (state.view === 'rrg') renderRRGView();
+  else if (state.view === 'mon') b.renderMonitor();
+  else if (state.view === 'btm') b.renderMap();
+  else if (state.view === 'sec') b.renderSector();
+  else if (state.view === 'alr') b.renderAlerts();
 }
 
-// ---------- 1 MONITOR ----------
+// ---------- tabella prezzi dell'universo (vista RRG, modalità "Prezzi") ----------
 function monitorRows() {
   const m = state.model, f = lastFrame();
   return symbols().map((s) => ({ s, name: state.data.tickers[s].name, mt: state.metrics[s], r: m.series[s] ? stats(m.series[s], f, state.tail) : null }));
@@ -100,7 +140,7 @@ const SORTERS = {
   rot: (a, b) => (a.r && b.r ? QORDER[a.r.q] - QORDER[b.r.q] || b.r.dist - a.r.dist : 0),
   weeks: (a, b) => (a.r && b.r ? a.r.weeks - b.r.weeks : 0),
 };
-function renderMonitor() {
+function renderPriceTable() {
   const d = state.data, bench = state.benchmark, bm = state.metrics[bench];
   const rows = monitorRows();
   const { key, dir } = state.sort;
@@ -125,32 +165,16 @@ function renderMonitor() {
       <td class="num r">${fmt(bm.last, 2)}</td><td class="num r">${pct(bm.d1)}</td><td class="num r">${pct(bm.w1)}</td><td class="num r">${pct(bm.m1)}</td><td class="num r">${pct(bm.m3)}</td><td class="num r">${pct(bm.ytd)}</td>
       <td>${ddCell(bm)}</td><td class="num r">${pct(bm.vs200)}</td><td></td><td></td></tr>`;
   $('monTable').innerHTML = head + '<tbody>' + body + benchRow + '</tbody>';
-  $('monTitle').textContent = `${state.group} · vs ${bench}`;
-  $('monMeta').textContent = `rotazione ${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliera'} · formula ${state.formula}`;
   $('monTable').querySelectorAll('th button').forEach((b) => b.onclick = () => {
     const k = b.dataset.sort;
     state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : (k === 'sym' || k === 'rot' ? 1 : -1) };
-    renderMonitor();
+    renderPriceTable();
   });
   $('monTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
-    const go = () => focusSymbol(tr.dataset.sym);
+    const go = () => togglePin(tr.dataset.sym);
     tr.onclick = go;
     tr.onkeydown = (e) => { if (e.key === 'Enter') go(); };
   });
-
-  // KPI e quadranti
-  const byQ = { Improving: [], Leading: [], Weakening: [], Lagging: [] };
-  for (const x of rows) if (x.r) byQ[x.r.q].push(x);
-  const kpi = [[`${esc(bench)} · benchmark`, fmt(bm.last, 2), `${pct(bm.d1, 2)} oggi · ${sgn(bm.dd52)}% dal max 52s`]];
-  for (const q of ['Leading', 'Improving', 'Weakening', 'Lagging']) {
-    kpi.push([`<span class="q-${QKEY[q]}-c">${q}</span>`, `${byQ[q].length}<small> / ${rows.length}</small>`, byQ[q].map((x) => esc(x.s)).join(' · ') || 'nessuno']);
-  }
-  $('kpis').innerHTML = kpi.map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
-  const cell = (q) => `<div class="qcell"><h3 class="q-${QKEY[q]}-c">${q.toUpperCase()}</h3><div class="items">${
-    byQ[q].sort((a, b) => b.r.dist - a.r.dist).map((x) => `<button type="button" class="qitem" data-sym="${esc(x.s)}" title="${esc(x.name)} · direzione ${fmt(x.r.heading, 0)}°"><span class="q-${QKEY[q]}-c">${arrow(x.r.heading)}</span>${esc(x.s)}</button>`).join('') || '<span class="muted">—</span>'}</div></div>`;
-  $('quadGrid').innerHTML = cell('Improving') + cell('Leading') + cell('Lagging') + cell('Weakening');
-  $('quadMeta').textContent = `al ${dIT(state.model.dates[lastFrame()])}${state.model.provisional ? ' (provvisorio)' : ''}`;
-  $('quadGrid').querySelectorAll('.qitem').forEach((b) => b.onclick = () => focusSymbol(b.dataset.sym));
 }
 
 // ---------- 2 RRG ----------
@@ -189,7 +213,10 @@ function renderRRGView() {
   fr.min = minFrame(); fr.max = lastFrame(); fr.value = state.frame;
   $('frameDate').textContent = dIT(m.dates[state.frame]) + (isProvisional() ? ' *' : '');
   $('provNote').hidden = !isProvisional();
-  renderRotTable();
+  const px = state.tableMode === 'px';
+  $('rotWrap').hidden = px; $('rotNote').hidden = px; $('pxWrap').hidden = !px; $('pxNote').hidden = !px;
+  $('tableTitle').textContent = px ? `Prezzi · ${state.group}` : 'Tabella di rotazione';
+  if (px) renderPriceTable(); else renderRotTable();
   renderPerf();
 }
 function renderRotTable() {
@@ -231,7 +258,7 @@ function renderPerf() {
 function refreshFocus() {
   drawChart();
   const foc = focused();
-  $('rotTable').querySelectorAll('tbody tr').forEach((tr) => tr.classList.toggle('sel', tr.dataset.sym === foc));
+  for (const id of ['rotTable', 'monTable']) $(id).querySelectorAll('tbody tr').forEach((tr) => tr.classList.toggle('sel', tr.dataset.sym === foc));
   renderPerf();
 }
 function togglePin(s) {
@@ -276,7 +303,9 @@ function setView(v, silent) {
   if (v !== 'rrg') stop();
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === v)));
   for (const id of VIEWS) $('v-' + id).hidden = id !== v;
-  if (!silent || location.hash !== '#' + v) history.replaceState(null, '', '#' + v);
+  $('filters').hidden = v !== 'rrg';
+  const hash = v === 'sec' ? '#' + store.get('sector', 'XLU') : '#' + v;
+  if (!silent || location.hash !== hash) { try { history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ } }
   renderAll();
 }
 function segPress(id, attr, value) {
@@ -290,6 +319,7 @@ function syncControls() {
   segPress('tailSeg', 'tail', state.tail);
   segPress('scaleSeg', 'scale', state.scale);
   segPress('perfSeg', 'days', state.perfDays);
+  segPress('tableSeg', 'mode', state.tableMode);
 }
 function openHelp(open) { $('helpModal').hidden = !open; if (open) $('helpClose').focus(); }
 
@@ -306,6 +336,7 @@ function bind() {
   const seg = (id, attr, apply) => document.querySelectorAll(`#${id} button`).forEach((b) => b.onclick = () => { apply(b.dataset[attr]); syncControls(); });
   seg('tfSeg', 'tf', (v) => { state.timeframe = v; store.set('timeframe', v); recompute(true); });
   seg('formulaSeg', 'formula', (v) => { state.formula = v; store.set('formula', v); recompute(false); });
+  seg('tableSeg', 'mode', (v) => { state.tableMode = v; renderRRGView(); });
   seg('tailSeg', 'tail', (v) => { state.tail = +v; store.set('tail', state.tail); renderAll(); });
   seg('scaleSeg', 'scale', (v) => { state.scale = v; renderAll(); });
   seg('perfSeg', 'days', (v) => { state.perfDays = +v; store.set('perfDays', state.perfDays); renderPerf(); });
@@ -363,10 +394,11 @@ function bind() {
     e.preventDefault();
     const v = $('cmd').value.trim().toUpperCase().replace(/\s*<?GO>?$/, '');
     $('cmd').value = '';
-    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg' };
+    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (words[v]) { setView(words[v]); return; }
+    if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
     if (symbols().includes(v)) { focusSymbol(v); return; }
     const g = Object.keys(state.data.groups).find((k) => state.data.groups[k].tickers.includes(v));
     if (g) {

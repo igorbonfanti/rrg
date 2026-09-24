@@ -1,0 +1,20 @@
+{
+  "_comment": "Livelli blu (% di titoli sopra la media a 200 sedute) sotto i quali un settore entra in zona blu, e parametri della macchina a stati. Default dei livelli: quant-rea '200 LEVEL SETTORI' (Consumer Discretionary 8%). La GitHub Action usa questo file per gli alert; le modifiche fatte nell'app restano nel browser finché non le copi qui.",
+  "blue": {
+    "XLK": 6, "XLC": 5, "XLY": 8, "XLP": 11, "XLE": 1, "XLF": 6,
+    "XLV": 11, "XLI": 5, "XLB": 10, "XLRE": 8, "XLU": 5
+  },
+  "params": {
+    "watchBand": 10,
+    "ddSetup": 70,
+    "ddWatch": 85,
+    "setupCloses": 2,
+    "minRecoveryPoints": 5,
+    "minRecoveryStocks": 2,
+    "slowSetupSessions": 60,
+    "failWindow": 20,
+    "cooldown": 63,
+    "resetFloor": 40,
+    "resetAbove": 25
+  }
+}

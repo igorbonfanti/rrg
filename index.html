@@ -16,7 +16,7 @@
     <span class="brand">SECTOR·MON</span>
     <form class="cmd" id="cmdForm" autocomplete="off">
       <span class="prompt">&gt;</span>
-      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Comando: un ticker (XLU), MON, RRG, HELP · poi Invio" />
+      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Comando: un ticker (XLU, NVDA), MON, RRG, BTM, ALRT, HELP · poi Invio" />
       <button class="go" type="submit">GO</button>
     </form>
     <span class="clock" id="clock"></span>
@@ -25,12 +25,15 @@
   <nav class="fnkeys" role="tablist" aria-label="Viste">
     <button role="tab" id="tab-mon" data-view="mon" aria-selected="true">1 MONITOR</button>
     <button role="tab" id="tab-rrg" data-view="rrg" aria-selected="false">2 RRG</button>
+    <button role="tab" id="tab-btm" data-view="btm" aria-selected="false">3 BOTTOM MAP</button>
+    <button role="tab" id="tab-sec" data-view="sec" aria-selected="false">4 SETTORE</button>
+    <button role="tab" id="tab-alr" data-view="alr" aria-selected="false">5 ALERT</button>
     <span class="spacer"></span>
     <button type="button" class="tool" id="helpBtn" title="Guida e scorciatoie (tasto ?)">? GUIDA</button>
     <button type="button" class="tool" id="cvdBtn" aria-pressed="false" title="Colori per daltonici: su/giù in blu/rosso">CVD</button>
   </nav>
 
-  <div class="filters" id="filters">
+  <div class="filters" id="filters" hidden>
     <label class="ctl" for="groupSel">Universo <select id="groupSel"></select></label>
     <label class="ctl" for="benchSel">Benchmark <select id="benchSel"></select></label>
     <span class="ctl">Timeframe
@@ -47,25 +50,27 @@
 
   <!-- 1 MONITOR -->
   <section class="view" id="v-mon" role="tabpanel" aria-labelledby="tab-mon">
-    <div class="kpis" id="kpis"></div>
+    <div class="kpis" id="boardKpis"></div>
     <div class="grid-side">
       <div class="panel">
-        <div class="ph"><h2 id="monTitle">Monitor</h2><span class="meta" id="monMeta"></span></div>
-        <div class="tscroll"><table class="t" id="monTable"></table></div>
+        <div class="ph"><h2>Settori S&amp;P 500 · stato dei bottom</h2><span class="meta" id="boardMeta"></span></div>
+        <div class="tscroll"><table class="t" id="boardTable"></table></div>
         <div class="legend">
-          <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% delle sedute degli ultimi 5 anni</span>
-          <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown degli ultimi 5 anni</span>
-          <span class="muted">clic su una riga: apre la rotazione con il titolo in evidenza</span>
+          <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
+          <span><span class="kb" style="background:var(--blue);width:2px"></span>livello blu del settore</span>
+          <span><span class="kb" style="background:#6a6a6a;width:2px"></span>un mese fa</span>
+          <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia del settore</span>
+          <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
         </div>
       </div>
       <div class="stack">
         <div class="panel">
-          <div class="ph"><h2>Quadranti</h2><span class="meta" id="quadMeta"></span></div>
-          <div class="qgrid" id="quadGrid"></div>
+          <div class="ph"><h2>Alert attivi</h2><span class="meta" id="activeMeta"></span></div>
+          <div class="pb" id="activeList"></div>
         </div>
         <div class="panel">
-          <div class="ph"><h2>Come si legge</h2></div>
-          <div class="pb"><p class="note">Improving → Leading → Weakening → Lagging è il giro tipico, in senso orario, ma non è una regola: una rotazione può tornare indietro dallo stesso lato. La freccia indica la direzione dell'ultima settimana: tra 0° e 90° il titolo va verso Leading. Il quadrante descrive lo stato attuale, non una previsione.</p></div>
+          <div class="ph"><h2>Come si legge lo stato</h2></div>
+          <div class="pb states" id="stateLegend"></div>
         </div>
       </div>
     </div>
@@ -109,9 +114,15 @@
       </div>
       <div class="stack">
         <div class="panel">
-          <div class="ph"><h2>Tabella di rotazione</h2><span class="meta" id="rotMeta"></span></div>
-          <div class="tscroll"><table class="t" id="rotTable"></table></div>
-          <p class="note pb">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p>
+          <div class="ph"><h2 id="tableTitle">Tabella di rotazione</h2><span class="meta push" id="rotMeta"></span>
+            <span class="seg" id="tableSeg">
+              <button type="button" data-mode="rot" aria-pressed="true">Rotazione</button>
+              <button type="button" data-mode="px" aria-pressed="false">Prezzi</button>
+            </span></div>
+          <div class="tscroll" id="rotWrap"><table class="t" id="rotTable"></table></div>
+          <div class="tscroll" id="pxWrap" hidden><table class="t" id="monTable"></table></div>
+          <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p>
+          <p class="note pb" id="pxNote" hidden>Drawdown in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni; il segno grigio è il peggiore dei 5 anni. Clic su un'intestazione per ordinare.</p>
         </div>
         <div class="panel">
           <div class="ph"><h2>Performance relativa</h2>
@@ -131,8 +142,122 @@
     </div>
   </section>
 
+  <!-- 3 BOTTOM MAP -->
+  <section class="view" id="v-btm" role="tabpanel" aria-labelledby="tab-btm" hidden>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="ph"><h2>Bottom Map · drawdown e breadth</h2><span class="meta" id="bmMeta"></span></div>
+        <div class="chart-wrap" id="bmWrap">
+          <svg class="rrg" id="bm" role="img" aria-label="Bottom Map: drawdown e breadth dei settori rispetto al livello blu"></svg>
+          <div class="tip" id="bmTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--blue)"></span>zona blu: breadth sotto il livello e drawdown profondo</span>
+          <span><span class="kb" style="background:var(--q-weak)"></span>attenzione</span>
+          <span class="muted">coda = ultime 8 settimane · il percorso di un bottom scende a sinistra, poi risale · clic per il dettaglio</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="dist" id="distList"></div>
+        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nei settori piccoli (Utilities, Real Estate, Energy) uno solo sposta la breadth di 3–5 punti.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 SETTORE -->
+  <section class="view" id="v-sec" role="tabpanel" aria-labelledby="tab-sec" hidden>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="controls">
+        <div class="chips" id="secChips"></div>
+        <span class="ctl push">Periodo
+          <span class="seg" id="rangeSeg">
+            <button type="button" data-range="3A" aria-pressed="true">3A</button>
+            <button type="button" data-range="10A" aria-pressed="false">10A</button>
+            <button type="button" data-range="MAX" aria-pressed="false">MAX</button>
+          </span></span>
+      </div>
+    </div>
+    <div class="grid-side">
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2 id="secTitle"></h2><span id="secBadge"></span></div>
+          <div class="chart-wrap" id="tsWrap">
+            <svg class="ts" id="ts" role="img" aria-label="Prezzo, drawdown e breadth del settore"></svg>
+            <div class="tip" id="tsTip" hidden></div>
+          </div>
+          <div class="legend">
+            <span><span class="kl" style="background:var(--ink)"></span>prezzo</span>
+            <span><span class="kl" style="background:var(--amber)"></span>media 200</span>
+            <span><span class="kl" style="background:var(--down)"></span>drawdown</span>
+            <span><span class="kl" style="background:var(--ink-2)"></span>% sopra media 200</span>
+            <span><span class="kl" style="background:#555"></span>% sopra media 50</span>
+            <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.4"></span>zona blu</span>
+            <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Episodi in zona blu</h2><span class="meta" id="epiMeta"></span></div>
+          <div class="tscroll"><table class="t" id="epiTable"></table></div>
+          <p class="note pb">Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger. Storia ricostruita dai costituenti con la composizione dell'indice di allora: serve a capire quanto il segnale arriva in anticipo, non è un backtest validato.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Livello blu</h2><span class="meta">% titoli sopra media 200</span></div>
+          <div class="pb blue-box">
+            <div class="blue-row">
+              <span class="stepper"><button type="button" id="blueMinus" aria-label="Abbassa il livello blu">−</button><output id="blueVal"></output><button type="button" id="bluePlus" aria-label="Alza il livello blu">+</button></span>
+              <button type="button" class="mini" id="blueReset" hidden>Ripristina</button>
+            </div>
+            <p class="note" id="blueSrc"></p>
+            <p class="note" id="blueInfo"></p>
+            <p class="note">Le modifiche valgono in questo browser. Gli alert Telegram usano config/thresholds.json del repository.</p>
+            <button type="button" class="mini" id="copyCfg">Copia configurazione</button>
+            <p class="note" id="copyMsg"></p>
+            <textarea id="cfgText" class="cfgtext" rows="6" hidden aria-label="Configurazione da copiare"></textarea>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Situazione</h2></div>
+          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Titoli del settore</h2><span class="meta" id="memMeta"></span></div>
+          <div class="tscroll members"><table class="t" id="memTable"></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 ALERT -->
+  <section class="view" id="v-alr" role="tabpanel" aria-labelledby="tab-alr" hidden>
+    <div class="kpis" id="alertStats"></div>
+    <div class="grid-side">
+      <div class="panel">
+        <div class="ph"><h2>Registro dei cambi di stato</h2><span class="meta" id="alertCount"></span></div>
+        <ul class="alist" id="alertLog"></ul>
+        <p class="note pb">Calcolato nel browser con i livelli blu attuali su tutta la storia dal 2005 (ricostruita). Serve a vedere come si comporta il sistema, non è un backtest validato.</p>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Notifiche Telegram</h2></div>
+          <div class="pb">
+            <p class="note" id="sentInfo"></p>
+            <p class="note">Per riceverle: crea un bot con @BotFather, avvia una chat con il bot e aggiungi al repository (Settings → Secrets and variables → Actions) i segreti <span class="mono">TELEGRAM_BOT_TOKEN</span> e <span class="mono">TELEGRAM_CHAT_ID</span>. La GitHub Action invia solo i nuovi cambi di stato dopo l'aggiornamento serale.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Regole</h2></div>
+          <div class="pb"><ul class="rules" id="rulesList"></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <footer class="statusline">
-    <span id="srcLine">Dati: Yahoo Finance, chiusure giornaliere rettificate · aggiornati dalla GitHub Action</span>
+    <span id="srcLine">Dati: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · aggiornati dalla GitHub Action</span>
     <span id="genLine"></span>
   </footer>
 </div>
@@ -149,7 +274,8 @@
         <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
       </ul>
       <p>La <b>formula nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: un trend più forte finisce più a destra e non ci sono salti quando un vecchio dato esce dalla finestra. La <b>classica</b> è quella della prima versione (z-score a 26 barre).</p>
-      <p>Scorciatoie: <kbd>1</kbd> <kbd>2</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo precedente/successivo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> questa guida. Nel comando scrivi un ticker (es. <span class="mono">XLU</span>) per evidenziarlo, oppure MON, RRG, HELP.</p>
+      <p>La <b>ricerca dei bottom</b> combina due misure per settore: la % di titoli sopra la media a 200 sedute (breadth, calcolata sui costituenti S&amp;P 500) e il drawdown dell'ETF dal massimo a 52 settimane. Sotto il <b>livello blu</b>, con un drawdown profondo, il settore entra in <b>zona blu</b>: lì si formano spesso i bottom, ma di solito in anticipo. Il <b>trigger</b> arriva quando la breadth risale con una conferma di prezzo.</p>
+      <p>Scorciatoie: <kbd>1</kbd>–<kbd>5</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo precedente/successivo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> questa guida. Nel comando scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker per evidenziarlo nella rotazione, oppure MON, RRG, BTM, SEC, ALRT, HELP.</p>
       <p class="note">Strumento di lettura, non un segnale operativo. "Relative Rotation Graphs" è un marchio di RRG Research: questa è un'approssimazione indipendente.</p>
     </div>
   </div>

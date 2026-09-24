@@ -1,0 +1,17 @@
+{
+ "checkedThrough": "2026-09-21",
+ "thresholds": {
+  "XLK": 6,
+  "XLC": 5,
+  "XLY": 8,
+  "XLP": 11,
+  "XLE": 1,
+  "XLF": 6,
+  "XLV": 11,
+  "XLI": 5,
+  "XLB": 10,
+  "XLRE": 8,
+  "XLU": 5
+ },
+ "log": []
+}
