@@ -3,138 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RRG · Relative Rotation Graph</title>
-  <meta name="description" content="Relative Rotation Graph interattivo per settori, MAG7 e asset — rotazione e momentum relativo vs benchmark." />
+  <title>Sector Monitor</title>
+  <meta name="description" content="Rotazione relativa dei settori S&amp;P 500 e ricerca dei bottom settoriali." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <span class="logo">◷</span>
-      <div>
-        <h1>Relative Rotation Graph</h1>
-        <p class="sub">Rotazione e momentum relativo vs benchmark · <span id="dataDate">—</span></p>
-      </div>
-    </div>
-    <button id="helpBtn" class="ghost-btn" title="Come si legge">? Come si legge</button>
+<div class="term" id="term">
+  <header class="cmdbar">
+    <span class="brand">SECTOR·MON</span>
+    <form class="cmd" id="cmdForm" autocomplete="off">
+      <span class="prompt">&gt;</span>
+      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Comando: un ticker (XLU), MON, RRG, HELP · poi Invio" />
+      <button class="go" type="submit">GO</button>
+    </form>
+    <span class="clock" id="clock"></span>
   </header>
 
-  <main class="layout">
-    <!-- MASCHERA -->
-    <aside class="panel mask">
-      <h2>Maschera</h2>
+  <nav class="fnkeys" role="tablist" aria-label="Viste">
+    <button role="tab" id="tab-mon" data-view="mon" aria-selected="true">1 MONITOR</button>
+    <button role="tab" id="tab-rrg" data-view="rrg" aria-selected="false">2 RRG</button>
+    <span class="spacer"></span>
+    <button type="button" class="tool" id="helpBtn" title="Guida e scorciatoie (tasto ?)">? GUIDA</button>
+    <button type="button" class="tool" id="cvdBtn" aria-pressed="false" title="Colori per daltonici: su/giù in blu/rosso">CVD</button>
+  </nav>
 
-      <label class="field">
-        <span>Universo</span>
-        <select id="groupSel"></select>
-      </label>
-
-      <div class="field">
-        <span>Strumenti <small id="symCount"></small></span>
-        <div id="symList" class="chips"></div>
-        <div class="row tight">
-          <button id="selAll" class="mini-btn">Tutti</button>
-          <button id="selNone" class="mini-btn">Nessuno</button>
-        </div>
-      </div>
-
-      <label class="field">
-        <span>Benchmark</span>
-        <select id="benchSel"></select>
-      </label>
-
-      <label class="field">
-        <span>Timeframe</span>
-        <div class="seg" id="tfSeg">
-          <button data-tf="weekly" class="active">Settimanale</button>
-          <button data-tf="daily">Giornaliero</button>
-        </div>
-      </label>
-
-      <label class="field">
-        <span>Lunghezza coda: <b id="tailVal">12</b> <small id="tailUnit">sett.</small></span>
-        <input type="range" id="tailRange" min="3" max="26" value="12" />
-      </label>
-
-      <details class="adv">
-        <summary>Parametri avanzati</summary>
-        <label class="field">
-          <span>Smoothing RS: <b id="smoothVal">10</b></span>
-          <input type="range" id="smoothRange" min="2" max="20" value="10" />
-        </label>
-        <label class="field">
-          <span>Finestra momentum: <b id="momVal">4</b></span>
-          <input type="range" id="momRange" min="1" max="12" value="4" />
-        </label>
-        <label class="field">
-          <span>Finestra z-score: <b id="zVal">26</b></span>
-          <input type="range" id="zRange" min="8" max="52" value="26" />
-        </label>
-        <button id="resetParams" class="mini-btn">Ripristina default</button>
-      </details>
-    </aside>
-
-    <!-- GRAFICO RRG -->
-    <section class="panel chart-panel">
-      <div class="chart-head">
-        <h2>RRG</h2>
-        <div class="playback">
-          <button id="playBtn" class="mini-btn play">▶ Anima</button>
-          <input type="range" id="frameRange" min="0" max="0" value="0" />
-          <span id="frameDate" class="mono">—</span>
-        </div>
-      </div>
-      <div id="rrg" class="plot"></div>
-    </section>
-
-    <!-- INSIGHT -->
-    <aside class="panel insight">
-      <h2>Insight</h2>
-      <p class="hint">Ordinati per probabilità di upside in prospettiva.</p>
-      <div id="insightList"></div>
-    </aside>
-  </main>
-
-  <!-- TREND -->
-  <section class="panel trend-panel">
-    <div class="chart-head">
-      <h2>Trend prezzi (base 100)</h2>
-      <div class="seg" id="trendSeg">
-        <button data-days="180" class="active">6 mesi</button>
-        <button data-days="90">3 mesi</button>
-        <button data-days="365">12 mesi</button>
-      </div>
-    </div>
-    <div id="trends" class="plot trend"></div>
-  </section>
-
-  <footer class="foot">
-    <span>Dati: Yahoo Finance (adjusted close) · aggiornati via GitHub Action.</span>
-    <span class="mono" id="footGen"></span>
-  </footer>
-
-  <!-- MODALE AIUTO -->
-  <div id="helpModal" class="modal hidden">
-    <div class="modal-card">
-      <button class="modal-close" id="helpClose">×</button>
-      <h3>Come si legge l'RRG</h3>
-      <p>Ogni strumento è un punto posizionato in base a <b>forza relativa</b> (asse X, RS-Ratio) e <b>slancio</b> di quella forza (asse Y, RS-Momentum), <b>rispetto al benchmark</b>. Il centro (100,100) = in linea col benchmark.</p>
-      <ul class="legend-list">
-        <li><span class="dot" style="background:#3b82f6"></span><b>Improving</b> (alto-sx): più debole del benchmark ma sta recuperando slancio → <b>spesso upside in arrivo</b>.</li>
-        <li><span class="dot" style="background:#22c55e"></span><b>Leading</b> (alto-dx): più forte e con slancio → leadership in corso.</li>
-        <li><span class="dot" style="background:#eab308"></span><b>Weakening</b> (basso-dx): ancora forte ma lo slancio cala → <b>spesso "già ai massimi"</b>.</li>
-        <li><span class="dot" style="background:#ef4444"></span><b>Lagging</b> (basso-sx): debole e senza slancio.</li>
-      </ul>
-      <p>La rotazione tipica è <b>oraria</b>: Improving → Leading → Weakening → Lagging. La <b>coda</b> mostra il percorso recente; la <b>freccia</b> la direzione. Usa <b>▶ Anima</b> per vedere la rotazione nel tempo.</p>
-      <p class="hint">Nota metodologica: RS-Ratio/Momentum sono normalizzati (z-score) sulla storia di ciascuno strumento e centrati a 100. È un'approssimazione del metodo JdK, utile per il confronto visivo, non un segnale operativo.</p>
-    </div>
+  <div class="filters" id="filters">
+    <label class="ctl" for="groupSel">Universo <select id="groupSel"></select></label>
+    <label class="ctl" for="benchSel">Benchmark <select id="benchSel"></select></label>
+    <span class="ctl">Timeframe
+      <span class="seg" id="tfSeg">
+        <button type="button" data-tf="weekly" aria-pressed="true">Settimanale</button>
+        <button type="button" data-tf="daily" aria-pressed="false">Giornaliero</button>
+      </span></span>
+    <span class="ctl">Formula
+      <span class="seg" id="formulaSeg">
+        <button type="button" data-formula="nuova" aria-pressed="true" title="EMA sul log della forza relativa, normalizzata per la volatilità">Nuova</button>
+        <button type="button" data-formula="classica" aria-pressed="false" title="z-score a 26 barre, come nella prima versione">Classica</button>
+      </span></span>
   </div>
 
-  <script src="js/engine.js"></script>
-  <script src="js/charts.js"></script>
-  <script src="js/app.js"></script>
+  <!-- 1 MONITOR -->
+  <section class="view" id="v-mon" role="tabpanel" aria-labelledby="tab-mon">
+    <div class="kpis" id="kpis"></div>
+    <div class="grid-side">
+      <div class="panel">
+        <div class="ph"><h2 id="monTitle">Monitor</h2><span class="meta" id="monMeta"></span></div>
+        <div class="tscroll"><table class="t" id="monTable"></table></div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% delle sedute degli ultimi 5 anni</span>
+          <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown degli ultimi 5 anni</span>
+          <span class="muted">clic su una riga: apre la rotazione con il titolo in evidenza</span>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Quadranti</h2><span class="meta" id="quadMeta"></span></div>
+          <div class="qgrid" id="quadGrid"></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Come si legge</h2></div>
+          <div class="pb"><p class="note">Improving → Leading → Weakening → Lagging è il giro tipico, in senso orario, ma non è una regola: una rotazione può tornare indietro dallo stesso lato. La freccia indica la direzione dell'ultima settimana: tra 0° e 90° il titolo va verso Leading. Il quadrante descrive lo stato attuale, non una previsione.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 RRG -->
+  <section class="view" id="v-rrg" role="tabpanel" aria-labelledby="tab-rrg" hidden>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="ph"><h2 id="rrgTitle">Rotazione relativa</h2><span class="meta" id="rrgMeta"></span></div>
+        <div class="controls">
+          <span class="ctl">Coda
+            <span class="seg" id="tailSeg">
+              <button type="button" data-tail="4" aria-pressed="false">4</button>
+              <button type="button" data-tail="10" aria-pressed="true">10</button>
+              <button type="button" data-tail="16" aria-pressed="false">16</button>
+              <button type="button" data-tail="26" aria-pressed="false">26</button>
+            </span></span>
+          <span class="ctl">Scala
+            <span class="seg" id="scaleSeg">
+              <button type="button" data-scale="fit" aria-pressed="true" title="Adatta la scala alle code visibili">Adatta</button>
+              <button type="button" data-scale="max" aria-pressed="false" title="Scala fissa su tutto il periodo: utile per l'animazione">Massima</button>
+            </span></span>
+        </div>
+        <div class="controls">
+          <button class="play" id="playBtn" type="button">▶ PLAY</button>
+          <div class="scrub"><input type="range" id="frame" aria-label="Periodo visualizzato" /><span class="date" id="frameDate"></span></div>
+        </div>
+        <div class="chart-wrap" id="rrgWrap">
+          <svg class="rrg" id="rrg" role="img" aria-label="Grafico di rotazione relativa"></svg>
+          <div class="tip" id="rrgTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--q-imp)"></span>Improving</span>
+          <span><span class="kb" style="background:var(--q-lead)"></span>Leading</span>
+          <span><span class="kb" style="background:var(--q-weak)"></span>Weakening</span>
+          <span><span class="kb" style="background:var(--q-lag)"></span>Lagging</span>
+          <span class="muted">colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo</span>
+          <span class="muted" id="provNote" hidden>punto vuoto = settimana in corso, provvisorio</span>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Tabella di rotazione</h2><span class="meta" id="rotMeta"></span></div>
+          <div class="tscroll"><table class="t" id="rotTable"></table></div>
+          <p class="note pb">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Performance relativa</h2>
+            <span class="seg" id="perfSeg">
+              <button type="button" data-days="63" aria-pressed="false">3M</button>
+              <button type="button" data-days="126" aria-pressed="true">6M</button>
+              <button type="button" data-days="252" aria-pressed="false">1A</button>
+              <button type="button" data-days="504" aria-pressed="false">2A</button>
+            </span></div>
+          <div class="chart-wrap" id="perfWrap">
+            <svg class="perf" id="perf" role="img" aria-label="Performance base 100 dei titoli e del benchmark"></svg>
+            <div class="tip" id="perfTip" hidden></div>
+          </div>
+          <div class="legend" id="perfLegend"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="statusline">
+    <span id="srcLine">Dati: Yahoo Finance, chiusure giornaliere rettificate · aggiornati dalla GitHub Action</span>
+    <span id="genLine"></span>
+  </footer>
+</div>
+
+<div class="modal" id="helpModal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <div class="ph"><h2 id="helpTitle">Guida</h2><button class="modal-close" id="helpClose" aria-label="Chiudi">×</button></div>
+    <div class="pb">
+      <p>La <b>rotazione relativa</b> (approssimazione in stile RRG) confronta ogni titolo con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa, trend) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 è "in linea con il benchmark".</p>
+      <ul>
+        <li><b class="q-imp-c">Improving</b> (alto a sinistra): più debole del benchmark ma lo slancio migliora.</li>
+        <li><b class="q-lead-c">Leading</b> (alto a destra): più forte e con slancio.</li>
+        <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
+        <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
+      </ul>
+      <p>La <b>formula nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: un trend più forte finisce più a destra e non ci sono salti quando un vecchio dato esce dalla finestra. La <b>classica</b> è quella della prima versione (z-score a 26 barre).</p>
+      <p>Scorciatoie: <kbd>1</kbd> <kbd>2</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo precedente/successivo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> questa guida. Nel comando scrivi un ticker (es. <span class="mono">XLU</span>) per evidenziarlo, oppure MON, RRG, HELP.</p>
+      <p class="note">Strumento di lettura, non un segnale operativo. "Relative Rotation Graphs" è un marchio di RRG Research: questa è un'approssimazione indipendente.</p>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
 </body>
 </html>

@@ -1,13 +1,20 @@
-name: Update RRG data
+name: Update data
 
 on:
   schedule:
-    # Ogni giorno alle 22:30 UTC (~dopo la chiusura USA). Cron in UTC.
-    - cron: "30 22 * * 1-5"
+    # Cron in UTC. Una corsa dopo la chiusura USA e due di recupero: Yahoo pubblica
+    # alcune chiusure con ore di ritardo e lo script aspetta finché tutti i ticker sono aggiornati.
+    - cron: "40 22 * * 1-5"
+    - cron: "20 3 * * 2-6"
+    - cron: "40 11 * * 2-6"
   workflow_dispatch: {}
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -17,19 +24,21 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
-      - name: Fetch prezzi da Yahoo Finance
+      - name: Prezzi da Yahoo Finance
         run: node scripts/fetch_data.js
 
       - name: Commit dati aggiornati
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/prices.json
+          git add data/
           if git diff --staged --quiet; then
             echo "Nessuna variazione nei dati."
           else
-            git commit -m "chore: aggiornamento dati prezzi $(date -u +%F)"
+            ASOF=$(node -p "require('./data/prices.json').asOf")
+            git commit -m "chore: dati al ${ASOF}"
+            git pull --rebase
             git push
           fi

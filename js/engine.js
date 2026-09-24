@@ -1,191 +1,174 @@
 /*
- * engine.js — motore di calcolo RRG (lato browser).
+ * engine.js — calcolo della rotazione relativa (approssimazione in stile RRG).
  *
- * I prezzi grezzi (adjusted close giornalieri) arrivano da data/prices.json.
- * Qui facciamo: resample settimanale, calcolo RS / RS-Ratio / RS-Momentum,
- * classificazione dei quadranti e degli "insight" (forza emergente vs massimi).
+ * Due formule, entrambe su dati passati soltanto (niente sguardo al futuro):
  *
- * Metodo (JdK-like, ma ripulito rispetto al notebook Colab):
- *   rs        = prezzo / benchmark
- *   rsRatio   = 100 + k * zscore( SMA(rs, smoothRS), zWin )
- *   momRaw    = rsRatio(t) - rsRatio(t - momWin)        (rate of change del ratio)
- *   rsMomentum= 100 + k * zscore( momRaw, zWin )
+ * "nuova" (default)
+ *   lr  = ln(prezzo / benchmark)
+ *   σ   = volatilità settimanale di lr (media esponenziale dei quadrati, emivita 26)
+ *   X   = (EMA10(lr) − EMA30(lr)) / (σ·√10)
+ *   RS-Ratio    = 100 + 2,5·X
+ *   RS-Momentum = 100 + 2,5·√8·(X − EMA8(X))
+ *   Un trend relativo più forte finisce più a destra; niente salti quando un vecchio
+ *   dato esce da una finestra mobile.
  *
- * Differenze chiave rispetto al notebook: assi simmetrici nel chart (centro reale a 100),
- * k=1 di default (lo spread lo gestisce l'autoscale simmetrico), tail con marker sfumati
- * e freccia di direzione, animazione temporale.
+ * "classica" (quella della prima versione dell'app)
+ *   rsRatio    = 100 + zscore(SMA(prezzo/benchmark, 10), 26)
+ *   rsMomentum = 100 + zscore(rsRatio − rsRatio[−4], 26)
+ *
+ * Le stesse lunghezze (in barre) valgono per il settimanale e per il giornaliero.
+ * Metriche della tabella con le convenzioni JdK: direzione in gradi bussola
+ * (0° = nord, 90° = est) calcolata sull'ultimo spostamento.
  */
+import { weekHasMoreSessions } from './calendar.js';
 
-const RRG = (() => {
-  const CENTER = 100;
+export const CENTER = 100;
 
-  // ---------- helper statistici ----------
-  function sma(arr, w) {
-    const out = new Array(arr.length).fill(null);
-    let sum = 0, count = 0;
-    const q = [];
-    for (let i = 0; i < arr.length; i++) {
-      const v = arr[i];
-      q.push(v);
-      if (v != null) { sum += v; count++; }
-      if (q.length > w) {
-        const old = q.shift();
-        if (old != null) { sum -= old; count--; }
-      }
-      out[i] = q.length === w && count === w ? sum / w : null;
-    }
-    return out;
+// ---------- statistiche di base ----------
+export function sma(arr, w) {
+  const out = new Array(arr.length).fill(null);
+  let sum = 0, count = 0;
+  const q = [];
+  for (let i = 0; i < arr.length; i++) {
+    const v = arr[i];
+    q.push(v);
+    if (v != null) { sum += v; count++; }
+    if (q.length > w) { const old = q.shift(); if (old != null) { sum -= old; count--; } }
+    out[i] = q.length === w && count === w ? sum / w : null;
   }
+  return out;
+}
 
-  // z-score rolling: (x - mean_w) / std_w, calcolato sullo stesso array x
-  function rollingZ(arr, w) {
-    const out = new Array(arr.length).fill(null);
-    for (let i = 0; i < arr.length; i++) {
-      if (i < w - 1) continue;
-      let sum = 0, n = 0;
-      for (let j = i - w + 1; j <= i; j++) {
-        if (arr[j] == null) { n = -1; break; }
-        sum += arr[j]; n++;
-      }
-      if (n !== w) continue;
-      const mean = sum / w;
-      let varr = 0;
-      for (let j = i - w + 1; j <= i; j++) varr += (arr[j] - mean) ** 2;
-      const std = Math.sqrt(varr / w);
-      out[i] = std === 0 ? 0 : (arr[i] - mean) / std;
-    }
-    return out;
+export function ema(arr, n) {
+  const k = 2 / (n + 1);
+  const out = new Array(arr.length).fill(null);
+  let prev = null;
+  for (let i = 0; i < arr.length; i++) {
+    const v = arr[i];
+    if (v == null) continue;
+    prev = prev == null ? v : prev + k * (v - prev);
+    out[i] = prev;
   }
+  return out;
+}
 
-  // ---------- resample ----------
-  // indici (sull'array date condiviso) da usare per il campionamento settimanale:
-  // ultimo giorno di trading di ogni settimana (bucket allineato al venerdì).
-  function weeklyIndices(dates) {
-    const buckets = new Map();
-    for (let i = 0; i < dates.length; i++) {
-      const t = Date.parse(dates[i] + 'T00:00:00Z');
-      const b = Math.floor((t / 86400000 + 4) / 7); // +4 => break del giovedì/venerdì
-      buckets.set(b, i); // mantiene l'ultimo indice del bucket
-    }
-    return [...buckets.values()].sort((a, b) => a - b);
+function rollingZ(arr, w) {
+  const out = new Array(arr.length).fill(null);
+  for (let i = w - 1; i < arr.length; i++) {
+    let sum = 0, ok = true;
+    for (let j = i - w + 1; j <= i; j++) { if (arr[j] == null) { ok = false; break; } sum += arr[j]; }
+    if (!ok) continue;
+    const mean = sum / w;
+    let v = 0;
+    for (let j = i - w + 1; j <= i; j++) v += (arr[j] - mean) ** 2;
+    const sd = Math.sqrt(v / w);
+    out[i] = sd === 0 ? 0 : (arr[i] - mean) / sd;
   }
+  return out;
+}
 
-  function sampleIndices(dates, timeframe) {
-    if (timeframe === 'weekly') return weeklyIndices(dates);
-    return dates.map((_, i) => i); // daily: tutti
+// ---------- campionamento ----------
+// Ultimo giorno di contrattazione di ogni settimana (domenica–sabato)
+export function weeklyIndices(dates) {
+  const buckets = new Map();
+  for (let i = 0; i < dates.length; i++) {
+    const b = Math.floor((Date.parse(dates[i] + 'T00:00:00Z') / 86400000 + 4) / 7);
+    buckets.set(b, i);
   }
+  return [...buckets.values()].sort((a, b) => a - b);
+}
 
-  // ---------- calcolo RRG per un simbolo ----------
-  // closeSym / closeBench: array campionati allineati. params: {smoothRS, momWin, zWin, k}
-  function computeSymbol(closeSym, closeBench, params) {
-    const { smoothRS, momWin, zWin, k } = params;
-    const n = closeSym.length;
-    const rs = new Array(n).fill(null);
-    for (let i = 0; i < n; i++) {
-      if (closeSym[i] != null && closeBench[i] != null && closeBench[i] !== 0) {
-        rs[i] = closeSym[i] / closeBench[i];
-      }
-    }
-    const rsSmooth = sma(rs, smoothRS);
-    const zRatio = rollingZ(rsSmooth, zWin);
-    const rsRatio = zRatio.map((z) => (z == null ? null : CENTER + k * z));
+export function sampleIndices(dates, timeframe) {
+  return timeframe === 'weekly' ? weeklyIndices(dates) : dates.map((_, i) => i);
+}
 
-    const momRaw = new Array(n).fill(null);
-    for (let i = momWin; i < n; i++) {
-      if (rsRatio[i] != null && rsRatio[i - momWin] != null) momRaw[i] = rsRatio[i] - rsRatio[i - momWin];
-    }
-    const zMom = rollingZ(momRaw, zWin);
-    const rsMomentum = zMom.map((z) => (z == null ? null : CENTER + k * z));
+// ---------- formule ----------
+export const FORMULAS = {
+  nuova: { label: 'Nuova', defaults: { short: 10, long: 30, mom: 8, halfLife: 26, scale: 2.5 } },
+  classica: { label: 'Classica', defaults: { smoothRS: 10, momWin: 4, zWin: 26 } },
+};
 
-    return { rs, rsRatio, rsMomentum };
+export function rrgNew(sym, bench, p = {}) {
+  const { short = 10, long = 30, mom = 8, halfLife = 26, scale = 2.5 } = p;
+  const n = sym.length;
+  const lr = sym.map((v, i) => (v != null && bench[i] ? Math.log(v / bench[i]) : null));
+  const first = lr.findIndex((v) => v != null);
+  const lam = Math.pow(0.5, 1 / halfLife);
+  const sig = new Array(n).fill(null);
+  let v2 = null, cnt = 0;
+  for (let i = 1; i < n; i++) {
+    if (lr[i] == null || lr[i - 1] == null) continue;
+    const r = lr[i] - lr[i - 1];
+    v2 = v2 == null ? r * r : lam * v2 + (1 - lam) * r * r;
+    if (++cnt >= halfLife) sig[i] = Math.sqrt(v2);
   }
+  const es = ema(lr, short), el = ema(lr, long), k = Math.sqrt((long - short) / 2);
+  const X = lr.map((v, i) => (v == null || first < 0 || i < first + long || !sig[i] ? null : (es[i] - el[i]) / (sig[i] * k)));
+  const eX = ema(X, mom);
+  return {
+    rsRatio: X.map((x) => (x == null ? null : CENTER + scale * x)),
+    rsMomentum: X.map((x, i) => (x == null || eX[i] == null ? null : CENTER + scale * Math.sqrt(mom) * (x - eX[i]))),
+  };
+}
 
-  function quadrant(ratio, mom) {
-    if (ratio >= CENTER && mom >= CENTER) return 'Leading';
-    if (ratio < CENTER && mom >= CENTER) return 'Improving';
-    if (ratio < CENTER && mom < CENTER) return 'Lagging';
-    return 'Weakening';
+export function rrgClassic(sym, bench, p = {}) {
+  const { smoothRS = 10, momWin = 4, zWin = 26 } = p;
+  const n = sym.length;
+  const rs = sym.map((v, i) => (v != null && bench[i] ? v / bench[i] : null));
+  const rsRatio = rollingZ(sma(rs, smoothRS), zWin).map((z) => (z == null ? null : CENTER + z));
+  const momRaw = new Array(n).fill(null);
+  for (let i = momWin; i < n; i++) if (rsRatio[i] != null && rsRatio[i - momWin] != null) momRaw[i] = rsRatio[i] - rsRatio[i - momWin];
+  const rsMomentum = rollingZ(momRaw, zWin).map((z) => (z == null ? null : CENTER + z));
+  return { rsRatio, rsMomentum };
+}
+
+export function quadrant(x, y) {
+  if (x >= CENTER) return y >= CENTER ? 'Leading' : 'Weakening';
+  return y >= CENTER ? 'Improving' : 'Lagging';
+}
+
+// Metriche al punto f di una serie {x, y}
+export function stats(ser, f, tail) {
+  const { x, y } = ser;
+  if (x[f] == null || y[f] == null) return null;
+  const q = quadrant(x[f], y[f]);
+  let weeks = 0, i = f;
+  for (; i >= 0 && x[i] != null && quadrant(x[i], y[i]) === q; i--) weeks++;
+  const prev = i >= 0 && x[i] != null ? quadrant(x[i], y[i]) : null;
+  const has = f > 0 && x[f - 1] != null;
+  const dx = has ? x[f] - x[f - 1] : 0, dy = has ? y[f] - y[f - 1] : 0;
+  const heading = has ? ((((90 - (Math.atan2(dy, dx) * 180) / Math.PI) % 360) + 360) % 360) : null;
+  let tot = 0, n = 0;
+  for (let k = Math.max(1, f - tail + 2); k <= f; k++) if (x[k - 1] != null) { tot += Math.hypot(x[k] - x[k - 1], y[k] - y[k - 1]); n++; }
+  return {
+    q, prev, weeks, heading, dx, dy, x: x[f], y: y[f],
+    speed: Math.hypot(dx, dy), avgSpeed: n ? tot / n : 0,
+    dist: Math.hypot(x[f] - CENTER, y[f] - CENTER),
+  };
+}
+
+/**
+ * Calcola la rotazione di tutti i simboli rispetto al benchmark.
+ * @param {{dates: string[], tickers: Record<string, {close: number[]}>}} dataset
+ * @param {{symbols: string[], benchmark: string, timeframe: 'weekly'|'daily', formula?: 'nuova'|'classica', params?: object}} cfg
+ */
+export function build(dataset, cfg) {
+  const { symbols, benchmark, timeframe, formula = 'nuova', params } = cfg;
+  const idx = sampleIndices(dataset.dates, timeframe);
+  const dates = idx.map((i) => dataset.dates[i]);
+  const bench = idx.map((i) => dataset.tickers[benchmark].close[i]);
+  const fn = formula === 'classica' ? rrgClassic : rrgNew;
+  const series = {};
+  for (const s of symbols) {
+    if (!dataset.tickers[s] || s === benchmark) continue;
+    const r = fn(idx.map((i) => dataset.tickers[s].close[i]), bench, params);
+    series[s] = { x: r.rsRatio, y: r.rsMomentum };
   }
-
-  // Classificazione orientata all'obiettivo: chi ha probabile upside vs chi è "ai massimi".
-  // Restituisce { tag, score, headingDeg } dove score alto = più appetibile in prospettiva.
-  function classify(series, idxs) {
-    const last = idxs[idxs.length - 1];
-    const ratio = series.rsRatio[last];
-    const mom = series.rsMomentum[last];
-    if (ratio == null || mom == null) return null;
-    const quad = quadrant(ratio, mom);
-
-    // pendenza del momentum sulle ultime ~3 osservazioni del trail
-    const prevN = Math.max(0, idxs.length - 4);
-    const refIdx = idxs[prevN];
-    const momSlope = series.rsMomentum[refIdx] != null ? mom - series.rsMomentum[refIdx] : 0;
-    const ratioSlope = series.rsRatio[refIdx] != null ? ratio - series.rsRatio[refIdx] : 0;
-
-    // direzione (angolo del vettore di spostamento testa-coda recente), in gradi
-    let headingDeg = null;
-    if (series.rsRatio[refIdx] != null && series.rsMomentum[refIdx] != null) {
-      const dx = ratio - series.rsRatio[refIdx];
-      const dy = mom - series.rsMomentum[refIdx];
-      if (dx !== 0 || dy !== 0) headingDeg = (Math.atan2(dy, dx) * 180) / Math.PI;
-    }
-
-    let tag, kind, score;
-    const rising = momSlope > 0;
-    if (quad === 'Improving' || (quad === 'Lagging' && rising && momSlope > 0.3)) {
-      tag = 'Forza emergente'; kind = 'upside';
-      score = 70 + (mom - CENTER) + momSlope * 4 + (rising ? 8 : 0);
-    } else if (quad === 'Leading' && rising) {
-      tag = 'Leadership in corsa'; kind = 'strong';
-      score = 55 + (mom - CENTER) * 0.5 + momSlope * 3;
-    } else if (quad === 'Leading' && !rising) {
-      tag = 'Verso i massimi (rallenta)'; kind = 'topping';
-      score = 30 + momSlope * 3; // momSlope negativo abbassa
-    } else if (quad === 'Weakening') {
-      tag = 'In raffreddamento'; kind = 'cooling';
-      score = 25 + momSlope * 3;
-    } else {
-      tag = 'Debole'; kind = 'weak';
-      score = 10 + momSlope * 3 + ratioSlope * 2;
-    }
-
-    return { quad, tag, kind, score, ratio, mom, momSlope, ratioSlope, headingDeg };
-  }
-
-  // ---------- orchestrazione ----------
-  // dataset = prices.json; config = { symbols:[], benchmark, timeframe, tail, params }
-  // -> { dates:[sampled], series:{sym:{rsRatio,rsMomentum,rs}}, trailIdx:[], classes:{sym:..} }
-  function build(dataset, config) {
-    const { symbols, benchmark, timeframe, tail, params } = config;
-    const idxAll = sampleIndices(dataset.dates, timeframe);
-    const sampledDates = idxAll.map((i) => dataset.dates[i]);
-
-    const benchClose = idxAll.map((i) => dataset.tickers[benchmark].close[i]);
-
-    const series = {};
-    for (const sym of symbols) {
-      if (!dataset.tickers[sym]) continue;
-      const symClose = idxAll.map((i) => dataset.tickers[sym].close[i]);
-      series[sym] = computeSymbol(symClose, benchClose, params);
-    }
-
-    // indici del trail: ultime `tail` osservazioni con dati validi su TUTTI i simboli
-    const validMask = sampledDates.map((_, k) =>
-      symbols.every((s) => series[s] && series[s].rsRatio[k] != null && series[s].rsMomentum[k] != null)
-    );
-    const validIdx = [];
-    for (let k = 0; k < validMask.length; k++) if (validMask[k]) validIdx.push(k);
-    const trailIdx = validIdx.slice(-tail);
-
-    const classes = {};
-    for (const sym of symbols) {
-      if (series[sym]) classes[sym] = classify(series[sym], trailIdx);
-    }
-
-    return { sampledDates, series, trailIdx, validIdx, classes, benchClose, idxAll };
-  }
-
-  return { build, computeSymbol, classify, quadrant, sampleIndices, CENTER };
-})();
-
-window.RRG = RRG;
+  // primo punto in cui tutti i simboli hanno un valore
+  const syms = Object.keys(series);
+  let start = 0;
+  while (start < dates.length && !syms.every((s) => series[s].x[start] != null && series[s].y[start] != null)) start++;
+  const last = dates.length - 1;
+  const provisional = timeframe === 'weekly' && dates[last] === dataset.dates[dataset.dates.length - 1] && weekHasMoreSessions(dates[last]);
+  return { dates, series, start, provisional };
+}

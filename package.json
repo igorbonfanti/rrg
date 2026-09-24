@@ -1,0 +1,11 @@
+{
+  "name": "sector-monitor",
+  "private": true,
+  "description": "Rotazione settoriale e ricerca dei bottom per i settori S&P 500 (sito statico + GitHub Action)",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test",
+    "data": "node scripts/fetch_data.js"
+  }
+}
