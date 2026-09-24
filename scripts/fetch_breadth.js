@@ -29,7 +29,7 @@ const GICS = {
   'Industrials': 'XLI', 'Materials': 'XLB', 'Real Estate': 'XLRE', 'Utilities': 'XLU',
 };
 const ETFS = ['XLK', 'XLC', 'XLY', 'XLP', 'XLE', 'XLF', 'XLV', 'XLI', 'XLB', 'XLRE', 'XLU', 'SPY', 'RSP'];
-const RECOMPUTE = 5;
+const RECOMPUTE = 5; // ultime sedute pubblicate da ricalcolare (e finestra in cui recuperare sedute saltate)
 const readJSON = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf-8')) : d);
 const writeJSON = (f, o) => fs.writeFileSync(f, JSON.stringify(o));
 
@@ -131,10 +131,12 @@ export function computeCounts(members, prices, dates) {
   return out;
 }
 
-// Date pubblicabili: prefisso contiguo di date con prezzi per ≥99% dei membri e ≤1 mancante per settore
+// Date pubblicabili: quelle con prezzi per ≥99% dei membri e ≤1 mancante per settore.
+// Una seduta incompleta seguita da sedute complete è un buco nei dati della fonte (Yahoo a volte
+// non ha mai la barra di un giorno per molti titoli): si salta. Una seduta incompleta in coda
+// invece si aspetta, perché le chiusure arrivano in ritardo.
 export function publishable(members, prices, candidates) {
-  const ok = [];
-  for (const d of candidates) {
+  const info = candidates.map((d) => {
     const missing = {};
     let priced = 0;
     for (const m of members) {
@@ -142,16 +144,19 @@ export function publishable(members, prices, candidates) {
       else missing[m.sector] = (missing[m.sector] || 0) + 1;
     }
     const worst = Math.max(0, ...Object.values(missing));
-    if (priced < members.length * 0.99 || worst > 1) {
-      console.log(`Seduta ${d} non pubblicata: prezzi per ${priced}/${members.length} membri${worst > 1 ? `, fino a ${worst} mancanti in un settore` : ''}`);
-      break;
-    }
-    ok.push(d);
-  }
+    return { d, priced, worst, ok: priced >= members.length * 0.99 && worst <= 1 };
+  });
+  const lastOk = info.map((x) => x.ok).lastIndexOf(true);
+  const ok = [];
+  info.forEach((x, i) => {
+    if (x.ok) ok.push(x.d);
+    else if (i < lastOk) console.log(`Seduta ${x.d} saltata: prezzi per ${x.priced}/${members.length} membri ma le sedute successive sono complete (buco nei dati della fonte)`);
+    else console.log(`Seduta ${x.d} non ancora pubblicabile: prezzi per ${x.priced}/${members.length} membri${x.worst > 1 ? `, fino a ${x.worst} mancanti in un settore` : ''}`);
+  });
   return ok;
 }
 
-function mergeBreadth(breadth, counts) {
+export function mergeBreadth(breadth, counts) {
   const dates = Object.keys(counts).sort();
   if (!dates.length) return 0;
   const len = breadth.dates.length;
@@ -163,8 +168,12 @@ function mergeBreadth(breadth, counts) {
   for (const d of dates) {
     let i = breadth.dates.indexOf(d);
     if (i < 0) {
-      if (d < breadth.dates[len - 1]) continue; // mai riscrivere il passato remoto
-      breadth.dates.push(d); i = breadth.dates.length - 1; added++;
+      // nuova seduta, o una seduta recente prima saltata per un buco nei dati: va inserita in ordine
+      i = breadth.dates.findIndex((x) => x > d);
+      if (i < 0) i = breadth.dates.length;
+      breadth.dates.splice(i, 0, d);
+      for (const e of Object.values(expanded)) for (const k of ['members', 'n', 'a20', 'a50', 'a200']) e[k].splice(i, 0, null);
+      added++;
     }
     for (const [k, v] of Object.entries(counts[d])) {
       const e = expanded[k];

@@ -2,7 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { collectEvents, formatMessage } from '../scripts/send_alerts.js';
-import { parseCSV, validateMembers, publishable, computeCounts } from '../scripts/fetch_breadth.js';
+import { parseCSV, validateMembers, publishable, computeCounts, mergeBreadth } from '../scripts/fetch_breadth.js';
+import { expandRLE } from '../js/signals.js';
 
 const read = (f) => JSON.parse(fs.readFileSync(new URL('../' + f, import.meta.url)));
 
@@ -29,8 +30,23 @@ test('si pubblicano solo sedute complete', () => {
   const members = [{ s: 'A', sector: 'XLU' }, { s: 'B', sector: 'XLU' }, { s: 'C', sector: 'XLK' }];
   const mk = (dates, close) => ({ dates, close, index: new Map(dates.map((d, i) => [d, i])) });
   const prices = { A: mk(['d1', 'd2'], [1, 2]), B: mk(['d1', 'd2'], [1, 1]), C: mk(['d1'], [1]) };
-  assert.deepEqual(publishable(members, prices, ['d1', 'd2']), ['d1']); // d2: manca C (1 su 3 < 99%)
+  assert.deepEqual(publishable(members, prices, ['d1', 'd2']), ['d1']); // d2 in coda: manca C, si aspetta
+  // buco nei dati: d2 incompleta ma d3 completa → d2 si salta, d3 si pubblica
+  const holes = { A: mk(['d1', 'd2', 'd3'], [1, 2, 3]), B: mk(['d1', 'd3'], [1, 1]), C: mk(['d1', 'd3'], [1, 1]) };
+  assert.deepEqual(publishable(members, holes, ['d1', 'd2', 'd3']), ['d1', 'd3']);
   const counts = computeCounts(members, prices, ['d1']);
   assert.deepEqual(counts.d1.XLU, { members: 2, n: 2, a20: 0, a50: 0, a200: 0 });
   assert.equal(counts.d1.SPX.n, 3);
+});
+
+test('una seduta saltata per un buco nei dati si inserisce al suo posto', () => {
+  const series = () => ({ members: [[0, 31]], n: [[0, 31]], a20: [1, 3], a50: [1, 3], a200: [1, 3] });
+  const b = { dates: ['2026-09-21', '2026-09-23'], series: { XLU: series(), SPX: series() } };
+  const row = { members: 31, n: 30, a20: 2, a50: 2, a200: 2 };
+  const added = mergeBreadth(b, { '2026-09-22': { XLU: row, SPX: row }, '2026-09-24': { XLU: row, SPX: row } });
+  assert.equal(added, 2);
+  assert.deepEqual(b.dates, ['2026-09-21', '2026-09-22', '2026-09-23', '2026-09-24']);
+  assert.deepEqual(b.series.XLU.a200, [1, 2, 3, 2]);
+  assert.deepEqual(expandRLE(b.series.XLU.n, 4), [31, 30, 31, 30]);
+  assert.equal(b.asOf, '2026-09-24');
 });

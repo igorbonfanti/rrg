@@ -56,8 +56,7 @@ test('macchina a stati: zona blu nel crollo, trigger nella ripresa, poi cooldown
 
 test('dati reali: Utilities in attenzione al 21/09/2026, zona blu nel 2008, 2020 e 2022', () => {
   const m = runMachine(priceSeries(S.adjclose.XLU), breadthSeries(B, 'XLU', S.dates), T.blue.XLU, T.params);
-  assert.equal(S.dates.at(-1), '2026-09-21');
-  assert.equal(m.days.at(-1), 'watch');
+  assert.equal(m.days[S.dates.indexOf('2026-09-21')], 'watch');
   const years = m.setups.map((u) => S.dates[u.t].slice(0, 4));
   for (const y of ['2008', '2020', '2022']) assert.ok(years.includes(y), y);
 });

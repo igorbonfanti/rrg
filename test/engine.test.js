@@ -31,7 +31,9 @@ test('formula nuova: nessun valore prima del riscaldamento, poi sempre definito'
 });
 
 test('formula classica invariata rispetto alla prima versione (XLU al 22/09/2026)', () => {
-  const m = build(data, { symbols: sectors, benchmark: 'SPY', timeframe: 'weekly', formula: 'classica' });
+  // dati congelati: gli stessi prezzi su cui girava la prima versione dell'app
+  const frozen = JSON.parse(fs.readFileSync(new URL('./fixtures/prices_381de6a.json', import.meta.url)));
+  const m = build(frozen, { symbols: ['XLU'], benchmark: 'SPY', timeframe: 'weekly', formula: 'classica' });
   const f = m.dates.indexOf('2026-09-22');
   assert.ok(f > 0);
   assert.ok(Math.abs(m.series.XLU.x[f] - 98.41) < 0.01, String(m.series.XLU.x[f]));
