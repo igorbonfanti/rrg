@@ -4,6 +4,13 @@
  * Restituisce solo barre chiuse: scarta le chiusure nulle e la barra della seduta
  * ancora in corso. Riprova con attesa crescente su 429/5xx, alternando query1/query2.
  * Nessuna dipendenza (fetch nativo, Node 18+).
+ *
+ * Opzioni per le borse europee e le criptovalute:
+ *  - raw: il simbolo si usa così com'è (SWDA.MI, non SWDA-MI);
+ *  - fillLast: se la chiusura dell'ultima seduta, già finita, è ancora nulla, si usa il
+ *    prezzo finale della quotazione (Yahoo la inserisce nella serie solo il giorno dopo);
+ *  - keepOpenCrypto: per le criptovalute (quotate sempre) si tiene anche la barra del giorno
+ *    in corso, con l'ultimo prezzo.
  */
 
 const HOSTS = ['query1.finance.yahoo.com', 'query2.finance.yahoo.com'];
@@ -23,12 +30,12 @@ function barDate(ts, gmtoffset) {
  * @returns {Promise<{dates: string[], close: number[], adjclose: number[], meta: object}>}
  */
 export async function fetchDaily(symbol, opt = {}) {
-  const { range = '5y', period1, period2, interval = '1d', retries = 3 } = opt;
+  const { range = '5y', period1, period2, interval = '1d', retries = 3, raw = false, fillLast = false, keepOpenCrypto = false } = opt;
   const q = period1 != null ? `period1=${period1}&period2=${period2 ?? Math.floor(Date.now() / 1000)}` : `range=${range}`;
   let lastErr;
   for (let attempt = 0; attempt <= retries; attempt++) {
     const host = HOSTS[attempt % HOSTS.length];
-    const url = `https://${host}/v8/finance/chart/${encodeURIComponent(yahooSymbol(symbol))}?${q}&interval=${interval}&includeAdjustedClose=true`;
+    const url = `https://${host}/v8/finance/chart/${encodeURIComponent(raw ? symbol : yahooSymbol(symbol))}?${q}&interval=${interval}&includeAdjustedClose=true`;
     try {
       const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' } });
       if (r.status === 429 || r.status >= 500) throw Object.assign(new Error(`HTTP ${r.status}`), { retry: true });
@@ -36,7 +43,7 @@ export async function fetchDaily(symbol, opt = {}) {
       const j = await r.json();
       const res = j.chart && j.chart.result && j.chart.result[0];
       if (!res || !res.timestamp) throw new Error('nessun dato');
-      return parse(res);
+      return parse(res, { fillLast, keepOpenCrypto });
     } catch (e) {
       lastErr = e;
       if (!e.retry && !(e instanceof TypeError)) break; // TypeError = errore di rete
@@ -46,21 +53,26 @@ export async function fetchDaily(symbol, opt = {}) {
   throw lastErr;
 }
 
-function parse(res) {
+export function parse(res, { fillLast = false, keepOpenCrypto = false, nowSec = Date.now() / 1000 } = {}) {
   const meta = res.meta || {};
   const ts = res.timestamp;
   const quote = res.indicators.quote[0] || {};
   const adj = (res.indicators.adjclose && res.indicators.adjclose[0].adjclose) || quote.close || [];
   const reg = meta.currentTradingPeriod && meta.currentTradingPeriod.regular;
-  const nowSec = Date.now() / 1000;
+  const keepOpen = keepOpenCrypto && meta.instrumentType === 'CRYPTOCURRENCY';
   const out = { dates: [], close: [], adjclose: [], meta };
   for (let i = 0; i < ts.length; i++) {
-    const c = quote.close ? quote.close[i] : null;
-    const a = adj[i];
-    if (c == null || a == null) continue;
+    let c = quote.close ? quote.close[i] : null;
+    let a = adj[i];
     // barra della seduta in corso: cade dentro l'orario regolare attuale e la seduta non è finita
-    if (reg && ts[i] >= reg.start && nowSec < reg.end) continue;
+    const open = reg && ts[i] >= reg.start && nowSec < reg.end;
+    if (open && !keepOpen) continue;
     const d = barDate(ts[i], meta.gmtoffset);
+    if (c == null && fillLast && (!open || keepOpen) && i === ts.length - 1 && meta.regularMarketPrice != null &&
+        meta.regularMarketTime >= ts[i] && barDate(meta.regularMarketTime, meta.gmtoffset) === d) {
+      c = a = meta.regularMarketPrice;
+    }
+    if (c == null || a == null) continue;
     if (out.dates.length && out.dates[out.dates.length - 1] === d) {
       // barra duplicata per la stessa data: tieni l'ultima
       out.close[out.close.length - 1] = c; out.adjclose[out.adjclose.length - 1] = a;

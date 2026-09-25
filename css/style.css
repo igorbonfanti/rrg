@@ -246,8 +246,8 @@ kbd { font: 600 11px var(--f-mono); color: #000; background: var(--amber); paddi
 .chip .sd { display: inline-block; width: 6px; height: 6px; margin-right: 5px; vertical-align: 1px; background: var(--ink-3); }
 .sd-watch { background: var(--st-watch) !important; } .sd-setup { background: var(--blue) !important; } .sd-trig { background: var(--st-trig) !important; }
 .sd-fail { background: var(--down) !important; } .sd-cool { background: var(--ink-2) !important; }
-.mini { background: #000; border: 1px solid var(--rule); color: var(--ink-2); font: 600 11px var(--f-mono); padding: 3px 9px; cursor: pointer; justify-self: start; }
-.mini:hover { color: var(--amber); border-color: var(--amber); }
+button.mini { background: #000; border: 1px solid var(--rule); color: var(--ink-2); font: 600 11px var(--f-mono); padding: 3px 9px; cursor: pointer; justify-self: start; }
+button.mini:hover { color: var(--amber); border-color: var(--amber); }
 .blue-box { display: grid; gap: 8px; }
 .blue-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .stepper { display: inline-flex; align-items: center; border: 1px solid var(--blue); }

@@ -1,5 +1,5 @@
 {
-  "_comment": "Modifica liberamente questo file per personalizzare l'universo. La GitHub Action rilegge questo file ad ogni esecuzione e scarica i prezzi dei ticker elencati. 'benchmarks' = simboli usabili come metro di paragone. Ogni gruppo ha un benchmark di default e una mappa ticker -> nome leggibile.",
+  "_comment": "Modifica liberamente questo file per personalizzare gli universi. La GitHub Action lo rilegge a ogni esecuzione e scarica i prezzi dei ticker elencati. 'groups' = universi USA (ticker Yahoo senza suffisso, prezzi in dollari, calendario NYSE); 'global' = universi globali con ETF UCITS in euro (vedi il commento interno).",
   "benchmarks": {
     "SPY": "S&P 500",
     "QQQ": "Nasdaq 100",
@@ -34,18 +34,225 @@
         "TSLA": "Tesla",
         "META": "Meta Platforms"
       }
+    }
+  },
+  "global": {
+    "_comment": "Universi globali: ETF UCITS in euro (simboli Yahoo con il suffisso di borsa: .MI Milano, .DE Xetra, .PA Parigi, .AS Amsterdam, .MC Madrid) e bitcoin in euro. Calendario di Borsa Italiana. 'label' è il nome breve sul grafico. Il benchmark 'PTF' è il portafoglio sintetico del gruppo, calcolato nell'app dai pesi di 'portfolio' e ribilanciato a fine mese. 'reference' è l'ETF usato per riconoscere i prezzi anomali.",
+    "currency": "EUR",
+    "reference": "SWDA.MI",
+    "benchmarks": {
+      "SWDA.MI": {
+        "label": "World",
+        "name": "MSCI World · iShares Core MSCI World (Acc)"
+      },
+      "IUSQ.DE": {
+        "label": "ACWI",
+        "name": "MSCI ACWI, mondo con emergenti · iShares MSCI ACWI (Acc)"
+      },
+      "XEON.MI": {
+        "label": "Liquidità",
+        "name": "Liquidità in euro (€STR) · Xtrackers II EUR Overnight Rate Swap"
+      }
     },
-    "Asset & Regioni": {
-      "defaultBenchmark": "SPY",
-      "tickers": {
-        "IWM": "Small Cap US (Russell 2000)",
-        "EFA": "Mercati sviluppati ex-US",
-        "EEM": "Mercati emergenti",
-        "GLD": "Oro",
-        "TLT": "Treasury 20+ anni",
-        "HYG": "High Yield bond",
-        "DBC": "Commodities",
-        "VNQ": "REIT US"
+    "groups": {
+      "Portafoglio · livello 1": {
+        "defaultBenchmark": "PTF",
+        "benchmarks": [
+          "PTF",
+          "XEON.MI",
+          "SWDA.MI"
+        ],
+        "portfolio": {
+          "label": "Portafoglio",
+          "weights": {
+            "SWDA.MI": 40,
+            "EIMI.MI": 10,
+            "EM13.MI": 10,
+            "EM710.MI": 10,
+            "EM15.MI": 10,
+            "SGLD.MI": 10,
+            "IWDP.MI": 5,
+            "CMOD.MI": 3,
+            "BTC-EUR": 2
+          }
+        },
+        "tickers": {
+          "SWDA.MI": {
+            "label": "World",
+            "name": "Azioni paesi sviluppati · iShares Core MSCI World (Acc)"
+          },
+          "EIMI.MI": {
+            "label": "Emergenti",
+            "name": "Azioni paesi emergenti · iShares Core MSCI EM IMI (Acc)"
+          },
+          "EM13.MI": {
+            "label": "Gov 1-3",
+            "name": "Titoli di Stato area euro 1-3 anni · Amundi Euro Government Bond 1-3Y (Acc)"
+          },
+          "EM710.MI": {
+            "label": "Gov 7-10",
+            "name": "Titoli di Stato area euro 7-10 anni · Amundi Euro Government Bond 7-10Y (Acc)"
+          },
+          "EM15.MI": {
+            "label": "Gov 15+",
+            "name": "Titoli di Stato area euro oltre 15 anni · Amundi Euro Government Bond 15+Y (Acc)"
+          },
+          "SGLD.MI": {
+            "label": "Oro",
+            "name": "Oro fisico · Invesco Physical Gold"
+          },
+          "IWDP.MI": {
+            "label": "REIT",
+            "name": "Immobiliare paesi sviluppati · iShares Developed Markets Property Yield"
+          },
+          "CMOD.MI": {
+            "label": "Commodity",
+            "name": "Materie prime · Invesco Bloomberg Commodity (Acc)"
+          },
+          "BTC-EUR": {
+            "label": "Bitcoin",
+            "name": "Bitcoin, prezzo spot in euro"
+          }
+        }
+      },
+      "Fattori · livello 2": {
+        "defaultBenchmark": "SWDA.MI",
+        "benchmarks": [
+          "SWDA.MI",
+          "IUSQ.DE"
+        ],
+        "tickers": {
+          "IWVL.MI": {
+            "label": "Value",
+            "name": "iShares Edge MSCI World Value Factor (Acc)"
+          },
+          "IWQU.MI": {
+            "label": "Quality",
+            "name": "iShares Edge MSCI World Quality Factor (Acc)"
+          },
+          "IWMO.MI": {
+            "label": "Momentum",
+            "name": "iShares Edge MSCI World Momentum Factor (Acc)"
+          },
+          "MVOL.MI": {
+            "label": "Min Vol",
+            "name": "iShares Edge MSCI World Minimum Volatility (Acc)"
+          },
+          "ZPRS.DE": {
+            "label": "Small Cap",
+            "name": "SPDR MSCI World Small Cap (Acc)"
+          },
+          "EQQQ.MI": {
+            "label": "Growth",
+            "name": "Nasdaq-100 come indicatore del Growth (non esiste un ETF UCITS MSCI World Growth) · Invesco EQQQ"
+          },
+          "VHYL.MI": {
+            "label": "High Div",
+            "name": "Alto dividendo, FTSE All-World · Vanguard FTSE All-World High Dividend Yield"
+          },
+          "MWEQ.MI": {
+            "label": "Eq Weight",
+            "name": "MSCI World a pesi uguali · Invesco MSCI World Equal Weight (Acc), quotato dal 2024"
+          }
+        }
+      },
+      "Regioni · livello 3": {
+        "defaultBenchmark": "IUSQ.DE",
+        "benchmarks": [
+          "IUSQ.DE",
+          "SWDA.MI"
+        ],
+        "tickers": {
+          "CSSPX.MI": {
+            "label": "USA",
+            "name": "Stati Uniti, S&P 500 · iShares Core S&P 500 (Acc)"
+          },
+          "SMEA.MI": {
+            "label": "Europa",
+            "name": "Europa · iShares Core MSCI Europe (Acc)"
+          },
+          "SJPA.MI": {
+            "label": "Giappone",
+            "name": "Giappone · iShares Core MSCI Japan IMI (Acc)"
+          },
+          "CSPXJ.MI": {
+            "label": "Pacifico",
+            "name": "Pacifico escluso Giappone · iShares Core MSCI Pacific ex-Japan (Acc)"
+          },
+          "EIMI.MI": {
+            "label": "Emergenti",
+            "name": "Paesi emergenti · iShares Core MSCI EM IMI (Acc)"
+          }
+        }
+      },
+      "Paesi · livello 4": {
+        "defaultBenchmark": "IUSQ.DE",
+        "benchmarks": [
+          "IUSQ.DE",
+          "SWDA.MI"
+        ],
+        "tickers": {
+          "CSSPX.MI": {
+            "label": "USA",
+            "name": "Stati Uniti, S&P 500 · iShares Core S&P 500 (Acc)"
+          },
+          "CSCA.MI": {
+            "label": "Canada",
+            "name": "Canada · iShares MSCI Canada (Acc)"
+          },
+          "SJPA.MI": {
+            "label": "Giappone",
+            "name": "Giappone · iShares Core MSCI Japan IMI (Acc)"
+          },
+          "ISF.MI": {
+            "label": "UK",
+            "name": "Regno Unito, FTSE 100 · iShares Core FTSE 100"
+          },
+          "XSMI.MI": {
+            "label": "Svizzera",
+            "name": "Svizzera · Xtrackers Switzerland"
+          },
+          "EXS1.DE": {
+            "label": "Germania",
+            "name": "Germania, DAX · iShares Core DAX (Acc)"
+          },
+          "CACC.PA": {
+            "label": "Francia",
+            "name": "Francia, CAC 40 · Amundi CAC 40 (Acc)"
+          },
+          "XMIB.MI": {
+            "label": "Italia",
+            "name": "Italia, FTSE MIB · Xtrackers FTSE MIB"
+          },
+          "LYXIB.MC": {
+            "label": "Spagna",
+            "name": "Spagna, IBEX 35 · Amundi IBEX 35"
+          },
+          "IAEX.AS": {
+            "label": "Olanda",
+            "name": "Paesi Bassi, AEX · iShares AEX"
+          },
+          "XCS6.DE": {
+            "label": "Cina",
+            "name": "Cina · Xtrackers MSCI China (Acc)"
+          },
+          "QDV5.DE": {
+            "label": "India",
+            "name": "India · iShares MSCI India (Acc)"
+          },
+          "IQQT.DE": {
+            "label": "Taiwan",
+            "name": "Taiwan · iShares MSCI Taiwan"
+          },
+          "IQQK.DE": {
+            "label": "Corea",
+            "name": "Corea del Sud · iShares MSCI Korea"
+          },
+          "IBZL.MI": {
+            "label": "Brasile",
+            "name": "Brasile · iShares MSCI Brazil"
+          }
+        }
       }
     }
   }

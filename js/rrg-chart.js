@@ -50,11 +50,11 @@ export const SIZE = 640;
 /**
  * @param {SVGSVGElement} svg
  * @param {{syms: string[], series: Record<string,{x:number[],y:number[]}>, frame: number, tail: number,
- *          focus?: string|null, range: number, provisional?: boolean, xLabel?: string, yLabel?: string}} p
+ *          focus?: string|null, range: number, provisional?: boolean, labels?: Record<string,string>}} p  labels: nome breve (default il ticker)
  * @returns {{heads: {sym: string, px: number, py: number}[]}}
  */
 export function drawRRG(svg, p) {
-  const { syms, series, frame, tail, focus, range, provisional } = p;
+  const { syms, series, frame, tail, focus, range, provisional, labels = {} } = p;
   const S = SIZE, M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = S - M.l - M.r, PH = S - M.t - M.b;
   svg.setAttribute('viewBox', `0 0 ${S} ${S}`);
@@ -122,7 +122,7 @@ export function drawRRG(svg, p) {
     }
     const hx = sx(x[frame]), hy = sy(y[frame]);
     el('circle', { cx: hx, cy: hy, r: isFocus ? 7 : 5.5, class: `head headq-${QKEY[quadrant(x[frame], y[frame])]}${provisional ? ' prov' : ''}` }, grp);
-    heads.push({ sym: s, label: s, px: hx, py: hy, dim });
+    heads.push({ sym: s, label: labels[s] || s, px: hx, py: hy, dim });
   }
   placeLabels(heads, { x1: M.l + 2, y1: M.t + 2, x2: M.l + PW - 2, y2: M.t + PH - 2 });
   const lg = el('g', {}, svg);

@@ -1,6 +1,6 @@
 # Sector Monitor
 
-App web per seguire la **rotazione relativa** dei settori S&P 500 (e di azioni e asset) e per individuare i **possibili bottom settoriali**, combinando il drawdown degli ETF con la breadth (% di titoli del settore sopra la media a 200 sedute) e un **livello blu** per settore.
+App web per seguire la **rotazione relativa** dei settori S&P 500, dei titoli MAG7 e di quattro universi globali di ETF in euro (portafoglio, fattori, regioni, paesi), e per individuare i **possibili bottom settoriali**, combinando il drawdown degli ETF con la breadth (% di titoli del settore sopra la media a 200 sedute) e un **livello blu** per settore.
 
 🔗 Live: https://igorbonfanti.github.io/rrg/
 
@@ -15,8 +15,20 @@ App web per seguire la **rotazione relativa** dei settori S&P 500 (e di azioni e
   - Code dritte e neutre; passando sopra un titolo gli altri si attenuano, con un clic lo si fissa.
   - Scala uguale sui due assi e centrata su 100 (adattata alle code oppure fissa sull'intero periodo). Il punto della settimana in corso è vuoto perché provvisorio.
   - Tabella di rotazione: quadrante, RS-Ratio/RS-Momentum con variazione, direzione in gradi bussola, velocità, distanza dal centro, durata nel quadrante, quadrante precedente.
-  - L'interruttore **Prezzi** mostra variazioni, drawdown e distanza dalla media 200 per tutto l'universo scelto (settori, MAG7, asset e regioni).
+  - L'interruttore **Prezzi** mostra variazioni, drawdown e distanza dalla media 200 per tutto l'universo scelto.
   - Performance base 100 del periodo (3M/6M/1A/2A) con il benchmark e il titolo in evidenza.
+- **Universi della rotazione**:
+  - USA, in dollari: settori S&P 500 (contro SPY) e MAG7 (contro QQQ).
+  - Globali, ETF UCITS in euro quotati in Europa, su quattro livelli:
+
+    | Livello | Contenuto | Benchmark |
+    |---|---|---|
+    | 1 Portafoglio | World SWDA, Emergenti EIMI, titoli di Stato area euro 1-3 EM13, 7-10 EM710 e 15+ anni EM15, Oro SGLD, REIT IWDP, Commodity CMOD, Bitcoin in euro | il portafoglio stesso (World 40, EM 10, Gov 1-3 10, Gov 7-10 10, Gov 15+ 10, Oro 10, REIT 5, Commodity 3, BTC 2; ribilanciato a fine mese), oppure liquidità € (XEON) o MSCI World |
+    | 2 Fattori | Value IWVL, Quality IWQU, Momentum IWMO, Min Vol MVOL, Small Cap ZPRS, Growth EQQQ (Nasdaq-100: non esiste un ETF UCITS MSCI World Growth), High Div VHYL, Eq Weight MWEQ (dal 2024) | MSCI World (SWDA) oppure ACWI |
+    | 3 Regioni | USA CSSPX, Europa SMEA, Giappone SJPA, Pacifico ex-Giappone CSPXJ, Emergenti EIMI | MSCI ACWI (IUSQ, mondo con emergenti) oppure World |
+    | 4 Paesi | USA, Canada, Giappone, UK, Svizzera, Germania, Francia, Italia, Spagna, Olanda, Cina, India, Taiwan, Corea, Brasile | MSCI ACWI oppure World |
+
+    Sul grafico gli ETF globali hanno un nome breve (World, Gov 1-3, Oro…); ticker e nome completo sono in tabella. Bitcoin in euro come il resto: nel rapporto con il benchmark conta solo la valuta comune, e per chi investe in euro il rendimento è quello in euro.
 - **3 Bottom Map**: ogni settore è un punto, con la coda delle ultime 8 settimane.
   - In orizzontale la profondità del drawdown (percentile della storia del settore), in verticale la distanza dal livello blu.
   - In basso a sinistra la zona blu.
@@ -30,7 +42,7 @@ App web per seguire la **rotazione relativa** dei settori S&P 500 (e di azioni e
 
 **Comandi** (barra in alto, oppure `/`):
 - un ETF settoriale (es. `XLU`) apre il dettaglio;
-- un altro ticker (es. `NVDA`) lo evidenzia nella rotazione, anche cambiando universo;
+- un altro ticker (es. `NVDA`, anche senza borsa: `SWDA`) o un nome breve (es. `ORO`, `INDIA`) lo evidenzia nella rotazione, anche cambiando universo;
 - `MON`, `RRG`, `BTM`, `SEC`, `ALRT`, `HELP` aprono le viste e la guida;
 - l'indirizzo `#XLU` apre direttamente un settore.
 
@@ -107,7 +119,9 @@ La formula nuova distingue un trend relativo forte da uno debole: il più forte 
 - **Sito statico** su GitHub Pages: HTML, CSS e moduli JavaScript nativi, senza build step e senza librerie di grafici. I grafici sono SVG disegnati da `js/rrg-chart.js`, `js/perf-chart.js`, `js/bottom-map.js` e `js/sector-chart.js`.
 - **Moduli condivisi**: `js/engine.js` (rotazione), `js/signals.js` (breadth e stati), `js/metrics.js` e `js/calendar.js` (calendario NYSE). Girano sia nel browser sia negli script della GitHub Action.
 - **Dati**, aggiornati da `.github/workflows/update-data.yml` dopo la chiusura USA e due volte in recupero (Yahoo pubblica alcune chiusure con ore di ritardo):
-  - `scripts/fetch_data.js` → `data/prices.json`: prezzi rettificati dei ticker di `universe.json`. Si pubblica solo l'ultima seduta presente per tutti i ticker e mai dati più vecchi di quelli già pubblicati.
+  - `scripts/fetch_data.js` → prezzi rettificati dei ticker di `universe.json`, in due file indipendenti (un ritardo su una borsa non blocca l'altro). Si pubblica solo l'ultima seduta presente per tutti i ticker e mai dati più vecchi di quelli già pubblicati.
+    - `data/prices.json`: universi USA, calendario NYSE.
+    - `data/prices_global.json`: universi globali in euro, calendario di Borsa Italiana. Yahoo inserisce la chiusura europea nella serie solo il giorno dopo: per l'ultima seduta si usa il prezzo finale della quotazione. Il bitcoin quota sempre: si prende il suo ultimo prezzo a ogni seduta di Milano. I ticker non in euro si convertono con il cambio. Un prezzo isolato palesemente sbagliato (salto rispetto all'MSCI World che rientra la seduta dopo, molto oltre la normale oscillazione relativa, come il prezzo in dollari al posto di quello in euro visto su alcuni ETF il 24/10/2025) si corregge, si registra nel file e si segnala nell'app.
   - `scripts/fetch_breadth.js` scarica circa 500 titoli (circa 2 minuti) e aggiorna:
     - `data/breadth.json`: conteggi per settore;
     - `data/breadth_latest.json`: fotografia titolo per titolo;
@@ -120,7 +134,9 @@ La formula nuova distingue un trend relativo forte da uno debole: il più forte 
 - Nell'intestazione dell'app un badge indica se i dati sono indietro rispetto all'ultima seduta chiusa.
 
 ## Personalizzare
-- Universo della rotazione: modifica `universe.json` (gruppi, ticker, benchmark di default). La Action lo userà dalla corsa successiva.
+- Universi della rotazione: modifica `universe.json`. La Action lo userà dalla corsa successiva.
+  - `groups`: universi USA (ticker Yahoo senza suffisso, benchmark comuni in `benchmarks`).
+  - `global`: universi in euro, con simboli Yahoo completi di borsa (`.MI` Milano, `.DE` Xetra, `.PA` Parigi, `.AS` Amsterdam, `.MC` Madrid), nome breve (`label`), benchmark ammessi per gruppo e, per il portafoglio, i pesi (`portfolio.weights`, somma 100). Il benchmark `PTF` è il portafoglio sintetico, calcolato nell'app.
 - Livelli blu e parametri degli stati: `config/thresholds.json`, usato sia dall'app sia dagli alert.
 
 ## Sviluppo locale

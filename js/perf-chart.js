@@ -25,10 +25,11 @@ function niceTicks(lo, hi, n) {
 /**
  * @param {SVGSVGElement} svg
  * @param {{dates: string[], closes: Record<string, number[]>, syms: string[], bench: string, focus?: string|null,
- *          days: number, tipEl: HTMLElement, wrapEl: HTMLElement, legendEl: HTMLElement}} p
+ *          days: number, tipEl: HTMLElement, wrapEl: HTMLElement, legendEl: HTMLElement, labels?: Record<string,string>}} p
  */
 export function drawPerf(svg, p) {
-  const { dates: all, closes, syms, bench, focus, days, tipEl, wrapEl, legendEl } = p;
+  const { dates: all, closes, syms, bench, focus, days, tipEl, wrapEl, legendEl, labels = {} } = p;
+  const lab = (s) => labels[s] || s;
   const i0 = Math.max(0, all.length - 1 - days);
   const dates = all.slice(i0), n = dates.length;
   const lines = {};
@@ -37,7 +38,9 @@ export function drawPerf(svg, p) {
     if (!c || c[i0] == null) continue;
     lines[s] = c.slice(i0).map((v) => (v == null ? null : (v / c[i0]) * 100));
   }
-  const W = 640, H = 300, L = 8, R = 62, T = 12, B = 26;
+  // margine destro per le etichette finali (nome breve + valore, carattere monospazio da 11px)
+  const longest = Math.max(0, ...Object.keys(lines).map((s) => lab(s).length + 4));
+  const W = 640, H = 300, L = 8, R = Math.max(62, Math.ceil(12 + 6.7 * longest)), T = 12, B = 26;
   const PW = W - L - R, PH = H - T - B;
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   svg.replaceChildren();
@@ -74,9 +77,9 @@ export function drawPerf(svg, p) {
   for (const [s, cls] of want) if (s && lines[s] && endVal(s) != null && !tags.some((t) => t.s === s)) tags.push({ s, cls, y: sy(endVal(s)) });
   tags.sort((a, b) => a.y - b.y);
   for (let k = 1; k < tags.length; k++) if (tags[k].y - tags[k - 1].y < 12) tags[k].y = tags[k - 1].y + 12;
-  for (const t of tags) el('text', { x: L + PW + 6, y: t.y + 4, class: 'endl ' + t.cls }, svg).textContent = `${t.s} ${fmt(endVal(t.s), 0)}`;
+  for (const t of tags) el('text', { x: L + PW + 6, y: t.y + 4, class: 'endl ' + t.cls }, svg).textContent = `${lab(t.s)} ${fmt(endVal(t.s), 0)}`;
   // valori dell'asse solo dove non coprono un'etichetta finale
-  for (const v of ticks) if (!tags.some((t) => Math.abs(t.y - sy(v)) < 11)) el('text', { x: L + PW + 6, y: sy(v) + 3.5, class: 'axt' }, svg).textContent = fmt(v, 0);
+  for (const v of ticks) if (!tags.some((t) => Math.abs(t.y - sy(v)) < 13)) el('text', { x: L + PW + 6, y: sy(v) + 3.5, class: 'axt' }, svg).textContent = fmt(v, 0);
 
   // mirino
   const xh = el('line', { x1: 0, x2: 0, y1: T, y2: T + PH, class: 'xhair', visibility: 'hidden' }, svg);
@@ -89,7 +92,7 @@ export function drawPerf(svg, p) {
     const rows = Object.keys(lines).filter((s) => lines[s][i] != null).sort((a, b) => lines[b][i] - lines[a][i]);
     tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>base 100</span></div>` + rows.map((s) => {
       const col = s === bench ? 'var(--ink)' : s === focus ? 'var(--amber)' : '#6a6a6a';
-      return `<div class="row"><span><span class="kl" style="background:${col}"></span>${esc(s)}</span><b>${fmt(lines[s][i], 1)}</b></div>`;
+      return `<div class="row"><span><span class="kl" style="background:${col}"></span>${esc(lab(s))}</span><b>${fmt(lines[s][i], 1)}</b></div>`;
     }).join('');
     const wr = wrapEl.getBoundingClientRect();
     let x = e.clientX - wr.left + 14;
@@ -98,7 +101,7 @@ export function drawPerf(svg, p) {
   });
   hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); tipEl.hidden = true; });
 
-  legendEl.innerHTML = `<span><span class="kl" style="background:var(--ink)"></span>${esc(bench)} (benchmark)</span>` +
-    (focus ? `<span><span class="kl" style="background:var(--amber)"></span>${esc(focus)} (in evidenza)</span>` : '') +
+  legendEl.innerHTML = `<span><span class="kl" style="background:var(--ink)"></span>${esc(lab(bench))} (benchmark)</span>` +
+    (focus ? `<span><span class="kl" style="background:var(--amber)"></span>${esc(lab(focus))} (in evidenza)</span>` : '') +
     `<span><span class="kl" style="background:#5a5a5a"></span>altri titoli</span><span class="muted">dal ${dIT(dates[0])}</span>`;
 }

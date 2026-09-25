@@ -4,7 +4,8 @@ import { createBottom } from './bottom.js';
 import { priceMetrics } from './metrics.js';
 import { drawRRG, nearestHead } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
-import { expectedSession, sessionsBetween } from './calendar.js';
+import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
+import { portfolioIndex } from './portfolio.js';
 import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY } from './format.js';
 
 const $ = (id) => document.getElementById(id);
@@ -18,12 +19,12 @@ const store = {
 };
 
 const state = {
-  data: null, view: 'mon',
+  data: null, global: null, groups: {}, view: 'mon',
   group: null, benchmark: null, timeframe: store.get('timeframe', 'weekly'), formula: store.get('formula', 'nuova'),
   tail: store.get('tail', 10), scale: 'fit', perfDays: store.get('perfDays', 126),
   frame: 0, focus: null, pinned: null, hidden: new Set(), timer: null,
   sort: { key: 'rot', dir: 1 }, tableMode: 'rot',
-  model: null, modelKey: '', metrics: {}, bottom: null, sectorModels: {},
+  model: null, modelKey: '', bottom: null, sectorModels: {},
 };
 
 // ---------- avvio ----------
@@ -35,24 +36,83 @@ const getJSON = (url, optional) => fetch(url).then((r) => {
 
 Promise.all([
   getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
-  getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true),
-]).then(([prices, sectors, breadth, config, latest, alertLog]) => {
+  getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('data/prices_global.json', true),
+]).then(([prices, sectors, breadth, config, latest, alertLog, global]) => {
   state.data = prices;
+  state.global = global ? addPortfolios(global) : null;
   state.extra = { sectors, breadth, config, latest, alertLog };
   init();
 }).catch((e) => {
   $('v-mon').innerHTML = `<div class="panel"><div class="pb"><p class="note">Impossibile caricare i dati (${esc(e.message)}). In locale esegui gli script in <span class="mono">scripts/</span> e servi la cartella con un server statico.</p></div></div>`;
 });
 
+// ---------- universi ----------
+// Portafoglio sintetico dei gruppi con "portfolio": diventa un ticker del file globale
+function addPortfolios(g) {
+  let k = 0;
+  for (const grp of Object.values(g.groups)) {
+    if (!grp.portfolio) continue;
+    const key = k++ ? `PTF${k}` : 'PTF';
+    const w = grp.portfolio.weights;
+    const closes = Object.fromEntries(Object.keys(w).filter((s) => g.tickers[s]).map((s) => [s, g.tickers[s].close]));
+    const { index, missing } = portfolioIndex(g.dates, closes, w);
+    const lab = (s) => (g.tickers[s] ? g.tickers[s].label : s);
+    const mix = Object.entries(w).map(([s, v]) => `${lab(s)} ${v}%`).join(', ');
+    g.tickers[key] = {
+      label: grp.portfolio.label, isBenchmark: true, synthetic: true, groups: [], close: index,
+      name: `Portafoglio modello: ${mix}; ribilanciato a fine mese` + (missing.length ? ` (senza ${missing.join(', ')}: dati mancanti)` : ''),
+    };
+    const swap = (s) => (s === 'PTF' ? key : s);
+    grp.benchmarks = grp.benchmarks.map(swap);
+    grp.defaultBenchmark = swap(grp.defaultBenchmark);
+  }
+  return g;
+}
+
+// Registro degli universi: USA (prices.json, benchmark comuni) e globali in euro (prices_global.json)
+function buildGroups() {
+  const out = {};
+  const us = state.data;
+  for (const [name, v] of Object.entries(us.groups)) out[name] = { ds: us, market: 'US', tickers: v.tickers, defaultBenchmark: v.defaultBenchmark, benchmarks: Object.keys(us.benchmarks) };
+  const gl = state.global;
+  if (gl) for (const [name, v] of Object.entries(gl.groups)) out[name] = { ds: gl, market: 'global', tickers: v.tickers, defaultBenchmark: v.defaultBenchmark, benchmarks: v.benchmarks };
+  return out;
+}
+const grp = () => state.groups[state.group];
+const ds = () => grp().ds;
+const isGlobal = () => grp().market === 'global';
+// simbolo senza suffisso di borsa (SWDA.MI → SWDA)
+const baseSym = (s) => s.replace(/\.[A-Z]{1,3}$/, '');
+// nome breve sul grafico: l'etichetta degli ETF globali, il ticker per i titoli USA
+const labelOf = (set, s) => (set.tickers[s] && set.tickers[s].label) || s;
+const label = (s) => labelOf(ds(), s);
+const labelMap = () => Object.fromEntries(Object.keys(ds().tickers).map((s) => [s, label(s)]));
+const benchText = (s) => (isGlobal() ? `${label(s)}${ds().tickers[s].synthetic ? '' : ` (${baseSym(s)})`}` : `${s} · ${state.data.benchmarks[s]}`);
+function pickBenchmark(name) {
+  const g = state.groups[name], saved = store.get('bench.' + name);
+  return saved && g.benchmarks.includes(saved) && g.ds.tickers[saved] ? saved : g.defaultBenchmark;
+}
+function fillSelects() {
+  const names = Object.keys(state.groups);
+  const opts = (market) => names.filter((n) => state.groups[n].market === market).map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
+  $('groupSel').innerHTML = `<optgroup label="USA · titoli in dollari">${opts('US')}</optgroup>` +
+    (state.global ? `<optgroup label="Globali · ETF in euro">${opts('global')}</optgroup>` : '');
+}
+function fillBenchmarks() {
+  $('benchSel').innerHTML = grp().benchmarks.filter((s) => ds().tickers[s]).map((s) => `<option value="${esc(s)}">${esc(benchText(s))}</option>`).join('');
+}
+
 function init() {
-  const d = state.data;
-  const groups = Object.keys(d.groups);
-  state.group = groups.includes(store.get('group')) ? store.get('group') : groups[0];
-  $('groupSel').innerHTML = groups.map((g) => `<option value="${esc(g)}">${esc(g)}</option>`).join('');
-  $('benchSel').innerHTML = Object.entries(d.benchmarks).map(([s, n]) => `<option value="${esc(s)}">${esc(s)} · ${esc(n)}</option>`).join('');
-  const savedBench = store.get('bench.' + state.group);
-  state.benchmark = savedBench && d.tickers[savedBench] ? savedBench : d.groups[state.group].defaultBenchmark;
-  for (const s of Object.keys(d.tickers)) state.metrics[s] = priceMetrics(d.dates, d.tickers[s].close);
+  state.groups = buildGroups();
+  const names = Object.keys(state.groups);
+  state.group = names.includes(store.get('group')) ? store.get('group') : names[0];
+  state.benchmark = pickBenchmark(state.group);
+  fillSelects();
+  for (const set of [state.data, state.global]) {
+    if (!set) continue;
+    set.metrics = {};
+    for (const s of Object.keys(set.tickers)) set.metrics[s] = priceMetrics(set.dates, set.tickers[s].close);
+  }
   if (store.get('cvd', false)) { $('term').classList.add('cvd'); $('cvdBtn').setAttribute('aria-pressed', 'true'); }
   const x = state.extra;
   state.bottom = createBottom({
@@ -97,12 +157,15 @@ function renderHeader() {
 
 // ---------- modello ----------
 function symbols() {
-  return state.data.groups[state.group].tickers.filter((s) => state.data.tickers[s] && s !== state.benchmark);
+  return grp().tickers.filter((s) => ds().tickers[s] && s !== state.benchmark);
 }
 function recompute(resetFrame) {
   const key = [state.group, state.benchmark, state.timeframe, state.formula].join('|');
   if (key !== state.modelKey) {
-    state.model = build(state.data, { symbols: symbols(), benchmark: state.benchmark, timeframe: state.timeframe, formula: state.formula });
+    state.model = build(ds(), {
+      symbols: symbols(), benchmark: state.benchmark, timeframe: state.timeframe, formula: state.formula,
+      weekHasMoreSessions: isGlobal() ? MILAN.weekHasMoreSessions : undefined,
+    });
     state.modelKey = key;
     state.maxRange = null;
     resetFrame = true;
@@ -128,11 +191,15 @@ function renderAll() {
 
 // ---------- tabella prezzi dell'universo (vista RRG, modalità "Prezzi") ----------
 function monitorRows() {
-  const m = state.model, f = lastFrame();
-  return symbols().map((s) => ({ s, name: state.data.tickers[s].name, mt: state.metrics[s], r: m.series[s] ? stats(m.series[s], f, state.tail) : null }));
+  const m = state.model, f = lastFrame(), d = ds();
+  return symbols().map((s) => ({ s, name: d.tickers[s].name, mt: d.metrics[s], r: m.series[s] ? stats(m.series[s], f, state.tail) : null }));
 }
+// cella del titolo: ticker e nome per i titoli USA; per gli ETF globali etichetta e ticker, con il nome completo al passaggio del mouse
+const symCell = (s, name, extra = '') => (isGlobal()
+  ? `<span class="sym" title="${esc(name)}">${esc(label(s))}</span><span class="nm">${ds().tickers[s].synthetic ? '' : esc(baseSym(s))}${extra}</span>`
+  : `<span class="sym">${esc(s)}</span><span class="nm">${esc(name)}${extra}</span>`);
 const SORTERS = {
-  sym: (a, b) => a.s.localeCompare(b.s),
+  sym: (a, b) => label(a.s).localeCompare(label(b.s)),
   last: (a, b) => a.mt.last - b.mt.last,
   d1: (a, b) => a.mt.d1 - b.mt.d1, w1: (a, b) => a.mt.w1 - b.mt.w1, m1: (a, b) => a.mt.m1 - b.mt.m1,
   m3: (a, b) => a.mt.m3 - b.mt.m3, ytd: (a, b) => a.mt.ytd - b.mt.ytd,
@@ -141,7 +208,7 @@ const SORTERS = {
   weeks: (a, b) => (a.r && b.r ? a.r.weeks - b.r.weeks : 0),
 };
 function renderPriceTable() {
-  const d = state.data, bench = state.benchmark, bm = state.metrics[bench];
+  const d = ds(), bench = state.benchmark, bm = d.metrics[bench];
   const rows = monitorRows();
   const { key, dir } = state.sort;
   rows.sort((a, b) => dir * SORTERS[key](a, b));
@@ -157,11 +224,11 @@ function renderPriceTable() {
     return `<span class="cellv num">${sgn(mt.dd52)}%</span><span class="bar" title="peggiore negli ultimi 5 anni ${sgn(mt.ddWorst)}%"><i class="${mt.ddDepth != null && mt.ddDepth >= 80 ? 'deep' : ''}" style="width:${w}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span>`;
   };
   const body = rows.map(({ s, name, mt, r }) => `<tr data-sym="${esc(s)}" tabindex="0">
-      <td><span class="sym">${esc(s)}</span><span class="nm">${esc(name)}</span></td>
+      <td>${symCell(s, name)}</td>
       <td class="num r">${fmt(mt.last, 2)}</td><td class="num r">${pct(mt.d1)}</td><td class="num r">${pct(mt.w1)}</td><td class="num r">${pct(mt.m1)}</td><td class="num r">${pct(mt.m3)}</td><td class="num r">${pct(mt.ytd)}</td>
       <td>${ddCell(mt)}</td><td class="num r">${pct(mt.vs200)}</td>
       <td>${r ? qPill(r.q, r.heading) : '<span class="muted">—</span>'}</td><td class="num r">${r ? `${r.weeks} ${unit()}` : '—'}</td></tr>`).join('');
-  const benchRow = `<tr class="bench"><td><span class="sym">${esc(bench)}</span><span class="nm">${esc(d.tickers[bench].name)} · benchmark</span></td>
+  const benchRow = `<tr class="bench"><td>${symCell(bench, d.tickers[bench].name, ' · benchmark')}</td>
       <td class="num r">${fmt(bm.last, 2)}</td><td class="num r">${pct(bm.d1)}</td><td class="num r">${pct(bm.w1)}</td><td class="num r">${pct(bm.m1)}</td><td class="num r">${pct(bm.m3)}</td><td class="num r">${pct(bm.ytd)}</td>
       <td>${ddCell(bm)}</td><td class="num r">${pct(bm.vs200)}</td><td></td><td></td></tr>`;
   $('monTable').innerHTML = head + '<tbody>' + body + benchRow + '</tbody>';
@@ -200,15 +267,15 @@ function fitRange() {
 const focused = () => state.pinned || state.focus;
 function drawChart() {
   lastDraw = drawRRG($('rrg'), {
-    syms: symbols().filter((s) => !state.hidden.has(s)), series: state.model.series, frame: state.frame, tail: state.tail,
+    syms: symbols().filter((s) => !state.hidden.has(s)), series: state.model.series, frame: state.frame, tail: state.tail, labels: labelMap(),
     focus: focused(), range: state.scale === 'max' || state.timer ? maxRange() : fitRange(), provisional: isProvisional(),
   });
 }
 function renderRRGView() {
   drawChart();
   const m = state.model;
-  $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${state.benchmark}`;
-  $('rrgMeta').textContent = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · formula ${state.formula}`;
+  $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${isGlobal() ? label(state.benchmark) : state.benchmark}`;
+  $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · formula ${state.formula}` + (isGlobal() ? ` · ${globalFreshness()}` : '');
   const fr = $('frame');
   fr.min = minFrame(); fr.max = lastFrame(); fr.value = state.frame;
   $('frameDate').textContent = dIT(m.dates[state.frame]) + (isProvisional() ? ' *' : '');
@@ -228,7 +295,7 @@ function renderRotTable() {
   $('rotTable').innerHTML = `<thead><tr><th><span class="sr">Mostra</span></th><th>Titolo</th><th>Quadrante</th><th class="r">RS-Ratio</th><th class="r">RS-Mom</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
     rows.map(({ s, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td><input type="checkbox" class="vis" data-sym="${esc(s)}" aria-label="Mostra ${esc(s)}" ${state.hidden.has(s) ? '' : 'checked'}></td>
-      <td title="${esc(state.data.tickers[s].name)}"><span class="sym">${esc(s)}</span></td>
+      <td title="${esc((isGlobal() ? baseSym(s) + ' · ' : '') + ds().tickers[s].name)}"><span class="sym">${esc(label(s))}</span></td>
       <td><span class="pill q-${QKEY[r.q]}-c"><span class="d"></span>${r.q}</span></td>
       <td class="num r">${fmt(r.x, 2)} ${dl(r.dx)}</td><td class="num r">${fmt(r.y, 2)} ${dl(r.dy)}</td>
       <td class="num r${r.heading != null && r.heading <= 90 ? ' hpos' : ''}"><span class="q-${QKEY[r.q]}-c">${arrow(r.heading)}</span> ${fmt(r.heading, 0)}°</td>
@@ -248,8 +315,9 @@ function renderRotTable() {
   });
 }
 function renderPerf() {
+  const d = ds();
   drawPerf($('perf'), {
-    dates: state.data.dates, closes: Object.fromEntries(Object.entries(state.data.tickers).map(([s, t]) => [s, t.close])),
+    dates: d.dates, closes: Object.fromEntries(Object.entries(d.tickers).map(([s, t]) => [s, t.close])), labels: labelMap(),
     syms: symbols().filter((s) => !state.hidden.has(s)), bench: state.benchmark, focus: focused(), days: state.perfDays,
     tipEl: $('perfTip'), wrapEl: $('perfWrap'), legendEl: $('perfLegend'),
   });
@@ -270,6 +338,28 @@ function focusSymbol(s) {
   state.hidden.delete(s);
   state.pinned = s; state.focus = null;
   setView('rrg');
+}
+
+// Cerca un titolo per ticker (con o senza suffisso di borsa) o etichetta, prima nell'universo aperto
+function findSymbol(v) {
+  const names = Object.keys(state.groups);
+  names.sort((a, b) => (a === state.group ? -1 : b === state.group ? 1 : 0));
+  for (const name of names) {
+    const g = state.groups[name];
+    const sym = g.tickers.find((s) => g.ds.tickers[s] && [s, baseSym(s), labelOf(g.ds, s)].some((x) => x.toUpperCase() === v));
+    if (sym && !(name === state.group && sym === state.benchmark)) return { group: name, sym };
+  }
+  return null;
+}
+
+// Data dei dati globali e ritardo rispetto all'ultima seduta chiusa di Borsa Italiana
+function globalFreshness() {
+  const g = state.global;
+  const lag = MILAN.sessionsBetween(g.asOf, MILAN.expectedSession());
+  const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'SEDUTA' : 'SEDUTE'} INDIETRO</span>`;
+  const n = g.repaired ? g.repaired.length : 0;
+  const fixed = n ? ` · <span title="${esc(g.repaired.map((r) => `${r.sym} ${dIT(r.date)}: ${r.from} → ${r.to}`).join('\n'))}">${n} ${n === 1 ? 'prezzo anomalo corretto' : 'prezzi anomali corretti'}</span>` : '';
+  return `ETF in euro, dati al ${dIT(g.asOf)}${badge}${fixed}`;
 }
 
 // animazione
@@ -313,6 +403,7 @@ function segPress(id, attr, value) {
 }
 function syncControls() {
   $('groupSel').value = state.group;
+  fillBenchmarks();
   $('benchSel').value = state.benchmark;
   segPress('tfSeg', 'tf', state.timeframe);
   segPress('formulaSeg', 'formula', state.formula);
@@ -327,8 +418,7 @@ function bind() {
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => b.onclick = () => setView(b.dataset.view));
   $('groupSel').onchange = (e) => {
     state.group = e.target.value; store.set('group', state.group);
-    const saved = store.get('bench.' + state.group);
-    state.benchmark = saved && state.data.tickers[saved] ? saved : state.data.groups[state.group].defaultBenchmark;
+    state.benchmark = pickBenchmark(state.group);
     state.hidden.clear(); state.pinned = null; state.focus = null;
     syncControls(); recompute(true);
   };
@@ -351,7 +441,7 @@ function bind() {
     if (!state.pinned && sym !== state.focus) { state.focus = sym; refreshFocus(); }
     if (!h) { tip.hidden = true; return; }
     const r = stats(state.model.series[sym], state.frame, state.tail);
-    tip.innerHTML = `<div class="row"><b>${esc(sym)}</b><span>${esc(state.data.tickers[sym].name)}</span></div>
+    tip.innerHTML = `<div class="row"><b>${esc(label(sym))}</b><span>${esc((isGlobal() ? baseSym(sym) + ' · ' : '') + ds().tickers[sym].name)}</span></div>
       <div class="row"><span>Quadrante</span><b class="q-${QKEY[r.q]}-c">${r.q}</b></div>
       <div class="row"><span>RS-Ratio</span><b>${fmt(r.x, 2)}</b></div><div class="row"><span>RS-Momentum</span><b>${fmt(r.y, 2)}</b></div>
       <div class="row"><span>Direzione</span><b>${fmt(r.heading, 0)}°</b></div><div class="row"><span>Nel quadrante da</span><b>${r.weeks} ${unit()}</b></div>`;
@@ -399,12 +489,15 @@ function bind() {
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (words[v]) { setView(words[v]); return; }
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
-    if (symbols().includes(v)) { focusSymbol(v); return; }
-    const g = Object.keys(state.data.groups).find((k) => state.data.groups[k].tickers.includes(v));
-    if (g) {
-      state.group = g; $('groupSel').value = g;
-      state.benchmark = state.data.groups[g].defaultBenchmark;
-      state.hidden.clear(); syncControls(); recompute(true); focusSymbol(v);
+    const hit = findSymbol(v);
+    if (hit) {
+      if (hit.group !== state.group) {
+        state.group = hit.group; store.set('group', state.group);
+        state.benchmark = pickBenchmark(hit.group);
+        if (hit.sym === state.benchmark) state.benchmark = state.groups[hit.group].benchmarks.find((b) => b !== hit.sym && ds().tickers[b]) || state.benchmark;
+        state.hidden.clear(); syncControls(); recompute(true);
+      }
+      focusSymbol(hit.sym);
       return;
     }
     $('cmd').placeholder = `"${v}" non riconosciuto. Prova un ticker (es. XLU), MON, RRG o HELP`;

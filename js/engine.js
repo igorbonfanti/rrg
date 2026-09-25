@@ -150,10 +150,11 @@ export function stats(ser, f, tail) {
 /**
  * Calcola la rotazione di tutti i simboli rispetto al benchmark.
  * @param {{dates: string[], tickers: Record<string, {close: number[]}>}} dataset
- * @param {{symbols: string[], benchmark: string, timeframe: 'weekly'|'daily', formula?: 'nuova'|'classica', params?: object}} cfg
+ * @param {{symbols: string[], benchmark: string, timeframe: 'weekly'|'daily', formula?: 'nuova'|'classica', params?: object,
+ *          weekHasMoreSessions?: (iso: string) => boolean}} cfg  calendario della borsa (default NYSE) per la settimana provvisoria
  */
 export function build(dataset, cfg) {
-  const { symbols, benchmark, timeframe, formula = 'nuova', params } = cfg;
+  const { symbols, benchmark, timeframe, formula = 'nuova', params, weekHasMoreSessions: moreSessions = weekHasMoreSessions } = cfg;
   const idx = sampleIndices(dataset.dates, timeframe);
   const dates = idx.map((i) => dataset.dates[i]);
   const bench = idx.map((i) => dataset.tickers[benchmark].close[i]);
@@ -164,11 +165,14 @@ export function build(dataset, cfg) {
     const r = fn(idx.map((i) => dataset.tickers[s].close[i]), bench, params);
     series[s] = { x: r.rsRatio, y: r.rsMomentum };
   }
-  // primo punto in cui tutti i simboli hanno un valore
+  // primo punto in cui almeno metà dei simboli ha un valore: un ETF quotato da poco non accorcia
+  // la storia degli altri (compare quando ha abbastanza dati)
   const syms = Object.keys(series);
+  const need = Math.max(1, Math.ceil(syms.length / 2));
+  const valid = (i) => syms.filter((s) => series[s].x[i] != null && series[s].y[i] != null).length;
   let start = 0;
-  while (start < dates.length && !syms.every((s) => series[s].x[start] != null && series[s].y[start] != null)) start++;
+  while (start < dates.length && valid(start) < need) start++;
   const last = dates.length - 1;
-  const provisional = timeframe === 'weekly' && dates[last] === dataset.dates[dataset.dates.length - 1] && weekHasMoreSessions(dates[last]);
+  const provisional = timeframe === 'weekly' && dates[last] === dataset.dates[dataset.dates.length - 1] && moreSessions(dates[last]);
   return { dates, series, start, provisional };
 }

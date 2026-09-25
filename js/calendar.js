@@ -1,5 +1,6 @@
 /*
- * calendar.js — calendario delle sedute NYSE (festività di borsa regolari).
+ * calendar.js — calendari delle sedute: NYSE (settori e titoli USA) e Borsa Italiana
+ * (universi globali con ETF UCITS in euro). Festività di borsa regolari.
  * Modulo condiviso: lo usano sia il browser sia gli script della GitHub Action.
  *
  * Serve per sapere qual è l'ultima seduta chiusa "attesa" in un certo istante e
@@ -63,53 +64,76 @@ export function holidays(y) {
   return set;
 }
 
-export function isTradingDay(iso) {
-  const wd = weekday(iso);
-  return wd !== 0 && wd !== 6 && !holidays(+iso.slice(0, 4)).has(iso);
+// Borsa Italiana: nessun recupero quando la festività cade nel fine settimana
+const milanCache = new Map();
+export function milanHolidays(y) {
+  if (milanCache.has(y)) return milanCache.get(y);
+  const set = new Set([isoDate(y, 1, 1), isoDate(y, 5, 1), isoDate(y, 8, 15), isoDate(y, 12, 24), isoDate(y, 12, 25), isoDate(y, 12, 26), isoDate(y, 12, 31)]);
+  const e = utc(easter(y));
+  const gf = new Date(e); gf.setUTCDate(e.getUTCDate() - 2); set.add(toIso(gf)); // Venerdì santo
+  const em = new Date(e); em.setUTCDate(e.getUTCDate() + 1); set.add(toIso(em)); // Lunedì dell'Angelo
+  milanCache.set(y, set);
+  return set;
 }
 
-export function prevTradingDay(iso) {
-  const dt = utc(iso);
-  do dt.setUTCDate(dt.getUTCDate() - 1); while (!isTradingDay(toIso(dt)));
-  return toIso(dt);
+/**
+ * Funzioni di calendario per una borsa.
+ * @param {(y: number) => Set<string>} hol festività dell'anno
+ * @param {string} tz fuso orario della borsa
+ * @param {number} publishAfter minuti dalla mezzanotte locale dopo i quali la seduta si considera chiusa e pubblicata
+ */
+function makeCalendar(hol, tz, publishAfter) {
+  const isTradingDay = (iso) => {
+    const wd = weekday(iso);
+    return wd !== 0 && wd !== 6 && !hol(+iso.slice(0, 4)).has(iso);
+  };
+  const prevTradingDay = (iso) => {
+    const dt = utc(iso);
+    do dt.setUTCDate(dt.getUTCDate() - 1); while (!isTradingDay(toIso(dt)));
+    return toIso(dt);
+  };
+  // La seduta successiva a `iso` cade nella stessa settimana? (settimana in corso, dato provvisorio)
+  const weekHasMoreSessions = (iso) => {
+    const dt = utc(iso);
+    const wd = dt.getUTCDay();
+    for (let k = 1; k <= 6 - wd; k++) {
+      const n = new Date(dt); n.setUTCDate(dt.getUTCDate() + k);
+      if (isTradingDay(toIso(n))) return true;
+    }
+    return false;
+  };
+  // Data e ora correnti nel fuso della borsa
+  const localNow = (now = new Date()) => {
+    const parts = Object.fromEntries(
+      new Intl.DateTimeFormat('en-US', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+        .formatToParts(now).map((p) => [p.type, p.value]),
+    );
+    return { date: `${parts.year}-${parts.month}-${parts.day}`, minutes: +parts.hour * 60 + +parts.minute };
+  };
+  // Ultima seduta chiusa attesa: oggi se è una seduta ed è passata l'ora di pubblicazione, altrimenti la precedente.
+  const expectedSession = (now = new Date(), publishAfterMinutes = publishAfter) => {
+    const { date, minutes } = localNow(now);
+    if (isTradingDay(date) && minutes >= publishAfterMinutes) return date;
+    return prevTradingDay(date);
+  };
+  // Sedute tra `from` (esclusa) e `to` (inclusa)
+  const sessionsBetween = (from, to) => {
+    if (from >= to) return 0;
+    let n = 0;
+    const dt = utc(from);
+    while (true) {
+      dt.setUTCDate(dt.getUTCDate() + 1);
+      const iso = toIso(dt);
+      if (iso > to) return n;
+      if (isTradingDay(iso)) n++;
+    }
+  };
+  return { holidays: hol, isTradingDay, prevTradingDay, weekHasMoreSessions, localNow, expectedSession, sessionsBetween };
 }
 
-// La seduta successiva a `iso` cade nella stessa settimana? (settimana in corso, dato provvisorio)
-export function weekHasMoreSessions(iso) {
-  const dt = utc(iso);
-  const wd = dt.getUTCDay();
-  for (let k = 1; k <= 6 - wd; k++) {
-    const n = new Date(dt); n.setUTCDate(dt.getUTCDate() + k);
-    if (isTradingDay(toIso(n))) return true;
-  }
-  return false;
-}
+export const NYSE = makeCalendar(holidays, 'America/New_York', 16 * 60 + 30);
+// ETFplus chiude alle 17:30 con l'asta fino alle 17:35
+export const MILAN = makeCalendar(milanHolidays, 'Europe/Rome', 18 * 60);
 
-// Data e ora correnti a New York
-export function nyNow(now = new Date()) {
-  const parts = Object.fromEntries(
-    new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
-      .formatToParts(now).map((p) => [p.type, p.value]),
-  );
-  return { date: `${parts.year}-${parts.month}-${parts.day}`, minutes: +parts.hour * 60 + +parts.minute };
-}
-
-// Ultima seduta chiusa attesa: oggi se è una seduta ed è passata l'ora di pubblicazione, altrimenti la precedente.
-export function expectedSession(now = new Date(), publishAfterMinutes = 16 * 60 + 30) {
-  const { date, minutes } = nyNow(now);
-  if (isTradingDay(date) && minutes >= publishAfterMinutes) return date;
-  return prevTradingDay(date);
-}
-
-// Sedute tra `from` (esclusa) e `to` (inclusa)
-export function sessionsBetween(from, to) {
-  if (from >= to) return 0;
-  let n = 0;
-  const dt = utc(from);
-  while (true) {
-    dt.setUTCDate(dt.getUTCDate() + 1);
-    const iso = toIso(dt);
-    if (iso > to) return n;
-    if (isTradingDay(iso)) n++;
-  }
-}
+export const { isTradingDay, prevTradingDay, weekHasMoreSessions, expectedSession, sessionsBetween } = NYSE;
+export const nyNow = NYSE.localNow;

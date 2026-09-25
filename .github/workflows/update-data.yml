@@ -54,7 +54,8 @@ jobs:
           else
             ASOF=$(node -p "require('./data/prices.json').asOf || ''")
             BREADTH=$(node -p "require('./data/breadth.json').asOf")
-            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH})"
+            GLOBAL=$(node -p "(() => { try { return require('./data/prices_global.json').asOf } catch { return '' } })()")
+            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, globali al ${GLOBAL:-?})"
             git pull --rebase
             git push
           fi
