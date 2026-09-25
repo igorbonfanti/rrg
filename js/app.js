@@ -127,7 +127,10 @@ function init() {
     set.metrics = {};
     for (const s of Object.keys(set.tickers)) set.metrics[s] = priceMetrics(set.dates, set.tickers[s].close);
   }
-  if (store.get('cvd', false) === true) { $('term').classList.add('cvd'); $('cvdBtn').setAttribute('aria-pressed', 'true'); }
+  const cvdOn = store.get('cvd', false) === true;
+  document.documentElement.classList.toggle('cvd', cvdOn);
+  $('cvdBtn').setAttribute('aria-pressed', String(cvdOn));
+  $('themeBtn').setAttribute('aria-checked', String(isLight()));
   const x = state.extra;
   state.bottom = createBottom({
     $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store,
@@ -177,7 +180,7 @@ function renderHeader() {
   // il ritardo peggiore tra prezzi USA e breadth dei settori
   const bAsOf = state.bottom ? state.bottom.asOf : asOf;
   const lag = Math.max(sessionsBetween(asOf, exp), sessionsBetween(bAsOf, exp));
-  const badge = lag === 0 ? '<span class="fresh ok">AGGIORNATO</span>' : `<span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'SEDUTA' : 'SEDUTE'} INDIETRO</span>`;
+  const badge = lag === 0 ? '<span class="fresh ok">Aggiornato</span>' : `<span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'seduta' : 'sedute'} indietro</span>`;
   const breadthNote = bAsOf < asOf ? ` <span class="muted">· breadth al ${dIT(bAsOf)}</span>` : '';
   $('clock').innerHTML = `EOD <b>${dIT(asOf)}</b>${breadthNote} ${badge}`;
   $('clock').title = `Chiusure USA · ${NEXT_UPDATE}`;
@@ -468,7 +471,7 @@ function findSymbol(v) {
 function globalFreshness() {
   const g = state.global;
   const lag = MILAN.sessionsBetween(g.asOf, MILAN.expectedSession(new Date(), PUBLISH_EU));
-  const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'SEDUTA' : 'SEDUTE'} INDIETRO</span>`;
+  const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'seduta' : 'sedute'} indietro</span>`;
   const n = g.repaired ? g.repaired.length : 0;
   const fixed = n ? ` · <span title="${esc(g.repaired.map((r) => `${r.sym} ${dIT(r.date)}: ${r.from} → ${r.to}`).join('\n'))}">${n} ${n === 1 ? 'prezzo anomalo corretto' : 'prezzi anomali corretti'}</span>` : '';
   return `ETF in euro, dati al ${dIT(g.asOf)}${badge}${fixed}`;
@@ -533,6 +536,17 @@ const narrow = () => window.innerWidth < 600;
 let cmdErrTimer = null;
 function setPlaceholder() {
   $('cmd').placeholder = narrow() ? 'Ticker o nome: XLU, ORO, HELP' : 'Comando: un ticker (XLU, NVDA, SWDA), un nome (ORO, TESLA), MON, ROT, BTM, ALRT, HELP · poi Invio';
+}
+// ---------- tema chiaro o scuro (sistema «Terminale ambra», come Bond Ladder) ----------
+// Attributo su <html>: i colori li cambia solo il CSS, quindi grafici e tabelle non si ridisegnano.
+const THEME_KEY = 'antigravity-theme'; // condivisa fra le app del sito: 'dark' | 'light'
+const isLight = () => document.documentElement.getAttribute('data-theme') === 'light';
+function setTheme(light) {
+  document.documentElement.setAttribute('data-theme', light ? 'light' : 'dark');
+  $('themeBtn').setAttribute('aria-checked', String(light));
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', light ? '#ffffff' : '#000000');
+  try { localStorage.setItem(THEME_KEY, light ? 'light' : 'dark'); } catch { /* navigazione privata */ }
 }
 function openHelp(open) {
   const d = $('helpModal');
@@ -624,8 +638,9 @@ function bind() {
     setView(t.dataset.view);
     t.focus();
   });
+  $('themeBtn').onclick = () => setTheme(!isLight());
   $('cvdBtn').onclick = () => {
-    const on = $('term').classList.toggle('cvd');
+    const on = document.documentElement.classList.toggle('cvd');
     $('cvdBtn').setAttribute('aria-pressed', String(on));
     store.set('cvd', on);
   };
@@ -658,6 +673,7 @@ function bind() {
     const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
+    if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }
     if (words[v]) { setView(words[v]); return; }
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
     const hit = findSymbol(v);

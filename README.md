@@ -50,9 +50,12 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
 - un altro ticker (es. `NVDA`, anche senza borsa: `SWDA`), un nome breve (es. `ORO`, `INDIA`) o una parola del nome (es. `TESLA`) lo evidenzia nella rotazione, anche cambiando universo; se è il benchmark attuale si passa a un altro benchmark;
 - un benchmark (`SPY`, `QQQ`, `ACWI`, `PTF`) apre la rotazione contro di lui;
 - `MON`, `ROT` (o `RRG`), `BTM`, `SEC`, `ALRT`, `HELP` aprono le viste e la guida;
+- `CHIARO` o `SCURO` scelgono il tema, `TEMA` lo inverte;
 - l'indirizzo `#XLU` apre direttamente un settore, `#mon` `#rrg` `#btm` `#sec` `#alr` una vista; funziona anche il tasto Indietro.
 
 **Tasti**: `1`–`5` viste, `←` `→` periodo, `Spazio` animazione, `Esc` toglie l'evidenza, `?` guida; con il focus sulle schede le frecce passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida. Il pulsante **CVD** mostra su/giù in blu/rosso invece che verde/rosso.
+
+**Tema chiaro**: l'interruttore **Chiaro** accanto a CVD passa al fondo bianco del sistema «Terminale ambra», come in Bond Ladder. Cambia solo il CSS (attributo `data-theme` su `<html>`), non i calcoli; la scelta resta nel browser con la chiave `antigravity-theme`, condivisa con le altre app del sito, e uno script nel `<head>` la applica prima del primo disegno. In stampa la pagina esce sempre nero su bianco.
 
 Sul telefono i grafici si disegnano alla larghezza dello schermo e un tocco su un punto lo fissa.
 

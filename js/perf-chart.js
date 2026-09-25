@@ -66,7 +66,7 @@ export function drawPerf(svg, p) {
       el('text', { x: sx(i), y: H - 8, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = `${MESI[m - 1]} ${dates[i].slice(2, 4)}`;
     }
   }
-  el('rect', { x: L, y: T, width: PW, height: PH, fill: 'none', stroke: '#2a2a2a' }, svg);
+  el('rect', { x: L, y: T, width: PW, height: PH, class: 'frame' }, svg);
   const path = (a) => { let d = '', on = false; a.forEach((v, i) => { if (v == null) { on = false; return; } d += (on ? 'L' : 'M') + sx(i).toFixed(1) + ' ' + sy(v).toFixed(1); on = true; }); return d; };
   const order = Object.keys(lines).filter((s) => s !== bench && s !== focus);
   for (const s of order) el('path', { d: path(lines[s]), class: 'ln' }, svg);
@@ -96,7 +96,7 @@ export function drawPerf(svg, p) {
     xh.setAttribute('x1', sx(i)); xh.setAttribute('x2', sx(i)); xh.setAttribute('visibility', 'visible');
     const rows = Object.keys(lines).filter((s) => lines[s][i] != null).sort((a, b) => lines[b][i] - lines[a][i]);
     tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>base 100</span></div>` + rows.map((s) => {
-      const col = s === bench ? 'var(--ink)' : s === focus ? 'var(--amber)' : '#6a6a6a';
+      const col = s === bench ? 'var(--ink)' : s === focus ? 'var(--amber)' : 'var(--chart-line)';
       return `<div class="row"><span><span class="kl" style="background:${col}"></span>${esc(lab(s))}</span><b>${fmt(lines[s][i], 1)}</b></div>`;
     }).join('');
     placeTip(tipEl, wrapEl, e, -40);
@@ -105,6 +105,6 @@ export function drawPerf(svg, p) {
 
   legendEl.innerHTML = `<span><span class="kl" style="background:var(--ink)"></span>${esc(lab(bench))} (benchmark)</span>` +
     (focus && lines[focus] ? `<span><span class="kl" style="background:var(--amber)"></span>${esc(lab(focus))} (in evidenza)</span>` : '') +
-    `<span><span class="kl" style="background:#5a5a5a"></span>altri titoli</span><span class="muted">dal ${dIT(dates[0])}</span>` +
+    `<span><span class="kl" style="background:var(--chart-line)"></span>altri titoli</span><span class="muted">dal ${dIT(dates[0])}</span>` +
     late.map(([s, d]) => `<span class="muted">${esc(lab(s))} quotato dal ${dIT(d)}: base 100 da quel giorno</span>`).join('');
 }
