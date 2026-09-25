@@ -370,7 +370,7 @@ async function updateGlobal() {
   };
   fs.writeFileSync(OUT_GLOBAL, JSON.stringify(payload));
   const kb = (fs.statSync(OUT_GLOBAL).size / 1024).toFixed(0);
-  console.log(`Scritto ${path.relative(ROOT, OUT_GLOBAL)} (${kb} KB): ${dates.length} date, ${Object.keys(tickers).length} ticker, dati al ${asOf}, seduta attesa ${expected}, ritardo ${lag}, ${repaired.length} prezzi corretti.`);
+  console.log(`Scritto ${path.relative(ROOT, OUT_GLOBAL)} (${kb} KB): ${dates.length} date, ${Object.keys(tickers).length} ticker, dati al ${asOf}, seduta attesa ${expected}, ritardo ${lag}, prezzi corretti: ${repaired.length}.`);
 }
 
 async function main() {

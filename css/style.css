@@ -124,6 +124,8 @@ table.t { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .t tr.bench td { color: var(--ink-2); background: #050505; }
 .t tr.off td:not(:first-child) { opacity: 0.35; }
 .t td .vis { accent-color: var(--amber); margin: 0; cursor: pointer; }
+/* tabella di rotazione: celle più strette, così entra anche con i nomi brevi più lunghi (Commodity, Emergenti) */
+#rotTable th, #rotTable td { padding-left: 6px; padding-right: 6px; }
 .sym { font: 600 12.5px var(--f-mono); color: var(--amber); }
 .nm { color: var(--ink-2); margin-left: 6px; }
 .dlt { font-size: 10.5px; margin-left: 3px; }
