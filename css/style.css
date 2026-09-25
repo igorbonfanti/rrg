@@ -54,28 +54,42 @@ a { color: var(--amber); }
 /* ---------- cornice ---------- */
 .term { max-width: 1480px; margin: 0 auto; background: var(--panel); border: 1px solid var(--rule); }
 .cmdbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: #000; border-bottom: 1px solid var(--amber); padding: 6px 10px; }
+h1.brand { margin: 0; }
 .brand { font: 600 12px var(--f-mono); letter-spacing: 0.08em; color: #000; background: var(--amber); padding: 3px 8px; white-space: nowrap; }
 .cmd { flex: 1 1 280px; display: flex; align-items: center; gap: 8px; min-width: 0; margin: 0; }
 .cmd .prompt { color: var(--amber); font-family: var(--f-mono); }
 .cmd input { flex: 1; min-width: 0; background: transparent; border: 0; color: var(--amber-2); font: 500 14px var(--f-mono); letter-spacing: 0.04em; caret-color: var(--amber); text-transform: uppercase; }
-.cmd input::placeholder { color: #6b5a44; text-transform: none; letter-spacing: 0; }
+.cmd input::placeholder { color: #937b5a; text-transform: none; letter-spacing: 0; }
 .cmd.err input::placeholder { color: var(--down); }
 .cmd input:focus { outline: none; }
+.cmd:focus-within { box-shadow: 0 1px 0 var(--amber); }
 .go { font: 600 11px var(--f-mono); color: #000; background: #2fbf4f; border: 0; padding: 3px 9px; cursor: pointer; }
 .clock { font: 12px var(--f-mono); color: var(--ink-2); white-space: nowrap; display: flex; gap: 8px; align-items: center; }
 .clock b { color: var(--ink); font-weight: 500; }
 .fresh { font: 600 10.5px var(--f-mono); padding: 1px 6px; letter-spacing: 0.04em; }
 .fresh.ok { color: #000; background: var(--up); }
 .fresh.late { color: #000; background: var(--q-weak); }
-.fresh.stale { color: #fff; background: var(--down); }
+.fresh.stale { color: #000; background: var(--down); }
 
-.fnkeys { display: flex; gap: 1px; background: #000; border-bottom: 1px solid var(--rule); overflow-x: auto; }
+.fnkeys { display: flex; gap: 1px; background: #000; border-bottom: 1px solid var(--rule); }
+.fnkeys::after { content: ''; flex: 1; background: var(--panel-2); }
 .fnkeys button { font: 600 12px var(--f-mono); letter-spacing: 0.03em; color: var(--amber); background: var(--panel-2); border: 0; padding: 7px 14px; cursor: pointer; white-space: nowrap; }
 .fnkeys button:hover { background: var(--row-hi); }
 .fnkeys button[aria-selected="true"] { background: var(--amber); color: #000; }
-.fnkeys .spacer { flex: 1; background: var(--panel-2); }
-.fnkeys .tool { color: var(--ink-3); font-weight: 600; }
-.fnkeys .tool[aria-pressed="true"] { color: #000; background: var(--q-lead); }
+.fnkeys button:focus-visible { outline-offset: -3px; }
+.tools { display: flex; gap: 1px; }
+.tool { font: 600 11.5px var(--f-mono); letter-spacing: 0.03em; color: var(--ink-3); background: var(--panel-2); border: 0; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
+.tool:hover { color: var(--amber); }
+.tool[aria-pressed="true"] { color: #000; background: var(--q-lead); }
+/* telefono: le cinque schede vanno su due righe; guida e CVD salgono accanto al nome */
+@media (max-width: 600px) {
+  .fnkeys { flex-wrap: wrap; }
+  .fnkeys::after { display: none; }
+  .fnkeys button { flex: 1 1 auto; padding: 8px 10px; }
+  .tools { order: 1; margin-left: auto; }
+  .cmd { order: 2; flex-basis: 100%; }
+  .clock { order: 3; }
+}
 
 .filters { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 8px 12px; border-bottom: 1px solid var(--rule); background: #050505; }
 .statusline { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; border-top: 1px solid var(--rule); background: #000; padding: 6px 10px; font: 11px var(--f-mono); color: var(--ink-3); }
@@ -228,8 +242,11 @@ svg.perf { display: block; width: 100%; height: auto; background: #000; touch-ac
 .perf .xhair { stroke: var(--amber); }
 
 /* ---------- guida ---------- */
-.modal { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.72); display: grid; place-items: center; z-index: 50; padding: 16px; }
-.modal-card { background: var(--panel); border: 1px solid var(--amber); max-width: 640px; width: 100%; max-height: 90vh; overflow: auto; position: relative; }
+dialog.modal-card { padding: 0; color: var(--ink); background: var(--panel); border: 1px solid var(--amber); width: min(640px, calc(100% - 24px)); max-width: none; max-height: 90vh; overflow: auto; }
+dialog.modal-card::backdrop { background: rgba(0, 0, 0, 0.72); }
+.kbopt { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--ink-2); cursor: pointer; }
+.kbopt input { accent-color: var(--amber); margin: 2px 0 0; }
+.modal-card > .ph { position: sticky; top: 0; z-index: 1; background: var(--panel); }
 .modal-card .pb { display: grid; gap: 10px; }
 .modal-card p, .modal-card li { font-size: 13.5px; line-height: 1.5; color: var(--ink-2); margin: 0; }
 .modal-card ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
@@ -261,7 +278,7 @@ kbd { font: 600 11px var(--f-mono); color: #000; background: var(--amber); paddi
 .st svg { width: 11px; height: 11px; }
 .st-normal { color: var(--ink-2); background: #151517; }
 .st-watch { color: #000; background: var(--st-watch); }
-.st-setup { color: #fff; background: var(--blue); }
+.st-setup { color: #000; background: var(--blue); }
 .st-trig { color: #000; background: var(--st-trig); }
 .st-fail { color: #000; background: var(--down); }
 .st-cool { color: var(--ink-2); background: #000; box-shadow: inset 0 0 0 1px var(--rule); }
@@ -285,7 +302,7 @@ button.mini:hover { color: var(--amber); border-color: var(--amber); }
 .blue-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .stepper { display: inline-flex; align-items: center; border: 1px solid var(--blue); }
 .stepper button { background: #000; border: 0; color: var(--blue); width: 28px; height: 26px; cursor: pointer; font: 600 15px var(--f-mono); }
-.stepper output { min-width: 48px; text-align: center; font: 600 13px var(--f-mono); color: #fff; background: var(--blue); padding: 4px 0; }
+.stepper output { min-width: 48px; text-align: center; font: 600 13px var(--f-mono); color: #000; background: var(--blue); padding: 4px 0; }
 .cfgtext { width: 100%; background: #000; color: var(--ink-2); border: 1px solid var(--rule); font: 11px var(--f-mono); }
 .facts { display: grid; grid-template-columns: 1fr auto; gap: 5px 10px; font: 12px var(--f-mono); margin: 0; }
 .facts dt { color: var(--ink-3); }
@@ -342,4 +359,18 @@ svg.ts { display: block; width: 100%; height: auto; background: #000; touch-acti
 @media (max-width: 600px) {
   .alist li { grid-template-columns: 1fr; gap: 2px; }
   .bullet { width: 80px; }
+}
+
+/* dito: aree toccabili di almeno 32–36 px */
+@media (pointer: coarse) {
+  .seg button, .play, .go, .chip, button.mini, .tool, select { min-height: 34px; }
+  .seg button { padding: 3px 12px; }
+  .stepper button { width: 40px; height: 36px; }
+  .stepper output { padding: 9px 0; }
+  .scrub input[type="range"] { height: 32px; }
+  .t td .vis { width: 20px; height: 20px; }
+  .t th button { padding: 8px 0; }
+  .alist .who { padding: 6px 0; }
+  .tvlinks a { display: inline-block; padding: 6px 0; }
+  .fnkeys button { padding-top: 10px; padding-bottom: 10px; }
 }

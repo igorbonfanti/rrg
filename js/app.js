@@ -29,6 +29,7 @@ const state = {
   data: null, global: null, groups: {}, view: 'mon',
   group: null, benchmark: null, timeframe: store.pick('timeframe', ['weekly', 'daily'], 'weekly'), formula: store.pick('formula', ['nuova', 'classica'], 'nuova'),
   tail: store.pick('tail', [4, 10, 16, 26], 10), scale: 'fit', perfDays: store.pick('perfDays', [63, 126, 252, 504], 126),
+  shortcuts: store.get('shortcuts', true) !== false, // scorciatoie da un tasto (si spengono dalla guida)
   frame: 0, focus: null, pinned: null, hidden: new Set(), timer: null,
   sort: { key: 'rot', dir: 1 }, tableMode: 'rot',
   model: null, modelKey: '', bottom: null, sectorModels: {},
@@ -137,14 +138,15 @@ function init() {
   bind();
   state.bottom.bind();
   syncControls();
-  recompute(true);
+  setPlaceholder();
+  recompute(true, false);
   routeHash(true);
   window.addEventListener('hashchange', () => routeHash(true));
   // rotazione del telefono o finestra ridimensionata: i grafici si ridisegnano alla nuova larghezza
   let lastW = window.innerWidth, rt = null;
   window.addEventListener('resize', () => {
     clearTimeout(rt);
-    rt = setTimeout(() => { if (Math.abs(window.innerWidth - lastW) > 40) { lastW = window.innerWidth; renderAll(); } }, 250);
+    rt = setTimeout(() => { if (Math.abs(window.innerWidth - lastW) > 40) { lastW = window.innerWidth; setPlaceholder(); renderAll(); } }, 250);
   });
 }
 
@@ -185,7 +187,7 @@ function renderHeader() {
 function symbols() {
   return grp().tickers.filter((s) => ds().tickers[s] && s !== state.benchmark);
 }
-function recompute(resetFrame) {
+function recompute(resetFrame, render = true) {
   const key = [state.group, state.benchmark, state.timeframe, state.formula].join('|');
   if (key !== state.modelKey) {
     // cambiando solo la formula si resta sulla stessa data
@@ -202,7 +204,7 @@ function recompute(resetFrame) {
   const last = state.model.dates.length - 1;
   if (resetFrame || state.frame > last) state.frame = last;
   state.frame = Math.max(minFrame(), state.frame);
-  renderAll();
+  if (render) renderAll();
 }
 const minFrame = () => Math.min(state.model.dates.length - 1, state.model.start + 1);
 const lastFrame = () => state.model.dates.length - 1;
@@ -310,6 +312,7 @@ function renderRRGView(frameOnly = false) {
   const fr = $('frame');
   fr.min = minFrame(); fr.max = lastFrame(); fr.value = state.frame;
   $('frameDate').textContent = dIT(m.dates[state.frame]) + (isProvisional() ? ' *' : '');
+  fr.setAttribute('aria-valuetext', dIT(m.dates[state.frame]) + (isProvisional() ? ', provvisorio' : ''));
   $('provNote').hidden = !isProvisional();
   const px = state.tableMode === 'px';
   $('rotWrap').hidden = px; $('rotNote').hidden = px; $('pxWrap').hidden = !px; $('pxNote').hidden = !px;
@@ -414,6 +417,7 @@ function play() {
     drawChart();
     $('frame').value = state.frame;
     $('frameDate').textContent = dIT(state.model.dates[state.frame]);
+    $('frame').setAttribute('aria-valuetext', dIT(state.model.dates[state.frame]));
   }, state.timeframe === 'weekly' ? 450 : 120);
 }
 function step(k) {
@@ -426,7 +430,11 @@ function step(k) {
 function setView(v, silent) {
   state.view = v;
   if (v !== 'rrg') stop();
-  document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === v)));
+  document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => {
+    const on = b.dataset.view === v;
+    b.setAttribute('aria-selected', String(on));
+    b.tabIndex = on ? 0 : -1;
+  });
   for (const id of VIEWS) $('v-' + id).hidden = id !== v;
   $('filters').hidden = v !== 'rrg';
   const hash = v === 'sec' ? '#' + state.bottom.sector() : '#' + v;
@@ -447,7 +455,18 @@ function syncControls() {
   segPress('perfSeg', 'days', state.perfDays);
   segPress('tableSeg', 'mode', state.tableMode);
 }
-function openHelp(open) { $('helpModal').hidden = !open; if (open) $('helpClose').focus(); }
+// guida: <dialog> modale (il resto della pagina è inerte); alla chiusura il focus torna a chi l'ha aperta
+let helpOpener = null;
+const narrow = () => window.innerWidth < 600;
+let cmdErrTimer = null;
+function setPlaceholder() {
+  $('cmd').placeholder = narrow() ? 'Ticker o nome: XLU, ORO, HELP' : 'Comando: un ticker (XLU, NVDA, SWDA), un nome (ORO, TESLA), MON, ROT, BTM, ALRT, HELP · poi Invio';
+}
+function openHelp(open) {
+  const d = $('helpModal');
+  if (open && !d.open) { helpOpener = document.activeElement; d.showModal(); $('helpClose').focus(); }
+  else if (!open && d.open) d.close();
+}
 
 function bind() {
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => b.onclick = () => setView(b.dataset.view));
@@ -507,7 +526,32 @@ function bind() {
   $('introClose').onclick = () => { $('intro').hidden = true; store.set('introSeen', true); };
   $('introHelp').onclick = () => openHelp(true);
   $('helpClose').onclick = () => openHelp(false);
-  $('helpModal').onclick = (e) => { if (e.target.id === 'helpModal') openHelp(false); };
+  // clic sullo sfondo scuro: il bersaglio è il <dialog> ma il punto è fuori dal riquadro
+  $('helpModal').addEventListener('click', (e) => {
+    if (e.target !== $('helpModal')) return;
+    const r = $('helpModal').getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) openHelp(false);
+  });
+  $('helpModal').addEventListener('close', () => {
+    const back = helpOpener && document.contains(helpOpener) && helpOpener !== document.body ? helpOpener : $('helpBtn');
+    helpOpener = null;
+    back.focus();
+  });
+  // scorciatoie da un tasto: si possono spegnere (WCAG 2.1.4)
+  $('kbToggle').checked = state.shortcuts;
+  $('kbToggle').onchange = (e) => { state.shortcuts = e.target.checked; store.set('shortcuts', state.shortcuts); };
+  // schede: frecce, Home e Fine spostano il focus e aprono la vista
+  document.querySelector('.fnkeys').addEventListener('keydown', (e) => {
+    const tabs = [...document.querySelectorAll('.fnkeys [role=tab]')];
+    const i = tabs.indexOf(e.target);
+    if (i < 0) return;
+    const k = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+    if (k == null) return;
+    e.preventDefault(); e.stopPropagation();
+    const t = tabs[(k + tabs.length) % tabs.length];
+    setView(t.dataset.view);
+    t.focus();
+  });
   $('cvdBtn').onclick = () => {
     const on = $('term').classList.toggle('cvd');
     $('cvdBtn').setAttribute('aria-pressed', String(on));
@@ -515,12 +559,12 @@ function bind() {
   };
 
   document.addEventListener('keydown', (e) => {
+    if ($('helpModal').open) return; // la guida gestisce da sola Esc e il focus
     if (e.key === 'Escape') {
-      if (!$('helpModal').hidden) { openHelp(false); return; }
       if (state.pinned || state.focus) { state.pinned = null; state.focus = null; if (state.view === 'rrg') renderRRGView(); }
       return;
     }
-    if (e.target.closest('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (!state.shortcuts || e.target.closest('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === '?') { openHelp(true); return; }
     if (e.key === '/') { e.preventDefault(); $('cmd').focus(); return; }
     const idx = +e.key - 1;
@@ -528,7 +572,8 @@ function bind() {
     if (state.view === 'rrg') {
       if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
       if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
-      if (e.key === ' ' && !e.target.closest('button')) { e.preventDefault(); play(); }
+      // Spazio avvia l'animazione solo se il focus non è su un elemento attivabile (bottone, riga, link)
+      if (e.key === ' ' && !e.target.closest('button, a, summary, [tabindex]')) { e.preventDefault(); play(); }
     }
   });
 
@@ -552,8 +597,9 @@ function bind() {
       focusSymbol(hit.sym);
       return;
     }
-    $('cmd').placeholder = `"${v}" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP`;
+    $('cmd').placeholder = narrow() ? `"${v}" non trovato · prova HELP` : `"${v}" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP`;
     $('cmdForm').classList.add('err');
-    setTimeout(() => $('cmdForm').classList.remove('err'), 4000);
+    clearTimeout(cmdErrTimer);
+    cmdErrTimer = setTimeout(() => { $('cmdForm').classList.remove('err'); setPlaceholder(); }, 4000);
   };
 }

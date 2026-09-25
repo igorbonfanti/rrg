@@ -191,6 +191,9 @@ export function createBottom(ctx) {
     $('distList').querySelectorAll('.r').forEach((r) => {
       r.onmouseenter = () => { st.mapFocus = r.dataset.sym; redrawMap(); };
       r.onmouseleave = () => { st.mapFocus = null; redrawMap(); };
+      // anche da tastiera: la riga con il focus evidenzia il settore nel grafico
+      r.onfocus = r.onmouseenter;
+      r.onblur = r.onmouseleave;
       r.onclick = () => openSector(r.dataset.sym);
       r.onkeydown = (e) => { if (e.key === 'Enter') openSector(r.dataset.sym); };
     });
