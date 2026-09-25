@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { parse } from '../scripts/lib/yahoo.js';
-import { alignToCalendar, globalCalendar, pickAsOf, repairSpikes, validateGlobal, marketIndex, dropAfter, keepPublished } from '../scripts/fetch_data.js';
+import { alignToCalendar, globalCalendar, pickAsOf, repairSpikes, validateGlobal, marketIndex, dropAfter, keepPublished, withMeta, collectGlobalTickers } from '../scripts/fetch_data.js';
 import { MILAN } from '../js/calendar.js';
 import { portfolioIndex } from '../js/portfolio.js';
 
@@ -169,4 +169,31 @@ test('calendario globale: la seduta che manca alla maggior parte degli ETF si to
   const hole = ['2025-10-22', '2025-10-23', '2025-10-27'];
   const series = { A: mk(full), B: mk(hole), C: mk(hole), D: mk(hole), E: mk(['2025-10-27']) };
   assert.deepEqual(globalCalendar(series, '2025-10-27'), ['2025-10-22', '2025-10-23', '2025-10-27']);
+});
+
+test('prezzi tenuti: nomi, etichette e gruppi arrivano comunque da universe.json', () => {
+  const prev = {
+    asOf: '2026-09-24', dates: ['2026-09-23', '2026-09-24'],
+    groups: { 'Fattori · livello 2': { defaultBenchmark: 'SWDA.MI', benchmarks: ['SWDA.MI'], tickers: ['EQQQ.MI'] } },
+    tickers: {
+      'EQQQ.MI': { name: 'Invesco EQQQ', label: 'Growth', groups: ['Fattori · livello 2'], isBenchmark: false, quoteCurrency: 'EUR', close: [500, 505] },
+      'SWDA.MI': { name: 'iShares World', label: 'World', groups: [], isBenchmark: true, quoteCurrency: 'EUR', close: [100, 101] },
+      'OLD.MI': { name: 'tolto', label: 'Old', groups: ['Fattori · livello 2'], isBenchmark: false, quoteCurrency: 'EUR', close: [1, 1] },
+    },
+  };
+  const G = {
+    benchmarks: { 'SWDA.MI': { label: 'World', name: 'iShares World' } },
+    groups: { '2 · Fattori': { defaultBenchmark: 'SWDA.MI', benchmarks: ['SWDA.MI'], tickers: { 'EQQQ.MI': { label: 'Growth NDX', name: 'Invesco EQQQ' } } } },
+  };
+  const groups = { '2 · Fattori': { defaultBenchmark: 'SWDA.MI', benchmarks: ['SWDA.MI'], tickers: ['EQQQ.MI'] } };
+  const next = withMeta(prev, groups, collectGlobalTickers(G));
+  assert.deepEqual(Object.keys(next.groups), ['2 · Fattori']);
+  assert.equal(next.tickers['EQQQ.MI'].label, 'Growth NDX');
+  assert.deepEqual(next.tickers['EQQQ.MI'].groups, ['2 · Fattori']);
+  assert.deepEqual(next.tickers['EQQQ.MI'].close, [500, 505]); // prezzi intatti
+  assert.equal(next.asOf, '2026-09-24');
+  assert.deepEqual(next.tickers['OLD.MI'], prev.tickers['OLD.MI']); // fuori dall'universo: resta com'era
+  // universo invariato: il file risulta identico, quindi non si riscrive
+  const same = withMeta(next, groups, collectGlobalTickers(G));
+  assert.equal(JSON.stringify(same), JSON.stringify(next));
 });

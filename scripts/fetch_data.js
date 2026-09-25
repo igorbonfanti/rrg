@@ -122,6 +122,29 @@ export function pickAsOf(lastDates, between = sessionsBetween) {
 // Date con una barra vera (non riempita) per ogni ticker
 const realDates = (series) => Object.fromEntries(Object.entries(series).map(([s, v]) => [s, new Set(v.dates)]));
 
+// Prezzi tenuti ma universe.json cambiato (nomi, etichette, gruppi): si aggiornano solo i metadati,
+// così un nome nuovo compare subito invece che alla seduta successiva. I prezzi restano quelli pubblicati.
+export function withMeta(prev, groups, meta, extra = {}) {
+  const tickers = {};
+  for (const [sym, t] of Object.entries(prev.tickers)) {
+    const m = meta[sym];
+    tickers[sym] = m ? { ...t, name: m.name, ...(m.label != null ? { label: m.label } : {}), groups: m.groups, isBenchmark: !!m.isBenchmark } : t;
+  }
+  return { ...prev, ...extra, groups, tickers };
+}
+function writeMetaOnly(file, prev, next) {
+  if (JSON.stringify(next) === JSON.stringify(prev)) return;
+  fs.writeFileSync(file, JSON.stringify(next));
+  console.log(`  ${path.relative(ROOT, file)}: prezzi invariati, nomi e gruppi aggiornati da universe.json`);
+}
+const usGroups = () => Object.fromEntries(Object.entries(UNIVERSE.groups).map(([g, v]) => [g, { defaultBenchmark: v.defaultBenchmark, tickers: Object.keys(v.tickers) }]));
+const globalGroups = (G) => Object.fromEntries(Object.entries(G.groups).map(([g, v]) => [g, {
+  defaultBenchmark: v.defaultBenchmark,
+  benchmarks: v.benchmarks || [v.defaultBenchmark],
+  ...(v.portfolio ? { portfolio: { label: v.portfolio.label || 'Portafoglio', weights: v.portfolio.weights } } : {}),
+  tickers: Object.keys(v.tickers),
+}]));
+
 // Alla stessa data, un file con meno ticker di quello pubblicato (download fallito) non lo sostituisce
 function moreComplete(prev, asOf, have, wanted) {
   if (asOf !== prev.asOf) return true;
@@ -168,11 +191,9 @@ async function updateUS() {
   const prev = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf-8')) : null;
   if (prev) {
     const prevAsOf = prev.asOf || prev.dates.at(-1);
-    if (asOf < prevAsOf) {
-      console.log(`Dati scaricati al ${asOf}, più vecchi di quelli pubblicati (${prevAsOf}): non aggiorno.`);
-      return;
-    }
-    if (!moreComplete(prev, asOf, Object.keys(series), symbols)) return;
+    const keepPrices = asOf < prevAsOf || !moreComplete(prev, asOf, Object.keys(series), symbols);
+    if (asOf < prevAsOf) console.log(`Dati scaricati al ${asOf}, più vecchi di quelli pubblicati (${prevAsOf}): non aggiorno i prezzi.`);
+    if (keepPrices) { writeMetaOnly(OUT, prev, withMeta(prev, usGroups(), meta, { benchmarks: UNIVERSE.benchmarks })); return; }
   }
 
   const { dates, closes } = alignSeries(series, asOf);
@@ -193,9 +214,7 @@ async function updateUS() {
     range: RANGE,
     interval: '1d',
     benchmarks: UNIVERSE.benchmarks,
-    groups: Object.fromEntries(
-      Object.entries(UNIVERSE.groups).map(([g, v]) => [g, { defaultBenchmark: v.defaultBenchmark, tickers: Object.keys(v.tickers) }]),
-    ),
+    groups: usGroups(),
     dates,
     tickers,
   };
@@ -403,11 +422,9 @@ async function updateGlobal() {
 
   const prev = fs.existsSync(OUT_GLOBAL) ? JSON.parse(fs.readFileSync(OUT_GLOBAL, 'utf-8')) : null;
   if (prev) {
-    if (asOf < prev.asOf) {
-      console.log(`Globali: dati scaricati al ${asOf}, più vecchi di quelli pubblicati (${prev.asOf}): non aggiorno.`);
-      return;
-    }
-    if (!moreComplete(prev, asOf, Object.keys(series), symbols)) return;
+    const keepPrices = asOf < prev.asOf || !moreComplete(prev, asOf, Object.keys(series), symbols);
+    if (asOf < prev.asOf) console.log(`Globali: dati scaricati al ${asOf}, più vecchi di quelli pubblicati (${prev.asOf}): non aggiorno i prezzi.`);
+    if (keepPrices) { writeMetaOnly(OUT_GLOBAL, prev, withMeta(prev, globalGroups(G), meta)); return; }
   }
 
   const exchange = Object.fromEntries(Object.entries(series).filter(([s]) => !isCrypto(s)));
@@ -446,12 +463,7 @@ async function updateGlobal() {
     repaired,
     range: RANGE,
     interval: '1d',
-    groups: Object.fromEntries(Object.entries(G.groups).map(([g, v]) => [g, {
-      defaultBenchmark: v.defaultBenchmark,
-      benchmarks: v.benchmarks || [v.defaultBenchmark],
-      ...(v.portfolio ? { portfolio: { label: v.portfolio.label || 'Portafoglio', weights: v.portfolio.weights } } : {}),
-      tickers: Object.keys(v.tickers),
-    }])),
+    groups: globalGroups(G),
     dates,
     tickers,
   };

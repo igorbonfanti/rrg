@@ -147,7 +147,7 @@ La formula nuova distingue un trend relativo forte da uno debole: il più forte 
 - Nell'intestazione dell'app un badge indica se i dati sono indietro rispetto all'ultima seduta chiusa.
 
 ## Personalizzare
-- Universi della rotazione: modifica `universe.json`. La Action lo userà dalla corsa successiva.
+- Universi della rotazione: modifica `universe.json`. La Action lo userà dalla corsa successiva: nomi, etichette e gruppi si aggiornano anche quando i prezzi restano quelli già pubblicati.
   - `groups`: universi USA (ticker Yahoo senza suffisso, benchmark comuni in `benchmarks`).
   - `global`: universi in euro, con simboli Yahoo completi di borsa (`.MI` Milano, `.DE` Xetra, `.PA` Parigi, `.AS` Amsterdam, `.MC` Madrid), nome breve (`label`), benchmark ammessi per gruppo e, per il portafoglio, i pesi (`portfolio.weights`, somma 100). Il benchmark `PTF` è il portafoglio sintetico, calcolato nell'app.
 - Livelli blu e parametri degli stati: `config/thresholds.json`, usato sia dall'app sia dagli alert.
