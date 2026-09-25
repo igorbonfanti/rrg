@@ -114,6 +114,18 @@ test('portafoglio sintetico ribilanciato a fine mese', () => {
   assert.equal(part[1], 200); // senza B il portafoglio è tutto A
 });
 
+test('portafoglio: pesi di oggi e data dell\'ultimo ribilanciamento', () => {
+  const dates = ['2026-01-02', '2026-01-30', '2026-02-02', '2026-02-27'];
+  const { now, rebalanced } = portfolioIndex(dates, { A: [10, 20, 22, 22], B: [5, 5, 5, 5] }, { A: 50, B: 50 });
+  assert.equal(rebalanced, '2026-01-30'); // ultima seduta di gennaio
+  // dopo il ribilanciamento A sale del 10%: 55 / 105 del portafoglio
+  assert.ok(Math.abs(now.A - (100 * 55) / 105) < 1e-9, String(now.A));
+  assert.ok(Math.abs(now.A + now.B - 100) < 1e-9);
+  // senza movimenti dopo l'avvio i pesi restano quelli obiettivo
+  const flat = portfolioIndex(['2026-03-02', '2026-03-03'], { A: [1, 1], B: [2, 2] }, { A: 70, B: 30 });
+  assert.ok(Math.abs(flat.now.A - 70) < 1e-9 && flat.rebalanced === '2026-03-02');
+});
+
 test('universe.json: universi globali coerenti', () => {
   const u = JSON.parse(fs.readFileSync(new URL('../universe.json', import.meta.url)));
   assert.deepEqual(validateGlobal(u.global), []);
@@ -124,6 +136,15 @@ test('universe.json: universi globali coerenti', () => {
   const errs = validateGlobal(bad);
   assert.ok(errs.some((e) => e.includes('sommano a 90')), errs.join('; '));
   assert.ok(errs.some((e) => e.includes('NOPE.MI')), errs.join('; '));
+  // classi del portafoglio: ogni componente pesata in una e una sola classe
+  const cls = structuredClone(u.global);
+  const p = Object.values(cls.groups).find((x) => x.portfolio).portfolio;
+  const [first, second] = p.classes;
+  second.tickers.push(first.tickers[0]); // la stessa componente in due classi
+  const lost = p.classes.at(-1).tickers.pop(); // e una componente senza classe
+  const e2 = validateGlobal(cls);
+  assert.ok(e2.some((e) => e.includes('in più di una classe')), e2.join('; '));
+  assert.ok(e2.some((e) => e.includes(`${lost} ha un peso ma non è in nessuna classe`)), e2.join('; '));
 });
 
 test('prezzi anomali: un vero crollo a V di tutto il mercato non si corregge', () => {

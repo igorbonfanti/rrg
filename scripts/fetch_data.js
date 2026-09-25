@@ -141,7 +141,7 @@ const usGroups = () => Object.fromEntries(Object.entries(UNIVERSE.groups).map(([
 const globalGroups = (G) => Object.fromEntries(Object.entries(G.groups).map(([g, v]) => [g, {
   defaultBenchmark: v.defaultBenchmark,
   benchmarks: v.benchmarks || [v.defaultBenchmark],
-  ...(v.portfolio ? { portfolio: { label: v.portfolio.label || 'Portafoglio', weights: v.portfolio.weights } } : {}),
+  ...(v.portfolio ? { portfolio: { label: v.portfolio.label || 'Portafoglio', weights: v.portfolio.weights, ...(v.portfolio.classes ? { classes: v.portfolio.classes } : {}) } } : {}),
   tickers: Object.keys(v.tickers),
 }]));
 
@@ -245,6 +245,19 @@ export function validateGlobal(G) {
       for (const s of Object.keys(w)) if (!tick[s]) err.push(`${g}: peso su ${s}, che non è nel gruppo`);
       const tot = Object.values(w).reduce((t, x) => t + x, 0);
       if (Math.abs(tot - 100) > 1e-9) err.push(`${g}: i pesi sommano a ${tot}, non a 100`);
+      // classi (facoltative): raggruppano le componenti nella spiegazione del portafoglio, ognuna in una sola classe
+      if (v.portfolio.classes) {
+        const seen = new Set();
+        for (const c of v.portfolio.classes) {
+          if (!c.name || !Array.isArray(c.tickers) || !c.tickers.length) { err.push(`${g}: una classe del portafoglio non ha nome o ticker`); continue; }
+          for (const s of c.tickers) {
+            if (!(s in w)) err.push(`${g}: la classe ${c.name} contiene ${s}, che non ha un peso`);
+            if (seen.has(s)) err.push(`${g}: ${s} è in più di una classe`);
+            seen.add(s);
+          }
+        }
+        for (const s of Object.keys(w)) if (!seen.has(s)) err.push(`${g}: ${s} ha un peso ma non è in nessuna classe`);
+      }
     }
   }
   return err;

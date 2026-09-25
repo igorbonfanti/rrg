@@ -63,7 +63,8 @@ function addPortfolios(g) {
     const key = k++ ? `PTF${k}` : 'PTF';
     const w = grp.portfolio.weights;
     const closes = Object.fromEntries(Object.keys(w).filter((s) => g.tickers[s]).map((s) => [s, g.tickers[s].close]));
-    const { index, missing } = portfolioIndex(g.dates, closes, w);
+    const { index, missing, now, rebalanced } = portfolioIndex(g.dates, closes, w);
+    Object.assign(grp.portfolio, { key, now, rebalanced, missing });
     const lab = (s) => (g.tickers[s] ? g.tickers[s].label : s);
     const mix = Object.entries(w).map(([s, v]) => `${lab(s)} ${v}%`).join(', ');
     g.tickers[key] = {
@@ -83,7 +84,7 @@ function buildGroups() {
   const out = {};
   const add = (name, ds, market, v, benchmarks) => {
     const ok = benchmarks.filter((b) => ds.tickers[b]);
-    if (ok.length) out[name] = { ds, market, tickers: v.tickers, defaultBenchmark: ok.includes(v.defaultBenchmark) ? v.defaultBenchmark : ok[0], benchmarks: ok };
+    if (ok.length) out[name] = { ds, market, tickers: v.tickers, defaultBenchmark: ok.includes(v.defaultBenchmark) ? v.defaultBenchmark : ok[0], benchmarks: ok, portfolio: v.portfolio || null };
   };
   const us = state.data;
   for (const [name, v] of Object.entries(us.groups)) add(name, us, 'US', v, Object.keys(us.benchmarks));
@@ -324,7 +325,7 @@ function renderRRGView(frameOnly = false) {
   $('rotWrap').hidden = px; $('rotNote').hidden = px; $('pxWrap').hidden = !px; $('pxNote').hidden = !px;
   $('tableTitle').textContent = px ? `Prezzi · ${state.group}` : 'Tabella di rotazione';
   if (px) renderPriceTable(); else renderRotTable();
-  if (!frameOnly) renderPerf();
+  if (!frameOnly) { renderPerf(); renderPortfolio(); }
 }
 // Dopo il ridisegno di una tabella il focus da tastiera torna sulla stessa riga, spunta o intestazione
 function keepFocus(table) {
@@ -371,6 +372,52 @@ function renderRotTable() {
   });
   restore();
 }
+// ---------- portafoglio di riferimento (universi con un portafoglio, come 1 · Asset class) ----------
+// Spiega contro cosa si confronta: componenti, classi, pesi obiettivo e pesi di oggi
+function renderPortfolio() {
+  const p = grp().portfolio;
+  $('ptfPanel').hidden = !p;
+  $('ptfLine').hidden = true;
+  if (!p) return;
+  const d = ds(), w = p.weights, isPtf = state.benchmark === p.key;
+  const syms = Object.keys(w), classes = p.classes && p.classes.length ? p.classes : null;
+  const sum = (list, src) => list.reduce((t, s) => t + (src[s] || 0), 0);
+  const pw = (v) => fmt(v, Number.isInteger(v) ? 0 : 1) + '%';
+  const mix = classes ? classes.map((c) => `${c.name} ${pw(sum(c.tickers, w))}`) : syms.map((s) => `${label(s)} ${pw(w[s])}`);
+  if (isPtf) {
+    $('ptfLine').innerHTML = `Contro un <b>portafoglio di esempio</b>: ${esc(mix.join(' · '))}. Composizione sotto il grafico.`;
+    $('ptfLine').hidden = false;
+  }
+  $('ptfMeta').textContent = `${syms.length} componenti · ribilanciato a fine mese`;
+  $('ptfWhat').innerHTML = isPtf
+    ? `Il benchmark è un <b>portafoglio di esempio</b> fatto con le ${syms.length} componenti di questo universo, con i pesi qui sotto. Ogni punto del grafico confronta una componente con il portafoglio intero: a destra del centro la componente è più forte del portafoglio, in alto la sua forza relativa sta migliorando.`
+    : `Questo universo è formato dalle componenti di un <b>portafoglio di esempio</b>, ma ora le confronti con <b>${esc(label(state.benchmark))}</b>. <button type="button" class="mini" id="ptfUse">Confronta con il portafoglio</button>`;
+  // barre sulla stessa scala: la più lunga è il peso maggiore tra classi e componenti
+  const max = Math.max(...syms.map((s) => w[s]), ...(classes ? classes.map((c) => sum(c.tickers, w)) : []));
+  const bar = (v, cls = '') => `<span class="wbar${cls}" aria-hidden="true"><i style="width:${Math.max(1.5, (100 * v) / max).toFixed(1)}%"></i></span>`;
+  const now = (v) => (v == null ? '—' : fmt(v, 1) + '%');
+  const row = (s) => {
+    const t = d.tickers[s];
+    return `<tr data-sym="${esc(s)}" tabindex="0" class="${focused() === s ? 'sel' : ''}${t ? '' : ' off'}${classes ? ' sub' : ''}">
+      <td title="${esc(t ? t.name : s + ': dati mancanti')}"><span class="sym">${esc(label(s))}</span><span class="tk-in">${t ? esc(baseSym(s)) : 'dati mancanti'}</span></td><td class="tk tkcol">${t ? esc(baseSym(s)) : 'dati mancanti'}</td>
+      <td class="wcell">${bar(w[s])}<span class="num">${pw(w[s])}</span></td><td class="num r">${now(p.now[s])}</td></tr>`;
+  };
+  const body = classes
+    ? classes.map((c) => `<tr class="cls"><td class="cn">${esc(c.name)}</td><td class="tkcol"></td><td class="wcell">${bar(sum(c.tickers, w), ' strong')}<span class="num">${pw(sum(c.tickers, w))}</span></td><td class="num r">${now(sum(c.tickers, p.now))}</td></tr>` + c.tickers.map(row).join('')).join('')
+    : syms.map(row).join('');
+  $('ptfTable').innerHTML = `<thead><tr><th>${classes ? 'Classe e componente' : 'Componente'}</th><th class="tkcol">ETF</th><th>Obiettivo</th><th class="r">Oggi</th></tr></thead><tbody>${body}</tbody>`;
+  $('ptfFoot').innerHTML = `Pesi indicativi, non una raccomandazione. <b>Obiettivo</b>: il peso ripristinato alla chiusura dell'ultima seduta di ogni mese. <b>Oggi</b>: il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento (${dIT(p.rebalanced)}).` +
+    (p.missing && p.missing.length ? ` Senza ${esc(p.missing.map(label).join(', '))} per dati mancanti: i pesi delle altre componenti sono riproporzionati.` : '');
+  // riga: passandoci sopra evidenzia la componente nel grafico, clic o Invio la fissa (come la tabella di rotazione)
+  $('ptfTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
+    const s = tr.dataset.sym;
+    tr.onmouseenter = () => { if (!state.pinned && !state.hidden.has(s) && d.tickers[s]) { state.focus = s; refreshFocus(); } };
+    tr.onmouseleave = () => { if (!state.pinned && state.focus) { state.focus = null; refreshFocus(); } };
+    tr.onclick = () => { if (d.tickers[s] && s !== state.benchmark) togglePin(s); };
+    tr.onkeydown = (e) => { if (e.key === 'Enter') tr.onclick(); };
+  });
+  if ($('ptfUse')) $('ptfUse').onclick = () => { $('benchSel').value = p.key; $('benchSel').dispatchEvent(new Event('change')); };
+}
 function renderPerf() {
   const d = ds();
   drawPerf($('perf'), {
@@ -383,7 +430,7 @@ function renderPerf() {
 function refreshFocus() {
   drawChart();
   const foc = focused();
-  for (const id of ['rotTable', 'monTable']) $(id).querySelectorAll('tbody tr').forEach((tr) => tr.classList.toggle('sel', tr.dataset.sym === foc));
+  for (const id of ['rotTable', 'monTable', 'ptfTable']) $(id).querySelectorAll('tbody tr').forEach((tr) => tr.classList.toggle('sel', tr.dataset.sym === foc));
   renderPerf();
 }
 function togglePin(s) {

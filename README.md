@@ -31,6 +31,8 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
     | 3 Regioni | USA CSSPX, Europa SMEA, Giappone SJPA, Pacifico ex-Giappone CSPXJ, Emergenti EIMI | MSCI ACWI (IUSQ, mondo con emergenti) oppure World |
     | 4 Paesi | USA, Canada, Giappone, UK, Svizzera, Germania, Francia, Italia, Spagna, Olanda, Cina, India, Taiwan, Corea, Brasile | MSCI ACWI oppure World |
 
+    Nel livello 1, sotto il grafico, il pannello **Portafoglio di riferimento** spiega contro cosa si confronta: le classi (Azioni 50%, Obbligazioni governative euro 30%, Oro e materie prime 13%, Immobiliare 5%, Cripto 2%), i pesi obiettivo di ogni componente e i pesi di oggi, spostati dai prezzi dall'ultimo ribilanciamento. Passando sopra una riga la componente si evidenzia nel grafico.
+
     Sul grafico gli ETF globali hanno un nome breve (World, Gov 1-3, Oro…); ticker e nome completo sono in tabella. Bitcoin in euro come il resto: nel rapporto con il benchmark conta solo la valuta comune, e per chi investe in euro il rendimento è quello in euro.
 - **3 Bottom Map**: ogni settore è un punto, con la coda delle ultime 8 settimane.
   - In orizzontale la profondità del drawdown (percentile della storia del settore), in verticale la distanza dal livello blu.
@@ -149,7 +151,7 @@ La formula nuova distingue un trend relativo forte da uno debole: il più forte 
 ## Personalizzare
 - Universi della rotazione: modifica `universe.json`. La Action lo userà dalla corsa successiva: nomi, etichette e gruppi si aggiornano anche quando i prezzi restano quelli già pubblicati.
   - `groups`: universi USA (ticker Yahoo senza suffisso, benchmark comuni in `benchmarks`).
-  - `global`: universi in euro, con simboli Yahoo completi di borsa (`.MI` Milano, `.DE` Xetra, `.PA` Parigi, `.AS` Amsterdam, `.MC` Madrid), nome breve (`label`), benchmark ammessi per gruppo e, per il portafoglio, i pesi (`portfolio.weights`, somma 100). Il benchmark `PTF` è il portafoglio sintetico, calcolato nell'app.
+  - `global`: universi in euro, con simboli Yahoo completi di borsa (`.MI` Milano, `.DE` Xetra, `.PA` Parigi, `.AS` Amsterdam, `.MC` Madrid), nome breve (`label`), benchmark ammessi per gruppo e, per il portafoglio, i pesi (`portfolio.weights`, somma 100) e le classi mostrate nella spiegazione (`portfolio.classes`: ogni componente in una sola classe). Il benchmark `PTF` è il portafoglio sintetico, calcolato nell'app.
 - Livelli blu e parametri degli stati: `config/thresholds.json`, usato sia dall'app sia dagli alert.
 
 ## Sviluppo locale

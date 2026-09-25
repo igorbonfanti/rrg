@@ -10,7 +10,9 @@
  * @param {string[]} dates date delle sedute (ISO)
  * @param {Record<string, (number|null)[]>} closes prezzi allineati alle date
  * @param {Record<string, number>} weights pesi obiettivo (anche non normalizzati)
- * @returns {{index: (number|null)[], used: string[], missing: string[]}}
+ * @returns {{index: (number|null)[], used: string[], missing: string[], now: Record<string, number>, rebalanced: string|null}}
+ *   now: pesi in % all'ultima data, cioè gli obiettivi spostati dai prezzi dopo l'ultimo ribilanciamento
+ *   rebalanced: data (chiusura) dell'ultimo ribilanciamento
  */
 export function portfolioIndex(dates, closes, weights) {
   const used = Object.keys(weights).filter((s) => closes[s] && weights[s] > 0);
@@ -20,7 +22,7 @@ export function portfolioIndex(dates, closes, weights) {
   const tot = used.reduce((t, s) => t + weights[s], 0);
   let i0 = 0;
   while (i0 < n && !used.every((s) => closes[s][i0] != null)) i0++;
-  if (!used.length || !tot || i0 >= n) return { index, used, missing };
+  if (!used.length || !tot || i0 >= n) return { index, used, missing, now: {}, rebalanced: null };
   const units = {}, last = {};
   // un prezzo mancante vale l'ultimo noto
   const px = (s, i) => (closes[s][i] != null ? (last[s] = closes[s][i]) : last[s]);
@@ -28,11 +30,14 @@ export function portfolioIndex(dates, closes, weights) {
   for (const s of used) px(s, i0);
   index[i0] = 100;
   rebalance(100);
+  let rb = i0;
   for (let i = i0 + 1; i < n; i++) {
     let v = 0;
     for (const s of used) v += units[s] * px(s, i);
     index[i] = v;
-    if (i + 1 < n && dates[i + 1].slice(0, 7) !== dates[i].slice(0, 7)) rebalance(v);
+    if (i + 1 < n && dates[i + 1].slice(0, 7) !== dates[i].slice(0, 7)) { rebalance(v); rb = i; }
   }
-  return { index, used, missing };
+  const end = index[n - 1];
+  const now = Object.fromEntries(used.map((s) => [s, (100 * units[s] * last[s]) / end]));
+  return { index, used, missing, now, rebalanced: dates[rb] };
 }

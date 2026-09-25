@@ -73,7 +73,14 @@
             "IWDP.MI": 5,
             "CMOD.MI": 3,
             "BTC-EUR": 2
-          }
+          },
+          "classes": [
+            { "name": "Azioni", "tickers": ["SWDA.MI", "EIMI.MI"] },
+            { "name": "Obbligazioni governative euro", "tickers": ["EM13.MI", "EM710.MI", "EM15.MI"] },
+            { "name": "Oro e materie prime", "tickers": ["SGLD.MI", "CMOD.MI"] },
+            { "name": "Immobiliare", "tickers": ["IWDP.MI"] },
+            { "name": "Cripto", "tickers": ["BTC-EUR"] }
+          ]
         },
         "tickers": {
           "SWDA.MI": {

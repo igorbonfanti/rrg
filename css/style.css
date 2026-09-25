@@ -251,6 +251,36 @@ svg.perf { display: block; width: 100%; height: auto; background: #000; touch-ac
 .perf .endl.bench { fill: var(--ink); }
 .perf .xhair { stroke: var(--amber); }
 
+/* ---------- portafoglio di riferimento (vista Rotazione) ---------- */
+.ptf-line { margin: 0; padding: 8px 12px 0; font-size: 12.5px; line-height: 1.45; color: var(--ink-2); }
+.ptf-line b { color: var(--ink); }
+.ptf-box { display: grid; gap: 10px; }
+.ptf-box .note b { color: var(--ink); }
+.ptf-box .note button.mini { margin-left: 6px; }
+.t.ptf tr.cls { background: #050505; }
+.t.ptf tr.cls td { color: var(--ink); font-weight: 600; }
+.t.ptf .tk-in { display: none; }
+.t.ptf tr.sub td:first-child { padding-left: 20px; }
+.t.ptf td.tk { font: 11.5px var(--f-mono); color: var(--ink-3); }
+.t.ptf tr.off td { opacity: 0.45; }
+.wbar { display: inline-block; vertical-align: middle; position: relative; width: 110px; height: 8px; margin-right: 8px; background: var(--panel-2); }
+.wbar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink-3); }
+.wbar.strong i { background: var(--ink-2); }
+.t.ptf td.wcell { white-space: nowrap; }
+/* telefono: il ticker va sotto il nome, barre più corte, nessuna colonna fissa (la tabella non scorre) */
+@media (max-width: 700px) {
+  #ptfTable th:first-child, #ptfTable td:first-child { position: static; background: transparent; }
+  #ptfTable th:first-child { background: #000; }
+}
+@media (max-width: 600px) {
+  .t.ptf .tkcol { display: none; }
+  .t.ptf .tk-in { display: block; font: 10.5px var(--f-mono); color: var(--ink-3); }
+  .t.ptf td.cn { white-space: normal; }
+  .t.ptf th, .t.ptf td { padding-left: 6px; padding-right: 6px; }
+  .t.ptf tr.sub td:first-child { padding-left: 14px; }
+  .wbar { width: 40px; margin-right: 6px; }
+}
+
 /* ---------- guida ---------- */
 dialog.modal-card { padding: 0; color: var(--ink); background: var(--panel); border: 1px solid var(--amber); width: min(640px, calc(100% - 24px)); max-width: none; max-height: 90vh; overflow: auto; }
 dialog.modal-card::backdrop { background: rgba(0, 0, 0, 0.72); }
