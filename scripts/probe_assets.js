@@ -27,85 +27,60 @@ async function getJSON(path, tries = 4) {
 const EU = /\.(MI|DE|AS|PA|MC|L|SW)$/;
 const pct = (x) => (x == null || !isFinite(x) ? '   n/d' : `${x >= 0 ? '+' : ''}${(x * 100).toFixed(1)}%`.padStart(7));
 
-// Ultima passata: Growth, Brasile, Taiwan, quotazioni a Milano e confronti tra quotazioni dello stesso indice
-const QUERIES = ['Growth UCITS', 'MSCI World Growth UCITS ETF', 'Growth ETF Acc', 'Nasdaq 100 UCITS', 'MSCI USA Growth', 'S&P 500 Growth',
-  'World Quality Growth', 'Brazil UCITS', 'MSCI Brazil UCITS ETF', 'LU1900066207', 'Taiwan UCITS', 'MSCI Taiwan UCITS ETF', 'VHYL', 'VGWE'];
-const DIRECT = ['EQQQ.MI', 'CNDX.MI', 'SXRV.DE', 'EQQQ.DE', 'VHYL.MI', 'VGWE.MI', 'VGWD.MI', 'MWEQ.DE', 'MWEQ.MI', 'BRA.PA', 'DBX6.DE',
-  'XMBR.DE', '4BRZ.DE', 'IBZL.L', 'DBX5.DE', 'XMTW.DE', 'ITWN.AS', 'CSSPX.MI', 'SXR8.DE', 'SXR4.DE', 'XD9U.DE', 'LYXIB.MC', 'AMES.DE',
-  'EURUSD=X', 'SWDA.MI', 'IUSQ.DE', 'SPYY.DE', 'IWSZ.MI'];
+// Ultima passata: quotazioni gemelle (stesso ETF su borse diverse) per scegliere la più pulita
+const PAIRS = [
+  ['SWDA.MI', 'EUNL.DE'], ['EIMI.MI', 'IS3N.DE'], ['SMEA.MI', 'EUNK.DE'], ['CSPXJ.MI', 'SXR1.DE'], ['CSCA.MI', 'SXR2.DE'], ['CSSPX.MI', 'SXR8.DE'],
+  ['IWVL.MI', 'IS3S.DE'], ['IWQU.MI', 'IS3Q.DE'], ['IWMO.MI', 'IS3R.DE'], ['MVOL.MI', 'IQQ0.DE'], ['XSMI.MI', 'XSMI.DE'], ['XDAX.MI', 'DBXD.DE'],
+  ['IBZL.MI', 'IBZL.AS'], ['EM710.MI', 'MTD.PA'], ['EQQQ.MI', 'EQQQ.DE'], ['MWEQ.MI', 'MWEQ.DE'], ['VHYL.MI', 'VHYL.AS'], ['IQQT.DE', 'ITWN.AS'],
+  ['IQQK.DE', 'IKRA.AS'], ['LYXIB.MC', 'AMES.DE'], ['LYXIB.MC', 'CS1.PA'], ['AMES.DE', 'CS1.PA'], ['CACC.PA', 'CAC.PA'], ['CACC.PA', 'DX2G.DE'],
+  ['SJPA.MI', 'XMJP.MI'], ['EXS1.DE', 'DBXD.DE'], ['XMIB.MI', 'ETFMIB.MI'], ['ISF.MI', 'ISF.SW'], ['SGLD.MI', '4GLD.DE'], ['IWDP.MI', 'IQQ6.DE'],
+  ['CMOD.MI', 'WCOA.MI'], ['EM13.MI', 'X13E.MI'], ['EM15.MI', 'DBXF.DE'], ['XCS6.DE', 'ICGA.DE'], ['QDV5.DE', 'XCS5.DE'], ['IUSQ.DE', 'SPYY.DE'],
+  ['VGWE.DE', 'VHYL.AS'], ['ZPRS.DE', 'IUSN.DE'], ['IAEX.AS', 'TDT.AS'], ['XEON.MI', 'XEON.DE'],
+];
 
-function daily(res) {
-  const meta = res.meta || {};
-  const ts = res.timestamp || [];
-  const q = (res.indicators && res.indicators.quote && res.indicators.quote[0]) || {};
-  const adj = (res.indicators.adjclose && res.indicators.adjclose[0] && res.indicators.adjclose[0].adjclose) || [];
-  const off = meta.gmtoffset || 0;
-  const rows = [];
-  for (let i = 0; i < ts.length; i++) {
-    const c = q.close ? q.close[i] : null;
-    if (c == null) continue;
-    const d = new Date((ts[i] + off) * 1000).toISOString().slice(0, 10);
-    if (rows.length && rows[rows.length - 1].d === d) continue;
-    rows.push({ d, c, a: adj[i] ?? c });
-  }
-  return { meta, rows };
+async function load(s) {
+  const d = await getJSON(`/v8/finance/chart/${encodeURIComponent(s)}?range=2y&interval=1d&includeAdjustedClose=true`);
+  const res = d.chart && d.chart.result && d.chart.result[0];
+  if (!res || !res.timestamp) return null;
+  const off = (res.meta && res.meta.gmtoffset) || 0, q = res.indicators.quote[0];
+  const adj = (res.indicators.adjclose && res.indicators.adjclose[0].adjclose) || q.close;
+  const m = new Map();
+  res.timestamp.forEach((t, i) => { if (q.close[i] != null) m.set(new Date((t + off) * 1000).toISOString().slice(0, 10), adj[i] ?? q.close[i]); });
+  return m;
 }
 
 async function main() {
-  const found = new Set(DIRECT);
-  for (const q of QUERIES) {
-    const j = await getJSON(`/v1/finance/search?q=${encodeURIComponent(q)}&quotesCount=25&newsCount=0&listsCount=0`);
-    const quotes = (j.quotes || []).filter((x) => x.symbol && x.quoteType === 'ETF');
-    console.log(`\nsearch "${q}":`);
-    for (const x of quotes) console.log(`   ${x.symbol.padEnd(12)} ${String(x.exchange).padEnd(4)} ${(x.longname || x.shortname || '').slice(0, 80)}`);
-    for (const x of quotes) if (EU.test(x.symbol)) found.add(x.symbol);
-    await sleep(250);
-  }
+  const syms = [...new Set(PAIRS.flat().concat(['SWDA.MI']))];
   const data = new Map();
-  const list = [...found];
   let next = 0;
-  async function worker() {
-    while (next < list.length) {
-      const s = list[next++];
-      const m = await getJSON(`/v8/finance/chart/${encodeURIComponent(s)}?range=max&interval=1mo`);
-      const mres = m.chart && m.chart.result && m.chart.result[0];
-      const d = await getJSON(`/v8/finance/chart/${encodeURIComponent(s)}?range=5y&interval=1d&includeAdjustedClose=true`);
-      const dres = d.chart && d.chart.result && d.chart.result[0];
-      data.set(s, { first: mres && mres.timestamp ? new Date(mres.timestamp[0] * 1000).toISOString().slice(0, 7) : null, day: dres && dres.timestamp ? daily(dres) : null, err: d.error || m.error });
-      await sleep(150);
-    }
-  }
+  async function worker() { while (next < syms.length) { const s = syms[next++]; data.set(s, await load(s)); await sleep(150); } }
   await Promise.all([worker(), worker(), worker()]);
-  console.log('\nsimbolo      cur  exch | dal     | barre | ultimo      | 5a TR   | nome');
-  for (const s of list.sort()) {
-    const x = data.get(s);
-    if (!x.day) { console.log(`${s.padEnd(12)} — ${x.err || 'nessun dato'}`); continue; }
-    const R = x.day.rows, m = x.day.meta, f = R[0], L = R[R.length - 1];
-    console.log(`${s.padEnd(12)} ${(m.currency || '').padEnd(4)} ${(m.exchangeName || '').padEnd(4)} | ${x.first} | ${String(R.length).padStart(5)} | ${L.d} ${String(L.c.toFixed(2)).padStart(9)} | ${pct(L.a / f.a - 1)} | ${(m.longName || m.shortName || '').slice(0, 70)}`);
-  }
-  const pair = (a, b) => {
-    const A = data.get(a), B = data.get(b);
-    if (!A || !B || !A.day || !B.day) return console.log(`${a} vs ${b}: dati mancanti`);
-    const mb = new Map(B.day.rows.map((r) => [r.d, r.a]));
-    const common = A.day.rows.filter((r) => mb.has(r.d));
-    const ra = [], rb = [];
-    for (let i = 1; i < common.length; i++) { ra.push(Math.log(common[i].a / common[i - 1].a)); rb.push(Math.log(mb.get(common[i].d) / mb.get(common[i - 1].d))); }
-    const mean = (v) => v.reduce((t, x) => t + x, 0) / v.length;
-    const ma = mean(ra), mbb = mean(rb);
-    let cov = 0, va = 0, vb = 0, big = [];
-    for (let i = 0; i < ra.length; i++) {
-      cov += (ra[i] - ma) * (rb[i] - mbb); va += (ra[i] - ma) ** 2; vb += (rb[i] - mbb) ** 2;
-      if (Math.abs(ra[i] - rb[i]) > 0.02) big.push(`${common[i + 1].d} ${(100 * (ra[i] - rb[i])).toFixed(1)}`);
-    }
-    const ta = common.at(-1).a / common[0].a, tb = mb.get(common.at(-1).d) / mb.get(common[0].d);
-    console.log(`${a} vs ${b}: dal ${common[0].d}, corr giornaliera ${(cov / Math.sqrt(va * vb)).toFixed(4)}, rendimento ${pct(ta - 1)} vs ${pct(tb - 1)}, giorni con scarto >2%: ${big.length} ${big.slice(0, 8).join(', ')}`);
+  const ref = data.get('SWDA.MI');
+  const rets = (m, dates) => { const r = []; for (let i = 1; i < dates.length; i++) r.push(Math.log(m.get(dates[i]) / m.get(dates[i - 1]))); return r; };
+  const corr = (a, b) => {
+    const n = a.length, ma = a.reduce((t, x) => t + x, 0) / n, mb = b.reduce((t, x) => t + x, 0) / n;
+    let c = 0, va = 0, vb = 0;
+    for (let i = 0; i < n; i++) { c += (a[i] - ma) * (b[i] - mb); va += (a[i] - ma) ** 2; vb += (b[i] - mb) ** 2; }
+    return c / Math.sqrt(va * vb);
   };
-  console.log('\n=== CONFRONTI (giornalieri) ===');
-  pair('CSSPX.MI', 'SXR8.DE'); pair('CSSPX.MI', 'SXR4.DE'); pair('SXR4.DE', 'XD9U.DE'); pair('CSSPX.MI', 'XD9U.DE');
-  pair('LYXIB.MC', 'AMES.DE'); pair('MWEQ.DE', 'MWEQ.MI'); pair('VHYL.MI', 'VGWE.DE'); pair('IUSQ.DE', 'SPYY.DE'); pair('ITWN.AS', 'XMTW.DE');
-  // 4BRZ.DE dichiarato in USD: confronto dei livelli con EURUSD
-  const b = data.get('4BRZ.DE'), fx = data.get('EURUSD=X');
-  if (b && b.day && fx && fx.day) console.log(`4BRZ.DE ultimo ${b.day.rows.at(-1).c} (${b.day.meta.currency}); EURUSD ${fx.day.rows.at(-1).c}`);
+  const quality = (s) => {
+    const m = data.get(s);
+    if (!m) return `${s} n/d`;
+    const dates = [...m.keys()].filter((d) => ref.has(d));
+    const r = rets(m, dates), rr = rets(ref, dates);
+    const flat = r.filter((x) => x === 0).length;
+    return `${s.padEnd(9)} corrW ${corr(r, rr).toFixed(3)} flat ${String(flat).padStart(3)}`;
+  };
+  console.log('coppia                 | corr gemelli | giorni scarto >1,5% (primi)                        | qualità A                       | qualità B');
+  for (const [a, b] of PAIRS) {
+    const A = data.get(a), B = data.get(b);
+    if (!A || !B) { console.log(`${a} / ${b}: dati mancanti`); continue; }
+    const dates = [...A.keys()].filter((d) => B.has(d));
+    const ra = rets(A, dates), rb = rets(B, dates);
+    const big = [];
+    for (let i = 0; i < ra.length; i++) if (Math.abs(ra[i] - rb[i]) > 0.015) big.push(`${dates[i + 1].slice(2)} ${(100 * (ra[i] - rb[i])).toFixed(1)}`);
+    console.log(`${(a + ' / ' + b).padEnd(22)} | ${corr(ra, rb).toFixed(4).padStart(12)} | ${String(big.length).padStart(3)} ${big.slice(0, 4).join(', ').padEnd(46)} | ${quality(a)} | ${quality(b)}`);
+  }
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
