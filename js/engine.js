@@ -5,7 +5,7 @@
  *
  * "nuova" (default)
  *   lr  = ln(prezzo / benchmark)
- *   σ   = volatilità settimanale di lr (media esponenziale dei quadrati, emivita 26)
+ *   σ   = volatilità delle variazioni di lr da una barra all'altra (media esponenziale dei quadrati, emivita 26 barre)
  *   X   = (EMA10(lr) − EMA30(lr)) / (σ·√10)
  *   RS-Ratio    = 100 + 2,5·X
  *   RS-Momentum = 100 + 2,5·√8·(X − EMA8(X))

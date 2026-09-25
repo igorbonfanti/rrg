@@ -156,8 +156,8 @@ export function createBottom(ctx) {
     $('stateLegend').innerHTML = [
       ['watch', `breadth entro ${P.watchBand} punti dal livello blu, oppure drawdown più profondo ${delPct(P.ddWatch)} della storia del settore. Sotto il livello blu per meno di ${P.setupCloses} chiusure si resta qui.`],
       ['setup', `breadth sotto il livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile. Qui si formano i bottom, spesso in anticipo: ci si prepara.`],
-      ['trig', 'la breadth risale di almeno 2 titoli sopra il livello blu con una conferma: spinta di breadth, prezzo sopra una media 20 crescente, divergenza o rimbalzo a V.'],
-      ['fail', `entro ${P.failWindow} sedute dal trigger il prezzo rompe il minimo della zona blu: si torna in zona blu con regole più severe.`],
+      ['trig', `la breadth risale sopra il livello blu di almeno ${P.minRecoveryPoints} punti (o ${P.minRecoveryStocks} titoli, se valgono di più) con una conferma: spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V, cioè la breadth di nuovo sopra max(${P.resetFloor}%, livello + ${P.resetAbove}), basta da solo.`],
+      ['fail', `entro ${P.failWindow} sedute dal trigger il prezzo chiude sotto il minimo della zona blu, meno un'escursione media giornaliera: si torna in zona blu con regole più severe.`],
       ['cool', `per ${P.cooldown} sedute dopo un trigger nessun nuovo alert sullo stesso settore.`],
     ].map(([c, t]) => `<div>${badge(c)}<span>${t}</span></div>`).join('');
   }
@@ -337,8 +337,9 @@ export function createBottom(ctx) {
     $('rulesList').innerHTML = [
       'Alert solo sui cambi di stato: ingresso in zona blu, trigger, segnale fallito.',
       `Zona blu: breadth ≤ livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile.`,
-      `Trigger: breadth ≥ livello + max(${P.minRecoveryPoints} punti, ${P.minRecoveryStocks} titoli) con una conferma (due se la zona blu dura più di ${P.slowSetupSessions} sedute o dopo un fallimento).`,
-      `Riarmo: una nuova zona blu solo dopo che la breadth torna sopra max(${P.resetFloor}%, livello + ${P.resetAbove}).`,
+      `Trigger: breadth ≥ livello + max(${P.minRecoveryPoints} punti, ${P.minRecoveryStocks} titoli) con una conferma (due se la zona blu dura più di ${P.slowSetupSessions} sedute o dopo un fallimento); il rimbalzo a V basta da solo.`,
+      `Fallito: entro ${P.failWindow} sedute dal trigger il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera.`,
+      `Cooldown e riarmo: ${P.cooldown} sedute senza nuovi alert dopo un trigger; una nuova zona blu solo dopo che la breadth torna sopra max(${P.resetFloor}%, livello + ${P.resetAbove}).`,
     ].map((t) => `<li>${t}</li>`).join('');
   }
 

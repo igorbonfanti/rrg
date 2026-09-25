@@ -4,7 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sector Monitor</title>
-  <meta name="description" content="Rotazione relativa dei settori S&amp;P 500 e ricerca dei bottom settoriali." />
+  <meta name="description" content="Breadth dei settori S&amp;P 500 contro un livello blu, drawdown e rotazione relativa di settori, MAG7 ed ETF in euro. Dati di fine giornata, strumento di studio." />
+  <meta name="theme-color" content="#ffa028" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <!-- anteprima del link su Discord, Telegram, WhatsApp… -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sector Monitor" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:title" content="Sector Monitor · bottom settoriali e rotazione relativa" />
+  <meta property="og:description" content="Breadth dei settori S&amp;P 500 contro un livello blu, drawdown e rotazione relativa di settori, MAG7 ed ETF in euro. Dati di fine giornata, strumento di studio." />
+  <meta property="og:url" content="https://igorbonfanti.github.io/rrg/" />
+  <meta property="og:image" content="https://igorbonfanti.github.io/rrg/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Grafico di rotazione relativa dei settori S&amp;P 500 in Sector Monitor" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="preload" href="fonts/ibm-plex-mono-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
@@ -320,8 +335,8 @@
       <ul>
         <li><b>Attenzione</b>: breadth entro 10 punti dal livello blu o drawdown molto profondo; anche sotto il livello da una sola chiusura.</li>
         <li><b>Zona blu</b>: breadth al livello blu o sotto per 2 chiusure e drawdown oltre il 70° percentile della storia del settore. Lì si formano spesso i bottom, di solito in anticipo.</li>
-        <li><b>Trigger</b>: la breadth risale sopra il livello con una conferma (spinta di breadth, prezzo sopra una media 20 crescente, divergenza o rimbalzo a V).</li>
-        <li><b>Fallito</b>: entro 20 sedute dal trigger il prezzo rompe il minimo della zona blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali.</li>
+        <li><b>Trigger</b>: la breadth risale di almeno 5 punti sopra il livello (o 2 titoli, se valgono di più) con una conferma: spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V (breadth di nuovo sopra il 40% o il livello + 25) basta da solo.</li>
+        <li><b>Fallito</b>: entro 20 sedute dal trigger il prezzo chiude sotto il minimo della zona blu, con un piccolo margine. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali.</li>
       </ul>
       <h3>Rotazione relativa</h3>
       <p>Ogni titolo è confrontato con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>
