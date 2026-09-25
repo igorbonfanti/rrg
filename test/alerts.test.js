@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { collectEvents, formatMessage } from '../scripts/send_alerts.js';
+import { collectEvents, formatMessage, newEvents } from '../scripts/send_alerts.js';
 import { parseCSV, validateMembers, publishable, computeCounts, mergeBreadth } from '../scripts/fetch_breadth.js';
 import { expandRLE } from '../js/signals.js';
 
@@ -49,4 +49,32 @@ test('una seduta saltata per un buco nei dati si inserisce al suo posto', () => 
   assert.deepEqual(b.series.XLU.a200, [1, 2, 3, 2]);
   assert.deepEqual(expandRLE(b.series.XLU.n, 4), [31, 30, 31, 30]);
   assert.equal(b.asOf, '2026-09-24');
+});
+
+test('alert: un evento comparso con il ricalcolo delle ultime sedute non va perso', async () => {
+  const { newEvents: ne } = await import('../scripts/send_alerts.js');
+  const dates = ['2026-09-18', '2026-09-21', '2026-09-22', '2026-09-23', '2026-09-24', '2026-09-25'];
+  const state = { checkedThrough: '2026-09-24', log: [{ date: '2026-09-21', sector: 'XLP', code: 'setup' }] };
+  const events = [
+    { date: '2026-09-21', sector: 'XLP', code: 'setup' }, // già registrato
+    { date: '2026-09-24', sector: 'XLU', code: 'setup' }, // comparso col ricalcolo del 23/09
+    { date: '2026-09-25', sector: 'XLE', code: 'trig' }, // nuovo
+    { date: '2025-01-10', sector: 'XLK', code: 'setup' }, // vecchio, fuori finestra
+  ];
+  const out = ne(events, state, dates, '2026-09-25').map((e) => e.sector);
+  assert.deepEqual(out, ['XLU', 'XLE']);
+  assert.deepEqual(ne(events, null, dates, '2026-09-25'), []); // prima esecuzione: nessun invio
+});
+
+test('breadth: due membri che non quotano più non bloccano la pubblicazione', () => {
+  const mk = (dates) => ({ index: new Map(dates.map((d, i) => [d, i])) });
+  const days = ['2026-09-14', '2026-09-15', '2026-09-16', '2026-09-17', '2026-09-18', '2026-09-21', '2026-09-22', '2026-09-23', '2026-09-24'];
+  const members = [], prices = {};
+  for (let k = 0; k < 300; k++) { members.push({ s: 'A' + k, sector: k % 2 ? 'XLK' : 'XLF' }); prices['A' + k] = mk(days); }
+  // due delistati dello stesso settore, fermi da inizio mese
+  for (const s of ['D1', 'D2']) { members.push({ s, sector: 'XLK' }); prices[s] = mk(['2026-09-01', '2026-09-02']); }
+  assert.deepEqual(publishable(members, prices, ['2026-09-24']), ['2026-09-24']);
+  // due membri dello stesso settore senza la seduta ma attivi fino al giorno prima: si aspetta
+  for (const s of ['L1', 'L2']) { members.push({ s, sector: 'XLF' }); prices[s] = mk(days.slice(0, -1)); }
+  assert.deepEqual(publishable(members, prices, ['2026-09-24']), []);
 });

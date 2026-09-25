@@ -37,9 +37,8 @@
     }
   },
   "global": {
-    "_comment": "Universi globali: ETF UCITS in euro (simboli Yahoo con il suffisso di borsa: .MI Milano, .DE Xetra, .PA Parigi, .AS Amsterdam, .MC Madrid) e bitcoin in euro. Calendario di Borsa Italiana. 'label' è il nome breve sul grafico. Il benchmark 'PTF' è il portafoglio sintetico del gruppo, calcolato nell'app dai pesi di 'portfolio' e ribilanciato a fine mese. 'reference' è l'ETF usato per riconoscere i prezzi anomali.",
+    "_comment": "Universi globali: ETF UCITS in euro (simboli Yahoo con il suffisso di borsa: .MI Milano, .DE Xetra, .PA Parigi, .AS Amsterdam, .MC Madrid) e bitcoin in euro. Calendario di Borsa Italiana. 'label' è il nome breve sul grafico. Il benchmark 'PTF' è il portafoglio sintetico del gruppo, calcolato nell'app dai pesi di 'portfolio' e ribilanciato a fine mese.",
     "currency": "EUR",
-    "reference": "SWDA.MI",
     "benchmarks": {
       "SWDA.MI": {
         "label": "World",

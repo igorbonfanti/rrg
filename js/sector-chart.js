@@ -5,7 +5,7 @@
  *   3. % di titoli sopra la media 200 (e 50, più chiara) con il livello blu.
  * Le bande blu verticali sono i periodi in zona blu calcolati dalla macchina a stati.
  */
-import { fmt, dIT } from './format.js';
+import { fmt, sgn, dIT, placeTip } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -158,12 +158,9 @@ export function drawSector(svg, p) {
     });
     tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${sym}${days[i] ? ' · ' + STATE[days[i]] : ''}</span></div>
       <div class="row"><span>Prezzo</span><b>${fmt(c[i], 2)}</b></div><div class="row"><span>Media 200</span><b>${fmt(m[i], 2)}</b></div>
-      <div class="row"><span>Drawdown 52s</span><b>${fmt(dd[i])}%</b></div>
+      <div class="row"><span>Drawdown 52s</span><b>${sgn(dd[i])}%</b></div>
       <div class="row"><span>Sopra media 200</span><b>${b[i] == null ? '—' : fmt(b[i]) + '%'}</b></div><div class="row"><span>Sopra media 50</span><b>${b50[i] == null ? '—' : fmt(b50[i]) + '%'}</b></div>`;
-    const wr = wrapEl.getBoundingClientRect();
-    let x = e.clientX - wr.left + 14;
-    if (x + 210 > wr.width) x = e.clientX - wr.left - 220;
-    tipEl.style.left = x + 'px'; tipEl.style.top = (e.clientY - wr.top + 12) + 'px'; tipEl.hidden = false;
+    placeTip(tipEl, wrapEl, e, 12);
   });
   hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
 }

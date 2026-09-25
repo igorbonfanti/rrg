@@ -5,10 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sector Monitor</title>
   <meta name="description" content="Rotazione relativa dei settori S&amp;P 500 e ricerca dei bottom settoriali." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="preload" href="fonts/ibm-plex-mono-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/ibm-plex-sans-condensed-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="modulepreload" href="js/app.js" />
+  <link rel="modulepreload" href="js/engine.js" />
+  <link rel="modulepreload" href="js/bottom.js" />
+  <link rel="modulepreload" href="js/signals.js" />
+  <link rel="modulepreload" href="js/metrics.js" />
+  <link rel="modulepreload" href="js/calendar.js" />
+  <link rel="modulepreload" href="js/portfolio.js" />
+  <link rel="modulepreload" href="js/format.js" />
+  <link rel="modulepreload" href="js/rrg-chart.js" />
+  <link rel="modulepreload" href="js/perf-chart.js" />
+  <link rel="modulepreload" href="js/bottom-map.js" />
+  <link rel="modulepreload" href="js/sector-chart.js" />
+  <link rel="preload" href="data/prices.json" as="fetch" crossorigin />
+  <link rel="preload" href="data/sectors.json" as="fetch" crossorigin />
+  <link rel="preload" href="data/breadth.json" as="fetch" crossorigin />
+  <link rel="preload" href="data/prices_global.json" as="fetch" crossorigin />
 </head>
 <body>
 <div class="term" id="term">

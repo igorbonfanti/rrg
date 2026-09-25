@@ -3,7 +3,7 @@
  * Linee grigie, benchmark in bianco, titolo in evidenza in ambra; etichette solo
  * su benchmark, evidenza, migliore e peggiore. Mirino con i valori di tutti i titoli.
  */
-import { fmt, dIT, esc } from './format.js';
+import { fmt, dIT, esc, placeTip } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -94,10 +94,7 @@ export function drawPerf(svg, p) {
       const col = s === bench ? 'var(--ink)' : s === focus ? 'var(--amber)' : '#6a6a6a';
       return `<div class="row"><span><span class="kl" style="background:${col}"></span>${esc(lab(s))}</span><b>${fmt(lines[s][i], 1)}</b></div>`;
     }).join('');
-    const wr = wrapEl.getBoundingClientRect();
-    let x = e.clientX - wr.left + 14;
-    if (x + 200 > wr.width) x = e.clientX - wr.left - 210;
-    tipEl.style.left = x + 'px'; tipEl.style.top = Math.max(0, e.clientY - wr.top - 40) + 'px'; tipEl.hidden = false;
+    placeTip(tipEl, wrapEl, e, -40);
   });
   hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); tipEl.hidden = true; });
 

@@ -67,3 +67,13 @@ test('dati reali: tutti i settori hanno valori finiti dall\'inizio valido in poi
     for (const s of sectors) for (let i = m.start; i < m.dates.length; i++) assert.ok(Number.isFinite(m.series[s].x[i]) && Number.isFinite(m.series[s].y[i]), `${formula} ${s} ${i}`);
   }
 });
+
+test('un punto esiste solo quando RS-Ratio e RS-Momentum sono entrambi definiti (anche con la formula classica)', () => {
+  for (const formula of ['nuova', 'classica']) {
+    const m = build(data, { symbols: sectors, benchmark: 'SPY', timeframe: 'weekly', formula });
+    for (const s of sectors) {
+      const { x, y } = m.series[s];
+      for (let i = 0; i < x.length; i++) assert.equal(x[i] == null, y[i] == null, `${formula} ${s} ${i}`);
+    }
+  }
+});

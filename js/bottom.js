@@ -9,7 +9,7 @@ import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip } from './format.js';
 
 const NAMES = {
   XLK: 'Technology', XLC: 'Communication Services', XLY: 'Consumer Discretionary', XLP: 'Consumer Staples', XLE: 'Energy',
@@ -57,10 +57,16 @@ export function createBottom(ctx) {
   let NOW = DATES.length - 1;
   while (NOW > 0 && BR.SPX.pct200[NOW] == null) NOW--;
   const st = {
-    blue: { ...config.blue, ...store.get('blue', {}) },
-    sector: store.get('sector', 'XLU'), range: store.get('range', '3A'), mapFocus: null,
+    blue: { ...config.blue, ...validBlue(store.get('blue', {})) },
+    sector: SECTOR_KEYS.includes(store.get('sector')) ? store.get('sector') : 'XLU',
+    range: ['3A', '10A', 'MAX'].includes(store.get('range')) ? store.get('range') : '3A', mapFocus: null,
   };
   const cache = new Map();
+  // livelli blu salvati nel browser: solo settori noti e interi da 0 a 60
+  function validBlue(v) {
+    return Object.fromEntries(Object.entries(v && typeof v === 'object' ? v : {})
+      .filter(([k, x]) => SECTOR_KEYS.includes(k) && Number.isInteger(x) && x >= 0 && x <= 60));
+  }
 
   function machine(s) {
     const key = s + ':' + st.blue[s];
@@ -73,7 +79,8 @@ export function createBottom(ctx) {
     while (t > 0 && m.days[t] == null) t--;
     const code = m.days[t] || 'normal';
     const b = BR[s].pct200[NOW], L = st.blue[s], dd = PX[s].dd[NOW], dp = PX[s].dp[NOW];
-    const ddTxt = `drawdown ${sgn(dd)}%, più profondo ${delPct(dp)} delle sedute dal ${DATES[0].slice(0, 4)}`;
+    const since = DATES[Math.max(0, PX[s].close.findIndex((v) => v != null))].slice(0, 4);
+    const ddTxt = `drawdown ${sgn(dd)}%, più profondo ${delPct(dp)} delle sedute dal ${since}`;
     const setup = m.setups[m.setups.length - 1];
     const lastEv = m.events[m.events.length - 1];
     const why = {
@@ -195,7 +202,7 @@ export function createBottom(ctx) {
   function bindMap() {
     const svg = $('bm'), tip = $('bmTip');
     svg.addEventListener('pointermove', (e) => {
-      if (!mapDraw) return;
+      if (!mapDraw || e.pointerType === 'touch') return;
       const h = nearestHead(svg, mapDraw.heads, e);
       const s = h ? h.sym : null;
       if (s !== st.mapFocus) { st.mapFocus = s; redrawMap(); }
@@ -206,13 +213,11 @@ export function createBottom(ctx) {
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[s].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
         <div class="row"><span>Stato</span><b>${esc(STATES[stateOf(s).code])}</b></div>
         <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
-      const wr = $('bmWrap').getBoundingClientRect();
-      let x = e.clientX - wr.left + 14;
-      if (x + 210 > wr.width) x = e.clientX - wr.left - 220;
-      tip.style.left = x + 'px'; tip.style.top = (e.clientY - wr.top + 14) + 'px'; tip.hidden = false;
+      placeTip(tip, $('bmWrap'), e);
     });
     svg.addEventListener('pointerleave', () => { tip.hidden = true; if (st.mapFocus) { st.mapFocus = null; redrawMap(); } });
-    svg.addEventListener('click', () => { if (st.mapFocus) openSector(st.mapFocus); });
+    // clic o tocco sul punto più vicino: apre il settore
+    svg.addEventListener('click', (e) => { const h = mapDraw ? nearestHead(svg, mapDraw.heads, e) : null; if (h) openSector(h.sym); });
   }
 
   // ---------- 4 SETTORE ----------
@@ -228,7 +233,7 @@ export function createBottom(ctx) {
   function renderSector() {
     const s = st.sector, m = machine(s), L = st.blue[s], state = stateOf(s);
     $('secChips').innerHTML = SECTOR_KEYS.map((k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}"><span class="sd sd-${stateOf(k).code}"></span>${k}</button>`).join('');
-    $('secChips').querySelectorAll('button').forEach((b) => b.onclick = () => { st.sector = b.dataset.sym; store.set('sector', st.sector); renderSector(); });
+    $('secChips').querySelectorAll('button').forEach((b) => b.onclick = () => openSector(b.dataset.sym));
     document.querySelectorAll('#rangeSeg button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('secTitle').textContent = `${s} · ${NAMES[s]}`;
     $('secBadge').innerHTML = badge(state.code);
@@ -264,11 +269,15 @@ export function createBottom(ctx) {
   }
   function renderMembers(s) {
     if (!latest) { $('memTable').innerHTML = '<tbody><tr><td class="muted">Fotografia per titolo non disponibile.</td></tr></tbody>'; return; }
-    const rows = latest.members.filter((m) => m.sector === s && m.d200 != null).sort((a, b) => b.d200 - a.d200);
-    const firstBelow = rows.findIndex((r) => r.d200 <= 0);
-    $('memMeta').textContent = `${rows.filter((r) => r.d200 > 0).length} su ${rows.length} sopra la media 200 · al ${dIT(latest.asOf)}`;
+    // sopra la media 200 con la regola dei conteggi (up200); i titoli con meno di 200 sedute contano come "non sopra"
+    const up = (r) => (r.up200 != null ? r.up200 : r.d200 > 0);
+    const rows = latest.members.filter((m) => m.sector === s && m.close != null)
+      .sort((a, b) => up(b) - up(a) || (b.d200 ?? -Infinity) - (a.d200 ?? -Infinity));
+    const firstBelow = rows.findIndex((r) => !up(r));
+    const nUp = rows.filter(up).length, young = rows.filter((r) => r.d200 == null).length;
+    $('memMeta').textContent = `${nUp} su ${rows.length} sopra la media 200 · al ${dIT(latest.asOf)}` + (young ? ` · ${young} con meno di 200 sedute` : '');
     $('memTable').innerHTML = `<thead><tr><th>Titolo</th><th class="r">vs m.200</th><th class="r">vs m.50</th><th class="r">DD 52s</th></tr></thead><tbody>` +
-      rows.map((r, i) => `<tr class="${i === firstBelow ? 'cut' : ''}"><td title="${esc(r.name)}"><span class="sym">${esc(r.s)}</span></td><td class="num r">${pct(r.d200)}</td><td class="num r">${pct(r.d50)}</td><td class="num r">${sgn(r.dd)}%</td></tr>`).join('') + '</tbody>';
+      rows.map((r, i) => `<tr class="${i === firstBelow ? 'cut' : ''}"><td title="${esc(r.name)}"><span class="sym">${esc(r.s)}</span></td><td class="num r">${r.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(r.d200)}</td><td class="num r">${pct(r.d50)}</td><td class="num r">${sgn(r.dd)}%</td></tr>`).join('') + '</tbody>';
   }
   function renderEpisodes(s, m) {
     const c = PX[s].close;
@@ -342,7 +351,7 @@ export function createBottom(ctx) {
   }
 
   return {
-    NOW, bind, renderMonitor, renderMap, renderSector, renderAlerts, openSector,
+    NOW, bind, renderMonitor, renderMap, renderSector, renderAlerts, openSector, sector: () => st.sector,
     isSector: (s) => SECTOR_KEYS.includes(s),
     asOf: DATES[NOW],
   };

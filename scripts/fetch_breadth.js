@@ -136,12 +136,17 @@ export function computeCounts(members, prices, dates) {
 // non ha mai la barra di un giorno per molti titoli): si salta. Una seduta incompleta in coda
 // invece si aspetta, perché le chiusure arrivano in ritardo.
 export function publishable(members, prices, candidates) {
+  // ultimo prezzo di ogni membro: chi non quota più da oltre una settimana (delistato ma ancora
+  // nella lista, ticker rotto) non deve bloccare per sempre la pubblicazione
+  const lastDate = new Map(members.map((m) => [m.s, prices[m.s] ? [...prices[m.s].index.keys()].sort().at(-1) : null]));
   const info = candidates.map((d) => {
     const missing = {};
+    const t = Date.parse(d + 'T00:00:00Z');
+    const weekBefore = Number.isFinite(t) ? new Date(t - 7 * 86400000).toISOString().slice(0, 10) : '';
     let priced = 0;
     for (const m of members) {
       if (prices[m.s] && prices[m.s].index.has(d)) priced++;
-      else missing[m.sector] = (missing[m.sector] || 0) + 1;
+      else if (lastDate.get(m.s) && lastDate.get(m.s) >= weekBefore) missing[m.sector] = (missing[m.sector] || 0) + 1;
     }
     const worst = Math.max(0, ...Object.values(missing));
     return { d, priced, worst, ok: priced >= members.length * 0.99 && worst <= 1 };
@@ -249,7 +254,9 @@ async function main() {
     if (i === undefined) return { s: m.s, name: m.name, sector: m.sector };
     const c = p.close, hi = Math.max(...c.slice(Math.max(0, i - 251), i + 1));
     const dist = (w) => { const v = smaAt(c, i, w); return v == null ? null : Math.round((c[i] / v - 1) * 1000) / 10; };
-    return { s: m.s, name: m.name, sector: m.sector, close: Math.round(c[i] * 100) / 100, d20: dist(20), d50: dist(50), d200: dist(200), dd: Math.round((c[i] / hi - 1) * 1000) / 10 };
+    const m200 = smaAt(c, i, 200);
+    // up200: sopra la media 200 con la stessa regola dei conteggi (d200 è arrotondato e può valere 0)
+    return { s: m.s, name: m.name, sector: m.sector, close: Math.round(c[i] * 100) / 100, d20: dist(20), d50: dist(50), d200: dist(200), up200: m200 != null && c[i] > m200, dd: Math.round((c[i] / hi - 1) * 1000) / 10 };
   });
   writeJSON(path.join(DATA, 'breadth_latest.json'), { asOf: d, members: snap });
 

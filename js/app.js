@@ -6,7 +6,7 @@ import { drawRRG, nearestHead } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
 import { portfolioIndex } from './portfolio.js';
-import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY } from './format.js';
+import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
 const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr'];
@@ -21,12 +21,14 @@ const NEXT_UPDATE = 'aggiornamento automatico ogni notte verso l\'1 (ora italian
 const store = {
   get(k, d) { try { const v = localStorage.getItem('sm.' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
   set(k, v) { try { localStorage.setItem('sm.' + k, JSON.stringify(v)); } catch { /* ignorato */ } },
+  // valore salvato solo se è tra quelli ammessi (lo storage è condiviso da tutti i siti github.io dell'account)
+  pick(k, allowed, d) { const v = this.get(k, d); return allowed.includes(v) ? v : d; },
 };
 
 const state = {
   data: null, global: null, groups: {}, view: 'mon',
-  group: null, benchmark: null, timeframe: store.get('timeframe', 'weekly'), formula: store.get('formula', 'nuova'),
-  tail: store.get('tail', 10), scale: 'fit', perfDays: store.get('perfDays', 126),
+  group: null, benchmark: null, timeframe: store.pick('timeframe', ['weekly', 'daily'], 'weekly'), formula: store.pick('formula', ['nuova', 'classica'], 'nuova'),
+  tail: store.pick('tail', [4, 10, 16, 26], 10), scale: 'fit', perfDays: store.pick('perfDays', [63, 126, 252, 504], 126),
   frame: 0, focus: null, pinned: null, hidden: new Set(), timer: null,
   sort: { key: 'rot', dir: 1 }, tableMode: 'rot',
   model: null, modelKey: '', bottom: null, sectorModels: {},
@@ -75,12 +77,17 @@ function addPortfolios(g) {
 }
 
 // Registro degli universi: USA (prices.json, benchmark comuni) e globali in euro (prices_global.json)
+// (un universo senza nessun benchmark nei dati, per esempio dopo un download fallito, non compare)
 function buildGroups() {
   const out = {};
+  const add = (name, ds, market, v, benchmarks) => {
+    const ok = benchmarks.filter((b) => ds.tickers[b]);
+    if (ok.length) out[name] = { ds, market, tickers: v.tickers, defaultBenchmark: ok.includes(v.defaultBenchmark) ? v.defaultBenchmark : ok[0], benchmarks: ok };
+  };
   const us = state.data;
-  for (const [name, v] of Object.entries(us.groups)) out[name] = { ds: us, market: 'US', tickers: v.tickers, defaultBenchmark: v.defaultBenchmark, benchmarks: Object.keys(us.benchmarks) };
+  for (const [name, v] of Object.entries(us.groups)) add(name, us, 'US', v, Object.keys(us.benchmarks));
   const gl = state.global;
-  if (gl) for (const [name, v] of Object.entries(gl.groups)) out[name] = { ds: gl, market: 'global', tickers: v.tickers, defaultBenchmark: v.defaultBenchmark, benchmarks: v.benchmarks };
+  if (gl) for (const [name, v] of Object.entries(gl.groups)) add(name, gl, 'global', v, v.benchmarks);
   return out;
 }
 const grp = () => state.groups[state.group];
@@ -95,7 +102,7 @@ const labelMap = () => Object.fromEntries(Object.keys(ds().tickers).map((s) => [
 const benchText = (s) => (isGlobal() ? `${label(s)}${ds().tickers[s].synthetic ? '' : ` (${baseSym(s)})`}` : `${s} · ${state.data.benchmarks[s]}`);
 function pickBenchmark(name) {
   const g = state.groups[name], saved = store.get('bench.' + name);
-  return saved && g.benchmarks.includes(saved) && g.ds.tickers[saved] ? saved : g.defaultBenchmark;
+  return saved && g.benchmarks.includes(saved) ? saved : g.defaultBenchmark;
 }
 function fillSelects() {
   const names = Object.keys(state.groups);
@@ -118,7 +125,7 @@ function init() {
     set.metrics = {};
     for (const s of Object.keys(set.tickers)) set.metrics[s] = priceMetrics(set.dates, set.tickers[s].close);
   }
-  if (store.get('cvd', false)) { $('term').classList.add('cvd'); $('cvdBtn').setAttribute('aria-pressed', 'true'); }
+  if (store.get('cvd', false) === true) { $('term').classList.add('cvd'); $('cvdBtn').setAttribute('aria-pressed', 'true'); }
   const x = state.extra;
   state.bottom = createBottom({
     $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store,
@@ -132,6 +139,7 @@ function init() {
   syncControls();
   recompute(true);
   routeHash(true);
+  window.addEventListener('hashchange', () => routeHash(true));
 }
 
 // #mon #rrg #btm #sec #alr, oppure #XLU per il dettaglio di un settore
@@ -147,7 +155,7 @@ function sectorRotation(s) {
   const key = state.formula;
   if (!state.sectorModels[key]) {
     const group = Object.keys(state.data.groups).find((g) => state.data.groups[g].tickers.includes('XLK'));
-    state.sectorModels[key] = group ? build(state.data, { symbols: state.data.groups[group].tickers, benchmark: 'SPY', timeframe: 'weekly', formula: key }) : null;
+    state.sectorModels[key] = group && state.data.tickers.SPY ? build(state.data, { symbols: state.data.groups[group].tickers, benchmark: 'SPY', timeframe: 'weekly', formula: key }) : null;
   }
   const m = state.sectorModels[key];
   return m && m.series[s] ? stats(m.series[s], m.dates.length - 1, 10) : null;
@@ -156,10 +164,14 @@ function sectorRotation(s) {
 function renderHeader() {
   const d = state.data;
   const asOf = d.asOf || d.dates[d.dates.length - 1];
-  const lag = sessionsBetween(asOf, expectedSession(new Date(), PUBLISH_US));
-  $('clock').title = `Chiusure USA · ${NEXT_UPDATE}`;
+  const exp = expectedSession(new Date(), PUBLISH_US);
+  // il ritardo peggiore tra prezzi USA e breadth dei settori
+  const bAsOf = state.bottom ? state.bottom.asOf : asOf;
+  const lag = Math.max(sessionsBetween(asOf, exp), sessionsBetween(bAsOf, exp));
   const badge = lag === 0 ? '<span class="fresh ok">AGGIORNATO</span>' : `<span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'SEDUTA' : 'SEDUTE'} INDIETRO</span>`;
-  $('clock').innerHTML = `EOD <b>${dIT(asOf)}</b> ${badge}`;
+  const breadthNote = bAsOf < asOf ? ` <span class="muted">· breadth al ${dIT(bAsOf)}</span>` : '';
+  $('clock').innerHTML = `EOD <b>${dIT(asOf)}</b>${breadthNote} ${badge}`;
+  $('clock').title = `Chiusure USA · ${NEXT_UPDATE}`;
   $('genLine').textContent = `generato ${new Date(d.generated).toLocaleString('it-IT')}`;
 }
 
@@ -170,13 +182,16 @@ function symbols() {
 function recompute(resetFrame) {
   const key = [state.group, state.benchmark, state.timeframe, state.formula].join('|');
   if (key !== state.modelKey) {
+    // cambiando solo la formula si resta sulla stessa data
+    const keepDate = !resetFrame && state.model ? state.model.dates[state.frame] : null;
     state.model = build(ds(), {
       symbols: symbols(), benchmark: state.benchmark, timeframe: state.timeframe, formula: state.formula,
       weekHasMoreSessions: isGlobal() ? MILAN.weekHasMoreSessions : undefined,
     });
     state.modelKey = key;
     state.maxRange = null;
-    resetFrame = true;
+    const k = keepDate ? state.model.dates.indexOf(keepDate) : -1;
+    if (k >= 0) state.frame = k; else resetFrame = true;
   }
   const last = state.model.dates.length - 1;
   if (resetFrame || state.frame > last) state.frame = last;
@@ -272,18 +287,20 @@ function fitRange() {
   }
   return Math.ceil(mx * 1.12 * 4) / 4;
 }
-const focused = () => state.pinned || state.focus;
+// titolo in evidenza (mai il benchmark, che non è sul grafico)
+const focused = () => { const f = state.pinned || state.focus; return f && f !== state.benchmark ? f : null; };
 function drawChart() {
   lastDraw = drawRRG($('rrg'), {
     syms: symbols().filter((s) => !state.hidden.has(s)), series: state.model.series, frame: state.frame, tail: state.tail, labels: labelMap(),
     focus: focused(), range: state.scale === 'max' || state.timer ? maxRange() : fitRange(), provisional: isProvisional(),
   });
 }
-function renderRRGView() {
+// frameOnly: cambia solo il periodo mostrato (la performance non dipende dal periodo e non si ridisegna)
+function renderRRGView(frameOnly = false) {
   drawChart();
   const m = state.model;
   $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${isGlobal() ? label(state.benchmark) : state.benchmark}`;
-  $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · formula ${state.formula}` + (isGlobal() ? ` · ${globalFreshness()}` : '');
+  $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · formula ${esc(state.formula)}` + (isGlobal() ? ` · ${globalFreshness()}` : '');
   const fr = $('frame');
   fr.min = minFrame(); fr.max = lastFrame(); fr.value = state.frame;
   $('frameDate').textContent = dIT(m.dates[state.frame]) + (isProvisional() ? ' *' : '');
@@ -292,7 +309,7 @@ function renderRRGView() {
   $('rotWrap').hidden = px; $('rotNote').hidden = px; $('pxWrap').hidden = !px; $('pxNote').hidden = !px;
   $('tableTitle').textContent = px ? `Prezzi · ${state.group}` : 'Tabella di rotazione';
   if (px) renderPriceTable(); else renderRotTable();
-  renderPerf();
+  if (!frameOnly) renderPerf();
 }
 function renderRotTable() {
   const f = state.frame, foc = focused();
@@ -396,7 +413,7 @@ function play() {
 function step(k) {
   stop();
   state.frame = Math.max(minFrame(), Math.min(lastFrame(), state.frame + k));
-  renderRRGView();
+  renderRRGView(true);
 }
 
 // ---------- navigazione e controlli ----------
@@ -406,7 +423,7 @@ function setView(v, silent) {
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.view === v)));
   for (const id of VIEWS) $('v-' + id).hidden = id !== v;
   $('filters').hidden = v !== 'rrg';
-  const hash = v === 'sec' ? '#' + store.get('sector', 'XLU') : '#' + v;
+  const hash = v === 'sec' ? '#' + state.bottom.sector() : '#' + v;
   if (!silent || location.hash !== hash) { try { history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ } }
   renderAll();
 }
@@ -434,7 +451,12 @@ function bind() {
     state.hidden.clear(); state.pinned = null; state.focus = null;
     syncControls(); recompute(true);
   };
-  $('benchSel').onchange = (e) => { state.benchmark = e.target.value; store.set('bench.' + state.group, state.benchmark); recompute(true); };
+  $('benchSel').onchange = (e) => {
+    state.benchmark = e.target.value; store.set('bench.' + state.group, state.benchmark);
+    if (state.pinned === state.benchmark) state.pinned = null;
+    if (state.focus === state.benchmark) state.focus = null;
+    recompute(true);
+  };
   const seg = (id, attr, apply) => document.querySelectorAll(`#${id} button`).forEach((b) => b.onclick = () => { apply(b.dataset[attr]); syncControls(); });
   seg('tfSeg', 'tf', (v) => { state.timeframe = v; store.set('timeframe', v); recompute(true); });
   seg('formulaSeg', 'formula', (v) => { state.formula = v; store.set('formula', v); recompute(false); });
@@ -442,28 +464,38 @@ function bind() {
   seg('tailSeg', 'tail', (v) => { state.tail = +v; store.set('tail', state.tail); renderAll(); });
   seg('scaleSeg', 'scale', (v) => { state.scale = v; renderAll(); });
   seg('perfSeg', 'days', (v) => { state.perfDays = +v; store.set('perfDays', state.perfDays); renderPerf(); });
-  $('frame').oninput = (e) => { stop(); state.frame = +e.target.value; renderRRGView(); };
+  $('frame').oninput = (e) => { stop(); state.frame = +e.target.value; renderRRGView(true); };
   $('playBtn').onclick = play;
 
   const svg = $('rrg'), tip = $('rrgTip');
-  svg.addEventListener('pointermove', (e) => {
-    if (!lastDraw) return;
-    const h = nearestHead(svg, lastDraw.heads, e);
-    const sym = h ? h.sym : null;
-    if (!state.pinned && sym !== state.focus) { state.focus = sym; refreshFocus(); }
-    if (!h) { tip.hidden = true; return; }
+  const showTip = (sym, e) => {
     const r = stats(state.model.series[sym], state.frame, state.tail);
+    if (!r) { tip.hidden = true; return; }
     tip.innerHTML = `<div class="row"><b>${esc(label(sym))}</b><span>${esc((isGlobal() ? baseSym(sym) + ' · ' : '') + ds().tickers[sym].name)}</span></div>
       <div class="row"><span>Quadrante</span><b class="q-${QKEY[r.q]}-c">${r.q}</b></div>
       <div class="row"><span>RS-Ratio</span><b>${fmt(r.x, 2)}</b></div><div class="row"><span>RS-Momentum</span><b>${fmt(r.y, 2)}</b></div>
       <div class="row"><span>Direzione</span><b>${fmt(r.heading, 0)}°</b></div><div class="row"><span>Nel quadrante da</span><b>${r.weeks} ${unit()}</b></div>`;
-    const wr = $('rrgWrap').getBoundingClientRect();
-    let x = e.clientX - wr.left + 14;
-    if (x + 210 > wr.width) x = e.clientX - wr.left - 220;
-    tip.style.left = x + 'px'; tip.style.top = (e.clientY - wr.top + 14) + 'px'; tip.hidden = false;
+    placeTip(tip, $('rrgWrap'), e);
+  };
+  svg.addEventListener('pointermove', (e) => {
+    if (!lastDraw || e.pointerType === 'touch') return;
+    const h = nearestHead(svg, lastDraw.heads, e);
+    const sym = h ? h.sym : null;
+    if (!state.pinned && sym !== state.focus) { state.focus = sym; refreshFocus(); }
+    if (!h) { tip.hidden = true; return; }
+    showTip(sym, e);
   });
-  svg.addEventListener('pointerleave', () => { tip.hidden = true; if (!state.pinned && state.focus) { state.focus = null; refreshFocus(); } });
-  svg.addEventListener('click', () => { if (state.focus) togglePin(state.focus); else if (state.pinned) togglePin(state.pinned); });
+  svg.addEventListener('pointerleave', (e) => {
+    if (e.pointerType === 'touch') return;
+    tip.hidden = true;
+    if (!state.pinned && state.focus) { state.focus = null; refreshFocus(); }
+  });
+  // clic o tocco: fissa il punto più vicino (o lo sgancia); sul vuoto sgancia quello fissato
+  svg.addEventListener('click', (e) => {
+    const h = lastDraw ? nearestHead(svg, lastDraw.heads, e) : null;
+    if (h) { togglePin(h.sym); if (state.pinned) showTip(h.sym, e); else tip.hidden = true; }
+    else { tip.hidden = true; if (state.pinned) togglePin(state.pinned); }
+  });
 
   $('helpBtn').onclick = () => openHelp(true);
   $('introClose').onclick = () => { $('intro').hidden = true; store.set('introSeen', true); };

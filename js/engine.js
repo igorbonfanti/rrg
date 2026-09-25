@@ -163,7 +163,8 @@ export function build(dataset, cfg) {
   for (const s of symbols) {
     if (!dataset.tickers[s] || s === benchmark) continue;
     const r = fn(idx.map((i) => dataset.tickers[s].close[i]), bench, params);
-    series[s] = { x: r.rsRatio, y: r.rsMomentum };
+    // un punto esiste solo con entrambe le coordinate (con la formula classica RS-Ratio arriva prima di RS-Momentum)
+    series[s] = { x: r.rsRatio.map((v, i) => (v == null || r.rsMomentum[i] == null ? null : v)), y: r.rsMomentum };
   }
   // primo punto in cui almeno metà dei simboli ha un valore: un ETF quotato da poco non accorcia
   // la storia degli altri (compare quando ha abbastanza dati)

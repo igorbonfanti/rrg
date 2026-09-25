@@ -34,6 +34,18 @@ export function collectEvents(breadth, sectors, cfg) {
   return out.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
 }
 
+// La breadth delle ultime sedute viene ricalcolata (fetch_breadth.js, RECOMPUTE = 5): un evento può
+// comparire con una data già controllata. Si confrontano quindi gli eventi delle ultime `recheck`
+// sedute con quelli già registrati, oltre a quelli successivi all'ultimo controllo.
+export function newEvents(events, state, dates, asOf, recheck = 6) {
+  if (!state) return [];
+  const key = (e) => `${e.date}|${e.sector}|${e.code}`;
+  const logged = new Set((state.log || []).map(key));
+  const upTo = dates.filter((d) => d <= asOf);
+  const from = upTo[Math.max(0, upTo.length - recheck)];
+  return events.filter((e) => e.date <= asOf && !logged.has(key(e)) && (e.date > state.checkedThrough || e.date >= from));
+}
+
 export function formatMessage(e) {
   return `<b>${LABEL[e.code]}</b> · ${e.sector} ${escHtml(NAMES[e.sector] || '')}\n${dIT(e.date)} · ${escHtml(e.text)}\n${APP_URL}#${e.sector}`;
 }
@@ -52,8 +64,7 @@ async function main() {
   const state = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf-8')) : null;
   const asOf = [breadth.asOf, sectors.asOf].sort()[0];
   const events = collectEvents(breadth, sectors, cfg).filter((e) => e.date <= asOf);
-  const since = state ? state.checkedThrough : asOf;
-  const fresh = events.filter((e) => e.date > since);
+  const fresh = newEvents(events, state, sectors.dates, asOf);
   const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
   const sent = [];
   if (!state) console.log(`Prima esecuzione: registro lo stato al ${asOf} senza inviare lo storico.`);

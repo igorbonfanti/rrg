@@ -21,15 +21,18 @@ export function portfolioIndex(dates, closes, weights) {
   let i0 = 0;
   while (i0 < n && !used.every((s) => closes[s][i0] != null)) i0++;
   if (!used.length || !tot || i0 >= n) return { index, used, missing };
-  const units = {};
-  const rebalance = (i, value) => { for (const s of used) units[s] = (value * weights[s]) / tot / closes[s][i]; };
+  const units = {}, last = {};
+  // un prezzo mancante vale l'ultimo noto
+  const px = (s, i) => (closes[s][i] != null ? (last[s] = closes[s][i]) : last[s]);
+  const rebalance = (value) => { for (const s of used) units[s] = (value * weights[s]) / tot / last[s]; };
+  for (const s of used) px(s, i0);
   index[i0] = 100;
-  rebalance(i0, 100);
+  rebalance(100);
   for (let i = i0 + 1; i < n; i++) {
     let v = 0;
-    for (const s of used) v += units[s] * (closes[s][i] ?? closes[s][i - 1]);
+    for (const s of used) v += units[s] * px(s, i);
     index[i] = v;
-    if (i + 1 < n && dates[i + 1].slice(0, 7) !== dates[i].slice(0, 7)) rebalance(i, v);
+    if (i + 1 < n && dates[i + 1].slice(0, 7) !== dates[i].slice(0, 7)) rebalance(v);
   }
   return { index, used, missing };
 }

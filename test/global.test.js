@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { parse } from '../scripts/lib/yahoo.js';
-import { alignToCalendar, globalCalendar, pickAsOf, repairSpikes, validateGlobal } from '../scripts/fetch_data.js';
+import { alignToCalendar, globalCalendar, pickAsOf, repairSpikes, validateGlobal, marketIndex, dropAfter, keepPublished } from '../scripts/fetch_data.js';
 import { MILAN } from '../js/calendar.js';
 import { portfolioIndex } from '../js/portfolio.js';
 
@@ -124,4 +124,49 @@ test('universe.json: universi globali coerenti', () => {
   const errs = validateGlobal(bad);
   assert.ok(errs.some((e) => e.includes('sommano a 90')), errs.join('; '));
   assert.ok(errs.some((e) => e.includes('NOPE.MI')), errs.join('; '));
+});
+
+test('prezzi anomali: un vero crollo a V di tutto il mercato non si corregge', () => {
+  // 12 ETF con rumore proprio e un crollo del 6% seguito da un rimbalzo del 6,2% per tutti
+  const n = 150, all = [];
+  for (let k = 0; k < 12; k++) {
+    const c = walk(n, 0.008, 100 + k);
+    for (let i = 120; i < n; i++) c[i] *= 0.94;
+    for (let i = 121; i < n; i++) c[i] *= 1.062;
+    all.push(c);
+  }
+  const mkt = marketIndex(all, n);
+  for (const c of all) assert.equal(repairSpikes(c, mkt).fixes.length, 0);
+  // lo stesso salto su un solo ETF, con il mercato fermo, è un errore e si corregge
+  const one = walk(n, 0.008, 7); one[120] *= 1.16;
+  const flat = [one, ...Array.from({ length: 11 }, (_, k) => walk(n, 0.008, 200 + k))];
+  assert.equal(repairSpikes(one, marketIndex(flat, n)).fixes.length, 1);
+});
+
+test('niente barre della seduta in corso, tranne le criptovalute', () => {
+  const series = {
+    'SWDA.MI': { dates: ['2026-09-24', '2026-09-25'], close: [1, 2], adjclose: [1, 2] },
+    'BTC-EUR': { dates: ['2026-09-24', '2026-09-25'], close: [1, 2], adjclose: [1, 2] },
+  };
+  assert.equal(dropAfter(series, '2026-09-24', (s) => s === 'BTC-EUR'), 1);
+  assert.deepEqual(series['SWDA.MI'].dates, ['2026-09-24']);
+  assert.deepEqual(series['BTC-EUR'].dates, ['2026-09-24', '2026-09-25']);
+});
+
+test('una lacuna nuova di Yahoo non cancella un prezzo già pubblicato (riscalato alle rettifiche)', () => {
+  const dates = ['2026-09-22', '2026-09-23', '2026-09-24'];
+  // nuovo scaricamento: manca il 23 (riempito col 22) e la storia è riscalata del 2% per un dividendo
+  const closes = { 'IWDP.MI': [98, 98, 100] };
+  const real = { 'IWDP.MI': new Set(['2026-09-22', '2026-09-24']) };
+  const prev = { dates: ['2026-09-22', '2026-09-23'], tickers: { 'IWDP.MI': { close: [100, 101] } } };
+  assert.equal(keepPublished(dates, closes, real, prev), 1);
+  assert.deepEqual(closes['IWDP.MI'], [98, 98.98, 100]);
+});
+
+test('calendario globale: la seduta che manca alla maggior parte degli ETF si toglie per tutti', () => {
+  const mk = (dates) => ({ dates, adjclose: dates.map(() => 1) });
+  const full = ['2025-10-22', '2025-10-23', '2025-10-24', '2025-10-27'];
+  const hole = ['2025-10-22', '2025-10-23', '2025-10-27'];
+  const series = { A: mk(full), B: mk(hole), C: mk(hole), D: mk(hole), E: mk(['2025-10-27']) };
+  assert.deepEqual(globalCalendar(series, '2025-10-27'), ['2025-10-22', '2025-10-23', '2025-10-27']);
 });

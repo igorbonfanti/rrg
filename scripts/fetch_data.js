@@ -71,6 +71,42 @@ export function alignSeries(series, asOf) {
   return { dates, closes: out };
 }
 
+// Scarta le barre successive all'ultima seduta chiusa attesa: una corsa a borsa aperta non deve
+// pubblicare prezzi della seduta in corso anche se Yahoo non la segnala come tale.
+export function dropAfter(series, expected, keep = () => false) {
+  let n = 0;
+  for (const [sym, s] of Object.entries(series)) {
+    if (keep(sym)) continue;
+    while (s.dates.length && s.dates[s.dates.length - 1] > expected) { s.dates.pop(); s.close.pop(); s.adjclose.pop(); n++; }
+  }
+  return n;
+}
+
+// Una lacuna della fonte non cancella un prezzo già pubblicato: per le date senza barra nel nuovo
+// scaricamento si tiene il valore del file precedente, riportato alla scala attuale (le rettifiche
+// per dividendi riscalano la storia) con il rapporto sull'ultima data con barra in entrambi i file.
+export function keepPublished(dates, closes, real, prev) {
+  if (!prev || !prev.tickers) return 0;
+  const pIdx = new Map(prev.dates.map((d, i) => [d, i]));
+  let kept = 0;
+  for (const [sym, arr] of Object.entries(closes)) {
+    const p = prev.tickers[sym], r = real[sym];
+    if (!p || !r) continue;
+    let scale = null;
+    for (let i = 0; i < dates.length; i++) {
+      const j = pIdx.get(dates[i]);
+      if (r.has(dates[i])) {
+        if (j != null && p.close[j] && arr[i] != null) scale = arr[i] / p.close[j];
+        continue;
+      }
+      if (j == null || p.close[j] == null || scale == null || arr[i] == null) continue;
+      const v = Math.round(p.close[j] * scale * 10000) / 10000;
+      if (Math.abs(v / arr[i] - 1) > 1e-6) { arr[i] = v; kept++; }
+    }
+  }
+  return kept;
+}
+
 // Sceglie la data di pubblicazione: la più recente comune a tutti i ticker non in grave ritardo
 export function pickAsOf(lastDates, between = sessionsBetween) {
   const maxDate = Object.values(lastDates).sort().at(-1);
@@ -81,6 +117,18 @@ export function pickAsOf(lastDates, between = sessionsBetween) {
   }
   const asOf = Object.values(current).sort()[0];
   return { asOf, maxDate, stale };
+}
+
+// Date con una barra vera (non riempita) per ogni ticker
+const realDates = (series) => Object.fromEntries(Object.entries(series).map(([s, v]) => [s, new Set(v.dates)]));
+
+// Alla stessa data, un file con meno ticker di quello pubblicato (download fallito) non lo sostituisce
+function moreComplete(prev, asOf, have, wanted) {
+  if (asOf !== prev.asOf) return true;
+  const lost = wanted.filter((s) => prev.tickers[s] && !have.includes(s));
+  if (!lost.length) return true;
+  console.log(`Stessa data del file pubblicato (${asOf}) ma senza ${lost.join(', ')}: tengo il file pubblicato.`);
+  return false;
 }
 
 async function updateUS() {
@@ -105,25 +153,31 @@ async function updateUS() {
   if (Object.keys(series).length < symbols.length * 0.8) {
     throw new Error(`troppi ticker falliti (${failed.length}/${symbols.length}): non aggiorno i dati`);
   }
+  const expected = expectedSession();
+  const cut = dropAfter(series, expected);
+  if (cut) console.log(`  Scartate ${cut} barre successive alla seduta attesa ${expected}`);
 
   const lastDates = Object.fromEntries(Object.entries(series).map(([s, v]) => [s, v.dates.at(-1)]));
   const { asOf, maxDate, stale } = pickAsOf(lastDates);
+  if (stale.length > symbols.length * 0.2) throw new Error(`troppi ticker fermi (${stale.join(', ')}): non aggiorno i dati`);
   for (const s of stale) { console.warn(`  ESCLUSO ${s}: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
   const behind = Object.entries(lastDates).filter(([s, d]) => !stale.includes(s) && d < maxDate).map(([s]) => s);
   if (behind.length) console.log(`  In ritardo su ${maxDate}: ${behind.join(', ')} → pubblico al ${asOf}`);
 
   // mai tornare indietro rispetto al file esistente
-  if (fs.existsSync(OUT)) {
-    const prev = JSON.parse(fs.readFileSync(OUT, 'utf-8'));
+  const prev = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf-8')) : null;
+  if (prev) {
     const prevAsOf = prev.asOf || prev.dates.at(-1);
     if (asOf < prevAsOf) {
       console.log(`Dati scaricati al ${asOf}, più vecchi di quelli pubblicati (${prevAsOf}): non aggiorno.`);
       return;
     }
+    if (!moreComplete(prev, asOf, Object.keys(series), symbols)) return;
   }
 
   const { dates, closes } = alignSeries(series, asOf);
-  const expected = expectedSession();
+  const kept = keepPublished(dates, closes, realDates(series), prev);
+  if (kept) console.log(`  Tenuti ${kept} prezzi già pubblicati dove Yahoo ora ha una lacuna`);
   const lag = sessionsBetween(asOf, expected);
   const tickers = {};
   for (const sym of symbols) {
@@ -191,11 +245,34 @@ export function collectGlobalTickers(G) {
   return meta;
 }
 
-// Calendario: date di almeno un ticker (escluse le criptovalute) che sono sedute di Borsa Italiana
-export function globalCalendar(series, asOf, isTradingDay = MILAN.isTradingDay) {
-  const set = new Set();
-  for (const s of Object.values(series)) for (const d of s.dates) if (d <= asOf && isTradingDay(d)) set.add(d);
-  return [...set].sort();
+// Calendario: sedute di Borsa Italiana in cui almeno metà dei ticker già quotati ha una barra.
+// Se Yahoo non ha la seduta per la maggior parte degli ETF (es. 24/10/2025) la data si toglie per
+// tutti, invece di mescolare prezzi del giorno con prezzi ricopiati dal giorno prima.
+export function globalCalendar(series, asOf, isTradingDay = MILAN.isTradingDay, minShare = 0.5) {
+  const count = new Map();
+  for (const s of Object.values(series)) for (const d of s.dates) if (d <= asOf && isTradingDay(d)) count.set(d, (count.get(d) || 0) + 1);
+  const spans = Object.values(series).filter((s) => s.dates.length).map((s) => [s.dates[0], s.dates[s.dates.length - 1]]);
+  return [...count.keys()].sort().filter((d) => {
+    const active = spans.filter(([a, b]) => a <= d && d <= b).length;
+    return count.get(d) >= minShare * active;
+  });
+}
+
+// Indice di mercato robusto: mediana dei rendimenti giornalieri di tutti gli ETF. È il riferimento per
+// riconoscere i prezzi anomali: un vero movimento di mercato sposta la mediana, un errore isolato no.
+export function marketIndex(closes, n) {
+  const out = new Array(n).fill(null);
+  if (!n) return out;
+  let v = 1;
+  out[0] = v;
+  for (let i = 1; i < n; i++) {
+    const r = [];
+    for (const c of closes) if (c[i] != null && c[i - 1] != null) r.push(Math.log(c[i] / c[i - 1]));
+    r.sort((a, b) => a - b);
+    const m = !r.length ? 0 : r.length % 2 ? r[(r.length - 1) / 2] : (r[r.length / 2 - 1] + r[r.length / 2]) / 2;
+    out[i] = v *= Math.exp(m);
+  }
+  return out;
 }
 
 // Ultimo prezzo disponibile a ogni data del calendario (le lacune prendono il prezzo precedente)
@@ -215,12 +292,12 @@ export function alignToCalendar(series, dates) {
 
 /**
  * Corregge i prezzi isolati palesemente sbagliati. Un prezzo si corregge se il suo rendimento
- * rispetto al riferimento supera max(minJump, k × oscillazione relativa tipica delle `win`
- * sedute precedenti) e rientra quasi del tutto la seduta successiva. Il valore corretto è la
- * media geometrica dei due prezzi vicini. Senza riferimento si usa il rendimento semplice.
+ * rispetto al riferimento (l'indice di mercato) supera max(minJump, k × oscillazione relativa tipica
+ * delle `win` sedute precedenti) e rientra quasi del tutto la seduta successiva. Il valore corretto
+ * è la media geometrica dei due prezzi vicini. Senza riferimento si usa il rendimento semplice.
  * @returns {{close: (number|null)[], fixes: {i: number, from: number, to: number}[]}}
  */
-export function repairSpikes(close, ref, { minJump = 0.04, k = 8, win = 60, minObs = 20 } = {}) {
+export function repairSpikes(close, ref, { minJump = 0.06, k = 10, win = 60, minObs = 20 } = {}) {
   const out = close.slice();
   const fixes = [];
   const ex = (i) => {
@@ -308,30 +385,42 @@ async function updateGlobal() {
   await toCurrency(series, currency);
 
   const isCrypto = (sym) => series[sym].meta.instrumentType === 'CRYPTOCURRENCY';
-  const lastDates = Object.fromEntries(Object.keys(series).filter((s) => !isCrypto(s)).map((s) => [s, series[s].dates.at(-1)]));
+  const expected = MILAN.expectedSession();
+  const cut = dropAfter(series, expected, isCrypto);
+  if (cut) console.log(`  Scartate ${cut} barre successive alla seduta attesa ${expected}`);
+  const exchangeSyms = Object.keys(series).filter((s) => !isCrypto(s));
+  const lastDates = Object.fromEntries(exchangeSyms.map((s) => [s, series[s].dates.at(-1)]));
   const { asOf, maxDate, stale } = pickAsOf(lastDates, MILAN.sessionsBetween);
+  if (stale.length > exchangeSyms.length * 0.2) throw new Error(`troppi ticker fermi (${stale.join(', ')}): non aggiorno i dati`);
   for (const s of stale) { console.warn(`  ESCLUSO ${s}: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
+  // una criptovaluta ferma da più di 4 giorni rispetto alla data di pubblicazione è un dato rotto
+  const fourDaysBefore = new Date(Date.parse(asOf + 'T00:00:00Z') - 4 * 86400000).toISOString().slice(0, 10);
+  for (const s of Object.keys(series).filter(isCrypto)) {
+    if (series[s].dates.at(-1) < fourDaysBefore) { console.warn(`  ESCLUSO ${s}: ultimo prezzo ${series[s].dates.at(-1)}, fermo`); stale.push(s); delete series[s]; }
+  }
   const behind = Object.entries(lastDates).filter(([s, d]) => !stale.includes(s) && d < maxDate).map(([s]) => s);
   if (behind.length) console.log(`  In ritardo su ${maxDate}: ${behind.join(', ')} → pubblico al ${asOf}`);
 
-  if (fs.existsSync(OUT_GLOBAL)) {
-    const prev = JSON.parse(fs.readFileSync(OUT_GLOBAL, 'utf-8'));
+  const prev = fs.existsSync(OUT_GLOBAL) ? JSON.parse(fs.readFileSync(OUT_GLOBAL, 'utf-8')) : null;
+  if (prev) {
     if (asOf < prev.asOf) {
       console.log(`Globali: dati scaricati al ${asOf}, più vecchi di quelli pubblicati (${prev.asOf}): non aggiorno.`);
       return;
     }
+    if (!moreComplete(prev, asOf, Object.keys(series), symbols)) return;
   }
 
   const exchange = Object.fromEntries(Object.entries(series).filter(([s]) => !isCrypto(s)));
   const dates = globalCalendar(exchange, asOf);
   const closes = alignToCalendar(series, dates);
+  const kept = keepPublished(dates, closes, realDates(series), prev);
+  if (kept) console.log(`  Tenuti ${kept} prezzi già pubblicati dove Yahoo ora ha una lacuna`);
 
-  // prezzi anomali: prima il riferimento (da solo), poi gli altri rispetto al riferimento
+  // prezzi anomali, rispetto all'indice di mercato (mediana dei rendimenti di tutti gli ETF)
   const repaired = [];
-  const ref = G.reference && closes[G.reference] ? G.reference : null;
-  const order = Object.keys(exchange).sort((a, b) => (a === ref ? -1 : b === ref ? 1 : 0));
-  for (const sym of order) {
-    const r = repairSpikes(closes[sym], sym === ref ? null : ref && closes[ref]);
+  const mkt = marketIndex(Object.keys(exchange).map((s) => closes[s]), dates.length);
+  for (const sym of Object.keys(exchange)) {
+    const r = repairSpikes(closes[sym], mkt);
     closes[sym] = r.close;
     for (const f of r.fixes) {
       repaired.push({ sym, date: dates[f.i], from: f.from, to: f.to });
@@ -339,7 +428,6 @@ async function updateGlobal() {
     }
   }
 
-  const expected = MILAN.expectedSession();
   const lag = MILAN.sessionsBetween(asOf, expected);
   const tickers = {};
   for (const sym of symbols) {
@@ -358,7 +446,6 @@ async function updateGlobal() {
     repaired,
     range: RANGE,
     interval: '1d',
-    reference: ref,
     groups: Object.fromEntries(Object.entries(G.groups).map(([g, v]) => [g, {
       defaultBenchmark: v.defaultBenchmark,
       benchmarks: v.benchmarks || [v.defaultBenchmark],

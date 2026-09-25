@@ -8,6 +8,17 @@ export const dIT = (iso) => (iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso
 
 export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improving: 'imp' };
 
+// Posiziona un tooltip vicino al puntatore, senza farlo uscire dal contenitore
+export function placeTip(tip, wrap, e, dy = 14) {
+  const wr = wrap.getBoundingClientRect();
+  tip.hidden = false;
+  const w = tip.offsetWidth || 210;
+  let x = e.clientX - wr.left + 14;
+  if (x + w > wr.width) x = e.clientX - wr.left - w - 10;
+  tip.style.left = Math.max(4, Math.min(x, wr.width - w - 4)) + 'px';
+  tip.style.top = Math.max(0, e.clientY - wr.top + dy) + 'px';
+}
+
 // freccia che punta nella direzione `deg` (gradi bussola, 0° = nord)
 export const arrow = (deg) => (deg == null ? '' : `<svg class="arrow" viewBox="-7 -7 14 14" aria-hidden="true"><g transform="rotate(${(deg - 90).toFixed(1)})"><line x1="-5" y1="0" x2="3" y2="0" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 0 L0.8 -3.4 L0.8 3.4 Z" fill="currentColor"/></g></svg>`);
 export const qPill = (q, deg) => `<span class="pill q-${QKEY[q]}-c"><span class="d"></span>${q}${deg == null ? '' : ' ' + arrow(deg)}</span>`;
