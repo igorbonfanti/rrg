@@ -1,9 +1,11 @@
 /* format.js — formattazione numeri/date all'italiana e piccoli elementi grafici condivisi. */
 
 export const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-export const fmt = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : v.toFixed(d).replace('.', ','));
-export const sgn = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : (v > 0 ? '+' : v < 0 ? '−' : '') + fmt(Math.abs(v), d));
-export const pct = (v, d = 1) => (v == null ? '<span class="muted">—</span>' : `<span class="${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${sgn(v, d)}%</span>`);
+// Numeri all'italiana con il segno meno tipografico (−); un valore che arrotondato vale zero non ha segno
+const zero = (v, d) => +Math.abs(v).toFixed(d) === 0;
+export const fmt = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : (v < 0 && !zero(v, d) ? '−' : '') + Math.abs(v).toFixed(d).replace('.', ','));
+export const sgn = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : (zero(v, d) ? '' : v > 0 ? '+' : '−') + fmt(Math.abs(v), d));
+export const pct = (v, d = 1) => (v == null ? '<span class="muted">—</span>' : `<span class="${zero(v, d) ? '' : v > 0 ? 'up' : 'down'}">${sgn(v, d)}%</span>`);
 export const dIT = (iso) => (iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso.slice(0, 4)}` : '—');
 
 export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improving: 'imp' };

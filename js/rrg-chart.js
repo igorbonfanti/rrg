@@ -6,7 +6,7 @@
  * e gli altri si attenuano. Scala uguale sui due assi, centrata su 100.
  */
 import { quadrant, CENTER } from './engine.js';
-import { QKEY } from './format.js';
+import { QKEY, fmt } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -79,8 +79,8 @@ export function drawRRG(svg, p) {
     if (Math.abs(v - CENTER) < 1e-9) continue;
     el('line', { x1: sx(v), x2: sx(v), y1: M.t, y2: M.t + PH }, g);
     el('line', { y1: sy(v), y2: sy(v), x1: M.l, x2: M.l + PW }, g);
-    el('text', { x: sx(v), y: M.t + PH + 15, class: 'tick', 'text-anchor': 'middle' }, svg).textContent = v.toFixed(dec);
-    el('text', { x: M.l - 7, y: sy(v) + 4, class: 'tick', 'text-anchor': 'end' }, svg).textContent = v.toFixed(dec);
+    el('text', { x: sx(v), y: M.t + PH + 15, class: 'tick', 'text-anchor': 'middle' }, svg).textContent = fmt(v, dec);
+    el('text', { x: M.l - 7, y: sy(v) + 4, class: 'tick', 'text-anchor': 'end' }, svg).textContent = fmt(v, dec);
   }
   // cerchi di distanza dal centro, un'unità alla volta
   const rings = el('g', { class: 'rings', 'clip-path': `url(#${clipId})` }, svg);

@@ -240,6 +240,9 @@ const SORTERS = {
 };
 function renderPriceTable() {
   const d = ds(), bench = state.benchmark, bm = d.metrics[bench];
+  const restore = keepFocus($('monTable')), foc = focused();
+  // prezzi e rotazione all'ultima chiusura: la tabella non segue il cursore del periodo
+  $('rotMeta').textContent = `ultima chiusura ${dIT(d.dates[d.dates.length - 1])}`;
   const rows = monitorRows();
   const { key, dir } = state.sort;
   rows.sort((a, b) => dir * SORTERS[key](a, b));
@@ -254,7 +257,7 @@ function renderPriceTable() {
     const w = Math.min(100, (Math.abs(mt.dd52) / DDMAX) * 100), worst = Math.min(100, (Math.abs(mt.ddWorst) / DDMAX) * 100);
     return `<span class="cellv num">${sgn(mt.dd52)}%</span><span class="bar" title="peggiore negli ultimi 5 anni ${sgn(mt.ddWorst)}%"><i class="${mt.ddDepth != null && mt.ddDepth >= 80 ? 'deep' : ''}" style="width:${w}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span>`;
   };
-  const body = rows.map(({ s, name, mt, r }) => `<tr data-sym="${esc(s)}" tabindex="0">
+  const body = rows.map(({ s, name, mt, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td>${symCell(s, name)}</td>
       <td class="num r">${fmt(mt.last, 2)}</td><td class="num r">${pct(mt.d1)}</td><td class="num r">${pct(mt.w1)}</td><td class="num r">${pct(mt.m1)}</td><td class="num r">${pct(mt.m3)}</td><td class="num r">${pct(mt.ytd)}</td>
       <td>${ddCell(mt)}</td><td class="num r">${pct(mt.vs200)}</td>
@@ -269,10 +272,13 @@ function renderPriceTable() {
     renderPriceTable();
   });
   $('monTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
-    const go = () => togglePin(tr.dataset.sym);
+    const s = tr.dataset.sym, go = () => togglePin(s);
+    tr.onmouseenter = () => { if (!state.pinned && !state.hidden.has(s)) { state.focus = s; refreshFocus(); } };
+    tr.onmouseleave = () => { if (!state.pinned && state.focus) { state.focus = null; refreshFocus(); } };
     tr.onclick = go;
     tr.onkeydown = (e) => { if (e.key === 'Enter') go(); };
   });
+  restore();
 }
 
 // ---------- 2 RRG ----------
@@ -320,8 +326,25 @@ function renderRRGView(frameOnly = false) {
   if (px) renderPriceTable(); else renderRotTable();
   if (!frameOnly) renderPerf();
 }
+// Dopo il ridisegno di una tabella il focus da tastiera torna sulla stessa riga, spunta o intestazione
+function keepFocus(table) {
+  const a = document.activeElement;
+  if (!a || !table.contains(a)) return () => {};
+  const sort = a.dataset && a.dataset.sort, tr = a.closest('tr[data-sym]');
+  const sym = tr && tr.dataset.sym, onBox = a.classList.contains('vis');
+  return () => {
+    let el = null;
+    if (sort) el = table.querySelector(`th button[data-sort="${sort}"]`);
+    else if (sym) {
+      const row = [...table.querySelectorAll('tbody tr[data-sym]')].find((r) => r.dataset.sym === sym);
+      el = row && (onBox ? row.querySelector('input.vis') : row);
+    }
+    if (el) el.focus({ preventScroll: true });
+  };
+}
 function renderRotTable() {
   const f = state.frame, foc = focused();
+  const restore = keepFocus($('rotTable'));
   const rows = symbols().filter((s) => state.model.series[s]).map((s) => ({ s, r: stats(state.model.series[s], f, state.tail) })).filter((x) => x.r)
     .sort((a, b) => QORDER[a.r.q] - QORDER[b.r.q] || b.r.dist - a.r.dist);
   $('rotMeta').textContent = `${dIT(state.model.dates[f])}${isProvisional() ? ' (in corso)' : ''}`;
@@ -346,6 +369,7 @@ function renderRotTable() {
     if (cb.checked) state.hidden.delete(s); else { state.hidden.add(s); if (state.pinned === s) state.pinned = null; if (state.focus === s) state.focus = null; }
     renderRRGView();
   });
+  restore();
 }
 function renderPerf() {
   const d = ds();
@@ -364,6 +388,7 @@ function refreshFocus() {
 }
 function togglePin(s) {
   state.pinned = state.pinned === s ? null : s;
+  if (state.pinned) state.hidden.delete(s); // fissare un titolo nascosto lo rimostra
   state.focus = null;
   renderRRGView();
 }
@@ -374,20 +399,22 @@ function focusSymbol(s) {
 }
 
 // Cerca un titolo per ticker (con o senza suffisso di borsa) o etichetta, prima nell'universo aperto;
-// in mancanza, per una parola del nome (TESLA, DAX, NASDAQ)
+// poi tra i benchmark (SPY, QQQ, ACWI, Liquidità: { bench: true }); infine per una parola del nome (TESLA, DAX)
 function findSymbol(v) {
   const names = Object.keys(state.groups);
   names.sort((a, b) => (a === state.group ? -1 : b === state.group ? 1 : 0));
   const exact = (g, s) => [s, baseSym(s), labelOf(g.ds, s)].some((x) => x.toUpperCase() === v);
   const byName = (g, s) => v.length >= 3 && (g.ds.tickers[s].name || '').toUpperCase().split(/[^A-Z0-9&+-]+/).some((w) => w.startsWith(v));
-  for (const match of [exact, byName]) {
+  const scan = (match, list) => {
     for (const name of names) {
       const g = state.groups[name];
-      const sym = g.tickers.find((s) => g.ds.tickers[s] && match(g, s));
-      if (sym && !(name === state.group && sym === state.benchmark)) return { group: name, sym };
+      const sym = list(g).find((s) => g.ds.tickers[s] && match(g, s));
+      if (sym) return { group: name, sym };
     }
-  }
-  return null;
+    return null;
+  };
+  const bench = scan(exact, (g) => g.benchmarks);
+  return scan(exact, (g) => g.tickers) || (bench && { ...bench, bench: true }) || scan(byName, (g) => g.tickers);
 }
 
 // Data dei dati globali e ritardo rispetto all'ultima seduta chiusa di Borsa Italiana
@@ -414,14 +441,12 @@ function play() {
   state.timer = setInterval(() => {
     if (state.frame >= lastFrame()) { stop(); return; }
     state.frame++;
-    drawChart();
-    $('frame').value = state.frame;
-    $('frameDate').textContent = dIT(state.model.dates[state.frame]);
-    $('frame').setAttribute('aria-valuetext', dIT(state.model.dates[state.frame]));
+    renderRRGView(true);
   }, state.timeframe === 'weekly' ? 450 : 120);
 }
 function step(k) {
   stop();
+  $('rrgTip').hidden = true;
   state.frame = Math.max(minFrame(), Math.min(lastFrame(), state.frame + k));
   renderRRGView(true);
 }
@@ -579,21 +604,31 @@ function bind() {
 
   $('cmdForm').onsubmit = (e) => {
     e.preventDefault();
-    const v = $('cmd').value.trim().toUpperCase().replace(/\s*<?GO>?$/, '');
+    const v = $('cmd').value.trim().toUpperCase().replace(/\s*<GO>$|\s+GO$/, '');
     $('cmd').value = '';
+    // un nuovo comando toglie l'avviso di quello non trovato
+    clearTimeout(cmdErrTimer); $('cmdForm').classList.remove('err'); setPlaceholder();
     const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (words[v]) { setView(words[v]); return; }
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
     const hit = findSymbol(v);
+    // cambia universo e benchmark (e li ricorda) solo se serve
+    const switchTo = (group, bench) => {
+      if (group === state.group && bench === state.benchmark) return;
+      state.group = group; store.set('group', group);
+      state.benchmark = bench; store.set('bench.' + group, bench);
+      state.hidden.clear(); state.pinned = null; state.focus = null;
+      syncControls(); recompute(true);
+    };
+    if (hit && hit.bench) { switchTo(hit.group, hit.sym); setView('rrg'); return; } // un benchmark: la rotazione contro di lui
     if (hit) {
-      if (hit.group !== state.group) {
-        state.group = hit.group; store.set('group', state.group);
-        state.benchmark = pickBenchmark(hit.group);
-        if (hit.sym === state.benchmark) state.benchmark = state.groups[hit.group].benchmarks.find((b) => b !== hit.sym && ds().tickers[b]) || state.benchmark;
-        state.hidden.clear(); syncControls(); recompute(true);
-      }
+      const g = state.groups[hit.group];
+      let b = hit.group === state.group ? state.benchmark : pickBenchmark(hit.group);
+      // il titolo cercato è il benchmark: si passa a un altro benchmark per poterlo vedere sul grafico
+      if (b === hit.sym) b = [g.defaultBenchmark, ...g.benchmarks].find((x) => x !== hit.sym) || b;
+      switchTo(hit.group, b);
       focusSymbol(hit.sym);
       return;
     }

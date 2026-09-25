@@ -32,11 +32,16 @@ export function drawPerf(svg, p) {
   const lab = (s) => labels[s] || s;
   const i0 = Math.max(0, all.length - 1 - days);
   const dates = all.slice(i0), n = dates.length;
-  const lines = {};
+  const lines = {}, late = [];
   for (const s of syms.concat([bench])) {
     const c = closes[s];
-    if (!c || c[i0] == null) continue;
-    lines[s] = c.slice(i0).map((v) => (v == null ? null : (v / c[i0]) * 100));
+    if (!c) continue;
+    // base 100 al primo prezzo del periodo: un ETF più giovane del periodo parte dopo
+    let j = i0;
+    while (j < all.length && c[j] == null) j++;
+    if (j >= all.length - 1) continue;
+    if (j - i0 > 5) late.push([s, all[j]]);
+    lines[s] = c.slice(i0).map((v, k) => (v == null || k < j - i0 ? null : (v / c[j]) * 100));
   }
   // margine destro per le etichette finali (nome breve + valore, carattere monospazio da 11px)
   const longest = Math.max(0, ...Object.keys(lines).map((s) => lab(s).length + 4));
@@ -99,6 +104,7 @@ export function drawPerf(svg, p) {
   hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); tipEl.hidden = true; });
 
   legendEl.innerHTML = `<span><span class="kl" style="background:var(--ink)"></span>${esc(lab(bench))} (benchmark)</span>` +
-    (focus ? `<span><span class="kl" style="background:var(--amber)"></span>${esc(lab(focus))} (in evidenza)</span>` : '') +
-    `<span><span class="kl" style="background:#5a5a5a"></span>altri titoli</span><span class="muted">dal ${dIT(dates[0])}</span>`;
+    (focus && lines[focus] ? `<span><span class="kl" style="background:var(--amber)"></span>${esc(lab(focus))} (in evidenza)</span>` : '') +
+    `<span><span class="kl" style="background:#5a5a5a"></span>altri titoli</span><span class="muted">dal ${dIT(dates[0])}</span>` +
+    late.map(([s, d]) => `<span class="muted">${esc(lab(s))} quotato dal ${dIT(d)}: base 100 da quel giorno</span>`).join('');
 }

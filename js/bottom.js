@@ -256,6 +256,8 @@ export function createBottom(ctx) {
       ? `<span class="loc">modificato in questo browser · livello di default ${config.blue[s]}%</span>`
       : 'Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea. Le regole di zona blu, trigger e cooldown sono di questa app.';
     $('blueReset').hidden = !changed(s);
+    // la configurazione copiata prima non vale più: si toglie il messaggio e il testo vecchio
+    $('copyMsg').textContent = ''; $('cfgText').hidden = true;
     // situazione
     const b = BR[s].pct200[NOW];
     $('secFacts').innerHTML = [

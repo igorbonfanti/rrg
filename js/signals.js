@@ -99,7 +99,7 @@ export function runMachine(px, br, L, params = {}) {
   const { close: c, dd, dp } = px, H = br.pct200;
   const n = c.length, days = new Array(n).fill(null), events = [], setups = [];
   let st = 'normal', armed = true, setup = null, trig = null, below = 0, lastReset = Math.max(P.resetFloor, L + P.resetAbove);
-  const f1 = (v) => v.toFixed(1).replace('.', ',');
+  const f1 = (v) => (v < 0 && v.toFixed(1) !== '-0.0' ? '−' : '') + Math.abs(v).toFixed(1).replace('.', ',');
   for (let t = 0; t < n; t++) {
     const b = H[t];
     if (b == null || c[t] == null || dp[t] == null || !br.n[t]) { days[t] = null; continue; }
