@@ -243,7 +243,7 @@ export function createBottom(ctx) {
     const i0 = rangeStart(s);
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
-      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940),
+      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940, 380),
     });
     // livello blu
     $('blueVal').textContent = L + '%';

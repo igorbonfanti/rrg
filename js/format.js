@@ -12,7 +12,7 @@ export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improv
 
 // Larghezza del disegno in unità SVG: i pixel reali × 1,15, tra `min` e `max`. Sul telefono il
 // grafico si disegna più stretto invece di rimpicciolirsi, così il testo resta di circa 10 px.
-export function chartWidth(svg, max, min = 380) {
+export function chartWidth(svg, max, min = 340) {
   const w = svg.getBoundingClientRect().width;
   return w ? Math.round(Math.max(min, Math.min(max, w * 1.15))) : max;
 }

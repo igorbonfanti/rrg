@@ -134,6 +134,15 @@ details.owner[open] summary { margin-bottom: 8px; }
 .grid-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
 .grid-side { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 12px; align-items: start; }
 @media (max-width: 1100px) { .grid-2, .grid-side { grid-template-columns: minmax(0, 1fr); } }
+/* portatili (1101–1439 px): il nome del settore va sotto il ticker, barre e celle più strette,
+   così le colonne del Monitor e della tabella di rotazione entrano senza scorrere */
+@media (min-width: 1101px) and (max-width: 1439px) {
+  .grid-side { grid-template-columns: minmax(0, 1fr) 290px; }
+  #boardTable td:first-child { white-space: normal; }
+  #boardTable .nm { display: block; margin-left: 0; font-size: 11.5px; line-height: 1.2; }
+  #boardTable .bullet { width: 96px; }
+  #boardTable .bar { width: 78px; }
+}
 
 /* ---------- KPI ---------- */
 .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-bottom: 12px; }
@@ -166,6 +175,7 @@ table.t { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .t td .vis { accent-color: var(--amber); margin: 0; cursor: pointer; }
 /* tabella di rotazione: celle più strette, così entra anche con i nomi brevi più lunghi (Commodity, Emergenti) */
 #rotTable th, #rotTable td { padding-left: 6px; padding-right: 6px; }
+@media (min-width: 1101px) and (max-width: 1439px) { #rotTable th, #rotTable td { padding-left: 4px; padding-right: 4px; } }
 .sym { font: 600 12.5px var(--f-mono); color: var(--amber); }
 .nm { color: var(--ink-2); margin-left: 6px; }
 .dlt { font-size: 10.5px; margin-left: 3px; }
