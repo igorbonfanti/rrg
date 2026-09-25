@@ -8,8 +8,8 @@ import { breadthSeries, priceSeries, runMachine, forward, worstWithin, DEFAULT_P
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
-import { nearestHead } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip } from './format.js';
+import { nearestHead, SIZE } from './rrg-chart.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth } from './format.js';
 
 const NAMES = {
   XLK: 'Technology', XLC: 'Communication Services', XLY: 'Consumer Discretionary', XLP: 'Consumer Staples', XLE: 'Energy',
@@ -176,7 +176,7 @@ export function createBottom(ctx) {
   const mapStates = () => Object.fromEntries(SECTOR_KEYS.map((s) => [s, stateOf(s).code]));
   function renderMap() {
     mapSeries = mapData();
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates() });
+    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), size: chartWidth($('bm'), SIZE) });
     $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[NOW])} · colore del punto = stato attuale (in zona blu si entra dopo ${P.setupCloses} chiusure sotto il livello)`;
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
     const rows = SECTOR_KEYS.map((s) => ({ s, d: BR[s].pct200[NOW] - st.blue[s], need: BR[s].above200[NOW] - Math.floor((st.blue[s] * BR[s].n[NOW]) / 100) })).sort((a, b) => a.d - b.d);
@@ -196,7 +196,7 @@ export function createBottom(ctx) {
     });
   }
   function redrawMap() {
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates() });
+    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), size: chartWidth($('bm'), SIZE) });
     $('distList').querySelectorAll('.r').forEach((r) => r.classList.toggle('sel', r.dataset.sym === st.mapFocus));
   }
   function bindMap() {
@@ -240,7 +240,7 @@ export function createBottom(ctx) {
     const i0 = rangeStart(s);
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
-      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'),
+      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940),
     });
     // livello blu
     $('blueVal').textContent = L + '%';

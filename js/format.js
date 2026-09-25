@@ -8,6 +8,13 @@ export const dIT = (iso) => (iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso
 
 export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improving: 'imp' };
 
+// Larghezza del disegno in unità SVG: i pixel reali × 1,15, tra `min` e `max`. Sul telefono il
+// grafico si disegna più stretto invece di rimpicciolirsi, così il testo resta di circa 10 px.
+export function chartWidth(svg, max, min = 380) {
+  const w = svg.getBoundingClientRect().width;
+  return w ? Math.round(Math.max(min, Math.min(max, w * 1.15))) : max;
+}
+
 // Posiziona un tooltip vicino al puntatore, senza farlo uscire dal contenitore
 export function placeTip(tip, wrap, e, dy = 14) {
   const wr = wrap.getBoundingClientRect();

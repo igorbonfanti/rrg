@@ -26,8 +26,8 @@ const STATE_ZONE = { setup: 'setup', fail: 'setup', watch: 'watch', normal: 'nor
  * @param {{series: Record<string, {x: number, y: number}[]>, syms: string[], focus?: string|null, params: {ddSetup: number, ddWatch: number, watchBand: number},
  *          states?: Record<string, string>}} p  states: stato attuale di ogni settore (colora il punto finale)
  */
-export function drawBottomMap(svg, { series, syms, focus, params: P, states = {} }) {
-  const W = SIZE, H = 560, M = { l: 46, r: 14, t: 14, b: 42 };
+export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size }) {
+  const W = size || SIZE, H = Math.round(W * 0.875), M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = W - M.l - M.r, PH = H - M.t - M.b;
   let top = 60;
   for (const s of syms) for (const q of series[s] || []) top = Math.max(top, q.y);
@@ -56,7 +56,7 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
     el('text', { x, y, 'text-anchor': a, class: 'qlabel ' + c }, svg).textContent = t;
   }
   el('text', { x: M.l + PW - 8, y: sy(0) - 5, 'text-anchor': 'end', class: 'axlabel bl-blue' }, svg).textContent = 'LIVELLO BLU';
-  el('text', { x: M.l + PW, y: H - 8, 'text-anchor': 'end', class: 'axlabel' }, svg).textContent = '←  DRAWDOWN PIÙ PROFONDO (percentile storico del settore)';
+  el('text', { x: M.l + PW, y: H - 8, 'text-anchor': 'end', class: 'axlabel' }, svg).textContent = W < 560 ? '←  DRAWDOWN PIÙ PROFONDO' : '←  DRAWDOWN PIÙ PROFONDO (percentile storico del settore)';
   el('text', { x: 12, y: M.t, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 12 ${M.t})` }, svg).textContent = 'BREADTH − LIVELLO BLU (punti)  →';
 
   const plot = el('g', { 'clip-path': 'url(#bmclip)' }, svg);

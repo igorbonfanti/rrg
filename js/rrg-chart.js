@@ -50,12 +50,13 @@ export const SIZE = 640;
 /**
  * @param {SVGSVGElement} svg
  * @param {{syms: string[], series: Record<string,{x:number[],y:number[]}>, frame: number, tail: number,
- *          focus?: string|null, range: number, provisional?: boolean, labels?: Record<string,string>}} p  labels: nome breve (default il ticker)
+ *          focus?: string|null, range: number, provisional?: boolean, labels?: Record<string,string>, size?: number}} p
+ *   labels: nome breve (default il ticker); size: lato del disegno in unità SVG (default SIZE)
  * @returns {{heads: {sym: string, px: number, py: number}[]}}
  */
 export function drawRRG(svg, p) {
   const { syms, series, frame, tail, focus, range, provisional, labels = {} } = p;
-  const S = SIZE, M = { l: 46, r: 14, t: 14, b: 42 };
+  const S = p.size || SIZE, M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = S - M.l - M.r, PH = S - M.t - M.b;
   svg.setAttribute('viewBox', `0 0 ${S} ${S}`);
   svg.replaceChildren();
@@ -143,7 +144,8 @@ export function nearestHead(svg, heads, evt, radiusPx = 26) {
   const ctm = svg.getScreenCTM();
   if (!ctm) return null;
   const p = pt.matrixTransform(ctm.inverse());
-  const scale = svg.getBoundingClientRect().width / SIZE;
+  const vb = svg.viewBox.baseVal;
+  const scale = svg.getBoundingClientRect().width / ((vb && vb.width) || SIZE);
   let best = null, bd = radiusPx / scale;
   for (const h of heads) { const d = Math.hypot(h.px - p.x, h.py - p.y); if (d < bd) { bd = d; best = h; } }
   return best;

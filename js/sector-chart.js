@@ -38,17 +38,18 @@ function sma200(c) {
 /**
  * @param {SVGSVGElement} svg
  * @param {{dates: string[], close: number[], dd: number[], b200: number[], b50: number[], days: (string|null)[], triggers: number[],
- *          i0: number, sym: string, blue: number, tipEl: HTMLElement, wrapEl: HTMLElement}} p
+ *          i0: number, sym: string, blue: number, tipEl: HTMLElement, wrapEl: HTMLElement, width?: number}} p
  */
 export function drawSector(svg, p) {
   const { i0, sym, blue, tipEl, wrapEl } = p;
   const ma = sma200(p.close);
   const dates = p.dates.slice(i0), n = dates.length;
   const c = p.close.slice(i0), m = ma.slice(i0), dd = p.dd.slice(i0), b = p.b200.slice(i0), b50 = p.b50.slice(i0), days = p.days.slice(i0);
-  const W = 940, L = 8, R = 60, GAP = 26, PW = W - L - R;
+  const W = p.width || 940, L = 8, R = 60, GAP = 26, PW = W - L - R;
+  const narrow = PW < 440; // telefono: titoli e note più corti per non sovrapporsi
   const panes = [
     { key: 'px', h: 220, title: 'PREZZO · MEDIA 200 SEDUTE' },
-    { key: 'dd', h: 100, title: 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' },
+    { key: 'dd', h: 100, title: narrow ? 'DRAWDOWN DAL MASSIMO 52 SETT.' : 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' },
     { key: 'br', h: 150, title: `% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU ${blue}%` },
   ];
   let y = 20;
@@ -69,7 +70,7 @@ export function drawSector(svg, p) {
     P0.sy = (v) => P0.y1 - ((Math.log(v) - a) / (bb - a)) * P0.h;
     P0.ticks = [];
     for (let e = Math.floor(Math.log10(P0.lo)); e <= Math.ceil(Math.log10(P0.hi)); e++) for (const k of [1, 2, 5]) { const v = k * 10 ** e; if (v >= P0.lo && v <= P0.hi) P0.ticks.push(v); }
-    P0.title = 'PREZZO (SCALA LOGARITMICA) · MEDIA 200 SEDUTE';
+    P0.title = narrow ? 'PREZZO (SCALA LOG) · MEDIA 200' : 'PREZZO (SCALA LOGARITMICA) · MEDIA 200 SEDUTE';
   } else {
     const pad = (pHi - pLo) * 0.06;
     P0.lo = pLo - pad; P0.hi = pHi + pad;
@@ -102,10 +103,11 @@ export function drawSector(svg, p) {
     el('rect', { x: L, y: q.y0, width: PW, height: q.h, fill: 'none', stroke: '#2a2a2a' }, svg);
     el('text', { x: L + 6, y: q.y0 - 7, class: 'pane-t' }, svg).textContent = q.title;
   }
-  el('text', { x: L + PW, y: P1.y0 - 7, class: 'axt', 'text-anchor': 'end' }, svg).textContent = `peggiore nel periodo ${fmt(Math.min(...vals(dd)))}%`;
+  el('text', { x: L + PW, y: P1.y0 - 7, class: 'axt', 'text-anchor': 'end' }, svg).textContent = `${narrow ? 'min' : 'peggiore nel periodo'} ${fmt(Math.min(...vals(dd)))}%`;
 
-  // asse del tempo: trimestri fino a 4 anni, poi anni (ogni 2 oltre i 12)
-  const years = n / 252, every = years > 12 ? 24 : years > 4 ? 12 : 3;
+  // asse del tempo: ogni 3, 6, 12, 24 o 48 mesi, il più fitto che entra nella larghezza del disegno
+  const months = n / 21;
+  const every = [3, 6, 12, 24, 48].find((e) => (months / e) * (e >= 12 ? 36 : 52) <= PW) || 48;
   for (let i = 1; i < n; i++) {
     const yy = +dates[i].slice(0, 4), mm = +dates[i].slice(5, 7) - 1, pm = +dates[i - 1].slice(5, 7) - 1;
     if (mm !== pm && (yy * 12 + mm) % every === 0) {

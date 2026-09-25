@@ -25,7 +25,7 @@ function niceTicks(lo, hi, n) {
 /**
  * @param {SVGSVGElement} svg
  * @param {{dates: string[], closes: Record<string, number[]>, syms: string[], bench: string, focus?: string|null,
- *          days: number, tipEl: HTMLElement, wrapEl: HTMLElement, legendEl: HTMLElement, labels?: Record<string,string>}} p
+ *          days: number, tipEl: HTMLElement, wrapEl: HTMLElement, legendEl: HTMLElement, labels?: Record<string,string>, width?: number}} p
  */
 export function drawPerf(svg, p) {
   const { dates: all, closes, syms, bench, focus, days, tipEl, wrapEl, legendEl, labels = {} } = p;
@@ -40,7 +40,7 @@ export function drawPerf(svg, p) {
   }
   // margine destro per le etichette finali (nome breve + valore, carattere monospazio da 11px)
   const longest = Math.max(0, ...Object.keys(lines).map((s) => lab(s).length + 4));
-  const W = 640, H = 300, L = 8, R = Math.max(62, Math.ceil(12 + 6.7 * longest)), T = 12, B = 26;
+  const W = p.width || 640, H = 300, L = 8, R = Math.max(62, Math.ceil(12 + 6.7 * longest)), T = 12, B = 26;
   const PW = W - L - R, PH = H - T - B;
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   svg.replaceChildren();
@@ -52,8 +52,8 @@ export function drawPerf(svg, p) {
   const sy = (v) => T + (1 - (v - lo) / (hi - lo)) * PH;
   const ticks = niceTicks(lo, hi, 5);
   for (const v of ticks) el('line', { x1: L, x2: L + PW, y1: sy(v), y2: sy(v), class: v === 100 ? 'base' : 'gridl' }, svg);
-  // etichette del tempo: inizio di mese (ogni 1, 2 o 3 mesi a seconda del periodo)
-  const every = n > 300 ? 3 : n > 130 ? 2 : 1;
+  // etichette del tempo: inizio di mese, ogni 1, 2, 3 o 6 mesi secondo il periodo e la larghezza
+  const every = [1, 2, 3, 6].find((e) => (n / 21 / e) * 48 <= PW) || 6;
   for (let i = 1; i < n; i++) {
     const m = +dates[i].slice(5, 7), pm = +dates[i - 1].slice(5, 7);
     if (m !== pm && (m - 1) % every === 0) {

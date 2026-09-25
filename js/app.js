@@ -2,11 +2,11 @@
 import { build, stats, CENTER } from './engine.js';
 import { createBottom } from './bottom.js';
 import { priceMetrics } from './metrics.js';
-import { drawRRG, nearestHead } from './rrg-chart.js';
+import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
 import { portfolioIndex } from './portfolio.js';
-import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip } from './format.js';
+import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth } from './format.js';
 
 const $ = (id) => document.getElementById(id);
 const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr'];
@@ -140,6 +140,12 @@ function init() {
   recompute(true);
   routeHash(true);
   window.addEventListener('hashchange', () => routeHash(true));
+  // rotazione del telefono o finestra ridimensionata: i grafici si ridisegnano alla nuova larghezza
+  let lastW = window.innerWidth, rt = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(rt);
+    rt = setTimeout(() => { if (Math.abs(window.innerWidth - lastW) > 40) { lastW = window.innerWidth; renderAll(); } }, 250);
+  });
 }
 
 // #mon #rrg #btm #sec #alr, oppure #XLU per il dettaglio di un settore
@@ -291,7 +297,7 @@ function fitRange() {
 const focused = () => { const f = state.pinned || state.focus; return f && f !== state.benchmark ? f : null; };
 function drawChart() {
   lastDraw = drawRRG($('rrg'), {
-    syms: symbols().filter((s) => !state.hidden.has(s)), series: state.model.series, frame: state.frame, tail: state.tail, labels: labelMap(),
+    syms: symbols().filter((s) => !state.hidden.has(s)), series: state.model.series, frame: state.frame, tail: state.tail, labels: labelMap(), size: chartWidth($('rrg'), SIZE),
     focus: focused(), range: state.scale === 'max' || state.timer ? maxRange() : fitRange(), provisional: isProvisional(),
   });
 }
@@ -341,7 +347,7 @@ function renderRotTable() {
 function renderPerf() {
   const d = ds();
   drawPerf($('perf'), {
-    dates: d.dates, closes: Object.fromEntries(Object.entries(d.tickers).map(([s, t]) => [s, t.close])), labels: labelMap(),
+    dates: d.dates, closes: Object.fromEntries(Object.entries(d.tickers).map(([s, t]) => [s, t.close])), labels: labelMap(), width: chartWidth($('perf'), 640),
     syms: symbols().filter((s) => !state.hidden.has(s)), bench: state.benchmark, focus: focused(), days: state.perfDays,
     tipEl: $('perfTip'), wrapEl: $('perfWrap'), legendEl: $('perfLegend'),
   });
