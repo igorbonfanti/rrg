@@ -100,7 +100,7 @@ export function drawSector(svg, p) {
       if (tagY != null && Math.abs(q.sy(v) - tagY) < 13) continue;
       el('text', { x: L + PW + 6, y: q.sy(v) + 3.5, class: 'axt' }, svg).textContent = q.key === 'px' ? fmt(v, v >= 100 ? 0 : 1) : fmt(v, 0) + '%';
     }
-    el('rect', { x: L, y: q.y0, width: PW, height: q.h, fill: 'none', stroke: '#2a2a2a' }, svg);
+    el('rect', { x: L, y: q.y0, width: PW, height: q.h, class: 'frame' }, svg);
     el('text', { x: L + 6, y: q.y0 - 7, class: 'pane-t' }, svg).textContent = q.title;
   }
   el('text', { x: L + PW, y: P1.y0 - 7, class: 'axt', 'text-anchor': 'end' }, svg).textContent = `${narrow ? 'min' : 'peggiore nel periodo'} ${fmt(Math.min(...vals(dd)))}%`;
