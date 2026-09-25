@@ -110,11 +110,17 @@ function makeCalendar(hol, tz, publishAfter) {
     );
     return { date: `${parts.year}-${parts.month}-${parts.day}`, minutes: +parts.hour * 60 + +parts.minute };
   };
-  // Ultima seduta chiusa attesa: oggi se è una seduta ed è passata l'ora di pubblicazione, altrimenti la precedente.
+  // Ultima seduta chiusa attesa: l'ultima seduta per cui l'ora di pubblicazione è già passata.
+  // publishAfterMinutes si conta dalla mezzanotte locale del giorno della seduta e può superare
+  // le 24 ore (per esempio 26 × 60 = alle 2 del giorno dopo).
   const expectedSession = (now = new Date(), publishAfterMinutes = publishAfter) => {
-    const { date, minutes } = localNow(now);
-    if (isTradingDay(date) && minutes >= publishAfterMinutes) return date;
-    return prevTradingDay(date);
+    let { date, minutes } = localNow(now);
+    minutes -= publishAfterMinutes;
+    while (minutes < 0) {
+      minutes += 1440;
+      const dt = utc(date); dt.setUTCDate(dt.getUTCDate() - 1); date = toIso(dt);
+    }
+    return isTradingDay(date) ? date : prevTradingDay(date);
   };
   // Sedute tra `from` (esclusa) e `to` (inclusa)
   const sessionsBetween = (from, to) => {

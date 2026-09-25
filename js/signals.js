@@ -90,13 +90,15 @@ const minOver = (a, t, w) => { let m = Infinity; for (let i = Math.max(0, t - w 
  * @param {{pct200: number[], pct50: number[], pct20: number[], n: number[]}} br serie di breadth (breadthSeries)
  * @param {number} L livello blu
  * @param {Partial<typeof DEFAULT_PARAMS>} [params]
- * @returns {{days: (string|null)[], events: {t: number, code: string, text: string, setup?: object}[], setups: object[]}}
+ * @returns {{days: (string|null)[], events: {t: number, code: string, text: string, setup?: object}[], setups: object[],
+ *           below: number, armed: boolean, reset: number}}  below, armed e reset valgono all'ultima seduta calcolata:
+ *           chiusure consecutive ≤ livello blu, riarmo avvenuto, livello di riarmo
  */
 export function runMachine(px, br, L, params = {}) {
   const P = { ...DEFAULT_PARAMS, ...params };
   const { close: c, dd, dp } = px, H = br.pct200;
   const n = c.length, days = new Array(n).fill(null), events = [], setups = [];
-  let st = 'normal', armed = true, setup = null, trig = null, below = 0;
+  let st = 'normal', armed = true, setup = null, trig = null, below = 0, lastReset = Math.max(P.resetFloor, L + P.resetAbove);
   const f1 = (v) => v.toFixed(1).replace('.', ',');
   for (let t = 0; t < n; t++) {
     const b = H[t];
@@ -104,6 +106,7 @@ export function runMachine(px, br, L, params = {}) {
     const stock = 100 / br.n[t];
     const h = Math.max(P.minRecoveryPoints, P.minRecoveryStocks * stock);
     const reset = Math.max(P.resetFloor, L + P.resetAbove);
+    lastReset = reset;
     below = b <= L ? below + 1 : 0;
     if (!armed && b >= reset) armed = true;
 
@@ -150,7 +153,7 @@ export function runMachine(px, br, L, params = {}) {
     }
     days[t] = st;
   }
-  return { days, events, setups };
+  return { days, events, setups, below, armed, reset: lastReset };
 }
 
 // Rendimento % da t a t+k sedute (null se il futuro non è ancora disponibile)

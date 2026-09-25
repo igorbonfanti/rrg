@@ -55,7 +55,7 @@
       }
     },
     "groups": {
-      "Portafoglio · livello 1": {
+      "1 · Asset class": {
         "defaultBenchmark": "PTF",
         "benchmarks": [
           "PTF",
@@ -115,7 +115,7 @@
           }
         }
       },
-      "Fattori · livello 2": {
+      "2 · Fattori": {
         "defaultBenchmark": "SWDA.MI",
         "benchmarks": [
           "SWDA.MI",
@@ -143,11 +143,11 @@
             "name": "SPDR MSCI World Small Cap (Acc)"
           },
           "EQQQ.MI": {
-            "label": "Growth",
+            "label": "Growth NDX",
             "name": "Nasdaq-100 come indicatore del Growth (non esiste un ETF UCITS MSCI World Growth) · Invesco EQQQ"
           },
           "VHYL.MI": {
-            "label": "High Div",
+            "label": "Dividendi",
             "name": "Alto dividendo, FTSE All-World · Vanguard FTSE All-World High Dividend Yield"
           },
           "MWEQ.MI": {
@@ -156,7 +156,7 @@
           }
         }
       },
-      "Regioni · livello 3": {
+      "3 · Regioni": {
         "defaultBenchmark": "IUSQ.DE",
         "benchmarks": [
           "IUSQ.DE",
@@ -185,7 +185,7 @@
           }
         }
       },
-      "Paesi · livello 4": {
+      "4 · Paesi": {
         "defaultBenchmark": "IUSQ.DE",
         "benchmarks": [
           "IUSQ.DE",

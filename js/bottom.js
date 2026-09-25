@@ -27,6 +27,9 @@ const ICON = {
 };
 export const badge = (code, label = STATES[code]) => `<span class="st st-${code}">${ICON[code]}${esc(label)}</span>`;
 const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}`;
+// "del 70%" ma "dell'80%", "dell'8%", "dell'11%", "dell'1%"
+const delPct = (v) => { const r = Math.round(v); return `${r === 1 || r === 8 || r === 11 || (r >= 80 && r <= 89) ? "dell'" : 'del '}${r}%`; };
+const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
 const median = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
 const positive = (a) => { const v = a.filter((x) => x != null); return v.length ? (100 * v.filter((x) => x > 0).length) / v.length : null; };
 
@@ -70,7 +73,7 @@ export function createBottom(ctx) {
     while (t > 0 && m.days[t] == null) t--;
     const code = m.days[t] || 'normal';
     const b = BR[s].pct200[NOW], L = st.blue[s], dd = PX[s].dd[NOW], dp = PX[s].dp[NOW];
-    const ddTxt = `drawdown ${sgn(dd)}%, più profondo del ${dp}% delle sedute dal ${DATES[0].slice(0, 4)}`;
+    const ddTxt = `drawdown ${sgn(dd)}%, più profondo ${delPct(dp)} delle sedute dal ${DATES[0].slice(0, 4)}`;
     const setup = m.setups[m.setups.length - 1];
     const lastEv = m.events[m.events.length - 1];
     const why = {
@@ -78,10 +81,22 @@ export function createBottom(ctx) {
       fail: lastEv ? lastEv.text : '',
       trig: lastEv && lastEv.code === 'trig' ? `${dIT(DATES[lastEv.t])}: ${lastEv.text}` : 'trigger recente',
       cool: lastEv && lastEv.code === 'trig' ? `trigger del ${dIT(DATES[lastEv.t])}: nuovi segnali sospesi fino a ${P.cooldown} sedute dopo` : 'trigger recente',
-      watch: [b <= L + P.watchBand ? `breadth ${fmt(b)}%, a ${fmt(b - L)} punti dal livello blu` : null, dp >= P.ddWatch ? ddTxt : null].filter(Boolean).join(' · '),
+      watch: [watchText(m, b, L, dp), dp >= P.ddWatch ? ddTxt : null].filter(Boolean).join(' · '),
       normal: '',
     }[code];
     return { code, why };
+  }
+  // Perché un settore è in Attenzione e cosa manca alla zona blu
+  function watchText(m, b, L, dp) {
+    if (b > L + P.watchBand) return null;
+    if (b > L) return `breadth ${fmt(b)}%, ${fmt(b - L)} punti sopra il livello blu (${L}%)`;
+    const head = `breadth ${fmt(b)}%, sotto il livello blu (${L}%) da ${m.below} ${m.below === 1 ? 'chiusura' : 'chiusure'}`;
+    if (!m.armed) return `${head}: dopo l'ultimo trigger una nuova zona blu richiede prima che la breadth torni sopra ${fmt(m.reset, 0)}%`;
+    const miss = [];
+    const k = P.setupCloses - m.below;
+    if (k > 0) miss.push(k === 1 ? "un'altra chiusura sotto il livello" : `altre ${k} chiusure sotto il livello`);
+    if (dp < P.ddSetup) miss.push(`un drawdown oltre il ${P.ddSetup}° percentile (ora ${dp}°)`);
+    return miss.length ? `${head}: per la zona blu ${miss.length > 1 ? 'servono' : 'serve'} ${miss.join(' e ')}` : head;
   }
   const changed = (s) => st.blue[s] !== config.blue[s];
 
@@ -100,16 +115,16 @@ export function createBottom(ctx) {
       const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
       return `<tr data-sym="${r.s}" tabindex="0">
         <td><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></td>
-        <td class="num r">${fmt(r.last, 2)}</td><td class="num r">${pct(r.d1)}</td><td class="num r">${pct(r.m1)}</td>
-        <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo del ${r.dp}% delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
-        <td><span class="cellv num" title="${r.above} titoli su ${r.n}">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
+        <td>${badge(r.state.code)}</td>
+        <td><span class="cellv num" title="${titoli(r.above)} su ${r.n}">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
         <td class="num r">${r.L}%${changed(r.s) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
+        <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
         <td>${r.rot ? qPill(r.rot.q, r.rot.heading) : ''}</td>
-        <td>${badge(r.state.code)}</td></tr>`;
+        <td class="num r">${fmt(r.last, 2)}</td><td class="num r">${pct(r.d1)}</td><td class="num r">${pct(r.m1)}</td></tr>`;
     }).join('');
     const spy = S.adjclose.SPY, spx = BR.SPX;
-    const bench = `<tr class="bench"><td><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="num r">${fmt(spy[NOW], 2)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td><td><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td><td><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td></td><td class="muted">benchmark</td><td></td></tr>`;
-    $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th><th>Drawdown da max 52s</th><th>% titoli sopra media 200</th><th class="r">Blu</th><th>Rotazione</th><th>Stato</th></tr></thead><tbody>${body}${bench}</tbody>`;
+    const bench = `<tr class="bench"><td><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted">benchmark</td><td><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td></td><td><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td><td></td><td class="num r">${fmt(spy[NOW], 2)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
+    $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th>Stato</th><th>% titoli sopra media 200</th><th class="r">Blu</th><th>Drawdown da max 52s</th><th>Rotazione</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>${body}${bench}</tbody>`;
     $('boardTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
       tr.onclick = () => openSector(tr.dataset.sym);
       tr.onkeydown = (e) => { if (e.key === 'Enter') openSector(tr.dataset.sym); };
@@ -118,21 +133,21 @@ export function createBottom(ctx) {
     const by = (codes) => rows.filter((r) => codes.includes(r.state.code));
     const list = (a) => a.map((r) => r.s).join(' · ') || 'nessuno';
     const kpi = [
-      ['S&amp;P 500 sopra media 200', `${fmt(spx.pct200[NOW])}% ${sparkline(spx.pct200.slice(NOW - 251, NOW + 1), 96, 26)}`, `${spx.above200[NOW]} titoli su ${spx.n[NOW]} · linea: 20%`],
+      ['S&amp;P 500 sopra media 200', `${fmt(spx.pct200[NOW])}% ${sparkline(spx.pct200.slice(NOW - 251, NOW + 1), 96, 26)}`, `${titoli(spx.above200[NOW])} su ${spx.n[NOW]} · linea grigia al 20%`],
       ['Settori in zona blu', `${by(['setup', 'fail']).length}<small> / 11</small>`, list(by(['setup', 'fail']))],
-      [`Trigger ultimi ${P.cooldown} giorni`, `${by(['trig', 'cool']).length}<small> / 11</small>`, list(by(['trig', 'cool']))],
+      [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / 11</small>`, list(by(['trig', 'cool']))],
       ['Settori in attenzione', `${by(['watch']).length}<small> / 11</small>`, list(by(['watch']))],
       ['SPY · S&amp;P 500', fmt(spy[NOW], 2), `${sgn(PX.SPY.dd[NOW])}% dal massimo a 52 settimane`],
     ];
     $('boardKpis').innerHTML = kpi.map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
     const active = rows.filter((r) => r.state.code !== 'normal');
-    $('activeMeta').textContent = `${active.length} su 11`;
+    $('activeMeta').textContent = `${active.length} su 11 · in attenzione, zona blu o dopo un trigger`;
     $('activeList').innerHTML = active.length ? active.map((r) => `<div class="acard" data-sym="${r.s}" tabindex="0">
         <div class="acard-h"><span><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></span>${badge(r.state.code)}</div>
         <div class="acard-t">${esc(r.state.why)}</div></div>`).join('') : '<p class="note">Nessun settore vicino al livello blu.</p>';
     $('activeList').querySelectorAll('.acard').forEach((c) => { c.onclick = () => openSector(c.dataset.sym); c.onkeydown = (e) => { if (e.key === 'Enter') openSector(c.dataset.sym); }; });
     $('stateLegend').innerHTML = [
-      ['watch', `breadth entro ${P.watchBand} punti dal livello blu, oppure drawdown più profondo dell'${P.ddWatch}% della storia del settore.`],
+      ['watch', `breadth entro ${P.watchBand} punti dal livello blu, oppure drawdown più profondo ${delPct(P.ddWatch)} della storia del settore. Sotto il livello blu per meno di ${P.setupCloses} chiusure si resta qui.`],
       ['setup', `breadth sotto il livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile. Qui si formano i bottom, spesso in anticipo: ci si prepara.`],
       ['trig', 'la breadth risale di almeno 2 titoli sopra il livello blu con una conferma: spinta di breadth, prezzo sopra una media 20 crescente, divergenza o rimbalzo a V.'],
       ['fail', `entro ${P.failWindow} sedute dal trigger il prezzo rompe il minimo della zona blu: si torna in zona blu con regole più severe.`],
@@ -151,10 +166,11 @@ export function createBottom(ctx) {
     }
     return out;
   }
+  const mapStates = () => Object.fromEntries(SECTOR_KEYS.map((s) => [s, stateOf(s).code]));
   function renderMap() {
     mapSeries = mapData();
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P });
-    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[NOW])}`;
+    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates() });
+    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[NOW])} · colore del punto = stato attuale (in zona blu si entra dopo ${P.setupCloses} chiusure sotto il livello)`;
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
     const rows = SECTOR_KEYS.map((s) => ({ s, d: BR[s].pct200[NOW] - st.blue[s], need: BR[s].above200[NOW] - Math.floor((st.blue[s] * BR[s].n[NOW]) / 100) })).sort((a, b) => a.d - b.d);
     const lo = Math.min(-10, Math.floor(Math.min(...rows.map((r) => r.d)) / 5) * 5), hi = Math.max(40, Math.ceil(Math.max(...rows.map((r) => r.d)) / 10) * 10);
@@ -173,7 +189,7 @@ export function createBottom(ctx) {
     });
   }
   function redrawMap() {
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P });
+    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates() });
     $('distList').querySelectorAll('.r').forEach((r) => r.classList.toggle('sel', r.dataset.sym === st.mapFocus));
   }
   function bindMap() {
@@ -188,7 +204,8 @@ export function createBottom(ctx) {
       tip.innerHTML = `<div class="row"><b>${s}</b><span>${NAMES[s]}</span></div>
         <div class="row"><span>Sopra media 200</span><b>${fmt(BR[s].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[s]}%</b></div>
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[s].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
-        <div class="row"><span>Zona</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
+        <div class="row"><span>Stato</span><b>${esc(STATES[stateOf(s).code])}</b></div>
+        <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
       const wr = $('bmWrap').getBoundingClientRect();
       let x = e.clientX - wr.left + 14;
       if (x + 210 > wr.width) x = e.clientX - wr.left - 220;
@@ -227,7 +244,9 @@ export function createBottom(ctx) {
     const under = hist.filter((v) => v <= L).length;
     const n = BR[s].n[NOW];
     $('blueInfo').textContent = `Il ${fmt((100 * under) / hist.length)}% delle sedute dal ${DATES[f0].slice(0, 4)} è stato sotto questo livello. Con ${n} titoli, uno vale ${fmt(100 / n)} punti.`;
-    $('blueSrc').innerHTML = changed(s) ? `<span class="loc">modificato in questo browser · configurazione ${config.blue[s]}%</span>` : 'dalla configurazione del repository';
+    $('blueSrc').innerHTML = changed(s)
+      ? `<span class="loc">modificato in questo browser · livello di default ${config.blue[s]}%</span>`
+      : 'Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea. Le regole di zona blu, trigger e cooldown sono di questa app.';
     $('blueReset').hidden = !changed(s);
     // situazione
     const b = BR[s].pct200[NOW];
@@ -259,8 +278,8 @@ export function createBottom(ctx) {
     })).reverse();
     const tr = eps.filter((e) => e.t63 != null);
     const first = BR[s].pct200.findIndex((v) => v != null);
-    $('epiMeta').textContent = `${eps.length} zone blu dal ${dIT(DATES[first])} con livello ${st.blue[s]}%` +
-      (tr.length ? ` · dopo il trigger +3M mediana ${sgn(median(tr.map((e) => e.t63)))}%, positivi ${fmt(positive(tr.map((e) => e.t63)), 0)}%` : '');
+    $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}%` +
+      (tr.length ? ` · dopo il trigger +3M mediana ${sgn(median(tr.map((e) => e.t63)))}%` + (tr.length >= 5 ? `, positivi ${fmt(positive(tr.map((e) => e.t63)), 0)}% su ${tr.length} casi` : ` (${tr.length === 1 ? 'un solo caso' : `solo ${tr.length} casi`}: troppo pochi per una statistica)`) : '');
     if (!eps.length) { $('epiTable').innerHTML = '<tbody><tr><td class="muted">Nessuna zona blu nel periodo con questo livello.</td></tr></tbody>'; return; }
     const cell = (v) => (v == null ? '<span class="muted">—</span>' : pct(v));
     $('epiTable').innerHTML = `<thead><tr><th>Zona blu dal</th><th class="r">Breadth min</th><th class="r">DD ingresso</th><th class="r">+3M da zona blu</th><th>Trigger</th><th>Conferma</th><th class="r">+1M</th><th class="r">+3M</th><th class="r">+6M</th><th class="r">Peggior calo 3M</th></tr></thead><tbody>` +

@@ -3,8 +3,10 @@
  *   X = profondità del drawdown dal massimo a 52 settimane, in percentile della storia del
  *       settore (a sinistra = più profondo);
  *   Y = % di titoli sopra la media 200 meno il livello blu del settore (0 = livello blu).
- * In basso a sinistra la zona blu; il percorso tipico di un bottom scende verso sinistra,
- * poi risale (la breadth recupera) e infine torna verso destra.
+ * In basso a sinistra l'area della zona blu; il percorso tipico di un bottom scende verso sinistra,
+ * poi risale (la breadth recupera) e infine torna verso destra. Il colore del punto finale è lo
+ * stato calcolato dalla macchina a stati (per entrare in zona blu servono più chiusure sotto il
+ * livello), non la sola posizione nel grafico.
  */
 import { placeLabels, SIZE } from './rrg-chart.js';
 
@@ -16,12 +18,15 @@ function el(tag, attrs, parent) {
   return e;
 }
 export const zoneOf = (x, y, P) => (y <= 0 && x >= P.ddSetup ? 'setup' : y <= P.watchBand || x >= P.ddWatch ? 'watch' : 'normal');
+// colore del punto per lo stato della macchina a stati
+const STATE_ZONE = { setup: 'setup', fail: 'setup', watch: 'watch', normal: 'normal', trig: 'normal', cool: 'normal' };
 
 /**
  * @param {SVGSVGElement} svg
- * @param {{series: Record<string, {x: number, y: number}[]>, syms: string[], focus?: string|null, params: {ddSetup: number, ddWatch: number, watchBand: number}}} p
+ * @param {{series: Record<string, {x: number, y: number}[]>, syms: string[], focus?: string|null, params: {ddSetup: number, ddWatch: number, watchBand: number},
+ *          states?: Record<string, string>}} p  states: stato attuale di ogni settore (colora il punto finale)
  */
-export function drawBottomMap(svg, { series, syms, focus, params: P }) {
+export function drawBottomMap(svg, { series, syms, focus, params: P, states = {} }) {
   const W = SIZE, H = 560, M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = W - M.l - M.r, PH = H - M.t - M.b;
   let top = 60;
@@ -67,7 +72,7 @@ export function drawBottomMap(svg, { series, syms, focus, params: P }) {
     }
     for (let i = 0; i < n; i++) el('circle', { cx: sx(pts[i].x), cy: sy(pts[i].y), r: 1.8, class: 'dot', 'fill-opacity': (0.25 + 0.6 * (i / Math.max(1, n))).toFixed(2) }, grp);
     const q = pts[n];
-    el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${zoneOf(q.x, q.y, P)}` }, grp);
+    el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}` }, grp);
     heads.push({ sym: s, label: s, px: sx(q.x), py: sy(q.y), dim });
   }
   placeLabels(heads, { x1: M.l + 2, y1: M.t + 2, x2: M.l + PW - 2, y2: M.t + PH - 2 });

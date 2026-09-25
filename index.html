@@ -16,7 +16,7 @@
     <span class="brand">SECTOR·MON</span>
     <form class="cmd" id="cmdForm" autocomplete="off">
       <span class="prompt">&gt;</span>
-      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Comando: un ticker (XLU, NVDA), MON, RRG, BTM, ALRT, HELP · poi Invio" />
+      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Comando: un ticker (XLU, NVDA, SWDA), un nome (ORO, TESLA), MON, ROT, BTM, ALRT, HELP · poi Invio" />
       <button class="go" type="submit">GO</button>
     </form>
     <span class="clock" id="clock"></span>
@@ -24,7 +24,7 @@
 
   <nav class="fnkeys" role="tablist" aria-label="Viste">
     <button role="tab" id="tab-mon" data-view="mon" aria-selected="true">1 MONITOR</button>
-    <button role="tab" id="tab-rrg" data-view="rrg" aria-selected="false">2 RRG</button>
+    <button role="tab" id="tab-rrg" data-view="rrg" aria-selected="false">2 ROTAZIONE</button>
     <button role="tab" id="tab-btm" data-view="btm" aria-selected="false">3 BOTTOM MAP</button>
     <button role="tab" id="tab-sec" data-view="sec" aria-selected="false">4 SETTORE</button>
     <button role="tab" id="tab-alr" data-view="alr" aria-selected="false">5 ALERT</button>
@@ -50,6 +50,16 @@
 
   <!-- 1 MONITOR -->
   <section class="view" id="v-mon" role="tabpanel" aria-labelledby="tab-mon">
+    <p class="note loading" id="loadingNote">Caricamento dei dati…</p>
+    <div class="intro" id="intro" hidden>
+      <p><b>Sector Monitor</b> cerca i possibili bottom dei settori S&amp;P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
+      <ol>
+        <li>Leggi il <b>Monitor</b>: lo stato di ogni settore e, a destra, quelli da osservare con il motivo.</li>
+        <li>Clic su un settore per il <b>dettaglio</b>: prova il livello blu con + e −.</li>
+        <li>Apri <b>2 Rotazione</b> e scegli un universo in euro: Asset class, Fattori, Regioni o Paesi.</li>
+      </ol>
+      <div class="intro-btns"><button type="button" class="mini" id="introClose">Ho capito</button><button type="button" class="mini" id="introHelp">Apri la guida</button></div>
+    </div>
     <div class="kpis" id="boardKpis"></div>
     <div class="grid-side">
       <div class="panel">
@@ -65,7 +75,7 @@
       </div>
       <div class="stack">
         <div class="panel">
-          <div class="ph"><h2>Alert attivi</h2><span class="meta" id="activeMeta"></span></div>
+          <div class="ph"><h2>Settori da osservare</h2><span class="meta" id="activeMeta"></span></div>
           <div class="pb" id="activeList"></div>
         </div>
         <div class="panel">
@@ -213,10 +223,14 @@
             </div>
             <p class="note" id="blueSrc"></p>
             <p class="note" id="blueInfo"></p>
-            <p class="note">Le modifiche valgono in questo browser. Gli alert Telegram usano config/thresholds.json del repository.</p>
-            <button type="button" class="mini" id="copyCfg">Copia configurazione</button>
-            <p class="note" id="copyMsg"></p>
-            <textarea id="cfgText" class="cfgtext" rows="6" hidden aria-label="Configurazione da copiare"></textarea>
+            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+            <details class="owner">
+              <summary>Per chi gestisce il repository</summary>
+              <p class="note">Gli alert Telegram usano config/thresholds.json del repository. Per portarci i livelli provati qui:</p>
+              <button type="button" class="mini" id="copyCfg">Copia configurazione</button>
+              <p class="note" id="copyMsg"></p>
+              <textarea id="cfgText" class="cfgtext" rows="6" hidden aria-label="Configurazione da copiare"></textarea>
+            </details>
           </div>
         </div>
         <div class="panel">
@@ -245,7 +259,11 @@
           <div class="ph"><h2>Notifiche Telegram</h2></div>
           <div class="pb">
             <p class="note" id="sentInfo"></p>
-            <p class="note">Per riceverle: crea un bot con @BotFather, avvia una chat con il bot e aggiungi al repository (Settings → Secrets and variables → Actions) i segreti <span class="mono">TELEGRAM_BOT_TOKEN</span> e <span class="mono">TELEGRAM_CHAT_ID</span>. La GitHub Action invia solo i nuovi cambi di stato dopo l'aggiornamento serale.</p>
+            <p class="note">Le notifiche arrivano a chi gestisce il repository: la GitHub Action invia solo i nuovi cambi di stato dopo l'aggiornamento serale.</p>
+            <details class="owner">
+              <summary>Per chi gestisce il repository</summary>
+              <p class="note">Crea un bot con @BotFather, avvia una chat con il bot e aggiungi al repository (Settings → Secrets and variables → Actions) i segreti <span class="mono">TELEGRAM_BOT_TOKEN</span> e <span class="mono">TELEGRAM_CHAT_ID</span>.</p>
+            </details>
           </div>
         </div>
         <div class="panel">
@@ -257,7 +275,8 @@
   </section>
 
   <footer class="statusline">
-    <span id="srcLine">Dati: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · aggiornati dalla GitHub Action</span>
+    <span id="srcLine">Dati di fine giornata: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · livelli blu di default dalla tabella «200 LEVEL SETTORI» di quant-rea</span>
+    <span class="discl">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento. I rendimenti passati non indicano quelli futuri.</span>
     <span id="genLine"></span>
   </footer>
 </div>
@@ -265,19 +284,46 @@
 <div class="modal" id="helpModal" hidden>
   <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="helpTitle">
     <div class="ph"><h2 id="helpTitle">Guida</h2><button class="modal-close" id="helpClose" aria-label="Chiudi">×</button></div>
-    <div class="pb">
-      <p>La <b>rotazione relativa</b> (approssimazione in stile RRG) confronta ogni titolo con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa, trend) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 è "in linea con il benchmark".</p>
+    <div class="pb help">
+      <p><b>Sector Monitor</b> segue due cose: i <b>possibili bottom dei settori S&amp;P 500</b>, cioè quanti titoli di ogni settore stanno sopra la media a 200 sedute rispetto a un livello blu, insieme al drawdown dell'ETF; e la <b>rotazione relativa</b> di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
+      <h3>Le viste</h3>
+      <ul>
+        <li><b>1 Monitor</b>: gli 11 settori ordinati per stato, con breadth, livello blu e drawdown; a destra i settori da osservare e perché. Clic su un settore per il dettaglio.</li>
+        <li><b>2 Rotazione</b>: grafico di rotazione relativa con tabella e performance. Universi USA (settori, MAG7) e globali in euro: 1 Asset class, 2 Fattori, 3 Regioni, 4 Paesi.</li>
+        <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
+        <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati.</li>
+        <li><b>5 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
+      </ul>
+      <h3>Stati dei settori</h3>
+      <ul>
+        <li><b>Attenzione</b>: breadth entro 10 punti dal livello blu o drawdown molto profondo; anche sotto il livello da una sola chiusura.</li>
+        <li><b>Zona blu</b>: breadth al livello blu o sotto per 2 chiusure e drawdown oltre il 70° percentile della storia del settore. Lì si formano spesso i bottom, di solito in anticipo.</li>
+        <li><b>Trigger</b>: la breadth risale sopra il livello con una conferma (spinta di breadth, prezzo sopra una media 20 crescente, divergenza o rimbalzo a V).</li>
+        <li><b>Fallito</b>: entro 20 sedute dal trigger il prezzo rompe il minimo della zona blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali.</li>
+      </ul>
+      <h3>Rotazione relativa</h3>
+      <p>Ogni titolo è confrontato con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>
       <ul>
         <li><b class="q-imp-c">Improving</b> (alto a sinistra): più debole del benchmark ma lo slancio migliora.</li>
         <li><b class="q-lead-c">Leading</b> (alto a destra): più forte e con slancio.</li>
         <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
         <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
       </ul>
-      <p>Gli <b>universi</b> sono di due tipi. <b>USA</b>: settori S&amp;P 500 e MAG7, in dollari. <b>Globali</b>: ETF UCITS in euro quotati in Europa, su quattro livelli: <b>1 Portafoglio</b> (le componenti di un portafoglio di lungo periodo contro il portafoglio stesso, ribilanciato a fine mese; in alternativa contro la liquidità o l'MSCI World), <b>2 Fattori</b> (stili contro l'MSCI World), <b>3 Regioni</b> e <b>4 Paesi</b> (contro l'MSCI ACWI, cioè il mondo con gli emergenti). Sul grafico gli ETF globali hanno un nome breve; ticker e nome completo sono in tabella.</p>
-      <p>La <b>formula nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: un trend più forte finisce più a destra e non ci sono salti quando un vecchio dato esce dalla finestra. La <b>classica</b> è quella della prima versione (z-score a 26 barre).</p>
-      <p>La <b>ricerca dei bottom</b> combina due misure per settore: la % di titoli sopra la media a 200 sedute (breadth, calcolata sui costituenti S&amp;P 500) e il drawdown dell'ETF dal massimo a 52 settimane. Sotto il <b>livello blu</b>, con un drawdown profondo, il settore entra in <b>zona blu</b>: lì si formano spesso i bottom, ma di solito in anticipo. Il <b>trigger</b> arriva quando la breadth risale con una conferma di prezzo.</p>
-      <p>Scorciatoie: <kbd>1</kbd>–<kbd>5</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo precedente/successivo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> questa guida. Nel comando scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome breve (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>) per evidenziarlo nella rotazione, oppure MON, RRG, BTM, SEC, ALRT, HELP.</p>
-      <p class="note">Strumento di lettura, non un segnale operativo. "Relative Rotation Graphs" è un marchio di RRG Research: questa è un'approssimazione indipendente.</p>
+      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World); <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. La <b>formula nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità; la <b>classica</b> è quella della prima versione (z-score a 26 barre).</p>
+      <h3>Dati</h3>
+      <p>Chiusure di Yahoo Finance, aggiornate ogni notte verso l'1 (ora italiana) da una GitHub Action, con due corse di recupero. In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione. La breadth è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.</p>
+      <h3>Glossario</h3>
+      <dl class="gloss">
+        <dt>Breadth</dt><dd>% dei titoli del settore che chiudono sopra la propria media a 200 sedute, come SUTH o SKTH su TradingView.</dd>
+        <dt>Livello blu</dt><dd>soglia di breadth del settore sotto cui cercare un bottom.</dd>
+        <dt>Drawdown e percentile</dt><dd>calo dal massimo a 52 settimane; il percentile dice quanto è profondo rispetto alla storia del settore (90° = più profondo del 90% delle sedute).</dd>
+        <dt>RS-Ratio</dt><dd>forza relativa rispetto al benchmark: sopra 100 più forte.</dd>
+        <dt>RS-Momentum</dt><dd>come sta cambiando la forza relativa: sopra 100 in miglioramento.</dd>
+        <dt>Direzione</dt><dd>verso dell'ultimo spostamento sul grafico, in gradi bussola: 0° in su, 90° a destra (verso Leading).</dd>
+      </dl>
+      <h3>Comandi e tasti</h3>
+      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, ALRT, HELP. Tasti: <kbd>1</kbd>–<kbd>5</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida.</p>
+      <p class="note">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri. I livelli blu di default vengono dalla tabella «200 LEVEL SETTORI» di quant-rea; le regole di zona blu, trigger e cooldown sono di questa app. "Relative Rotation Graphs" è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente.</p>
     </div>
   </div>
 </div>

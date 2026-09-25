@@ -31,3 +31,16 @@ test('sedute e seduta attesa', () => {
   assert.equal(sessionsBetween('2026-09-04', '2026-09-08'), 1); // salta il Labor Day
   assert.equal(sessionsBetween('2026-09-23', '2026-09-23'), 0);
 });
+
+test('seduta attesa con ora di pubblicazione oltre la mezzanotte (orari della GitHub Action)', async () => {
+  const { MILAN, NYSE } = await import('../js/calendar.js');
+  // dati europei attesi dalle 2:30 del giorno dopo (26:30 dalla mezzanotte della seduta)
+  assert.equal(MILAN.expectedSession(new Date('2026-09-24T17:00:00Z'), 26 * 60 + 30), '2026-09-23'); // 19:00 a Roma
+  assert.equal(MILAN.expectedSession(new Date('2026-09-24T23:59:00Z'), 26 * 60 + 30), '2026-09-23'); // 01:59 del 25
+  assert.equal(MILAN.expectedSession(new Date('2026-09-25T00:31:00Z'), 26 * 60 + 30), '2026-09-24'); // 02:31 del 25
+  assert.equal(MILAN.expectedSession(new Date('2026-09-26T10:00:00Z'), 26 * 60 + 30), '2026-09-25'); // sabato
+  assert.equal(MILAN.expectedSession(new Date('2026-09-28T00:00:00Z'), 26 * 60 + 30), '2026-09-25'); // lunedì notte
+  // dati USA attesi dalle 20:30 di New York
+  assert.equal(NYSE.expectedSession(new Date('2026-09-24T22:00:00Z'), 20 * 60 + 30), '2026-09-23'); // 18:00 a NY
+  assert.equal(NYSE.expectedSession(new Date('2026-09-25T00:31:00Z'), 20 * 60 + 30), '2026-09-24'); // 20:31 a NY
+});

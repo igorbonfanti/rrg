@@ -11,6 +11,11 @@ import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY } from './format.js';
 const $ = (id) => document.getElementById(id);
 const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr'];
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
+// La GitHub Action pubblica i dati di fine giornata alle 00:40 italiane (22:40 UTC), con due corse
+// di recupero: prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
+const PUBLISH_US = 20 * 60 + 30; // 20:30 a New York
+const PUBLISH_EU = 26 * 60 + 30; // 02:30 a Roma del giorno dopo la seduta
+const NEXT_UPDATE = 'aggiornamento automatico ogni notte verso l\'1 (ora italiana), dopo la chiusura USA';
 
 // preferenze del singolo browser (se lo storage non è disponibile si usano i default)
 const store = {
@@ -60,7 +65,7 @@ function addPortfolios(g) {
     const mix = Object.entries(w).map(([s, v]) => `${lab(s)} ${v}%`).join(', ');
     g.tickers[key] = {
       label: grp.portfolio.label, isBenchmark: true, synthetic: true, groups: [], close: index,
-      name: `Portafoglio modello: ${mix}; ribilanciato a fine mese` + (missing.length ? ` (senza ${missing.join(', ')}: dati mancanti)` : ''),
+      name: `Portafoglio di esempio: ${mix}; ribilanciato a fine mese. Pesi indicativi, non una raccomandazione` + (missing.length ? ` (senza ${missing.join(', ')}: dati mancanti)` : ''),
     };
     const swap = (s) => (s === 'PTF' ? key : s);
     grp.benchmarks = grp.benchmarks.map(swap);
@@ -120,6 +125,8 @@ function init() {
     rotation: sectorRotation, setView: (v) => setView(v), openRRG: focusSymbol,
   });
   renderHeader();
+  $('loadingNote').hidden = true;
+  $('intro').hidden = !!store.get('introSeen', false);
   bind();
   state.bottom.bind();
   syncControls();
@@ -149,7 +156,8 @@ function sectorRotation(s) {
 function renderHeader() {
   const d = state.data;
   const asOf = d.asOf || d.dates[d.dates.length - 1];
-  const lag = sessionsBetween(asOf, expectedSession());
+  const lag = sessionsBetween(asOf, expectedSession(new Date(), PUBLISH_US));
+  $('clock').title = `Chiusure USA · ${NEXT_UPDATE}`;
   const badge = lag === 0 ? '<span class="fresh ok">AGGIORNATO</span>' : `<span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'SEDUTA' : 'SEDUTE'} INDIETRO</span>`;
   $('clock').innerHTML = `EOD <b>${dIT(asOf)}</b> ${badge}`;
   $('genLine').textContent = `generato ${new Date(d.generated).toLocaleString('it-IT')}`;
@@ -292,10 +300,9 @@ function renderRotTable() {
     .sort((a, b) => QORDER[a.r.q] - QORDER[b.r.q] || b.r.dist - a.r.dist);
   $('rotMeta').textContent = `${dIT(state.model.dates[f])}${isProvisional() ? ' (in corso)' : ''}`;
   const dl = (v) => `<span class="dlt ${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '▲' : v < 0 ? '▼' : ''}${fmt(Math.abs(v), 2)}</span>`;
-  $('rotTable').innerHTML = `<thead><tr><th><span class="sr">Mostra</span></th><th>Titolo</th><th>Quadrante</th><th class="r">RS-Ratio</th><th class="r">RS-Mom</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
+  $('rotTable').innerHTML = `<thead><tr><th>Titolo</th><th>Quadrante</th><th class="r">RS-Ratio</th><th class="r">RS-Mom</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
     rows.map(({ s, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
-      <td><input type="checkbox" class="vis" data-sym="${esc(s)}" aria-label="Mostra ${esc(s)}" ${state.hidden.has(s) ? '' : 'checked'}></td>
-      <td title="${esc((isGlobal() ? baseSym(s) + ' · ' : '') + ds().tickers[s].name)}"><span class="sym">${esc(label(s))}</span></td>
+      <td title="${esc((isGlobal() ? baseSym(s) + ' · ' : '') + ds().tickers[s].name)}"><input type="checkbox" class="vis" data-sym="${esc(s)}" aria-label="Mostra ${esc(label(s))} sul grafico" ${state.hidden.has(s) ? '' : 'checked'}> <span class="sym">${esc(label(s))}</span></td>
       <td><span class="pill q-${QKEY[r.q]}-c"><span class="d"></span>${r.q}</span></td>
       <td class="num r">${fmt(r.x, 2)} ${dl(r.dx)}</td><td class="num r">${fmt(r.y, 2)} ${dl(r.dy)}</td>
       <td class="num r${r.heading != null && r.heading <= 90 ? ' hpos' : ''}"><span class="q-${QKEY[r.q]}-c">${arrow(r.heading)}</span> ${fmt(r.heading, 0)}°</td>
@@ -340,14 +347,19 @@ function focusSymbol(s) {
   setView('rrg');
 }
 
-// Cerca un titolo per ticker (con o senza suffisso di borsa) o etichetta, prima nell'universo aperto
+// Cerca un titolo per ticker (con o senza suffisso di borsa) o etichetta, prima nell'universo aperto;
+// in mancanza, per una parola del nome (TESLA, DAX, NASDAQ)
 function findSymbol(v) {
   const names = Object.keys(state.groups);
   names.sort((a, b) => (a === state.group ? -1 : b === state.group ? 1 : 0));
-  for (const name of names) {
-    const g = state.groups[name];
-    const sym = g.tickers.find((s) => g.ds.tickers[s] && [s, baseSym(s), labelOf(g.ds, s)].some((x) => x.toUpperCase() === v));
-    if (sym && !(name === state.group && sym === state.benchmark)) return { group: name, sym };
+  const exact = (g, s) => [s, baseSym(s), labelOf(g.ds, s)].some((x) => x.toUpperCase() === v);
+  const byName = (g, s) => v.length >= 3 && (g.ds.tickers[s].name || '').toUpperCase().split(/[^A-Z0-9&+-]+/).some((w) => w.startsWith(v));
+  for (const match of [exact, byName]) {
+    for (const name of names) {
+      const g = state.groups[name];
+      const sym = g.tickers.find((s) => g.ds.tickers[s] && match(g, s));
+      if (sym && !(name === state.group && sym === state.benchmark)) return { group: name, sym };
+    }
   }
   return null;
 }
@@ -355,7 +367,7 @@ function findSymbol(v) {
 // Data dei dati globali e ritardo rispetto all'ultima seduta chiusa di Borsa Italiana
 function globalFreshness() {
   const g = state.global;
-  const lag = MILAN.sessionsBetween(g.asOf, MILAN.expectedSession());
+  const lag = MILAN.sessionsBetween(g.asOf, MILAN.expectedSession(new Date(), PUBLISH_EU));
   const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'SEDUTA' : 'SEDUTE'} INDIETRO</span>`;
   const n = g.repaired ? g.repaired.length : 0;
   const fixed = n ? ` · <span title="${esc(g.repaired.map((r) => `${r.sym} ${dIT(r.date)}: ${r.from} → ${r.to}`).join('\n'))}">${n} ${n === 1 ? 'prezzo anomalo corretto' : 'prezzi anomali corretti'}</span>` : '';
@@ -454,6 +466,8 @@ function bind() {
   svg.addEventListener('click', () => { if (state.focus) togglePin(state.focus); else if (state.pinned) togglePin(state.pinned); });
 
   $('helpBtn').onclick = () => openHelp(true);
+  $('introClose').onclick = () => { $('intro').hidden = true; store.set('introSeen', true); };
+  $('introHelp').onclick = () => openHelp(true);
   $('helpClose').onclick = () => openHelp(false);
   $('helpModal').onclick = (e) => { if (e.target.id === 'helpModal') openHelp(false); };
   $('cvdBtn').onclick = () => {
@@ -484,7 +498,7 @@ function bind() {
     e.preventDefault();
     const v = $('cmd').value.trim().toUpperCase().replace(/\s*<?GO>?$/, '');
     $('cmd').value = '';
-    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr' };
+    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (words[v]) { setView(words[v]); return; }
@@ -500,6 +514,8 @@ function bind() {
       focusSymbol(hit.sym);
       return;
     }
-    $('cmd').placeholder = `"${v}" non riconosciuto. Prova un ticker (es. XLU), MON, RRG o HELP`;
+    $('cmd').placeholder = `"${v}" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP`;
+    $('cmdForm').classList.add('err');
+    setTimeout(() => $('cmdForm').classList.remove('err'), 4000);
   };
 }
