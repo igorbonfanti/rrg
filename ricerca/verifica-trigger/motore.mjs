@@ -9,7 +9,7 @@ import { breadthSeries, priceSeries, runMachine, SECTOR_KEYS } from '../../js/si
 
 // Dati congelati: i file del repository al commit f743b04 (dati al 25/09/2026), letti con git show.
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const SNAP = 'f743b04';
+const SNAP = process.env.VERIFICA_SNAP || 'f743b04'; // per il registro dal vivo: VERIFICA_SNAP=origin/main
 const snap = (p) => JSON.parse(execFileSync('git', ['-C', HERE, 'show', SNAP + ':' + p], { maxBuffer: 1 << 28 }).toString());
 export const S = snap('data/sectors.json');
 const B = snap('data/breadth.json');
