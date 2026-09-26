@@ -138,7 +138,7 @@ function dowSeries(e, k, tol) {
 
 // ---------- simulatore ----------
 // rule: { accel: {vs, vl, brk} | null, brake: {type: 'sma', w} | {type: 'dow', k, tol} | null,
-//         staged: null | {type: 'two', w} | {type: 'three', tol, poc: null | {bin}}, needZero, fixed: null | offset }
+//         staged: null | {type: 'two', w} | {type: 'three', tol, poc: null | {bin}} | {type: 'touch', w1}, needZero, fixed: null | offset }
 // opt: { delay: 0 | 1, stop: bool }
 export function simulate(e, rule, opt = {}) {
   const { c, br, L } = SEC[e.s];
@@ -154,7 +154,7 @@ export function simulate(e, rule, opt = {}) {
     cyc = { ts, cap: cash, done2: false, done3: false, merged: false, B: maxPrev(c, ts, 10) };
     if (!firstCycle) firstCycle = { ts, buys: [] };
     failRef = ts;
-    if (!rule.staged) order(ts, 'buy', 1);
+    if (!rule.staged || rule.staged.type === 'touch') order(ts, 'buy', 1); // «touch»: al trigger entra tutta la liquidità rimasta
     else if (rule.staged.type === 'two') { order(ts, 'buy', 0.5); cyc.done2 = c[ts] > sma(e.s, rule.staged.w, ts); if (cyc.done2) order(ts, 'buy', 0.5); }
     else {
       order(ts, 'buy', 1 / 3);
@@ -167,6 +167,10 @@ export function simulate(e, rule, opt = {}) {
   if (rule.fixed != null) {
     const ts = e.t0 + rule.fixed; if (ts + 1 <= e.we) { firstCycle = { ts, buys: [] }; orders.push({ x: ts + 1, kind: 'buy', amt: 1, sig: ts }); }
     st = 'hold';
+  }
+  if (rule.staged && rule.staged.type === 'touch') { // C7: prima quota al primo giorno di zona blu (secondo giro)
+    firstCycle = { ts: e.t0, buys: [] };
+    if (e.t0 + 1 + delay <= e.we) orders.push({ x: e.t0 + 1 + delay, kind: 'buy', amt: rule.staged.w1, sig: e.t0 });
   }
   V[e.t0] = 1;
   for (let t = e.t0 + 1; t <= e.we; t++) {
