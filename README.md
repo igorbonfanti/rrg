@@ -106,7 +106,7 @@ Il sistema serve a dirigere l'attenzione, non è una regola di trading validata:
 Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, trigger, fallito) e li registra in `data/alerts.json`.
 
 ## Metodo della rotazione
-Due formule selezionabili, entrambe calcolate solo sui dati passati:
+L'app usa la formula nuova. La classica, della prima versione, resta in `js/engine.js` per confronto. Entrambe usano solo i dati passati:
 
 ```
 Nuova (default)
