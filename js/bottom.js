@@ -27,6 +27,8 @@ const ICON = {
 };
 export const badge = (code, label = STATES[code]) => `<span class="st st-${code}">${ICON[code]}${esc(label)}</span>`;
 const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}`;
+// Titoli: TradingView scrive le classi di azioni con il punto (BRK.B), i dati con il trattino (BRK-B)
+const tvStock = (sym) => tvLink(sym.replace('-', '.'));
 // "del 70%" ma "dell'80%", "dell'8%", "dell'11%", "dell'1%"
 const delPct = (v) => { const r = Math.round(v); return `${r === 1 || r === 8 || r === 11 || (r >= 80 && r <= 89) ? "dell'" : 'del '}${r}%`; };
 const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
@@ -282,7 +284,7 @@ export function createBottom(ctx) {
     const nUp = rows.filter(up).length, young = rows.filter((r) => r.d200 == null).length;
     $('memMeta').textContent = `${nUp} su ${rows.length} sopra la media 200 · al ${dIT(latest.asOf)}` + (young ? ` · ${young} con meno di 200 sedute` : '');
     $('memTable').innerHTML = `<thead><tr><th>Titolo</th><th class="r">vs m.200</th><th class="r">vs m.50</th><th class="r">DD 52s</th></tr></thead><tbody>` +
-      rows.map((r, i) => `<tr class="${i === firstBelow ? 'cut' : ''}"><td title="${esc(r.name)}"><span class="sym">${esc(r.s)}</span></td><td class="num r">${r.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(r.d200)}</td><td class="num r">${pct(r.d50)}</td><td class="num r">${sgn(r.dd)}%</td></tr>`).join('') + '</tbody>';
+      rows.map((r, i) => `<tr class="${i === firstBelow ? 'cut' : ''}"><td><a class="sym" href="${tvStock(r.s)}" target="_blank" rel="noopener" title="${esc(r.name)} · grafico su TradingView">${esc(r.s)}</a></td><td class="num r">${r.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(r.d200)}</td><td class="num r">${pct(r.d50)}</td><td class="num r">${sgn(r.dd)}%</td></tr>`).join('') + '</tbody>';
   }
   function renderEpisodes(s, m) {
     const c = PX[s].close;
