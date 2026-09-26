@@ -364,6 +364,8 @@ button.mini:hover { color: var(--amber); border-color: var(--amber); }
 .tvlinks a { color: var(--amber); text-decoration: none; border-bottom: 1px solid var(--link-line); }
 .tvlinks a:hover { border-color: var(--amber); }
 .members { max-height: 380px; overflow-y: auto; }
+.members a.sym { text-decoration: none; border-bottom: 1px solid var(--link-line); }
+.members a.sym:hover { border-color: var(--amber); }
 .t tr.cut td { border-top: 1px solid var(--blue); }
 .wrapc { white-space: normal !important; min-width: 170px; font-size: 12px; color: var(--ink-2); }
 
