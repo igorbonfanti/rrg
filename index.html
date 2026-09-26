@@ -81,11 +81,6 @@
         <button type="button" data-tf="weekly" aria-pressed="true">Settimanale</button>
         <button type="button" data-tf="daily" aria-pressed="false">Giornaliero</button>
       </span></span>
-    <span class="ctl">Formula
-      <span class="seg" id="formulaSeg" role="group" aria-label="Formula">
-        <button type="button" data-formula="nuova" aria-pressed="true" title="EMA sul log della forza relativa, normalizzata per la volatilità">Nuova</button>
-        <button type="button" data-formula="classica" aria-pressed="false" title="z-score a 26 barre, come nella prima versione">Classica</button>
-      </span></span>
   </div>
 
   <!-- 1 MONITOR -->
@@ -362,7 +357,7 @@
         <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
         <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
       </ul>
-      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. La <b>formula nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità; la <b>classica</b> è quella della prima versione (z-score a 26 barre).</p>
+      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. La rotazione usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: più il trend relativo è forte, più il punto si allontana dal centro.</p>
       <h3>Dati</h3>
       <p>Chiusure di Yahoo Finance, aggiornate ogni notte verso l'1 (ora italiana) da una GitHub Action, con due corse di recupero. In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione. La breadth è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.</p>
       <h3>Glossario</h3>

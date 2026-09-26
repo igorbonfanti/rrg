@@ -27,7 +27,7 @@ const store = {
 
 const state = {
   data: null, global: null, groups: {}, view: 'mon',
-  group: null, benchmark: null, timeframe: store.pick('timeframe', ['weekly', 'daily'], 'weekly'), formula: store.pick('formula', ['nuova', 'classica'], 'nuova'),
+  group: null, benchmark: null, timeframe: store.pick('timeframe', ['weekly', 'daily'], 'weekly'), formula: 'nuova', // per ora l'unica formula nell'app; la classica resta in js/engine.js
   tail: store.pick('tail', [4, 10, 16, 26], 10), scale: 'fit', perfDays: store.pick('perfDays', [63, 126, 252, 504], 126),
   shortcuts: store.get('shortcuts', true) !== false, // scorciatoie da un tasto (si spengono dalla guida)
   frame: 0, focus: null, pinned: null, hidden: new Set(), timer: null,
@@ -318,7 +318,7 @@ function renderRRGView(frameOnly = false) {
   drawChart();
   const m = state.model;
   $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${isGlobal() ? label(state.benchmark) : state.benchmark}`;
-  $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · formula ${esc(state.formula)}` + (isGlobal() ? ` · ${globalFreshness()}` : '');
+  $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'}` + (isGlobal() ? ` · ${globalFreshness()}` : '');
   const fr = $('frame');
   fr.min = minFrame(); fr.max = lastFrame(); fr.value = state.frame;
   $('frameDate').textContent = dIT(m.dates[state.frame]) + (isProvisional() ? ' *' : '');
@@ -524,7 +524,6 @@ function syncControls() {
   fillBenchmarks();
   $('benchSel').value = state.benchmark;
   segPress('tfSeg', 'tf', state.timeframe);
-  segPress('formulaSeg', 'formula', state.formula);
   segPress('tailSeg', 'tail', state.tail);
   segPress('scaleSeg', 'scale', state.scale);
   segPress('perfSeg', 'days', state.perfDays);
@@ -570,7 +569,6 @@ function bind() {
   };
   const seg = (id, attr, apply) => document.querySelectorAll(`#${id} button`).forEach((b) => b.onclick = () => { apply(b.dataset[attr]); syncControls(); });
   seg('tfSeg', 'tf', (v) => { state.timeframe = v; store.set('timeframe', v); recompute(true); });
-  seg('formulaSeg', 'formula', (v) => { state.formula = v; store.set('formula', v); recompute(false); });
   seg('tableSeg', 'mode', (v) => { state.tableMode = v; renderRRGView(); });
   seg('tailSeg', 'tail', (v) => { state.tail = +v; store.set('tail', state.tail); renderAll(); });
   seg('scaleSeg', 'scale', (v) => { state.scale = v; renderAll(); });
