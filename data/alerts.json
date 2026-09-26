@@ -13,5 +13,13 @@
   "XLRE": 8,
   "XLU": 5
  },
- "log": []
+ "log": [
+  {
+   "date": "2026-09-25",
+   "sector": "XLU",
+   "code": "setup",
+   "text": "breadth 3,2% ≤ livello blu 5% · drawdown −15,5% (93° percentile)",
+   "telegram": true
+  }
+ ]
 }
