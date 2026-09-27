@@ -12,14 +12,14 @@
  *   Un trend relativo più forte finisce più a destra; niente salti quando un vecchio
  *   dato esce da una finestra mobile.
  *
- * "semplice" (medie semplici, in prova)
+ * "semplice" (medie semplici, come StockCharts)
  *   rs          = prezzo / benchmark
  *   RS-Ratio    = 100·SMA10(rs) / SMA30(rs)
  *   RS-Momentum = 100·RS-Ratio / SMA9(RS-Ratio)
  *   Nessuna normalizzazione: la distanza da 100 è uno scarto percentuale, quindi i titoli
- *   con forza relativa più volatile disegnano code più lunghe. È la ricostruzione pubblica
- *   ritenuta più vicina alle piattaforme ufficiali (script AmiBroker «RRG 2.1» con le medie
- *   10/30 indicate da un utente come coincidenti con Refinitiv Eikon); non è confermata.
+ *   con forza relativa più volatile disegnano code più lunghe. Ricostruzione pubblica
+ *   (script AmiBroker «RRG 2.1» con le medie 10/30): con l'indice S&P 500 come benchmark
+ *   coincide al centesimo con i valori di StockCharts (11 letture del 25/09/2026).
  *
  * "classica" (quella della prima versione dell'app)
  *   rsRatio    = 100 + zscore(SMA(prezzo/benchmark, 10), 26)

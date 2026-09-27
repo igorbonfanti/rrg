@@ -106,7 +106,7 @@ Il sistema serve a dirigere l'attenzione, non è una regola di trading validata:
 Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, trigger, fallito) e li registra in `data/alerts.json`.
 
 ## Metodo della rotazione
-Nella pagina Rotazione si sceglie tra due formule: la nuova (predefinita) e, in prova, quella a medie semplici. La classica, della prima versione, resta in `js/engine.js` per confronto. Tutte usano solo i dati passati:
+Nella pagina Rotazione si sceglie tra due formule: la nuova (predefinita) e quella a medie semplici, che riproduce i valori di StockCharts. Sotto il grafico una nota apribile spiega come si calcolano e cosa cambia. La classica, della prima versione, resta in `js/engine.js` per confronto. Tutte usano solo i dati passati:
 
 ```
 Nuova (default)
@@ -117,7 +117,7 @@ Nuova (default)
   RS-Ratio    = 100 + 2,5·X
   RS-Momentum = 100 + 2,5·√8·(X − EMA8(X))
 
-Medie semplici (in prova)
+Medie semplici (come StockCharts)
   rs          = prezzo / benchmark
   RS-Ratio    = 100·SMA10(rs) / SMA30(rs)
   RS-Momentum = 100·RS-Ratio / SMA9(RS-Ratio)
@@ -129,7 +129,7 @@ Classica (prima versione dell'app)
 
 La formula nuova distingue un trend relativo forte da uno debole: il più forte finisce più a destra. Inoltre non produce salti quando un vecchio dato esce dalla finestra mobile. Divide per la volatilità, quindi mette sulla stessa scala titoli tranquilli e agitati.
 
-La formula a medie semplici non normalizza: la distanza da 100 è uno scarto percentuale, e i titoli con forza relativa più volatile disegnano code più lunghe. È la ricostruzione pubblica ritenuta più vicina alle piattaforme ufficiali: lo script AmiBroker «RRG 2.1» di WiseStockTrader, con le medie 10 e 30 che un utente anonimo dice di aver visto coincidere con Refinitiv Eikon in giornaliero. Nessuno ha pubblicato confronti numerici, quindi resta da confermare. Sui settori S&P 500 contro SPY, dal 2022, mette un settore nello stesso quadrante della nuova circa tre volte su quattro. Quasi tutta la differenza viene dal tipo di media: esponenziale nella nuova, semplice in questa.
+La formula a medie semplici non normalizza: la distanza da 100 è uno scarto percentuale, e i titoli con forza relativa più volatile disegnano code più lunghe. È la ricostruzione pubblica dello script AmiBroker «RRG 2.1» di WiseStockTrader, con le medie 10 e 30 che un utente indicava come coincidenti con Refinitiv Eikon. Il 25/09/2026 l'abbiamo confrontata con 11 valori letti su StockCharts (10 settori SPDR in settimanale e XLC in giornaliero): con l'indice S&P 500 come benchmark, come su StockCharts, coincide al centesimo in tutti. Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso per tutti i settori, per via dei dividendi. Sui settori S&P 500 contro SPY, dal 2022, mette un settore nello stesso quadrante della nuova circa tre volte su quattro. Quasi tutta la differenza viene dal tipo di media: esponenziale nella nuova, semplice in questa.
 
 Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'ultimo spostamento, 0° = su, 90° = destra.
 
