@@ -290,10 +290,25 @@ svg.perf { display: block; width: 100%; height: auto; background: var(--bg); tou
 .t.ptf tr.sub td:first-child { padding-left: 20px; }
 .t.ptf td.tk { font: 11.5px var(--f-mono); color: var(--ink-3); }
 .t.ptf tr.off td { opacity: 0.45; }
-.wbar { display: inline-block; vertical-align: middle; position: relative; width: 110px; height: 8px; margin-right: 8px; background: var(--panel-2); }
-.wbar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink-3); }
-.wbar.strong i { background: var(--ink-2); }
 .t.ptf td.wcell { white-space: nowrap; }
+/* pesi obiettivo: cursore e casella del numero (le righe delle classi e il totale mostrano la somma) */
+.t.ptf input.wsl, .t.ptf .wsp { display: inline-block; width: 120px; margin: 0 8px 0 0; vertical-align: middle; }
+.t.ptf input.wsl { accent-color: var(--amber); cursor: pointer; }
+.t.ptf input.wnum, .t.ptf .wsum { box-sizing: border-box; display: inline-block; width: 3.8em; padding: 2px 5px; vertical-align: middle; font: 500 12px var(--f-mono); text-align: right; }
+.t.ptf input.wnum { background: var(--bg); color: var(--ink); border: 1px solid var(--rule); appearance: textfield; -moz-appearance: textfield; }
+.t.ptf input.wnum::-webkit-outer-spin-button, .t.ptf input.wnum::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.t.ptf .wsum { border: 1px solid transparent; font-weight: 600; color: var(--ink); }
+.t.ptf input.wnum:focus-visible, .t.ptf input.wsl:focus-visible { outline: 1px solid var(--amber); outline-offset: 1px; }
+.t.ptf input:disabled { opacity: 0.4; cursor: default; }
+.t.ptf .pct { margin-left: 3px; font: 12px var(--f-mono); color: var(--ink-3); }
+.t.ptf tr.tot td { border-top: 1px solid var(--rule); font-weight: 600; color: var(--ink); }
+.t.ptf #ptfTot.warn, .ptf-actions .warn { color: var(--amber); }
+.ptf-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.ptf-actions .note { flex: 1 1 260px; }
+.ptf-actions button:disabled { opacity: 0.45; cursor: default; }
+.ptf-box details.fx { padding: 8px 0 0; }
+.fx-list { margin: 0; padding-left: 16px; font: 12px/1.45 var(--f-ui); color: var(--ink-2); }
+.fx-list li + li { margin-top: 3px; }
 /* telefono: il ticker va sotto il nome, barre più corte, nessuna colonna fissa (la tabella non scorre) */
 @media (max-width: 700px) {
   #ptfTable th:first-child, #ptfTable td:first-child { position: static; background: transparent; }
@@ -305,7 +320,9 @@ svg.perf { display: block; width: 100%; height: auto; background: var(--bg); tou
   .t.ptf td.cn { white-space: normal; }
   .t.ptf th, .t.ptf td { padding-left: 6px; padding-right: 6px; }
   .t.ptf tr.sub td:first-child { padding-left: 14px; }
-  .wbar { width: 40px; margin-right: 6px; }
+  .t.ptf input.wsl, .t.ptf .wsp { width: 84px; margin-right: 5px; }
+  .t.ptf input.wnum, .t.ptf .wsum { width: 3.3em; padding: 2px 4px; }
+  .t.ptf th { white-space: normal; }
 }
 
 /* ---------- guida ---------- */

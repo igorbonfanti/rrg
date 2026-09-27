@@ -5,7 +5,7 @@ import { priceMetrics } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
-import { portfolioIndex } from './portfolio.js';
+import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth } from './format.js';
 
 const $ = (id) => document.getElementById(id);
@@ -55,27 +55,40 @@ Promise.all([
 });
 
 // ---------- universi ----------
-// Portafoglio sintetico dei gruppi con "portfolio": diventa un ticker del file globale
+// Portafoglio sintetico dei gruppi con "portfolio": diventa un ticker del file globale.
+// I pesi si possono cambiare con i cursori del pannello; quelli scelti restano in questo browser.
 function addPortfolios(g) {
   let k = 0;
-  for (const grp of Object.values(g.groups)) {
+  for (const [name, grp] of Object.entries(g.groups)) {
     if (!grp.portfolio) continue;
-    const key = k++ ? `PTF${k}` : 'PTF';
-    const w = grp.portfolio.weights;
-    const closes = Object.fromEntries(Object.keys(w).filter((s) => g.tickers[s]).map((s) => [s, g.tickers[s].close]));
-    const { index, missing, now, rebalanced } = portfolioIndex(g.dates, closes, w);
-    Object.assign(grp.portfolio, { key, now, rebalanced, missing });
-    const lab = (s) => (g.tickers[s] ? g.tickers[s].label : s);
-    const mix = Object.entries(w).map(([s, v]) => `${lab(s)} ${v}%`).join(', ');
-    g.tickers[key] = {
-      label: grp.portfolio.label, isBenchmark: true, synthetic: true, groups: [], close: index,
-      name: `Portafoglio di esempio: ${mix}; ribilanciato a fine mese. Pesi indicativi, non una raccomandazione` + (missing.length ? ` (senza ${missing.join(', ')}: dati mancanti)` : ''),
-    };
-    const swap = (s) => (s === 'PTF' ? key : s);
+    const p = grp.portfolio;
+    p.key = k++ ? `PTF${k}` : 'PTF';
+    p.defaults = { ...p.weights };
+    p.saveKey = 'ptf.' + name;
+    p.weights = cleanWeights(store.get(p.saveKey, null), p.defaults) || { ...p.defaults };
+    g.tickers[p.key] = { label: p.label, isBenchmark: true, synthetic: true, groups: [], close: [] };
+    computePortfolio(g, p);
+    const swap = (s) => (s === 'PTF' ? p.key : s);
     grp.benchmarks = grp.benchmarks.map(swap);
     grp.defaultBenchmark = swap(grp.defaultBenchmark);
   }
   return g;
+}
+const ptfTotal = (p) => Object.values(p.weights).reduce((t, v) => t + v, 0);
+const ptfCustom = (p) => Object.keys(p.defaults).some((s) => p.weights[s] !== p.defaults[s]);
+// (ri)calcola la serie del portafoglio con i pesi attuali, i pesi di oggi e le metriche del ticker sintetico
+function computePortfolio(g, p) {
+  const closes = Object.fromEntries(Object.keys(p.weights).filter((s) => g.tickers[s]).map((s) => [s, g.tickers[s].close]));
+  const { index, missing, now, rebalanced } = portfolioIndex(g.dates, closes, p.weights);
+  Object.assign(p, { now, rebalanced, missing });
+  const lab = (s) => (g.tickers[s] ? g.tickers[s].label : s);
+  const mix = Object.entries(p.weights).filter(([, v]) => v > 0).map(([s, v]) => `${lab(s)} ${v}%`).join(', ');
+  const tot = ptfTotal(p), t = g.tickers[p.key];
+  t.close = index;
+  t.name = (ptfCustom(p) ? `Il tuo portafoglio: ${mix}` : `Portafoglio di esempio: ${mix}`) + '; ribilanciato a fine mese' +
+    (tot !== 100 ? ` (totale ${tot}%: pesi usati in proporzione)` : '') + (ptfCustom(p) ? '' : '. Pesi indicativi, non una raccomandazione') +
+    (missing.length ? ` (senza ${missing.join(', ')}: dati mancanti)` : '');
+  if (g.metrics) g.metrics[p.key] = priceMetrics(g.dates, index);
 }
 
 // Registro degli universi: USA (prices.json, benchmark comuni) e globali in euro (prices_global.json)
@@ -386,41 +399,28 @@ function renderRotTable() {
   restore();
 }
 // ---------- portafoglio di riferimento (universi con un portafoglio, come 1 · Asset class) ----------
-// Spiega contro cosa si confronta: componenti, classi, pesi obiettivo e pesi di oggi
+// Spiega contro cosa si confronta: componenti, classi, pesi obiettivo (con i cursori) e pesi di oggi
+const pw = (v) => fmt(v, Number.isInteger(v) ? 0 : 1) + '%';
 function renderPortfolio() {
   const p = grp().portfolio;
   $('ptfPanel').hidden = !p;
   $('ptfLine').hidden = true;
   if (!p) return;
-  const d = ds(), w = p.weights, isPtf = state.benchmark === p.key;
+  const d = ds(), w = p.weights;
   const syms = Object.keys(w), classes = p.classes && p.classes.length ? p.classes : null;
-  const sum = (list, src) => list.reduce((t, s) => t + (src[s] || 0), 0);
-  const pw = (v) => fmt(v, Number.isInteger(v) ? 0 : 1) + '%';
-  const mix = classes ? classes.map((c) => `${c.name} ${pw(sum(c.tickers, w))}`) : syms.map((s) => `${label(s)} ${pw(w[s])}`);
-  if (isPtf) {
-    $('ptfLine').innerHTML = `Contro un <b>portafoglio di esempio</b>: ${esc(mix.join(' · '))}. Composizione sotto il grafico.`;
-    $('ptfLine').hidden = false;
-  }
-  $('ptfMeta').textContent = `${syms.length} componenti · ribilanciato a fine mese`;
-  $('ptfWhat').innerHTML = isPtf
-    ? `Il benchmark è un <b>portafoglio di esempio</b> fatto con le ${syms.length} componenti di questo universo, con i pesi qui sotto. Ogni punto del grafico confronta una componente con il portafoglio intero: a destra del centro la componente è più forte del portafoglio, in alto la sua forza relativa sta migliorando.`
-    : `Questo universo è formato dalle componenti di un <b>portafoglio di esempio</b>, ma ora le confronti con <b>${esc(label(state.benchmark))}</b>. <button type="button" class="mini" id="ptfUse">Confronta con il portafoglio</button>`;
-  // barre sulla stessa scala: la più lunga è il peso maggiore tra classi e componenti
-  const max = Math.max(...syms.map((s) => w[s]), ...(classes ? classes.map((c) => sum(c.tickers, w)) : []));
-  const bar = (v, cls = '') => `<span class="wbar${cls}" aria-hidden="true"><i style="width:${Math.max(1.5, (100 * v) / max).toFixed(1)}%"></i></span>`;
-  const now = (v) => (v == null ? '—' : fmt(v, 1) + '%');
   const row = (s) => {
-    const t = d.tickers[s];
+    const t = d.tickers[s], name = `${label(s)}${t ? ' (' + baseSym(s) + ')' : ''}`;
     return `<tr data-sym="${esc(s)}" tabindex="0" class="${focused() === s ? 'sel' : ''}${t ? '' : ' off'}${classes ? ' sub' : ''}">
       <td title="${esc(t ? t.name : s + ': dati mancanti')}"><span class="sym">${esc(label(s))}</span><span class="tk-in">${t ? esc(baseSym(s)) : 'dati mancanti'}</span></td><td class="tk tkcol">${t ? esc(baseSym(s)) : 'dati mancanti'}</td>
-      <td class="wcell">${bar(w[s])}<span class="num">${pw(w[s])}</span></td><td class="num r">${now(p.now[s])}</td></tr>`;
+      <td class="wcell"><input type="range" class="wsl" min="0" max="100" step="1" value="${w[s]}" data-sym="${esc(s)}" aria-label="Peso obiettivo di ${esc(name)}"${t ? '' : ' disabled'}><input type="number" class="wnum" min="0" max="100" step="1" inputmode="numeric" value="${w[s]}" data-sym="${esc(s)}" aria-label="Peso obiettivo di ${esc(name)}, in percentuale"${t ? '' : ' disabled'}><span class="pct">%</span></td>
+      <td class="num r" data-now="${esc(s)}"></td></tr>`;
   };
   const body = classes
-    ? classes.map((c) => `<tr class="cls"><td class="cn">${esc(c.name)}</td><td class="tkcol"></td><td class="wcell">${bar(sum(c.tickers, w), ' strong')}<span class="num">${pw(sum(c.tickers, w))}</span></td><td class="num r">${now(sum(c.tickers, p.now))}</td></tr>` + c.tickers.map(row).join('')).join('')
+    ? classes.map((c, i) => `<tr class="cls"><td class="cn">${esc(c.name)}</td><td class="tkcol"></td><td class="wcell"><span class="wsp"></span><span class="wsum" data-cls="${i}"></span><span class="pct">%</span></td><td class="num r" data-clsnow="${i}"></td></tr>` + c.tickers.map(row).join('')).join('')
     : syms.map(row).join('');
-  $('ptfTable').innerHTML = `<thead><tr><th>${classes ? 'Classe e componente' : 'Componente'}</th><th class="tkcol">ETF</th><th>Obiettivo</th><th class="r">Oggi</th></tr></thead><tbody>${body}</tbody>`;
-  $('ptfFoot').innerHTML = `Pesi indicativi, non una raccomandazione. <b>Obiettivo</b>: il peso ripristinato alla chiusura dell'ultima seduta di ogni mese. <b>Oggi</b>: il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento (${dIT(p.rebalanced)}).` +
-    (p.missing && p.missing.length ? ` Senza ${esc(p.missing.map(label).join(', '))} per dati mancanti: i pesi delle altre componenti sono riproporzionati.` : '');
+  // somme allineate sotto le caselle dei numeri: uno spazio largo quanto il cursore, poi il valore
+  const total = '<tr class="tot"><td>Totale</td><td class="tkcol"></td><td class="wcell"><span class="wsp"></span><span class="wsum" id="ptfTot"></span><span class="pct">%</span></td><td class="num r">100%</td></tr>';
+  $('ptfTable').innerHTML = `<thead><tr><th>${classes ? 'Classe e componente' : 'Componente'}</th><th class="tkcol">ETF</th><th>Obiettivo</th><th class="r">Oggi</th></tr></thead><tbody>${body}${total}</tbody>`;
   // riga: passandoci sopra evidenzia la componente nel grafico, clic o Invio la fissa (come la tabella di rotazione)
   $('ptfTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
     const s = tr.dataset.sym;
@@ -429,7 +429,89 @@ function renderPortfolio() {
     tr.onclick = () => { if (d.tickers[s] && s !== state.benchmark) togglePin(s); };
     tr.onkeydown = (e) => { if (e.key === 'Enter') tr.onclick(); };
   });
+  // cursore e casella del peso: si muovono insieme; il portafoglio si ricalcola subito, il salvataggio a fine gesto
+  $('ptfTable').querySelectorAll('input.wsl, input.wnum').forEach((el) => {
+    const s = el.dataset.sym;
+    const pair = el.closest('td').querySelector(el.classList.contains('wsl') ? 'input.wnum' : 'input.wsl');
+    el.oninput = () => {
+      if (el.value === '') return; // casella vuota mentre si scrive
+      const v = Math.min(100, Math.max(0, Math.round(+el.value)));
+      if (!Number.isFinite(v)) return;
+      pair.value = v;
+      if (w[s] === v) return;
+      w[s] = v;
+      updatePortfolioText(); schedulePortfolio();
+    };
+    el.onchange = () => { el.value = w[s]; pair.value = w[s]; savePortfolio(p); };
+    // il gesto sul cursore non fissa la riga, Invio nella casella neppure
+    el.onclick = (e) => e.stopPropagation();
+    el.onkeydown = (e) => e.stopPropagation();
+  });
+  $('ptfNorm').onclick = () => setPortfolioWeights(p, toHundred(w));
+  $('ptfReset').onclick = () => setPortfolioWeights(p, { ...p.defaults });
+  updatePortfolioText();
+}
+// testi e numeri del pannello, aggiornati sul posto (senza ricostruire la tabella mentre si trascina un cursore)
+function updatePortfolioText() {
+  const p = grp().portfolio;
+  if (!p) return;
+  const w = p.weights, syms = Object.keys(w), classes = p.classes && p.classes.length ? p.classes : null;
+  const isPtf = state.benchmark === p.key, custom = ptfCustom(p), tot = ptfTotal(p);
+  const sum = (list, src) => list.reduce((t, s) => t + (src[s] || 0), 0);
+  const eff = (v) => (tot ? (100 * v) / tot : 0); // peso effettivo: in proporzione al totale
+  // riga sopra il grafico: solo le classi (o componenti) con un peso
+  const mix = classes ? classes.filter((c) => sum(c.tickers, w) > 0).map((c) => `${c.name} ${pw(eff(sum(c.tickers, w)))}`) : syms.filter((s) => w[s] > 0).map((s) => `${label(s)} ${pw(eff(w[s]))}`);
+  const who = custom ? 'il <b>tuo portafoglio</b>' : 'un <b>portafoglio di esempio</b>';
+  $('ptfLine').innerHTML = `Contro ${who}: ${esc(mix.join(' · '))}. Composizione e cursori sotto il grafico.`;
+  $('ptfLine').hidden = !isPtf;
+  $('ptfMeta').textContent = `${syms.length} componenti · ribilanciato a fine mese${custom ? ' · pesi tuoi' : ''}`;
+  $('ptfWhat').innerHTML = isPtf
+    ? `Il benchmark è ${who}, fatto con le ${syms.length} componenti di questo universo e i pesi qui sotto: sposta i cursori per adattarlo al tuo portafoglio di lungo periodo. Ogni punto del grafico confronta una componente con il portafoglio intero: a destra del centro la componente è più forte del portafoglio, in alto la sua forza relativa sta migliorando.`
+    : `Questo universo è formato dalle componenti ${custom ? 'del <b>tuo portafoglio</b>' : 'di un <b>portafoglio di esempio</b>'}, ma ora le confronti con <b>${esc(label(state.benchmark))}</b>: i cursori cambiano il portafoglio, non questo grafico. <button type="button" class="mini" id="ptfUse">Confronta con il portafoglio</button>`;
   if ($('ptfUse')) $('ptfUse').onclick = () => { $('benchSel').value = p.key; $('benchSel').dispatchEvent(new Event('change')); };
+  const now = (s) => (w[s] > 0 ? (p.now[s] == null ? '—' : fmt(p.now[s], 1) + '%') : '0%');
+  $('ptfTable').querySelectorAll('[data-now]').forEach((td) => { td.textContent = now(td.dataset.now); });
+  if (classes) classes.forEach((c, i) => {
+    const a = $('ptfTable').querySelector(`[data-cls="${i}"]`), b = $('ptfTable').querySelector(`[data-clsnow="${i}"]`);
+    if (a) a.textContent = fmt(sum(c.tickers, w), 0);
+    if (b) b.textContent = sum(c.tickers, w) > 0 ? fmt(sum(c.tickers, p.now), 1) + '%' : '0%';
+  });
+  const off = tot !== 100;
+  $('ptfTot').textContent = fmt(tot, 0);
+  $('ptfTot').classList.toggle('warn', off);
+  $('ptfTotNote').innerHTML = !tot ? 'Serve almeno un peso sopra zero: il grafico resta sull\'ultimo portafoglio valido.'
+    : off ? `Il totale è ${pw(tot)}: i pesi valgono in proporzione (per esempio ${pw(w[syms[0]])} vale ${pw(eff(w[syms[0]]))}).` : '';
+  $('ptfTotNote').hidden = !off;
+  $('ptfNorm').hidden = !off || !tot;
+  $('ptfReset').disabled = !custom;
+  $('ptfFoot').innerHTML = (custom ? '' : 'Pesi indicativi, non una raccomandazione. ') +
+    `<b>Obiettivo</b>: il peso ripristinato alla chiusura dell'ultima seduta di ogni mese. <b>Oggi</b>: il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento (${dIT(p.rebalanced)}).` +
+    (p.missing && p.missing.length ? ` Senza ${esc(p.missing.map(label).join(', '))} per dati mancanti: i pesi delle altre componenti sono riproporzionati.` : '');
+}
+// ricalcolo al massimo una volta per fotogramma mentre si trascina un cursore
+let ptfFrame = 0;
+function schedulePortfolio() {
+  if (!ptfFrame) ptfFrame = requestAnimationFrame(() => { ptfFrame = 0; applyPortfolio(); });
+}
+function applyPortfolio() {
+  const p = grp().portfolio;
+  if (!p || !ptfTotal(p)) return; // con tutti i pesi a zero resta l'ultimo portafoglio valido
+  computePortfolio(ds(), p);
+  if (state.benchmark === p.key) {
+    state.modelKey = ''; // è cambiato il benchmark: si ricalcola la rotazione, restando sulla stessa data
+    recompute(false, false);
+    renderRRGView(true); renderPerf();
+  }
+  updatePortfolioText();
+}
+function setPortfolioWeights(p, weights) {
+  Object.assign(p.weights, weights);
+  $('ptfTable').querySelectorAll('input.wsl, input.wnum').forEach((el) => { el.value = p.weights[el.dataset.sym]; });
+  applyPortfolio(); updatePortfolioText(); savePortfolio(p);
+}
+// nel browser si salvano solo pesi diversi dall'esempio (e utilizzabili)
+function savePortfolio(p) {
+  store.set(p.saveKey, ptfCustom(p) && ptfTotal(p) ? { ...p.weights } : null);
 }
 function renderPerf() {
   const d = ds();

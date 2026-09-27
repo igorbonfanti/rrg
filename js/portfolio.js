@@ -16,7 +16,8 @@
  */
 export function portfolioIndex(dates, closes, weights) {
   const used = Object.keys(weights).filter((s) => closes[s] && weights[s] > 0);
-  const missing = Object.keys(weights).filter((s) => !used.includes(s));
+  // mancanti: le componenti con un peso ma senza prezzi (un peso a zero la esclude di proposito)
+  const missing = Object.keys(weights).filter((s) => weights[s] > 0 && !closes[s]);
   const n = dates.length;
   const index = new Array(n).fill(null);
   const tot = used.reduce((t, s) => t + weights[s], 0);
@@ -40,4 +41,37 @@ export function portfolioIndex(dates, closes, weights) {
   const end = index[n - 1];
   const now = Object.fromEntries(used.map((s) => [s, (100 * units[s] * last[s]) / end]));
   return { index, used, missing, now, rebalanced: dates[rb] };
+}
+
+/**
+ * Pesi scelti nel browser (dallo storage): solo le componenti del portafoglio di partenza,
+ * valori interi tra 0 e 100. null se non sono utilizzabili (non un oggetto, nessun peso sopra zero).
+ * @param {unknown} saved
+ * @param {Record<string, number>} defaults
+ * @returns {Record<string, number>|null}
+ */
+export function cleanWeights(saved, defaults) {
+  if (!saved || typeof saved !== 'object' || Array.isArray(saved)) return null;
+  const out = {};
+  for (const s of Object.keys(defaults)) {
+    const v = Number(saved[s]);
+    out[s] = Number.isFinite(v) ? Math.min(100, Math.max(0, Math.round(v))) : 0;
+  }
+  return Object.values(out).some((v) => v > 0) ? out : null;
+}
+
+/**
+ * Riporta i pesi a un totale di 100 in numeri interi, mantenendo le proporzioni
+ * (metodo dei resti maggiori: i punti avanzati vanno ai resti più alti).
+ * @param {Record<string, number>} weights
+ * @returns {Record<string, number>}
+ */
+export function toHundred(weights) {
+  const keys = Object.keys(weights), tot = keys.reduce((t, s) => t + weights[s], 0);
+  if (!tot) return { ...weights };
+  const raw = Object.fromEntries(keys.map((s) => [s, (100 * weights[s]) / tot]));
+  const out = Object.fromEntries(keys.map((s) => [s, Math.floor(raw[s])]));
+  let left = 100 - keys.reduce((t, s) => t + out[s], 0);
+  for (const s of keys.slice().sort((a, b) => (raw[b] - out[b]) - (raw[a] - out[a]))) if (left-- > 0) out[s]++;
+  return out;
 }

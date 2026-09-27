@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import { parse } from '../scripts/lib/yahoo.js';
 import { alignToCalendar, globalCalendar, pickAsOf, repairSpikes, validateGlobal, marketIndex, dropAfter, keepPublished, withMeta, collectGlobalTickers } from '../scripts/fetch_data.js';
 import { MILAN } from '../js/calendar.js';
-import { portfolioIndex } from '../js/portfolio.js';
+import { portfolioIndex, cleanWeights, toHundred } from '../js/portfolio.js';
 
 const T = (iso) => Date.parse(iso) / 1000;
 
@@ -124,6 +124,37 @@ test('portafoglio: pesi di oggi e data dell\'ultimo ribilanciamento', () => {
   // senza movimenti dopo l'avvio i pesi restano quelli obiettivo
   const flat = portfolioIndex(['2026-03-02', '2026-03-03'], { A: [1, 1], B: [2, 2] }, { A: 70, B: 30 });
   assert.ok(Math.abs(flat.now.A - 70) < 1e-9 && flat.rebalanced === '2026-03-02');
+});
+
+test('portafoglio: un peso a zero esclude la componente senza segnalarla come mancante', () => {
+  const dates = ['2026-01-02', '2026-01-30'];
+  const r = portfolioIndex(dates, { A: [10, 20], B: [5, 5] }, { A: 0, B: 100 });
+  assert.deepEqual(r.missing, []);
+  assert.deepEqual(r.used, ['B']);
+  assert.equal(r.index[1], 100); // tutto in B, che è fermo
+});
+
+test('portafoglio personalizzato: pesi salvati nel browser validati', () => {
+  const defaults = { A: 40, B: 60 };
+  assert.deepEqual(cleanWeights({ A: 70, B: 30 }, defaults), { A: 70, B: 30 });
+  // arrotondati, limitati a 0–100, componenti sconosciute ignorate, mancanti a zero
+  assert.deepEqual(cleanWeights({ A: 12.6, B: 250, Z: 5 }, defaults), { A: 13, B: 100 });
+  assert.deepEqual(cleanWeights({ A: -3, B: '20' }, defaults), { A: 0, B: 20 });
+  assert.deepEqual(cleanWeights({ B: 55 }, defaults), { A: 0, B: 55 });
+  // inutilizzabili: si torna all'esempio
+  for (const bad of [null, 'x', [1, 2], { A: 0, B: 0 }, { A: 'x' }]) assert.equal(cleanWeights(bad, defaults), null, JSON.stringify(bad));
+});
+
+test('portafoglio personalizzato: «Porta a 100%» mantiene le proporzioni in numeri interi', () => {
+  assert.deepEqual(toHundred({ A: 60, B: 60 }), { A: 50, B: 50 });
+  assert.deepEqual(toHundred({ A: 40, B: 10, C: 10, D: 10, E: 10, F: 10, G: 5, H: 3, I: 2 }), { A: 40, B: 10, C: 10, D: 10, E: 10, F: 10, G: 5, H: 3, I: 2 });
+  const t = toHundred({ A: 1, B: 1, C: 1 }); // 33,3 ciascuna: il punto in più va a una sola
+  assert.equal(t.A + t.B + t.C, 100);
+  assert.ok(Object.values(t).every((v) => v === 33 || v === 34));
+  const u = toHundred({ A: 7, B: 0, C: 5 });
+  assert.equal(u.B, 0);
+  assert.equal(u.A + u.C, 100);
+  assert.deepEqual(toHundred({ A: 0, B: 0 }), { A: 0, B: 0 });
 });
 
 test('universe.json: universi globali coerenti', () => {
