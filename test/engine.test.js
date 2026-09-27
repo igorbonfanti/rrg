@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { build, rrgNew, stats, weeklyIndices, quadrant } from '../js/engine.js';
+import { build, rrgNew, rrgSimple, stats, weeklyIndices, sampleIndices, quadrant } from '../js/engine.js';
 
 const data = JSON.parse(fs.readFileSync(new URL('../data/prices.json', import.meta.url)));
 const sectors = data.groups['Settori S&P 500'].tickers;
@@ -28,6 +28,39 @@ test('formula nuova: nessun valore prima del riscaldamento, poi sempre definito'
   assert.equal(r.rsRatio[20], null);
   assert.ok(r.rsRatio.slice(40).every((v) => Number.isFinite(v)));
   assert.ok(r.rsMomentum.slice(40).every((v) => Number.isFinite(v)));
+});
+
+test('medie semplici: 100·SMA10/SMA30 della forza relativa e momentum 100·RS-Ratio/SMA9', () => {
+  // confronto con un calcolo diretto, finestra per finestra
+  const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+  const check = (sym, bench, r, idx) => {
+    const rs = sym.map((v, i) => v / bench[i]);
+    const rsr = (k) => (100 * avg(rs.slice(k - 9, k + 1))) / avg(rs.slice(k - 29, k + 1));
+    for (const i of idx) {
+      assert.ok(Math.abs(r.x[i] - rsr(i)) < 1e-9, `RS-Ratio ${i}`);
+      const sig = avg([0, 1, 2, 3, 4, 5, 6, 7, 8].map((j) => rsr(i - j)));
+      assert.ok(Math.abs(r.y[i] - (100 * rsr(i)) / sig) < 1e-9, `RS-Momentum ${i}`);
+    }
+  };
+  const { sym, bench } = synthetic(0.003);
+  const r = rrgSimple(sym, bench);
+  assert.equal(r.rsRatio[28], null);
+  assert.ok(Number.isFinite(r.rsRatio[29]));
+  assert.equal(r.rsMomentum[36], null);
+  check(sym, bench, { x: r.rsRatio, y: r.rsMomentum }, [37, 120, 299]);
+  // stessi valori passando da build() con il campionamento settimanale dei dati reali
+  const m = build(data, { symbols: ['XLE'], benchmark: 'SPY', timeframe: 'weekly', formula: 'semplice' });
+  const idx = sampleIndices(data.dates, 'weekly');
+  const last = m.dates.length - 1;
+  check(idx.map((i) => data.tickers.XLE.close[i]), idx.map((i) => data.tickers.SPY.close[i]), m.series.XLE, [last - 60, last]);
+});
+
+test('medie semplici: un trend relativo costante dà RS-Ratio fermo e momentum a 100', () => {
+  const sym = Array.from({ length: 80 }, (_, i) => 50 * 1.004 ** i), bench = sym.map(() => 10);
+  const r = rrgSimple(sym, bench);
+  // uno scarto del 4‰ per barra tra i centri delle due medie (10 barre) vale circa il 4% sopra 100
+  assert.ok(r.rsRatio.slice(29).every((v) => Math.abs(v - r.rsRatio[29]) < 1e-9 && v > 104 && v < 104.2), String(r.rsRatio[29]));
+  assert.ok(r.rsMomentum.slice(37).every((v) => Math.abs(v - 100) < 1e-9));
 });
 
 test('formula classica invariata rispetto alla prima versione (XLU al 22/09/2026)', () => {
@@ -61,15 +94,15 @@ test('campionamento settimanale e settimana provvisoria', () => {
 });
 
 test('dati reali: tutti i settori hanno valori finiti dall\'inizio valido in poi', () => {
-  for (const formula of ['nuova', 'classica']) {
+  for (const formula of ['nuova', 'semplice', 'classica']) {
     const m = build(data, { symbols: sectors, benchmark: 'SPY', timeframe: 'weekly', formula });
     assert.ok(m.start < m.dates.length - 52, formula);
     for (const s of sectors) for (let i = m.start; i < m.dates.length; i++) assert.ok(Number.isFinite(m.series[s].x[i]) && Number.isFinite(m.series[s].y[i]), `${formula} ${s} ${i}`);
   }
 });
 
-test('un punto esiste solo quando RS-Ratio e RS-Momentum sono entrambi definiti (anche con la formula classica)', () => {
-  for (const formula of ['nuova', 'classica']) {
+test('un punto esiste solo quando RS-Ratio e RS-Momentum sono entrambi definiti (anche con la classica e la semplice)', () => {
+  for (const formula of ['nuova', 'semplice', 'classica']) {
     const m = build(data, { symbols: sectors, benchmark: 'SPY', timeframe: 'weekly', formula });
     for (const s of sectors) {
       const { x, y } = m.series[s];

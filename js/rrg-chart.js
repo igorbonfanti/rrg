@@ -72,19 +72,21 @@ export function drawRRG(svg, p) {
     ['Lagging', M.l, cy, cx - M.l, M.t + PH - cy], ['Weakening', cx, cy, M.l + PW - cx, M.t + PH - cy],
   ]) el('rect', { x, y, width: w, height: h, class: `qfill q-${QKEY[q]}` }, svg);
 
-  const step = range > 8 ? 4 : range > 4 ? 2 : range > 2 ? 1 : 0.5;
+  // da 2 a 4 linee per lato (la formula a medie semplici arriva a scale di qualche decina di punti)
+  const step = range > 32 ? 16 : range > 16 ? 8 : range > 8 ? 4 : range > 4 ? 2 : range > 2 ? 1 : 0.5;
   const g = el('g', { class: 'grid' }, svg);
   const dec = step < 1 ? 1 : 0;
-  for (let v = Math.ceil(lo / step) * step; v <= hi + 1e-9; v += step) {
+  // linee simmetriche attorno a 100 (8 e 16 non dividono 100)
+  for (let v = CENTER - Math.floor(range / step + 1e-9) * step; v <= hi + 1e-9; v += step) {
     if (Math.abs(v - CENTER) < 1e-9) continue;
     el('line', { x1: sx(v), x2: sx(v), y1: M.t, y2: M.t + PH }, g);
     el('line', { y1: sy(v), y2: sy(v), x1: M.l, x2: M.l + PW }, g);
     el('text', { x: sx(v), y: M.t + PH + 15, class: 'tick', 'text-anchor': 'middle' }, svg).textContent = fmt(v, dec);
     el('text', { x: M.l - 7, y: sy(v) + 4, class: 'tick', 'text-anchor': 'end' }, svg).textContent = fmt(v, dec);
   }
-  // cerchi di distanza dal centro, un'unità alla volta
+  // cerchi di distanza dal centro, un'unità alla volta; con le scale larghe, uno per linea della griglia
   const rings = el('g', { class: 'rings', 'clip-path': `url(#${clipId})` }, svg);
-  for (let d = 1; d < range * 1.45; d += step < 1 ? 1 : step) el('circle', { cx, cy, r: (d / (hi - lo)) * PW }, rings);
+  for (let d = step > 2 ? step : 1; d < range * 1.45; d += step < 1 ? 1 : step) el('circle', { cx, cy, r: (d / (hi - lo)) * PW }, rings);
   el('line', { x1: cx, x2: cx, y1: M.t, y2: M.t + PH, class: 'axis100' }, svg);
   el('line', { y1: cy, y2: cy, x1: M.l, x2: M.l + PW, class: 'axis100' }, svg);
   el('text', { x: cx, y: M.t + PH + 15, class: 'tick strong', 'text-anchor': 'middle' }, svg).textContent = '100';
