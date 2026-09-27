@@ -197,7 +197,24 @@
         <div class="pb ptf-box">
           <p class="note" id="ptfWhat"></p>
           <div class="tscroll"><table class="t ptf" id="ptfTable"></table></div>
+          <div class="ptf-actions">
+            <span class="note warn" id="ptfTotNote" hidden></span>
+            <button type="button" class="mini" id="ptfNorm" hidden>Porta a 100%</button>
+            <button type="button" class="mini" id="ptfReset" disabled>Ripristina l'esempio</button>
+          </div>
           <p class="note" id="ptfFoot"></p>
+          <details class="fx" id="ptfHow">
+            <summary><b>Il tuo portafoglio</b> · <span class="fx-open">come adattare i pesi e cosa cambia nel grafico</span></summary>
+            <ul class="fx-list">
+              <li>Sposta i cursori, oppure scrivi il numero nella casella accanto, per dare a ogni componente il peso che ha nel tuo portafoglio di lungo periodo. Con la tastiera, sul cursore le frecce cambiano il peso di un punto e Pagina su/giù di dieci.</li>
+              <li>A 0% una componente esce dal portafoglio ma resta sul grafico, confrontata con il resto. Le componenti sono fisse: se hai un'attività che qui non c'è, dai il suo peso a quella più simile.</li>
+              <li>Il totale dovrebbe fare 100%. Se non torna, i pesi valgono in proporzione: con 60 e 60, per esempio, ciascuna componente conta per metà. «Porta a 100%» riscrive i numeri mantenendo le proporzioni.</li>
+              <li>Il portafoglio viene ricalcolato su tutta la storia con i nuovi pesi, come se li avessi sempre avuti, e riportato ai pesi scelti alla chiusura dell'ultima seduta di ogni mese. «Oggi» mostra i pesi dopo i movimenti dei prezzi dall'ultimo ribilanciamento.</li>
+              <li>Ogni punto del grafico confronta una componente con il tuo portafoglio: a destra del centro fa meglio del portafoglio, in alto la sua forza relativa migliora. Così vedi quali parti lo trainano e quali lo frenano. Tabella e performance relativa si aggiornano insieme al grafico.</li>
+              <li>I cursori contano quando il benchmark è il portafoglio: con liquidità o MSCI World il confronto resta con quell'indice.</li>
+              <li>I pesi restano salvati in questo browser: non li vede nessun altro e non cambiano gli altri universi. «Ripristina l'esempio» torna al portafoglio di partenza.</li>
+            </ul>
+          </details>
         </div>
       </div>
       </div>
@@ -389,7 +406,7 @@
         <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
         <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
       </ul>
-      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.</p>
+      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento, con i cursori per adattare i pesi al tuo portafoglio; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.</p>
       <h3>Dati</h3>
       <p>Chiusure di Yahoo Finance, aggiornate ogni notte verso l'1 (ora italiana) da una GitHub Action, con due corse di recupero. In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione. La breadth è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.</p>
       <h3>Glossario</h3>
