@@ -46,6 +46,7 @@ function sparkline(arr, w, h) {
 /**
  * @param {{$: (id: string) => HTMLElement, sectors: object, breadth: object, latest: object|null, config: object,
  *          alertLog: object|null, store: {get: Function, set: Function}, rotation: (s: string) => ({q: string, heading: number}|null),
+ *          rotationNote?: () => string,
  *          setView: (v: string) => void, openRRG: (s: string) => void}} ctx
  */
 export function createBottom(ctx) {
@@ -133,7 +134,7 @@ export function createBottom(ctx) {
     }).join('');
     const spy = S.adjclose.SPY, spx = BR.SPX;
     const bench = `<tr class="bench"><td><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted">benchmark</td><td><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td></td><td><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td><td></td><td class="num r">${fmt(spy[NOW], 2)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
-    $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th>Stato</th><th>% titoli sopra media 200</th><th class="r">Blu</th><th>Drawdown da max 52s</th><th>Rotazione</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>${body}${bench}</tbody>`;
+    $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th>Stato</th><th>% titoli sopra media 200</th><th class="r">Blu</th><th>Drawdown da max 52s</th><th${ctx.rotationNote ? ` title="${ctx.rotationNote()}"` : ''}>Rotazione</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>${body}${bench}</tbody>`;
     $('boardTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
       tr.onclick = () => openSector(tr.dataset.sym);
       tr.onkeydown = (e) => { if (e.key === 'Enter') openSector(tr.dataset.sym); };

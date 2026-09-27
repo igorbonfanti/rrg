@@ -12,6 +12,15 @@
  *   Un trend relativo più forte finisce più a destra; niente salti quando un vecchio
  *   dato esce da una finestra mobile.
  *
+ * "semplice" (medie semplici, in prova)
+ *   rs          = prezzo / benchmark
+ *   RS-Ratio    = 100·SMA10(rs) / SMA30(rs)
+ *   RS-Momentum = 100·RS-Ratio / SMA9(RS-Ratio)
+ *   Nessuna normalizzazione: la distanza da 100 è uno scarto percentuale, quindi i titoli
+ *   con forza relativa più volatile disegnano code più lunghe. È la ricostruzione pubblica
+ *   ritenuta più vicina alle piattaforme ufficiali (script AmiBroker «RRG 2.1» con le medie
+ *   10/30 indicate da un utente come coincidenti con Refinitiv Eikon); non è confermata.
+ *
  * "classica" (quella della prima versione dell'app)
  *   rsRatio    = 100 + zscore(SMA(prezzo/benchmark, 10), 26)
  *   rsMomentum = 100 + zscore(rsRatio − rsRatio[−4], 26)
@@ -84,8 +93,9 @@ export function sampleIndices(dates, timeframe) {
 
 // ---------- formule ----------
 export const FORMULAS = {
-  nuova: { label: 'Nuova', defaults: { short: 10, long: 30, mom: 8, halfLife: 26, scale: 2.5 } },
-  classica: { label: 'Classica', defaults: { smoothRS: 10, momWin: 4, zWin: 26 } },
+  nuova: { label: 'Nuova', fn: rrgNew, defaults: { short: 10, long: 30, mom: 8, halfLife: 26, scale: 2.5 } },
+  semplice: { label: 'Medie semplici', fn: rrgSimple, defaults: { short: 10, long: 30, signal: 9 } },
+  classica: { label: 'Classica', fn: rrgClassic, defaults: { smoothRS: 10, momWin: 4, zWin: 26 } },
 };
 
 export function rrgNew(sym, bench, p = {}) {
@@ -109,6 +119,15 @@ export function rrgNew(sym, bench, p = {}) {
     rsRatio: X.map((x) => (x == null ? null : CENTER + scale * x)),
     rsMomentum: X.map((x, i) => (x == null || eX[i] == null ? null : CENTER + scale * Math.sqrt(mom) * (x - eX[i]))),
   };
+}
+
+export function rrgSimple(sym, bench, p = {}) {
+  const { short = 10, long = 30, signal = 9 } = p;
+  const rs = sym.map((v, i) => (v != null && bench[i] ? v / bench[i] : null));
+  const a = sma(rs, short), b = sma(rs, long);
+  const rsRatio = rs.map((_, i) => (a[i] != null && b[i] ? (CENTER * a[i]) / b[i] : null));
+  const s = sma(rsRatio, signal);
+  return { rsRatio, rsMomentum: rsRatio.map((v, i) => (v != null && s[i] ? (CENTER * v) / s[i] : null)) };
 }
 
 export function rrgClassic(sym, bench, p = {}) {
@@ -150,7 +169,7 @@ export function stats(ser, f, tail) {
 /**
  * Calcola la rotazione di tutti i simboli rispetto al benchmark.
  * @param {{dates: string[], tickers: Record<string, {close: number[]}>}} dataset
- * @param {{symbols: string[], benchmark: string, timeframe: 'weekly'|'daily', formula?: 'nuova'|'classica', params?: object,
+ * @param {{symbols: string[], benchmark: string, timeframe: 'weekly'|'daily', formula?: 'nuova'|'semplice'|'classica', params?: object,
  *          weekHasMoreSessions?: (iso: string) => boolean}} cfg  calendario della borsa (default NYSE) per la settimana provvisoria
  */
 export function build(dataset, cfg) {
@@ -158,12 +177,12 @@ export function build(dataset, cfg) {
   const idx = sampleIndices(dataset.dates, timeframe);
   const dates = idx.map((i) => dataset.dates[i]);
   const bench = idx.map((i) => dataset.tickers[benchmark].close[i]);
-  const fn = formula === 'classica' ? rrgClassic : rrgNew;
+  const fn = (FORMULAS[formula] || FORMULAS.nuova).fn;
   const series = {};
   for (const s of symbols) {
     if (!dataset.tickers[s] || s === benchmark) continue;
     const r = fn(idx.map((i) => dataset.tickers[s].close[i]), bench, params);
-    // un punto esiste solo con entrambe le coordinate (con la formula classica RS-Ratio arriva prima di RS-Momentum)
+    // un punto esiste solo con entrambe le coordinate (con la classica e la semplice RS-Ratio arriva prima di RS-Momentum)
     series[s] = { x: r.rsRatio.map((v, i) => (v == null || r.rsMomentum[i] == null ? null : v)), y: r.rsMomentum };
   }
   // primo punto in cui almeno metà dei simboli ha un valore: un ETF quotato da poco non accorcia
