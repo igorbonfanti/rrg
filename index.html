@@ -83,8 +83,8 @@
       </span></span>
     <span class="ctl">Formula
       <span class="seg" id="formulaSeg" role="group" aria-label="Formula">
-        <button type="button" data-formula="nuova" aria-pressed="true" title="Medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità">Nuova</button>
-        <button type="button" data-formula="semplice" aria-pressed="false" title="In prova: 100·SMA10/SMA30 della forza relativa e momentum sulla media a 9. È la ricostruzione pubblica ritenuta più vicina alle piattaforme ufficiali, non confermata">Medie semplici</button>
+        <button type="button" data-formula="nuova" aria-pressed="true" title="Nostra formula: medie esponenziali a 10 e 30 barre sul logaritmo della forza relativa, divise per la sua volatilità. Tutti i titoli sulla stessa scala, di solito entro 3 punti da 100">Nuova</button>
+        <button type="button" data-formula="semplice" aria-pressed="false" title="Come StockCharts: RS-Ratio = 100 × media semplice a 10 barre ÷ media a 30 della forza relativa; RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. Distanza da 100 in punti percentuali">Medie semplici</button>
       </span></span>
   </div>
 
@@ -163,6 +163,33 @@
           <span class="muted">colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo</span>
           <span class="muted" id="provNote" hidden>punto vuoto = settimana in corso, provvisorio</span>
         </div>
+        <!-- come si calcola la formula scelta e cosa cambia con l'altra -->
+        <details class="fx" id="fxBox">
+          <summary id="fxSum">Come si calcolano le due formule</summary>
+          <div class="fx-cols">
+            <div class="fx-col" data-f="nuova">
+              <h3>Nuova <span>· nostra, predefinita</span></h3>
+              <ul>
+                <li>Forza relativa in logaritmo: ln(prezzo ÷ benchmark).</li>
+                <li><b>RS-Ratio</b>: differenza tra la media esponenziale a 10 barre e quella a 30, divisa per la volatilità della forza relativa (emivita 26 barre) e riportata attorno a 100.</li>
+                <li><b>RS-Momentum</b>: scarto dell'RS-Ratio dalla sua media esponenziale a 8 barre, sulla stessa scala.</li>
+                <li>Dividendo per la volatilità, tutti i titoli stanno sulla stessa scala: un settore tranquillo e uno agitato con un trend ugualmente solido stanno alla stessa distanza dal centro, di solito entro 3 punti da 100.</li>
+                <li>Le medie esponenziali non fanno saltare il valore quando un dato vecchio esce dal calcolo.</li>
+              </ul>
+            </div>
+            <div class="fx-col" data-f="semplice">
+              <h3>Medie semplici <span>· come StockCharts</span></h3>
+              <ul>
+                <li>Forza relativa: prezzo ÷ benchmark.</li>
+                <li><b>RS-Ratio</b> = 100 × media semplice a 10 barre ÷ media semplice a 30.</li>
+                <li><b>RS-Momentum</b> = 100 × RS-Ratio ÷ sua media semplice a 9 barre.</li>
+                <li>Nessuna normalizzazione: la distanza da 100 è in punti percentuali, quindi i titoli più volatili vanno più lontano e disegnano code più lunghe (sui settori di solito entro 10 punti).</li>
+                <li>Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts (verificato su 11 letture del 25/09/2026). Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso, per via dei dividendi.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="note">In pratica si leggono allo stesso modo: RS-Ratio sopra 100 = più forte del benchmark, RS-Momentum sopra 100 = forza in aumento. Sui settori USA dal 2022 le due formule danno lo stesso quadrante circa tre volte su quattro; le differenze stanno soprattutto vicino a 100. Le medie semplici servono per confrontarsi con le piattaforme ufficiali; la nuova per confrontare asset con volatilità molto diverse, come le asset class.</p>
+        </details>
       </div>
       <!-- composizione del portafoglio di riferimento, solo negli universi che ne hanno uno -->
       <div class="panel" id="ptfPanel" hidden>
@@ -362,7 +389,7 @@
         <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
         <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
       </ul>
-      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b>, in prova, divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. È la ricostruzione pubblica ritenuta più vicina alle piattaforme ufficiali, ma non è confermata.</p>
+      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.</p>
       <h3>Dati</h3>
       <p>Chiusure di Yahoo Finance, aggiornate ogni notte verso l'1 (ora italiana) da una GitHub Action, con due corse di recupero. In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione. La breadth è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.</p>
       <h3>Glossario</h3>

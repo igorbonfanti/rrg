@@ -164,6 +164,11 @@ function routeHash(silent) {
 }
 
 const formulaText = () => (state.formula === 'semplice' ? 'medie semplici' : 'formula nuova');
+// riga sempre visibile della nota sotto il grafico; il confronto completo è in index.html (#fxBox)
+const FX_SUM = {
+  nuova: '<b>Formula nuova</b> · medie esponenziali divise per la volatilità · <span class="fx-open">come si calcola e cosa cambia con le medie semplici</span>',
+  semplice: '<b>Medie semplici</b> · come StockCharts, distanza da 100 in punti percentuali · <span class="fx-open">come si calcola e cosa cambia con la nuova</span>',
+};
 
 // quadrante e direzione di un ETF settoriale vs SPY (settimanale), per la tabella dei settori
 function sectorRotation(s) {
@@ -322,6 +327,8 @@ function renderRRGView(frameOnly = false) {
   const m = state.model;
   $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${isGlobal() ? label(state.benchmark) : state.benchmark}`;
   $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · ${formulaText()}` + (isGlobal() ? ` · ${globalFreshness()}` : '');
+  const fx = $('fxBox');
+  if (fx.dataset.f !== state.formula) { fx.dataset.f = state.formula; $('fxSum').innerHTML = FX_SUM[state.formula] || FX_SUM.nuova; }
   const fr = $('frame');
   fr.min = minFrame(); fr.max = lastFrame(); fr.value = state.frame;
   $('frameDate').textContent = dIT(m.dates[state.frame]) + (isProvisional() ? ' *' : '');

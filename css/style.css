@@ -142,6 +142,20 @@ details.owner[open] summary { margin-bottom: 8px; }
 .legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font: 11px var(--f-mono); color: var(--ink-2); padding: 6px 10px; border-top: 1px solid var(--rule); }
 .legend .kb { display: inline-block; width: 10px; height: 10px; vertical-align: -1px; margin-right: 5px; }
 .legend .kl { display: inline-block; width: 14px; height: 2px; vertical-align: 3px; margin-right: 5px; }
+/* nota sotto il grafico di rotazione: come si calcola la formula scelta e cosa cambia con l'altra */
+details.fx { border-top: 1px solid var(--rule); padding: 7px 10px; }
+details.fx summary { cursor: pointer; font: 11px/1.5 var(--f-mono); color: var(--ink-2); }
+details.fx summary b { color: var(--amber); font-weight: 600; }
+details.fx summary .fx-open { color: var(--ink-3); text-decoration: underline; text-underline-offset: 2px; }
+details.fx summary:hover .fx-open, details.fx summary:focus-visible .fx-open { color: var(--amber); }
+details.fx[open] summary { margin-bottom: 8px; }
+.fx-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 8px; margin-bottom: 8px; }
+.fx-col { border: 1px solid var(--rule); padding: 8px 10px; }
+details.fx[data-f="nuova"] .fx-col[data-f="nuova"], details.fx[data-f="semplice"] .fx-col[data-f="semplice"] { border-color: var(--amber); }
+.fx-col h3 { margin: 0 0 5px; font: 600 11px var(--f-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink); }
+.fx-col h3 span { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-3); }
+.fx-col ul { margin: 0; padding-left: 16px; font: 12px/1.45 var(--f-ui); color: var(--ink-2); }
+.fx-col li + li { margin-top: 3px; }
 .stack { display: grid; gap: 12px; min-width: 0; align-content: start; }
 .grid-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
 .grid-side { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 12px; align-items: start; }
