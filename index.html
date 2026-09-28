@@ -217,6 +217,35 @@
           </details>
         </div>
       </div>
+      <!-- asset reali: cosa mostra ogni benchmark (clic su una riga per sceglierlo) -->
+      <div class="panel" id="mxPanel" hidden>
+        <div class="ph"><h2>Come leggere i benchmark</h2><span class="meta" id="mxMeta"></span></div>
+        <div class="pb mx-box">
+          <p class="note" id="mxNow"></p>
+          <div class="tscroll"><table class="t mx" id="mxTable">
+            <thead><tr><th>Benchmark</th><th>Cosa mostra il grafico</th></tr></thead>
+            <tbody>
+              <tr data-b="BIL" tabindex="0"><td><b>Liquidità in dollari</b><span class="tk">BIL</span></td><td>A destra chi rende più dei T-bill a 1-3 mesi: in pratica il trend assoluto di ogni asset. Vale anche come confronto con il tasso Fed, che si muove con i T-bill.</td></tr>
+              <tr data-b="CPI" tabindex="0"><td><b>Inflazione USA</b><span class="tk">CPI</span></td><td>A destra chi guadagna potere d'acquisto. Il CPI sale lento e regolare, quindi il grafico somiglia molto a quello contro la liquidità; ogni mese entra dal giorno in cui è pubblicato.</td></tr>
+              <tr data-b="DXY_INV" tabindex="0"><td><b>Senza dollaro</b><span class="tk">1/DXY</span></td><td>Prezzi nelle valute del paniere del dollar index (euro, yen, sterlina e altre): toglie l'effetto del dollaro. A destra chi sale anche per chi non ragiona in dollari.</td></tr>
+              <tr data-b="IEF" tabindex="0"><td><b>Treasury 7-10 anni</b><span class="tk">IEF</span></td><td>Reale contro nominale: a destra chi fa meglio dei titoli di Stato USA a medio termine.</td></tr>
+              <tr data-b="SPY" tabindex="0"><td><b>Azioni USA</b><span class="tk">SPY</span></td><td>A destra chi fa meglio della Borsa americana: materie prime contro azioni.</td></tr>
+              <tr data-b="GLD" tabindex="0"><td><b>Oro</b><span class="tk">GLD</span></td><td>Tutto misurato in oro: a destra chi batte il bene rifugio.</td></tr>
+            </tbody>
+          </table></div>
+          <details class="fx" id="mxHow">
+            <summary><b>Da sapere</b> · <span class="fx-open">dati, limiti e come usare questo universo</span></summary>
+            <ul class="fx-list">
+              <li>Contro liquidità e inflazione il grafico legge soprattutto il trend assoluto: sono serie che crescono piano e con regolarità, quindi spostano il centro più che la rotazione. Le informazioni in più vengono dai benchmark che oscillano: dollaro, Treasury, azioni e oro.</li>
+              <li>Tassi e rendimenti non sono prezzi, quindi non stanno al denominatore: entrano come investimenti (liquidità BIL, Treasury IEF, TIPS indicizzati all'inflazione).</li>
+              <li>Il dollar index diretto conterebbe due volte il movimento del dollaro: per togliere il dollaro si usa il suo inverso.</li>
+              <li>Il CPI (BLS, via FRED) è mensile: ogni valore entra dal giorno in cui è stato pubblicato, così il grafico non usa dati prima che fossero noti. Ottobre 2025 non è mai uscito, per lo shutdown del governo USA.</li>
+              <li>Bitcoin quota sempre e il dollar index quasi 24 ore: si usa il loro ultimo prezzo a ogni seduta di New York.</li>
+              <li>Gli ETF sono indicatori in dollari, non strumenti consigliati. Chi investe in euro trova oro, materie prime e bitcoin contro la liquidità in euro nell'universo 1 · Asset class; tra gli equivalenti quotati in Europa ci sono SGLD (oro), PHAG (argento), COPA (rame), CRUD (petrolio) e CMOD (materie prime).</li>
+            </ul>
+          </details>
+        </div>
+      </div>
       </div>
       <div class="stack">
         <div class="panel">
@@ -406,7 +435,7 @@
         <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
         <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
       </ul>
-      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento, con i cursori per adattare i pesi al tuo portafoglio; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.</p>
+      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento, con i cursori per adattare i pesi al tuo portafoglio; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti. <b>5 Asset reali</b>, in dollari, confronta oro, argento, rame, petrolio, materie prime, bitcoin e TIPS con liquidità, inflazione USA, dollaro, Treasury, azioni o oro: sotto il grafico, cosa mostra ogni benchmark. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.</p>
       <h3>Dati</h3>
       <p>Chiusure di Yahoo Finance, aggiornate ogni notte verso l'1 (ora italiana) da una GitHub Action, con due corse di recupero. In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione. La breadth è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.</p>
       <h3>Glossario</h3>

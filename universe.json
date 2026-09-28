@@ -261,5 +261,31 @@
         }
       }
     }
+  },
+  "macro": {
+    "_comment": "Asset reali in dollari contro grandezze macro trasformate in prezzi (calendario NYSE, file data/prices_macro.json). I benchmark sintetici si calcolano nella pipeline: 'cpi' è il CPI USA di FRED, a gradini dal giorno di pubblicazione; 'inverse' è l'inverso di una serie Yahoo (1/DXY = prezzi nelle valute del paniere del dollar index). Il bitcoin quota sempre e il dollar index quasi 24 ore: si usa il loro ultimo prezzo a ogni seduta e non contano per la data dei dati.",
+    "currency": "USD",
+    "benchmarks": {
+      "BIL": { "label": "Liquidità in dollari", "name": "Liquidità in dollari: T-bill a 1-3 mesi · SPDR Bloomberg 1-3 Month T-Bill ETF (segue anche il tasso Fed)" },
+      "CPI": { "label": "Inflazione USA (CPI)", "name": "Indice dei prezzi al consumo USA (CPI-U destagionalizzato, BLS via FRED), ogni mese dal giorno in cui è pubblicato", "synthetic": "cpi", "source": "CPIAUCSL" },
+      "DXY_INV": { "label": "Senza dollaro (1/DXY)", "name": "Inverso del dollar index: prezzi nelle valute del suo paniere (euro, yen, sterlina, dollaro canadese, corona svedese, franco svizzero)", "synthetic": "inverse", "source": "DX-Y.NYB" }
+    },
+    "groups": {
+      "5 · Asset reali": {
+        "defaultBenchmark": "BIL",
+        "benchmarks": ["BIL", "CPI", "DXY_INV", "IEF", "SPY", "GLD"],
+        "tickers": {
+          "GLD": { "label": "Oro", "name": "Oro · SPDR Gold Shares" },
+          "SLV": { "label": "Argento", "name": "Argento · iShares Silver Trust" },
+          "CPER": { "label": "Rame", "name": "Rame · United States Copper Index Fund" },
+          "USO": { "label": "Petrolio", "name": "Petrolio WTI · United States Oil Fund" },
+          "DBC": { "label": "Commodity", "name": "Materie prime ampie (energia, metalli, agricoltura) · Invesco DB Commodity Index Tracking Fund" },
+          "BTC-USD": { "label": "Bitcoin", "name": "Bitcoin in dollari (quota sempre: ultimo prezzo a ogni seduta)" },
+          "TIP": { "label": "TIPS", "name": "Treasury indicizzati all'inflazione · iShares TIPS Bond ETF" },
+          "IEF": { "label": "Treasury 7-10", "name": "Treasury USA 7-10 anni · iShares 7-10 Year Treasury Bond ETF" },
+          "SPY": { "label": "S&P 500", "name": "Azioni USA · SPDR S&P 500 ETF" }
+        }
+      }
+    }
   }
 }

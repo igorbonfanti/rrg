@@ -308,6 +308,16 @@ svg.perf { display: block; width: 100%; height: auto; background: var(--bg); tou
 .ptf-actions button:disabled { opacity: 0.45; cursor: default; }
 .ptf-box details.fx { padding: 8px 0 0; }
 .fx-list { margin: 0; padding-left: 16px; font: 12px/1.45 var(--f-ui); color: var(--ink-2); }
+/* asset reali: tabella dei benchmark (clic su una riga per sceglierlo) */
+.mx-box { display: grid; gap: 10px; }
+.mx-box .note b { color: var(--ink); }
+.mx-box details.fx { padding: 8px 0 0; }
+.t.mx td { white-space: normal; vertical-align: top; }
+.t.mx td:first-child { white-space: nowrap; }
+.t.mx td:first-child b { color: var(--ink); font-weight: 600; }
+.t.mx .tk { display: block; font: 11px var(--f-mono); color: var(--ink-3); }
+.t.mx tbody tr { cursor: pointer; }
+.t.mx tbody tr:hover td:first-child b, .t.mx tbody tr.sel td:first-child b { color: var(--amber); }
 .fx-list li + li { margin-top: 3px; }
 /* telefono: il ticker va sotto il nome, barre più corte, nessuna colonna fissa (la tabella non scorre) */
 @media (max-width: 700px) {

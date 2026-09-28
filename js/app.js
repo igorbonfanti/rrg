@@ -45,9 +45,11 @@ const getJSON = (url, optional) => fetch(url).then((r) => {
 Promise.all([
   getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
   getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('data/prices_global.json', true),
-]).then(([prices, sectors, breadth, config, latest, alertLog, global]) => {
+  getJSON('data/prices_macro.json', true),
+]).then(([prices, sectors, breadth, config, latest, alertLog, global, macro]) => {
   state.data = prices;
   state.global = global ? addPortfolios(global) : null;
+  state.macro = macro;
   state.extra = { sectors, breadth, config, latest, alertLog };
   init();
 }).catch((e) => {
@@ -91,7 +93,8 @@ function computePortfolio(g, p) {
   if (g.metrics) g.metrics[p.key] = priceMetrics(g.dates, index);
 }
 
-// Registro degli universi: USA (prices.json, benchmark comuni) e globali in euro (prices_global.json)
+// Registro degli universi: USA (prices.json, benchmark comuni), globali in euro (prices_global.json)
+// e asset reali in dollari contro grandezze macro (prices_macro.json)
 // (un universo senza nessun benchmark nei dati, per esempio dopo un download fallito, non compare)
 function buildGroups() {
   const out = {};
@@ -103,18 +106,23 @@ function buildGroups() {
   for (const [name, v] of Object.entries(us.groups)) add(name, us, 'US', v, Object.keys(us.benchmarks));
   const gl = state.global;
   if (gl) for (const [name, v] of Object.entries(gl.groups)) add(name, gl, 'global', v, v.benchmarks);
+  const mc = state.macro;
+  if (mc) for (const [name, v] of Object.entries(mc.groups)) add(name, mc, 'macro', v, v.benchmarks);
   return out;
 }
 const grp = () => state.groups[state.group];
 const ds = () => grp().ds;
 const isGlobal = () => grp().market === 'global';
+const isMacro = () => grp().market === 'macro';
+// universi con etichette brevi (ETF globali e asset reali) invece dei ticker USA
+const byLabel = () => grp().market !== 'US';
 // simbolo senza suffisso di borsa (SWDA.MI → SWDA)
 const baseSym = (s) => s.replace(/\.[A-Z]{1,3}$/, '');
 // nome breve sul grafico: l'etichetta degli ETF globali, il ticker per i titoli USA
 const labelOf = (set, s) => (set.tickers[s] && set.tickers[s].label) || s;
 const label = (s) => labelOf(ds(), s);
 const labelMap = () => Object.fromEntries(Object.keys(ds().tickers).map((s) => [s, label(s)]));
-const benchText = (s) => (isGlobal() ? `${label(s)}${ds().tickers[s].synthetic ? '' : ` (${baseSym(s)})`}` : `${s} · ${state.data.benchmarks[s]}`);
+const benchText = (s) => (byLabel() ? `${label(s)}${ds().tickers[s].synthetic ? '' : ` (${baseSym(s)})`}` : `${s} · ${state.data.benchmarks[s]}`);
 function pickBenchmark(name) {
   const g = state.groups[name], saved = store.get('bench.' + name);
   return saved && g.benchmarks.includes(saved) ? saved : g.defaultBenchmark;
@@ -123,7 +131,8 @@ function fillSelects() {
   const names = Object.keys(state.groups);
   const opts = (market) => names.filter((n) => state.groups[n].market === market).map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join('');
   $('groupSel').innerHTML = `<optgroup label="USA · titoli in dollari">${opts('US')}</optgroup>` +
-    (state.global ? `<optgroup label="Globali · ETF in euro">${opts('global')}</optgroup>` : '');
+    (state.global ? `<optgroup label="Globali · ETF in euro">${opts('global')}</optgroup>` : '') +
+    (state.macro ? `<optgroup label="Asset reali · in dollari">${opts('macro')}</optgroup>` : '');
 }
 function fillBenchmarks() {
   $('benchSel').innerHTML = grp().benchmarks.filter((s) => ds().tickers[s]).map((s) => `<option value="${esc(s)}">${esc(benchText(s))}</option>`).join('');
@@ -135,7 +144,7 @@ function init() {
   state.group = names.includes(store.get('group')) ? store.get('group') : names[0];
   state.benchmark = pickBenchmark(state.group);
   fillSelects();
-  for (const set of [state.data, state.global]) {
+  for (const set of [state.data, state.global, state.macro]) {
     if (!set) continue;
     set.metrics = {};
     for (const s of Object.keys(set.tickers)) set.metrics[s] = priceMetrics(set.dates, set.tickers[s].close);
@@ -251,7 +260,7 @@ function monitorRows() {
   return symbols().map((s) => ({ s, name: d.tickers[s].name, mt: d.metrics[s], r: m.series[s] ? stats(m.series[s], f, state.tail) : null }));
 }
 // cella del titolo: ticker e nome per i titoli USA; per gli ETF globali etichetta e ticker, con il nome completo al passaggio del mouse
-const symCell = (s, name, extra = '') => (isGlobal()
+const symCell = (s, name, extra = '') => (byLabel()
   ? `<span class="sym" title="${esc(name)}">${esc(label(s))}</span><span class="nm">${ds().tickers[s].synthetic ? '' : esc(baseSym(s))}${extra}</span>`
   : `<span class="sym">${esc(s)}</span><span class="nm">${esc(name)}${extra}</span>`);
 const SORTERS = {
@@ -338,8 +347,8 @@ function drawChart() {
 function renderRRGView(frameOnly = false) {
   drawChart();
   const m = state.model;
-  $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${isGlobal() ? label(state.benchmark) : state.benchmark}`;
-  $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · ${formulaText()}` + (isGlobal() ? ` · ${globalFreshness()}` : '');
+  $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${byLabel() ? label(state.benchmark) : state.benchmark}`;
+  $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · ${formulaText()}` + (isGlobal() ? ` · ${globalFreshness()}` : isMacro() ? ` · ${macroFreshness()}` : '');
   const fx = $('fxBox');
   if (fx.dataset.f !== state.formula) { fx.dataset.f = state.formula; $('fxSum').innerHTML = FX_SUM[state.formula] || FX_SUM.nuova; }
   const fr = $('frame');
@@ -351,7 +360,7 @@ function renderRRGView(frameOnly = false) {
   $('rotWrap').hidden = px; $('rotNote').hidden = px; $('pxWrap').hidden = !px; $('pxNote').hidden = !px;
   $('tableTitle').textContent = px ? `Prezzi · ${state.group}` : 'Tabella di rotazione';
   if (px) renderPriceTable(); else renderRotTable();
-  if (!frameOnly) { renderPerf(); renderPortfolio(); }
+  if (!frameOnly) { renderPerf(); renderPortfolio(); renderMacroNotes(); }
 }
 // Dopo il ridisegno di una tabella il focus da tastiera torna sulla stessa riga, spunta o intestazione
 function keepFocus(table) {
@@ -378,7 +387,7 @@ function renderRotTable() {
   const dl = (v) => `<span class="dlt ${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '▲' : v < 0 ? '▼' : ''}${fmt(Math.abs(v), 2)}</span>`;
   $('rotTable').innerHTML = `<thead><tr><th>Titolo</th><th>Quadrante</th><th class="r">RS-Ratio</th><th class="r">RS-Mom</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
     rows.map(({ s, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
-      <td title="${esc((isGlobal() ? baseSym(s) + ' · ' : '') + ds().tickers[s].name)}"><input type="checkbox" class="vis" data-sym="${esc(s)}" aria-label="Mostra ${esc(label(s))} sul grafico" ${state.hidden.has(s) ? '' : 'checked'}> <span class="sym">${esc(label(s))}</span></td>
+      <td title="${esc((byLabel() ? baseSym(s) + ' · ' : '') + ds().tickers[s].name)}"><input type="checkbox" class="vis" data-sym="${esc(s)}" aria-label="Mostra ${esc(label(s))} sul grafico" ${state.hidden.has(s) ? '' : 'checked'}> <span class="sym">${esc(label(s))}</span></td>
       <td><span class="pill q-${QKEY[r.q]}-c"><span class="d"></span>${r.q}</span></td>
       <td class="num r">${fmt(r.x, 2)} ${dl(r.dx)}</td><td class="num r">${fmt(r.y, 2)} ${dl(r.dy)}</td>
       <td class="num r${r.heading != null && r.heading <= 90 ? ' hpos' : ''}"><span class="q-${QKEY[r.q]}-c">${arrow(r.heading)}</span> ${fmt(r.heading, 0)}°</td>
@@ -569,6 +578,39 @@ function globalFreshness() {
   return `ETF in euro, dati al ${dIT(g.asOf)}${badge}${fixed}`;
 }
 
+const MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
+const monthIT = (ym) => `${MESI[+ym.slice(5, 7) - 1]} ${ym.slice(0, 4)}`;
+// Data degli asset reali (calendario NYSE) e ultimo CPI disponibile, con la data di uscita
+function macroFreshness() {
+  const m = state.macro;
+  const lag = sessionsBetween(m.asOf, expectedSession(new Date(), PUBLISH_US));
+  const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'seduta' : 'sedute'} indietro</span>`;
+  const last = m.cpi && m.cpi.months ? Object.keys(m.cpi.months).sort().at(-1) : null;
+  const cpi = last && m.cpi.releases[last] ? ` · CPI di ${monthIT(last)}, uscito il ${dIT(m.cpi.releases[last])}` : '';
+  return `ETF e bitcoin in dollari, dati al ${dIT(m.asOf)}${badge}${cpi}`;
+}
+
+// ---------- asset reali: come leggere il benchmark scelto (la tabella con tutti i benchmark è in index.html) ----------
+function renderMacroNotes() {
+  const on = isMacro();
+  $('mxPanel').hidden = !on;
+  if (!on) return;
+  const rows = [...$('mxTable').querySelectorAll('tbody tr[data-b]')];
+  let now = null;
+  for (const tr of rows) {
+    const b = tr.dataset.b, ok = grp().benchmarks.includes(b);
+    tr.hidden = !ok; // un benchmark assente dai dati (per esempio il CPI se FRED non ha risposto) non compare
+    tr.classList.toggle('sel', b === state.benchmark);
+    if (b === state.benchmark) now = tr;
+    tr.onclick = () => { if (ok && b !== state.benchmark) { $('benchSel').value = b; $('benchSel').dispatchEvent(new Event('change')); } };
+    tr.onkeydown = (e) => { if (e.key === 'Enter') tr.onclick(); };
+  }
+  $('mxNow').innerHTML = now
+    ? `Ora il benchmark è <b>${esc(label(state.benchmark))}</b>: ${esc(now.cells[1].textContent.charAt(0).toLowerCase() + now.cells[1].textContent.slice(1))}`
+    : `Ora il benchmark è <b>${esc(label(state.benchmark))}</b>.`;
+  $('mxMeta').textContent = `${grp().benchmarks.length} benchmark · clic su una riga per cambiarlo`;
+}
+
 // animazione
 function stop() {
   if (!state.timer) return;
@@ -674,7 +716,7 @@ function bind() {
   const showTip = (sym, e) => {
     const r = stats(state.model.series[sym], state.frame, state.tail);
     if (!r) { tip.hidden = true; return; }
-    tip.innerHTML = `<div class="row"><b>${esc(label(sym))}</b><span>${esc((isGlobal() ? baseSym(sym) + ' · ' : '') + ds().tickers[sym].name)}</span></div>
+    tip.innerHTML = `<div class="row"><b>${esc(label(sym))}</b><span>${esc((byLabel() ? baseSym(sym) + ' · ' : '') + ds().tickers[sym].name)}</span></div>
       <div class="row"><span>Quadrante</span><b class="q-${QKEY[r.q]}-c">${r.q}</b></div>
       <div class="row"><span>RS-Ratio</span><b>${fmt(r.x, 2)}</b></div><div class="row"><span>RS-Momentum</span><b>${fmt(r.y, 2)}</b></div>
       <div class="row"><span>Direzione</span><b>${fmt(r.heading, 0)}°</b></div><div class="row"><span>Nel quadrante da</span><b>${r.weeks} ${unit()}</b></div>`;
