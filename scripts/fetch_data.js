@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 /*
  * fetch_data.js — scarica i prezzi giornalieri (adjusted close) da Yahoo Finance per
- * i ticker di universe.json e scrive due file indipendenti:
+ * i ticker di universe.json e scrive tre file indipendenti:
  *  - data/prices.json: universi USA (calendario NYSE, dollari);
- *  - data/prices_global.json: universi globali (ETF UCITS in euro, calendario di Borsa Italiana).
- * Un ritardo di Yahoo su una borsa non blocca l'altro file.
+ *  - data/prices_global.json: universi globali (ETF UCITS in euro, calendario di Borsa Italiana);
+ *  - data/prices_macro.json: asset reali in dollari contro grandezze macro (ETF USA, bitcoin,
+ *    dollar index e CPI da FRED; calendario NYSE).
+ * Un ritardo di Yahoo su una borsa (o di FRED) non blocca gli altri file.
+ * Uso: node scripts/fetch_data.js [us|global|macro …] (senza argomenti: tutti).
  *
  * Regole per non pubblicare dati incoerenti:
  *  - si scartano le barre della seduta in corso e le chiusure nulle;
@@ -27,12 +30,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
-import { expectedSession, sessionsBetween, MILAN } from '../js/calendar.js';
+import { expectedSession, sessionsBetween, isTradingDay, MILAN, NYSE } from '../js/calendar.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNIVERSE = JSON.parse(fs.readFileSync(path.join(ROOT, 'universe.json'), 'utf-8'));
 const OUT = path.join(ROOT, 'data', 'prices.json');
 const OUT_GLOBAL = path.join(ROOT, 'data', 'prices_global.json');
+const OUT_MACRO = path.join(ROOT, 'data', 'prices_macro.json');
+const CPI_SEED = path.join(ROOT, 'config', 'cpi_releases.json');
 const RANGE = '5y';
 const MAX_LAG_SESSIONS = 5;
 
@@ -485,9 +490,220 @@ async function updateGlobal() {
   console.log(`Scritto ${path.relative(ROOT, OUT_GLOBAL)} (${kb} KB): ${dates.length} date, ${Object.keys(tickers).length} ticker, dati al ${asOf}, seduta attesa ${expected}, ritardo ${lag}, prezzi corretti: ${repaired.length}.`);
 }
 
+// ---------- asset reali contro grandezze macro (ETF USA, bitcoin, dollar index e CPI; calendario NYSE) ----------
+const SYNTH_KINDS = ['cpi', 'inverse'];
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// Controlla la sezione "macro" di universe.json; restituisce l'elenco degli errori
+export function validateMacro(M) {
+  const err = [];
+  if (!M || !M.groups) return ['manca la sezione macro.groups'];
+  const B = M.benchmarks || {};
+  for (const [s, b] of Object.entries(B)) {
+    if (b.synthetic && !SYNTH_KINDS.includes(b.synthetic)) err.push(`benchmark ${s}: tipo sintetico «${b.synthetic}» sconosciuto`);
+    if (b.synthetic && !b.source) err.push(`benchmark ${s}: manca la serie di partenza (source)`);
+  }
+  for (const [g, v] of Object.entries(M.groups)) {
+    const tick = v.tickers || {};
+    if (!Object.keys(tick).length) err.push(`${g}: nessun ticker`);
+    const benches = v.benchmarks || [v.defaultBenchmark];
+    if (!benches.includes(v.defaultBenchmark)) err.push(`${g}: il benchmark di default non è tra i benchmark`);
+    for (const b of benches) if (!B[b] && !tick[b]) err.push(`${g}: benchmark ${b} non definito`);
+  }
+  return err;
+}
+
+// CSV di FRED (fredgraph.csv): valori mensili per «AAAA-MM»; i mesi senza dato (vuoti o «.») si saltano
+export function parseFredCsv(text) {
+  const out = {};
+  for (const line of text.trim().split(/\r?\n/).slice(1)) {
+    const [d, v] = line.split(',');
+    const x = Number(v);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(d) && v !== '' && v !== '.' && Number.isFinite(x)) out[d.slice(0, 7)] = x;
+  }
+  return out;
+}
+
+async function fetchFred(id, since) {
+  const url = `https://fred.stlouisfed.org/graph/fredgraph.csv?id=${encodeURIComponent(id)}&cosd=${since}`;
+  let lastErr;
+  for (let attempt = 0; attempt < 4; attempt++) {
+    try {
+      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' } });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`); // FRED risponde a volte 503: si riprova
+      const months = parseFredCsv(await r.text());
+      if (!Object.keys(months).length) throw new Error('nessun dato');
+      return months;
+    } catch (e) {
+      lastErr = e;
+      await sleep(1500 * 2 ** attempt);
+    }
+  }
+  throw lastErr;
+}
+
+// Date di uscita del CPI: quelle note (seme ALFRED e file pubblicato) più quelle dei mesi visti oggi per la prima volta
+export function cpiReleases(months, known, today) {
+  const releases = { ...known };
+  const added = [];
+  for (const m of Object.keys(months).sort()) if (!releases[m]) { releases[m] = today; added.push(m); }
+  return { releases, added };
+}
+
+// CPI «a quanto noto»: a ogni data vale l'ultimo mese già pubblicato (un mese mai uscito resta scoperto)
+export function cpiSteps(dates, months, releases) {
+  const known = Object.keys(months).filter((m) => releases[m]).sort((a, b) => releases[a].localeCompare(releases[b]) || a.localeCompare(b));
+  const out = new Array(dates.length).fill(null);
+  let j = 0, month = null;
+  for (let i = 0; i < dates.length; i++) {
+    for (; j < known.length && releases[known[j]] <= dates[i]; j++) if (!month || known[j] > month) month = known[j];
+    out[i] = month ? round4(months[month]) : null;
+  }
+  return out;
+}
+
+// Inverso di una serie (1/DXY), riportato a una scala leggibile
+export const inverse = (arr, k = 10000) => arr.map((v) => (v ? round4(k / v) : null));
+
+async function updateMacro() {
+  const M = UNIVERSE.macro;
+  if (!M) return;
+  const errors = validateMacro(M);
+  if (errors.length) throw new Error('universe.json, sezione macro: ' + errors.join('; '));
+  const meta = collectGlobalTickers(M);
+  const synth = Object.fromEntries(Object.entries(M.benchmarks || {}).filter(([, b]) => b.synthetic));
+  const symbols = Object.keys(meta).filter((s) => !synth[s]);
+  const sources = Object.values(synth).filter((b) => b.synthetic === 'inverse').map((b) => b.source).filter((s) => !symbols.includes(s));
+  const toFetch = [...symbols, ...new Set(sources)];
+  console.log(`Asset reali: scarico ${toFetch.length} serie da Yahoo...`);
+
+  const results = await mapLimit(toFetch, 2, async (sym) => {
+    try {
+      const s = await fetchDaily(sym, { range: RANGE, raw: true, keepOpenCrypto: true });
+      console.log(`  ok ${sym}: ${s.dates.length} barre, ultima ${s.dates.at(-1)} (${s.meta.instrumentType})`);
+      return s;
+    } catch (e) {
+      console.warn(`  FALLITO ${sym}: ${e.message}`);
+      return null;
+    }
+  }, 150);
+  const series = {};
+  toFetch.forEach((sym, i) => { if (results[i] && results[i].dates.length) series[sym] = results[i]; });
+  const failed = toFetch.filter((s) => !series[s]);
+  if (Object.keys(series).length < toFetch.length * 0.8) {
+    throw new Error(`troppi ticker falliti (${failed.length}/${toFetch.length}): non aggiorno i dati`);
+  }
+
+  // bitcoin (sempre) e dollar index (quasi 24 ore) quotano fuori dall'orario NYSE: ultimo prezzo a ogni seduta,
+  // e non contano per la data di pubblicazione (la barra del giorno del DXY resta aperta fino a notte)
+  const offHours = (sym) => ['CRYPTOCURRENCY', 'INDEX'].includes(series[sym].meta.instrumentType);
+  const expected = expectedSession();
+  const cut = dropAfter(series, expected, offHours);
+  if (cut) console.log(`  Scartate ${cut} barre successive alla seduta attesa ${expected}`);
+  const exchangeSyms = Object.keys(series).filter((s) => !offHours(s));
+  const lastDates = Object.fromEntries(exchangeSyms.map((s) => [s, series[s].dates.at(-1)]));
+  const { asOf, maxDate, stale } = pickAsOf(lastDates);
+  if (stale.length > exchangeSyms.length * 0.2) throw new Error(`troppi ticker fermi (${stale.join(', ')}): non aggiorno i dati`);
+  for (const s of stale) { console.warn(`  ESCLUSO ${s}: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
+  const fourDaysBefore = new Date(Date.parse(asOf + 'T00:00:00Z') - 4 * 86400000).toISOString().slice(0, 10);
+  for (const s of Object.keys(series).filter(offHours)) {
+    if (series[s].dates.at(-1) < fourDaysBefore) { console.warn(`  ESCLUSO ${s}: ultimo prezzo ${series[s].dates.at(-1)}, fermo`); stale.push(s); delete series[s]; }
+  }
+  const behind = Object.entries(lastDates).filter(([s, d]) => !stale.includes(s) && d < maxDate).map(([s]) => s);
+  if (behind.length) console.log(`  In ritardo su ${maxDate}: ${behind.join(', ')} → pubblico al ${asOf}`);
+
+  const prev = fs.existsSync(OUT_MACRO) ? JSON.parse(fs.readFileSync(OUT_MACRO, 'utf-8')) : null;
+  if (prev) {
+    const keepPrices = asOf < prev.asOf || !moreComplete(prev, asOf, Object.keys(series), symbols);
+    if (asOf < prev.asOf) console.log(`Asset reali: dati scaricati al ${asOf}, più vecchi di quelli pubblicati (${prev.asOf}): non aggiorno i prezzi.`);
+    if (keepPrices) { writeMetaOnly(OUT_MACRO, prev, withMeta(prev, globalGroups(M), meta)); return; }
+  }
+
+  const exchange = Object.fromEntries(Object.entries(series).filter(([s]) => !offHours(s)));
+  const dates = globalCalendar(exchange, asOf, isTradingDay);
+  const closes = alignToCalendar(series, dates);
+  const kept = keepPublished(dates, closes, realDates(series), prev);
+  if (kept) console.log(`  Tenuti ${kept} prezzi già pubblicati dove Yahoo ora ha una lacuna`);
+
+  const repaired = [];
+  const mkt = marketIndex(Object.keys(exchange).map((s) => closes[s]), dates.length);
+  for (const sym of Object.keys(exchange)) {
+    const r = repairSpikes(closes[sym], mkt);
+    closes[sym] = r.close;
+    for (const f of r.fixes) {
+      repaired.push({ sym, date: dates[f.i], from: f.from, to: f.to });
+      console.log(`  CORRETTO ${sym} al ${dates[f.i]}: ${f.from} → ${f.to}`);
+    }
+  }
+
+  // benchmark sintetici: inverso di una serie Yahoo e CPI dal giorno di pubblicazione
+  let cpi = prev && prev.cpi ? prev.cpi : null;
+  for (const [s, b] of Object.entries(synth)) {
+    if (b.synthetic === 'inverse') {
+      if (closes[b.source]) closes[s] = inverse(closes[b.source]);
+      else console.warn(`  ${s}: manca ${b.source}`);
+      continue;
+    }
+    const seed = JSON.parse(fs.readFileSync(CPI_SEED, 'utf-8'));
+    let months;
+    try {
+      months = await fetchFred(b.source, '2019-01-01');
+      console.log(`  ok FRED ${b.source}: ${Object.keys(months).length} mesi, ultimo ${Object.keys(months).sort().at(-1)}`);
+    } catch (e) {
+      console.warn(`  FRED ${b.source}: ${e.message}${cpi ? ': tengo i valori già pubblicati' : ''}`);
+      months = cpi ? cpi.months : null;
+    }
+    if (!months) { failed.push(s); continue; }
+    const today = NYSE.localNow().date;
+    const { releases, added } = cpiReleases(months, { ...seed.releases, ...(cpi ? cpi.releases : {}) }, today);
+    if (added.length) console.log(`  ${b.source}: nuovi mesi ${added.join(', ')}, pubblicati entro il ${today}`);
+    cpi = { series: b.source, source: 'U.S. Bureau of Labor Statistics via FRED (fred.stlouisfed.org)', months, releases };
+    closes[s] = cpiSteps(dates, months, releases);
+  }
+
+  // alla stessa data, un file senza un benchmark sintetico già pubblicato (fonte mancata) non lo sostituisce
+  const lostSynth = prev && asOf === prev.asOf ? Object.keys(synth).filter((s) => prev.tickers[s] && !closes[s]) : [];
+  if (lostSynth.length) {
+    console.log(`Stessa data del file pubblicato (${asOf}) ma senza ${lostSynth.join(', ')}: tengo il file pubblicato.`);
+    writeMetaOnly(OUT_MACRO, prev, withMeta(prev, globalGroups(M), meta));
+    return;
+  }
+
+  const lag = sessionsBetween(asOf, expected);
+  const tickers = {};
+  for (const sym of Object.keys(meta)) {
+    if (!closes[sym]) continue;
+    const t = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark };
+    if (synth[sym]) t.synthetic = true; else t.quoteCurrency = series[sym].meta.currency;
+    tickers[sym] = { ...t, close: closes[sym] };
+  }
+  const payload = {
+    generated: new Date().toISOString(),
+    market: 'macro',
+    calendar: 'NYSE',
+    currency: M.currency || 'USD',
+    asOf,
+    expectedSession: expected,
+    lagSessions: lag,
+    missing: failed.concat(stale),
+    repaired,
+    cpi,
+    range: RANGE,
+    interval: '1d',
+    groups: globalGroups(M),
+    dates,
+    tickers,
+  };
+  fs.writeFileSync(OUT_MACRO, JSON.stringify(payload));
+  const kb = (fs.statSync(OUT_MACRO).size / 1024).toFixed(0);
+  console.log(`Scritto ${path.relative(ROOT, OUT_MACRO)} (${kb} KB): ${dates.length} date, ${Object.keys(tickers).length} serie, dati al ${asOf}, seduta attesa ${expected}, ritardo ${lag}, prezzi corretti: ${repaired.length}.`);
+}
+
 async function main() {
+  const jobs = { us: ['USA', updateUS], global: ['Globali', updateGlobal], macro: ['Asset reali', updateMacro] };
+  const pick = process.argv.slice(2).filter((a) => jobs[a]);
   let ok = true;
-  for (const [name, fn] of [['USA', updateUS], ['Globali', updateGlobal]]) {
+  for (const [name, fn] of (pick.length ? pick : Object.keys(jobs)).map((k) => jobs[k])) {
     try { await fn(); } catch (e) { console.error(`${name}: ${e.message}`); ok = false; }
   }
   if (!ok) process.exit(1);

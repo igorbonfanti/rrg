@@ -34,6 +34,18 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
     Nel livello 1, sotto il grafico, il pannello **Portafoglio di riferimento** spiega contro cosa si confronta: le classi (Azioni 50%, Obbligazioni governative euro 30%, Oro e materie prime 13%, Immobiliare 5%, Cripto 2%), i pesi obiettivo di ogni componente e i pesi di oggi, spostati dai prezzi dall'ultimo ribilanciamento. Passando sopra una riga la componente si evidenzia nel grafico. I pesi obiettivo si cambiano con i cursori (o scrivendo il numero): il portafoglio si ricalcola su tutta la storia e grafico, tabelle e performance si aggiornano subito. Se il totale non fa 100% i pesi valgono in proporzione («Porta a 100%» riscrive i numeri). I pesi scelti restano nel browser (`localStorage`) e «Ripristina l'esempio» torna a quelli di `universe.json`.
 
     Sul grafico gli ETF globali hanno un nome breve (World, Gov 1-3, Oro…); ticker e nome completo sono in tabella. Bitcoin in euro come il resto: nel rapporto con il benchmark conta solo la valuta comune, e per chi investe in euro il rendimento è quello in euro.
+  - **5 Asset reali**, in dollari su calendario NYSE: Oro GLD, Argento SLV, Rame CPER, Petrolio USO, Commodity DBC, Bitcoin, TIPS TIP, con Treasury 7-10 IEF e S&P 500 SPY come riferimento. Le grandezze macro entrano come prezzi, perché un tasso o un rendimento non si può mettere al denominatore:
+
+    | Benchmark | Cosa mostra |
+    |---|---|
+    | Liquidità in dollari (BIL, predefinito) | chi rende più dei T-bill: in pratica il trend assoluto; vale anche per il tasso Fed |
+    | Inflazione USA (CPI) | chi guadagna potere d'acquisto; il CPI entra dal giorno di pubblicazione |
+    | Senza dollaro (1/DXY) | prezzi nelle valute del paniere del dollar index |
+    | Treasury 7-10 anni (IEF) | reale contro nominale |
+    | Azioni USA (SPY) | materie prime contro Borsa |
+    | Oro (GLD) | tutto misurato in oro |
+
+    Contro liquidità e inflazione, serie lisce, il grafico legge soprattutto il trend assoluto; informazione in più viene dai benchmark che oscillano. Sotto il grafico il pannello **Come leggere i benchmark** spiega ogni scelta (clic su una riga per cambiarla). Gli ETF sono indicatori in dollari; per chi investe in euro l'app cita equivalenti UCITS e l'universo 1.
 - **3 Bottom Map**: ogni settore è un punto, con la coda delle ultime 8 settimane.
   - In orizzontale la profondità del drawdown (percentile della storia del settore), in verticale la distanza dal livello blu.
   - In basso a sinistra la zona blu.
@@ -140,7 +152,7 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
 - **Moduli condivisi**: `js/engine.js` (rotazione), `js/signals.js` (breadth e stati), `js/metrics.js`, `js/portfolio.js` (portafoglio sintetico del livello 1, ribilanciato a fine mese) e `js/calendar.js` (calendari NYSE e Borsa Italiana, con l'orario di pubblicazione dei dati). Girano sia nel browser sia negli script della GitHub Action.
 - **Font** IBM Plex serviti dal sito (licenza SIL OFL in `fonts/`): nessuna richiesta a terzi.
 - **Dati**, aggiornati da `.github/workflows/update-data.yml` dopo la chiusura USA e due volte in recupero (Yahoo pubblica alcune chiusure con ore di ritardo):
-  - `scripts/fetch_data.js` → prezzi rettificati dei ticker di `universe.json`, in due file indipendenti (un ritardo su una borsa non blocca l'altro). Si pubblica solo l'ultima seduta presente per tutti i ticker e mai dati più vecchi di quelli già pubblicati.
+  - `scripts/fetch_data.js` → prezzi rettificati dei ticker di `universe.json`, in tre file indipendenti (un ritardo su una borsa, o di FRED, non blocca gli altri). Si pubblica solo l'ultima seduta presente per tutti i ticker e mai dati più vecchi di quelli già pubblicati. Con un argomento aggiorna solo un file: `node scripts/fetch_data.js macro`.
     - `data/prices.json`: universi USA, calendario NYSE.
     - `data/prices_global.json`: universi globali in euro, calendario di Borsa Italiana.
       - Una data entra nel calendario se quota la maggioranza degli ETF attivi; un ETF senza prezzo quel giorno prende l'ultimo prezzo noto.
@@ -148,6 +160,11 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
       - Il bitcoin quota sempre: si prende il suo ultimo prezzo a ogni seduta di Milano, e si esclude se è fermo da più di 4 giorni.
       - I ticker non in euro si convertono con il cambio.
       - Un prezzo isolato palesemente sbagliato si corregge, si registra nel file e si segnala nell'app. È un salto rispetto al mercato (mediana delle variazioni di tutti gli ETF) che rientra la seduta dopo, molto oltre la normale oscillazione relativa, come il prezzo in dollari al posto di quello in euro visto su alcuni ETF il 24/10/2025.
+    - `data/prices_macro.json`: asset reali in dollari, calendario NYSE.
+      - ETF USA e bitcoin da Yahoo; bitcoin e dollar index (DX-Y.NYB) quotano fuori dall'orario NYSE, quindi si usa il loro ultimo prezzo a ogni seduta e non contano per la data dei dati.
+      - «Senza dollaro» è 10000/DXY, calcolato nella pipeline.
+      - «Inflazione USA» è il CPI destagionalizzato (CPIAUCSL, fonte U.S. Bureau of Labor Statistics via [FRED](https://fred.stlouisfed.org/series/CPIAUCSL)), a gradini: ogni mese vale dal giorno in cui è stato pubblicato. Le date di uscita fino ad agosto 2026 vengono dalle vintage ALFRED (`config/cpi_releases.json`); per i mesi successivi la pipeline registra il giorno in cui il dato compare su FRED. Ottobre 2025 non è mai stato pubblicato (shutdown). Se FRED non risponde restano i valori già pubblicati.
+      - Stesse regole degli altri file per prezzi anomali, ticker fermi e file già pubblicati.
     - Se risponde meno dell'80% dei ticker, o più del 20% è fermo, resta il file già pubblicato. Una lacuna della fonte non cancella un prezzo già pubblicato.
   - `scripts/fetch_breadth.js` scarica circa 500 titoli (circa 2 minuti) e aggiorna:
     - `data/breadth.json`: conteggi per settore;
@@ -164,6 +181,7 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
 - Universi della rotazione: modifica `universe.json`. La Action lo userà dalla corsa successiva: nomi, etichette e gruppi si aggiornano anche quando i prezzi restano quelli già pubblicati.
   - `groups`: universi USA (ticker Yahoo senza suffisso, benchmark comuni in `benchmarks`).
   - `global`: universi in euro, con simboli Yahoo completi di borsa (`.MI` Milano, `.DE` Xetra, `.PA` Parigi, `.AS` Amsterdam, `.MC` Madrid), nome breve (`label`), benchmark ammessi per gruppo e, per il portafoglio, i pesi (`portfolio.weights`, somma 100) e le classi mostrate nella spiegazione (`portfolio.classes`: ogni componente in una sola classe). Il benchmark `PTF` è il portafoglio sintetico, calcolato nell'app.
+  - `macro`: universi in dollari su calendario NYSE, come `global` ma con benchmark sintetici calcolati nella pipeline: `"synthetic": "cpi"` (serie FRED a gradini dal giorno di pubblicazione, `source` = id FRED) e `"synthetic": "inverse"` (inverso di una serie Yahoo, `source` = simbolo).
 - Livelli blu e parametri degli stati: `config/thresholds.json`, usato sia dall'app sia dagli alert.
 
 ## Sviluppo locale
