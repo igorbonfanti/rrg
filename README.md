@@ -192,3 +192,13 @@ node scripts/send_alerts.js     # registra/invia i nuovi cambi di stato
 npx serve .                     # oppure un qualsiasi server statico
 npm test                        # test (node --test)
 ```
+
+## Licenza
+Il codice è rilasciato con licenza [MIT](LICENSE): puoi usarlo, modificarlo e ridistribuirlo, anche per scopi commerciali, a condizione di mantenere la nota di copyright e il testo della licenza. È fornito così com'è, senza garanzie.
+
+La licenza copre il codice, non i dati né i font:
+- i prezzi in `data/` vengono da Yahoo Finance e restano soggetti alle sue condizioni d'uso;
+- il CPI viene dal Bureau of Labor Statistics degli Stati Uniti tramite [FRED](https://fred.stlouisfed.org/series/CPIAUCSL), che chiede di citare la fonte;
+- i font IBM Plex hanno la loro licenza, la SIL Open Font License (`fonts/LICENSE-IBM-Plex.txt`).
+
+Proposte e modifiche sono benvenute: apri una issue o una pull request.
