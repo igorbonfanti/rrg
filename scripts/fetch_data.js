@@ -34,7 +34,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expectedSession, sessionsBetween, isTradingDay, MILAN, NYSE } from '../js/calendar.js';
-import { closeHigh, intradayHigh } from '../js/metrics.js';
+import { closeHigh, intradayHigh, exDates } from '../js/metrics.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNIVERSE = JSON.parse(fs.readFileSync(path.join(ROOT, 'universe.json'), 'utf-8'));
@@ -151,9 +151,10 @@ export function unadjusted(s, dates, adj) {
 }
 
 /**
- * Massimo a 52 settimane per il drawdown sul solo prezzo: {hi, d, c, ih, id, all?}.
+ * Massimo a 52 settimane per il drawdown sul solo prezzo: {hi, d, c, dv, da, ih, id, all?}.
  *  - hi, d, c: chiusura più alta, sua data e ultima chiusura senza rettifica, nelle stesse 252 sedute del
  *    drawdown rettificato (date del file): i due drawdown differiscono solo per le cedole;
+ *  - dv, da: cedole staccate nelle 252 sedute e dopo il massimo (0 per chi non ne paga), per la nota;
  *  - le criptovalute quotano tutti i giorni: si contano anche i fine settimana (all), per tutte e due;
  *  - ih, id: massimo intraday, il «52 week high» di TradingView e dei broker, solo per la nota.
  * @param {{dates: string[], close: number[], adjclose: number[], high?: number[]}} s serie Yahoo del ticker
@@ -164,7 +165,8 @@ export function high52(s, dates, adj, crypto = false) {
   const from = dates[Math.max(0, dates.length - 252)], to = dates[dates.length - 1];
   const p = crypto ? closeHigh(s.dates, s.close, from, to) : closeHigh(dates, unadjusted(s, dates, adj), from, to);
   if (!p) return null;
-  return { ...p, ...intradayHigh(s, from, to), ...(crypto ? { all: true } : {}) };
+  const ex = exDates(s, from, to);
+  return { ...p, dv: ex.length, da: ex.filter((x) => x > p.d).length, ...intradayHigh(s, from, to), ...(crypto ? { all: true } : {}) };
 }
 
 // Prezzi tenuti ma universe.json cambiato (nomi, etichette, gruppi): si aggiornano solo i metadati,

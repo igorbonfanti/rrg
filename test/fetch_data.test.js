@@ -97,13 +97,15 @@ test('chiusure senza rettifica: la pubblicata divisa per il fattore di Yahoo di 
 test('massimo a 52 settimane: stesse sedute del drawdown rettificato, i due valori cambiano solo per la cedola', () => {
   const s = fakeYahoo(), adj = s.adjclose.map((v) => Math.round(v * 10000) / 10000);
   const m = high52(s, s.dates, adj);
-  assert.deepEqual(m, { hi: 130, d: s.dates[100], c: s.close[299], ih: 140, id: s.dates[100] });
+  // una cedola nel periodo, staccata dopo il massimo
+  assert.deepEqual(m, { hi: 130, d: s.dates[100], c: s.close[299], dv: 1, da: 1, ih: 140, id: s.dates[100] });
   // con i dividendi: la chiusura rettificata più alta (127,4) contro l'ultima; sul solo prezzo: 130 contro l'ultima
   assert.equal(Math.round(drawdown(adj).at(-1) * 100) / 100, Math.round((s.close[299] / 127.4 - 1) * 10000) / 100);
   assert.equal(Math.round(priceDrawdown(m) * 100) / 100, Math.round((s.close[299] / 130 - 1) * 10000) / 100);
   // senza cedole (oro, bitcoin) i due valori coincidono
   const flat = { ...s, adjclose: s.close };
   assert.equal(priceDrawdown(high52(flat, s.dates, s.close)), drawdown(s.close).at(-1));
+  assert.equal(high52(flat, s.dates, s.close).dv, 0);
   assert.equal(high52(undefined, s.dates, adj), null);
 });
 

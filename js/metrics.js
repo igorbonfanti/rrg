@@ -63,6 +63,20 @@ export function intradayHigh(s, from, to) {
   return ih == null ? null : { ih: r4(ih), id };
 }
 
+// Date di stacco dei dividendi dopo `from` e fino a `to`: le sedute in cui cambia il fattore di rettifica di
+// Yahoo (chiusura rettificata / chiusura). s = {dates, close, adjclose}
+export function exDates(s, from, to) {
+  const out = [];
+  let f = null;
+  for (let i = 0; i < s.dates.length && s.dates[i] <= to; i++) {
+    if (!s.close[i] || s.adjclose[i] == null) continue;
+    const r = s.adjclose[i] / s.close[i];
+    if (f != null && Math.abs(r / f - 1) > 1e-5 && s.dates[i] > from) out.push(s.dates[i]);
+    f = r;
+  }
+  return out;
+}
+
 // Drawdown % sul solo prezzo da max52 = {hi, c, …} (null se manca)
 export const priceDrawdown = (p) => (p && p.hi > 0 && p.c != null ? (p.c / p.hi - 1) * 100 : null);
 
