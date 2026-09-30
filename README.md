@@ -12,8 +12,9 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - % di titoli sopra la media 200 contro il livello blu, con il valore di un mese fa.
   - Drawdown dal massimo a 52 settimane: in rosso se più profondo dell'80% della storia del settore.
     - Si calcola sulle chiusure rettificate per i dividendi, come se le cedole fossero reinvestite: è la perdita di chi ha tenuto l'ETF ed è la base di segnali e percentili.
-    - Accanto, **Solo prezzo** è il calo dal massimo intraday senza dividendi, cioè il numero che si trova su TradingView e sui grafici dei broker. Di solito è più profondo, per le cedole staccate dopo il massimo e perché il picco della seduta supera la chiusura. Al 29/09/2026, per esempio, XLU è a −15,1% con i dividendi e a −16,9% sul solo prezzo.
-    - Passando sopra le intestazioni e i valori compare la spiegazione, con il massimo e la sua data.
+    - Accanto, **Solo prezzo** è lo stesso calcolo sulle chiusure senza la rettifica per i dividendi, come sul grafico di TradingView: stesse sedute, stessa chiusura più alta, quindi i due valori differiscono solo per le cedole staccate dopo il massimo e coincidono per chi non ne paga. Al 29/09/2026 XLU è a −15,1% con i dividendi e a −16,8% sul solo prezzo; GLD a −22,8% in tutte e due.
+    - Il «massimo a 52 settimane» della scheda di TradingView è il picco intraday, che dopo una seduta con un forte rovescio sta più in alto della chiusura (GLD il 29/01/2026: 509,70 contro 495,90). La nota lo riporta a parte.
+    - Passando sopra le intestazioni e i valori compare la spiegazione, con la chiusura più alta, la sua data e il picco intraday.
   - Quadrante di rotazione contro SPY.
   - Accanto, i settori da osservare con il motivo (quanti punti o chiusure mancano alla zona blu).
 - **2 Rotazione**: grafico di rotazione relativa ridisegnato per la leggibilità.
@@ -169,11 +170,11 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
       - «Inflazione USA» è il CPI destagionalizzato (CPIAUCSL, fonte U.S. Bureau of Labor Statistics via [FRED](https://fred.stlouisfed.org/series/CPIAUCSL)), a gradini: ogni mese vale dal giorno in cui è stato pubblicato. Le date di uscita fino ad agosto 2026 vengono dalle vintage ALFRED (`config/cpi_releases.json`); per i mesi successivi la pipeline registra il giorno in cui il dato compare su FRED. Ottobre 2025 non è mai stato pubblicato (shutdown). Se FRED non risponde restano i valori già pubblicati.
       - Stesse regole degli altri file per prezzi anomali, ticker fermi e file già pubblicati.
     - Se risponde meno dell'80% dei ticker, o più del 20% è fermo, resta il file già pubblicato. Una lacuna della fonte non cancella un prezzo già pubblicato.
-    - Per ogni ticker, `p52` è il massimo a 52 settimane sul solo prezzo (massimo intraday nelle stesse 252 sedute del drawdown, senza rettifica per i dividendi), con la sua data e l'ultima chiusura: serve alla colonna «Solo prezzo».
+    - Per ogni ticker, `max52` serve alla colonna «Solo prezzo»: chiusura più alta e ultima chiusura senza la rettifica per i dividendi, sulle stesse 252 sedute del drawdown rettificato (la chiusura pubblicata divisa per il fattore di rettifica di Yahoo), più il massimo intraday per la nota. Il bitcoin quota tutti i giorni: per lui contano anche i fine settimana, nei due valori.
   - `scripts/fetch_breadth.js` scarica circa 500 titoli (circa 2 minuti) e aggiorna:
     - `data/breadth.json`: conteggi per settore;
     - `data/breadth_latest.json`: fotografia titolo per titolo;
-    - `data/sectors.json`: storia degli ETF dal 2004, rettificata per i dividendi, più `p52` per la colonna «Solo prezzo»;
+    - `data/sectors.json`: storia degli ETF dal 2004, rettificata per i dividendi, più `max52` per la colonna «Solo prezzo», calcolato alla seduta della breadth (`max52At`);
     - `data/sp500_members.json`: lista dei membri con i cambi giorno per giorno.
 
     Una seduta si pubblica solo con i prezzi di almeno il 99% dei membri; le ultime 5 sedute si ricalcolano.

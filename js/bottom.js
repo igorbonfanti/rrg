@@ -60,9 +60,9 @@ export function createBottom(ctx) {
   // ultima seduta con prezzi e breadth
   let NOW = DATES.length - 1;
   while (NOW > 0 && BR.SPX.pct200[NOW] == null) NOW--;
-  // drawdown sul solo prezzo (massimo intraday, senza dividendi), all'ultima data degli ETF: si mostra
-  // solo se è anche la seduta della breadth, così una riga non mescola due date
-  const P52 = NOW === DATES.length - 1 && S.p52 ? S.p52 : {};
+  // drawdown sul solo prezzo (stesse sedute, chiusure senza la rettifica per i dividendi): la pipeline lo
+  // calcola alla seduta della breadth; si mostra solo se è la stessa del Monitor, così una riga non mescola due date
+  const P52 = S.max52 && (S.max52At || S.asOf) === DATES[NOW] ? S.max52 : {};
   const ddp = (s) => priceDrawdown(P52[s]);
   const ddpCell = (s) => {
     const v = ddp(s);

@@ -16,8 +16,9 @@
  *  - un ticker indietro di più di 5 sedute rispetto agli altri viene escluso con un avviso;
  *  - non si sovrascrive mai un file con dati più vecchi di quelli già presenti.
  * Il file riporta asOf (ultima seduta), la seduta attesa e il ritardo in sedute. Per ogni ticker
- * p52 è il massimo a 52 settimane sul solo prezzo (intraday, senza rettifica per i dividendi), con
- * data e ultima chiusura: serve a confrontare il drawdown con i grafici di TradingView e dei broker.
+ * max52 serve al drawdown sul solo prezzo: chiusura più alta delle ultime 252 sedute e ultima chiusura,
+ * senza la rettifica per i dividendi (stesse date del drawdown rettificato, così i due valori
+ * differiscono solo per le cedole), più il massimo intraday, il «52 week high» di TradingView.
  *
  * In più, per gli universi globali:
  *  - Yahoo inserisce la chiusura europea nella serie solo il giorno dopo: per l'ultima
@@ -33,7 +34,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expectedSession, sessionsBetween, isTradingDay, MILAN, NYSE } from '../js/calendar.js';
-import { priceHigh } from '../js/metrics.js';
+import { closeHigh, intradayHigh } from '../js/metrics.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNIVERSE = JSON.parse(fs.readFileSync(path.join(ROOT, 'universe.json'), 'utf-8'));
@@ -132,9 +133,39 @@ export function pickAsOf(lastDates, between = sessionsBetween) {
 // Date con una barra vera (non riempita) per ogni ticker
 const realDates = (series) => Object.fromEntries(Object.entries(series).map(([s, v]) => [s, new Set(v.dates)]));
 
-// Massimo a 52 settimane sul solo prezzo (massimo intraday, niente rettifica per i dividendi) nelle stesse
-// 252 sedute del drawdown dell'app, con l'ultima chiusura: serve a confrontare il drawdown con i grafici
-export const high52 = (s, dates) => (s && dates.length ? priceHigh(s, dates[Math.max(0, dates.length - 252)], dates[dates.length - 1]) : null);
+// Chiusure senza la rettifica per i dividendi sulle date del file: la chiusura pubblicata (rettificata)
+// divisa per il fattore di rettifica di Yahoo in vigore quel giorno. Il fattore vale 1 dopo l'ultimo
+// stacco e sempre 1 per chi non paga cedole: lì le due serie sono identiche.
+export function unadjusted(s, dates, adj) {
+  const out = new Array(dates.length).fill(null);
+  let j = 0, f = null;
+  for (let i = 0; i < dates.length; i++) {
+    while (j < s.dates.length && s.dates[j] <= dates[i]) {
+      const r = s.close[j] ? s.adjclose[j] / s.close[j] : null;
+      if (r) f = Math.abs(r - 1) < 1e-9 ? 1 : r;
+      j++;
+    }
+    out[i] = adj[i] == null || f == null ? null : f === 1 ? adj[i] : round4(adj[i] / f);
+  }
+  return out;
+}
+
+/**
+ * Massimo a 52 settimane per il drawdown sul solo prezzo: {hi, d, c, ih, id, all?}.
+ *  - hi, d, c: chiusura più alta, sua data e ultima chiusura senza rettifica, nelle stesse 252 sedute del
+ *    drawdown rettificato (date del file): i due drawdown differiscono solo per le cedole;
+ *  - le criptovalute quotano tutti i giorni: si contano anche i fine settimana (all), per tutte e due;
+ *  - ih, id: massimo intraday, il «52 week high» di TradingView e dei broker, solo per la nota.
+ * @param {{dates: string[], close: number[], adjclose: number[], high?: number[]}} s serie Yahoo del ticker
+ * @param {string[]} dates date del file; adj: chiusure rettificate pubblicate per quelle date
+ */
+export function high52(s, dates, adj, crypto = false) {
+  if (!s || !dates.length || !adj) return null;
+  const from = dates[Math.max(0, dates.length - 252)], to = dates[dates.length - 1];
+  const p = crypto ? closeHigh(s.dates, s.close, from, to) : closeHigh(dates, unadjusted(s, dates, adj), from, to);
+  if (!p) return null;
+  return { ...p, ...intradayHigh(s, from, to), ...(crypto ? { all: true } : {}) };
+}
 
 // Prezzi tenuti ma universe.json cambiato (nomi, etichette, gruppi): si aggiornano solo i metadati,
 // così un nome nuovo compare subito invece che alla seduta successiva. I prezzi restano quelli pubblicati.
@@ -217,8 +248,8 @@ async function updateUS() {
   const tickers = {};
   for (const sym of symbols) {
     if (!closes[sym]) continue;
-    const p52 = high52(series[sym], dates);
-    tickers[sym] = { name: meta[sym].name, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, ...(p52 ? { p52 } : {}), close: closes[sym] };
+    const max52 = high52(series[sym], dates, closes[sym], series[sym].meta.instrumentType === 'CRYPTOCURRENCY');
+    tickers[sym] = { name: meta[sym].name, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, ...(max52 ? { max52 } : {}), close: closes[sym] };
   }
   const payload = {
     generated: new Date().toISOString(),
@@ -477,8 +508,8 @@ async function updateGlobal() {
   const tickers = {};
   for (const sym of symbols) {
     if (!closes[sym]) continue;
-    const p52 = high52(series[sym], dates);
-    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, ...(p52 ? { p52 } : {}), close: closes[sym] };
+    const max52 = high52(series[sym], dates, closes[sym], isCrypto(sym));
+    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, ...(max52 ? { max52 } : {}), close: closes[sym] };
   }
   const payload = {
     generated: new Date().toISOString(),
@@ -688,8 +719,8 @@ async function updateMacro() {
     if (synth[sym]) t.synthetic = true;
     else {
       t.quoteCurrency = series[sym].meta.currency;
-      const p52 = high52(series[sym], dates);
-      if (p52) t.p52 = p52;
+      const max52 = high52(series[sym], dates, closes[sym], series[sym].meta.instrumentType === 'CRYPTOCURRENCY');
+      if (max52) t.max52 = max52;
     }
     tickers[sym] = { ...t, close: closes[sym] };
   }
