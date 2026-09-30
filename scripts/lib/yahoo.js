@@ -27,7 +27,8 @@ function barDate(ts, gmtoffset) {
 /**
  * @param {string} symbol
  * @param {{range?: string, period1?: number, period2?: number, interval?: string, retries?: number}} [opt]
- * @returns {Promise<{dates: string[], close: number[], adjclose: number[], meta: object}>}
+ * @returns {Promise<{dates: string[], close: number[], adjclose: number[], high: number[], meta: object}>}
+ *   close e high rettificati solo per gli split, adjclose anche per i dividendi
  */
 export async function fetchDaily(symbol, opt = {}) {
   const { range = '5y', period1, period2, interval = '1d', retries = 3, raw = false, fillLast = false, keepOpenCrypto = false } = opt;
@@ -60,10 +61,11 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, nowSec = 
   const adj = (res.indicators.adjclose && res.indicators.adjclose[0].adjclose) || quote.close || [];
   const reg = meta.currentTradingPeriod && meta.currentTradingPeriod.regular;
   const keepOpen = keepOpenCrypto && meta.instrumentType === 'CRYPTOCURRENCY';
-  const out = { dates: [], close: [], adjclose: [], meta };
+  const out = { dates: [], close: [], adjclose: [], high: [], meta };
   for (let i = 0; i < ts.length; i++) {
     let c = quote.close ? quote.close[i] : null;
     let a = adj[i];
+    let h = quote.high ? quote.high[i] : null;
     // barra della seduta in corso: cade dentro l'orario regolare attuale e la seduta non è finita
     const open = reg && ts[i] >= reg.start && nowSec < reg.end;
     if (open && !keepOpen) continue;
@@ -71,14 +73,17 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, nowSec = 
     if (c == null && fillLast && (!open || keepOpen) && i === ts.length - 1 && meta.regularMarketPrice != null &&
         meta.regularMarketTime >= ts[i] && barDate(meta.regularMarketTime, meta.gmtoffset) === d) {
       c = a = meta.regularMarketPrice;
+      if (h == null) h = meta.regularMarketDayHigh;
     }
     if (c == null || a == null) continue;
+    // massimo della seduta; se manca (o è sotto la chiusura, dato sporco) vale la chiusura
+    const hi = h != null && h > c ? h : c;
     if (out.dates.length && out.dates[out.dates.length - 1] === d) {
       // barra duplicata per la stessa data: tieni l'ultima
-      out.close[out.close.length - 1] = c; out.adjclose[out.adjclose.length - 1] = a;
+      out.close[out.close.length - 1] = c; out.adjclose[out.adjclose.length - 1] = a; out.high[out.high.length - 1] = hi;
       continue;
     }
-    out.dates.push(d); out.close.push(c); out.adjclose.push(a);
+    out.dates.push(d); out.close.push(c); out.adjclose.push(a); out.high.push(hi);
   }
   return out;
 }

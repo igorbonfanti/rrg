@@ -1,12 +1,12 @@
 /* app.js — stato, viste (Monitor, RRG, Bottom Map, Settore, Alert), barra comandi e scorciatoie. */
 import { build, stats, CENTER } from './engine.js';
 import { createBottom } from './bottom.js';
-import { priceMetrics } from './metrics.js';
+import { priceMetrics, priceDrawdown } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
 import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
-import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth } from './format.js';
+import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
 const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr'];
@@ -147,7 +147,8 @@ function init() {
   for (const set of [state.data, state.global, state.macro]) {
     if (!set) continue;
     set.metrics = {};
-    for (const s of Object.keys(set.tickers)) set.metrics[s] = priceMetrics(set.dates, set.tickers[s].close);
+    // p52: massimo a 52 settimane sul solo prezzo, per il drawdown da confrontare con i grafici
+    for (const [s, t] of Object.entries(set.tickers)) set.metrics[s] = { ...priceMetrics(set.dates, t.close), p52: t.p52 || null, ddp: priceDrawdown(t.p52) };
   }
   const cvdOn = store.get('cvd', false) === true;
   document.documentElement.classList.toggle('cvd', cvdOn);
@@ -268,7 +269,7 @@ const SORTERS = {
   last: (a, b) => a.mt.last - b.mt.last,
   d1: (a, b) => a.mt.d1 - b.mt.d1, w1: (a, b) => a.mt.w1 - b.mt.w1, m1: (a, b) => a.mt.m1 - b.mt.m1,
   m3: (a, b) => a.mt.m3 - b.mt.m3, ytd: (a, b) => a.mt.ytd - b.mt.ytd,
-  dd: (a, b) => a.mt.dd52 - b.mt.dd52, vs200: (a, b) => a.mt.vs200 - b.mt.vs200,
+  dd: (a, b) => a.mt.dd52 - b.mt.dd52, ddp: (a, b) => (a.mt.ddp ?? a.mt.dd52) - (b.mt.ddp ?? b.mt.dd52), vs200: (a, b) => a.mt.vs200 - b.mt.vs200,
   rot: (a, b) => (a.r && b.r ? QORDER[a.r.q] - QORDER[b.r.q] || b.r.dist - a.r.dist : 0),
   weeks: (a, b) => (a.r && b.r ? a.r.weeks - b.r.weeks : 0),
 };
@@ -282,23 +283,25 @@ function renderPriceTable() {
   rows.sort((a, b) => dir * SORTERS[key](a, b));
   const DDMAX = 35;
   const cols = [['sym', 'Titolo', ''], ['last', 'Ultimo', 'r'], ['d1', '1G', 'r'], ['w1', '1S', 'r'], ['m1', '1M', 'r'], ['m3', '3M', 'r'], ['ytd', 'YTD', 'r'],
-    ['dd', 'Drawdown da max 52s', ''], ['vs200', 'vs media 200g', 'r'], ['rot', 'Rotazione', ''], ['weeks', 'Nel quadrante', 'r']];
-  const head = '<thead><tr>' + cols.map(([k, label, cls]) => {
+    ['dd', 'Drawdown da max 52s', '', DD_TIP], ['ddp', 'Solo prezzo', 'r wrap', DDP_TIP], ['vs200', 'vs media 200g', 'r'], ['rot', 'Rotazione', ''], ['weeks', 'Nel quadrante', 'r']];
+  const head = '<thead><tr>' + cols.map(([k, label, cls, tip]) => {
     const aria = state.sort.key === k ? ` aria-sort="${state.sort.dir > 0 ? 'ascending' : 'descending'}"` : '';
-    return `<th class="${cls}"${aria}><button type="button" data-sort="${k}">${label}${state.sort.key === k ? (state.sort.dir > 0 ? ' ▲' : ' ▼') : ''}</button></th>`;
+    return `<th class="${cls}"${tip ? ` title="${esc(tip)}"` : ''}${aria}><button type="button" data-sort="${k}">${label}${state.sort.key === k ? (state.sort.dir > 0 ? ' ▲' : ' ▼') : ''}</button></th>`;
   }).join('') + '</tr></thead>';
   const ddCell = (mt) => {
     const w = Math.min(100, (Math.abs(mt.dd52) / DDMAX) * 100), worst = Math.min(100, (Math.abs(mt.ddWorst) / DDMAX) * 100);
     return `<span class="cellv num">${sgn(mt.dd52)}%</span><span class="bar" title="peggiore negli ultimi 5 anni ${sgn(mt.ddWorst)}%"><i class="${mt.ddDepth != null && mt.ddDepth >= 80 ? 'deep' : ''}" style="width:${w}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span>`;
   };
+  // drawdown sul solo prezzo, alla stessa data (l'ultima del file)
+  const ddpTd = (s, mt) => `<td class="num r" title="${esc(ddpTip(mt.p52, d.dates[d.dates.length - 1], mt.dd52, d.tickers[s].synthetic))}">${mt.ddp == null ? '<span class="muted">—</span>' : sgn(mt.ddp) + '%'}</td>`;
   const body = rows.map(({ s, name, mt, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td>${symCell(s, name)}</td>
       <td class="num r">${fmt(mt.last, 2)}</td><td class="num r">${pct(mt.d1)}</td><td class="num r">${pct(mt.w1)}</td><td class="num r">${pct(mt.m1)}</td><td class="num r">${pct(mt.m3)}</td><td class="num r">${pct(mt.ytd)}</td>
-      <td>${ddCell(mt)}</td><td class="num r">${pct(mt.vs200)}</td>
+      <td>${ddCell(mt)}</td>${ddpTd(s, mt)}<td class="num r">${pct(mt.vs200)}</td>
       <td>${r ? qPill(r.q, r.heading) : '<span class="muted">—</span>'}</td><td class="num r">${r ? `${r.weeks} ${unit()}` : '—'}</td></tr>`).join('');
   const benchRow = `<tr class="bench"><td>${symCell(bench, d.tickers[bench].name, ' · benchmark')}</td>
       <td class="num r">${fmt(bm.last, 2)}</td><td class="num r">${pct(bm.d1)}</td><td class="num r">${pct(bm.w1)}</td><td class="num r">${pct(bm.m1)}</td><td class="num r">${pct(bm.m3)}</td><td class="num r">${pct(bm.ytd)}</td>
-      <td>${ddCell(bm)}</td><td class="num r">${pct(bm.vs200)}</td><td></td><td></td></tr>`;
+      <td>${ddCell(bm)}</td>${ddpTd(bench, bm)}<td class="num r">${pct(bm.vs200)}</td><td></td><td></td></tr>`;
   $('monTable').innerHTML = head + '<tbody>' + body + benchRow + '</tbody>';
   $('monTable').querySelectorAll('th button').forEach((b) => b.onclick = () => {
     const k = b.dataset.sort;

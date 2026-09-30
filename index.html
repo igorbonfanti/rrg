@@ -112,6 +112,7 @@
           <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia del settore</span>
           <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
         </div>
+        <p class="note pb">Il drawdown conta i dividendi come reinvestiti: è la perdita di chi ha tenuto l'ETF e la base dei segnali. «Solo prezzo» è il calo dal massimo intraday senza i dividendi, come su TradingView: di solito è un po' più profondo.</p>
       </div>
       <div class="stack">
         <div class="panel">
@@ -257,7 +258,7 @@
           <div class="tscroll" id="rotWrap"><table class="t" id="rotTable"></table></div>
           <div class="tscroll" id="pxWrap" hidden><table class="t" id="monTable"></table></div>
           <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p>
-          <p class="note pb" id="pxNote" hidden>Drawdown in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni; il segno grigio è il peggiore dei 5 anni. Clic su un'intestazione per ordinare.</p>
+          <p class="note pb" id="pxNote" hidden>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni; il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: calo dal massimo intraday senza i dividendi, come su TradingView. Clic su un'intestazione per ordinare.</p>
         </div>
         <div class="panel">
           <div class="ph"><h2>Performance relativa</h2>
@@ -442,7 +443,8 @@
       <dl class="gloss">
         <dt>Breadth</dt><dd>% dei titoli del settore che chiudono sopra la propria media a 200 sedute, come SUTH o SKTH su TradingView.</dd>
         <dt>Livello blu</dt><dd>soglia di breadth del settore sotto cui cercare un bottom.</dd>
-        <dt>Drawdown e percentile</dt><dd>calo dal massimo a 52 settimane; il percentile dice quanto è profondo rispetto alla storia del settore (90° = più profondo del 90% delle sedute).</dd>
+        <dt>Drawdown e percentile</dt><dd>calo dal massimo a 52 settimane con i dividendi reinvestiti (prezzi rettificati), la base dei segnali; il percentile dice quanto è profondo rispetto alla storia del settore (90° = più profondo del 90% delle sedute).</dd>
+        <dt>Solo prezzo</dt><dd>lo stesso calo sul prezzo senza dividendi, dal massimo intraday: è il numero che trovi su TradingView e sui grafici dei broker. Di solito è un po' più profondo, per le cedole staccate dopo il massimo e perché il picco della seduta supera la chiusura.</dd>
         <dt>RS-Ratio</dt><dd>forza relativa rispetto al benchmark: sopra 100 più forte.</dd>
         <dt>RS-Momentum</dt><dd>come sta cambiando la forza relativa: sopra 100 in miglioramento.</dd>
         <dt>Direzione</dt><dd>verso dell'ultimo spostamento sul grafico, in gradi bussola: 0° in su, 90° a destra (verso Leading).</dd>

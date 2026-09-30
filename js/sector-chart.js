@@ -49,7 +49,8 @@ export function drawSector(svg, p) {
   const narrow = PW < 440; // telefono: titoli e note più corti per non sovrapporsi
   const panes = [
     { key: 'px', h: 220, title: 'PREZZO · MEDIA 200 SEDUTE' },
-    { key: 'dd', h: 100, title: narrow ? 'DRAWDOWN DAL MASSIMO 52 SETT.' : 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' },
+    // «con dividendi» solo se c'è spazio accanto alla nota del peggiore a destra
+    { key: 'dd', h: 100, title: narrow ? 'DRAWDOWN DAL MASSIMO 52 SETT.' : PW < 560 ? 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' : 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE · CON DIVIDENDI' },
     { key: 'br', h: 150, title: `% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU ${blue}%` },
   ];
   let y = 20;

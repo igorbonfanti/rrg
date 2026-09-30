@@ -15,7 +15,9 @@
  *    (niente prezzi ricopiati in coda: un ticker in ritardo fa aspettare tutti);
  *  - un ticker indietro di più di 5 sedute rispetto agli altri viene escluso con un avviso;
  *  - non si sovrascrive mai un file con dati più vecchi di quelli già presenti.
- * Il file riporta asOf (ultima seduta), la seduta attesa e il ritardo in sedute.
+ * Il file riporta asOf (ultima seduta), la seduta attesa e il ritardo in sedute. Per ogni ticker
+ * p52 è il massimo a 52 settimane sul solo prezzo (intraday, senza rettifica per i dividendi), con
+ * data e ultima chiusura: serve a confrontare il drawdown con i grafici di TradingView e dei broker.
  *
  * In più, per gli universi globali:
  *  - Yahoo inserisce la chiusura europea nella serie solo il giorno dopo: per l'ultima
@@ -31,6 +33,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expectedSession, sessionsBetween, isTradingDay, MILAN, NYSE } from '../js/calendar.js';
+import { priceHigh } from '../js/metrics.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNIVERSE = JSON.parse(fs.readFileSync(path.join(ROOT, 'universe.json'), 'utf-8'));
@@ -82,7 +85,9 @@ export function dropAfter(series, expected, keep = () => false) {
   let n = 0;
   for (const [sym, s] of Object.entries(series)) {
     if (keep(sym)) continue;
-    while (s.dates.length && s.dates[s.dates.length - 1] > expected) { s.dates.pop(); s.close.pop(); s.adjclose.pop(); n++; }
+    while (s.dates.length && s.dates[s.dates.length - 1] > expected) {
+      s.dates.pop(); s.close.pop(); s.adjclose.pop(); if (s.high) s.high.pop(); n++;
+    }
   }
   return n;
 }
@@ -126,6 +131,10 @@ export function pickAsOf(lastDates, between = sessionsBetween) {
 
 // Date con una barra vera (non riempita) per ogni ticker
 const realDates = (series) => Object.fromEntries(Object.entries(series).map(([s, v]) => [s, new Set(v.dates)]));
+
+// Massimo a 52 settimane sul solo prezzo (massimo intraday, niente rettifica per i dividendi) nelle stesse
+// 252 sedute del drawdown dell'app, con l'ultima chiusura: serve a confrontare il drawdown con i grafici
+export const high52 = (s, dates) => (s && dates.length ? priceHigh(s, dates[Math.max(0, dates.length - 252)], dates[dates.length - 1]) : null);
 
 // Prezzi tenuti ma universe.json cambiato (nomi, etichette, gruppi): si aggiornano solo i metadati,
 // così un nome nuovo compare subito invece che alla seduta successiva. I prezzi restano quelli pubblicati.
@@ -208,7 +217,8 @@ async function updateUS() {
   const tickers = {};
   for (const sym of symbols) {
     if (!closes[sym]) continue;
-    tickers[sym] = { name: meta[sym].name, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, close: closes[sym] };
+    const p52 = high52(series[sym], dates);
+    tickers[sym] = { name: meta[sym].name, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, ...(p52 ? { p52 } : {}), close: closes[sym] };
   }
   const payload = {
     generated: new Date().toISOString(),
@@ -382,13 +392,13 @@ async function toCurrency(series, currency) {
     if (!f) { console.warn(`  ESCLUSO ${sym}: nessun cambio ${currency}${cur}`); delete series[sym]; continue; }
     let j = 0, rate = null;
     const conv = (v) => (pence ? v / 100 : v) / rate;
-    const dates = [], close = [], adjclose = [];
+    const dates = [], close = [], adjclose = [], high = [];
     for (let i = 0; i < s.dates.length; i++) {
       while (j < f.dates.length && f.dates[j] <= s.dates[i]) rate = f.close[j++];
       if (rate == null) continue;
-      dates.push(s.dates[i]); close.push(conv(s.close[i])); adjclose.push(conv(s.adjclose[i]));
+      dates.push(s.dates[i]); close.push(conv(s.close[i])); adjclose.push(conv(s.adjclose[i])); high.push(conv((s.high && s.high[i]) ?? s.close[i]));
     }
-    series[sym] = { ...s, dates, close, adjclose };
+    series[sym] = { ...s, dates, close, adjclose, high };
     console.log(`  ${sym}: convertito da ${s.meta.currency} in ${currency}`);
   }
 }
@@ -467,7 +477,8 @@ async function updateGlobal() {
   const tickers = {};
   for (const sym of symbols) {
     if (!closes[sym]) continue;
-    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, close: closes[sym] };
+    const p52 = high52(series[sym], dates);
+    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, ...(p52 ? { p52 } : {}), close: closes[sym] };
   }
   const payload = {
     generated: new Date().toISOString(),
@@ -674,7 +685,12 @@ async function updateMacro() {
   for (const sym of Object.keys(meta)) {
     if (!closes[sym]) continue;
     const t = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark };
-    if (synth[sym]) t.synthetic = true; else t.quoteCurrency = series[sym].meta.currency;
+    if (synth[sym]) t.synthetic = true;
+    else {
+      t.quoteCurrency = series[sym].meta.currency;
+      const p52 = high52(series[sym], dates);
+      if (p52) t.p52 = p52;
+    }
     tickers[sym] = { ...t, close: closes[sym] };
   }
   const payload = {

@@ -160,14 +160,21 @@ details.fx[data-f="nuova"] .fx-col[data-f="nuova"], details.fx[data-f="semplice"
 .grid-2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; align-items: start; }
 .grid-side { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 12px; align-items: start; }
 @media (max-width: 1100px) { .grid-2, .grid-side { grid-template-columns: minmax(0, 1fr); } }
-/* portatili (1101–1439 px): il nome del settore va sotto il ticker, barre e celle più strette,
-   così le colonne del Monitor e della tabella di rotazione entrano senza scorrere */
+/* Monitor sotto i 1600 px: barre più strette e intestazioni lunghe su due righe; sui portatili
+   (1101–1439 px) anche il nome del settore va sotto il ticker e la colonna di destra si stringe.
+   Così le colonne entrano senza scorrere da 1280 px in su */
+@media (min-width: 1440px) and (max-width: 1599px) {
+  #boardTable .bullet { width: 110px; }
+  #boardTable .bar { width: 64px; }
+  #boardTable th.wrap-l { white-space: normal; }
+}
 @media (min-width: 1101px) and (max-width: 1439px) {
   .grid-side { grid-template-columns: minmax(0, 1fr) 290px; }
   #boardTable td:first-child { white-space: normal; }
   #boardTable .nm { display: block; margin-left: 0; font-size: 11.5px; line-height: 1.2; }
-  #boardTable .bullet { width: 96px; }
-  #boardTable .bar { width: 78px; }
+  #boardTable .bullet { width: 80px; }
+  #boardTable .bar { width: 56px; }
+  #boardTable th.wrap-l { white-space: normal; }
 }
 
 /* ---------- KPI ---------- */
@@ -187,7 +194,8 @@ details.fx[data-f="nuova"] .fx-col[data-f="nuova"], details.fx[data-f="semplice"
   #boardTable .nm { display: none; }
 }
 table.t { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-.t th { font: 600 10.5px var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; background: var(--bg); }
+.t th { font: 600 10.5px var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; background: var(--bg); vertical-align: bottom; }
+.t th.wrap { white-space: normal; }
 .t th.r, .t td.r { text-align: right; }
 .t th button { all: unset; cursor: pointer; }
 .t th button:focus-visible { outline: 1px solid var(--amber); }

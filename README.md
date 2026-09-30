@@ -11,6 +11,9 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Stato: Normale, Attenzione, Zona blu, Trigger, Fallito, Cooldown.
   - % di titoli sopra la media 200 contro il livello blu, con il valore di un mese fa.
   - Drawdown dal massimo a 52 settimane: in rosso se più profondo dell'80% della storia del settore.
+    - Si calcola sulle chiusure rettificate per i dividendi, come se le cedole fossero reinvestite: è la perdita di chi ha tenuto l'ETF ed è la base di segnali e percentili.
+    - Accanto, **Solo prezzo** è il calo dal massimo intraday senza dividendi, cioè il numero che si trova su TradingView e sui grafici dei broker. Di solito è più profondo, per le cedole staccate dopo il massimo e perché il picco della seduta supera la chiusura. Al 29/09/2026, per esempio, XLU è a −15,1% con i dividendi e a −16,9% sul solo prezzo.
+    - Passando sopra le intestazioni e i valori compare la spiegazione, con il massimo e la sua data.
   - Quadrante di rotazione contro SPY.
   - Accanto, i settori da osservare con il motivo (quanti punti o chiusure mancano alla zona blu).
 - **2 Rotazione**: grafico di rotazione relativa ridisegnato per la leggibilità.
@@ -18,7 +21,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Code dritte e neutre; passando sopra un titolo gli altri si attenuano, con un clic lo si fissa.
   - Scala uguale sui due assi e centrata su 100 (adattata alle code oppure fissa sull'intero periodo). Il punto della settimana in corso è vuoto perché provvisorio.
   - Tabella di rotazione: quadrante, RS-Ratio/RS-Momentum con variazione, direzione in gradi bussola, velocità, distanza dal centro, durata nel quadrante, quadrante precedente.
-  - L'interruttore **Prezzi** mostra variazioni, drawdown e distanza dalla media 200 per tutto l'universo scelto.
+  - L'interruttore **Prezzi** mostra variazioni, drawdown (con i dividendi e sul solo prezzo) e distanza dalla media 200 per tutto l'universo scelto.
   - Performance base 100 del periodo (3M/6M/1A/2A) con il benchmark e il titolo in evidenza.
 - **Universi della rotazione**:
   - USA, in dollari: settori S&P 500 (contro SPY) e MAG7 (contro QQQ).
@@ -166,10 +169,11 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
       - «Inflazione USA» è il CPI destagionalizzato (CPIAUCSL, fonte U.S. Bureau of Labor Statistics via [FRED](https://fred.stlouisfed.org/series/CPIAUCSL)), a gradini: ogni mese vale dal giorno in cui è stato pubblicato. Le date di uscita fino ad agosto 2026 vengono dalle vintage ALFRED (`config/cpi_releases.json`); per i mesi successivi la pipeline registra il giorno in cui il dato compare su FRED. Ottobre 2025 non è mai stato pubblicato (shutdown). Se FRED non risponde restano i valori già pubblicati.
       - Stesse regole degli altri file per prezzi anomali, ticker fermi e file già pubblicati.
     - Se risponde meno dell'80% dei ticker, o più del 20% è fermo, resta il file già pubblicato. Una lacuna della fonte non cancella un prezzo già pubblicato.
+    - Per ogni ticker, `p52` è il massimo a 52 settimane sul solo prezzo (massimo intraday nelle stesse 252 sedute del drawdown, senza rettifica per i dividendi), con la sua data e l'ultima chiusura: serve alla colonna «Solo prezzo».
   - `scripts/fetch_breadth.js` scarica circa 500 titoli (circa 2 minuti) e aggiorna:
     - `data/breadth.json`: conteggi per settore;
     - `data/breadth_latest.json`: fotografia titolo per titolo;
-    - `data/sectors.json`: storia degli ETF dal 2004;
+    - `data/sectors.json`: storia degli ETF dal 2004, rettificata per i dividendi, più `p52` per la colonna «Solo prezzo»;
     - `data/sp500_members.json`: lista dei membri con i cambi giorno per giorno.
 
     Una seduta si pubblica solo con i prezzi di almeno il 99% dei membri; le ultime 5 sedute si ricalcolano.

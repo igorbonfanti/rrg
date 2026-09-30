@@ -33,6 +33,17 @@ test('Yahoo: chiusura europea ancora vuota presa dalla quotazione, a seduta fini
   assert.deepEqual(parse(live, { fillLast: true, nowSec: T('2026-09-25T09:00:00Z') }).dates, ['2026-09-23']);
 });
 
+test('Yahoo: massimo della seduta accanto alle chiusure (quello mancante o sotto la chiusura vale la chiusura)', () => {
+  const res = {
+    meta: { gmtoffset: -14400, instrumentType: 'ETF', currentTradingPeriod: { regular: { start: T('2026-09-30T13:30:00Z'), end: T('2026-09-30T20:00:00Z') } } },
+    timestamp: [T('2026-09-25T13:30:00Z'), T('2026-09-26T13:30:00Z'), T('2026-09-29T13:30:00Z')],
+    indicators: { quote: [{ close: [40.1, 39.9, 39.71], high: [40.5, null, 39.5] }], adjclose: [{ adjclose: [40.1, 39.9, 39.71] }] },
+  };
+  const p = parse(res, { nowSec: T('2026-09-30T18:00:00Z') });
+  assert.deepEqual(p.high, [40.5, 39.9, 39.71]);
+  assert.deepEqual(p.close, [40.1, 39.9, 39.71]);
+});
+
 test('Yahoo: per le criptovalute si tiene la barra del giorno in corso', () => {
   const res = {
     meta: { gmtoffset: 0, instrumentType: 'CRYPTOCURRENCY', currentTradingPeriod: { regular: { start: T('2026-09-24T00:00:00Z'), end: T('2026-09-24T23:59:59Z') } } },
@@ -197,11 +208,12 @@ test('prezzi anomali: un vero crollo a V di tutto il mercato non si corregge', (
 
 test('niente barre della seduta in corso, tranne le criptovalute', () => {
   const series = {
-    'SWDA.MI': { dates: ['2026-09-24', '2026-09-25'], close: [1, 2], adjclose: [1, 2] },
+    'SWDA.MI': { dates: ['2026-09-24', '2026-09-25'], close: [1, 2], adjclose: [1, 2], high: [1.1, 2.1] },
     'BTC-EUR': { dates: ['2026-09-24', '2026-09-25'], close: [1, 2], adjclose: [1, 2] },
   };
   assert.equal(dropAfter(series, '2026-09-24', (s) => s === 'BTC-EUR'), 1);
   assert.deepEqual(series['SWDA.MI'].dates, ['2026-09-24']);
+  assert.deepEqual(series['SWDA.MI'].high, [1.1]);
   assert.deepEqual(series['BTC-EUR'].dates, ['2026-09-24', '2026-09-25']);
 });
 
