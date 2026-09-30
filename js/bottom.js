@@ -9,7 +9,8 @@ import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
+import { priceDrawdown } from './metrics.js';
 
 const NAMES = {
   XLK: 'Technology', XLC: 'Communication Services', XLY: 'Consumer Discretionary', XLP: 'Consumer Staples', XLE: 'Energy',
@@ -59,6 +60,14 @@ export function createBottom(ctx) {
   // ultima seduta con prezzi e breadth
   let NOW = DATES.length - 1;
   while (NOW > 0 && BR.SPX.pct200[NOW] == null) NOW--;
+  // drawdown sul solo prezzo (massimo intraday, senza dividendi), all'ultima data degli ETF: si mostra
+  // solo se è anche la seduta della breadth, così una riga non mescola due date
+  const P52 = NOW === DATES.length - 1 && S.p52 ? S.p52 : {};
+  const ddp = (s) => priceDrawdown(P52[s]);
+  const ddpCell = (s) => {
+    const v = ddp(s);
+    return `<td class="num r" title="${esc(v == null ? DDP_TIP : ddpTip(P52[s], DATES[NOW], PX[s].dd[NOW]))}">${v == null ? '<span class="muted">—</span>' : sgn(v) + '%'}</td>`;
+  };
   const st = {
     blue: { ...config.blue, ...validBlue(store.get('blue', {})) },
     sector: SECTOR_KEYS.includes(store.get('sector')) ? store.get('sector') : 'XLU',
@@ -129,12 +138,13 @@ export function createBottom(ctx) {
         <td><span class="cellv num" title="${titoli(r.above)} su ${r.n}">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
         <td class="num r">${r.L}%${changed(r.s) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
         <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
+        ${ddpCell(r.s)}
         <td>${r.rot ? qPill(r.rot.q, r.rot.heading) : ''}</td>
         <td class="num r">${fmt(r.last, 2)}</td><td class="num r">${pct(r.d1)}</td><td class="num r">${pct(r.m1)}</td></tr>`;
     }).join('');
     const spy = S.adjclose.SPY, spx = BR.SPX;
-    const bench = `<tr class="bench"><td><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted">benchmark</td><td><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td></td><td><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td><td></td><td class="num r">${fmt(spy[NOW], 2)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
-    $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th>Stato</th><th>% titoli sopra media 200</th><th class="r">Blu</th><th>Drawdown da max 52s</th><th${ctx.rotationNote ? ` title="${ctx.rotationNote()}"` : ''}>Rotazione</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>${body}${bench}</tbody>`;
+    const bench = `<tr class="bench"><td><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted">benchmark</td><td><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td></td><td><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td>${ddpCell('SPY')}<td></td><td class="num r">${fmt(spy[NOW], 2)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
+    $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l" title="${esc(DD_TIP)}">Drawdown da max 52s</th><th class="r wrap" title="${esc(DDP_TIP)}">Solo prezzo</th><th${ctx.rotationNote ? ` title="${ctx.rotationNote()}"` : ''}>Rotazione</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>${body}${bench}</tbody>`;
     $('boardTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
       tr.onclick = () => openSector(tr.dataset.sym);
       tr.onkeydown = (e) => { if (e.key === 'Enter') openSector(tr.dataset.sym); };
@@ -147,7 +157,7 @@ export function createBottom(ctx) {
       ['Settori in zona blu', `${by(['setup', 'fail']).length}<small> / 11</small>`, list(by(['setup', 'fail']))],
       [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / 11</small>`, list(by(['trig', 'cool']))],
       ['Settori in attenzione', `${by(['watch']).length}<small> / 11</small>`, list(by(['watch']))],
-      ['SPY · S&amp;P 500', fmt(spy[NOW], 2), `${sgn(PX.SPY.dd[NOW])}% dal massimo a 52 settimane`],
+      ['SPY · S&amp;P 500', fmt(spy[NOW], 2), `${sgn(PX.SPY.dd[NOW])}% dal massimo a 52 settimane${ddp('SPY') == null ? '' : ` · solo prezzo ${sgn(ddp('SPY'))}%`}`],
     ];
     $('boardKpis').innerHTML = kpi.map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
     const active = rows.filter((r) => r.state.code !== 'normal');
@@ -262,15 +272,16 @@ export function createBottom(ctx) {
     // la configurazione copiata prima non vale più: si toglie il messaggio e il testo vecchio
     $('copyMsg').textContent = ''; $('cfgText').hidden = true;
     // situazione
-    const b = BR[s].pct200[NOW];
+    const b = BR[s].pct200[NOW], px = ddp(s);
     $('secFacts').innerHTML = [
       ['Ultimo', fmt(S.adjclose[s][NOW], 2)],
       ['Titoli sopra media 200', `${BR[s].above200[NOW]}/${n} · ${fmt(b)}%`],
       ['Sopra media 50', `${fmt(BR[s].pct50[NOW])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
-      ['Drawdown da max 52s', `${sgn(PX[s].dd[NOW])}%`],
+      ['Drawdown da max 52s', `${sgn(PX[s].dd[NOW])}%`, DD_TIP],
+      ...(px == null ? [] : [['Sul solo prezzo', `${sgn(px)}% · max ${fmt(P52[s].hi, 2)}`, `${ddpTip(P52[s], DATES[NOW], PX[s].dd[NOW])} ${DDP_TIP}`]]),
       ['Profondità storica DD', `${PX[s].dp[NOW]}° percentile`],
-    ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+    ].map(([k, v, t]) => { const tt = t ? ` title="${esc(t)}"` : ''; return `<dt${tt}>${k}</dt><dd${tt}>${v}</dd>`; }).join('');
     $('tvLinks').innerHTML = `<a href="${tvLink('AMEX:' + s)}" target="_blank" rel="noopener">${s} su TradingView ↗</a><a href="${tvLink('INDEX:' + TV[s])}" target="_blank" rel="noopener">${TV[s]} su TradingView ↗</a>`;
     renderMembers(s);
     renderEpisodes(s, m);

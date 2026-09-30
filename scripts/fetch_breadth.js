@@ -9,7 +9,9 @@
  *     S5TH…), 2 anni di storia per le medie a 20/50/200 sedute.
  *  3. Si pubblica una seduta solo se ha i prezzi di almeno il 99% dei membri e di tutti i membri
  *     di ogni settore tranne al più uno. Le ultime sedute già pubblicate si ricalcolano (correzioni).
- *  4. data/sectors.json: storia completa (dal 2004) degli ETF settoriali, rettificata per i dividendi.
+ *  4. data/sectors.json: storia completa (dal 2004) degli ETF settoriali, rettificata per i dividendi,
+ *     più il massimo a 52 settimane sul solo prezzo (p52: massimo intraday e ultima chiusura, senza
+ *     rettifica per i dividendi) per confrontare il drawdown con i grafici di TradingView e dei broker.
  *  5. data/breadth_latest.json: fotografia titolo per titolo dell'ultima seduta.
  * Lo storico iniziale viene da scripts/backfill_breadth.py.
  */
@@ -19,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expandRLE, encodeRLE } from '../js/signals.js';
 import { expectedSession } from '../js/calendar.js';
+import { priceHigh } from '../js/metrics.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -206,7 +209,10 @@ async function updateSectors() {
     let last = null;
     adjclose[t] = dates.map((d) => (m.has(d) ? (last = m.get(d)) : last));
   });
-  const out = { generated: new Date().toISOString(), asOf, dates, adjclose };
+  // stesse 252 sedute del drawdown dell'app, sul prezzo non rettificato
+  const from = dates[Math.max(0, dates.length - 252)];
+  const p52 = Object.fromEntries(ETFS.map((t, k) => [t, priceHigh(res[k], from, asOf)]));
+  const out = { generated: new Date().toISOString(), asOf, dates, adjclose, p52 };
   writeJSON(file, out);
   console.log(`sectors.json: ${dates.length} date, al ${asOf}`);
   return out;
@@ -216,7 +222,8 @@ async function main() {
   const today = expectedSession();
   const current = readJSON(path.join(DATA, 'breadth.json'), null);
   const etf = readJSON(path.join(DATA, 'sectors.json'), null);
-  if (current && etf && current.asOf >= today && etf.asOf >= today && !process.argv.includes('--force')) {
+  // un sectors.json senza p52 (formato precedente) si rifà subito
+  if (current && etf && current.asOf >= today && etf.asOf >= today && etf.p52 && !process.argv.includes('--force')) {
     console.log(`Breadth ed ETF già aggiornati al ${current.asOf} (seduta attesa ${today}): niente da fare.`);
     return;
   }

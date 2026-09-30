@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { alignSeries, pickAsOf, validateMacro, parseFredCsv, cpiReleases, cpiSteps, inverse } from '../scripts/fetch_data.js';
+import { alignSeries, pickAsOf, validateMacro, parseFredCsv, cpiReleases, cpiSteps, inverse, high52 } from '../scripts/fetch_data.js';
 
 test('asOf = ultima data comune, esclusi i ticker fermi da giorni', () => {
   const r = pickAsOf({ SPY: '2026-09-23', XLK: '2026-09-22', XLU: '2026-09-23', OLD: '2026-09-01' });
@@ -70,4 +70,15 @@ test('date di uscita del CPI (seme ALFRED): nel mese successivo, in ordine, senz
 
 test('benchmark «senza dollaro»: inverso del dollar index', () => {
   assert.deepEqual(inverse([100, 125, null, 0]), [100, 80, null, null]);
+});
+
+test('massimo a 52 settimane sul solo prezzo: le stesse 252 sedute del drawdown, fino alla data del file', () => {
+  const dates = Array.from({ length: 300 }, (_, i) => new Date(Date.UTC(2025, 0, 1 + i)).toISOString().slice(0, 10));
+  const close = dates.map((_, i) => 100 - i / 10), high = close.map((v) => v + 1);
+  high[10] = 500; // fuori finestra: prima delle ultime 252 sedute
+  high[100] = 120;
+  // barra dopo la data del file (bitcoin quota anche dopo l'ultima seduta): non conta
+  const s = { dates: [...dates, '2025-12-31'], close: [...close, 1], high: [...high, 900] };
+  assert.deepEqual(high52(s, dates), { hi: 120, d: dates[100], c: close[299] });
+  assert.equal(high52(undefined, dates), null);
 });

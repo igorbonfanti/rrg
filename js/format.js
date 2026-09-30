@@ -10,6 +10,18 @@ export const dIT = (iso) => (iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso
 
 export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improving: 'imp' };
 
+// Drawdown dal massimo a 52 settimane: note per i due valori, con i dividendi e sul solo prezzo
+export const DD_TIP = 'Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): ' +
+  'è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori.';
+export const DDP_TIP = 'Calo del solo prezzo dal massimo intraday delle ultime 52 settimane, come su TradingView e sui grafici dei broker. ' +
+  'Di solito è più profondo: conta come perdita anche i dividendi staccati dopo il massimo, e parte dal picco della seduta invece che dalla chiusura.';
+// p = {hi, d, c} (massimo intraday, sua data, ultima chiusura) alla data asOf; dd = drawdown con i dividendi;
+// senza p: per una serie calcolata dall'app (portafoglio, CPI…) non c'è un grafico da confrontare
+export const ddpTip = (p, asOf, dd, synthetic = false) => (p
+  ? `Massimo ${fmt(p.hi, 2)} del ${dIT(p.d)}, chiusura ${fmt(p.c, 2)} del ${dIT(asOf)}: ${sgn((p.c / p.hi - 1) * 100)}% sul solo prezzo. ` +
+    `Con i dividendi reinvestiti: ${sgn(dd)}%.`
+  : synthetic ? "Serie calcolata dall'app: non c'è un grafico di prezzo con cui confrontarla." : DDP_TIP);
+
 // Larghezza del disegno in unità SVG: i pixel reali × 1,15, tra `min` e `max`. Sul telefono il
 // grafico si disegna più stretto invece di rimpicciolirsi, così il testo resta di circa 10 px.
 export function chartWidth(svg, max, min = 340) {
