@@ -16,18 +16,21 @@ export const DD_TIP = 'Calo dalla chiusura più alta delle ultime 52 settimane, 
 export const DDP_TIP = 'Stesso calcolo sul solo prezzo, senza i dividendi: calo dalla chiusura più alta delle ultime 52 settimane, come sul grafico di TradingView. ' +
   "Rispetto all'altro valore cambia solo per le cedole staccate dopo il massimo: per chi non ne paga (oro, bitcoin) i due valori coincidono. " +
   'Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura.';
-// m = max52 {hi, d, c, ih, id, all} alla data asOf (chiusura più alta e ultima senza rettifica, massimo intraday);
-// dd = drawdown con i dividendi. Senza m: per una serie calcolata dall'app (portafoglio, CPI…) non c'è un grafico
+// m = max52 {hi, d, c, dv, da, ih, id, all} alla data asOf (chiusura più alta e ultima senza rettifica, cedole nel
+// periodo e dopo il massimo, massimo intraday); dd = drawdown con i dividendi. Di cedole si parla solo per chi
+// ne paga. Senza m: per una serie calcolata dall'app (portafoglio, CPI…) non c'è un grafico da confrontare
 export function ddpTip(m, asOf, dd, synthetic = false) {
   if (!m) return synthetic ? "Serie calcolata dall'app: non c'è un grafico di prezzo con cui confrontarla." : DDP_TIP;
   const v = (m.c / m.hi - 1) * 100;
-  let t = `Chiusura più alta ${fmt(m.hi, 2)} del ${dIT(m.d)}, ultima ${fmt(m.c, 2)} del ${dIT(asOf)}: ${sgn(v)}% sul solo prezzo. ` +
-    (Math.abs(v - dd) < 0.05 ? 'Uguale al valore con i dividendi: nessuna cedola dopo il massimo.'
-      : `Con i dividendi reinvestiti ${sgn(dd)}%: la differenza sono le cedole staccate dopo il massimo.`);
+  const t = [m.c >= m.hi ? `Ultima chiusura ${fmt(m.c, 2)} del ${dIT(asOf)}: è la più alta delle 52 settimane.`
+    : `Chiusura più alta ${fmt(m.hi, 2)} del ${dIT(m.d)}, ultima ${fmt(m.c, 2)} del ${dIT(asOf)}: ${sgn(v)}%.`];
+  if (m.da > 0) t.push(`Con i dividendi reinvestiti ${sgn(dd)}%: la differenza ${m.da === 1 ? 'è la cedola staccata' : `sono le ${m.da} cedole staccate`} dopo il massimo.`);
+  else if (m.dv > 0) t.push('Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi.');
   if (m.ih != null && m.ih > m.hi * 1.0005) {
-    t += ` Il «massimo a 52 settimane» di TradingView è il picco intraday, ${fmt(m.ih, 2)} del ${dIT(m.id)}: da lì il calo è ${sgn((m.c / m.ih - 1) * 100)}%.`;
+    t.push(`Il «massimo a 52 settimane» di TradingView è il picco intraday, ${fmt(m.ih, 2)} del ${dIT(m.id)}: da lì il calo è ${sgn((m.c / m.ih - 1) * 100)}%.`);
   }
-  return m.all ? t + ' Le criptovalute quotano tutti i giorni: contano anche i fine settimana.' : t;
+  if (m.all) t.push('Quota tutti i giorni: contano anche i fine settimana.');
+  return t.join(' ');
 }
 
 // Larghezza del disegno in unità SVG: i pixel reali × 1,15, tra `min` e `max`. Sul telefono il

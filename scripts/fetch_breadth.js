@@ -12,7 +12,7 @@
  *  4. data/sectors.json: storia completa (dal 2004) degli ETF settoriali, rettificata per i dividendi,
  *     più max52 per il drawdown sul solo prezzo alla seduta della breadth (max52At): chiusura più alta
  *     delle 252 sedute e ultima chiusura senza rettifica (stesse date: i due drawdown differiscono solo
- *     per le cedole) e massimo intraday, il «52 week high» di TradingView.
+ *     per le cedole), cedole staccate nel periodo e dopo il massimo, massimo intraday («52 week high»).
  *  5. data/breadth_latest.json: fotografia titolo per titolo dell'ultima seduta.
  * Lo storico iniziale viene da scripts/backfill_breadth.py.
  */
@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expandRLE, encodeRLE } from '../js/signals.js';
 import { expectedSession } from '../js/calendar.js';
-import { closeHigh, intradayHigh } from '../js/metrics.js';
+import { closeHigh, intradayHigh, exDates } from '../js/metrics.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -219,7 +219,8 @@ async function updateSectors(at) {
   ETFS.forEach((t, k) => {
     adjclose[t] = align(res[k], 'adjclose');
     // drawdown sul solo prezzo: stesse 252 sedute del drawdown rettificato, chiusure senza rettifica
-    max52[t] = { ...closeHigh(dates, align(res[k], 'close'), from, to), ...intradayHigh(res[k], from, to) };
+    const p = closeHigh(dates, align(res[k], 'close'), from, to), ex = exDates(res[k], from, to);
+    max52[t] = { ...p, dv: ex.length, da: p ? ex.filter((x) => x > p.d).length : 0, ...intradayHigh(res[k], from, to) };
   });
   const out = { generated: new Date().toISOString(), asOf, dates, adjclose, max52At: to, max52 };
   writeJSON(file, out);
@@ -231,8 +232,9 @@ async function main() {
   const today = expectedSession();
   const current = readJSON(path.join(DATA, 'breadth.json'), null);
   const etf = readJSON(path.join(DATA, 'sectors.json'), null);
-  // un sectors.json senza max52 (formato precedente) si rifà subito
-  if (current && etf && current.asOf >= today && etf.asOf >= today && etf.max52 && !process.argv.includes('--force')) {
+  // un sectors.json nel formato precedente (senza max52 o senza il conto delle cedole) si rifà subito
+  const fresh = etf && etf.max52 && etf.max52.SPY && etf.max52.SPY.dv != null;
+  if (current && etf && current.asOf >= today && etf.asOf >= today && fresh && !process.argv.includes('--force')) {
     console.log(`Breadth ed ETF già aggiornati al ${current.asOf} (seduta attesa ${today}): niente da fare.`);
     return;
   }
