@@ -1,8 +1,9 @@
 /*
  * metrics.js — metriche di prezzo per il Monitor: variazioni, drawdown dal massimo
  * a 52 settimane (252 sedute) e sua profondità rispetto alla storia disponibile.
- * Il drawdown usa le chiusure rettificate per i dividendi (cedole reinvestite); quello sul
- * solo prezzo, per il confronto con i grafici, parte dal massimo intraday (priceHigh).
+ * Il drawdown usa le chiusure rettificate per i dividendi (cedole reinvestite). Quello sul solo
+ * prezzo è lo stesso calcolo sulle chiusure senza rettifica (max52 nei file dei dati): i due valori
+ * differiscono solo per le cedole, e coincidono per chi non ne paga.
  */
 
 // Drawdown % dal massimo delle ultime `win` sedute (deque monotona, O(n))
@@ -34,23 +35,35 @@ export function depthPercentile(dd, minHistory = 252) {
   return out;
 }
 
-// Massimo a 52 settimane sul solo prezzo, come nei grafici di TradingView e dei broker: il più alto
-// dei massimi intraday (prezzi non rettificati per i dividendi) dal giorno `from` al giorno `to`, con
-// la sua data e l'ultima chiusura. s = {dates, close, high} di Yahoo; senza high contano le chiusure.
-export function priceHigh(s, from, to) {
+const r4 = (v) => Math.round(v * 10000) / 10000;
+
+// Chiusura più alta dal giorno `from` al giorno `to` (date ISO), con la sua data, e ultima chiusura:
+// {hi, d, c}; null se nel periodo non c'è nessuna chiusura
+export function closeHigh(dates, close, from, to) {
   let hi = null, d = null, c = null;
+  for (let i = 0; i < dates.length; i++) {
+    const t = dates[i], v = close[i];
+    if (t < from || t > to || v == null) continue;
+    if (hi == null || v > hi) { hi = v; d = t; }
+    c = v;
+  }
+  return hi == null ? null : { hi: r4(hi), d, c: r4(c) };
+}
+
+// Massimo intraday dal giorno `from` al giorno `to`, con la sua data: è il «massimo a 52 settimane» di
+// TradingView e dei broker. s = {dates, close, high} di Yahoo (senza high contano le chiusure): {ih, id}
+export function intradayHigh(s, from, to) {
+  let ih = null, id = null;
   for (let i = 0; i < s.dates.length; i++) {
     const t = s.dates[i], v = s.close[i];
     if (t < from || t > to || v == null) continue;
     const h = Math.max(v, (s.high && s.high[i]) ?? v);
-    if (hi == null || h > hi) { hi = h; d = t; }
-    c = v;
+    if (ih == null || h > ih) { ih = h; id = t; }
   }
-  const r4 = (v) => Math.round(v * 10000) / 10000;
-  return hi == null ? null : { hi: r4(hi), d, c: r4(c) };
+  return ih == null ? null : { ih: r4(ih), id };
 }
 
-// Drawdown % sul solo prezzo da priceHigh (null se manca)
+// Drawdown % sul solo prezzo da max52 = {hi, c, …} (null se manca)
 export const priceDrawdown = (p) => (p && p.hi > 0 && p.c != null ? (p.c / p.hi - 1) * 100 : null);
 
 export function smaLast(close, w) {

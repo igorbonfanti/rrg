@@ -10,8 +10,9 @@
  *  3. Si pubblica una seduta solo se ha i prezzi di almeno il 99% dei membri e di tutti i membri
  *     di ogni settore tranne al più uno. Le ultime sedute già pubblicate si ricalcolano (correzioni).
  *  4. data/sectors.json: storia completa (dal 2004) degli ETF settoriali, rettificata per i dividendi,
- *     più il massimo a 52 settimane sul solo prezzo (p52: massimo intraday e ultima chiusura, senza
- *     rettifica per i dividendi) per confrontare il drawdown con i grafici di TradingView e dei broker.
+ *     più max52 per il drawdown sul solo prezzo alla seduta della breadth (max52At): chiusura più alta
+ *     delle 252 sedute e ultima chiusura senza rettifica (stesse date: i due drawdown differiscono solo
+ *     per le cedole) e massimo intraday, il «52 week high» di TradingView.
  *  5. data/breadth_latest.json: fotografia titolo per titolo dell'ultima seduta.
  * Lo storico iniziale viene da scripts/backfill_breadth.py.
  */
@@ -21,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expandRLE, encodeRLE } from '../js/signals.js';
 import { expectedSession } from '../js/calendar.js';
-import { priceHigh } from '../js/metrics.js';
+import { closeHigh, intradayHigh } from '../js/metrics.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -194,7 +195,9 @@ export function mergeBreadth(breadth, counts) {
   return added;
 }
 
-async function updateSectors() {
+// at: data della breadth pubblicata; il drawdown sul solo prezzo si calcola a quella seduta (o alla precedente
+// presente per gli ETF), la stessa del Monitor, anche quando gli ETF hanno già la seduta dopo
+async function updateSectors(at) {
   const file = path.join(DATA, 'sectors.json');
   const prev = readJSON(file, null);
   const period1 = Math.floor(Date.parse('2004-01-01T00:00:00Z') / 1000);
@@ -203,16 +206,22 @@ async function updateSectors() {
   const asOf = res.map((r) => r.dates.at(-1)).sort()[0];
   const dates = [...new Set(res.flatMap((r) => r.dates))].filter((d) => d <= asOf).sort();
   if (prev && asOf < prev.asOf) { console.warn(`ETF al ${asOf}, più vecchi di quelli pubblicati: non aggiorno`); return prev; }
-  const adjclose = {};
-  ETFS.forEach((t, k) => {
-    const m = new Map(res[k].dates.map((d, i) => [d, Math.round(res[k].adjclose[i] * 100) / 100]));
+  // stesso allineamento e arrotondamento per le chiusure rettificate e per quelle senza rettifica
+  const align = (r, key) => {
+    const m = new Map(r.dates.map((d, i) => [d, Math.round(r[key][i] * 100) / 100]));
     let last = null;
-    adjclose[t] = dates.map((d) => (m.has(d) ? (last = m.get(d)) : last));
+    return dates.map((d) => (m.has(d) ? (last = m.get(d)) : last));
+  };
+  const adjclose = {}, max52 = {};
+  let iTo = dates.length - 1;
+  while (at && iTo > 0 && dates[iTo] > at) iTo--;
+  const from = dates[Math.max(0, iTo - 251)], to = dates[iTo];
+  ETFS.forEach((t, k) => {
+    adjclose[t] = align(res[k], 'adjclose');
+    // drawdown sul solo prezzo: stesse 252 sedute del drawdown rettificato, chiusure senza rettifica
+    max52[t] = { ...closeHigh(dates, align(res[k], 'close'), from, to), ...intradayHigh(res[k], from, to) };
   });
-  // stesse 252 sedute del drawdown dell'app, sul prezzo non rettificato
-  const from = dates[Math.max(0, dates.length - 252)];
-  const p52 = Object.fromEntries(ETFS.map((t, k) => [t, priceHigh(res[k], from, asOf)]));
-  const out = { generated: new Date().toISOString(), asOf, dates, adjclose, p52 };
+  const out = { generated: new Date().toISOString(), asOf, dates, adjclose, max52At: to, max52 };
   writeJSON(file, out);
   console.log(`sectors.json: ${dates.length} date, al ${asOf}`);
   return out;
@@ -222,8 +231,8 @@ async function main() {
   const today = expectedSession();
   const current = readJSON(path.join(DATA, 'breadth.json'), null);
   const etf = readJSON(path.join(DATA, 'sectors.json'), null);
-  // un sectors.json senza p52 (formato precedente) si rifà subito
-  if (current && etf && current.asOf >= today && etf.asOf >= today && etf.p52 && !process.argv.includes('--force')) {
+  // un sectors.json senza max52 (formato precedente) si rifà subito
+  if (current && etf && current.asOf >= today && etf.asOf >= today && etf.max52 && !process.argv.includes('--force')) {
     console.log(`Breadth ed ETF già aggiornati al ${current.asOf} (seduta attesa ${today}): niente da fare.`);
     return;
   }
@@ -267,7 +276,7 @@ async function main() {
   });
   writeJSON(path.join(DATA, 'breadth_latest.json'), { asOf: d, members: snap });
 
-  await updateSectors();
+  await updateSectors(breadth.asOf);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

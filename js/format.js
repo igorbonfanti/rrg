@@ -13,14 +13,22 @@ export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improv
 // Drawdown dal massimo a 52 settimane: note per i due valori, con i dividendi e sul solo prezzo
 export const DD_TIP = 'Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): ' +
   'è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori.';
-export const DDP_TIP = 'Calo del solo prezzo dal massimo intraday delle ultime 52 settimane, come su TradingView e sui grafici dei broker. ' +
-  'Di solito è più profondo: conta come perdita anche i dividendi staccati dopo il massimo, e parte dal picco della seduta invece che dalla chiusura.';
-// p = {hi, d, c} (massimo intraday, sua data, ultima chiusura) alla data asOf; dd = drawdown con i dividendi;
-// senza p: per una serie calcolata dall'app (portafoglio, CPI…) non c'è un grafico da confrontare
-export const ddpTip = (p, asOf, dd, synthetic = false) => (p
-  ? `Massimo ${fmt(p.hi, 2)} del ${dIT(p.d)}, chiusura ${fmt(p.c, 2)} del ${dIT(asOf)}: ${sgn((p.c / p.hi - 1) * 100)}% sul solo prezzo. ` +
-    `Con i dividendi reinvestiti: ${sgn(dd)}%.`
-  : synthetic ? "Serie calcolata dall'app: non c'è un grafico di prezzo con cui confrontarla." : DDP_TIP);
+export const DDP_TIP = 'Stesso calcolo sul solo prezzo, senza i dividendi: calo dalla chiusura più alta delle ultime 52 settimane, come sul grafico di TradingView. ' +
+  "Rispetto all'altro valore cambia solo per le cedole staccate dopo il massimo: per chi non ne paga (oro, bitcoin) i due valori coincidono. " +
+  'Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura.';
+// m = max52 {hi, d, c, ih, id, all} alla data asOf (chiusura più alta e ultima senza rettifica, massimo intraday);
+// dd = drawdown con i dividendi. Senza m: per una serie calcolata dall'app (portafoglio, CPI…) non c'è un grafico
+export function ddpTip(m, asOf, dd, synthetic = false) {
+  if (!m) return synthetic ? "Serie calcolata dall'app: non c'è un grafico di prezzo con cui confrontarla." : DDP_TIP;
+  const v = (m.c / m.hi - 1) * 100;
+  let t = `Chiusura più alta ${fmt(m.hi, 2)} del ${dIT(m.d)}, ultima ${fmt(m.c, 2)} del ${dIT(asOf)}: ${sgn(v)}% sul solo prezzo. ` +
+    (Math.abs(v - dd) < 0.05 ? 'Uguale al valore con i dividendi: nessuna cedola dopo il massimo.'
+      : `Con i dividendi reinvestiti ${sgn(dd)}%: la differenza sono le cedole staccate dopo il massimo.`);
+  if (m.ih != null && m.ih > m.hi * 1.0005) {
+    t += ` Il «massimo a 52 settimane» di TradingView è il picco intraday, ${fmt(m.ih, 2)} del ${dIT(m.id)}: da lì il calo è ${sgn((m.c / m.ih - 1) * 100)}%.`;
+  }
+  return m.all ? t + ' Le criptovalute quotano tutti i giorni: contano anche i fine settimana.' : t;
+}
 
 // Larghezza del disegno in unità SVG: i pixel reali × 1,15, tra `min` e `max`. Sul telefono il
 // grafico si disegna più stretto invece di rimpicciolirsi, così il testo resta di circa 10 px.

@@ -147,8 +147,13 @@ function init() {
   for (const set of [state.data, state.global, state.macro]) {
     if (!set) continue;
     set.metrics = {};
-    // p52: massimo a 52 settimane sul solo prezzo, per il drawdown da confrontare con i grafici
-    for (const [s, t] of Object.entries(set.tickers)) set.metrics[s] = { ...priceMetrics(set.dates, t.close), p52: t.p52 || null, ddp: priceDrawdown(t.p52) };
+    // max52: chiusura più alta a 52 settimane senza la rettifica per i dividendi, per il drawdown sul solo prezzo.
+    // Le criptovalute quotano tutti i giorni: il loro drawdown viene dalla pipeline, fine settimana compresi
+    // (nel file ci sono solo le sedute di borsa); senza dividendi i due valori coincidono.
+    for (const [s, t] of Object.entries(set.tickers)) {
+      const m = t.max52 || null, ddp = priceDrawdown(m);
+      set.metrics[s] = { ...priceMetrics(set.dates, t.close), ...(m && m.all && ddp != null ? { dd52: ddp } : {}), max52: m, ddp };
+    }
   }
   const cvdOn = store.get('cvd', false) === true;
   document.documentElement.classList.toggle('cvd', cvdOn);
@@ -293,7 +298,7 @@ function renderPriceTable() {
     return `<span class="cellv num">${sgn(mt.dd52)}%</span><span class="bar" title="peggiore negli ultimi 5 anni ${sgn(mt.ddWorst)}%"><i class="${mt.ddDepth != null && mt.ddDepth >= 80 ? 'deep' : ''}" style="width:${w}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span>`;
   };
   // drawdown sul solo prezzo, alla stessa data (l'ultima del file)
-  const ddpTd = (s, mt) => `<td class="num r" title="${esc(ddpTip(mt.p52, d.dates[d.dates.length - 1], mt.dd52, d.tickers[s].synthetic))}">${mt.ddp == null ? '<span class="muted">—</span>' : sgn(mt.ddp) + '%'}</td>`;
+  const ddpTd = (s, mt) => `<td class="num r" title="${esc(ddpTip(mt.max52, d.dates[d.dates.length - 1], mt.dd52, d.tickers[s].synthetic))}">${mt.ddp == null ? '<span class="muted">—</span>' : sgn(mt.ddp) + '%'}</td>`;
   const body = rows.map(({ s, name, mt, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td>${symCell(s, name)}</td>
       <td class="num r">${fmt(mt.last, 2)}</td><td class="num r">${pct(mt.d1)}</td><td class="num r">${pct(mt.w1)}</td><td class="num r">${pct(mt.m1)}</td><td class="num r">${pct(mt.m3)}</td><td class="num r">${pct(mt.ytd)}</td>

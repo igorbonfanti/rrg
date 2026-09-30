@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { alignSeries, pickAsOf, validateMacro, parseFredCsv, cpiReleases, cpiSteps, inverse, high52 } from '../scripts/fetch_data.js';
+import { alignSeries, pickAsOf, validateMacro, parseFredCsv, cpiReleases, cpiSteps, inverse, high52, unadjusted } from '../scripts/fetch_data.js';
+import { drawdown, priceDrawdown } from '../js/metrics.js';
 
 test('asOf = ultima data comune, esclusi i ticker fermi da giorni', () => {
   const r = pickAsOf({ SPY: '2026-09-23', XLK: '2026-09-22', XLU: '2026-09-23', OLD: '2026-09-01' });
@@ -72,13 +73,48 @@ test('benchmark «senza dollaro»: inverso del dollar index', () => {
   assert.deepEqual(inverse([100, 125, null, 0]), [100, 80, null, null]);
 });
 
-test('massimo a 52 settimane sul solo prezzo: le stesse 252 sedute del drawdown, fino alla data del file', () => {
+// Serie Yahoo finta su 300 giorni: prezzo in discesa con un massimo al giorno 100 e una cedola del 2% il giorno 200
+function fakeYahoo() {
   const dates = Array.from({ length: 300 }, (_, i) => new Date(Date.UTC(2025, 0, 1 + i)).toISOString().slice(0, 10));
-  const close = dates.map((_, i) => 100 - i / 10), high = close.map((v) => v + 1);
+  const close = dates.map((_, i) => (i === 100 ? 130 : 100 - i / 10));
+  const adjclose = close.map((v, i) => (i < 200 ? v * 0.98 : v));
+  const high = close.map((v) => v + 1);
   high[10] = 500; // fuori finestra: prima delle ultime 252 sedute
-  high[100] = 120;
+  high[100] = 140; // rovescio nella seduta del massimo
+  return { dates, close, adjclose, high };
+}
+
+test('chiusure senza rettifica: la pubblicata divisa per il fattore di Yahoo di quel giorno', () => {
+  const s = fakeYahoo(), adj = s.adjclose.map((v) => Math.round(v * 10000) / 10000);
+  const raw = unadjusted(s, s.dates, adj);
+  assert.equal(raw[100], 130);
+  assert.equal(raw[250], adj[250]); // dopo lo stacco il fattore vale 1
+  // senza cedole le due serie sono identiche
+  const flat = { ...s, adjclose: s.close };
+  assert.deepEqual(unadjusted(flat, s.dates, s.close), s.close);
+});
+
+test('massimo a 52 settimane: stesse sedute del drawdown rettificato, i due valori cambiano solo per la cedola', () => {
+  const s = fakeYahoo(), adj = s.adjclose.map((v) => Math.round(v * 10000) / 10000);
+  const m = high52(s, s.dates, adj);
+  assert.deepEqual(m, { hi: 130, d: s.dates[100], c: s.close[299], ih: 140, id: s.dates[100] });
+  // con i dividendi: la chiusura rettificata più alta (127,4) contro l'ultima; sul solo prezzo: 130 contro l'ultima
+  assert.equal(Math.round(drawdown(adj).at(-1) * 100) / 100, Math.round((s.close[299] / 127.4 - 1) * 10000) / 100);
+  assert.equal(Math.round(priceDrawdown(m) * 100) / 100, Math.round((s.close[299] / 130 - 1) * 10000) / 100);
+  // senza cedole (oro, bitcoin) i due valori coincidono
+  const flat = { ...s, adjclose: s.close };
+  assert.equal(priceDrawdown(high52(flat, s.dates, s.close)), drawdown(s.close).at(-1));
+  assert.equal(high52(undefined, s.dates, adj), null);
+});
+
+test('criptovalute: contano tutti i giorni, anche i fine settimana fuori dal calendario del file', () => {
+  const s = fakeYahoo();
+  // calendario del file senza il giorno del massimo (un sabato, per esempio)
+  const dates = s.dates.filter((_, i) => i !== 100), adj = s.close.filter((_, i) => i !== 100);
+  const m = high52({ ...s, adjclose: s.close }, dates, adj, true);
+  assert.equal(m.hi, 130);
+  assert.equal(m.all, true);
   // barra dopo la data del file (bitcoin quota anche dopo l'ultima seduta): non conta
-  const s = { dates: [...dates, '2025-12-31'], close: [...close, 1], high: [...high, 900] };
-  assert.deepEqual(high52(s, dates), { hi: 120, d: dates[100], c: close[299] });
-  assert.equal(high52(undefined, dates), null);
+  const late = { dates: [...s.dates, '2025-12-31'], close: [...s.close, 999], adjclose: [...s.close, 999], high: [...s.high, 999] };
+  assert.equal(high52(late, s.dates, s.close, true).c, s.close[299]);
 });
