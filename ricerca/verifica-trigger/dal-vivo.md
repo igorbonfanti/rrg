@@ -1,6 +1,6 @@
 # Registro dal vivo: metà al tocco della zona blu, metà al trigger
 
-Aggiornato con i dati al 25/09/2026. Le regole sono quelle congelate in `protocollo-2.md` e `protocollo.md`, senza modifiche.
+Aggiornato con i dati al 12/10/2026. Le regole sono quelle congelate in `protocollo-2.md` e `protocollo.md`, senza modifiche.
 
 Nell'app non cambia nulla, perché gli avvisi esistenti coincidono già con i passi di C7:
 - **Zona blu:** si compra la prima metà alla chiusura della seduta successiva.
@@ -11,7 +11,7 @@ Qui si segna cosa avrebbe fatto la regola nelle zone blu iniziate dal 25/09/2026
 
 | Settore | Inizio zona blu | Stato | Acquisti C7 | Prossimo passo | Trigger | Fallimenti | C7 finora | Trigger attuale finora | Tutto in zona blu finora |
 |---|---|---|---|---|---|---|---|---|---|
-| XLU | 25/09/2026 | aperto | — | prima metà alla chiusura della seduta dopo l'inizio della zona blu | — | — | +0,0% | +0,0% | +0,0% |
+| XLU | 25/09/2026 | aperto | 28/09/2026 a 39,25 | — | 12/10/2026 | — | +3,0% | +0,0% | +6,0% |
 
 I rendimenti «finora» vanno dall'inizio della zona blu all'ultima chiusura disponibile, o alla fine della finestra di un anno. Si resta liquidi finché la regola non entra, e ogni acquisto o vendita costa 10 punti base.
 
