@@ -1,6 +1,6 @@
 # Sector Monitor
 
-App web per seguire la **rotazione relativa** dei settori S&P 500, dei titoli MAG7 e di quattro universi globali di ETF in euro (asset class, fattori, regioni, paesi), e per individuare i **possibili bottom settoriali**, combinando il drawdown degli ETF con la breadth (% di titoli del settore sopra la media a 200 sedute) e un **livello blu** per settore.
+App web per seguire la **rotazione relativa** dei settori S&P 500, dei titoli MAG7 e di quattro universi globali di ETF in euro (asset class, fattori, regioni, paesi), e per individuare i **possibili bottom** dei settori e dei principali indici azionari, combinando il drawdown degli ETF con la breadth (% di titoli del settore sopra la media a 200 sedute) e un **livello blu** per settore.
 
 Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento.
 
@@ -60,16 +60,21 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Storico degli episodi con i rendimenti a 1/3/6 mesi e il peggior calo.
   - Link al grafico dell'ETF e della serie breadth su TradingView.
 - **5 Alert**: registro dei cambi di stato dal 2005 con statistiche riassuntive, regole e stato delle notifiche Telegram.
+- **6 Indici**: la stessa analisi su S&P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e SMI (vedi «Indici» sotto).
+  - Tabellone ordinato per stato, Bottom Map degli indici e distanza dal livello blu.
+  - Dettaglio con lo stesso grafico dei settori (zone blu e trigger), livello blu regolabile nel browser, situazione, qualità della storia ed episodi con i rendimenti a 3, 6 e 12 mesi.
+  - I dati (`data/indices.json`) si scaricano alla prima apertura della pagina.
 
 **Comandi** (barra in alto, oppure `/`):
 - un ETF settoriale (es. `XLU`) apre il dettaglio;
 - un altro ticker (es. `NVDA`, anche senza borsa: `SWDA`), un nome breve (es. `ORO`, `INDIA`) o una parola del nome (es. `TESLA`) lo evidenzia nella rotazione, anche cambiando universo; se è il benchmark attuale si passa a un altro benchmark;
 - un benchmark (`SPY`, `QQQ`, `ACWI`, `PTF`) apre la rotazione contro di lui;
-- `MON`, `ROT` (o `RRG`), `BTM`, `SEC`, `ALRT`, `HELP` aprono le viste e la guida;
+- `MON`, `ROT` (o `RRG`), `BTM`, `SEC`, `ALRT`, `IDX`, `HELP` aprono le viste e la guida;
+- un indice della pagina Indici (`NDX`, `N225`, `SMI`…), se non è anche un ticker della rotazione, apre il suo dettaglio;
 - `CHIARO` o `SCURO` scelgono il tema, `TEMA` lo inverte;
-- l'indirizzo `#XLU` apre direttamente un settore, `#mon` `#rrg` `#btm` `#sec` `#alr` una vista; funziona anche il tasto Indietro.
+- l'indirizzo `#XLU` apre direttamente un settore, `#mon` `#rrg` `#btm` `#sec` `#alr` `#idx` una vista; funziona anche il tasto Indietro.
 
-**Tasti**: `1`–`5` viste, `←` `→` periodo, `Spazio` animazione, `Esc` toglie l'evidenza, `?` guida; con il focus sulle schede le frecce passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida. Il pulsante **CVD** mostra su/giù in blu/rosso invece che verde/rosso.
+**Tasti**: `1`–`6` viste, `←` `→` periodo, `Spazio` animazione, `Esc` toglie l'evidenza, `?` guida; con il focus sulle schede le frecce passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida. Il pulsante **CVD** mostra su/giù in blu/rosso invece che verde/rosso.
 
 **Tema chiaro**: l'interruttore **Chiaro** accanto a CVD passa al fondo bianco del sistema «Terminale ambra», come in Bond Ladder. Cambia solo il CSS (attributo `data-theme` su `<html>`), non i calcoli; la scelta resta nel browser con la chiave `antigravity-theme`, condivisa con le altre app del sito, e uno script nel `<head>` la applica prima del primo disegno. In stampa la pagina esce sempre nero su bianco.
 
@@ -120,6 +125,27 @@ Il sistema serve a dirigere l'attenzione, non è una regola di trading validata:
 3. Aggiungi al repository i segreti `TELEGRAM_BOT_TOKEN` e `TELEGRAM_CHAT_ID` (Settings → Secrets and variables → Actions).
 
 Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, trigger, fallito) e li registra in `data/alerts.json`.
+
+## Indici
+Stesso metodo, stessi parametri e stessa macchina a stati dei settori; cambiano solo l'universo e i livelli blu (`config/indices.json`). Ricerca, fonti e validazione in `ricerca/indici/` (ramo di sviluppo).
+
+| Indice | Livello blu | Storia della breadth | Composizione |
+|---|---|---|---|
+| S&P 500 | 13% (Rea) | dal 2005 | di ogni data (serie SPX della pagina settori) |
+| Nasdaq-100 | 18% (Rea) | dal 2008 | di ogni data (github.com/jmccarrell/n100tickers) |
+| Dow Jones | 15% (Rea) | dal 2000 (ricostruita dal 1993) | di ogni data (Wikipedia, composizioni storiche) |
+| Nikkei 225 | 8% (Rea) | dal 2001 | membri di oggi (CSV ufficiale Nikkei) |
+| STOXX Europe 600 | 9% (3° percentile) | dal 2006 | membri di oggi (holdings iShares EXSA) |
+| FTSE 100 | 12% (3° percentile) | dal 2001 | membri di oggi (Wikipedia) |
+| DAX | 7% (Rea) | dal 2001 | membri di oggi (Wikipedia) |
+| CAC 40 | 4% (Rea) | dal 2001 | membri di oggi (Wikipedia) |
+| SMI | 3% (Rea) | dal 2001 | membri di oggi (Wikipedia) |
+
+- **Livelli**: dove esiste, quello letto dai grafici di Massimo Rea; altrimenti il 3° percentile della storia dell'indice. Sui nostri dati i livelli di Rea lasciano sotto la soglia circa il 3% delle sedute (S&P 500 3,0%, settori dal 2,4% al 4%), e la regola ritrova i suoi livelli su S&P 500, Nikkei, CAC e SMI.
+- **Membri di oggi**: dove la composizione storica non è disponibile gratis, il passato è ricostruito con i membri attuali; nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo (verifica sul Nasdaq-100).
+- **Prezzo**: indice di solo prezzo in valuta locale; il percentile del drawdown usa la storia dal 2000.
+- **Calendari**: le medie si calcolano sulle sedute di ogni titolo; un titolo conta con la sua ultima seduta se è al massimo di 5 giorni prima (lo STOXX 600 mette insieme 17 borse).
+- **Risultati storici** (F1, livelli qui sopra): dal 2005 42 trigger, rendimento mediano a 12 mesi +15,9%, 30 positivi su 42; i trigger nei mercati orso lunghi (2001-2002, prima metà del 2008) sono stati spesso rimbalzi falliti. Un filtro per questi casi è tra le cose da studiare.
 
 ## Metodo della rotazione
 Nella pagina Rotazione si sceglie tra due formule: la nuova (predefinita) e quella a medie semplici, che riproduce i valori di StockCharts. Sotto il grafico una nota apribile spiega come si calcolano e cosa cambia. La classica, della prima versione, resta in `js/engine.js` per confronto. Tutte usano solo i dati passati:
@@ -178,6 +204,11 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
     - `data/sp500_members.json`: lista dei membri con i cambi giorno per giorno.
 
     Una seduta si pubblica solo con i prezzi di almeno il 99% dei membri; le ultime 5 sedute si ricalcolano.
+  - `scripts/fetch_indices.js` aggiorna `data/indices.json` (pagina Indici; formato in `js/indexdata.js`) e le liste in `data/index_members/`. Gira dopo la breadth dei settori, in un passo che non blocca gli altri.
+    - Liste dei membri da Wikipedia, dal CSV di Nikkei, dalle holdings iShares e dall'API Nasdaq (`scripts/lib/members.js`): una lista nuova si accetta solo se il numero di titoli è plausibile e almeno l'80% coincide con l'ultima buona; i cambi si registrano nel file della lista.
+    - Prezzi dall'endpoint spark di Yahoo (20 titoli a richiesta); chi ha sedute mancanti si riscarica dall'endpoint chart.
+    - Una seduta si pubblica se almeno il 75% dei titoli quotati ha la chiusura di quel giorno; le ultime 5 si ricalcolano.
+  - `scripts/backfill_indices.py`: ricostruzione una tantum dello storico degli indici (composizioni in `config/index_history.json`).
   - `scripts/send_alerts.js` → notifiche Telegram e `data/alerts.json`.
   - `scripts/backfill_breadth.py`: ricostruzione una tantum dello storico della breadth; istruzioni nel file.
 - Nell'intestazione dell'app un badge indica se i dati sono indietro rispetto all'ultima seduta chiusa.
@@ -187,12 +218,13 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
   - `groups`: universi USA (ticker Yahoo senza suffisso, benchmark comuni in `benchmarks`).
   - `global`: universi in euro, con simboli Yahoo completi di borsa (`.MI` Milano, `.DE` Xetra, `.PA` Parigi, `.AS` Amsterdam, `.MC` Madrid), nome breve (`label`), benchmark ammessi per gruppo e, per il portafoglio, i pesi (`portfolio.weights`, somma 100) e le classi mostrate nella spiegazione (`portfolio.classes`: ogni componente in una sola classe). Il benchmark `PTF` è il portafoglio sintetico, calcolato nell'app.
   - `macro`: universi in dollari su calendario NYSE, come `global` ma con benchmark sintetici calcolati nella pipeline: `"synthetic": "cpi"` (serie FRED a gradini dal giorno di pubblicazione, `source` = id FRED) e `"synthetic": "inverse"` (inverso di una serie Yahoo, `source` = simbolo).
-- Livelli blu e parametri degli stati: `config/thresholds.json`, usato sia dall'app sia dagli alert.
+- Livelli blu e parametri degli stati: `config/thresholds.json`, usato sia dall'app sia dagli alert. I livelli degli indici sono in `config/indices.json` (i parametri restano quelli di `config/thresholds.json`).
 
 ## Sviluppo locale
 ```bash
 node scripts/fetch_data.js      # prezzi (Node 20+)
 node scripts/fetch_breadth.js   # breadth ed ETF settoriali
+node scripts/fetch_indices.js   # pagina Indici
 node scripts/send_alerts.js     # registra/invia i nuovi cambi di stato
 npx serve .                     # oppure un qualsiasi server statico
 npm test                        # test (node --test)

@@ -36,6 +36,11 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch_breadth.js
 
+      - name: Breadth degli indici (pagina Indici)
+        id: indices
+        continue-on-error: true
+        run: node scripts/fetch_indices.js
+
       - name: Alert (zona blu, trigger, segnali falliti)
         if: steps.breadth.outcome == 'success'
         continue-on-error: true
@@ -56,13 +61,14 @@ jobs:
             BREADTH=$(node -p "require('./data/breadth.json').asOf")
             GLOBAL=$(node -p "(() => { try { return require('./data/prices_global.json').asOf } catch { return '' } })()")
             MACRO=$(node -p "(() => { try { return require('./data/prices_macro.json').asOf } catch { return '' } })()")
-            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?})"
+            INDICES=$(node -p "(() => { try { return require('./data/indices.json').asOf } catch { return '' } })()")
+            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?}, indici al ${INDICES:-?})"
             git pull --rebase
             git push
           fi
 
       - name: Esito
-        if: steps.prices.outcome == 'failure' || steps.breadth.outcome == 'failure'
+        if: steps.prices.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.indices.outcome == 'failure'
         run: |
-          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, breadth: ${{ steps.breadth.outcome }})"
+          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }})"
           exit 1

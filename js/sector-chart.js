@@ -38,7 +38,8 @@ function sma200(c) {
 /**
  * @param {SVGSVGElement} svg
  * @param {{dates: string[], close: number[], dd: number[], b200: number[], b50: number[], days: (string|null)[], triggers: number[],
- *          i0: number, sym: string, blue: number, tipEl: HTMLElement, wrapEl: HTMLElement, width?: number}} p
+ *          i0: number, sym: string, blue: number, tipEl: HTMLElement, wrapEl: HTMLElement, width?: number, ddNote?: string}} p
+ *   ddNote: nota del pannello del drawdown sugli schermi larghi (default «CON DIVIDENDI»; per gli indici «SOLO PREZZO»)
  */
 export function drawSector(svg, p) {
   const { i0, sym, blue, tipEl, wrapEl } = p;
@@ -50,7 +51,7 @@ export function drawSector(svg, p) {
   const panes = [
     { key: 'px', h: 220, title: 'PREZZO · MEDIA 200 SEDUTE' },
     // «con dividendi» solo se c'è spazio accanto alla nota del peggiore a destra
-    { key: 'dd', h: 100, title: narrow ? 'DRAWDOWN DAL MASSIMO 52 SETT.' : PW < 560 ? 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' : 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE · CON DIVIDENDI' },
+    { key: 'dd', h: 100, title: narrow ? 'DRAWDOWN DAL MASSIMO 52 SETT.' : PW < 560 ? 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' : 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE · ' + (p.ddNote || 'CON DIVIDENDI') },
     { key: 'br', h: 150, title: `% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU ${blue}%` },
   ];
   let y = 20;
