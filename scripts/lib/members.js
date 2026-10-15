@@ -118,7 +118,8 @@ export function parseNasdaq(json) {
 
 export const SOURCES = {
   NDX: { url: 'https://api.nasdaq.com/api/quote/list-type/nasdaq100', kind: 'nasdaq', min: 98, max: 104,
-    headers: { Accept: 'application/json', Origin: 'https://www.nasdaq.com', Referer: 'https://www.nasdaq.com/' } },
+    // l'API rifiuta gli User-Agent che non sembrano un browser
+    headers: { 'User-Agent': 'Mozilla/5.0', Accept: 'application/json', Origin: 'https://www.nasdaq.com', Referer: 'https://www.nasdaq.com/' } },
   DJI: { wiki: 'List_of_Dow_Jones_Industrial_Average_companies', min: 30, max: 30 },
   N225: { url: 'https://indexes.nikkei.co.jp/nkave/archives/file/nikkei_stock_average_weight_en.csv', kind: 'nikkei', min: 225, max: 225 },
   SXXP: { url: 'https://www.ishares.com/de/privatanleger/de/produkte/251931/x/latest-holdings.csv', kind: 'exsa', min: 580, max: 620 },
