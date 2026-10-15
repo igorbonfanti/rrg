@@ -63,7 +63,8 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Storico degli episodi con i rendimenti a 1/3/6 mesi e il peggior calo.
   - Link al grafico dell'ETF e della serie breadth su TradingView.
 - **5 Alert**: registro dei cambi di stato dal 2005 con statistiche riassuntive, regole e stato delle notifiche Telegram.
-- **6 Indici**: la stessa analisi su 22 indici azionari, filtrabili per area (Nord America, Europa, Asia-Pacifico, Emergenti); vedi «Indici» sotto.
+- **6 Indici**: la stessa analisi su 22 indici azionari; vedi «Indici» sotto.
+  - Di partenza si vedono i 9 principali (`"main": true` in `config/indices.json`: S&P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, MSCI Emerging Markets). Nel riquadro «Indici mostrati», raggruppato per area, un clic aggiunge o toglie un indice; «Principali» e «Tutti» sono le due scelte rapide. La scelta resta nel browser.
   - Tabellone ordinato per stato, Bottom Map degli indici e distanza dal livello blu.
   - Dettaglio con lo stesso grafico dei settori (zone blu e trigger), livello blu regolabile nel browser, situazione, qualità della storia ed episodi con i rendimenti a 3, 6 e 12 mesi.
   - I dati (`data/indices.json`) si scaricano alla prima apertura della pagina.

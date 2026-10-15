@@ -564,6 +564,8 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
   .ph h2, .sym, a, .t th[aria-sort] { color: #000 !important; }
   .panel { break-inside: avoid; margin-bottom: 8px; }
 }
-/* pagina Indici: filtro per area, va a capo sui telefoni */
-#ixArea { flex-wrap: wrap; }
-#ixArea button { border-bottom: 1px solid var(--rule); margin-bottom: -1px; }
+/* pagina Indici: selettore degli indici mostrati, una riga per area */
+.ixpick { align-items: flex-start; }
+#ixPick { display: flex; flex-direction: column; gap: 6px; }
+.ixarea { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
+.ixarea .lbl { font: 500 11px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; min-width: 108px; }
