@@ -407,7 +407,11 @@
     <p class="note loading" id="ixLoading" hidden>Caricamento dei dati degli indici…</p>
     <div id="ixBody" hidden>
     <div class="panel" style="margin-bottom:12px">
-      <div class="controls"><span class="ctl">Area <span class="seg" id="ixArea" role="group" aria-label="Area geografica"></span></span></div>
+      <div class="ph"><h2>Indici mostrati</h2><span class="meta" id="ixPickMeta"></span></div>
+      <div class="controls ixpick">
+        <div id="ixPick" role="group" aria-label="Indici da mostrare in tabellone, Bottom Map e schede"></div>
+        <span class="ctl push"><span class="seg"><button type="button" id="ixPickMain" aria-pressed="false">Principali</button><button type="button" id="ixPickAll" aria-pressed="false">Tutti</button></span></span>
+      </div>
     </div>
     <div class="kpis" id="ixKpis"></div>
     <div class="panel">
@@ -520,7 +524,7 @@
         <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
         <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati.</li>
         <li><b>5 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
-        <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari, filtrabili per area: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets e Ibovespa. Tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia. «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione.</li>
+        <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari. Di partenza si vedono i 9 principali (S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, MSCI Emerging Markets); gli altri si aggiungono o si tolgono con un clic nel riquadro «Indici mostrati», e la scelta resta nel browser. Tutti gli indici: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets e Ibovespa. Tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia. «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione.</li>
       </ul>
       <h3>Stati dei settori</h3>
       <ul>

@@ -35,11 +35,13 @@ export function createIndices(ctx) {
   const CFG = ctx.config.indices;
   let D = null, KEYS = Object.keys(CFG), loading = null, failed = null;
   const S = {}, PX = {}, NOW = {}, cache = new Map();
-  const st = { blue: {}, sel: null, range: null, focus: null, pending: null, area: 'Tutti' };
-  // aree geografiche nell'ordine di config/indices.json; VIS = indici dell'area scelta
+  const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set() };
+  // indici mostrati in tabellone, Bottom Map e schede: di partenza i principali ("main" in config), poi
+  // quelli scelti nel selettore (salvati nel browser). Il selettore li raggruppa per area.
   const ORDER_AREAS = ['Nord America', 'Europa', 'Asia-Pacifico', 'Emergenti'];
-  const AREAS = ['Tutti', ...[...new Set(Object.values(CFG).map((c) => c.area))].sort((a, b) => (ORDER_AREAS.indexOf(a) + 1 || 99) - (ORDER_AREAS.indexOf(b) + 1 || 99))];
-  const VIS = () => KEYS.filter((k) => st.area === 'Tutti' || CFG[k].area === st.area);
+  const AREAS = [...new Set(Object.values(CFG).map((c) => c.area))].sort((a, b) => (ORDER_AREAS.indexOf(a) + 1 || 99) - (ORDER_AREAS.indexOf(b) + 1 || 99));
+  const MAIN = () => KEYS.filter((k) => CFG[k].main);
+  const VIS = () => KEYS.filter((k) => st.shown.has(k));
 
   function ready(data) {
     KEYS = KEYS.filter((k) => data.series[k]);
@@ -53,7 +55,9 @@ export function createIndices(ctx) {
     st.blue = { ...defaults(), ...validBlue(store.get('ixBlue', {})) };
     st.sel = KEYS.includes(store.get('ixSel')) ? store.get('ixSel') : KEYS[0];
     st.range = ['3A', '10A', 'MAX'].includes(store.get('ixRange')) ? store.get('ixRange') : '3A';
-    st.area = AREAS.includes(store.get('ixArea')) ? store.get('ixArea') : 'Tutti';
+    const saved = store.get('ixShown', null);
+    const keep = Array.isArray(saved) ? saved.filter((k) => KEYS.includes(k)) : [];
+    st.shown = new Set(keep.length ? keep : MAIN());
     D = data;
   }
   const defaults = () => Object.fromEntries(KEYS.map((k) => [k, CFG[k].blue]));
@@ -156,13 +160,25 @@ export function createIndices(ctx) {
     ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
   }
 
-  // ---------- area ----------
+  // ---------- indici mostrati ----------
   function renderAreas() {
-    $('ixArea').innerHTML = AREAS.map((a) => `<button type="button" data-area="${esc(a)}" aria-pressed="${a === st.area}">${esc(a)}</button>`).join('');
-    $('ixArea').querySelectorAll('button').forEach((b) => b.onclick = () => {
-      st.area = b.dataset.area; store.set('ixArea', st.area); st.focus = null;
-      renderAreas(); renderBoard(); renderMap(); renderDetail();
+    const same = (a) => a.length === st.shown.size && a.every((k) => st.shown.has(k));
+    $('ixPick').innerHTML = AREAS.map((a) => `<div class="ixarea"><span class="lbl">${esc(a)}</span>` +
+      KEYS.filter((k) => CFG[k].area === a).map((k) => `<button type="button" class="chip" data-ix="${k}" aria-pressed="${st.shown.has(k)}" title="${esc(name(k))}${CFG[k].limits ? ' · con limiti' : ''}">${k}</button>`).join('') + '</div>').join('');
+    $('ixPickMeta').textContent = `${st.shown.size} su ${KEYS.length} mostrati` + (same(MAIN()) ? ' · i principali' : '');
+    $('ixPickMain').setAttribute('aria-pressed', String(same(MAIN())));
+    $('ixPickAll').setAttribute('aria-pressed', String(same(KEYS)));
+    $('ixPick').querySelectorAll('button').forEach((b) => b.onclick = () => {
+      const k = b.dataset.ix;
+      if (st.shown.has(k)) { if (st.shown.size > 1) st.shown.delete(k); } else st.shown.add(k);
+      setShown(st.shown);
     });
+  }
+  function setShown(set) {
+    st.shown = new Set(set); st.focus = null;
+    store.set('ixShown', KEYS.filter((k) => st.shown.has(k)));
+    if (!st.shown.has(st.sel)) st.sel = VIS()[0];
+    renderAreas(); renderBoard(); renderMap(); renderDetail();
   }
 
   // ---------- Bottom Map ----------
@@ -285,6 +301,8 @@ export function createIndices(ctx) {
     $('ixBluePlus').onclick = () => setBlue(st.blue[st.sel] + 1);
     $('ixBlueReset').onclick = () => setBlue(CFG[st.sel].blue);
     document.querySelectorAll('#ixRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('ixRange', st.range); renderDetail(); });
+    $('ixPickMain').onclick = () => setShown(MAIN());
+    $('ixPickAll').onclick = () => setShown(KEYS);
     const svg = $('ixMap'), tip = $('ixMapTip');
     svg.addEventListener('pointermove', (e) => {
       if (!mapDraw || e.pointerType === 'touch') return;
