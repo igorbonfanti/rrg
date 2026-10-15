@@ -213,4 +213,5 @@ Il rapporto va in `ricerca/indici/` sul ramo di sviluppo.
 - Grafico come quello dei settori: bande blu per la zona blu e triangoli verdi per i trigger. Il prezzo non si colora per lo stato «attenzione».
 - **Da studiare più avanti, su richiesta dell'utente:** un filtro contro i rimbalzi nei mercati orso lunghi. Nel 2001-2002 e nella prima metà del 2008, 19 trigger hanno perso in media il 23% in un anno. Va studiato con lo stesso protocollo usato per i settori: regole decise prima, poi verifica.
 - F3 fatta (16/10/2026): gruppo «6 · Indici» nella Rotazione con ETF in euro (SXR8, CSNDX, SXRU, CSNKY, EXSA, XUKX, DBXD, CAC, XSMI per la Svizzera), benchmark ACWI o World.
-- Ancora aperti: F4 (indici di fase 2, Russell 2000 compreso), F5 (alert Telegram per gli indici, dopo un mese di prova).
+- F4 fatta (16/10/2026): 13 indici con limiti (Russell 2000, TSX 60, Euro Stoxx 50, FTSE MIB, IBEX, Hang Seng, CSI 300, KOSPI 200, Taiwan MSCI, Nifty 50, ASX 200, EEM, Ibovespa); storia dal mese dopo la prima seduta con il 60% dei membri di oggi con 200 sedute; livelli di Rea o 3° percentile; filtro per area nella pagina.
+- Ancora aperti: F5 (alert Telegram per gli indici, dopo un mese di prova).
