@@ -35,7 +35,11 @@ export function createIndices(ctx) {
   const CFG = ctx.config.indices;
   let D = null, KEYS = Object.keys(CFG), loading = null, failed = null;
   const S = {}, PX = {}, NOW = {}, cache = new Map();
-  const st = { blue: {}, sel: null, range: null, focus: null, pending: null };
+  const st = { blue: {}, sel: null, range: null, focus: null, pending: null, area: 'Tutti' };
+  // aree geografiche nell'ordine di config/indices.json; VIS = indici dell'area scelta
+  const ORDER_AREAS = ['Nord America', 'Europa', 'Asia-Pacifico', 'Emergenti'];
+  const AREAS = ['Tutti', ...[...new Set(Object.values(CFG).map((c) => c.area))].sort((a, b) => (ORDER_AREAS.indexOf(a) + 1 || 99) - (ORDER_AREAS.indexOf(b) + 1 || 99))];
+  const VIS = () => KEYS.filter((k) => st.area === 'Tutti' || CFG[k].area === st.area);
 
   function ready(data) {
     KEYS = KEYS.filter((k) => data.series[k]);
@@ -49,6 +53,7 @@ export function createIndices(ctx) {
     st.blue = { ...defaults(), ...validBlue(store.get('ixBlue', {})) };
     st.sel = KEYS.includes(store.get('ixSel')) ? store.get('ixSel') : KEYS[0];
     st.range = ['3A', '10A', 'MAX'].includes(store.get('ixRange')) ? store.get('ixRange') : '3A';
+    st.area = AREAS.includes(store.get('ixArea')) ? store.get('ixArea') : 'Tutti';
     D = data;
   }
   const defaults = () => Object.fromEntries(KEYS.map((k) => [k, CFG[k].blue]));
@@ -98,6 +103,7 @@ export function createIndices(ctx) {
     await ensure();
     if (failed) { $('ixLoading').hidden = false; $('ixLoading').textContent = `Dati degli indici non disponibili (${failed.message}).`; return; }
     $('ixBody').hidden = false;
+    renderAreas();
     renderBoard();
     renderMap();
     renderDetail();
@@ -106,7 +112,7 @@ export function createIndices(ctx) {
 
   // ---------- tabellone ----------
   function renderBoard() {
-    const rows = KEYS.map((k) => {
+    const rows = VIS().map((k) => {
       const s = S[k], c = s.close, t = NOW[k], last = c.length - 1;
       return {
         k, state: stateOf(k), b: s.pct200[t], b1m: s.pct200[Math.max(0, t - 21)], n: s.n[t], above: s.above200[t], mem: s.members[t], L: st.blue[k],
@@ -117,7 +123,9 @@ export function createIndices(ctx) {
     const DDMAX = 35;
     const quality = (k, r) => CFG[k].composition === 'epoca'
       ? `<span class="muted" title="Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}">di epoca</span>`
-      : `<span class="muted" title="Storia ricostruita con i membri di oggi: nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
+      : CFG[k].limits
+        ? `<span class="loc" title="${esc(`Storia dal ${S[k].dates[S[k].pct200.findIndex((v) => v != null)].slice(0, 4)} · ${CFG[k].note || ''}`)}">con limiti</span>`
+        : `<span class="muted" title="Storia ricostruita con i membri di oggi: nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
     $('ixTable').innerHTML = `<thead><tr><th>Indice</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l">Drawdown da max 52s</th><th>Storia</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>` +
       rows.map((r) => {
         const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
@@ -141,25 +149,34 @@ export function createIndices(ctx) {
     const by = (codes) => rows.filter((r) => codes.includes(r.state.code));
     const list = (a) => a.map((r) => r.k).join(' · ') || 'nessuno';
     $('ixKpis').innerHTML = [
-      ['Indici in zona blu', `${by(['setup', 'fail']).length}<small> / ${KEYS.length}</small>`, list(by(['setup', 'fail']))],
-      [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / ${KEYS.length}</small>`, list(by(['trig', 'cool']))],
-      ['Indici in attenzione', `${by(['watch']).length}<small> / ${KEYS.length}</small>`, list(by(['watch']))],
+      ['Indici in zona blu', `${by(['setup', 'fail']).length}<small> / ${rows.length}</small>`, list(by(['setup', 'fail']))],
+      [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / ${rows.length}</small>`, list(by(['trig', 'cool']))],
+      ['Indici in attenzione', `${by(['watch']).length}<small> / ${rows.length}</small>`, list(by(['watch']))],
       ['Più vicino al livello blu', rows.length ? `${[...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0].k}` : '—', rows.length ? (() => { const r = [...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0]; return `${fmt(r.b)}% contro un livello di ${r.L}% (${sgn(r.b - r.L)} punti)`; })() : ''],
     ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
+  }
+
+  // ---------- area ----------
+  function renderAreas() {
+    $('ixArea').innerHTML = AREAS.map((a) => `<button type="button" data-area="${esc(a)}" aria-pressed="${a === st.area}">${esc(a)}</button>`).join('');
+    $('ixArea').querySelectorAll('button').forEach((b) => b.onclick = () => {
+      st.area = b.dataset.area; store.set('ixArea', st.area); st.focus = null;
+      renderAreas(); renderBoard(); renderMap(); renderDetail();
+    });
   }
 
   // ---------- Bottom Map ----------
   let mapDraw = null, mapSeries = null;
   function renderMap() {
     mapSeries = {};
-    for (const k of KEYS) {
+    for (const k of VIS()) {
       const weeks = weeklyIndices(S[k].dates.slice(0, NOW[k] + 1)).slice(-9);
       mapSeries[k] = weeks.filter((t) => S[k].pct200[t] != null && PX[k].dp[t] != null).map((t) => ({ x: PX[k].dp[t], y: S[k].pct200[t] - st.blue[k], t }));
     }
     drawMap();
     $('ixMapMeta').textContent = 'settimanale · coda 8 settimane · colore del punto = stato attuale';
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
-    const rows = KEYS.map((k) => { const t = NOW[k], s = S[k]; return { k, d: s.pct200[t] - st.blue[k], need: s.above200[t] - Math.floor((st.blue[k] * s.n[t]) / 100) }; }).sort((a, b) => a.d - b.d);
+    const rows = VIS().map((k) => { const t = NOW[k], s = S[k]; return { k, d: s.pct200[t] - st.blue[k], need: s.above200[t] - Math.floor((st.blue[k] * s.n[t]) / 100) }; }).sort((a, b) => a.d - b.d);
     const lo = Math.min(-10, Math.floor(Math.min(...rows.map((r) => r.d)) / 5) * 5), hi = Math.max(40, Math.ceil(Math.max(...rows.map((r) => r.d)) / 10) * 10);
     const pos = (v) => ((v - lo) / (hi - lo)) * 100;
     $('ixDist').innerHTML = rows.map(({ k, d, need }) => {
@@ -178,7 +195,7 @@ export function createIndices(ctx) {
   const markDist = () => $('ixDist').querySelectorAll('.r').forEach((r) => r.classList.toggle('sel', r.dataset.ix === st.focus));
   function drawMap() {
     mapDraw = drawBottomMap($('ixMap'), {
-      series: mapSeries, syms: KEYS, focus: st.focus, params: P, states: Object.fromEntries(KEYS.map((k) => [k, stateOf(k).code])),
+      series: mapSeries, syms: VIS(), focus: st.focus, params: P, states: Object.fromEntries(VIS().map((k) => [k, stateOf(k).code])),
       size: chartWidth($('ixMap'), SIZE), clipId: 'ixclip', unit: "dell'indice",
     });
   }
@@ -197,7 +214,7 @@ export function createIndices(ctx) {
   }
   function renderDetail() {
     const k = st.sel, s = S[k], m = machine(k), L = st.blue[k], t = NOW[k], last = s.close.length - 1;
-    $('ixChips').innerHTML = KEYS.map((x) => `<button type="button" class="chip" data-ix="${x}" aria-pressed="${x === k}"><span class="sd sd-${stateOf(x).code}"></span>${x}</button>`).join('');
+    $('ixChips').innerHTML = [...new Set([...VIS(), k])].map((x) => `<button type="button" class="chip" data-ix="${x}" aria-pressed="${x === k}"><span class="sd sd-${stateOf(x).code}"></span>${x}</button>`).join('');
     $('ixChips').querySelectorAll('button').forEach((b) => b.onclick = () => open(b.dataset.ix));
     document.querySelectorAll('#ixRange button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('ixTitle').textContent = `${k} · ${name(k)}`;
@@ -235,7 +252,7 @@ export function createIndices(ctx) {
     $('ixFacts').innerHTML = facts.map(([a, v, tt]) => { const ti = tt ? ` title="${esc(tt)}"` : ''; return `<dt${ti}>${a}</dt><dd${ti}>${v}</dd>`; }).join('');
     $('ixQuality').textContent = CFG[k].composition === 'epoca'
       ? `Storia con la composizione dell'indice di ogni data, dal ${s.dates[f0].slice(0, 4)}. Fonte della composizione: ${CFG[k].source}.`
-      : `Storia ricostruita con i membri di oggi, dal ${s.dates[f0].slice(0, 4)}: nelle fasi intermedie la breadth risulta 3-6 punti più alta del vero, vicino ai minimi lo scarto è piccolo. Fonte della lista: ${CFG[k].source}.`;
+      : `${CFG[k].limits ? 'Indice con limiti. ' : ''}Storia ricostruita con i membri di oggi, dal ${s.dates[f0].slice(0, 4)}: nelle fasi intermedie la breadth risulta più alta del vero, vicino ai minimi lo scarto è piccolo.${CFG[k].note ? ' ' + CFG[k].note : ''} Fonte della lista: ${CFG[k].source}.`;
     $('ixLinks').innerHTML = (TV[k] || []).map((x) => `<a href="${tvLink(x)}" target="_blank" rel="noopener">${esc(x.split(':')[1])} su TradingView ↗</a>`).join('');
     renderEpisodes(k, m);
   }

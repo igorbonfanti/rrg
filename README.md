@@ -63,7 +63,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Storico degli episodi con i rendimenti a 1/3/6 mesi e il peggior calo.
   - Link al grafico dell'ETF e della serie breadth su TradingView.
 - **5 Alert**: registro dei cambi di stato dal 2005 con statistiche riassuntive, regole e stato delle notifiche Telegram.
-- **6 Indici**: la stessa analisi su S&P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e SMI (vedi «Indici» sotto).
+- **6 Indici**: la stessa analisi su 22 indici azionari, filtrabili per area (Nord America, Europa, Asia-Pacifico, Emergenti); vedi «Indici» sotto.
   - Tabellone ordinato per stato, Bottom Map degli indici e distanza dal livello blu.
   - Dettaglio con lo stesso grafico dei settori (zone blu e trigger), livello blu regolabile nel browser, situazione, qualità della storia ed episodi con i rendimenti a 3, 6 e 12 mesi.
   - I dati (`data/indices.json`) si scaricano alla prima apertura della pagina.
@@ -145,11 +145,31 @@ Stesso metodo, stessi parametri e stessa macchina a stati dei settori; cambiano 
 | CAC 40 | 4% (Rea) | dal 2001 | membri di oggi (Wikipedia) |
 | SMI | 3% (Rea) | dal 2001 | membri di oggi (Wikipedia) |
 
+**Indici con limiti** (F4): storia con i membri di oggi, che parte dal mese dopo la prima seduta in cui almeno il 60% dei membri di oggi ha 200 sedute di prezzi. Il motivo dei limiti di ciascuno è in `config/indices.json` (`note`) e nell'app.
+
+| Indice | Prezzo | Livello blu | Storia della breadth | Membri |
+|---|---|---|---|---|
+| Russell 2000 | ^RUT | 15% (Rea) | dal 09/2017 | holdings iShares IWM (circa 1.970) |
+| S&P/TSX 60 | ETF XIU | 23% (3° percentile) | dal 2000 | Wikipedia |
+| Euro Stoxx 50 | ^STOXX50E | 7% (3° percentile) | dal 2007 | Wikipedia |
+| FTSE MIB | FTSEMIB.MI | 3% (Rea) | dal 2005 | Wikipedia |
+| IBEX 35 | ^IBEX | 6% (Rea) | dal 2007 | Wikipedia |
+| Hang Seng | ^HSI | 8% (Rea) | dal 2008 | Wikipedia |
+| CSI 300 | ETF 510300 | 14% (3° percentile) | dal 2012 | Wikipedia |
+| KOSPI 200 | ^KS11 (KOSPI) | 15% (3° percentile) | dal 2006 | Wikipedia |
+| Taiwan (MSCI) | ^TWII | 8% (3° percentile) | dal 2003 | holdings iShares EWT |
+| Nifty 50 | ^NSEI | 10% (3° percentile) | dal 2007 | Wikipedia |
+| S&P/ASX 200 | ^AXJO | 14% (3° percentile) | dal 2008 | Wikipedia |
+| MSCI Emerging Markets | ETF EEM | 15% (Rea) | dal 2011 | holdings iShares EEM (circa 1.180; Malesia, Filippine e Abu Dhabi senza prezzi su Yahoo) |
+| Ibovespa | ^BVSP | 11% (3° percentile) | dal 2008 | B3 |
+
+Esclusi: KOSPI e TAIEX interi e S&P/TSX Composite (nessuna lista gratuita dei membri).
+
 - **Livelli**: dove esiste, quello letto dai grafici di Massimo Rea; altrimenti il 3° percentile della storia dell'indice. Sui nostri dati i livelli di Rea lasciano sotto la soglia circa il 3% delle sedute (S&P 500 3,0%, settori dal 2,4% al 4%), e la regola ritrova i suoi livelli su S&P 500, Nikkei, CAC e SMI.
 - **Membri di oggi**: dove la composizione storica non è disponibile gratis, il passato è ricostruito con i membri attuali; nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo (verifica sul Nasdaq-100).
 - **Prezzo**: indice di solo prezzo in valuta locale; il percentile del drawdown usa la storia dal 2000.
 - **Calendari**: le medie si calcolano sulle sedute di ogni titolo; un titolo conta con la sua ultima seduta se è al massimo di 5 giorni prima (lo STOXX 600 mette insieme 17 borse).
-- **Risultati storici** (livelli qui sopra, regola del «fallito» tardivo): contando tutti i trigger, compresi quelli poi falliti, 75 dal 2001 con rendimento mediano a 12 mesi +14,8% e 49 positivi; contando solo l'ultimo trigger di ogni episodio, dal 2005 39 episodi con mediana +18,7% e 34 positivi. I trigger nei mercati orso lunghi (2001-2002, prima metà del 2008) sono stati spesso rimbalzi falliti: un filtro per questi casi è tra le cose da studiare.
+- **Risultati storici** (livelli qui sopra, regola del «fallito» tardivo), sui 9 indici della prima fase: contando tutti i trigger, compresi quelli poi falliti, 75 dal 2001 con rendimento mediano a 12 mesi +14,8% e 49 positivi; contando solo l'ultimo trigger di ogni episodio, dal 2005 39 episodi con mediana +18,7% e 34 positivi. Sui 13 indici con limiti, 54 episodi con trigger, mediana +23,4% e 46 positivi, ma con storie che partono quasi tutte dopo il 2007 e quindi senza i mercati orso del 2001-2002. I trigger nei mercati orso lunghi (2001-2002, prima metà del 2008) sono stati spesso rimbalzi falliti: un filtro per questi casi è tra le cose da studiare.
 
 ## Metodo della rotazione
 Nella pagina Rotazione si sceglie tra due formule: la nuova (predefinita) e quella a medie semplici, che riproduce i valori di StockCharts. Sotto il grafico una nota apribile spiega come si calcolano e cosa cambia. La classica, della prima versione, resta in `js/engine.js` per confronto. Tutte usano solo i dati passati:
@@ -208,8 +228,8 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
     - `data/sp500_members.json`: lista dei membri con i cambi giorno per giorno.
 
     Una seduta si pubblica solo con i prezzi di almeno il 99% dei membri; le ultime 5 sedute si ricalcolano.
-  - `scripts/fetch_indices.js` aggiorna `data/indices.json` (pagina Indici; formato in `js/indexdata.js`) e le liste in `data/index_members/`. Gira dopo la breadth dei settori, in un passo che non blocca gli altri.
-    - Liste dei membri da Wikipedia, dal CSV di Nikkei, dalle holdings iShares e dall'API Nasdaq (`scripts/lib/members.js`): una lista nuova si accetta solo se il numero di titoli è plausibile e almeno l'80% coincide con l'ultima buona; i cambi si registrano nel file della lista.
+  - `scripts/fetch_indices.js` aggiorna `data/indices.json` (pagina Indici; formato in `js/indexdata.js`) e le liste in `data/index_members/`. Gira dopo la breadth dei settori, in un passo che non blocca gli altri: circa 4.600 titoli in meno di 3 minuti.
+    - Liste dei membri da Wikipedia, dal CSV di Nikkei, dalle holdings iShares (EXSA, IWM, EEM, EWT), dall'API Nasdaq e da B3 (`scripts/lib/members.js`): una lista nuova si accetta solo se il numero di titoli è plausibile e almeno l'80% coincide con l'ultima buona; i cambi si registrano nel file della lista.
     - Prezzi dall'endpoint spark di Yahoo (20 titoli a richiesta); chi ha sedute mancanti si riscarica dall'endpoint chart.
     - Una seduta si pubblica se almeno il 75% dei titoli quotati ha la chiusura di quel giorno; le ultime 5 si ricalcolano.
   - `scripts/backfill_indices.py`: ricostruzione una tantum dello storico degli indici (composizioni in `config/index_history.json`).

@@ -564,3 +564,6 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
   .ph h2, .sym, a, .t th[aria-sort] { color: #000 !important; }
   .panel { break-inside: avoid; margin-bottom: 8px; }
 }
+/* pagina Indici: filtro per area, va a capo sui telefoni */
+#ixArea { flex-wrap: wrap; }
+#ixArea button { border-bottom: 1px solid var(--rule); margin-bottom: -1px; }

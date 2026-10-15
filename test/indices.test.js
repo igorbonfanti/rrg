@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { encodeDates, decodeDates, indexSeries } from '../js/indexdata.js';
-import { wikiColumn, cellText, PARSERS, parseNikkei, parseExsa, parseNasdaq } from '../scripts/lib/members.js';
+import { wikiColumn, cellText, PARSERS, parseNikkei, parseExsa, parseNasdaq, parseIShares, parseB3 } from '../scripts/lib/members.js';
 import { checkList, needsChart, clean, countDay, expand, pack, mergePrices, setCounts } from '../scripts/fetch_indices.js';
 import { parseCSV } from '../scripts/fetch_breadth.js';
 
@@ -23,7 +23,7 @@ test('data/indices.json: ogni indice ha prezzo e breadth coerenti', () => {
     assert.equal(s.dates.length, s.close.length, k);
     assert.ok(s.dates.every((d, i) => i === 0 || d > s.dates[i - 1]), `${k}: date in ordine`);
     const b = s.pct200.filter((v) => v != null);
-    assert.ok(b.length > 2500, `${k}: ${b.length} sedute di breadth`);
+    assert.ok(b.length > 2000, `${k}: ${b.length} sedute di breadth`); // il Russell 2000 parte dal 2017
     assert.ok(b.every((v) => v >= 0 && v <= 100), k);
     assert.ok(s.n.every((n, i) => n == null || n <= s.members[i]), `${k}: quotati ≤ membri`);
   }
@@ -119,4 +119,22 @@ test('conteggi di una seduta e aggiornamento del file', () => {
   const s = indexSeries(pack(e));
   assert.deepEqual(s.above200, [null, 5, null, 3]);
   assert.equal(s.pct200[3], (100 * 3) / 9);
+});
+
+test('indici con limiti: holdings iShares, B3 e tabelle di Wikipedia', () => {
+  const csv = 'iShares\nFund Holdings as of,"Oct 14, 2026"\n\nTicker,Name,Asset Class,Exchange\n"MOG A","MOOG","Equity","NYSE"\n"ADRO","A","Equity","NASDAQ"\n"ADRO","A CVR","Equity","NASDAQ"\n"-","X","Equity","NYSE"\n"USD","Cash","Cash","-"\n';
+  assert.deepEqual(parseIShares(csv, parseCSV), ['MOG-A', 'ADRO']);
+  const em = 'Ticker,Name,Asset Class,Exchange\n"700","TENCENT","Equity","Hong Kong Exchanges And Clearing Ltd"\n"WALMEX*","WALMART DE MEXICO","Equity","Bolsa Mexicana De Valores"\n"PTT.R","PTT","Equity","Stock Exchange Of Thailand"\n"2330","TSMC","Equity","Taiwan Stock Exchange"\n"X","Ignota","Equity","Borsa di Marte"\n';
+  assert.deepEqual(parseIShares(em, parseCSV, true), ['0700.HK', 'WALMEX.MX', 'PTT.BK', '2330.TW']);
+  assert.deepEqual(parseB3({ results: [{ cod: 'ABEV3 ' }, { cod: 'PETR4' }] }), ['ABEV3.SA', 'PETR4.SA']);
+  const hsi = '{| class="wikitable"\n!Ticker\n!Name\n|-\n|{{SEHK|5}}\n|[[HSBC]]\n|-\n|{{SEHK|388}}\n|[[HKEX]]\n|}';
+  assert.deepEqual(PARSERS.HSI(hsi), ['0005.HK', '0388.HK']);
+  const csi = '{|\n!Ticker\n!Company\n|-\n|{{SSE|600519}}\n|Moutai\n|-\n|{{SZSE|000858}}\n|Wuliangye\n|}';
+  assert.deepEqual(PARSERS.CSI300(csi), ['600519.SS', '000858.SZ']);
+  const ks = '{|\n! Company !! Symbol !! Sector\n|-\n| A || 090430 || x\n|-\n| B || 0126Z0 || y\n|}';
+  assert.deepEqual(PARSERS.KOSPI200(ks), ['090430.KS', '0126Z0.KS']);
+  const ibex = '{|\n!Ticker\n!Company\n|-\n|[https://www.bolsamadrid.es/x?ISIN=ES1 ACS.MC] \n|[[ACS]]\n|}';
+  assert.deepEqual(PARSERS.IBEX(ibex), ['ACS.MC']);
+  const asx = '{|\n!Code!!Company\n|-\n|FPH|FPH\n|x\n|-\n|360\n|Life360\n|}';
+  assert.deepEqual(PARSERS.ASX200(asx), ['FPH.AX', '360.AX']);
 });

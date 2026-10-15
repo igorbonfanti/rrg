@@ -406,6 +406,9 @@
   <section class="view" id="v-idx" role="tabpanel" aria-labelledby="tab-idx" hidden>
     <p class="note loading" id="ixLoading" hidden>Caricamento dei dati degli indici…</p>
     <div id="ixBody" hidden>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="controls"><span class="ctl">Area <span class="seg" id="ixArea" role="group" aria-label="Area geografica"></span></span></div>
+    </div>
     <div class="kpis" id="ixKpis"></div>
     <div class="panel">
       <div class="ph"><h2>Indici · stato dei bottom</h2><span class="meta" id="ixMeta"></span></div>
@@ -517,7 +520,7 @@
         <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
         <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati.</li>
         <li><b>5 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
-        <li><b>6 Indici</b>: la stessa analisi su S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e SMI: tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea (per STOXX 600 e FTSE 100 il 3° percentile della storia).</li>
+        <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari, filtrabili per area: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets e Ibovespa. Tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia. «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione.</li>
       </ul>
       <h3>Stati dei settori</h3>
       <ul>

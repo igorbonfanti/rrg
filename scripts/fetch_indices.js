@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, parse, mapLimit } from './lib/yahoo.js';
-import { SOURCES, PARSERS, parseNikkei, parseExsa, parseNasdaq } from './lib/members.js';
+import { SOURCES, PARSERS, parseNikkei, parseExsa, parseNasdaq, parseIShares, parseB3 } from './lib/members.js';
 import { parseCSV } from './fetch_breadth.js';
 import { encodeRLE, expandRLE } from '../js/signals.js';
 import { decodeDates, encodeDates } from '../js/indexdata.js';
@@ -46,6 +46,8 @@ async function fetchList(k) {
   if (src.kind === 'nikkei') return parseNikkei(await get(src.url, {}, true));
   if (src.kind === 'exsa') return parseExsa(await get(src.url), parseCSV);
   if (src.kind === 'nasdaq') return parseNasdaq(JSON.parse(await get(src.url, src.headers)));
+  if (src.kind === 'ishares') return parseIShares(await get(src.url), parseCSV, !!src.foreign);
+  if (src.kind === 'b3') return parseB3(JSON.parse(await get(src.url)));
   return null;
 }
 // Lista nuova accettabile? `prev` = ultima lista buona
