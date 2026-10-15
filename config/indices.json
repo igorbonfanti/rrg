@@ -1,0 +1,14 @@
+{
+  "_comment": "Indici della pagina Indici: prezzo (simbolo Yahoo, valuta locale), membri, livello blu (% di titoli sopra la media a 200 sedute) e qualità della storia. 'composition': 'epoca' = membri di ogni data (config/index_history.json, nessuna distorsione da sopravvivenza); 'oggi' = soli membri attuali (data/index_members/), storia più alta di 3-6 punti nelle fasi intermedie e quasi corretta vicino ai minimi. 'from' = prima seduta della breadth pubblicata. 'blueSource': 'Rea' = livello letto dai grafici di Massimo Rea; 'p3' = 3° percentile della storia (regola calibrata sui livelli di Rea, da confermare). SPX riusa la serie SPX di data/breadth.json.",
+  "indices": {
+    "SPX":  { "name": "S&P 500",            "area": "USA",    "price": "^GSPC",  "composition": "epoca", "from": "2005-01-03", "blue": 13, "blueSource": "Rea", "source": "data/breadth.json (serie SPX)" },
+    "NDX":  { "name": "Nasdaq-100",         "area": "USA",    "price": "^NDX",   "composition": "epoca", "from": "2008-01-02", "blue": 18, "blueSource": "Rea", "source": "github.com/jmccarrell/n100tickers; lista attuale api.nasdaq.com" },
+    "DJI":  { "name": "Dow Jones",          "area": "USA",    "price": "^DJI",   "composition": "epoca", "from": "1993-01-04", "blue": 15, "blueSource": "Rea", "source": "en.wikipedia Historical components of the DJIA" },
+    "N225": { "name": "Nikkei 225",         "area": "Asia",   "price": "^N225",  "composition": "oggi",  "from": "2001-01-04", "blue": 8,  "blueSource": "Rea", "source": "indexes.nikkei.co.jp (CSV dei pesi, cp932)" },
+    "SXXP": { "name": "STOXX Europe 600",   "area": "Europa", "price": "^STOXX", "composition": "oggi",  "from": "2006-01-02", "blue": 9,  "blueSource": "p3", "source": "holdings iShares EXSA" },
+    "UKX":  { "name": "FTSE 100",           "area": "Europa", "price": "^FTSE",  "composition": "oggi",  "from": "2001-01-02", "blue": 12, "blueSource": "p3", "source": "en.wikipedia FTSE 100 Index" },
+    "DAX":  { "name": "DAX",                "area": "Europa", "price": "^GDAXI", "composition": "oggi",  "from": "2001-01-02", "blue": 7,  "blueSource": "Rea", "source": "en.wikipedia DAX" },
+    "CAC":  { "name": "CAC 40",             "area": "Europa", "price": "^FCHI",  "composition": "oggi",  "from": "2001-01-02", "blue": 4,  "blueSource": "Rea", "source": "en.wikipedia CAC 40" },
+    "SMI":  { "name": "SMI",                "area": "Europa", "price": "^SSMI",  "composition": "oggi",  "from": "2001-01-03", "blue": 3,  "blueSource": "Rea", "source": "en.wikipedia Swiss Market Index" }
+  }
+}
