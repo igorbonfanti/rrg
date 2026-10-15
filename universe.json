@@ -259,6 +259,21 @@
             "name": "Brasile · iShares MSCI Brazil"
           }
         }
+      },
+      "6 · Indici": {
+        "defaultBenchmark": "IUSQ.DE",
+        "benchmarks": ["IUSQ.DE", "SWDA.MI"],
+        "tickers": {
+          "SXR8.DE": { "label": "S&P 500", "name": "S&P 500 · iShares Core S&P 500 (Acc), Xetra" },
+          "CSNDX.MI": { "label": "Nasdaq-100", "name": "Nasdaq-100 · iShares Nasdaq 100 (Acc)" },
+          "SXRU.DE": { "label": "Dow Jones", "name": "Dow Jones Industrial Average · iShares Dow Jones Industrial Average (Acc)" },
+          "CSNKY.MI": { "label": "Nikkei 225", "name": "Nikkei 225 · iShares Nikkei 225 (Acc)" },
+          "EXSA.DE": { "label": "STOXX 600", "name": "STOXX Europe 600 · iShares STOXX Europe 600 (DE)" },
+          "XUKX.DE": { "label": "FTSE 100", "name": "FTSE 100 · Xtrackers FTSE 100 Income" },
+          "DBXD.DE": { "label": "DAX", "name": "DAX · Xtrackers DAX (Acc)" },
+          "CAC.PA": { "label": "CAC 40", "name": "CAC 40 · Amundi CAC 40" },
+          "XSMI.DE": { "label": "Svizzera", "name": "Svizzera, MSCI Switzerland (non esiste un ETF sullo SMI quotato in euro) · Xtrackers Switzerland, Xetra" }
+        }
       }
     }
   },

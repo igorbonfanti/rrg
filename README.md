@@ -26,7 +26,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Performance base 100 del periodo (3M/6M/1A/2A) con il benchmark e il titolo in evidenza.
 - **Universi della rotazione**:
   - USA, in dollari: settori S&P 500 (contro SPY) e MAG7 (contro QQQ).
-  - Globali, ETF UCITS in euro quotati in Europa, su quattro livelli:
+  - Globali, ETF UCITS in euro quotati in Europa, su cinque livelli:
 
     | Livello | Contenuto | Benchmark |
     |---|---|---|
@@ -34,6 +34,9 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
     | 2 Fattori | Value IWVL, Quality IWQU, Momentum IWMO, Min Vol MVOL, Small Cap ZPRS, Growth EQQQ (Nasdaq-100: non esiste un ETF UCITS MSCI World Growth), High Div VHYL, Eq Weight MWEQ (dal 2024) | MSCI World (SWDA) oppure ACWI |
     | 3 Regioni | USA CSSPX, Europa SMEA, Giappone SJPA, Pacifico ex-Giappone CSPXJ, Emergenti EIMI | MSCI ACWI (IUSQ, mondo con emergenti) oppure World |
     | 4 Paesi | USA, Canada, Giappone, UK, Svizzera, Germania, Francia, Italia, Spagna, Olanda, Cina, India, Taiwan, Corea, Brasile | MSCI ACWI oppure World |
+    | 6 Indici | gli indici della pagina Indici: S&P 500 SXR8, Nasdaq-100 CSNDX, Dow Jones SXRU, Nikkei 225 CSNKY, STOXX Europe 600 EXSA, FTSE 100 XUKX, DAX DBXD, CAC 40 CAC; per la Svizzera MSCI Switzerland XSMI (sullo SMI non c'è un ETF quotato in euro) | MSCI ACWI oppure World |
+
+    Il livello 6 usa quotazioni diverse da quelle del livello 4 anche quando l'indice è lo stesso (SXR8 e CSSPX sono lo stesso fondo): nell'app l'etichetta di un ETF vale per tutti i gruppi, e così i Paesi restano con i loro nomi.
 
     Nel livello 1, sotto il grafico, il pannello **Portafoglio di riferimento** spiega contro cosa si confronta: le classi (Azioni 50%, Obbligazioni governative euro 30%, Oro e materie prime 13%, Immobiliare 5%, Cripto 2%), i pesi obiettivo di ogni componente e i pesi di oggi, spostati dai prezzi dall'ultimo ribilanciamento. Passando sopra una riga la componente si evidenzia nel grafico. I pesi obiettivo si cambiano con i cursori (o scrivendo il numero): il portafoglio si ricalcola su tutta la storia e grafico, tabelle e performance si aggiornano subito. Se il totale non fa 100% i pesi valgono in proporzione («Porta a 100%» riscrive i numeri). I pesi scelti restano nel browser (`localStorage`) e «Ripristina l'esempio» torna a quelli di `universe.json`.
 
