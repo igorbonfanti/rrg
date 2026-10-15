@@ -98,7 +98,8 @@ Sul telefono i grafici si disegnano alla larghezza dello schermo e un tocco su u
   - divergenza prezzo/breadth (prezzo più basso, breadth più alta).
 
   Le conferme richieste diventano due se la zona blu dura più di 60 sedute o dopo un segnale fallito. Il rimbalzo a V, cioè la breadth di nuovo sopra il livello di riarmo, basta da solo.
-- **Fallito**: entro 20 sedute dal trigger il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera; si torna in zona blu con due conferme richieste.
+- **Fallito**: il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera entro 20 sedute dal trigger, oppure più tardi, finché la breadth non è tornata al livello di riarmo, con la breadth di nuovo sotto il livello blu; si torna in zona blu con due conferme richieste. Il controllo tardivo (dal 16/10/2026) serve ai mercati orso lunghi: prima, un rimbalzo fallito nascondeva le capitolazioni successive (ottobre 2008 – marzo 2009, fine 2002).
+- Nel grafico del dettaglio le bande blu chiare sono le sedute con la breadth sotto il livello ma fuori dalla zona blu (dopo un trigger, prima del riarmo, una sola chiusura sotto il livello o drawdown poco profondo): il motivo è nel tooltip.
 - **Cooldown**: 63 sedute senza nuovi segnali. Una nuova zona blu richiede prima che la breadth torni sopra max(40%, livello + 25).
 
 **Livelli blu di default** (quant-rea, "200 LEVEL SETTORI"):
@@ -145,7 +146,7 @@ Stesso metodo, stessi parametri e stessa macchina a stati dei settori; cambiano 
 - **Membri di oggi**: dove la composizione storica non è disponibile gratis, il passato è ricostruito con i membri attuali; nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo (verifica sul Nasdaq-100).
 - **Prezzo**: indice di solo prezzo in valuta locale; il percentile del drawdown usa la storia dal 2000.
 - **Calendari**: le medie si calcolano sulle sedute di ogni titolo; un titolo conta con la sua ultima seduta se è al massimo di 5 giorni prima (lo STOXX 600 mette insieme 17 borse).
-- **Risultati storici** (F1, livelli qui sopra): dal 2005 42 trigger, rendimento mediano a 12 mesi +15,9%, 30 positivi su 42; i trigger nei mercati orso lunghi (2001-2002, prima metà del 2008) sono stati spesso rimbalzi falliti. Un filtro per questi casi è tra le cose da studiare.
+- **Risultati storici** (livelli qui sopra, regola del «fallito» tardivo): contando tutti i trigger, compresi quelli poi falliti, 75 dal 2001 con rendimento mediano a 12 mesi +14,8% e 49 positivi; contando solo l'ultimo trigger di ogni episodio, dal 2005 39 episodi con mediana +18,7% e 34 positivi. I trigger nei mercati orso lunghi (2001-2002, prima metà del 2008) sono stati spesso rimbalzi falliti: un filtro per questi casi è tra le cose da studiare.
 
 ## Metodo della rotazione
 Nella pagina Rotazione si sceglie tra due formule: la nuova (predefinita) e quella a medie semplici, che riproduce i valori di StockCharts. Sotto il grafico una nota apribile spiega come si calcolano e cosa cambia. La classica, della prima versione, resta in `js/engine.js` per confronto. Tutte usano solo i dati passati:

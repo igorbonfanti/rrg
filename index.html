@@ -331,6 +331,7 @@
             <span><span class="kl" style="background:var(--key-br50)"></span>% sopra media 50</span>
             <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
             <span><span class="kb" style="background:var(--blue);opacity:.4"></span>zona blu</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.15"></span>sotto il livello, fuori dalla zona blu</span>
             <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
           </div>
         </div>
@@ -464,6 +465,7 @@
             <span><span class="kl" style="background:var(--key-br50)"></span>% sopra media 50</span>
             <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
             <span><span class="kb" style="background:var(--blue);opacity:.4"></span>zona blu</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.15"></span>sotto il livello, fuori dalla zona blu</span>
             <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
           </div>
         </div>
@@ -522,7 +524,7 @@
         <li><b>Attenzione</b>: breadth entro 10 punti dal livello blu o drawdown molto profondo; anche sotto il livello da una sola chiusura.</li>
         <li><b>Zona blu</b>: breadth al livello blu o sotto per 2 chiusure e drawdown oltre il 70° percentile della storia del settore. Lì si formano spesso i bottom, di solito in anticipo.</li>
         <li><b>Trigger</b>: la breadth risale di almeno 5 punti sopra il livello (o 2 titoli, se valgono di più) con una conferma: spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V (breadth di nuovo sopra il 40% o il livello + 25) basta da solo.</li>
-        <li><b>Fallito</b>: entro 20 sedute dal trigger il prezzo chiude sotto il minimo della zona blu, con un piccolo margine. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali.</li>
+        <li><b>Fallito</b>: il prezzo chiude sotto il minimo della zona blu, con un piccolo margine, entro 20 sedute dal trigger; oppure più tardi, finché la breadth non è tornata sopra il livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali. Nel grafico le bande blu chiare sono le sedute con la breadth sotto il livello ma fuori dalla zona blu: il motivo è nel riquadro al passaggio del mouse.</li>
       </ul>
       <h3>Rotazione relativa</h3>
       <p>Ogni titolo è confrontato con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>

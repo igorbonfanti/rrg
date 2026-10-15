@@ -4,7 +4,7 @@
  * bottom-map.js senza cambiarne la logica. Dati: data/indices.json (formato in indexdata.js) e
  * config/indices.json (livelli e qualità della storia), caricati alla prima apertura della pagina.
  */
-import { priceSeries, runMachine, forward, worstWithin, DEFAULT_PARAMS, STATES } from './signals.js';
+import { priceSeries, runMachine, forward, worstWithin, offReasons, DEFAULT_PARAMS, STATES } from './signals.js';
 import { indexSeries } from './indexdata.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
@@ -206,6 +206,7 @@ export function createIndices(ctx) {
       dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: rangeStart(k), sym: k, blue: L,
       tipEl: $('ixTsTip'), wrapEl: $('ixTsWrap'), width: chartWidth($('ixTs'), 940, 380), ddNote: 'SOLO PREZZO',
+      off: m.off, offText: offReasons(P),
     });
     // livello blu
     $('ixBlueVal').textContent = L + '%';
