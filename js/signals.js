@@ -13,10 +13,17 @@
  *      spinta di breadth (a 20g da ≤15% a ≥70% in 15 sedute, o a 50g da ≤10% a ≥50% in 20),
  *      prezzo sopra una media 20g crescente, divergenza (prezzo più basso, breadth più alta),
  *      oppure la breadth torna sopra il livello di riarmo (rimbalzo a V).
- *  - Fallito: entro `failWindow` sedute dal trigger il prezzo chiude sotto il minimo della
- *    zona blu meno un'escursione media giornaliera: si torna in zona blu, con regole più severe.
- *  - Cooldown: per `cooldown` sedute dal trigger nessun nuovo segnale; una nuova zona blu
- *    richiede prima che la breadth torni sopra max(`resetFloor`, livello + `resetAbove`).
+ *  - Fallito: il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera
+ *    entro `failWindow` sedute dal trigger, oppure più tardi, finché la breadth non è tornata al
+ *    livello di riarmo, con la breadth di nuovo sotto il livello blu: si torna in zona blu, con
+ *    regole più severe. Senza il controllo tardivo, nei mercati orso lunghi un rimbalzo fallito
+ *    nasconderebbe le capitolazioni successive (ottobre 2008 – marzo 2009, fine 2002).
+ *  - Cooldown: dopo le prime `failWindow` sedute dal trigger, fino a `cooldown` sedute nessun nuovo
+ *    segnale; una nuova zona blu richiede prima che la breadth torni sopra max(`resetFloor`,
+ *    livello + `resetAbove`).
+ * La macchina restituisce anche, per le sedute con la breadth sotto il livello blu fuori dalla zona
+ * blu, il motivo (`off`): 'cool' dopo un trigger, 'rearm' in attesa del riarmo, 'closes' prima
+ * chiusura sotto il livello, 'dd' drawdown non abbastanza profondo.
  */
 import { drawdown, depthPercentile } from './metrics.js';
 
@@ -27,6 +34,13 @@ export const DEFAULT_PARAMS = {
 export const STATES = {
   normal: 'Normale', watch: 'Attenzione', setup: 'Zona blu', trig: 'Trigger', fail: 'Fallito', cool: 'Cooldown',
 };
+// Perché una seduta con la breadth sotto il livello blu non è in zona blu (runMachine().off)
+export const offReasons = (P = DEFAULT_PARAMS) => ({
+  cool: 'zona blu sospesa: siamo nelle sedute dopo un trigger',
+  rearm: `zona blu sospesa: dopo l'ultimo trigger la breadth non è ancora tornata sopra il livello di riarmo (almeno ${P.resetFloor}%)`,
+  closes: `prima chiusura sotto il livello: per la zona blu ne servono ${P.setupCloses}`,
+  dd: `drawdown non abbastanza profondo: per la zona blu serve oltre il ${P.ddSetup}° percentile`,
+});
 export const SECTOR_KEYS = ['XLK', 'XLC', 'XLY', 'XLP', 'XLE', 'XLF', 'XLV', 'XLI', 'XLB', 'XLRE', 'XLU'];
 
 // Serie run-length [[inizio, valore], ...] → array di lunghezza n
@@ -90,14 +104,14 @@ const minOver = (a, t, w) => { let m = Infinity; for (let i = Math.max(0, t - w 
  * @param {{pct200: number[], pct50: number[], pct20: number[], n: number[]}} br serie di breadth (breadthSeries)
  * @param {number} L livello blu
  * @param {Partial<typeof DEFAULT_PARAMS>} [params]
- * @returns {{days: (string|null)[], events: {t: number, code: string, text: string, setup?: object}[], setups: object[],
+ * @returns {{days: (string|null)[], off: (string|null)[], events: {t: number, code: string, text: string, setup?: object}[], setups: object[],
  *           below: number, armed: boolean, reset: number}}  below, armed e reset valgono all'ultima seduta calcolata:
  *           chiusure consecutive ≤ livello blu, riarmo avvenuto, livello di riarmo
  */
 export function runMachine(px, br, L, params = {}) {
   const P = { ...DEFAULT_PARAMS, ...params };
   const { close: c, dd, dp } = px, H = br.pct200;
-  const n = c.length, days = new Array(n).fill(null), events = [], setups = [];
+  const n = c.length, days = new Array(n).fill(null), off = new Array(n).fill(null), events = [], setups = [];
   let st = 'normal', armed = true, setup = null, trig = null, below = 0, lastReset = Math.max(P.resetFloor, L + P.resetAbove);
   const f1 = (v) => (v < 0 && v.toFixed(1) !== '-0.0' ? '−' : '') + Math.abs(v).toFixed(1).replace('.', ',');
   for (let t = 0; t < n; t++) {
@@ -110,14 +124,18 @@ export function runMachine(px, br, L, params = {}) {
     below = b <= L ? below + 1 : 0;
     if (!armed && b >= reset) armed = true;
 
-    if (st === 'trig' || st === 'cool') {
-      const since = t - trig.t;
-      if (since <= P.failWindow && c[t] < setup.pmin - avgRange(c, t)) {
+    // segnale fallito: prezzo sotto il minimo della zona blu dopo il trigger, finché non c'è il riarmo;
+    // passate le prime `failWindow` sedute serve anche la breadth di nuovo sotto il livello blu
+    if (trig && (st === 'trig' || st === 'cool' || !armed)) {
+      if (c[t] < setup.pmin - avgRange(c, t) && (t - trig.t <= P.failWindow || b <= L)) {
         events.push({ t, code: 'fail', text: 'il prezzo chiude sotto il minimo della zona blu: segnale fallito, si torna in zona blu con regole più severe', setup });
         setup.fails++; setup.trig = null; setup.strict = true; trig = null; st = 'setup';
         days[t] = 'fail';
         continue;
       }
+    }
+    if (st === 'trig' || st === 'cool') {
+      const since = t - trig.t;
       if (since >= P.cooldown) st = 'normal';
       else if (since > P.failWindow) st = 'cool';
     }
@@ -152,8 +170,10 @@ export function runMachine(px, br, L, params = {}) {
       }
     }
     days[t] = st;
+    // breadth sotto il livello blu ma fuori dalla zona blu: perché
+    if (b <= L && st !== 'setup') off[t] = st === 'trig' || st === 'cool' ? 'cool' : !armed ? 'rearm' : below < P.setupCloses ? 'closes' : 'dd';
   }
-  return { days, events, setups, below, armed, reset: lastReset };
+  return { days, off, events, setups, below, armed, reset: lastReset };
 }
 
 // Rendimento % da t a t+k sedute (null se il futuro non è ancora disponibile)

@@ -430,6 +430,8 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .ts .brfill { fill: var(--blue); opacity: 0.55; }
 .ts .blue { stroke: var(--blue); stroke-width: 1.5; }
 .ts .band { fill: var(--blue); opacity: 0.14; }
+.ts .band-off { fill: var(--blue); opacity: 0.08; }
+.tip .note-row { display: block; max-width: 230px; white-space: normal; color: var(--ink-2); margin-top: 4px; font-size: 11px; line-height: 1.35; }
 .ts .zero { stroke: var(--chart-base); }
 .ts .trigmark { fill: var(--q-lead); stroke: var(--bg); stroke-width: 1; }
 .ts .xhair { stroke: var(--amber); stroke-width: 1; }

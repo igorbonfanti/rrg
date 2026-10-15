@@ -3,7 +3,8 @@
  *   1. prezzo dell'ETF (scala logaritmica oltre i 4 anni) con media 200 sedute e i trigger;
  *   2. drawdown dal massimo a 52 settimane;
  *   3. % di titoli sopra la media 200 (e 50, più chiara) con il livello blu.
- * Le bande blu verticali sono i periodi in zona blu calcolati dalla macchina a stati.
+ * Le bande blu verticali sono i periodi in zona blu calcolati dalla macchina a stati; quelle più chiare
+ * le sedute con la breadth sotto il livello blu fuori dalla zona blu (il motivo è nel tooltip).
  */
 import { fmt, sgn, dIT, placeTip } from './format.js';
 
@@ -38,7 +39,9 @@ function sma200(c) {
 /**
  * @param {SVGSVGElement} svg
  * @param {{dates: string[], close: number[], dd: number[], b200: number[], b50: number[], days: (string|null)[], triggers: number[],
- *          i0: number, sym: string, blue: number, tipEl: HTMLElement, wrapEl: HTMLElement, width?: number, ddNote?: string}} p
+ *          i0: number, sym: string, blue: number, tipEl: HTMLElement, wrapEl: HTMLElement, width?: number, ddNote?: string,
+ *          off?: (string|null)[], offText?: Record<string, string>}} p
+ *   off: motivo per le sedute sotto il livello blu fuori dalla zona blu (runMachine().off), offText: testo di ogni motivo
  *   ddNote: nota del pannello del drawdown sugli schermi larghi (default «CON DIVIDENDI»; per gli indici «SOLO PREZZO»)
  */
 export function drawSector(svg, p) {
@@ -46,6 +49,7 @@ export function drawSector(svg, p) {
   const ma = sma200(p.close);
   const dates = p.dates.slice(i0), n = dates.length;
   const c = p.close.slice(i0), m = ma.slice(i0), dd = p.dd.slice(i0), b = p.b200.slice(i0), b50 = p.b50.slice(i0), days = p.days.slice(i0);
+  const off = p.off ? p.off.slice(i0) : [];
   const W = p.width || 940, L = 8, R = 60, GAP = 26, PW = W - L - R;
   const narrow = PW < 440; // telefono: titoli e note più corti per non sovrapporsi
   const panes = [
@@ -81,17 +85,21 @@ export function drawSector(svg, p) {
   P2.lo = 0; P2.hi = 100; P2.ticks = [0, 25, 50, 75, 100];
   for (const q of panes) if (!q.sy) q.sy = (v) => q.y1 - ((v - q.lo) / (q.hi - q.lo)) * q.h;
 
-  // periodi in zona blu (stati setup/fallito)
-  let st = null;
-  for (let i = 0; i <= n; i++) {
-    const inZone = i < n && (days[i] === 'setup' || days[i] === 'fail');
-    if (inZone && st == null) st = i;
-    if (!inZone && st != null) {
-      const x0 = sx(st) - 1, x1 = sx(i - 1) + 1;
-      for (const q of panes) el('rect', { x: x0, y: q.y0, width: Math.max(2, x1 - x0), height: q.h, class: 'band' }, svg);
-      st = null;
+  // periodi in zona blu (stati setup/fallito) e, più chiari, sotto il livello blu fuori dalla zona blu
+  const bands = (test, cls) => {
+    let st = null;
+    for (let i = 0; i <= n; i++) {
+      const inZone = i < n && test(i);
+      if (inZone && st == null) st = i;
+      if (!inZone && st != null) {
+        const x0 = sx(st) - 1, x1 = sx(i - 1) + 1;
+        for (const q of panes) el('rect', { x: x0, y: q.y0, width: Math.max(2, x1 - x0), height: q.h, class: cls }, svg);
+        st = null;
+      }
     }
-  }
+  };
+  bands((i) => off[i] != null, 'band-off');
+  bands((i) => days[i] === 'setup' || days[i] === 'fail', 'band');
 
   const lastVal = { px: c[n - 1], dd: dd[n - 1], br: b[n - 1] };
   for (const q of panes) {
@@ -163,7 +171,8 @@ export function drawSector(svg, p) {
     tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${sym}${days[i] ? ' · ' + STATE[days[i]] : ''}</span></div>
       <div class="row"><span>Prezzo</span><b>${fmt(c[i], 2)}</b></div><div class="row"><span>Media 200</span><b>${fmt(m[i], 2)}</b></div>
       <div class="row"><span>Drawdown 52s</span><b>${sgn(dd[i])}%</b></div>
-      <div class="row"><span>Sopra media 200</span><b>${b[i] == null ? '—' : fmt(b[i]) + '%'}</b></div><div class="row"><span>Sopra media 50</span><b>${b50[i] == null ? '—' : fmt(b50[i]) + '%'}</b></div>`;
+      <div class="row"><span>Sopra media 200</span><b>${b[i] == null ? '—' : fmt(b[i]) + '%'}</b></div><div class="row"><span>Sopra media 50</span><b>${b50[i] == null ? '—' : fmt(b50[i]) + '%'}</b></div>` +
+      (off[i] && p.offText ? `<div class="row note-row">${p.offText[off[i]]}</div>` : '');
     placeTip(tipEl, wrapEl, e, 12);
   });
   hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
