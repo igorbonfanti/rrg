@@ -206,3 +206,10 @@ Il rapporto va in `ricerca/indici/` sul ramo di sviluppo.
 3. **Russell 2000.** Lo teniamo con la storia breve (affidabile solo dal 2023-24, poi cresce ogni sera)? Oppure aggiungiamo anche l'S&P SmallCap 600, che ha la composizione su Wikipedia (non ancora provata)?
 4. **RRG.** Solo ETF in euro con benchmark ACWI, oppure anche il gruppo in dollari?
 5. **Alert.** Va bene un mese di solo registro prima dell'invio su Telegram?
+
+## Stato e cose da fare più avanti (aggiornato il 15/10/2026)
+
+- F0, F1 e F2 fatte. Livelli confermati dall'utente: quelli di Rea, più 9% per lo STOXX 600 e 12% per il FTSE 100 (3° percentile).
+- Grafico come quello dei settori: bande blu per la zona blu e triangoli verdi per i trigger. Il prezzo non si colora per lo stato «attenzione».
+- **Da studiare più avanti, su richiesta dell'utente:** un filtro contro i rimbalzi nei mercati orso lunghi. Nel 2001-2002 e nella prima metà del 2008, 19 trigger hanno perso in media il 23% in un anno. Va studiato con lo stesso protocollo usato per i settori: regole decise prima, poi verifica.
+- Ancora aperti: F3 (gruppo «Indici» nella Rotazione: solo euro o anche dollari), F4 (indici di fase 2, Russell 2000 compreso), F5 (alert Telegram per gli indici, dopo un mese di prova).

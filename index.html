@@ -68,6 +68,7 @@
     <button type="button" role="tab" id="tab-btm" data-view="btm" aria-controls="v-btm" aria-selected="false" tabindex="-1">3 Bottom Map</button>
     <button type="button" role="tab" id="tab-sec" data-view="sec" aria-controls="v-sec" aria-selected="false" tabindex="-1">4 Settore</button>
     <button type="button" role="tab" id="tab-alr" data-view="alr" aria-controls="v-alr" aria-selected="false" tabindex="-1">5 Alert</button>
+    <button type="button" role="tab" id="tab-idx" data-view="idx" aria-controls="v-idx" aria-selected="false" tabindex="-1">6 Indici</button>
   </div>
   </nav>
 
@@ -400,10 +401,104 @@
     </div>
   </section>
 
+  <!-- 6 INDICI -->
+  <section class="view" id="v-idx" role="tabpanel" aria-labelledby="tab-idx" hidden>
+    <p class="note loading" id="ixLoading" hidden>Caricamento dei dati degli indici…</p>
+    <div id="ixBody" hidden>
+    <div class="kpis" id="ixKpis"></div>
+    <div class="panel">
+      <div class="ph"><h2>Indici · stato dei bottom</h2><span class="meta" id="ixMeta"></span></div>
+      <div class="tscroll"><table class="t" id="ixTable"></table></div>
+      <div class="legend">
+        <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
+        <span><span class="kb" style="background:var(--blue);width:2px"></span>livello blu dell'indice</span>
+        <span><span class="kb" style="background:var(--bar-mark);width:2px"></span>un mese fa</span>
+        <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia</span>
+        <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
+      </div>
+      <p class="note pb">Stessa analisi dei settori sugli indici: quanti titoli dell'indice stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown dell'indice (solo prezzo, valuta locale). «Storia» dice come è ricostruito il passato: con la composizione di ogni data, o con i membri di oggi.</p>
+    </div>
+    <div class="grid-2" style="margin-top:12px">
+      <div class="panel">
+        <div class="ph"><h2>Bottom Map degli indici</h2><span class="meta" id="ixMapMeta"></span></div>
+        <div class="chart-wrap" id="ixMapWrap">
+          <svg class="rrg" id="ixMap" role="img" aria-label="Bottom Map: drawdown e breadth degli indici rispetto al livello blu"></svg>
+          <div class="tip" id="ixMapTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--blue)"></span>zona blu: breadth sotto il livello e drawdown profondo</span>
+          <span><span class="kb" style="background:var(--q-weak)"></span>attenzione</span>
+          <span class="muted">coda = ultime 8 settimane · clic per il dettaglio</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="dist" id="ixDist"></div>
+        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nello SMI (20 titoli) uno solo sposta la breadth di 5 punti, nello STOXX 600 di meno di 0,2.</p>
+      </div>
+    </div>
+    <div class="panel" id="ixDetail" style="margin:12px 0">
+      <div class="controls">
+        <div class="chips" id="ixChips"></div>
+        <span class="ctl push">Periodo
+          <span class="seg" id="ixRange" role="group" aria-label="Periodo">
+            <button type="button" data-range="3A" aria-pressed="true">3A</button>
+            <button type="button" data-range="10A" aria-pressed="false">10A</button>
+            <button type="button" data-range="MAX" aria-pressed="false">MAX</button>
+          </span></span>
+      </div>
+    </div>
+    <div class="grid-side">
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2 id="ixTitle"></h2><span id="ixBadge"></span></div>
+          <div class="chart-wrap" id="ixTsWrap">
+            <svg class="ts" id="ixTs" role="img" aria-label="Prezzo, drawdown e breadth dell'indice"></svg>
+            <div class="tip" id="ixTsTip" hidden></div>
+          </div>
+          <div class="legend">
+            <span><span class="kl" style="background:var(--ink)"></span>prezzo</span>
+            <span><span class="kl" style="background:var(--amber)"></span>media 200</span>
+            <span><span class="kl" style="background:var(--down)"></span>drawdown</span>
+            <span><span class="kl" style="background:var(--ink-2)"></span>% sopra media 200</span>
+            <span><span class="kl" style="background:var(--key-br50)"></span>% sopra media 50</span>
+            <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.4"></span>zona blu</span>
+            <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Episodi in zona blu</h2><span class="meta" id="ixEpiMeta"></span></div>
+          <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu dell'indice"><table class="t" id="ixEpiTable"></table></div>
+          <p class="note pb">Rendimenti dell'indice (solo prezzo, valuta locale) dall'ingresso in zona blu e dal trigger. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.</p>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Livello blu</h2><span class="meta">% titoli sopra media 200</span></div>
+          <div class="pb blue-box">
+            <div class="blue-row">
+              <span class="stepper"><button type="button" id="ixBlueMinus" aria-label="Abbassa il livello blu dell'indice">−</button><output id="ixBlueVal"></output><button type="button" id="ixBluePlus" aria-label="Alza il livello blu dell'indice">+</button></span>
+              <button type="button" class="mini" id="ixBlueReset" hidden>Ripristina</button>
+            </div>
+            <p class="note" id="ixBlueSrc"></p>
+            <p class="note" id="ixBlueInfo"></p>
+            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Situazione</h2></div>
+          <div class="pb"><dl class="facts" id="ixFacts"></dl><p class="note" id="ixQuality"></p><div class="tvlinks" id="ixLinks"></div></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
   </main>
 
   <footer class="statusline">
-    <span id="srcLine">Dati di fine giornata: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · livelli blu di default dalla tabella «200 LEVEL SETTORI» di quant-rea</span>
+    <span id="srcLine">Dati di fine giornata: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · livelli blu di default dalla tabella «200 LEVEL SETTORI» di quant-rea · indici: livelli dai grafici di Massimo Rea</span>
     <span class="discl">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento. I rendimenti passati non indicano quelli futuri.</span>
     <span id="genLine"></span>
   </footer>
@@ -420,6 +515,7 @@
         <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
         <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati.</li>
         <li><b>5 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
+        <li><b>6 Indici</b>: la stessa analisi su S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e SMI: tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea (per STOXX 600 e FTSE 100 il 3° percentile della storia).</li>
       </ul>
       <h3>Stati dei settori</h3>
       <ul>
@@ -451,7 +547,7 @@
         <dt>Tema</dt><dd>l'interruttore Chiaro in alto passa al fondo bianco, con le stesse regole di colore; la scelta resta salvata nel browser e vale anche per le altre app del sito.</dd>
       </dl>
       <h3>Comandi e tasti</h3>
-      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, ALRT, HELP; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>5</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra.</p>
+      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, ALRT, IDX, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>6</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra.</p>
       <label class="kbopt"><input type="checkbox" id="kbToggle" checked /> Scorciatoie da un tasto attive (toglile se usi un lettore di schermo o la dettatura)</label>
       <p class="note">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri. I livelli blu di default vengono dalla tabella «200 LEVEL SETTORI» di quant-rea; le regole di zona blu, trigger e cooldown sono di questa app. "Relative Rotation Graphs" è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente.</p>
     </div>

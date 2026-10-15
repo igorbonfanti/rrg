@@ -1,6 +1,7 @@
-/* app.js — stato, viste (Monitor, RRG, Bottom Map, Settore, Alert), barra comandi e scorciatoie. */
+/* app.js — stato, viste (Monitor, RRG, Bottom Map, Settore, Alert, Indici), barra comandi e scorciatoie. */
 import { build, stats, CENTER } from './engine.js';
 import { createBottom } from './bottom.js';
+import { createIndices } from './indices.js';
 import { priceMetrics, priceDrawdown } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
@@ -9,7 +10,7 @@ import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
-const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr'];
+const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx'];
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // La GitHub Action pubblica i dati di fine giornata alle 00:40 italiane (22:40 UTC), con due corse
 // di recupero: prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
@@ -45,12 +46,12 @@ const getJSON = (url, optional) => fetch(url).then((r) => {
 Promise.all([
   getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
   getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('data/prices_global.json', true),
-  getJSON('data/prices_macro.json', true),
-]).then(([prices, sectors, breadth, config, latest, alertLog, global, macro]) => {
+  getJSON('data/prices_macro.json', true), getJSON('config/indices.json', true),
+]).then(([prices, sectors, breadth, config, latest, alertLog, global, macro, indices]) => {
   state.data = prices;
   state.global = global ? addPortfolios(global) : null;
   state.macro = macro;
-  state.extra = { sectors, breadth, config, latest, alertLog };
+  state.extra = { sectors, breadth, config, latest, alertLog, indices };
   init();
 }).catch((e) => {
   $('v-mon').innerHTML = `<div class="panel"><div class="pb"><p class="note">Impossibile caricare i dati (${esc(e.message)}). In locale esegui gli script in <span class="mono">scripts/</span> e servi la cartella con un server statico.</p></div></div>`;
@@ -165,11 +166,15 @@ function init() {
     rotation: sectorRotation, rotationNote: () => `vs SPY, settimanale, ${formulaText()} (la formula si sceglie nella pagina Rotazione)`,
     setView: (v) => setView(v), openRRG: focusSymbol,
   });
+  // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
+  state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json') }) : null;
+  if (!state.indices) $('tab-idx').hidden = true;
   renderHeader();
   $('loadingNote').hidden = true;
   $('intro').hidden = !!store.get('introSeen', false);
   bind();
   state.bottom.bind();
+  if (state.indices) state.indices.bind();
   syncControls();
   setPlaceholder();
   recompute(true, false);
@@ -258,6 +263,7 @@ function renderAll() {
   else if (state.view === 'btm') b.renderMap();
   else if (state.view === 'sec') b.renderSector();
   else if (state.view === 'alr') b.renderAlerts();
+  else if (state.view === 'idx' && state.indices) state.indices.render();
 }
 
 // ---------- tabella prezzi dell'universo (vista RRG, modalità "Prezzi") ----------
@@ -812,7 +818,7 @@ function bind() {
     $('cmd').value = '';
     // un nuovo comando toglie l'avviso di quello non trovato
     clearTimeout(cmdErrTimer); $('cmdForm').classList.remove('err'); setPlaceholder();
-    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr' };
+    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }
@@ -837,6 +843,8 @@ function bind() {
       focusSymbol(hit.sym);
       return;
     }
+    // un indice della pagina Indici (NDX, N225, SMI…), se non è già un ticker della rotazione
+    if (state.indices && state.indices.isIndex(v)) { state.indices.open(v); setView('idx'); return; }
     $('cmd').placeholder = narrow() ? `"${v}" non trovato · prova HELP` : `"${v}" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP`;
     $('cmdForm').classList.add('err');
     clearTimeout(cmdErrTimer);
