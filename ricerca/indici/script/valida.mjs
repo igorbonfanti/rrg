@@ -1,24 +1,16 @@
 // Validazione F1: breadth degli indici contro i livelli di Rea, regola del 3° percentile,
 // macchina a stati dei settori (js/signals.js, parametri di default) ed episodi con i rendimenti.
-// uso: node ricerca/indici/script/valida.mjs BREADTH_SPX.json GSPC_CACHE.json OUT.json
+// uso: node ricerca/indici/script/valida.mjs OUT.json
 // LEVELS='{"SXXP":10}' prova livelli diversi da quelli di config/indices.json
 import { readFileSync, writeFileSync } from 'node:fs';
-import { expandRLE, priceSeries, runMachine, forward, worstWithin } from '../../../js/signals.js';
+import { priceSeries, runMachine, forward, worstWithin } from '../../../js/signals.js';
+import { indexSeries } from '../../../js/indexdata.js';
 
-const [spxFile, gspcFile, outFile] = process.argv.slice(2);
+const [outFile] = process.argv.slice(2);
 const root = new URL('../../../', import.meta.url);
 const read = (p) => JSON.parse(readFileSync(new URL(p, root), 'utf8'));
 const cfg = read('config/indices.json').indices;
-const IB = read('data/index_breadth.json').series;
-const IP = read('data/indices.json').series;
-
-// SPX: serie esistente di breadth.json e ^GSPC dalla cache dei prezzi
-const sb = JSON.parse(readFileSync(spxFile, 'utf8'));
-const g = JSON.parse(readFileSync(gspcFile, 'utf8'));
-IB.SPX = { dates: sb.dates, ...sb.series.SPX };
-const g0 = g.dates.findIndex((d) => d >= '2000-01-01');
-IP.SPX = { dates: g.dates.slice(g0), close: g.close.slice(g0) };
-
+const IX = read('data/indices.json').series;
 const WINDOWS = [
   ['2002', '2002-06-01', '2003-03-31'], ['2008-09', '2008-09-01', '2009-04-30'], ['2011', '2011-07-15', '2011-12-31'],
   ['2015-16', '2015-08-01', '2016-03-31'], ['2018', '2018-10-01', '2019-01-31'], ['2020', '2020-02-20', '2020-04-30'],
@@ -29,19 +21,9 @@ const r1 = (v) => (v == null ? null : Math.round(v * 10) / 10);
 
 const out = {};
 for (const k of Object.keys(cfg)) {
-  const B = IB[k], P = IP[k];
-  const nb = B.dates.length;
-  const n = expandRLE(B.n, nb), mem = expandRLE(B.members, nb);
-  // serie allineate al calendario del prezzo (dal 2000); breadth nulla prima del suo inizio
-  const pos = new Map(P.dates.map((d, i) => [d, i]));
-  const L = P.dates.length;
-  const br = { pct200: Array(L).fill(null), pct50: Array(L).fill(null), pct20: Array(L).fill(null), n: Array(L).fill(null), cov: Array(L).fill(null) };
-  for (let i = 0; i < nb; i++) {
-    const j = pos.get(B.dates[i]);
-    if (j == null || !n[i]) continue;
-    br.n[j] = n[i]; br.cov[j] = n[i] / mem[i];
-    br.pct200[j] = (100 * B.a200[i]) / n[i]; br.pct50[j] = (100 * B.a50[i]) / n[i]; br.pct20[j] = (100 * B.a20[i]) / n[i];
-  }
+  const X = indexSeries(IX[k]);
+  const P = { dates: X.dates, close: X.close }, L = X.dates.length;
+  const br = { pct200: X.pct200, pct50: X.pct50, pct20: X.pct20, n: X.n, cov: X.n.map((v, i) => (v == null ? null : v / X.members[i])) };
   const px = priceSeries(P.close);
   const p3 = pct(br.pct200, 0.03);
   const override = JSON.parse(process.env.LEVELS || '{}');
@@ -67,7 +49,7 @@ for (const k of Object.keys(cfg)) {
   });
   out[k] = {
     name: cfg[k].name, composition: cfg[k].composition, rea: cfg[k].blue, level, p3: r1(p3), p2: r1(pct(br.pct200, 0.02)), p5: r1(pct(br.pct200, 0.05)),
-    belowPct: r1(below), sessions: vals.length, from: B.dates[0], lows, episodes: ep,
+    belowPct: r1(below), sessions: vals.length, from: X.dates[IX[k].b0], lows, episodes: ep,
     last: { date: P.dates[L - 1], b: r1(br.pct200[L - 1]), state: run.days[L - 1], dd: r1(px.dd[L - 1]), dp: px.dp[L - 1] },
     series: { dates: P.dates, close: P.close, pct200: br.pct200.map(r1), cov: br.cov.map((v) => (v == null ? null : Math.round(v * 100))), days: run.days },
   };

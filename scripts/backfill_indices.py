@@ -2,10 +2,10 @@
 """
 backfill_indices.py — ricostruzione una tantum dello storico della breadth degli indici (pagina Indici).
 
-Scrive:
-  data/index_breadth.json  % di titoli sopra la media a 20/50/200 sedute per ogni indice di
-                           config/indices.json (tranne SPX, che sta già in data/breadth.json)
-  data/indices.json        chiusure degli indici (solo prezzo, valuta locale) dal 2000
+Scrive data/indices.json (formato in js/indexdata.js): per ogni indice di config/indices.json le
+chiusure dal 2000 (solo prezzo, valuta locale) e i conteggi dei titoli sopra la media a 20/50/200
+sedute. L'S&P 500 riusa la serie SPX di data/breadth.json (settori). Poi lo aggiorna ogni sera
+scripts/fetch_indices.js.
 
 Metodo, lo stesso di backfill_breadth.py (settori):
   - chiusura rettificata per gli split ma non per i dividendi (campo "close" di Yahoo);
@@ -25,9 +25,6 @@ Uso (fuori dalla GitHub Action, come backfill_breadth.py):
   python3 scripts/backfill_indices.py prices --cache DIR        scarica le serie da Yahoo (dal 1990)
   python3 scripts/backfill_indices.py build --cache DIR [--asof DATE]
 
-FORMAT di index_breadth.json:
-  {"series": {"NDX": {"dates": [...], "members": RLE, "n": RLE, "a20": [...], "a50": [...], "a200": [...]}, ...}}
-  RLE = [[indice_inizio, valore], ...]; a* = numero di titoli sopra la media nel giorno i.
 """
 import argparse, bisect, datetime as dt, json, os, re, sys, time, urllib.parse, urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -59,6 +56,52 @@ def rle(values):
         if not out or out[-1][1] != v:
             out.append([i, v])
     return out
+
+
+def expand(r, n):
+    out = [None] * n
+    for j, (i0, v) in enumerate(r):
+        i1 = r[j + 1][0] if j + 1 < len(r) else n
+        for i in range(i0, min(i1, n)):
+            out[i] = v
+    return out
+
+
+def encode_dates(dates):
+    """Formato di js/indexdata.js: prima data e giorni tra le sedute, un carattere in base 36 ciascuno."""
+    g = []
+    for a, b in zip(dates, dates[1:]):
+        k = (dt.date.fromisoformat(b) - dt.date.fromisoformat(a)).days
+        if not 1 <= k <= 35:
+            raise ValueError(f'intervallo di {k} giorni tra {a} e {b}')
+        g.append('0123456789abcdefghijklmnopqrstuvwxyz'[k])
+    return {'d0': dates[0], 'gaps': ''.join(g)}
+
+
+def compact(price, br):
+    """Serie di un indice nel formato di data/indices.json: breadth allineata al calendario del prezzo."""
+    dates = price['dates']
+    pos = {d: i for i, d in enumerate(dates)}
+    nb = len(br['dates'])
+    n, mem = expand(br['n'], nb), expand(br['members'], nb)
+    first = next(i for i, d in enumerate(br['dates']) if d in pos)
+    b0 = pos[br['dates'][first]]
+    L = len(dates) - b0
+    a = {key: [None] * L for key in ('members', 'n', 'a20', 'a50', 'a200')}
+    for i in range(first, nb):
+        j = pos.get(br['dates'][i])
+        if j is None:
+            continue
+        j -= b0
+        a['members'][j], a['n'][j] = mem[i], n[i]
+        for key in ('a20', 'a50', 'a200'):
+            a[key][j] = br[key][i]
+    # chiude in fondo le sedute con il prezzo ma senza breadth
+    while L and a['a200'][L - 1] is None:
+        L -= 1
+    return {'symbol': price['symbol'], **encode_dates(dates), 'close': price['close'], 'b0': b0,
+            'members': rle(a['members'][:L]), 'n': rle(a['n'][:L]),
+            'a20': a['a20'][:L], 'a50': a['a50'][:L], 'a200': a['a200'][:L]}
 
 
 # ---------- composizione ----------
@@ -294,15 +337,29 @@ def build(cache, asof=None):
         line = ' '.join(f"{y}:{100 * cov[cal.index(next(d for d in cal if d[:4] == y))]:.0f}%" for y in yrs[::3])
         print(f'{k:5} {cal[0]} → {cal[-1]} ({N}) copertura {line}' + (f'\n      esclusi: {"; ".join(dropped)}' if dropped else ''))
 
+    # S&P 500: la breadth è quella dei settori (data/breadth.json), il prezzo ^GSPC
+    bj = load(os.path.join(ROOT, 'data', 'breadth.json'))
+    sp = bj['series']['SPX']
+    nb = len(bj['dates'])
+    series['SPX'] = {'dates': bj['dates'], 'members': sp['members'], 'n': sp['n'], 'a20': sp['a20'], 'a50': sp['a50'], 'a200': sp['a200']}
+    gd, gc = px[cfg['SPX']['price']]
+    if asof:
+        m = bisect.bisect_right(gd, asof)
+        gd, gc = gd[:m], gc[:m]
+    f0 = bisect.bisect_left(gd, PRICE_FROM)
+    prices['SPX'] = {'symbol': cfg['SPX']['price'], 'dates': gd[f0:], 'close': [round(x, 2) for x in gc[f0:]]}
+
+    out = {}
+    for k in cfg:
+        out[k] = compact(prices[k], series[k])
     today = dt.date.today().isoformat()
-    method = ('close > SMA(close, N) con almeno N sedute; chiusure rettificate per split, non per dividendi; '
-              'composizione di epoca dove indicato in config/indices.json, altrimenti membri attuali; '
-              f'ultima seduta del titolo entro {STALE_DAYS} giorni')
-    save(os.path.join(ROOT, 'data', 'index_breadth.json'),
-         {'generated': today, 'asOf': max(s['dates'][-1] for s in series.values()), 'method': method,
-          'source': 'ricostruzione: scripts/backfill_indices.py (prezzi Yahoo Finance)', 'series': series})
-    save(os.path.join(ROOT, 'data', 'indices.json'),
-         {'generated': today, 'note': 'chiusure degli indici, solo prezzo, valuta locale', 'series': prices})
+    save(os.path.join(ROOT, 'data', 'indices.json'), {
+        'generated': today, 'asOf': max(p['dates'][-1] for p in prices.values()),
+        'method': ('close > SMA(close, N) con almeno N sedute; chiusure rettificate per split, non per dividendi; '
+                   'composizione di epoca dove indicato in config/indices.json, altrimenti membri attuali; '
+                   f'ultima seduta del titolo entro {STALE_DAYS} giorni. Prezzo degli indici: solo prezzo, valuta locale'),
+        'source': 'ricostruzione: scripts/backfill_indices.py (prezzi Yahoo Finance); S&P 500 da data/breadth.json',
+        'series': out})
     return report
 
 
