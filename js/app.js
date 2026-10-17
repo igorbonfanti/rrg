@@ -660,6 +660,7 @@ function step(k) {
 
 // ---------- navigazione e controlli ----------
 function setView(v, silent) {
+  const from = state.view;
   state.view = v;
   if (v !== 'rrg') stop();
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => {
@@ -670,7 +671,11 @@ function setView(v, silent) {
   for (const id of VIEWS) $('v-' + id).hidden = id !== v;
   $('filters').hidden = v !== 'rrg';
   const hash = v === 'sec' ? '#' + state.bottom.sector() : '#' + v;
-  if (!silent || location.hash !== hash) { try { history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ } }
+  // un cambio di vista (o di settore) aggiunge una voce alla cronologia, così il tasto Indietro torna alla vista di
+  // prima; all'avvio e quando l'indirizzo arriva già dal tasto Indietro si sostituisce solo la voce attuale
+  if (location.hash !== hash) {
+    try { if (!silent && from && (from !== v || v === 'sec')) history.pushState(null, '', hash); else history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ }
+  }
   renderAll();
 }
 function segPress(id, attr, value) {
