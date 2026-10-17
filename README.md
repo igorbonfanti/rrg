@@ -58,6 +58,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
 
     Contro liquidità e inflazione, serie lisce, il grafico legge soprattutto il trend assoluto; informazione in più viene dai benchmark che oscillano. Sotto il grafico il pannello **Come leggere i benchmark** spiega ogni scelta (clic su una riga per cambiarla). Gli ETF sono indicatori in dollari; per chi investe in euro l'app cita equivalenti UCITS e l'universo 1.
 - **3 Bottom Map**: ogni settore è un punto, con la coda delle ultime 8 settimane.
+  - **Data scorrevole**: con il cursore (o PLAY, una settimana alla volta fino a oggi) la mappa torna a una settimana passata dal 2005; sette scorciatoie portano ai minimi delle crisi (nov 2008, ott 2011, feb 2016, dic 2018, mar 2020, ott 2022, apr 2025). A quella data coda, colore dello stato, anello dell'avvicinamento (con la soglia calcolata sulla storia fino a lì) e distanze dal livello blu sono quelli di allora; l'asse verticale resta fisso, così il replay non salta. I livelli blu sono quelli di oggi, scelti conoscendo anche quelle crisi.
   - In orizzontale la profondità del drawdown (percentile della storia del settore), in verticale la distanza dal livello blu.
   - In basso a sinistra la zona blu.
   - Accanto, quanti punti e quanti titoli mancano al livello blu.
@@ -148,6 +149,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.8.7** (18/10/2026): Bottom Map con la data scorrevole, il replay settimana per settimana e le scorciatoie per le crisi passate.
 - **0.8.6** (18/10/2026): la storia della divergenza poteva non comparire perché il browser riusava per 10 minuti la copia vecchia del file dei titoli. I file scaricati dopo l'avvio (titoli, indici, prezzi della rotazione) ora chiedono sempre al server se sono cambiati, e «Nuova versione» riscarica anche i dati.
 - **0.8.5** (17/10/2026): vista 7, storia della divergenza grandi/piccoli del settore scelto nelle ultime 52 settimane e da quante settimane guida chi guida. `sector_members.json` ha il campo `hist` (+4 KB compressi); la pipeline lo rigenera subito se manca.
 - **0.8.4** (17/10/2026): caricamento più veloce. Il Monitor non aspetta più i prezzi degli universi globali e degli asset reali, che arrivano in sottofondo (aprendo direttamente la rotazione si aspettano, perché l'universo salvato può essere lì); script e piccoli file di configurazione si scaricano subito. Indici divisi in due file e scritti in forma compatta, senza perdita. Su un telefono simulato (6 Mbit/s, processore 4 volte più lento): Monitor da 2,0 a 1,6 s, pagina Indici da 2,7 a 1,7 s dopo il clic, byte da 1,6 a 1,2 MB.

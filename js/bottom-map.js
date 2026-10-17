@@ -26,13 +26,14 @@ const STATE_ZONE = { setup: 'setup', fail: 'setup', watch: 'watch', normal: 'nor
  * @param {{series: Record<string, {x: number, y: number}[]>, syms: string[], focus?: string|null, params: {ddSetup: number, ddWatch: number, watchBand: number},
  *          states?: Record<string, string>, size?: number, clipId?: string, unit?: string, rings?: string[]}} p  states: stato attuale
  *   di ogni settore (colora il punto finale); clipId: id del ritaglio, diverso per ogni mappa della pagina; unit: «del settore»,
- *   «dell'indice»; rings: settori con l'anello tratteggiato dell'avvicinamento al livello blu
+ *   «dell'indice»; rings: settori con l'anello tratteggiato dell'avvicinamento al livello blu; top: massimo dell'asse
+ *   verticale fisso (per le date passate e il replay, così l'asse non cambia a ogni settimana)
  */
-export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore', rings = [] }) {
+export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore', rings = [], top: fixedTop = null }) {
   const W = size || SIZE, H = Math.round(W * 0.875), M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = W - M.l - M.r, PH = H - M.t - M.b;
-  let top = 60;
-  for (const s of syms) for (const q of series[s] || []) top = Math.max(top, q.y);
+  let top = fixedTop ?? 60;
+  if (fixedTop == null) for (const s of syms) for (const q of series[s] || []) top = Math.max(top, q.y);
   const yMin = -12, yMax = Math.ceil((top + 4) / 10) * 10;
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   svg.replaceChildren();
