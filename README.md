@@ -67,7 +67,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Link al grafico dell'ETF e della serie breadth su TradingView.
 - **5 Alert**: registro dei cambi di stato dal 2005 con statistiche riassuntive, regole e stato delle notifiche Telegram.
 - **6 Indici**: la stessa analisi su 22 indici azionari; vedi «Indici» sotto.
-  - Di partenza si vedono i 9 principali (`"main": true` in `config/indices.json`: S&P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, MSCI Emerging Markets). Nel riquadro «Indici mostrati», raggruppato per area, un clic aggiunge o toglie un indice; «Principali» e «Tutti» sono le due scelte rapide. La scelta resta nel browser.
+  - Di partenza si vedono i 10 principali (`"main": true` in `config/indices.json`: S&P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, KOSPI 200, MSCI Emerging Markets). Nel riquadro «Indici mostrati», raggruppato per area, un clic aggiunge o toglie un indice; «Principali» e «Tutti» sono le due scelte rapide. La scelta resta nel browser.
   - Tabellone ordinato per stato, Bottom Map degli indici e distanza dal livello blu.
   - Dettaglio con lo stesso grafico dei settori (zone blu e trigger), livello blu regolabile nel browser, situazione, qualità della storia ed episodi con i rendimenti a 3, 6 e 12 mesi.
   - **Avvicinamento** come per i settori: anello tratteggiato sulla Bottom Map e voce nel tabellone quando la breadth è sotto il livello blu + il calo forte dell'indice in 10 sedute. Sui 22 indici: anticipo mediano 20 sedute (9 con la fascia fissa di 10 punti), 96 tocchi del livello su 134 avvisati, 47% degli avvicinamenti arriva al livello.

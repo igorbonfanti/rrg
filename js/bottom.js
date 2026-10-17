@@ -269,7 +269,7 @@ export function createBottom(ctx) {
     $('secChips').querySelectorAll('button').forEach((b) => b.onclick = () => openSector(b.dataset.sym));
     document.querySelectorAll('#rangeSeg button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('secTitle').textContent = `${s} · ${NAMES[s]}`;
-    $('secBadge').innerHTML = badge(state.code);
+    $('secBadge').innerHTML = approach(s).on ? apprBadge() : badge(state.code);
     const i0 = rangeStart(s);
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
@@ -297,6 +297,7 @@ export function createBottom(ctx) {
       ['Titoli sopra media 200', `${BR[s].above200[NOW]}/${n} · ${fmt(b)}%`],
       ['Sopra media 50', `${fmt(BR[s].pct50[NOW])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
+      ...(approach(s).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(s).A, 0)}% · ${b <= approach(s).A ? 'sotto' : `${sgn(b - approach(s).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert.']]),
       ['Drawdown da max 52s', `${sgn(PX[s].dd[NOW])}%`, DD_TIP],
       ...(px == null ? [] : [['Sul solo prezzo', `${sgn(px)}% · max ${fmt(P52[s].hi, 2)}`, `${ddpTip(P52[s], DATES[NOW], PX[s].dd[NOW])} ${DDP_TIP}`]]),
       ['Profondità storica DD', `${PX[s].dp[NOW]}° percentile`],
