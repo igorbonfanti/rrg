@@ -144,6 +144,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.7.1** (17/10/2026): il pulsante «Nuova versione» riscarica pagina, script e stili prima di ricaricare (non serve più Ctrl+F5).
 - **0.7.0** (17/10/2026): numero di versione e avviso dei file vecchi; avvicinamento al livello blu (Bottom Map, Monitor, schede di settori e indici); KOSPI 200 tra gli indici principali; vista 7 Titoli in prova (grandi contro piccoli con la scia e le frecce dell'ultima settimana, bolle dei titoli); tasto Indietro tra le viste; crediti a Massimo Rea.
 
 ## Indici
