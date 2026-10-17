@@ -66,7 +66,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - **Perché questo stato**: le condizioni della macchina a stati con ✓/✗ (`explainState` in `js/signals.js`, che usa le stesse funzioni di `runMachine`, e un test controlla che non la contraddica mai). In zona blu: la breadth da raggiungere in titoli e le quattro conferme; dopo il trigger: il prezzo sotto cui il segnale fallisce e fino a quando, riarmo e cooldown. Lo stesso riquadro c'è nella vista 6 per gli indici.
   - Livello blu regolabile (vale nel browser, con "Copia configurazione" per portarlo nel repository).
   - Titoli del settore dal più sopra al più sotto la media 200: si vede chi sta per attraversarla.
-  - Storico degli episodi con i rendimenti a 1/3/6 mesi e il peggior calo.
+  - Storico degli episodi con i rendimenti a 1/3/6 mesi e il peggior calo, e sotto una tabella **per confronto** (`signalContext` in `js/signals.js`): mediane dopo ogni trigger (anche quelli poi falliti), dall'ingresso in zona blu, dopo una seduta qualsiasi della stessa storia e, per i settori, di SPY negli stessi giorni e del settore meno SPY; quante volte positivo scritto come «5 su 6», non in percentuale. Lo stesso confronto (senza SPY) nella vista 6 per gli indici, e in sintesi nella vista 5 Alert.
   - Link al grafico dell'ETF e della serie breadth su TradingView.
 - **5 Alert**: registro dei cambi di stato dal 2005 con statistiche riassuntive, regole e stato delle notifiche Telegram.
 - **6 Indici**: la stessa analisi su 22 indici azionari; vedi «Indici» sotto.
@@ -147,6 +147,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.8.3** (17/10/2026): episodi con il termine di paragone (seduta qualsiasi, SPY negli stessi giorni, settore meno SPY) nelle viste 4, 5 e 6; conteggi «k su n» al posto delle percentuali sui pochi casi. Regole invariate: i rendimenti partono sempre dalla chiusura del giorno del segnale.
 - **0.8.2** (17/10/2026): managed futures nella rotazione 1 · Asset class. «Trend» è l'iMGP DBi Managed Futures R EUR UCITS ETF (DBMFE.PA, Euronext Parigi, non coperto dal cambio), con peso 0 nel portafoglio di riferimento: si prova con i cursori. Prima del 28/04/2025 la storia è quella del DBMF americano (stessa strategia) convertito in euro e raccordato al primo prezzo dell'ETF (`history.proxy` in `universe.json`, `spliceHistory` in `scripts/fetch_data.js`). Ricerca in `ricerca/managed-futures/` (ramo di sviluppo).
 - **0.8.1** (17/10/2026): tornano i nomi RS-Ratio e RS-Momentum nella rotazione, come prima della 0.8.0.
 - **0.8.0** (17/10/2026): «Perché questo stato» con le condizioni ✓/✗ (viste 4 e 6, settori da osservare); cosa è cambiato dall'ultima visita in cima al Monitor; Monitor a schede sul telefono e spiegazioni al tocco; assi e tabella della rotazione con «forza relativa» e «momentum relativo». Regole e numeri invariati.

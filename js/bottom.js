@@ -4,12 +4,12 @@
  * breadth.json (titoli sopra le medie), breadth_latest.json (fotografia per titolo),
  * config/thresholds.json (livelli blu e parametri), alerts.json (invii Telegram).
  */
-import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
+import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, signalContext, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
 export const NAMES = {
@@ -372,10 +372,12 @@ export function createBottom(ctx) {
       start: u.t, bmin: u.bmin, dd: u.dd, trig: u.trig ? u.trig.t : null, conf: u.trig ? u.trig.conf.join(' + ') : '', fails: u.fails,
       z63: forward(c, u.t, 63), t21: forward(c, u.trig && u.trig.t, 21), t63: forward(c, u.trig && u.trig.t, 63), t126: forward(c, u.trig && u.trig.t, 126), mae: worstWithin(c, u.trig && u.trig.t, 63),
     })).reverse();
-    const tr = eps.filter((e) => e.t63 != null);
     const first = BR[s].pct200.findIndex((v) => v != null);
-    $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}%` +
-      (tr.length ? ` · dopo il trigger +3M mediana ${sgn(median(tr.map((e) => e.t63)))}%` + (tr.length >= 5 ? `, positivi ${fmt(positive(tr.map((e) => e.t63)), 0)}% su ${tr.length} casi` : ` (${tr.length === 1 ? 'un solo caso' : `solo ${tr.length} casi`}: troppo pochi per una statistica)`) : '');
+    const nTrig = m.events.filter((e) => e.code === 'trig').length, nFail = m.events.filter((e) => e.code === 'fail').length;
+    $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''} · rendimenti a confronto sotto la tabella`;
+    // per confronto: una seduta qualsiasi della stessa storia e SPY negli stessi giorni dei trigger
+    const at = { trig: m.events.filter((e) => e.code === 'trig').map((e) => e.t), setup: m.setups.map((u) => u.t) };
+    $('epiCtx').innerHTML = contextHTML(signalContext(c, at, first, [21, 63, 126], PX.SPY.close), { h: ['+1M', '+3M', '+6M'], key: 1, since: DATES[first].slice(0, 4), bench: 'SPY', what: 'il settore' });
     if (!eps.length) { $('epiTable').innerHTML = '<tbody><tr><td class="muted">Nessuna zona blu nel periodo con questo livello.</td></tr></tbody>'; return; }
     const cell = (v) => (v == null ? '<span class="muted">—</span>' : pct(v));
     $('epiTable').innerHTML = `<thead><tr><th>Zona blu dal</th><th class="r">Breadth min</th><th class="r">DD ingresso</th><th class="r">+3M da zona blu</th><th>Trigger</th><th>Conferma</th><th class="r">+1M</th><th class="r">+3M</th><th class="r">+6M</th><th class="r">Peggior calo 3M</th></tr></thead><tbody>` +
@@ -398,15 +400,24 @@ export function createBottom(ctx) {
   }
 
   // ---------- 5 ALERT ----------
+  let anyCache = null;
   function renderAlerts() {
     const ev = [];
     for (const s of SECTOR_KEYS) for (const e of machine(s).events) ev.push({ t: e.t, s, code: e.code, text: e.text });
     ev.sort((a, b) => b.t - a.t);
-    const trig = ev.filter((e) => e.code === 'trig').map((e) => ({ r3: forward(PX[e.s].close, e.t, 63), r6: forward(PX[e.s].close, e.t, 126) }));
+    const trig = ev.filter((e) => e.code === 'trig').map((e) => ({ r3: forward(PX[e.s].close, e.t, 63), r6: forward(PX[e.s].close, e.t, 126), spy: forward(PX.SPY.close, e.t, 63) }));
     const zb = ev.filter((e) => e.code === 'setup').map((e) => forward(PX[e.s].close, e.t, 63));
+    // per confronto: tutte le sedute di tutti i settori dal 2005 (cache: non dipende dai livelli blu)
+    if (!anyCache) {
+      const a = [];
+      for (const s of SECTOR_KEYS) for (let t = BR[s].pct200.findIndex((v) => v != null); t >= 0 && t < DATES.length; t++) { const r = forward(PX[s].close, t, 63); if (r != null) a.push(r); }
+      anyCache = { med: median(a), pos: positive(a) };
+    }
+    const excess = trig.map((x) => (x.r3 == null || x.spy == null ? null : x.r3 - x.spy));
     $('alertStats').innerHTML = [
-      ['Zone blu dal 2005', ev.filter((e) => e.code === 'setup').length, `+3M dall'ingresso: mediana ${sgn(median(zb))}% · positivi ${fmt(positive(zb), 0)}%`],
-      ['Trigger dal 2005', ev.filter((e) => e.code === 'trig').length, `+3M mediana ${sgn(median(trig.map((x) => x.r3)))}% · positivi ${fmt(positive(trig.map((x) => x.r3)), 0)}% · +6M ${sgn(median(trig.map((x) => x.r6)))}%`],
+      ['Zone blu dal 2005', ev.filter((e) => e.code === 'setup').length, `+3M dall'ingresso: mediana ${sgn(median(zb))}% · positivi ${outOf(zb)}`],
+      ['Trigger dal 2005', ev.filter((e) => e.code === 'trig').length, `+3M mediana ${sgn(median(trig.map((x) => x.r3)))}% · positivi ${outOf(trig.map((x) => x.r3))} · +6M ${sgn(median(trig.map((x) => x.r6)))}%`],
+      ['Per confronto', 'seduta qualsiasi', `+3M mediana ${sgn(anyCache.med)}% · positivi ${fmt(anyCache.pos, 0)}% (tutti i settori dal 2005) · dopo i trigger SPY +3M ${sgn(median(trig.map((x) => x.spy)))}%, settore meglio di SPY ${outOf(excess)}`],
       ['Segnali falliti', ev.filter((e) => e.code === 'fail').length, 'prezzo di nuovo sotto il minimo della zona blu dopo il trigger'],
     ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
     $('alertCount').textContent = `${ev.length} cambi di stato · ultimi 60`;

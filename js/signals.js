@@ -208,6 +208,36 @@ export function runMachine(px, br, L, params = {}) {
 export function forward(close, t, k) {
   return t != null && t + k < close.length && close[t] && close[t + k] != null ? (close[t + k] / close[t] - 1) * 100 : null;
 }
+/**
+ * Termine di paragone per gli episodi: rendimenti dopo i trigger e dall'ingresso in zona blu, contro una seduta qualsiasi
+ * della stessa storia e, se c'è, contro un benchmark negli stessi giorni dei trigger. Mediane per ogni orizzonte e
+ * quante volte positivo all'orizzonte `key` (per «meno il benchmark»: quante volte meglio del benchmark).
+ * @param {(number|null)[]} close prezzi
+ * @param {{trig: number[], setup: number[]}} at sedute dei trigger e degli ingressi in zona blu
+ * @param {number} from prima seduta della storia (la breadth comincia lì)
+ * @param {number[]} horizons orizzonti in sedute, es. [21, 63, 126]
+ * @param {(number|null)[]|null} [bench] prezzi del benchmark sulle stesse date
+ * @returns {{key: string, n: number, med: (number|null)[], pos: [number, number]}[]}
+ */
+export function signalContext(close, at, from, horizons, bench = null, key = 1) {
+  const med = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
+  const row = (k, days, f) => {
+    const vals = horizons.map((h) => days.map((t) => f(t, h)));
+    const at2 = vals[Math.min(key, horizons.length - 1)].filter((x) => x != null);
+    const n = days.reduce((c, _, j) => c + (vals.some((v) => v[j] != null) ? 1 : 0), 0);
+    return { key: k, n, med: vals.map(med), pos: [at2.filter((x) => x > 0).length, at2.length] };
+  };
+  const ret = (t, h) => forward(close, t, h);
+  const all = [];
+  for (let t = Math.max(0, from); t < close.length; t++) if (close[t] != null) all.push(t);
+  const rows = [row('trig', at.trig, ret), row('setup', at.setup, ret), row('any', all, ret)];
+  if (bench) {
+    rows.push(row('bench', at.trig, (t, h) => forward(bench, t, h)));
+    rows.push(row('excess', at.trig, (t, h) => { const a = ret(t, h), b = forward(bench, t, h); return a == null || b == null ? null : a - b; }));
+  }
+  return rows;
+}
+
 // Peggior calo % entro k sedute da t
 export function worstWithin(close, t, k) {
   if (t == null) return null;

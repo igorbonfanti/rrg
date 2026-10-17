@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { expandRLE, encodeRLE, breadthSeries, priceSeries, runMachine, explainState, sessionsAfter, SECTOR_KEYS } from '../js/signals.js';
+import { expandRLE, encodeRLE, breadthSeries, priceSeries, runMachine, explainState, sessionsAfter, signalContext, SECTOR_KEYS } from '../js/signals.js';
 
 const B = JSON.parse(fs.readFileSync(new URL('../data/breadth.json', import.meta.url)));
 const S = JSON.parse(fs.readFileSync(new URL('../data/sectors.json', import.meta.url)));
@@ -111,4 +111,22 @@ test('perché questo stato: la lista non contraddice mai la macchina', () => {
   assert.ok(checked > 500);
   assert.equal(sessionsAfter('2026-10-16', 1), '2026-10-19');
   assert.equal(sessionsAfter('2026-10-16', 5), '2026-10-23');
+});
+
+test('episodi a confronto: trigger, zona blu, seduta qualsiasi e benchmark negli stessi giorni', () => {
+  // prezzo che sale dell'1% a seduta, benchmark fermo: ogni orizzonte positivo, sempre meglio del benchmark
+  const c = Array.from({ length: 300 }, (_, t) => 100 * 1.01 ** t), flat = c.map(() => 50);
+  const r = signalContext(c, { trig: [10, 100, 280], setup: [5] }, 0, [21, 63], flat);
+  const by = Object.fromEntries(r.map((x) => [x.key, x]));
+  assert.deepEqual(r.map((x) => x.key), ['trig', 'setup', 'any', 'bench', 'excess']);
+  assert.equal(by.trig.n, 2); // la seduta 280 non ha ancora un rendimento a 21 né a 63 sedute
+  assert.deepEqual(by.trig.pos, [2, 2]);
+  assert.ok(Math.abs(by.trig.med[1] - (1.01 ** 63 - 1) * 100) < 1e-9);
+  assert.equal(by.any.n, 300 - 21); // sedute con almeno un orizzonte disponibile
+  assert.deepEqual(by.any.pos, [300 - 63, 300 - 63]);
+  assert.equal(by.bench.med[0], 0);
+  assert.deepEqual(by.excess.pos, [2, 2]);
+  // senza benchmark solo le prime tre righe
+  assert.equal(signalContext(c, { trig: [], setup: [] }, 0, [21]).length, 3);
+  assert.equal(signalContext(c, { trig: [], setup: [] }, 0, [21])[0].med[0], null);
 });
