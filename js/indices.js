@@ -11,7 +11,7 @@ import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus } from './format.js';
+import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -126,7 +126,7 @@ export function createIndices(ctx) {
     }).sort((a, b) => ORDER[a.state.code] - ORDER[b.state.code] || (a.b - a.L) - (b.b - b.L));
     const DDMAX = 35;
     const quality = (k, r) => CFG[k].composition === 'epoca'
-      ? `<span class="muted" title="Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}">di epoca</span>`
+      ? `<span class="muted" title="Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}">d'epoca</span>`
       : CFG[k].limits
         ? `<span class="loc" title="${esc(`Storia dal ${S[k].dates[S[k].pct200.findIndex((v) => v != null)].slice(0, 4)} · ${CFG[k].note || ''}`)}">con limiti</span>`
         : `<span class="muted" title="Storia ricostruita con i membri di oggi: nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
@@ -243,10 +243,12 @@ export function createIndices(ctx) {
     });
     // livello blu
     $('ixBlueVal').textContent = L + '%';
+    $('ixBlueMinus').disabled = L <= 0; $('ixBluePlus').disabled = L >= 60;
     const f0 = s.pct200.findIndex((v) => v != null);
     const hist = s.pct200.slice(f0, t + 1).filter((v) => v != null);
     const n = s.n[t];
-    $('ixBlueInfo').textContent = `Il ${fmt((100 * hist.filter((v) => v <= L).length) / hist.length)}% delle sedute dal ${s.dates[f0].slice(0, 4)} è stato sotto questo livello. Con ${n} titoli, uno vale ${fmt(100 / n)} punti.`;
+    const under = fmt((100 * hist.filter((v) => v <= L).length) / hist.length);
+    $('ixBlueInfo').textContent = `${ilPct(under)} ${under}% delle sedute dal ${s.dates[f0].slice(0, 4)} è stato sotto questo livello. Con ${n} titoli, uno vale ${fmt(100 / n)} punti.`;
     $('ixBlueSrc').innerHTML = changed(k)
       ? `<span class="loc">modificato in questo browser · livello di default ${CFG[k].blue}%</span>`
       : CFG[k].blueSource === 'Rea'

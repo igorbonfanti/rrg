@@ -40,6 +40,12 @@ export function chartWidth(svg, max, min = 340) {
   return w ? Math.round(Math.max(min, Math.min(max, w * 1.15))) : max;
 }
 
+// Articolo davanti a una percentuale scritta come `s` («0,0» → Lo, «1»/«8»/«11»/«80-89» → L', altrimenti Il)
+export function ilPct(s) {
+  const n = parseInt(String(s).replace(/^−/, ''), 10);
+  return n === 0 ? 'Lo' : n === 1 || n === 8 || n === 11 || (n >= 80 && n <= 89) ? "L'" : 'Il';
+}
+
 // Riscrive i pulsanti di `box` senza perdere il focus della tastiera: torna sul pulsante con lo stesso `attr`
 export function keepFocus(box, attr, html) {
   const a = document.activeElement;

@@ -172,6 +172,12 @@ export function createTitles(ctx) {
       r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span><span class="cap-c">${sgn(p[0])}%</span> · <span class="eq-c">${sgn(p[1])}%</span> · ${pp(p[1] - p[0])}</span></div>` : '')).join('') +
       (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: le date passate tengono l\'inizio al 31/12 e spostano solo la fine.</span>' : '');
     placeTip(tip, $('titSpreadWrap'), e);
+    keepOnScreen(tip, e);
+  }
+  // se il riquadro esce dal fondo della finestra va sopra il puntatore
+  function keepOnScreen(tip, e) {
+    const r = tip.getBoundingClientRect();
+    if (r.bottom > window.innerHeight - 4) tip.style.top = Math.max(0, parseFloat(tip.style.top) - r.height - 28) + 'px';
   }
 
   // ---------- titoli del settore ----------
@@ -205,19 +211,22 @@ export function createTitles(ctx) {
     const pad = (lo, hi) => { const d = (hi - lo) * 0.06 || 1; return [lo - d, hi + d]; };
     const sx = nice(...pad(Math.min(0, quant(xs, 0.02)), Math.max(0, quant(xs, 0.98))), narrow ? 4 : 7);
     const sy = nice(...pad(Math.min(0, quant(ys, 0.02), ...ref), Math.max(0, quant(ys, 0.98), ...ref)), 6);
-    const L = 46, R = 12, T = 12, B = 34;
+    const L = 46, R = 14, T = 14, B = 36;
     const cx = (v) => Math.min(sx.hi, Math.max(sx.lo, v)), cy = (v) => Math.min(sy.hi, Math.max(sy.lo, v));
     const X = (v) => L + ((cx(v) - sx.lo) / (sx.hi - sx.lo)) * (W - L - R);
     const Y = (v) => T + ((sy.hi - cy(v)) / (sy.hi - sy.lo)) * (H - T - B);
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.innerHTML = '';
     el('rect', { class: 'pain', x: L, y: Y(0), width: Math.max(0, X(0) - L), height: Math.max(0, H - B - Y(0)) }, svg);
-    for (const v of ticks(sx)) { el('line', { class: v === 0 ? 'zero' : 'grid', x1: X(v), x2: X(v), y1: T, y2: H - B }, svg); text(svg, X(v), H - B + 14, tickLabel(v, sx.step), { 'text-anchor': 'middle' }); }
+    for (const v of ticks(sx)) {
+      el('line', { class: v === 0 ? 'zero' : 'grid', x1: X(v), x2: X(v), y1: T, y2: H - B }, svg);
+      if (v !== sx.lo) text(svg, X(v), H - B + 15, tickLabel(v, sx.step), { 'text-anchor': 'middle' }); // il primo toccherebbe l'asse y
+    }
     for (const v of ticks(sy)) { el('line', { class: v === 0 ? 'zero' : 'grid', x1: L, x2: W - R, y1: Y(v), y2: Y(v) }, svg); text(svg, L - 6, Y(v) + 4, tickLabel(v, sy.step), { 'text-anchor': 'end' }); }
     text(svg, W - R, H - 4, `${ax.label} →`, { class: 'axl', 'text-anchor': 'end' });
     text(svg, L + 4, T + 10, `↑ rendimento ${st.per}`, { class: 'axl' });
     // rendimento del settore: equal e cap
-    const yEw = Y(ref[1]), yCw = Y(ref[0]), close = Math.abs(yEw - yCw) < 12;
+    const yEw = Y(ref[1]), yCw = Y(ref[0]), close = Math.abs(yEw - yCw) < 16;
     el('line', { class: 'l-ew', x1: L, x2: W - R, y1: yEw, y2: yEw }, svg);
     el('line', { class: 'l-cw', x1: L, x2: W - R, y1: yCw, y2: yCw }, svg);
     text(svg, W - R - 2, yEw + (close && yEw >= yCw ? 12 : -4), `equal ${sgn(ref[1])}%`, { class: 't-ew', 'text-anchor': 'end' });
@@ -228,9 +237,12 @@ export function createTitles(ctx) {
     const pos = [];
     const dots = el('g', {}, svg);
     for (const s of [...list].sort((a, b) => rad(b) - rad(a))) {
-      const vx = getX(s), vy = s.r[st.per], x = X(vx), y = Y(vy), r = rad(s);
-      el('circle', { class: `dot${worst.has(s.s) ? ' bad' : ''}`, 'data-s': s.s, cx: x, cy: y, r }, dots);
+      const vx = getX(s), vy = s.r[st.per], r = rad(s);
       const dx = vx < sx.lo ? -1 : vx > sx.hi ? 1 : 0, dy = vy < sy.lo ? 1 : vy > sy.hi ? -1 : 0;
+      // fuori scala: la bolla resta tutta dentro il grafico, con lo spazio per la freccia verso il valore vero
+      const pin = (v, lo, hi, out) => (out ? Math.min(hi - r - 9, Math.max(lo + r + 9, v)) : v);
+      const x = pin(X(vx), L, W - R, dx), y = pin(Y(vy), T, H - B, dy);
+      el('circle', { class: `dot${worst.has(s.s) ? ' bad' : ''}`, 'data-s': s.s, cx: x, cy: y, r }, dots);
       if (dx || dy) { // freccia verso il valore fuori scala
         const a = Math.atan2(dy, dx), ex = x + Math.cos(a) * (r + 2), ey = y + Math.sin(a) * (r + 2);
         const p = (ang, d) => `${(ex + Math.cos(ang) * d).toFixed(1)} ${(ey + Math.sin(ang) * d).toFixed(1)}`;
@@ -238,10 +250,17 @@ export function createTitles(ctx) {
       }
       pos.push({ s, x, y, r });
     }
-    // etichette: i più in pena e i 3 più pesanti, dove non si sovrappongono
-    const labels = el('g', {}, svg), boxes = [];
-    const heavy = [...list].sort((a, b) => (b.w || 0) - (a.w || 0)).slice(0, 3);
-    for (const s of new Set([...order.slice(0, WORST), ...heavy])) {
+    // etichette: i più in pena e i 3 più pesanti, dove non si sovrappongono tra loro né ai testi del grafico
+    const labels = el('g', {}, svg), lw = (s) => s.length * 6.9 + 6;
+    // riquadri occupati {x, top, w, bottom}: un testo di 11 px sta da 11 sopra a 4 sotto la linea di base
+    const box = (x, y, w) => ({ x, top: y - 11, w, bottom: y + 4 });
+    const boxes = [
+      box(W - R - 2 - lw(`equal ${sgn(ref[1])}%`), yEw + (close && yEw >= yCw ? 12 : -4), lw(`equal ${sgn(ref[1])}%`)),
+      box(W - R - 2 - lw(`cap ${sgn(ref[0])}%`), yCw + (close && yCw > yEw ? 12 : -4), lw(`cap ${sgn(ref[0])}%`)),
+      box(L + 4, T + 10, lw(`↑ rendimento ${st.per}`)),
+    ];
+    const heavy = [...list].sort((a, b) => (b.w || 0) - (a.w || 0)).slice(0, narrow ? 2 : 3);
+    for (const s of new Set([...order.slice(0, narrow ? 6 : WORST), ...heavy])) {
       const p = pos.find((q) => q.s === s);
       if (!p) continue; // senza valore sull'asse x: solo nella lista
       const b = placeLabel(p, boxes, L, W - R, T, H - B);
@@ -254,22 +273,26 @@ export function createTitles(ctx) {
     if (st.hover) setHover(st.hover);
   }
   function placeLabel(p, boxes, x0, x1, y0, y1) {
-    const w = p.s.s.length * 7 + 4, h = 12;
-    const cands = [[p.x + p.r + 3, p.y + 4], [p.x - p.r - 3 - w, p.y + 4], [p.x - w / 2, p.y - p.r - 4], [p.x - w / 2, p.y + p.r + 12]];
-    const ok = cands.find(([x, y]) => x > x0 && x + w < x1 && y - h > y0 && y < y1 && !boxes.some((b) => x < b[0] + b[2] && x + w > b[0] && y - h < b[1] && y > b[1] - b[3]));
-    if (ok) boxes.push([ok[0], ok[1], w, h]);
+    const w = p.s.s.length * 6.9 + 6;
+    const cands = [[p.x + p.r + 3, p.y + 4], [p.x - p.r - 3 - w, p.y + 4], [p.x - w / 2, p.y - p.r - 5], [p.x - w / 2, p.y + p.r + 12]];
+    const free = ([x, y]) => x > x0 && x + w < x1 && y - 11 > y0 && y + 4 < y1 &&
+      !boxes.some((b) => x < b.x + b.w && x + w > b.x && y - 11 < b.bottom && y + 4 > b.top);
+    const ok = cands.find(free);
+    if (ok) boxes.push({ x: ok[0], top: ok[1] - 11, w, bottom: ok[1] + 4 });
     return ok;
   }
   function drawList(rows, sec) {
     $('titPainMeta').textContent = `${sec} · ${st.per}`;
     $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="Peso nell'S&amp;P 500">Peso</th></tr></thead><tbody>` +
-      rows.map((s) => `<tr data-s="${esc(s.s)}"><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
+      rows.map((s, i) => `<tr data-s="${esc(s.s)}"${i < WORST ? ' class="worst"' : ''}><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
         `<td class="num r">${pct(s.r[st.per])}</td><td class="num r">${pct(s.dd)}</td><td class="num r">${s.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(s.d200)}</td>` +
         `<td class="num r muted">${s.w == null ? '—' : fmt(s.w, 2)}</td></tr>`).join('') + '</tbody>';
     $('titPain').querySelectorAll('tbody tr').forEach((tr) => {
-      tr.onmouseenter = () => setHover(tr.dataset.s);
-      tr.onmouseleave = () => setHover(null);
+      // col mouse evidenza al passaggio; al tocco la evidenza resta finché non si tocca altro
+      tr.onpointerenter = (e) => { if (e.pointerType === 'mouse') setHover(tr.dataset.s); };
+      tr.onpointerleave = (e) => { if (e.pointerType === 'mouse') setHover(null); };
       tr.addEventListener('focusin', () => setHover(tr.dataset.s)); // dal link del ticker, con la tastiera
+      tr.addEventListener('click', (e) => { if (!e.target.closest('a')) setHover(tr.dataset.s); }); // al tocco
       tr.addEventListener('focusout', () => setHover(null));
     });
   }
@@ -298,6 +321,7 @@ export function createTitles(ctx) {
         .map(([k, v]) => `<div class="row"><span>${k}</span><span>${pct(v)}</span></div>`).join('') +
       `<div class="row"><span>peso nell'S&amp;P 500</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>`;
     placeTip(tip, $('titBubbleWrap'), e);
+    keepOnScreen(tip, e);
   }
   // titolo sotto il puntatore o più vicino (14 px di tolleranza, anche al tocco). Dentro più bolle vince l'ultima
   // disegnata, cioè la più piccola, che sta sopra: così anche le bolle piccole sopra una grande si raggiungono

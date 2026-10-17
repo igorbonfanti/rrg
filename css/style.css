@@ -628,3 +628,5 @@ svg.bub { touch-action: pan-y; }
 #v-tit .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 16px; }
 #v-tit .how b { color: var(--ink-2); }
 .ph #toTit { margin-left: auto; }
+.t.pain tr.worst td:first-child { box-shadow: inset 3px 0 0 var(--down); }
+@media (max-width: 480px) { .t.pain .nm { display: none; } }
