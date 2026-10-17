@@ -22,7 +22,7 @@ import { fetchDaily, parse, mapLimit } from './lib/yahoo.js';
 import { SOURCES, PARSERS, parseNikkei, parseExsa, parseNasdaq, parseIShares, parseB3 } from './lib/members.js';
 import { parseCSV } from './fetch_breadth.js';
 import { encodeRLE, expandRLE } from '../js/signals.js';
-import { decodeDates, encodeDates } from '../js/indexdata.js';
+import { decodeDates, encodeDates, unpackIndex, packIndex } from '../js/indexdata.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -185,14 +185,15 @@ export function countDay(members, px, d) {
 // ---------- file ----------
 // Serie dell'indice in forma estesa (date, chiusure, conteggi allineati alle date dal b0)
 export function expand(x) {
+  x = unpackIndex(x);
   const dates = decodeDates(x.d0, x.gaps), m = x.a200.length;
   return { symbol: x.symbol, dates, close: x.close.slice(), b0: x.b0, members: expandRLE(x.members, m), n: expandRLE(x.n, m), a20: x.a20.slice(), a50: x.a50.slice(), a200: x.a200.slice() };
 }
 export function pack(e) {
   let L = e.a200.length;
   while (L && e.a200[L - 1] == null) L--;
-  return { symbol: e.symbol, ...encodeDates(e.dates), close: e.close, b0: e.b0,
-    members: encodeRLE(e.members.slice(0, L)), n: encodeRLE(e.n.slice(0, L)), a20: e.a20.slice(0, L), a50: e.a50.slice(0, L), a200: e.a200.slice(0, L) };
+  return packIndex({ symbol: e.symbol, ...encodeDates(e.dates), close: e.close, b0: e.b0,
+    members: encodeRLE(e.members.slice(0, L)), n: encodeRLE(e.n.slice(0, L)), a20: e.a20.slice(0, L), a50: e.a50.slice(0, L), a200: e.a200.slice(0, L) });
 }
 // Inserisce o sostituisce le chiusure dell'indice (le date nuove vanno in ordine; i conteggi seguono)
 export function mergePrices(e, dates, close) {
@@ -219,11 +220,20 @@ export function setCounts(e, d, r) {
   return true;
 }
 
+// File della pagina: i principali ("main" in config) si scaricano subito, gli altri subito dopo
+export function splitIndices(data, cfg) {
+  const pick = (f) => Object.fromEntries(Object.entries(data.series).filter(([k]) => cfg[k] && f(!!cfg[k].main)).map(([k, x]) => [k, packIndex(x)]));
+  const { series, ...meta } = data;
+  return [{ ...meta, series: pick((m) => m) }, { generated: data.generated, asOf: data.asOf, series: pick((m) => !m) }];
+}
+
 async function main() {
   const cfg = readJSON(path.join(ROOT, 'config', 'indices.json')).indices;
-  const file = path.join(DATA, 'indices.json');
+  const file = path.join(DATA, 'indices.json'), fileMore = path.join(DATA, 'indices_more.json');
   const data = readJSON(file, null);
   if (!data) throw new Error('manca data/indices.json: esegui prima scripts/backfill_indices.py');
+  // gli indici non principali stanno in indices_more.json; se un indice è in tutti e due vale indices.json
+  data.series = { ...(readJSON(fileMore, { series: {} }).series), ...data.series };
   const today = new Date().toISOString().slice(0, 10);
   const keys = Object.keys(cfg).filter((k) => k !== 'SPX');
 
@@ -282,8 +292,10 @@ async function main() {
   });
 
   data.generated = new Date().toISOString();
-  data.asOf = Object.values(data.series).map((x) => decodeDates(x.d0, x.gaps)[x.b0 + x.a200.length - 1]).sort().at(-1);
-  writeJSON(file, data);
+  data.asOf = Object.values(data.series).map((x) => { const u = unpackIndex(x); return decodeDates(u.d0, u.gaps)[u.b0 + u.a200.length - 1]; }).sort().at(-1);
+  const [main, more] = splitIndices(data, cfg);
+  writeJSON(file, main);
+  writeJSON(fileMore, more);
   for (const [f, o] of writes) writeJSON(f, o);
   console.log(`indices.json al ${data.asOf}`);
 }

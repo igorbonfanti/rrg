@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { encodeDates, decodeDates, indexSeries } from '../js/indexdata.js';
+import { encodeDates, decodeDates, indexSeries, deltaEncode, deltaDecode, packIndex, unpackIndex } from '../js/indexdata.js';
 import { wikiColumn, cellText, PARSERS, parseNikkei, parseExsa, parseNasdaq, parseIShares, parseB3 } from '../scripts/lib/members.js';
 import { checkList, needsChart, clean, countDay, expand, pack, mergePrices, setCounts } from '../scripts/fetch_indices.js';
 import { parseCSV } from '../scripts/fetch_breadth.js';
@@ -16,8 +16,10 @@ test('date compresse: andata e ritorno', () => {
   assert.throws(() => encodeDates(['2026-01-01', '2026-03-01']));
 });
 
-test('data/indices.json: ogni indice ha prezzo e breadth coerenti', () => {
-  const cfg = read('config/indices.json').indices, data = read('data/indices.json').series;
+test('data/indices.json e indices_more.json: ogni indice ha prezzo e breadth coerenti, i principali nel primo file', () => {
+  const cfg = read('config/indices.json').indices, main = read('data/indices.json').series, more = read('data/indices_more.json').series;
+  const data = { ...more, ...main };
+  for (const k of Object.keys(cfg)) assert.ok(cfg[k].main ? main[k] : more[k], `${k} nel file giusto`);
   for (const k of Object.keys(cfg)) {
     const s = indexSeries(data[k]);
     assert.equal(s.dates.length, s.close.length, k);
@@ -27,6 +29,19 @@ test('data/indices.json: ogni indice ha prezzo e breadth coerenti', () => {
     assert.ok(b.every((v) => v >= 0 && v <= 100), k);
     assert.ok(s.n.every((n, i) => n == null || n <= s.members[i]), `${k}: quotati ≤ membri`);
   }
+});
+
+test('formato compatto: differenze senza perdita, nulls e file vecchi', () => {
+  assert.deepEqual(deltaEncode([10, 12, null, 7, 7]), [10, 2, null, 7, 0]);
+  assert.deepEqual(deltaDecode([10, 2, null, 7, 0]), [10, 12, null, 7, 7]);
+  const close = [1455.22, 1399.42, 0.07, 72516.98];
+  assert.deepEqual(deltaDecode(deltaEncode(close, 100), 100), close);
+  const x = { symbol: 'X', d0: '2026-01-02', gaps: '13', b0: 1, members: [[0, 3]], n: [[0, 3]], close: [100.5, 101.25, 99], a20: [1, null], a50: [2, 3], a200: [0, 1] };
+  const p = packIndex(x);
+  assert.equal(p.close, undefined);
+  assert.deepEqual(unpackIndex(p), x);
+  assert.equal(unpackIndex(x), x); // formato esteso: si legge così com'è
+  assert.deepEqual(indexSeries(p), indexSeries(x));
 });
 
 test('tabelle di Wikipedia: colonna dei ticker', () => {
