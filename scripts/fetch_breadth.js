@@ -76,12 +76,20 @@ export function validateMembers(rows, prev) {
   const unknown = members.filter((m) => !m.sector);
   if (unknown.length) problems.push(`settore sconosciuto per ${unknown.map((m) => m.s).join(', ')}`);
   if (new Set(members.map((m) => m.sector)).size !== 11) problems.push('non ci sono 11 settori');
+  const moved = [];
   if (prev) {
+    // i settori si confrontano sugli ingressi e le uscite; chi resta e cambia settore è una riclassificazione GICS
+    // (marzo 2023: Visa, Mastercard e altri da Tecnologia a Finanziari), accettata se riguarda pochi titoli.
+    // Confrontare i conteggi di tutta la lista la scarterebbe ogni sera per sempre, perché `prev` non cambierebbe più.
+    const old = new Map(prev.map((m) => [m.s, m.sector]));
     const count = (list) => list.reduce((a, m) => ((a[m.sector] = (a[m.sector] || 0) + 1), a), {});
-    const a = count(members), b = count(prev);
-    for (const k of Object.values(GICS)) if (Math.abs((a[k] || 0) - (b[k] || 0)) > 3) problems.push(`${k} passa da ${b[k]} a ${a[k]} membri`);
+    const now = new Set(members.map((m) => m.s));
+    const a = count(members.filter((m) => !old.has(m.s))), b = count(prev.filter((m) => !now.has(m.s)));
+    for (const k of Object.values(GICS)) if (Math.abs((a[k] || 0) - (b[k] || 0)) > 3) problems.push(`${k}: ${a[k] || 0} entrati e ${b[k] || 0} usciti`);
+    for (const m of members) if (old.has(m.s) && old.get(m.s) !== m.sector) moved.push(`${m.s} ${old.get(m.s)}→${m.sector}`);
+    if (moved.length > 40) problems.push(`${moved.length} titoli cambiano settore`);
   }
-  return { members, problems };
+  return { members, problems, moved };
 }
 
 async function loadMembers(today) {
@@ -91,11 +99,12 @@ async function loadMembers(today) {
   try {
     const r = await fetch(CONSTITUENTS_URL);
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    const { members, problems } = validateMembers(parseCSV(await r.text()), prev && prev.members);
-    if (problems.length) console.warn(`Lista costituenti scartata: ${problems.join('; ')}`);
+    const { members, problems, moved } = validateMembers(parseCSV(await r.text()), prev && prev.members);
+    if (problems.length) console.log(`::warning::Lista costituenti scartata, uso quella salvata: ${problems.join('; ')}`);
     else fresh = members;
+    if (!problems.length && moved.length) console.log(`::warning::Titoli che cambiano settore GICS: ${moved.join(', ')}`);
   } catch (e) {
-    console.warn(`Lista costituenti non disponibile (${e.message})`);
+    console.log(`::warning::Lista costituenti non disponibile (${e.message}): uso quella salvata`);
   }
   if (!fresh && !prev) throw new Error('nessuna lista dei costituenti disponibile');
   if (!fresh) return prev.members;
@@ -227,9 +236,11 @@ async function updateSectorMembers(members, prices, breadth) {
     const parsed = parseSpChanges(await r.text(), CHANGES_FROM);
     // una tabella vuota o molto più corta di quella salvata è un errore di lettura, non una novità
     if (!parsed || parsed.length < h.changes.length * 0.9) throw new Error(`tabella dei cambi sospetta (${parsed ? parsed.length : 0} righe)`);
+    if (parsed.bad.length) throw new Error(`righe non lette: ${parsed.bad.slice(0, 3).join('; ')}`);
     h.changes = parsed;
+    h.changesAsOf = breadth.asOf; // data dell'ultima lettura buona, controllata da check_fresh.js
   } catch (e) {
-    console.warn(`Cambi dell'S&P 500 non aggiornati (${e.message}): uso quelli salvati`);
+    console.log(`::warning::Cambi dell'S&P 500 non aggiornati (${e.message}): uso quelli salvati`);
   }
   h.asOf = breadth.asOf;
   writeHistory(file, h);
@@ -256,7 +267,7 @@ async function updateSectorMembers(members, prices, breadth) {
     if (found < members.length * 0.95) throw new Error(`${found} membri su ${members.length} nelle holdings`);
     qty = p.qty; ivvAsOf = p.asOf;
   } catch (e) {
-    console.warn(`Holdings IVV non disponibili (${e.message}): uso le azioni salvate`);
+    console.log(`::warning::Holdings IVV non disponibili (${e.message}): uso le azioni salvate`);
     if (prev && prev.stocks.some((x) => x.q)) { qty = Object.fromEntries(prev.stocks.filter((x) => x.q).map((x) => [x.s, x.q])); ivvAsOf = prev.weightsAsOf; }
   }
   if (!qty) throw new Error('nessun peso disponibile');
@@ -285,7 +296,7 @@ async function updateSectors(at) {
   const prev = readJSON(file, null);
   const period1 = Math.floor(Date.parse('2004-01-01T00:00:00Z') / 1000);
   const res = await mapLimit(ETFS, 2, async (t) => { try { return await fetchDaily(t, { period1 }); } catch (e) { console.warn(`  ETF ${t}: ${e.message}`); return null; } }, 150);
-  if (res.some((r) => !r)) { console.warn('ETF incompleti: sectors.json non aggiornato'); return prev; }
+  if (res.some((r) => !r)) { console.log('::warning::ETF incompleti: sectors.json non aggiornato'); return prev; }
   const asOf = res.map((r) => r.dates.at(-1)).sort()[0];
   const dates = [...new Set(res.flatMap((r) => r.dates))].filter((d) => d <= asOf).sort();
   if (prev && asOf < prev.asOf) { console.warn(`ETF al ${asOf}, più vecchi di quelli pubblicati: non aggiorno`); return prev; }

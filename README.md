@@ -144,6 +144,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.7.2** (17/10/2026): correzioni dal giro di prova. Vista 7: comando `XLK TIT`, indirizzo `#tit-XLK`, settore scelto nella cronologia, numeri della riga anche al tocco, etichette uniformi nella lista. Bottom Map: zona blu del colore della legenda nel tema chiaro, pallino intero a drawdown 0. Barra dei comandi: con i settori `SPY` resta il benchmark. Livello blu con i pulsanti spenti ai limiti, ombra sulle tabelle che scorrono di lato. Aggiornamento notturno: una riclassificazione GICS non blocca più la lista dei membri, righe di Wikipedia illeggibili scartate (tabella salvata), avvisi nel workflow quando una fonte resta ferma (`scripts/check_fresh.js`), invii Telegram falliti riprovati per 5 sedute, nessun commit se cambia solo l'ora di generazione (`scripts/keep_unchanged.js`).
 - **0.7.1** (17/10/2026): il pulsante «Nuova versione» riscarica pagina, script e stili prima di ricaricare (non serve più Ctrl+F5).
 - **0.7.0** (17/10/2026): numero di versione e avviso dei file vecchi; avvicinamento al livello blu (Bottom Map, Monitor, schede di settori e indici); KOSPI 200 tra gli indici principali; vista 7 Titoli in prova (grandi contro piccoli con la scia e le frecce dell'ultima settimana, bolle dei titoli); tasto Indietro tra le viste; crediti a Massimo Rea.
 
@@ -252,7 +253,9 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
     - Prezzi dall'endpoint spark di Yahoo (20 titoli a richiesta); chi ha sedute mancanti si riscarica dall'endpoint chart.
     - Una seduta si pubblica se almeno il 75% dei titoli quotati ha la chiusura di quel giorno; le ultime 5 si ricalcolano.
   - `scripts/backfill_indices.py`: ricostruzione una tantum dello storico degli indici (composizioni in `config/index_history.json`).
-  - `scripts/send_alerts.js` → notifiche Telegram e `data/alerts.json`.
+  - `scripts/send_alerts.js` → notifiche Telegram e `data/alerts.json`; un invio fallito si riprova per 5 sedute e fa fallire l'esito del workflow.
+  - `scripts/keep_unchanged.js` (prima del commit): un file che cambia solo per l'ora di generazione non si pubblica.
+  - `scripts/check_fresh.js` (ultimo passo): se una fonte resta ferma oltre il suo limite (lista dei costituenti 7 giorni, cambi di Wikipedia 7, holdings IVV 10, liste degli indici 14, ETF e indici 4) l'esito del workflow fallisce e GitHub manda la mail.
   - `scripts/backfill_breadth.py`: ricostruzione una tantum dello storico della breadth; istruzioni nel file.
 - Nell'intestazione dell'app un badge indica se i dati sono indietro rispetto all'ultima seduta chiusa.
 

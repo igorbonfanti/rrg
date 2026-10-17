@@ -101,13 +101,14 @@ export function createTitles(ctx) {
     const sp = (p) => (p ? p[1] - p[0] : null);
     return { k, v, cw: v[0][0], ew: v[0][1], sp: sp(v[0]), sp1m: sp(v[2]) };
   }
+  let lastPointer = 'mouse';
   const TRAIL_R = [0, 3.4, 2.6, 1.9]; // raggio dei segnaposto: 1 settimana, 1 mese, 3 mesi fa
   const TRAIL_O = [0, 0.75, 0.55, 0.4];
   function drawSpread() {
     const svg = $('titSpread'), sel = ctx.getSector();
     $('titSpreadTip').hidden = true;
     const W = chartWidth(svg, 1120, 360), narrow = W < 640;
-    const rows = SECTORS.map(rowOf);
+    const rows = SECTORS.filter((k) => D.sectors[k] && D.sectors[k][st.per][0]).map(rowOf); // settore senza titoli: fuori
     if (st.sort === 'div') rows.sort((a, b) => b.sp - a.sp);
     const top3 = new Set([...rows].sort((a, b) => Math.abs(b.sp) - Math.abs(a.sp)).slice(0, 3).map((r) => r.k));
     const all = [...rows, rowOf('SPX')];
@@ -173,7 +174,9 @@ export function createTitles(ctx) {
         const sym = flat ? '=' : d > 0 ? '▲' : '▼';
         text(g, W - 6, y + 4, narrow ? sym : `${sym} ${sgn(d)}`, { class: `dm ${flat ? '' : d > 0 ? 'b' : 'n'}`, 'text-anchor': 'end' });
       }
-      if (!ref) g.addEventListener('click', () => pick(r.k));
+      // al tocco la scelta ridisegna il grafico: il riquadro dei numeri si riapre sulla riga toccata
+      if (!ref) g.addEventListener('click', (e) => { const touch = lastPointer === 'touch'; pick(r.k); if (touch) spreadTip(e, rowOf(r.k)); });
+      g.addEventListener('pointerdown', (e) => { lastPointer = e.pointerType; });
       g.addEventListener('mousemove', (e) => spreadTip(e, r));
       g.addEventListener('mouseleave', () => { $('titSpreadTip').hidden = true; });
     });
@@ -299,10 +302,10 @@ export function createTitles(ctx) {
   }
   function drawList(rows, sec) {
     $('titPainMeta').textContent = `${sec} · ${st.per}`;
-    $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="Peso nell'S&amp;P 500">Peso</th></tr></thead><tbody>` +
+    $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max 52s</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="Peso nell'S&amp;P 500">Peso</th></tr></thead><tbody>` +
       rows.map((s, i) => `<tr data-s="${esc(s.s)}"${i < WORST ? ' class="worst"' : ''}><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
-        `<td class="num r">${pct(s.r[st.per])}</td><td class="num r">${pct(s.dd)}</td><td class="num r">${s.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(s.d200)}</td>` +
-        `<td class="num r muted">${s.w == null ? '—' : fmt(s.w, 2)}</td></tr>`).join('') + '</tbody>';
+        `<td class="num r">${pct(s.r[st.per])}</td><td class="num r">${pct(s.dd)}</td><td class="num r">${s.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">—</span>' : pct(s.d200)}</td>` +
+        `<td class="num r muted">${s.w == null ? '—' : fmt(s.w, 2) + '%'}</td></tr>`).join('') + '</tbody>';
     $('titPain').querySelectorAll('tbody tr').forEach((tr) => {
       // col mouse evidenza al passaggio; al tocco la evidenza resta finché non si tocca altro
       tr.onpointerenter = (e) => { if (e.pointerType === 'mouse') setHover(tr.dataset.s); };
@@ -333,7 +336,7 @@ export function createTitles(ctx) {
     const since = s.added ? `nell'indice dal ${dIT(s.added)}` : s.since ? `quotato dal ${dIT(s.since)}` : '';
     tip.innerHTML = `<div class="row"><b>${esc(s.s)}</b><span>${fmt(s.px, 2)} $</span></div>` +
       `<span class="note-row">${esc(s.n)} · ${esc(s.sub)}${since ? ' · ' + since : ''}</span>` +
-      [[`rendimento ${st.per}`, s.r[st.per]], ['periodo precedente', s.prev[st.per]], ['dal massimo 52 sett.', s.dd], ['dalla media 200', s.d200], ['dalla media 50', s.d50]]
+      [[`rendimento ${st.per}`, s.r[st.per]], ['periodo precedente', s.prev[st.per]], ['dal massimo 52s', s.dd], ['dalla media 200', s.d200], ['dalla media 50', s.d50]]
         .map(([k, v]) => `<div class="row"><span>${k}</span><span>${pct(v)}</span></div>`).join('') +
       `<div class="row"><span>peso nell'S&amp;P 500</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>`;
     placeTip(tip, $('titBubbleWrap'), e);

@@ -39,9 +39,15 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
   const sx = (v) => M.l + ((100 - v) / 100) * PW;
   const sy = (v) => M.t + (1 - (Math.max(yMin, Math.min(yMax, v)) - yMin) / (yMax - yMin)) * PH;
   el('rect', { x: M.l, y: M.t, width: PW, height: PH }, el('clipPath', { id: clipId }, el('defs', {}, svg)));
-  el('rect', { x: M.l, y: M.t, width: sx(P.ddWatch) - M.l, height: PH, class: 'bz-watch' }, svg);
-  el('rect', { x: sx(P.ddWatch), y: sy(P.watchBand), width: M.l + PW - sx(P.ddWatch), height: M.t + PH - sy(P.watchBand), class: 'bz-watch' }, svg);
-  el('rect', { x: M.l, y: sy(0), width: sx(P.ddSetup) - M.l, height: M.t + PH - sy(0), class: 'bz-setup' }, svg);
+  // attenzione: drawdown oltre ddWatch, oppure breadth entro watchBand dal livello; la zona blu (sotto il livello,
+  // drawdown oltre ddSetup) resta fuori, così i due colori trasparenti non si sommano
+  const R = M.l + PW, B = M.t + PH, xW = sx(P.ddWatch), xS = sx(P.ddSetup), y0 = sy(0), yW = sy(P.watchBand);
+  const rect = (x1, y1, x2, y2, c) => { if (x2 > x1 && y2 > y1) el('rect', { x: x1, y: y1, width: x2 - x1, height: y2 - y1, class: c }, svg); };
+  rect(M.l, M.t, xW, y0, 'bz-watch');
+  rect(xS, y0, xW, B, 'bz-watch'); // c'è solo se ddSetup è più profondo di ddWatch
+  rect(xW, yW, R, y0, 'bz-watch');
+  rect(Math.max(xW, xS), y0, R, B, 'bz-watch');
+  rect(M.l, y0, xS, B, 'bz-setup');
   const g = el('g', { class: 'grid' }, svg);
   for (const v of [0, 25, 50, 75, 100]) {
     el('line', { x1: sx(v), x2: sx(v), y1: M.t, y2: M.t + PH }, g);
@@ -62,6 +68,7 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
   el('text', { x: 12, y: M.t, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 12 ${M.t})` }, svg).textContent = 'BREADTH − LIVELLO BLU (punti)  →';
 
   const plot = el('g', { 'clip-path': `url(#${clipId})` }, svg);
+  const headsG = el('g', {}, svg); // punti di oggi fuori dal ritaglio: a drawdown 0 restano interi sul bordo destro
   const heads = [];
   const order = syms.filter((s) => series[s] && series[s].length);
   if (focus && order.includes(focus)) { order.splice(order.indexOf(focus), 1); order.push(focus); }
@@ -73,9 +80,9 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
       el('line', { x1: sx(pts[i - 1].x), y1: sy(pts[i - 1].y), x2: sx(pts[i].x), y2: sy(pts[i].y), class: isFocus ? `seg segz-${zoneOf(pts[i].x, pts[i].y, P)}` : 'seg', 'stroke-opacity': (0.2 + 0.6 * (i / Math.max(1, n))).toFixed(2) }, grp);
     }
     for (let i = 0; i < n; i++) el('circle', { cx: sx(pts[i].x), cy: sy(pts[i].y), r: 1.8, class: 'dot', 'fill-opacity': (0.25 + 0.6 * (i / Math.max(1, n))).toFixed(2) }, grp);
-    const q = pts[n];
-    if (rings.includes(s)) el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 12 : 10, class: 'appr-ring' }, grp);
-    el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}` }, grp);
+    const q = pts[n], hg = el('g', { class: grp.getAttribute('class') }, headsG);
+    if (rings.includes(s)) el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 12 : 10, class: 'appr-ring' }, hg);
+    el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}` }, hg);
     heads.push({ sym: s, label: s, px: sx(q.x), py: sy(q.y), dim });
   }
   placeLabels(heads, { x1: M.l + 2, y1: M.t + 2, x2: M.l + PW - 2, y2: M.t + PH - 2 });

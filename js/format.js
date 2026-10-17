@@ -45,6 +45,8 @@ export function ilPct(s) {
   const n = parseInt(String(s).replace(/^−/, ''), 10);
   return n === 0 ? 'Lo' : n === 1 || n === 8 || n === 11 || (n >= 80 && n <= 89) ? "L'" : 'Il';
 }
+// "del 40%", "dell'80%", "dello 0%" (percentile arrotondato)
+export const delPct = (v) => { const r = Math.round(v), a = ilPct(r); return `${a === 'Lo' ? 'dello ' : a === "L'" ? "dell'" : 'del '}${r}%`; };
 
 // Riscrive i pulsanti di `box` senza perdere il focus della tastiera: torna sul pulsante con lo stesso `attr`
 export function keepFocus(box, attr, html) {

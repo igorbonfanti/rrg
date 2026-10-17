@@ -9,7 +9,7 @@ import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
 export const NAMES = {
@@ -34,7 +34,6 @@ const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURICo
 // Titoli: TradingView scrive le classi di azioni con il punto (BRK.B), i dati con il trattino (BRK-B)
 const tvStock = (sym) => tvLink(sym.replace('-', '.'));
 // "del 70%" ma "dell'80%", "dell'8%", "dell'11%", "dell'1%"
-const delPct = (v) => { const r = Math.round(v); return `${r === 1 || r === 8 || r === 11 || (r >= 80 && r <= 89) ? "dell'" : 'del '}${r}%`; };
 const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
 const median = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
 const positive = (a) => { const v = a.filter((x) => x != null); return v.length ? (100 * v.filter((x) => x > 0).length) / v.length : null; };
@@ -254,9 +253,9 @@ export function createBottom(ctx) {
   }
 
   // ---------- 4 SETTORE ----------
-  function openSector(s) {
+  function openSector(s, silent) {
     st.sector = s; store.set('sector', s);
-    ctx.setView('sec');
+    ctx.setView('sec', silent);
   }
   function rangeStart(s) {
     const first = Math.max(BR[s].pct200.findIndex((v) => v != null), PX[s].dp.findIndex((v) => v != null));
@@ -278,6 +277,7 @@ export function createBottom(ctx) {
     });
     // livello blu
     $('blueVal').textContent = L + '%';
+    $('blueMinus').disabled = L <= 0; $('bluePlus').disabled = L >= 60;
     const f0 = BR[s].pct200.findIndex((v) => v != null);
     const hist = BR[s].pct200.slice(f0, NOW + 1).filter((v) => v != null);
     const under = hist.filter((v) => v <= L).length;

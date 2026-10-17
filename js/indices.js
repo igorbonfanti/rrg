@@ -11,7 +11,7 @@ import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct } from './format.js';
+import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct, delPct } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -23,7 +23,6 @@ const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURICo
 const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
 const median = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
 const positive = (a) => { const v = a.filter((x) => x != null); return v.length ? (100 * v.filter((x) => x > 0).length) / v.length : null; };
-const delPct = (v) => { const r = Math.round(v); return `${r === 1 || r === 8 || r === 11 || (r >= 80 && r <= 89) ? "dell'" : 'del '}${r}%`; };
 
 /**
  * @param {{$: (id: string) => HTMLElement, store: {get: Function, set: Function}, params: object, config: object,

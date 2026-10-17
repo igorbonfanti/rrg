@@ -42,6 +42,7 @@ jobs:
         run: node scripts/fetch_indices.js
 
       - name: Alert (zona blu, trigger, segnali falliti)
+        id: alerts
         if: steps.breadth.outcome == 'success'
         continue-on-error: true
         env:
@@ -53,6 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          node scripts/keep_unchanged.js
           git add data/
           if git diff --staged --quiet; then
             echo "Nessuna variazione nei dati."
@@ -67,8 +69,13 @@ jobs:
             git push
           fi
 
+      - name: Dati fermi da giorni
+        id: fresh
+        continue-on-error: true
+        run: node scripts/check_fresh.js
+
       - name: Esito
-        if: steps.prices.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.indices.outcome == 'failure'
+        if: steps.prices.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.indices.outcome == 'failure' || steps.alerts.outcome == 'failure' || steps.fresh.outcome == 'failure'
         run: |
-          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }})"
+          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
           exit 1

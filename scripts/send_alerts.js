@@ -46,6 +46,12 @@ export function newEvents(events, state, dates, asOf, recheck = 6) {
   return events.filter((e) => e.date <= asOf && !logged.has(key(e)) && (e.date > state.checkedThrough || e.date >= from));
 }
 
+// un invio fallito si riprova per 5 sedute, poi resta solo nel registro
+export function retryFrom(dates, asOf, sessions = 5) {
+  const upTo = dates.filter((d) => d <= asOf);
+  return upTo[Math.max(0, upTo.length - sessions)];
+}
+
 export function formatMessage(e) {
   return `<b>${LABEL[e.code]}</b> · ${e.sector} ${escHtml(NAMES[e.sector] || '')}\n${dIT(e.date)} · ${escHtml(e.text)}\n${APP_URL}#${e.sector}`;
 }
@@ -67,17 +73,23 @@ async function main() {
   const fresh = newEvents(events, state, sectors.dates, asOf);
   const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
   const sent = [];
+  let failed = 0;
+  const send = async (e) => {
+    try { await sendTelegram(token, chat, formatMessage(e)); return true; } catch (err) { console.error(`::warning::Telegram non ha ricevuto ${e.sector} ${e.code} del ${e.date}: ${err.message}`); failed++; return false; }
+  };
   if (!state) console.log(`Prima esecuzione: registro lo stato al ${asOf} senza inviare lo storico.`);
+  // invii falliti nelle sere scorse: si riprovano finché l'evento è recente
+  const retry = (state ? state.log : []).filter((e) => e.failed && e.date >= retryFrom(sectors.dates, asOf));
+  if (token && chat) for (const e of retry) if (await send(e)) { e.telegram = true; delete e.failed; console.log(`Inviato in ritardo: ${e.date} ${e.sector} ${e.code}`); }
   for (const e of fresh) {
     console.log(`${e.date} ${e.sector} ${e.code}: ${e.text}`);
-    if (token && chat) {
-      try { await sendTelegram(token, chat, formatMessage(e)); sent.push(e); } catch (err) { console.error(err.message); }
-    }
+    if (token && chat && (await send(e))) sent.push(e);
   }
   if (fresh.length && !(token && chat)) console.log('Telegram non configurato (segreti TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID): eventi solo registrati.');
-  const log = (state ? state.log : []).concat(fresh.map((e) => ({ ...e, telegram: sent.includes(e) }))).slice(-200);
+  const log = (state ? state.log : []).concat(fresh.map((e) => ({ ...e, telegram: sent.includes(e), ...(token && chat && !sent.includes(e) ? { failed: true } : {}) }))).slice(-200);
   fs.writeFileSync(file, JSON.stringify({ checkedThrough: asOf, thresholds: cfg.blue, log }, null, 1));
   console.log(`Alert: ${fresh.length} nuovi eventi (${sent.length} inviati), controllato fino al ${asOf}.`);
+  if (failed) process.exitCode = 1; // l'esito del workflow lo segnala
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
