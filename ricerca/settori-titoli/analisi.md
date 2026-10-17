@@ -1,6 +1,6 @@
 # Grandi contro piccoli e titoli del settore: analisi, dati, progetto
 
-Stato: analisi, verifica dei dati e demo fatte (17/10/2026). In attesa di conferma prima di implementare.
+Stato: implementato (17/10/2026) come vista **7 Titoli**, senza 5A/10A, asse predefinito della bubble = distanza dalla media 200, colori verde acqua / viola. Rispetto alla demo l'equal-weight usa i prezzi della data di riferimento S&P (mercoledì prima del 2° venerdì) per ribilanciare: errore medio contro RSP* da 0,8 a 0,5 punti (`script/` e test in test/capeq.test.js).
 Demo: `demo.html` (dati veri al 16/10/2026, si apre nel browser).
 
 ## Cosa si vuole

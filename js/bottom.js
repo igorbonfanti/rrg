@@ -12,7 +12,7 @@ import { nearestHead, SIZE } from './rrg-chart.js';
 import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
-const NAMES = {
+export const NAMES = {
   XLK: 'Technology', XLC: 'Communication Services', XLY: 'Consumer Discretionary', XLP: 'Consumer Staples', XLE: 'Energy',
   XLF: 'Financials', XLV: 'Health Care', XLI: 'Industrials', XLB: 'Materials', XLRE: 'Real Estate', XLU: 'Utilities',
 };
@@ -373,6 +373,9 @@ export function createBottom(ctx) {
 
   return {
     NOW, bind, renderMonitor, renderMap, renderSector, renderAlerts, openSector, sector: () => st.sector,
+    // per la vista 7 Titoli: stesso settore scelto, senza cambiare vista, e colore del suo stato
+    selectSector: (s) => { if (SECTOR_KEYS.includes(s)) { st.sector = s; store.set('sector', s); } },
+    stateCode: (s) => stateOf(s).code,
     isSector: (s) => SECTOR_KEYS.includes(s),
     asOf: DATES[NOW],
   };

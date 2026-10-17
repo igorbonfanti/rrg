@@ -68,15 +68,20 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Tabellone ordinato per stato, Bottom Map degli indici e distanza dal livello blu.
   - Dettaglio con lo stesso grafico dei settori (zone blu e trigger), livello blu regolabile nel browser, situazione, qualità della storia ed episodi con i rendimenti a 3, 6 e 12 mesi.
   - I dati (`data/indices.json`) si scaricano alla prima apertura della pagina.
+- **7 Titoli**: dentro i settori; il settore scelto è lo stesso della vista 4 (che ha un pulsante «7 Titoli →»).
+  - **Grandi contro piccoli**: per ogni settore e per l'S&P 500, rendimento cap-weighted (pallino pieno) ed equal-weight (pallino vuoto) a 1, 3, 6 mesi, da inizio anno e 12 mesi. La barra è la divergenza: verde acqua se è davanti l'equal-weight, viola se guidano i grandi; in grassetto le 3 più ampie. A destra la divergenza e come è cambiata in 1 mese. La scia (settore scelto, tutti o nessuno) mostra le due misure 1 settimana, 1 mese e 3 mesi fa. Clic su una riga per scegliere il settore.
+  - **Titoli del settore**: una bolla per titolo (area proporzionale al peso nell'S&P 500, oppure tutte uguali); in verticale il rendimento del periodo, in orizzontale la distanza dalla media 200 (predefinito), dal massimo a 52 settimane o il rendimento nel periodo precedente. Linee del settore cap ed equal; in rosso e con l'etichetta gli 8 più in pena, valori estremi fermati al bordo con una freccia.
+  - **I più in pena**: i 12 titoli con la media più bassa delle posizioni nel settore per rendimento del periodo e distanza dal massimo; ticker con il link a TradingView.
+  - I dati (`data/sector_members.json`) si scaricano alla prima apertura; periodo, scia, ordine, asse e bolle restano nel browser.
 
 **Comandi** (barra in alto, oppure `/`):
 - un ETF settoriale (es. `XLU`) apre il dettaglio;
 - un altro ticker (es. `NVDA`, anche senza borsa: `SWDA`), un nome breve (es. `ORO`, `INDIA`) o una parola del nome (es. `TESLA`) lo evidenzia nella rotazione, anche cambiando universo; se è il benchmark attuale si passa a un altro benchmark;
 - un benchmark (`SPY`, `QQQ`, `ACWI`, `PTF`) apre la rotazione contro di lui;
-- `MON`, `ROT` (o `RRG`), `BTM`, `SEC`, `ALRT`, `IDX`, `HELP` aprono le viste e la guida;
+- `MON`, `ROT` (o `RRG`), `BTM`, `SEC`, `ALRT`, `IDX`, `TIT`, `HELP` aprono le viste e la guida;
 - un indice della pagina Indici (`NDX`, `N225`, `SMI`…), se non è anche un ticker della rotazione, apre il suo dettaglio;
 - `CHIARO` o `SCURO` scelgono il tema, `TEMA` lo inverte;
-- l'indirizzo `#XLU` apre direttamente un settore, `#mon` `#rrg` `#btm` `#sec` `#alr` `#idx` una vista; funziona anche il tasto Indietro.
+- l'indirizzo `#XLU` apre direttamente un settore, `#mon` `#rrg` `#btm` `#sec` `#alr` `#idx` `#tit` una vista; funziona anche il tasto Indietro.
 
 **Tasti**: `1`–`6` viste, `←` `→` periodo, `Spazio` animazione, `Esc` toglie l'evidenza, `?` guida; con il focus sulle schede le frecce passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida. Il pulsante **CVD** mostra su/giù in blu/rosso invece che verde/rosso.
 
@@ -226,7 +231,9 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
     - `data/breadth.json`: conteggi per settore;
     - `data/breadth_latest.json`: fotografia titolo per titolo;
     - `data/sectors.json`: storia degli ETF dal 2004, rettificata per i dividendi, più `max52` per la colonna «Solo prezzo», calcolato alla seduta della breadth (`max52At`);
-    - `data/sp500_members.json`: lista dei membri con i cambi giorno per giorno.
+    - `data/sp500_members.json`: lista dei membri con i cambi giorno per giorno;
+    - `data/sp500_history.json`: tabella dei cambi con la data di efficacia (Wikipedia, «Historical components of the S&P 500», dal giugno 2024, ricaricata ogni sera) e nome e settore di chi esce;
+    - `data/sector_members.json` (vista 7 Titoli, `scripts/lib/capeq.js`): indici cap ed equal-weight di ogni settore simulati giorno per giorno con la composizione dell'epoca (equal-weight ribilanciato dopo il 3° venerdì di marzo, giugno, settembre e dicembre ai prezzi della data di riferimento, come gli indici S&P; cap-weighted con i valori di mercato delle holdings dell'ETF iShares IVV, senza il taglio dei giganti degli ETF SPDR) e i numeri di ogni titolo. Verifica del 16/10/2026: equal-weight in media a 0,5 punti dagli ETF Invesco RSP* su 3M, 6M, YTD e 1A. Se le holdings non arrivano restano i pesi della sera prima; i titoli usciti senza più prezzi (acquisiti) restano fuori e sono elencati nel file.
 
     Una seduta si pubblica solo con i prezzi di almeno il 99% dei membri; le ultime 5 sedute si ricalcolano.
   - `scripts/fetch_indices.js` aggiorna `data/indices.json` (pagina Indici; formato in `js/indexdata.js`) e le liste in `data/index_members/`. Gira dopo la breadth dei settori, in un passo che non blocca gli altri: circa 4.600 titoli in meno di 3 minuti.

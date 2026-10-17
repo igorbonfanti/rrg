@@ -69,6 +69,7 @@
     <button type="button" role="tab" id="tab-sec" data-view="sec" aria-controls="v-sec" aria-selected="false" tabindex="-1">4 Settore</button>
     <button type="button" role="tab" id="tab-alr" data-view="alr" aria-controls="v-alr" aria-selected="false" tabindex="-1">5 Alert</button>
     <button type="button" role="tab" id="tab-idx" data-view="idx" aria-controls="v-idx" aria-selected="false" tabindex="-1">6 Indici</button>
+    <button type="button" role="tab" id="tab-tit" data-view="tit" aria-controls="v-tit" aria-selected="false" tabindex="-1">7 Titoli</button>
   </div>
   </nav>
 
@@ -366,7 +367,7 @@
           <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div></div>
         </div>
         <div class="panel">
-          <div class="ph"><h2>Titoli del settore</h2><span class="meta" id="memMeta"></span></div>
+          <div class="ph"><h2>Titoli del settore</h2><span class="meta" id="memMeta"></span><button type="button" class="mini" id="toTit" title="Bubble dei titoli e confronto tra grandi e piccoli">7 Titoli →</button></div>
           <div class="tscroll members" tabindex="0" role="region" aria-label="Titoli del settore"><table class="t" id="memTable"></table></div>
         </div>
       </div>
@@ -504,6 +505,95 @@
     </div>
   </section>
 
+  <!-- 7 TITOLI -->
+  <section class="view" id="v-tit" role="tabpanel" aria-labelledby="tab-tit" hidden>
+    <p class="note loading" id="titLoading" hidden>Caricamento dei dati dei titoli…</p>
+    <div id="titBody" hidden>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="controls">
+        <div class="chips" id="titChips" role="group" aria-label="Settore"></div>
+        <span class="ctl push">Periodo
+          <span class="seg" id="titPerSeg" role="group" aria-label="Periodo">
+            <button type="button" data-per="1M" aria-pressed="false">1M</button>
+            <button type="button" data-per="3M" aria-pressed="true">3M</button>
+            <button type="button" data-per="6M" aria-pressed="false">6M</button>
+            <button type="button" data-per="YTD" aria-pressed="false">YTD</button>
+            <button type="button" data-per="1A" aria-pressed="false">1A</button>
+          </span></span>
+      </div>
+    </div>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="ph"><h2>Grandi contro piccoli · cap-weighted vs equal-weight</h2><span class="meta" id="titMeta"></span></div>
+      <div class="controls tit-ctl">
+        <span class="ctl">Scia
+          <span class="seg" id="titTrailSeg" role="group" aria-label="Scia">
+            <button type="button" data-trail="sel" aria-pressed="true" title="Scia del settore scelto e dell'S&amp;P 500">Settore scelto</button>
+            <button type="button" data-trail="all" aria-pressed="false">Tutti</button>
+            <button type="button" data-trail="off" aria-pressed="false">No</button>
+          </span></span>
+        <span class="ctl">Ordine
+          <span class="seg" id="titSortSeg" role="group" aria-label="Ordine dei settori">
+            <button type="button" data-sort="div" aria-pressed="true">Divergenza</button>
+            <button type="button" data-sort="sec" aria-pressed="false">Settore</button>
+          </span></span>
+      </div>
+      <div class="chart-wrap" id="titSpreadWrap">
+        <svg class="cq" id="titSpread" role="img" aria-label="Rendimento cap-weighted ed equal-weight di ogni settore nel periodo"></svg>
+        <div class="tip" id="titSpreadTip" hidden></div>
+      </div>
+      <div class="legend">
+        <span><span class="kd"></span>cap-weighted · pesano i grandi</span>
+        <span><span class="kd o"></span>equal-weight · ogni titolo conta uguale</span>
+        <span><span class="kl" style="background:var(--q-lead);height:4px"></span>davanti l'equal-weight · movimento largo</span>
+        <span><span class="kl" style="background:var(--q-imp);height:4px"></span>davanti il cap-weighted · guidano i grandi</span>
+        <span><span class="kl" style="background:var(--chart-trail)"></span><span class="kl kl-dash"></span>scia cap / equal: 3 mesi, 1 mese, 1 settimana fa</span>
+      </div>
+      <p class="note pb" id="titSpreadNote"></p>
+    </div>
+    <div class="grid-tit">
+      <div class="panel">
+        <div class="ph"><h2 id="titBubbleTitle"></h2><span class="meta" id="titBubbleMeta"></span></div>
+        <div class="controls tit-ctl">
+          <label class="ctl" for="titAx">Asse orizzontale <select id="titAx">
+            <option value="d200">Distanza dalla media 200</option>
+            <option value="dd">Distanza dal massimo 52 sett.</option>
+            <option value="prev">Rendimento nel periodo precedente</option>
+          </select></label>
+          <span class="ctl">Bolle
+            <span class="seg" id="titSizeSeg" role="group" aria-label="Grandezza delle bolle">
+              <button type="button" data-size="w" aria-pressed="true" title="Area proporzionale al peso nell'S&amp;P 500">Peso</button>
+              <button type="button" data-size="eq" aria-pressed="false">Uguali</button>
+            </span></span>
+        </div>
+        <div class="chart-wrap" id="titBubbleWrap">
+          <svg class="bub" id="titBubble" role="img" aria-label="Titoli del settore: rendimento del periodo e distanza"></svg>
+          <div class="tip" id="titBubbleTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kd" style="background:var(--down)"></span>i più in pena (nella lista)</span>
+          <span><span class="kd" style="background:var(--ink-3);opacity:.6"></span>altri titoli</span>
+          <span><span class="kl kl-dash" style="border-color:var(--blue-light)"></span>settore equal-weight</span>
+          <span><span class="kl kl-dot"></span>settore cap-weighted</span>
+          <span><span class="kb" style="background:var(--down);opacity:.15"></span>sotto zero su entrambi gli assi</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>I più in pena</h2><span class="meta" id="titPainMeta"></span></div>
+        <div class="tscroll" tabindex="0" role="region" aria-label="I titoli più in pena del settore"><table class="t pain" id="titPain"></table></div>
+        <p class="note pb">Ordine: media della posizione nel settore per rendimento del periodo e per distanza dal massimo a 52 settimane. Chi è in pena non è per forza a sconto. Clic sul ticker per il grafico su TradingView.</p>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:12px">
+      <div class="ph"><h2>Come si legge</h2></div>
+      <div class="pb how">
+        <p class="note"><b>Grandi contro piccoli.</b> Per ogni settore il rendimento dell'indice pesato per capitalizzazione (pallino pieno) e dello stesso settore con ogni titolo a peso uguale (pallino vuoto). La barra è la divergenza: verde acqua se vanno meglio i titoli medi (il movimento è largo), viola se guidano i grandi. In grassetto i tre settori con la divergenza più ampia. La scia dice dove erano le due misure 3 mesi, 1 mese e 1 settimana fa, sulla stessa durata: chi si è mosso per primo e in che direzione.</p>
+        <p class="note"><b>Titoli del settore.</b> Una bolla per titolo, grande quanto il suo peso nell'S&amp;P 500. In alto il rendimento del periodo; le linee tratteggiate sono il settore equal e cap-weighted. In basso a sinistra i titoli che scendono e stanno sotto la media 200 (o lontani dal massimo). Con «periodo precedente» si separano i deboli da tempo (in basso a sinistra) dai cedimenti recenti (in basso a destra). Valori estremi fermati al bordo con una freccia.</p>
+        <p class="note"><b>Dati.</b> Calcolati da noi sui costituenti: prezzi senza dividendi, pesi dalle holdings dell'ETF iShares IVV, composizione dell'indice di ogni data (tabella dei cambi di Wikipedia). L'equal-weight si ribilancia ogni trimestre come gli indici S&amp;P: in media a mezzo punto dagli ETF Invesco RSP*. Il cap-weighted non taglia il peso dei giganti come fanno gli ETF SPDR, quindi in Tecnologia, Comunicazioni e Discrezionali può scostarsi da XLK, XLC e XLY. <span id="titData"></span></p>
+      </div>
+    </div>
+    </div>
+  </section>
+
   </main>
 
   <footer class="statusline">
@@ -525,6 +615,7 @@
         <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati.</li>
         <li><b>5 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
         <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari. Di partenza si vedono i 9 principali (S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, MSCI Emerging Markets); gli altri si aggiungono o si tolgono con un clic nel riquadro «Indici mostrati», e la scelta resta nel browser. Tutti gli indici: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets e Ibovespa. Tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia. «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione.</li>
+        <li><b>7 Titoli</b>: dentro i settori. In alto «grandi contro piccoli»: per ogni settore il rendimento pesato per capitalizzazione e quello con ogni titolo a peso uguale (1, 3, 6 mesi, da inizio anno, 12 mesi), con la scia di 1 settimana, 1 mese e 3 mesi fa. Sotto, le bolle dei titoli del settore scelto e la lista dei più in pena. Il settore è lo stesso della vista 4.</li>
       </ul>
       <h3>Stati dei settori</h3>
       <ul>
@@ -556,7 +647,7 @@
         <dt>Tema</dt><dd>l'interruttore Chiaro in alto passa al fondo bianco, con le stesse regole di colore; la scelta resta salvata nel browser e vale anche per le altre app del sito.</dd>
       </dl>
       <h3>Comandi e tasti</h3>
-      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, ALRT, IDX, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>6</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra.</p>
+      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, ALRT, IDX, TIT, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>7</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra.</p>
       <label class="kbopt"><input type="checkbox" id="kbToggle" checked /> Scorciatoie da un tasto attive (toglile se usi un lettore di schermo o la dettatura)</label>
       <p class="note">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri. I livelli blu di default vengono dalla tabella «200 LEVEL SETTORI» di quant-rea; le regole di zona blu, trigger e cooldown sono di questa app. "Relative Rotation Graphs" è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente.</p>
     </div>
