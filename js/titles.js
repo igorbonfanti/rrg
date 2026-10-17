@@ -7,7 +7,7 @@
  * Dati: data/sector_members.json (scripts/lib/capeq.js), caricato alla prima apertura della vista.
  * Il settore scelto è lo stesso della vista 4 Settore.
  */
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth } from './format.js';
+import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 const PERIODS = ['1M', '3M', '6M', 'YTD', '1A'];
@@ -76,10 +76,14 @@ export function createTitles(ctx) {
   // ---------- comandi ----------
   function renderControls() {
     const s = ctx.getSector();
-    $('titChips').innerHTML = SECTORS.map((k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}" title="${esc(ctx.names[k])}">${ctx.stateCode ? `<span class="sd sd-${ctx.stateCode(k)}"></span>` : ''}${k}</button>`).join('');
+    keepFocus($('titChips'), 'data-sym', SECTORS.map((k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}" title="${esc(ctx.names[k])}">${ctx.stateCode ? `<span class="sd sd-${ctx.stateCode(k)}"></span>` : ''}${k}</button>`).join(''));
     $('titChips').querySelectorAll('button').forEach((b) => { b.onclick = () => pick(b.dataset.sym); });
     const press = (id, attr, v) => document.querySelectorAll(`#${id} button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset[attr] === v)));
     press('titPerSeg', 'per', st.per); press('titFromSeg', 'from', st.from); press('titSortSeg', 'sort', st.sort); press('titSizeSeg', 'size', st.size);
+    // «periodo precedente» a 1 anno vorrebbe 2 anni di storia: se nessun titolo ce l'ha, l'opzione si spegne
+    const hasPrev = D.stocks.some((x) => x.prev[st.per] != null);
+    $('titAx').querySelector('option[value="prev"]').disabled = !hasPrev;
+    if (st.ax === 'prev' && !hasPrev) st.ax = 'd200';
     $('titAx').value = st.ax;
     $('titMeta').textContent = `al ${dIT(D.asOf)} · ${PER_TEXT[st.per]}, dal ${dIT(D.starts[st.per][0])}`;
     $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
@@ -98,6 +102,7 @@ export function createTitles(ctx) {
   }
   function drawSpread() {
     const svg = $('titSpread'), sel = ctx.getSector();
+    $('titSpreadTip').hidden = true;
     const W = chartWidth(svg, 1120, 360), narrow = W < 640;
     const rows = SECTORS.map(rowOf);
     if (st.sort === 'div') rows.sort((a, b) => b.sp - a.sp);
@@ -181,8 +186,19 @@ export function createTitles(ctx) {
     const W = chartWidth(svg, 940, 360), narrow = W < 640;
     const H = Math.round(Math.min(600, Math.max(340, W * (narrow ? 1.1 : 0.6))));
     const getX = (s) => ax.get(s, st.per);
-    const list = D.stocks.filter((s) => s.sec === sec && s.r[st.per] != null && getX(s) != null);
-    const order = ranked(list), worst = new Set(order.slice(0, WORST).map((s) => s.s));
+    $('titBubbleTip').hidden = true;
+    // la lista dei più in pena usa tutti i titoli con il rendimento del periodo; le bolle solo chi ha anche l'asse x
+    const members = D.stocks.filter((s) => s.sec === sec && s.r[st.per] != null);
+    const list = members.filter((s) => getX(s) != null);
+    const order = ranked(members), worst = new Set(order.slice(0, WORST).map((s) => s.s));
+    $('titBubbleTitle').textContent = `Titoli · ${sec} ${ctx.names[sec]}`;
+    drawList(order.slice(0, LIST), sec);
+    if (!list.length) {
+      svg.setAttribute('viewBox', `0 0 ${W} 80`); svg.innerHTML = ''; bub = null;
+      text(svg, W / 2, 44, `Nessun titolo ha il dato dell'asse orizzontale (${ax.short}) per ${st.per}.`, { 'text-anchor': 'middle' });
+      $('titBubbleMeta').textContent = `${members.length} titoli · ${st.per}`;
+      return;
+    }
     const ref = D.sectors[sec][st.per][0];
     // scale: 2°–98° percentile più lo zero e le linee del settore; chi sta fuori resta sul bordo con una freccia
     const xs = list.map(getX), ys = list.map((s) => s.r[st.per]);
@@ -226,15 +242,15 @@ export function createTitles(ctx) {
     const labels = el('g', {}, svg), boxes = [];
     const heavy = [...list].sort((a, b) => (b.w || 0) - (a.w || 0)).slice(0, 3);
     for (const s of new Set([...order.slice(0, WORST), ...heavy])) {
-      const p = pos.find((q) => q.s === s), b = placeLabel(p, boxes, L, W - R, T, H - B);
+      const p = pos.find((q) => q.s === s);
+      if (!p) continue; // senza valore sull'asse x: solo nella lista
+      const b = placeLabel(p, boxes, L, W - R, T, H - B);
       if (b) text(labels, b[0], b[1], s.s, { class: `lab${worst.has(s.s) ? ' bad' : ''}` });
     }
     const hoverLab = text(svg, -99, -99, '', { class: 'lab on' });
     bub = { pos, hoverLab, boxes, bounds: [L, W - R, T, H - B], W };
-    $('titBubbleTitle').textContent = `Titoli · ${sec} ${ctx.names[sec]}`;
-    const below = list.filter((s) => s.d200 != null && s.d200 < 0).length;
-    $('titBubbleMeta').textContent = `${list.length} titoli · ${below} sotto la media 200 · ${st.per}`;
-    drawList(order.slice(0, LIST), sec);
+    const below = members.filter((s) => s.d200 != null && s.d200 < 0).length, off = members.length - list.length;
+    $('titBubbleMeta').textContent = `${members.length} titoli · ${below} sotto la media 200 · ${st.per}` + (off ? ` · ${off} senza il dato dell'asse orizzontale, solo nella lista` : '');
     if (st.hover) setHover(st.hover);
   }
   function placeLabel(p, boxes, x0, x1, y0, y1) {
@@ -247,21 +263,22 @@ export function createTitles(ctx) {
   function drawList(rows, sec) {
     $('titPainMeta').textContent = `${sec} · ${st.per}`;
     $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="Peso nell'S&amp;P 500">Peso</th></tr></thead><tbody>` +
-      rows.map((s) => `<tr data-s="${s.s}" tabindex="0"><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
+      rows.map((s) => `<tr data-s="${esc(s.s)}"><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
         `<td class="num r">${pct(s.r[st.per])}</td><td class="num r">${pct(s.dd)}</td><td class="num r">${s.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(s.d200)}</td>` +
         `<td class="num r muted">${s.w == null ? '—' : fmt(s.w, 2)}</td></tr>`).join('') + '</tbody>';
     $('titPain').querySelectorAll('tbody tr').forEach((tr) => {
       tr.onmouseenter = () => setHover(tr.dataset.s);
       tr.onmouseleave = () => setHover(null);
-      tr.onfocus = () => setHover(tr.dataset.s);
+      tr.addEventListener('focusin', () => setHover(tr.dataset.s)); // dal link del ticker, con la tastiera
+      tr.addEventListener('focusout', () => setHover(null));
     });
   }
   // evidenza di un titolo nella bubble e nella lista, senza ridisegnare
   function setHover(s) {
     st.hover = s;
+    $('titPain').querySelectorAll('tbody tr').forEach((tr) => tr.classList.toggle('hl', tr.dataset.s === s));
     if (!bub) return;
     $('titBubble').querySelectorAll('circle.dot').forEach((c) => c.classList.toggle('on', c.dataset.s === s));
-    $('titPain').querySelectorAll('tbody tr').forEach((tr) => tr.classList.toggle('hl', tr.dataset.s === s));
     const p = s && bub.pos.find((q) => q.s.s === s);
     if (p) {
       const c = $('titBubble').querySelector(`circle.dot[data-s="${CSS.escape(s)}"]`);
@@ -282,13 +299,14 @@ export function createTitles(ctx) {
       `<div class="row"><span>peso nell'S&amp;P 500</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>`;
     placeTip(tip, $('titBubbleWrap'), e);
   }
-  // titolo più vicino al puntatore (bolle piccole: almeno 14 px di tolleranza, anche al tocco)
+  // titolo sotto il puntatore o più vicino (14 px di tolleranza, anche al tocco). Dentro più bolle vince l'ultima
+  // disegnata, cioè la più piccola, che sta sopra: così anche le bolle piccole sopra una grande si raggiungono
   function nearest(e) {
     if (!bub) return null;
     const svg = $('titBubble'), rc = svg.getBoundingClientRect(), k = bub.W / rc.width;
     const x = (e.clientX - rc.left) * k, y = (e.clientY - rc.top) * k;
     let best = null, bd = Infinity;
-    for (const p of bub.pos) { const d = Math.hypot(p.x - x, p.y - y) - p.r; if (d < bd) { bd = d; best = p; } }
+    for (const p of bub.pos) { const d = Math.max(0, Math.hypot(p.x - x, p.y - y) - p.r); if (d <= bd) { bd = d; best = p; } }
     return best && bd <= 14 * k ? best.s : null;
   }
 
@@ -300,7 +318,7 @@ export function createTitles(ctx) {
     seg('titFromSeg', 'from', 'from', drawSpread);
     seg('titSortSeg', 'sort', 'sort', drawSpread);
     seg('titSizeSeg', 'size', 'size', drawBubble);
-    $('titAx').onchange = (e) => { st.ax = e.target.value; store.set('titAx', st.ax); drawBubble(); };
+    $('titAx').onchange = (e) => { st.ax = e.target.value; store.set('titAx', st.ax); renderControls(); drawBubble(); };
     const svg = $('titBubble');
     const show = (e) => {
       const s = nearest(e);
