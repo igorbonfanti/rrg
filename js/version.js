@@ -4,10 +4,10 @@
  * e l'app lo dice in alto. Schema 0.vista.correzione: 0 finché è in prova, la cifra di mezzo sale con una funzione
  * nuova, l'ultima con le correzioni.
  */
-export const VERSION = '0.8.3';
+export const VERSION = '0.8.4';
 export const RELEASE = '2026-10-17';
 export const NOTES = [
-  'Episodi a confronto: dopo una seduta qualsiasi e, per i settori, SPY negli stessi giorni (viste 4, 5 e 6)',
-  'Conteggi «5 su 6» al posto delle percentuali sui pochi casi',
-  'Managed futures («Trend») nella rotazione Asset class, con peso 0 nel portafoglio',
+  'Caricamento più veloce: il Monitor arriva prima, i prezzi della rotazione in sottofondo',
+  'Pagina Indici: prima i 10 principali, poi gli altri; file più leggeri',
+  'Episodi a confronto con una seduta qualsiasi e con SPY',
 ];

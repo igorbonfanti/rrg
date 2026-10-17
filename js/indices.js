@@ -30,7 +30,9 @@ export function createIndices(ctx) {
   const { $, store } = ctx;
   const P = { ...DEFAULT_PARAMS, ...ctx.params };
   const CFG = ctx.config.indices;
-  let D = null, KEYS = Object.keys(CFG), loading = null, failed = null;
+  // KEYS: indici con i dati già scaricati (prima i principali, poi gli altri); ALL: tutti quelli in configurazione
+  const ALL = Object.keys(CFG);
+  let D = null, KEYS = [], loading = null, failed = null, more = null;
   const S = {}, PX = {}, NOW = {}, cache = new Map();
   const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set() };
   // indici mostrati in tabellone, Bottom Map e schede: di partenza i principali ("main" in config), poi
@@ -40,27 +42,44 @@ export function createIndices(ctx) {
   const MAIN = () => KEYS.filter((k) => CFG[k].main);
   const VIS = () => KEYS.filter((k) => st.shown.has(k));
 
-  function ready(data) {
-    KEYS = KEYS.filter((k) => data.series[k]);
-    for (const k of KEYS) {
+  function addSeries(data) {
+    for (const k of ALL) {
+      if (S[k] || !data.series[k]) continue;
       S[k] = indexSeries(data.series[k]);
       PX[k] = priceSeries(S[k].close);
       let t = S[k].dates.length - 1;
       while (t > 0 && S[k].pct200[t] == null) t--;
       NOW[k] = t;
     }
+    KEYS = ALL.filter((k) => S[k]);
+  }
+  function ready(data) {
+    addSeries(data);
     st.blue = { ...defaults(), ...validBlue(store.get('ixBlue', {})) };
-    st.sel = KEYS.includes(store.get('ixSel')) ? store.get('ixSel') : KEYS[0];
+    // scelte salvate valide anche per gli indici che arrivano dopo, con il secondo file
+    const sel = store.get('ixSel');
+    st.sel = KEYS.includes(sel) ? sel : KEYS[0];
+    if (sel !== st.sel && ALL.includes(sel)) st.pending = sel;
     st.range = ['3A', '10A', 'MAX'].includes(store.get('ixRange')) ? store.get('ixRange') : '3A';
     const saved = store.get('ixShown', null);
-    const keep = Array.isArray(saved) ? saved.filter((k) => KEYS.includes(k)) : [];
+    const keep = Array.isArray(saved) ? saved.filter((k) => ALL.includes(k)) : [];
     st.shown = new Set(keep.length ? keep : MAIN());
     D = data;
   }
-  const defaults = () => Object.fromEntries(KEYS.map((k) => [k, CFG[k].blue]));
+  // secondo file (indici non principali): si scarica dopo il primo disegno, poi si ridisegna se la pagina è aperta
+  function loadMore() {
+    if (more || !ctx.loadMore) return;
+    more = ctx.loadMore().then((data) => {
+      if (!data || !data.series) return;
+      addSeries(data);
+      st.blue = { ...defaults(), ...validBlue(store.get('ixBlue', {})) };
+      if (!$('v-idx').hidden) render();
+    }).catch(() => { /* restano i principali */ });
+  }
+  const defaults = () => Object.fromEntries(ALL.map((k) => [k, CFG[k].blue]));
   function validBlue(v) {
     return Object.fromEntries(Object.entries(v && typeof v === 'object' ? v : {})
-      .filter(([k, x]) => KEYS.includes(k) && Number.isInteger(x) && x >= 0 && x <= 60));
+      .filter(([k, x]) => ALL.includes(k) && Number.isInteger(x) && x >= 0 && x <= 60));
   }
   const changed = (k) => st.blue[k] !== CFG[k].blue;
 
@@ -125,7 +144,8 @@ export function createIndices(ctx) {
     renderBoard();
     renderMap();
     renderDetail();
-    if (st.pending) { const k = st.pending; st.pending = null; open(k, true); }
+    if (st.pending && KEYS.includes(st.pending)) { const k = st.pending; st.pending = null; open(k, true); }
+    loadMore();
   }
 
   // ---------- tabellone ----------
@@ -190,7 +210,7 @@ export function createIndices(ctx) {
   }
   function setShown(set) {
     st.shown = new Set(set); st.focus = null;
-    store.set('ixShown', KEYS.filter((k) => st.shown.has(k)));
+    store.set('ixShown', ALL.filter((k) => st.shown.has(k)));
     if (!st.shown.has(st.sel)) { st.sel = VIS()[0]; store.set('ixSel', st.sel); }
     renderAreas(); renderBoard(); renderMap(); renderDetail();
   }
@@ -345,7 +365,7 @@ export function createIndices(ctx) {
   return {
     bind, render,
     // dalla barra comandi, prima di mostrare la pagina: la scelta la apre il render() successivo
-    open: (k) => { if (KEYS.includes(k)) { st.pending = k; store.set('ixSel', k); } },
-    isIndex: (k) => KEYS.includes(k), asOf: () => (D ? asOf() : null),
+    open: (k) => { if (ALL.includes(k)) { st.pending = k; store.set('ixSel', k); } },
+    isIndex: (k) => ALL.includes(k), asOf: () => (D ? asOf() : null),
   };
 }

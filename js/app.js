@@ -72,19 +72,46 @@ const getJSON = (url, optional) => fetch(url).then((r) => {
   throw new Error(`${url}: HTTP ${r.status}`);
 }).catch((e) => { if (optional) return null; throw e; });
 
+// Avvio in due tempi: prima i dati del Monitor (e dei settori USA), poi in sottofondo i prezzi degli universi globali
+// e degli asset reali, che servono solo alla rotazione. Aprendo direttamente la rotazione si aspettano anche quelli,
+// perché l'universo salvato può essere lì.
+let extras = null;
+const loadExtras = () => extras || (extras = Promise.all([getJSON('data/prices_global.json', true), getJSON('data/prices_macro.json', true)]));
 Promise.all([
   getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
-  getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('data/prices_global.json', true),
-  getJSON('data/prices_macro.json', true), getJSON('config/indices.json', true),
-]).then(([prices, sectors, breadth, config, latest, alertLog, global, macro, indices]) => {
+  getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('config/indices.json', true),
+]).then(([prices, sectors, breadth, config, latest, alertLog, indices]) => {
   state.data = prices;
-  state.global = global ? addPortfolios(global) : null;
-  state.macro = macro;
   state.extra = { sectors, breadth, config, latest, alertLog, indices };
-  init();
+  const direct = /^#rrg/i.test(location.hash);
+  return (direct ? loadExtras() : Promise.resolve(null)).then((ex) => {
+    if (ex) setExtras(ex);
+    init();
+    // dopo il primo disegno
+    if (!ex) setTimeout(() => loadExtras().then((x) => { setExtras(x); afterExtras(); }), 0);
+  });
 }).catch((e) => {
   $('v-mon').innerHTML = `<div class="panel"><div class="pb"><p class="note">Impossibile caricare i dati (${esc(e.message)}). In locale esegui gli script in <span class="mono">scripts/</span> e servi la cartella con un server statico.</p></div></div>`;
 });
+
+function setExtras([global, macro]) {
+  state.global = global ? addPortfolios(global) : null;
+  state.macro = macro;
+}
+// prezzi arrivati dopo l'avvio: metriche, elenco degli universi e, se era quello salvato, l'universo globale
+function afterExtras() {
+  for (const set of [state.global, state.macro]) if (set) addMetrics(set);
+  state.groups = buildGroups();
+  fillSelects();
+  const saved = store.get('group');
+  if (saved && saved !== state.group && state.groups[saved]) {
+    state.group = saved;
+    state.benchmark = pickBenchmark(saved);
+    state.hidden.clear(); state.pinned = null; state.focus = null;
+    syncControls();
+    recompute(true, state.view === 'rrg');
+  } else syncControls();
+}
 
 // ---------- universi ----------
 // Portafoglio sintetico dei gruppi con "portfolio": diventa un ticker del file globale.
@@ -168,23 +195,24 @@ function fillBenchmarks() {
   $('benchSel').innerHTML = grp().benchmarks.filter((s) => ds().tickers[s]).map((s) => `<option value="${esc(s)}">${esc(benchText(s))}</option>`).join('');
 }
 
+// max52: chiusura più alta a 52 settimane senza la rettifica per i dividendi, per il drawdown sul solo prezzo.
+// Le criptovalute quotano tutti i giorni: il loro drawdown viene dalla pipeline, fine settimana compresi
+// (nel file ci sono solo le sedute di borsa); senza dividendi i due valori coincidono.
+function addMetrics(set) {
+  set.metrics = {};
+  for (const [s, t] of Object.entries(set.tickers)) {
+    const m = t.max52 || null, ddp = priceDrawdown(m);
+    set.metrics[s] = { ...priceMetrics(set.dates, t.close), ...(m && m.all && ddp != null ? { dd52: ddp } : {}), max52: m, ddp };
+  }
+}
+
 function init() {
   state.groups = buildGroups();
   const names = Object.keys(state.groups);
   state.group = names.includes(store.get('group')) ? store.get('group') : names[0];
   state.benchmark = pickBenchmark(state.group);
   fillSelects();
-  for (const set of [state.data, state.global, state.macro]) {
-    if (!set) continue;
-    set.metrics = {};
-    // max52: chiusura più alta a 52 settimane senza la rettifica per i dividendi, per il drawdown sul solo prezzo.
-    // Le criptovalute quotano tutti i giorni: il loro drawdown viene dalla pipeline, fine settimana compresi
-    // (nel file ci sono solo le sedute di borsa); senza dividendi i due valori coincidono.
-    for (const [s, t] of Object.entries(set.tickers)) {
-      const m = t.max52 || null, ddp = priceDrawdown(m);
-      set.metrics[s] = { ...priceMetrics(set.dates, t.close), ...(m && m.all && ddp != null ? { dd52: ddp } : {}), max52: m, ddp };
-    }
-  }
+  for (const set of [state.data, state.global, state.macro]) if (set) addMetrics(set);
   const cvdOn = store.get('cvd', false) === true;
   document.documentElement.classList.toggle('cvd', cvdOn);
   $('cvdBtn').setAttribute('aria-pressed', String(cvdOn));
@@ -196,7 +224,7 @@ function init() {
     setView: (v, silent) => setView(v, silent), openRRG: focusSymbol,
   });
   // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
-  state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json') }) : null;
+  state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json'), loadMore: () => getJSON('data/indices_more.json', true) }) : null;
   if (!state.indices) $('tab-idx').hidden = true;
   // vista 7 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({

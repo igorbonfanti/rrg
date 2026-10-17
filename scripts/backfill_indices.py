@@ -402,7 +402,13 @@ def build(cache, asof=None, only=None):
 def finish(cfg, prices, series, report, only):
     """Scrive data/indices.json; con `only` sostituisce solo quegli indici e tiene gli altri."""
     file = os.path.join(ROOT, 'data', 'indices.json')
-    out = dict(load(file)['series']) if only and os.path.exists(file) else {}
+    more = os.path.join(ROOT, 'data', 'indices_more.json')
+    # tutti gli indici in indices.json (formato esteso): fetch_indices.js li ridivide e li compatta alla prima corsa
+    out = {}
+    if only:
+        for f in (more, file):
+            if os.path.exists(f):
+                out.update(load(f)['series'])
     for k in cfg:
         if k in series:
             out[k] = compact(prices[k], series[k])
@@ -418,6 +424,8 @@ def finish(cfg, prices, series, report, only):
                    f'ultima seduta del titolo entro {STALE_DAYS} giorni. Prezzo degli indici: solo prezzo, valuta locale'),
         'source': 'ricostruzione: scripts/backfill_indices.py (prezzi Yahoo Finance); S&P 500 da data/breadth.json',
         'series': out})
+    if os.path.exists(more):
+        os.remove(more)
     return report
 
 
