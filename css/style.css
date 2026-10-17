@@ -645,3 +645,57 @@ svg.bub { touch-action: pan-y; }
 /* versione in alto e avviso quando il browser usa file vecchi */
 .ver { font: 500 11px var(--f-mono); color: var(--ink-3); white-space: nowrap; cursor: help; }
 .newver { font: 600 11px var(--f-mono); color: #000; background: var(--q-weak-fill); border: 0; padding: 3px 9px; cursor: pointer; white-space: nowrap; }
+
+/* perché questo stato e cosa manca (viste 4 e 6, schede del Monitor) */
+.ck-why { margin: 0 0 8px; }
+.ck-goal { margin: 0 0 6px; font-size: 12.5px; color: var(--ink); }
+.cklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; font-size: 12.5px; color: var(--ink-2); }
+.cklist li { display: grid; grid-template-columns: 18px 1fr; gap: 6px; align-items: baseline; }
+.cklist li.sub { padding-left: 18px; font-size: 12px; }
+.cklist li.no span:last-child { color: var(--ink); }
+.ck { font: 700 12px var(--f-mono); text-align: center; }
+.ck-ok { color: var(--up); }
+.ck-no { color: var(--down); }
+.ck-i { color: var(--ink-3, var(--ink-2)); font-style: italic; }
+.acard-t.ck-sum { color: var(--amber-2); font-family: var(--f-mono); font-size: 11.5px; }
+
+/* cosa è cambiato dall'ultima visita (Monitor) */
+.changes { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 10px; padding: 8px 10px; border: 1px solid var(--rule); border-left: 3px solid var(--amber); background: var(--bg); font-size: 12.5px; color: var(--ink-2); }
+.changes .chg-k { font: 600 11px var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--amber-2); }
+.changes .chg { background: none; border: 0; padding: 2px 0; color: var(--ink-2); font: inherit; cursor: pointer; text-align: left; }
+.changes .chg b { color: var(--ink); }
+.changes .chg:hover, .changes .chg:focus-visible { color: var(--ink); text-decoration: underline; }
+.changes .chg + .chg::before { content: '·'; margin-right: 10px; color: var(--ink-3); }
+.changes .chg-br { display: inline-flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; color: var(--ink-3); }
+.changes .chg-none { color: var(--ink-3); }
+
+/* Monitor sul telefono: una scheda per settore al posto delle 10 colonne, «da osservare» prima della tabella */
+@media (max-width: 600px) {
+  .mon-side { display: contents; }
+  .watch-panel { order: -1; }
+  .board-cards thead { display: none; }
+  .board-cards, .board-cards tbody { display: block; }
+  .board-cards tr { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 9px 10px; border-bottom: 1px solid var(--grid); }
+  .board-cards td, .tscroll .board-cards td:first-child { display: block; padding: 0; border: 0; white-space: normal; position: static; background: none; }
+  #boardTable .c-name .nm { display: inline; margin-left: 6px; font-size: 12px; }
+  .board-cards .c-name { flex: 1 1 auto; min-width: 0; }
+  .board-cards .c-state { margin-left: auto; }
+  .board-cards .c-br { flex: 1 1 100%; display: flex; align-items: center; gap: 8px; }
+  .board-cards .c-br .bullet { flex: 1; width: auto; }
+  .board-cards .c-blue { order: 3; }
+  .board-cards .c-dd { order: 4; flex: 1 1 auto; display: flex; align-items: center; gap: 8px; }
+  .board-cards .c-dd .bar { flex: 1; max-width: 140px; }
+  .board-cards .c-rot { order: 5; margin-left: auto; }
+  .board-cards .c-ddp, .board-cards .c-last { display: none; }
+  .board-cards .c-d1 { order: 6; }
+  .board-cards .c-m1 { order: 7; }
+  .board-cards td[data-l]::before { content: attr(data-l); margin-right: 6px; font: 600 10px var(--f-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
+  .board-cards .c-blue:empty, .board-cards .c-rot:empty { display: none; }
+  .board-cards .c-br::before, .board-cards .c-dd::before { min-width: 62px; }
+}
+
+/* spiegazioni al tocco (app.js bindTapTips) */
+.taptip { position: fixed; z-index: 60; padding: 8px 10px; background: var(--panel); color: var(--ink); border: 1px solid var(--amber); font-size: 12.5px; line-height: 1.4; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); }
+@media (hover: none) {
+  th[title], .facts [title], .legend [title], .kpi [title] { text-decoration: underline dotted var(--ink-3); text-underline-offset: 3px; }
+}

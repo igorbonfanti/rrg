@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { expandRLE, encodeRLE, breadthSeries, priceSeries, runMachine, SECTOR_KEYS } from '../js/signals.js';
+import { expandRLE, encodeRLE, breadthSeries, priceSeries, runMachine, explainState, sessionsAfter, SECTOR_KEYS } from '../js/signals.js';
 
 const B = JSON.parse(fs.readFileSync(new URL('../data/breadth.json', import.meta.url)));
 const S = JSON.parse(fs.readFileSync(new URL('../data/sectors.json', import.meta.url)));
@@ -90,4 +90,25 @@ test('soglia di avvicinamento: livello + calo forte in 10 sedute', async () => {
   assert.equal(approachLevel([50, 50, 50], 5), null);
   // i null non contano
   assert.equal(approachLevel([null, ...b, null], 5), 15);
+});
+
+test('perché questo stato: la lista non contraddice mai la macchina', () => {
+  // seduta per seduta (dati tagliati a quel giorno): se tutte le condizioni della zona blu fossero vere la macchina
+  // sarebbe già in zona blu; se breadth e conferme fossero vere in zona blu, sarebbe già scattato il trigger
+  const cut = (o, n) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, Array.isArray(v) ? v.slice(0, n) : v]));
+  let checked = 0;
+  for (const k of SECTOR_KEYS) {
+    const px = priceSeries(S.adjclose[k]), br = breadthSeries(B, k, S.dates);
+    for (let t = S.dates.length - 1; t > S.dates.length - 3000; t -= 37) {
+      const p = cut(px, t + 1), b = cut(br, t + 1), m = runMachine(p, b, T.blue[k], T.params);
+      if (!m.days[t]) continue;
+      const e = explainState(p, b, T.blue[k], T.params, m, S.dates, t), main = e.items.filter((x) => !x.sub && x.ok !== null);
+      if (e.goal === 'zona blu' || e.goal === 'trigger') assert.ok(main.some((x) => x.ok === false), `${k} ${S.dates[t]} ${e.code}: ${JSON.stringify(e.items)}`);
+      if (e.summary) assert.match(e.summary, /^per (la zona blu|il trigger): /);
+      checked++;
+    }
+  }
+  assert.ok(checked > 500);
+  assert.equal(sessionsAfter('2026-10-16', 1), '2026-10-19');
+  assert.equal(sessionsAfter('2026-10-16', 5), '2026-10-23');
 });

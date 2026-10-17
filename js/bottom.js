@@ -4,12 +4,12 @@
  * breadth.json (titoli sopra le medie), breadth_latest.json (fotografia per titolo),
  * config/thresholds.json (livelli blu e parametri), alerts.json (invii Telegram).
  */
-import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
+import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
 export const NAMES = {
@@ -68,7 +68,7 @@ export function createBottom(ctx) {
   const ddp = (s) => priceDrawdown(P52[s]);
   const ddpCell = (s) => {
     const v = ddp(s);
-    return `<td class="num r" title="${esc(v == null ? DDP_TIP : ddpTip(P52[s], DATES[NOW], PX[s].dd[NOW]))}">${v == null ? '<span class="muted">—</span>' : sgn(v) + '%'}</td>`;
+    return `<td class="num r c-ddp" title="${esc(v == null ? DDP_TIP : ddpTip(P52[s], DATES[NOW], PX[s].dd[NOW]))}">${v == null ? '<span class="muted">—</span>' : sgn(v) + '%'}</td>`;
   };
   const st = {
     blue: { ...config.blue, ...validBlue(store.get('blue', {})) },
@@ -119,6 +119,15 @@ export function createBottom(ctx) {
     if (dp < P.ddSetup) miss.push(`un drawdown oltre il ${P.ddSetup}° percentile (ora ${dp}°)`);
     return miss.length ? `${head}: per la zona blu ${miss.length > 1 ? 'servono' : 'serve'} ${miss.join(' e ')}` : head;
   }
+  // perché questo stato e cosa manca al prossimo (signals.js explainState, stesse regole della macchina)
+  function explain(s) {
+    const m = machine(s);
+    let t = NOW;
+    while (t > 0 && m.days[t] == null) t--;
+    const e = explainState(PX[s], BR[s], st.blue[s], P, m, DATES, t);
+    if (approach(s).on) e.why = `Avvicinamento: ${apprWhy(s)}.`;
+    return e;
+  }
   const changed = (s) => st.blue[s] !== config.blue[s];
   // Avvicinamento: settore in stato normale con la breadth sotto la sua soglia di avvicinamento (signals.js)
   const apprCache = new Map();
@@ -133,8 +142,46 @@ export function createBottom(ctx) {
     return `breadth ${fmt(b)}%, sotto la soglia di avvicinamento ${fmt(A, 0)}% (livello blu ${L}% + il calo forte del settore in 10 sedute, ${fmt(A - L, 0)} punti): in un calo deciso il livello blu è a circa due settimane`;
   };
 
+  // ---------- cosa è cambiato dall'ultima visita ----------
+  // In questo browser restano due fotografie: quella dei dati di oggi e quella dell'ultima visita con i dati di un altro
+  // giorno. Si confronta con la seconda, così la striscia resta per tutta la giornata anche ricaricando la pagina.
+  const snapCode = (s) => (approach(s).on ? 'appr' : stateOf(s).code);
+  const VISIT_LABEL = { ...STATES, appr: 'Avvicinamento' };
+  let visitBase;
+  function lastVisit() {
+    if (visitBase !== undefined) return visitBase;
+    const now = { date: DATES[NOW], blue: { ...st.blue }, s: Object.fromEntries(SECTOR_KEYS.map((k) => [k, [snapCode(k), BR[k].pct200[NOW] == null ? null : Math.round(BR[k].pct200[NOW] * 10) / 10]])) };
+    const v = store.get('visit', null), ok = (x) => x && typeof x.date === 'string' && x.s && typeof x.s === 'object';
+    let base = null;
+    if (v && ok(v.cur) && v.cur.date === now.date) base = ok(v.prev) ? v.prev : null;
+    else if (v && ok(v.cur) && v.cur.date < now.date) base = v.cur;
+    store.set('visit', { cur: now, prev: base });
+    return (visitBase = base);
+  }
+  function renderChanges() {
+    const base = lastVisit(), box = $('changes');
+    if (!base) { box.hidden = true; return; }
+    const items = [];
+    for (const k of SECTOR_KEYS) {
+      const o = base.s[k], code = snapCode(k);
+      if (!Array.isArray(o) || !VISIT_LABEL[o[0]] || o[0] === code) continue;
+      const lvl = base.blue && base.blue[k] != null && base.blue[k] !== st.blue[k] ? ' (livello blu cambiato)' : '';
+      items.push(`<button type="button" class="chg" data-sym="${k}"><b>${k}</b> ${VISIT_LABEL[o[0]]} → <b>${VISIT_LABEL[code]}</b>${lvl}</button>`);
+    }
+    // breadth mossa di almeno 5 punti: le 4 variazioni più grandi
+    const moves = SECTOR_KEYS.map((k) => [k, Array.isArray(base.s[k]) ? base.s[k][1] : null, BR[k].pct200[NOW]])
+      .filter(([, a, b]) => typeof a === 'number' && b != null && Math.abs(b - a) >= 5)
+      .sort((x, y) => Math.abs(y[2] - y[1]) - Math.abs(x[2] - x[1])).slice(0, 4);
+    box.innerHTML = `<span class="chg-k">Dalla tua visita con i dati al ${dIT(base.date)}</span>` +
+      (items.length ? items.join('') : '<span class="chg-none">nessun cambio di stato</span>') +
+      (moves.length ? `<span class="chg-br">breadth ${moves.map(([k, a, b]) => `<button type="button" class="chg" data-sym="${k}">${k} ${fmt(a, 0)} → ${fmt(b, 0)}%</button>`).join('')}</span>` : '');
+    box.querySelectorAll('.chg').forEach((b) => { b.onclick = () => openSector(b.dataset.sym); });
+    box.hidden = false;
+  }
+
   // ---------- 1 MONITOR ----------
   function renderMonitor() {
+    renderChanges();
     const rows = SECTOR_KEYS.map((s) => {
       const c = S.adjclose[s];
       return {
@@ -147,17 +194,17 @@ export function createBottom(ctx) {
     const body = rows.map((r) => {
       const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
       return `<tr data-sym="${r.s}" tabindex="0">
-        <td><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></td>
-        <td>${r.appr ? apprBadge() : badge(r.state.code)}</td>
-        <td><span class="cellv num" title="${titoli(r.above)} su ${r.n}">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
-        <td class="num r">${r.L}%${changed(r.s) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
-        <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
+        <td class="c-name"><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></td>
+        <td class="c-state">${r.appr ? apprBadge() : badge(r.state.code)}</td>
+        <td class="c-br" data-l="breadth"><span class="cellv num" title="${titoli(r.above)} su ${r.n}">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
+        <td class="num r c-blue" data-l="blu">${r.L}%${changed(r.s) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
+        <td class="c-dd" data-l="drawdown"><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
         ${ddpCell(r.s)}
-        <td>${r.rot ? qPill(r.rot.q, r.rot.heading) : ''}</td>
-        <td class="num r">${fmt(r.last, 2)}</td><td class="num r">${pct(r.d1)}</td><td class="num r">${pct(r.m1)}</td></tr>`;
+        <td class="c-rot">${r.rot ? qPill(r.rot.q, r.rot.heading) : ''}</td>
+        <td class="num r c-last" data-l="ultimo">${fmt(r.last, 2)}</td><td class="num r c-d1" data-l="1G">${pct(r.d1)}</td><td class="num r c-m1" data-l="1M">${pct(r.m1)}</td></tr>`;
     }).join('');
     const spy = S.adjclose.SPY, spx = BR.SPX;
-    const bench = `<tr class="bench"><td><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted">benchmark</td><td><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td></td><td><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td>${ddpCell('SPY')}<td></td><td class="num r">${fmt(spy[NOW], 2)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
+    const bench = `<tr class="bench"><td class="c-name"><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted c-state">benchmark</td><td class="c-br" data-l="breadth"><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td class="c-blue"></td><td class="c-dd" data-l="drawdown"><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td>${ddpCell('SPY')}<td class="c-rot"></td><td class="num r c-last" data-l="ultimo">${fmt(spy[NOW], 2)}</td><td class="num r c-d1" data-l="1G">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r c-m1" data-l="1M">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
     $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l" title="${esc(DD_TIP)}">Drawdown da max 52s</th><th class="r wrap" title="${esc(DDP_TIP)}">Solo prezzo</th><th${ctx.rotationNote ? ` title="${ctx.rotationNote()}"` : ''}>Rotazione</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>${body}${bench}</tbody>`;
     $('boardTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
       tr.onclick = () => openSector(tr.dataset.sym);
@@ -178,7 +225,7 @@ export function createBottom(ctx) {
     $('activeMeta').textContent = `${active.length} su 11 · in avvicinamento, attenzione, zona blu o dopo un trigger`;
     $('activeList').innerHTML = active.length ? active.map((r) => `<div class="acard" data-sym="${r.s}" tabindex="0">
         <div class="acard-h"><span><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></span>${r.appr ? apprBadge() : badge(r.state.code)}</div>
-        <div class="acard-t">${esc(r.appr ? apprWhy(r.s) : r.state.why)}</div></div>`).join('') : '<p class="note">Nessun settore vicino al livello blu.</p>';
+        <div class="acard-t">${esc(r.appr ? apprWhy(r.s) : r.state.why)}</div>${explain(r.s).summary ? `<div class="acard-t ck-sum">${esc(explain(r.s).summary)}</div>` : ''}</div>`).join('') : '<p class="note">Nessun settore vicino al livello blu.</p>';
     $('activeList').querySelectorAll('.acard').forEach((c) => { c.onclick = () => openSector(c.dataset.sym); c.onkeydown = (e) => { if (e.key === 'Enter') openSector(c.dataset.sym); }; });
     $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth sotto la soglia di avvicinamento del settore: livello blu più il suo calo forte in 10 sedute (in un calo deciso il livello è a circa due settimane). Da mettere in osservazione; non cambia lo stato e non manda alert.</span></div>` + [
       ['watch', `breadth entro ${P.watchBand} punti dal livello blu, oppure drawdown più profondo ${delPct(P.ddWatch)} della storia del settore. Sotto il livello blu per meno di ${P.setupCloses} chiusure si resta qui.`],
@@ -269,6 +316,7 @@ export function createBottom(ctx) {
     document.querySelectorAll('#rangeSeg button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('secTitle').textContent = `${s} · ${NAMES[s]}`;
     $('secBadge').innerHTML = approach(s).on ? apprBadge() : badge(state.code);
+    $('secCheck').innerHTML = checklistHTML(explain(s));
     const i0 = rangeStart(s);
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,

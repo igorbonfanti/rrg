@@ -18,12 +18,14 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
     - Il «massimo a 52 settimane» della scheda di TradingView è il picco intraday, che dopo una seduta con un forte rovescio sta più in alto della chiusura (GLD il 29/01/2026: 509,70 contro 495,90). La nota lo riporta a parte.
     - Passando sopra le intestazioni e i valori compare la spiegazione, con la chiusura più alta, la sua data e il picco intraday. Di cedole la nota parla solo per chi ne paga: per oro, bitcoin o un ETF ad accumulazione riporta solo il massimo.
   - Quadrante di rotazione contro SPY.
-  - Accanto, i settori da osservare con il motivo (quanti punti o chiusure mancano alla zona blu).
+  - Accanto, i settori da osservare con il motivo e cosa manca al prossimo stato (es. «per la zona blu: −3 titoli, 2 chiusure»).
+  - In alto, **cosa è cambiato dall'ultima visita**: il browser tiene la fotografia dell'ultima visita con i dati di un altro giorno (stato e breadth di ogni settore) e mostra i cambi di stato e le breadth mosse di almeno 5 punti. Ricaricando nello stesso giorno la striscia resta.
+  - Sul telefono ogni settore è una scheda (breadth, livello blu, drawdown, rotazione, 1G/1M) e i settori da osservare vengono prima; le spiegazioni delle intestazioni e della Situazione si aprono al tocco.
 - **2 Rotazione**: grafico di rotazione relativa ridisegnato per la leggibilità.
   - L'etichetta identifica il titolo, il colore indica il quadrante. La palette resta distinguibile anche per chi è daltonico.
   - Code dritte e neutre; passando sopra un titolo gli altri si attenuano, con un clic lo si fissa.
   - Scala uguale sui due assi e centrata su 100 (adattata alle code oppure fissa sull'intero periodo). Il punto della settimana in corso è vuoto perché provvisorio.
-  - Tabella di rotazione: quadrante, RS-Ratio/RS-Momentum con variazione, direzione in gradi bussola, velocità, distanza dal centro, durata nel quadrante, quadrante precedente.
+  - Tabella di rotazione: quadrante, forza relativa e momentum relativo con variazione, direzione in gradi bussola, velocità, distanza dal centro, durata nel quadrante, quadrante precedente.
   - L'interruttore **Prezzi** mostra variazioni, drawdown (con i dividendi e sul solo prezzo) e distanza dalla media 200 per tutto l'universo scelto.
   - Performance base 100 del periodo (3M/6M/1A/2A) con il benchmark e il titolo in evidenza.
 - **Universi della rotazione**:
@@ -61,6 +63,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - Accanto, quanti punti e quanti titoli mancano al livello blu.
   - **Avvicinamento** (anello tratteggiato; anche nel Monitor e tra i settori da osservare): breadth sotto la soglia del settore, cioè il livello blu più il calo forte (90° percentile) della sua breadth in 10 sedute (`approachLevel` in `js/signals.js`). In un calo deciso il livello è a circa due settimane. Dal 2005: anticipo mediano circa un mese, 59 tocchi del livello su 73 avvisati, ma meno della metà degli avvicinamenti arriva al livello (`ricerca/attenzione/`, ramo di sviluppo). Non è uno stato: non cambia la macchina a stati né gli alert.
 - **4 Settore**: prezzo con la media 200, drawdown e breadth (a 200 e 50 sedute) sullo stesso asse del tempo (3 anni, 10 anni o dal 2005), con le zone blu e i trigger del passato.
+  - **Perché questo stato**: le condizioni della macchina a stati con ✓/✗ (`explainState` in `js/signals.js`, che usa le stesse funzioni di `runMachine`, e un test controlla che non la contraddica mai). In zona blu: la breadth da raggiungere in titoli e le quattro conferme; dopo il trigger: il prezzo sotto cui il segnale fallisce e fino a quando, riarmo e cooldown. Lo stesso riquadro c'è nella vista 6 per gli indici.
   - Livello blu regolabile (vale nel browser, con "Copia configurazione" per portarlo nel repository).
   - Titoli del settore dal più sopra al più sotto la media 200: si vede chi sta per attraversarla.
   - Storico degli episodi con i rendimenti a 1/3/6 mesi e il peggior calo.
@@ -144,6 +147,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.8.0** (17/10/2026): «Perché questo stato» con le condizioni ✓/✗ (viste 4 e 6, settori da osservare); cosa è cambiato dall'ultima visita in cima al Monitor; Monitor a schede sul telefono e spiegazioni al tocco; assi e tabella della rotazione con «forza relativa» e «momentum relativo». Regole e numeri invariati.
 - **0.7.2** (17/10/2026): correzioni dal giro di prova. Vista 7: comando `XLK TIT`, indirizzo `#tit-XLK`, settore scelto nella cronologia, numeri della riga anche al tocco, etichette uniformi nella lista. Bottom Map: zona blu del colore della legenda nel tema chiaro, pallino intero a drawdown 0. Barra dei comandi: con i settori `SPY` resta il benchmark. Livello blu con i pulsanti spenti ai limiti, ombra sulle tabelle che scorrono di lato. Aggiornamento notturno: una riclassificazione GICS non blocca più la lista dei membri, righe di Wikipedia illeggibili scartate (tabella salvata), avvisi nel workflow quando una fonte resta ferma (`scripts/check_fresh.js`), invii Telegram falliti riprovati per 5 sedute, nessun commit se cambia solo l'ora di generazione (`scripts/keep_unchanged.js`).
 - **0.7.1** (17/10/2026): il pulsante «Nuova versione» riscarica pagina, script e stili prima di ricaricare (non serve più Ctrl+F5).
 - **0.7.0** (17/10/2026): numero di versione e avviso dei file vecchi; avvicinamento al livello blu (Bottom Map, Monitor, schede di settori e indici); KOSPI 200 tra gli indici principali; vista 7 Titoli in prova (grandi contro piccoli con la scia e le frecce dell'ultima settimana, bolle dei titoli); tasto Indietro tra le viste; crediti a Massimo Rea.
@@ -198,24 +202,24 @@ Nuova (default)
   σ           = volatilità delle variazioni di lr da una barra all'altra
                 (media esponenziale dei quadrati, emivita 26 barre)
   X           = (EMA10(lr) − EMA30(lr)) / (σ·√10)
-  RS-Ratio    = 100 + 2,5·X
-  RS-Momentum = 100 + 2,5·√8·(X − EMA8(X))
+  forza       = 100 + 2,5·X
+  momentum    = 100 + 2,5·√8·(X − EMA8(X))
 
 Medie semplici (come StockCharts)
   rs          = prezzo / benchmark
-  RS-Ratio    = 100·SMA10(rs) / SMA30(rs)
-  RS-Momentum = 100·RS-Ratio / SMA9(RS-Ratio)
+  forza       = 100·SMA10(rs) / SMA30(rs)
+  momentum    = 100·forza / SMA9(forza)
 
 Classica (prima versione dell'app)
-  RS-Ratio    = 100 + zscore(SMA(prezzo/benchmark, 10), 26)
-  RS-Momentum = 100 + zscore(RS-Ratio − RS-Ratio[−4], 26)
+  forza       = 100 + zscore(SMA(prezzo/benchmark, 10), 26)
+  momentum    = 100 + zscore(forza − forza[−4], 26)
 ```
 
 La formula nuova distingue un trend relativo forte da uno debole: il più forte finisce più a destra. Inoltre non produce salti quando un vecchio dato esce dalla finestra mobile. Divide per la volatilità, quindi mette sulla stessa scala titoli tranquilli e agitati.
 
-La formula a medie semplici non normalizza: la distanza da 100 è uno scarto percentuale, e i titoli con forza relativa più volatile disegnano code più lunghe. È la ricostruzione pubblica dello script AmiBroker «RRG 2.1» di WiseStockTrader, con le medie 10 e 30 che un utente indicava come coincidenti con Refinitiv Eikon. Il 25/09/2026 l'abbiamo confrontata con 11 valori letti su StockCharts (10 settori SPDR in settimanale e XLC in giornaliero): con l'indice S&P 500 come benchmark, come su StockCharts, coincide al centesimo in tutti. Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso per tutti i settori, per via dei dividendi. Sui settori S&P 500 contro SPY, dal 2022, mette un settore nello stesso quadrante della nuova circa tre volte su quattro. Quasi tutta la differenza viene dal tipo di media: esponenziale nella nuova, semplice in questa.
+La formula a medie semplici non normalizza: la distanza da 100 è uno scarto percentuale, e i titoli con forza relativa più volatile disegnano code più lunghe. È la ricostruzione pubblica dello script AmiBroker «RRG 2.1» di WiseStockTrader, con le medie 10 e 30 che un utente indicava come coincidenti con Refinitiv Eikon. Il 25/09/2026 l'abbiamo confrontata con 11 valori letti su StockCharts (10 settori SPDR in settimanale e XLC in giornaliero): con l'indice S&P 500 come benchmark, come su StockCharts, coincide al centesimo in tutti. Con SPY, il benchmark predefinito dell'app, la forza relativa settimanale esce circa 0,2 più basso per tutti i settori, per via dei dividendi. Sui settori S&P 500 contro SPY, dal 2022, mette un settore nello stesso quadrante della nuova circa tre volte su quattro. Quasi tutta la differenza viene dal tipo di media: esponenziale nella nuova, semplice in questa.
 
-Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'ultimo spostamento, 0° = su, 90° = destra.
+Direzione, velocità e distanza: gradi bussola sull'ultimo spostamento, 0° = su, 90° = destra.
 
 È un'approssimazione indipendente in stile RRG ("Relative Rotation Graphs" è un marchio di RRG Research). Serve a leggere il grafico, non è un segnale operativo.
 

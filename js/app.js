@@ -440,7 +440,7 @@ function renderRotTable() {
     .sort((a, b) => QORDER[a.r.q] - QORDER[b.r.q] || b.r.dist - a.r.dist);
   $('rotMeta').textContent = `${dIT(state.model.dates[f])}${isProvisional() ? ' (in corso)' : ''}`;
   const dl = (v) => `<span class="dlt ${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '▲' : v < 0 ? '▼' : ''}${fmt(Math.abs(v), 2)}</span>`;
-  $('rotTable').innerHTML = `<thead><tr><th>Titolo</th><th>Quadrante</th><th class="r">RS-Ratio</th><th class="r">RS-Mom</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
+  $('rotTable').innerHTML = `<thead><tr><th>Titolo</th><th>Quadrante</th><th class="r" title="Forza relativa: sopra 100 più forte del benchmark">Forza</th><th class="r" title="Momentum relativo: sopra 100 forza in aumento">Mom.</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
     rows.map(({ s, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td title="${esc((byLabel() ? baseSym(s) + ' · ' : '') + ds().tickers[s].name)}"><input type="checkbox" class="vis" data-sym="${esc(s)}" aria-label="Mostra ${esc(label(s))} sul grafico" ${state.hidden.has(s) ? '' : 'checked'}> <span class="sym">${esc(label(s))}</span></td>
       <td><span class="pill q-${QKEY[r.q]}-c"><span class="d"></span>${r.q}</span></td>
@@ -753,7 +753,33 @@ function openHelp(open) {
   else if (!open && d.open) d.close();
 }
 
+// Sul telefono i title non si aprono: al tocco su un'intestazione, una voce della Situazione o una legenda con una
+// spiegazione, il testo compare in un riquadro sotto (si chiude toccando altrove). Righe, bottoni e link restano ai loro clic.
+function bindTapTips() {
+  const tip = document.createElement('div');
+  tip.className = 'taptip'; tip.hidden = true; tip.setAttribute('role', 'status');
+  document.body.append(tip);
+  let on = null;
+  const hide = () => { tip.hidden = true; on = null; };
+  document.addEventListener('click', (e) => {
+    const touch = e.pointerType === 'touch' || (window.matchMedia && matchMedia('(hover: none)').matches);
+    if (!touch) { if (on) hide(); return; }
+    const el = e.target.closest('[title]');
+    if (!el || el === on || el.closest('a, button, select, input, label, tr[data-sym], tr[data-s], .acard, svg')) { hide(); return; }
+    on = el;
+    tip.textContent = el.getAttribute('title');
+    tip.hidden = false;
+    const r = el.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
+    tip.style.width = w + 'px';
+    tip.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left)) + 'px';
+    const below = r.bottom + 6, h = tip.offsetHeight;
+    tip.style.top = (below + h > innerHeight - 8 ? Math.max(8, r.top - h - 6) : below) + 'px';
+  });
+  addEventListener('scroll', hide, { passive: true });
+}
+
 function bind() {
+  bindTapTips();
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => b.onclick = () => setView(b.dataset.view));
   $('groupSel').onchange = (e) => {
     state.group = e.target.value; store.set('group', state.group);
@@ -783,7 +809,7 @@ function bind() {
     if (!r) { tip.hidden = true; return; }
     tip.innerHTML = `<div class="row"><b>${esc(label(sym))}</b><span>${esc((byLabel() ? baseSym(sym) + ' · ' : '') + ds().tickers[sym].name)}</span></div>
       <div class="row"><span>Quadrante</span><b class="q-${QKEY[r.q]}-c">${r.q}</b></div>
-      <div class="row"><span>RS-Ratio</span><b>${fmt(r.x, 2)}</b></div><div class="row"><span>RS-Momentum</span><b>${fmt(r.y, 2)}</b></div>
+      <div class="row"><span>Forza relativa</span><b>${fmt(r.x, 2)}</b></div><div class="row"><span>Momentum relativo</span><b>${fmt(r.y, 2)}</b></div>
       <div class="row"><span>Direzione</span><b>${fmt(r.heading, 0)}°</b></div><div class="row"><span>Nel quadrante da</span><b>${r.weeks} ${unit()}</b></div>`;
     placeTip(tip, $('rrgWrap'), e);
   };

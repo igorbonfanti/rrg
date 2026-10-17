@@ -113,6 +113,20 @@ function avgRange(c, t, w = 20) {
 }
 const minOver = (a, t, w) => { let m = Infinity; for (let i = Math.max(0, t - w + 1); i <= t; i++) if (a[i] != null) m = Math.min(m, a[i]); return m; };
 
+// Conferme del trigger alla seduta t, le stesse per la macchina e per la spiegazione dello stato
+function confirmationsAt(c, br, t, setup, stock, reset) {
+  const H = br.pct200;
+  const thrust20 = br.pct20[t] != null && br.pct20[t] >= 70 && minOver(br.pct20, t, 15) <= 15;
+  const thrust50 = !thrust20 && br.pct50[t] != null && br.pct50[t] >= 50 && minOver(br.pct50, t, 20) <= 10;
+  const m20 = sma(c, t, 20), m20p = sma(c, t - 5, 20);
+  return {
+    thrust20, thrust50, m20, m20p,
+    ma: m20 != null && m20p != null && c[t] > m20 && m20 > m20p,
+    div: setup.tp > setup.tb + 5 && H[setup.tp] != null && H[setup.tp] >= setup.bmin + stock,
+    v: H[t] >= reset,
+  };
+}
+
 /**
  * Esegue la macchina a stati su tutta la storia.
  * @param {{close: number[], dd: number[], dp: number[]}} px serie di prezzo (priceSeries)
@@ -158,13 +172,12 @@ export function runMachine(px, br, L, params = {}) {
     if (st === 'setup') {
       if (b < setup.bmin) { setup.bmin = b; setup.tb = t; }
       if (c[t] < setup.pmin) { setup.pmin = c[t]; setup.tp = t; }
-      const conf = [];
-      if (br.pct20[t] != null && br.pct20[t] >= 70 && minOver(br.pct20, t, 15) <= 15) conf.push('spinta di breadth a 20 giorni');
-      else if (br.pct50[t] != null && br.pct50[t] >= 50 && minOver(br.pct50, t, 20) <= 10) conf.push('spinta di breadth a 50 giorni');
-      const m20 = sma(c, t, 20), m20p = sma(c, t - 5, 20);
-      if (m20 != null && m20p != null && c[t] > m20 && m20 > m20p) conf.push('prezzo sopra la media 20g crescente');
-      if (setup.tp > setup.tb + 5 && H[setup.tp] != null && H[setup.tp] >= setup.bmin + stock) conf.push('divergenza prezzo/breadth');
-      const vShape = b >= reset;
+      const k = confirmationsAt(c, br, t, setup, stock, reset), conf = [];
+      if (k.thrust20) conf.push('spinta di breadth a 20 giorni');
+      else if (k.thrust50) conf.push('spinta di breadth a 50 giorni');
+      if (k.ma) conf.push('prezzo sopra la media 20g crescente');
+      if (k.div) conf.push('divergenza prezzo/breadth');
+      const vShape = k.v;
       if (vShape) conf.push(`breadth oltre ${Math.round(reset)}%`);
       const need = setup.strict || t - setup.t > P.slowSetupSessions ? 2 : 1;
       if (b >= Math.max(L + h, setup.bmin + P.minRecoveryStocks * stock) && (conf.length >= need || vShape)) {
@@ -201,4 +214,87 @@ export function worstWithin(close, t, k) {
   let m = close[t];
   for (let i = t; i <= Math.min(close.length - 1, t + k); i++) if (close[i] != null) m = Math.min(m, close[i]);
   return (m / close[t] - 1) * 100;
+}
+
+// ---------- perché questo stato e cosa manca ----------
+const f1 = (v) => (v < 0 && v.toFixed(1) !== '-0.0' ? '−' : '') + Math.abs(v).toFixed(1).replace('.', ',');
+const f0 = (v) => String(Math.round(v));
+const titoli = (k) => (k === 1 ? '1 titolo' : `${k} titoli`);
+const sedute = (k) => (k === 1 ? '1 seduta' : `${k} sedute`);
+const dIt = (iso) => `${iso.slice(8, 10)}/${iso.slice(5, 7)}`;
+// data di calendario circa k sedute dopo `iso` (solo i fine settimana, senza le feste: è un'indicazione)
+export function sessionsAfter(iso, k) {
+  const d = new Date(iso + 'T12:00:00Z');
+  for (let i = 0; i < k;) { d.setUTCDate(d.getUTCDate() + 1); if (d.getUTCDay() % 6) i++; }
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * Le condizioni della macchina a stati all'ultima seduta calcolata `t`, per spiegare lo stato e cosa manca al prossimo.
+ * Usa le stesse regole e le stesse soglie di runMachine (m = suo risultato con gli stessi dati).
+ * @returns {{code: string, goal: string, why: string, items: {ok: boolean|null, text: string, miss?: string}[], summary: string}}
+ *   items: ok = condizione soddisfatta, false = manca, null = informazione; summary: cosa manca in breve
+ */
+export function explainState(px, br, L, params, m, dates, t) {
+  const P = { ...DEFAULT_PARAMS, ...params };
+  const c = px.close, b = br.pct200[t], dp = px.dp[t], n = br.n[t];
+  const code = m.days[t] || 'normal', stock = 100 / n;
+  const reset = Math.max(P.resetFloor, L + P.resetAbove);
+  // titoli che devono passare sotto (o sopra) la media 200 perché la breadth arrivi al valore v
+  const toBelow = (v) => Math.max(1, Math.ceil((b - v) / stock - 1e-9));
+  const toAbove = (v) => Math.max(1, Math.ceil((v - b) / stock - 1e-9));
+  const items = [];
+  let goal, why;
+  const setup = m.setups[m.setups.length - 1];
+  if (code === 'normal' || code === 'watch') {
+    goal = 'zona blu';
+    const near = b <= L + P.watchBand, deep = dp >= P.ddWatch;
+    why = code === 'normal'
+      ? `Normale: breadth oltre ${P.watchBand} punti sopra il livello blu e drawdown meno profondo dell'${P.ddWatch}° percentile.`
+      : `Attenzione: ${[near ? `breadth entro ${P.watchBand} punti dal livello blu` : null, deep ? `drawdown oltre l'${P.ddWatch}° percentile` : null].filter(Boolean).join(' e ')}.`;
+    if (b <= L) items.push({ ok: true, text: `breadth ${f1(b)}%, al livello blu (${L}%) o sotto` });
+    else items.push({ ok: false, text: `breadth ${f1(b)}%: ${f1(b - L)} punti sopra il livello blu (${L}%), cioè ${titoli(toBelow(L))} da portare sotto la media 200`, miss: `−${titoli(toBelow(L))}` });
+    const k = P.setupCloses - m.below;
+    items.push(k <= 0 ? { ok: true, text: `${P.setupCloses} chiusure di fila al livello o sotto` }
+      : { ok: false, text: `${m.below} di ${P.setupCloses} chiusure di fila al livello o sotto`, miss: k === 1 ? '1 chiusura' : `${k} chiusure` });
+    items.push(dp >= P.ddSetup ? { ok: true, text: `drawdown al ${dp}° percentile della storia, oltre il ${P.ddSetup}°` }
+      : { ok: false, text: `drawdown al ${dp}° percentile: serve oltre il ${P.ddSetup}°`, miss: `drawdown oltre il ${P.ddSetup}°` });
+    if (!m.armed) items.push({ ok: false, text: `riarmo: dopo l'ultimo trigger la breadth deve tornare sopra ${f0(reset)}% prima di una nuova zona blu`, miss: `riarmo sopra ${f0(reset)}%` });
+  } else if (code === 'setup' || code === 'fail') {
+    goal = 'trigger';
+    const h = Math.max(P.minRecoveryPoints, P.minRecoveryStocks * stock);
+    const thr = Math.max(L + h, setup.bmin + P.minRecoveryStocks * stock);
+    const k = confirmationsAt(c, br, t, setup, stock, reset);
+    const need = setup.strict || t - setup.t > P.slowSetupSessions ? 2 : 1;
+    const got = [k.thrust20 || k.thrust50, k.ma, k.div].filter(Boolean).length + (k.v ? 1 : 0);
+    why = `Zona blu dal ${dIt(dates[setup.t])} (${sedute(t - setup.t)}): minimo della breadth ${f1(setup.bmin)}% il ${dIt(dates[setup.tb])}, minimo del prezzo ${f1(setup.pmin)} il ${dIt(dates[setup.tp])}.`;
+    items.push(b >= thr ? { ok: true, text: `breadth ${f1(b)}%, almeno ${f1(thr)}% (livello + ${f0(h)} punti e 2 titoli sopra il minimo)` }
+      : { ok: false, text: `breadth ${f1(b)}%: serve almeno ${f1(thr)}%, cioè ${titoli(toAbove(thr))} in più sopra la media 200`, miss: `+${titoli(toAbove(thr))}` });
+    const reason = setup.strict ? 'dopo un segnale fallito' : `zona blu da più di ${P.slowSetupSessions} sedute`;
+    const confText = `conferme: ${got} su ${need} ${need === 1 ? 'richiesta' : `richieste (${reason})`}`;
+    items.push(got >= need || k.v ? { ok: true, text: confText } : { ok: false, text: confText, miss: need - got === 1 ? '1 conferma' : `${need - got} conferme` });
+    const p20 = br.pct20[t], p50 = br.pct50[t];
+    items.push({ ok: k.thrust20 || k.thrust50, sub: true, text: k.thrust20 ? 'spinta di breadth a 20 giorni' : k.thrust50 ? 'spinta di breadth a 50 giorni'
+      : `spinta di breadth: a 20 giorni da ≤15% a ≥70% in 15 sedute, o a 50 giorni da ≤10% a ≥50% in 20 (ora ${p20 == null ? '—' : f0(p20)}% e ${p50 == null ? '—' : f0(p50)}%)` });
+    items.push({ ok: k.ma, sub: true, text: k.m20 == null ? 'prezzo sopra la media 20 crescente' : `prezzo sopra la media 20 crescente (prezzo ${f1(c[t])}, media ${f1(k.m20)}, ${k.m20 > k.m20p ? 'in salita' : 'in calo'})` });
+    items.push({ ok: k.div, sub: true, text: 'divergenza: il prezzo fa un nuovo minimo con la breadth più alta del suo minimo' });
+    items.push({ ok: k.v, sub: true, text: `rimbalzo a V: breadth sopra ${f0(reset)}%, basta da solo` });
+  } else {
+    goal = 'tenuta del segnale';
+    const trig = setup && setup.trig, since = trig ? t - trig.t : 0;
+    const stop = setup ? setup.pmin - avgRange(c, t) : null;
+    why = trig ? `Trigger del ${dIt(dates[trig.t])}: ${trig.conf.join(' + ') || 'rimbalzo'}.` : 'Trigger recente.';
+    if (stop != null && since <= P.failWindow) {
+      const left = P.failWindow - since;
+      items.push({ ok: c[t] >= stop, text: `fallisce se il prezzo chiude sotto ${f1(stop)} (minimo della zona blu ${f1(setup.pmin)} meno un'escursione media) entro ${sedute(left)}, fino a circa il ${dIt(sessionsAfter(dates[t], left))}; ora ${f1(c[t])}` });
+    } else if (stop != null && !m.armed) {
+      items.push({ ok: c[t] >= stop || b > L, text: `fallisce se il prezzo chiude sotto ${f1(stop)} con la breadth di nuovo sotto il livello blu (${L}%), finché la breadth non torna sopra ${f0(reset)}%` });
+    }
+    items.push(m.armed ? { ok: true, text: `riarmo: la breadth è tornata sopra ${f0(reset)}%` }
+      : { ok: null, text: `riarmo: breadth ${f1(b)}%, deve tornare sopra ${f0(reset)}% (${titoli(toAbove(reset))}) prima di una nuova zona blu` });
+    if (trig && since < P.cooldown) items.push({ ok: null, text: `nuovi segnali sospesi ancora ${sedute(P.cooldown - since)}, fino a circa il ${dIt(sessionsAfter(dates[t], P.cooldown - since))}` });
+  }
+  const miss = items.filter((x) => x.ok === false && x.miss).map((x) => x.miss);
+  const summary = goal === 'tenuta del segnale' ? '' : miss.length ? `per ${goal === 'zona blu' ? 'la zona blu' : 'il trigger'}: ${miss.join(', ')}` : '';
+  return { code, goal, why, items, summary };
 }

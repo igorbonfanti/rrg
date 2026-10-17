@@ -88,7 +88,7 @@
     <span class="ctl">Formula
       <span class="seg" id="formulaSeg" role="group" aria-label="Formula">
         <button type="button" data-formula="nuova" aria-pressed="true" title="Nostra formula: medie esponenziali a 10 e 30 barre sul logaritmo della forza relativa, divise per la sua volatilità. Tutti i titoli sulla stessa scala, di solito entro 3 punti da 100">Nuova</button>
-        <button type="button" data-formula="semplice" aria-pressed="false" title="Come StockCharts: RS-Ratio = 100 × media semplice a 10 barre ÷ media a 30 della forza relativa; RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. Distanza da 100 in punti percentuali">Medie semplici</button>
+        <button type="button" data-formula="semplice" aria-pressed="false" title="Come StockCharts: forza relativa = 100 × media semplice a 10 barre ÷ media a 30 del rapporto prezzo/benchmark; momentum relativo = 100 × forza relativa ÷ sua media a 9. Distanza da 100 in punti percentuali">Medie semplici</button>
       </span></span>
   </div>
 
@@ -104,11 +104,12 @@
       </ol>
       <div class="intro-btns"><button type="button" class="mini" id="introClose">Ho capito</button><button type="button" class="mini" id="introHelp">Apri la guida</button></div>
     </div>
+    <div class="changes" id="changes" hidden></div>
     <div class="kpis" id="boardKpis"></div>
     <div class="grid-side">
       <div class="panel">
         <div class="ph"><h2>Settori S&amp;P 500 · stato dei bottom</h2><span class="meta" id="boardMeta"></span></div>
-        <div class="tscroll"><table class="t" id="boardTable"></table></div>
+        <div class="tscroll"><table class="t board-cards" id="boardTable"></table></div>
         <div class="legend">
           <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
           <span><span class="kb" style="background:var(--blue);width:2px"></span>livello blu del settore</span>
@@ -118,8 +119,8 @@
         </div>
         <p class="note pb">Il drawdown conta i dividendi come reinvestiti: è la perdita di chi ha tenuto l'ETF e la base dei segnali. «Solo prezzo» è lo stesso calcolo senza i dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo.</p>
       </div>
-      <div class="stack">
-        <div class="panel">
+      <div class="stack mon-side">
+        <div class="panel watch-panel">
           <div class="ph"><h2>Settori da osservare</h2><span class="meta" id="activeMeta"></span></div>
           <div class="pb" id="activeList"></div>
         </div>
@@ -176,8 +177,8 @@
               <h3>Nuova <span>· nostra, predefinita</span></h3>
               <ul>
                 <li>Forza relativa in logaritmo: ln(prezzo ÷ benchmark).</li>
-                <li><b>RS-Ratio</b>: differenza tra la media esponenziale a 10 barre e quella a 30, divisa per la volatilità della forza relativa (emivita 26 barre) e riportata attorno a 100.</li>
-                <li><b>RS-Momentum</b>: scarto dell'RS-Ratio dalla sua media esponenziale a 8 barre, sulla stessa scala.</li>
+                <li><b>Forza relativa</b>: differenza tra la media esponenziale a 10 barre e quella a 30 del rapporto prezzo/benchmark, divisa per la sua volatilità (emivita 26 barre) e riportata attorno a 100.</li>
+                <li><b>Momentum relativo</b>: scarto della forza relativa dalla sua media esponenziale a 8 barre, sulla stessa scala.</li>
                 <li>Dividendo per la volatilità, tutti i titoli stanno sulla stessa scala: un settore tranquillo e uno agitato con un trend ugualmente solido stanno alla stessa distanza dal centro, di solito entro 3 punti da 100.</li>
                 <li>Le medie esponenziali non fanno saltare il valore quando un dato vecchio esce dal calcolo.</li>
               </ul>
@@ -186,14 +187,14 @@
               <h3>Medie semplici <span>· come StockCharts</span></h3>
               <ul>
                 <li>Forza relativa: prezzo ÷ benchmark.</li>
-                <li><b>RS-Ratio</b> = 100 × media semplice a 10 barre ÷ media semplice a 30.</li>
-                <li><b>RS-Momentum</b> = 100 × RS-Ratio ÷ sua media semplice a 9 barre.</li>
+                <li><b>Forza relativa</b> = 100 × media semplice a 10 barre del rapporto prezzo/benchmark ÷ media semplice a 30.</li>
+                <li><b>Momentum relativo</b> = 100 × forza relativa ÷ sua media semplice a 9 barre.</li>
                 <li>Nessuna normalizzazione: la distanza da 100 è in punti percentuali, quindi i titoli più volatili vanno più lontano e disegnano code più lunghe (sui settori di solito entro 10 punti).</li>
-                <li>Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts (verificato su 11 letture del 25/09/2026). Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso, per via dei dividendi.</li>
+                <li>Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts (verificato su 11 letture del 25/09/2026). Con SPY, il benchmark predefinito dell'app, la forza relativa settimanale esce circa 0,2 più basso, per via dei dividendi.</li>
               </ul>
             </div>
           </div>
-          <p class="note">In pratica si leggono allo stesso modo: RS-Ratio sopra 100 = più forte del benchmark, RS-Momentum sopra 100 = forza in aumento. Sui settori USA dal 2022 le due formule danno lo stesso quadrante circa tre volte su quattro; le differenze stanno soprattutto vicino a 100. Le medie semplici servono per confrontarsi con le piattaforme ufficiali; la nuova per confrontare asset con volatilità molto diverse, come le asset class.</p>
+          <p class="note">In pratica si leggono allo stesso modo: forza relativa sopra 100 = più forte del benchmark, momentum relativo sopra 100 = forza in aumento. Sui settori USA dal 2022 le due formule danno lo stesso quadrante circa tre volte su quattro; le differenze stanno soprattutto vicino a 100. Le medie semplici servono per confrontarsi con le piattaforme ufficiali; la nuova per confrontare asset con volatilità molto diverse, come le asset class.</p>
         </details>
       </div>
       <!-- composizione del portafoglio di riferimento, solo negli universi che ne hanno uno -->
@@ -347,6 +348,10 @@
       </div>
       <div class="stack">
         <div class="panel">
+          <div class="ph"><h2>Perché questo stato</h2><span class="meta">e cosa manca al prossimo</span></div>
+          <div class="pb" id="secCheck"></div>
+        </div>
+        <div class="panel">
           <div class="ph"><h2>Livello blu</h2><span class="meta">% titoli sopra media 200</span></div>
           <div class="pb blue-box">
             <div class="blue-row">
@@ -489,6 +494,10 @@
       </div>
       <div class="stack">
         <div class="panel">
+          <div class="ph"><h2>Perché questo stato</h2><span class="meta">e cosa manca al prossimo</span></div>
+          <div class="pb" id="ixCheck"></div>
+        </div>
+        <div class="panel">
           <div class="ph"><h2>Livello blu</h2><span class="meta">% titoli sopra media 200</span></div>
           <div class="pb blue-box">
             <div class="blue-row">
@@ -616,7 +625,7 @@
       <p><b>Sector Monitor</b> segue due cose: i <b>possibili bottom dei settori S&amp;P 500</b>, cioè quanti titoli di ogni settore stanno sopra la media a 200 sedute rispetto a un livello blu, insieme al drawdown dell'ETF; e la <b>rotazione relativa</b> di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
       <h3>Le viste</h3>
       <ul>
-        <li><b>1 Monitor</b>: gli 11 settori ordinati per stato, con breadth, livello blu e drawdown; a destra i settori da osservare e perché. Clic su un settore per il dettaglio.</li>
+        <li><b>1 Monitor</b>: gli 11 settori ordinati per stato, con breadth, livello blu e drawdown; a destra i settori da osservare, perché e cosa manca al prossimo stato. In alto, se sei già passato con i dati di un altro giorno, cosa è cambiato da allora (stati e breadth mossa di almeno 5 punti). Clic su un settore per il dettaglio, dove il riquadro <b>Perché questo stato</b> elenca le condizioni della zona blu o del trigger con ✓ e ✗. Sul telefono le spiegazioni delle intestazioni si aprono toccandole.</li>
         <li><b>2 Rotazione</b>: grafico di rotazione relativa con tabella e performance. Universi USA (settori, MAG7) e globali in euro: 1 Asset class, 2 Fattori, 3 Regioni, 4 Paesi, 6 Indici.</li>
         <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
         <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati.</li>
@@ -633,7 +642,7 @@
         <li><b>Fallito</b>: il prezzo chiude sotto il minimo della zona blu, con un piccolo margine, entro 20 sedute dal trigger; oppure più tardi, finché la breadth non è tornata sopra il livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali. Nel grafico le bande blu chiare sono le sedute con la breadth sotto il livello ma fuori dalla zona blu: il motivo è nel riquadro al passaggio del mouse.</li>
       </ul>
       <h3>Rotazione relativa</h3>
-      <p>Ogni titolo è confrontato con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>
+      <p>Ogni titolo è confrontato con il benchmark su due assi: <b>forza relativa</b> e <b>momentum relativo</b> (lo slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>
       <ul>
         <li><b class="q-imp-c">Improving</b> (alto a sinistra): più debole del benchmark ma lo slancio migliora.</li>
         <li><b class="q-lead-c">Leading</b> (alto a destra): più forte e con slancio.</li>
@@ -649,8 +658,8 @@
         <dt>Livello blu</dt><dd>soglia di breadth del settore sotto cui cercare un bottom.</dd>
         <dt>Drawdown e percentile</dt><dd>calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati), la base dei segnali; il percentile dice quanto è profondo rispetto alla storia del settore (90° = più profondo del 90% delle sedute).</dd>
         <dt>Solo prezzo</dt><dd>lo stesso calcolo sul prezzo senza dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo, e per chi non ne paga (oro, bitcoin) è uguale. Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday: dopo una seduta con un forte rovescio sta più in alto della chiusura (GLD il 29/01/2026: 509,70 contro 495,90).</dd>
-        <dt>RS-Ratio</dt><dd>forza relativa rispetto al benchmark: sopra 100 più forte.</dd>
-        <dt>RS-Momentum</dt><dd>come sta cambiando la forza relativa: sopra 100 in miglioramento.</dd>
+        <dt>Forza relativa</dt><dd>forza rispetto al benchmark: sopra 100 più forte.</dd>
+        <dt>Momentum relativo</dt><dd>come sta cambiando la forza relativa: sopra 100 in miglioramento.</dd>
         <dt>Direzione</dt><dd>verso dell'ultimo spostamento sul grafico, in gradi bussola: 0° in su, 90° a destra (verso Leading).</dd>
         <dt>Tema</dt><dd>l'interruttore Chiaro in alto passa al fondo bianco, con le stesse regole di colore; la scelta resta salvata nel browser e vale anche per le altre app del sito.</dd>
       </dl>
