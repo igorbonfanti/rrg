@@ -4,14 +4,14 @@
  * bottom-map.js senza cambiarne la logica. Dati: data/indices.json (formato in indexdata.js) e
  * config/indices.json (livelli e qualità della storia), caricati alla prima apertura della pagina.
  */
-import { priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, DEFAULT_PARAMS, STATES } from './signals.js';
+import { priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, DEFAULT_PARAMS, STATES } from './signals.js';
 import { indexSeries } from './indexdata.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct, delPct } from './format.js';
+import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -96,6 +96,15 @@ export function createIndices(ctx) {
     if (!apprCache.has(key)) apprCache.set(key, approachLevel(S[k].pct200.slice(0, NOW[k] + 1), L));
     const A = apprCache.get(key), b = S[k].pct200[NOW[k]];
     return { A, on: A != null && b != null && stateOf(k).code === 'normal' && b <= A };
+  }
+  // perché questo stato e cosa manca al prossimo (stesse regole della macchina)
+  function explain(k) {
+    const m = machine(k);
+    let t = NOW[k];
+    while (t > 0 && m.days[t] == null) t--;
+    const e = explainState(PX[k], S[k], st.blue[k], P, m, S[k].dates, t);
+    if (approach(k).on) e.why = `Avvicinamento: breadth ${fmt(S[k].pct200[NOW[k]])}%, sotto la soglia di avvicinamento ${fmt(approach(k).A, 0)}% (livello blu ${st.blue[k]}% + il calo forte dell'indice in 10 sedute): in un calo deciso il livello blu è a circa due settimane.`;
+    return e;
   }
   const name = (k) => CFG[k].name;
   const asOf = () => KEYS.map((k) => S[k].dates[NOW[k]]).sort().at(-1);
@@ -242,6 +251,7 @@ export function createIndices(ctx) {
     document.querySelectorAll('#ixRange button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('ixTitle').textContent = `${k} · ${name(k)}`;
     $('ixBadge').innerHTML = approach(k).on ? apprBadge() : badge(stateOf(k).code);
+    $('ixCheck').innerHTML = checklistHTML(explain(k));
     drawSector($('ixTs'), {
       dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: rangeStart(k), sym: k, blue: L,

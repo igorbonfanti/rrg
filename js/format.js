@@ -70,3 +70,10 @@ export function placeTip(tip, wrap, e, dy = 14) {
 // freccia che punta nella direzione `deg` (gradi bussola, 0° = nord)
 export const arrow = (deg) => (deg == null ? '' : `<svg class="arrow" viewBox="-7 -7 14 14" aria-hidden="true"><g transform="rotate(${(deg - 90).toFixed(1)})"><line x1="-5" y1="0" x2="3" y2="0" stroke="currentColor" stroke-width="1.6"/><path d="M5.5 0 L0.8 -3.4 L0.8 3.4 Z" fill="currentColor"/></g></svg>`);
 export const qPill = (q, deg) => `<span class="pill q-${QKEY[q]}-c"><span class="d"></span>${q}${deg == null ? '' : ' ' + arrow(deg)}</span>`;
+
+// Lista "perché questo stato e cosa manca" (signals.js explainState): ✓ soddisfatta, ✗ manca, i = informazione
+export function checklistHTML(e) {
+  const mark = (ok) => (ok == null ? '<span class="ck ck-i" aria-label="informazione">i</span>' : ok ? '<span class="ck ck-ok" aria-label="sì">✓</span>' : '<span class="ck ck-no" aria-label="manca">✗</span>');
+  return `<p class="note ck-why">${esc(e.why)}</p><p class="ck-goal">${{ 'zona blu': 'Per la zona blu servono tutte:', trigger: 'Per il trigger servono la breadth e le conferme (una qualsiasi tra le quattro, il rimbalzo a V basta da solo):', 'tenuta del segnale': 'Dopo il trigger:' }[e.goal]}</p>` +
+    `<ul class="cklist">${e.items.map((x) => `<li class="${x.sub ? 'sub' : ''}${x.ok === false ? ' no' : ''}">${mark(x.ok)}<span>${esc(x.text)}</span></li>`).join('')}</ul>`;
+}

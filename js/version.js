@@ -4,10 +4,10 @@
  * e l'app lo dice in alto. Schema 0.vista.correzione: 0 finché è in prova, la cifra di mezzo sale con una funzione
  * nuova, l'ultima con le correzioni.
  */
-export const VERSION = '0.7.2';
+export const VERSION = '0.8.0';
 export const RELEASE = '2026-10-17';
 export const NOTES = [
-  'Comandi «XLK TIT» e indirizzi #tit-XLK; la scelta del settore nella vista 7 entra nella cronologia',
-  'Bottom Map: zona blu del colore giusto nel tema chiaro, pallini interi sul bordo; legenda e tabelle più leggibili',
-  'Aggiornamento notturno più robusto: avvisi quando una fonte resta ferma, alert Telegram riprovati, niente commit vuoti',
+  'Perché questo stato e cosa manca al prossimo: condizioni con ✓ e ✗ nelle viste 4 e 6 e nei settori da osservare',
+  'Cosa è cambiato dall\'ultima visita, in cima al Monitor',
+  'Monitor a schede sul telefono, spiegazioni al tocco; forza relativa e momentum relativo al posto dei nomi registrati',
 ];
