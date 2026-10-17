@@ -574,6 +574,20 @@
       </div>
       <p class="note pb" id="titSpreadNote"></p>
     </div>
+    <div class="panel" id="titHistPanel" style="margin-bottom:12px" hidden>
+      <div class="ph"><h2 id="titHistTitle"></h2><span class="meta" id="titHistMeta"></span></div>
+      <p class="note pb tit-streak" id="titHistNote"></p>
+      <div class="chart-wrap" id="titHistWrap">
+        <svg class="cq hist" id="titHist" role="img" aria-label="Divergenza tra equal-weight e cap-weighted del settore scelto nelle ultime 52 settimane"></svg>
+        <div class="tip" id="titHistTip" hidden></div>
+      </div>
+      <div class="legend">
+        <span><span class="kb" style="background:var(--q-lead);opacity:.5"></span>sopra lo zero: davanti l'equal-weight</span>
+        <span><span class="kb" style="background:var(--q-imp);opacity:.5"></span>sotto lo zero: guidano i grandi</span>
+        <span><span class="kl" style="background:var(--ink-3)"></span>S&amp;P 500, per confronto</span>
+      </div>
+      <p class="note pb">Ogni punto è la divergenza del dumbbell (equal-weight meno cap-weighted, in punti) calcolata alla fine di quella settimana sul periodo scelto: l'ultimo punto è il valore di oggi. Con YTD la divergenza riparte da zero a gennaio.</p>
+    </div>
     <div class="grid-tit">
       <div class="panel">
         <div class="ph"><h2 id="titBubbleTitle"></h2><span class="meta" id="titBubbleMeta"></span></div>

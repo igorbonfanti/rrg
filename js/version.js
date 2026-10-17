@@ -4,10 +4,10 @@
  * e l'app lo dice in alto. Schema 0.vista.correzione: 0 finché è in prova, la cifra di mezzo sale con una funzione
  * nuova, l'ultima con le correzioni.
  */
-export const VERSION = '0.8.4';
+export const VERSION = '0.8.5';
 export const RELEASE = '2026-10-17';
 export const NOTES = [
-  'Caricamento più veloce: il Monitor arriva prima, i prezzi della rotazione in sottofondo',
-  'Pagina Indici: prima i 10 principali, poi gli altri; file più leggeri',
+  'Vista 7: storia della divergenza grandi/piccoli nelle ultime 52 settimane e da quante settimane guida',
+  'Caricamento più veloce: il Monitor arriva prima, gli indici in due file',
   'Episodi a confronto con una seduta qualsiasi e con SPY',
 ];
