@@ -4,7 +4,7 @@
  * breadth.json (titoli sopra le medie), breadth_latest.json (fotografia per titolo),
  * config/thresholds.json (livelli blu e parametri), alerts.json (invii Telegram).
  */
-import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
+import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
@@ -17,7 +17,7 @@ export const NAMES = {
   XLF: 'Financials', XLV: 'Health Care', XLI: 'Industrials', XLB: 'Materials', XLRE: 'Real Estate', XLU: 'Utilities',
 };
 const TV = { XLK: 'SKTH', XLC: 'SLTH', XLY: 'SYTH', XLP: 'SPTH', XLE: 'SETH', XLF: 'SFTH', XLV: 'SVTH', XLI: 'SITH', XLB: 'SBTH', XLRE: 'SSTH', XLU: 'SUTH' };
-const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, normal: 5 };
+const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 const ICON = {
   setup: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 11 L1 4 H11 Z" fill="currentColor"/></svg>',
   trig: '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1 L11 8 H1 Z" fill="currentColor"/></svg>',
@@ -27,6 +27,9 @@ const ICON = {
   normal: '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="5" width="8" height="2" fill="currentColor"/></svg>',
 };
 export const badge = (code, label = STATES[code]) => `<span class="st st-${code}">${ICON[code]}${esc(label)}</span>`;
+// avvicinamento al livello blu: non è uno stato della macchina (niente alert), solo un'indicazione per la watchlist
+const APPR_ICON = '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.2 1.6"/></svg>';
+const apprBadge = () => `<span class="st st-appr">${APPR_ICON}Avvicinamento</span>`;
 const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}`;
 // Titoli: TradingView scrive le classi di azioni con il punto (BRK.B), i dati con il trattino (BRK-B)
 const tvStock = (sym) => tvLink(sym.replace('-', '.'));
@@ -118,23 +121,35 @@ export function createBottom(ctx) {
     return miss.length ? `${head}: per la zona blu ${miss.length > 1 ? 'servono' : 'serve'} ${miss.join(' e ')}` : head;
   }
   const changed = (s) => st.blue[s] !== config.blue[s];
+  // Avvicinamento: settore in stato normale con la breadth sotto la sua soglia di avvicinamento (signals.js)
+  const apprCache = new Map();
+  function approach(s) {
+    const L = st.blue[s], key = s + ':' + L;
+    if (!apprCache.has(key)) apprCache.set(key, approachLevel(BR[s].pct200.slice(0, NOW + 1), L));
+    const A = apprCache.get(key), b = BR[s].pct200[NOW];
+    return { A, on: A != null && b != null && stateOf(s).code === 'normal' && b <= A };
+  }
+  const apprWhy = (s) => {
+    const { A } = approach(s), b = BR[s].pct200[NOW], L = st.blue[s];
+    return `breadth ${fmt(b)}%, sotto la soglia di avvicinamento ${fmt(A, 0)}% (livello blu ${L}% + il calo forte del settore in 10 sedute, ${fmt(A - L, 0)} punti): in un calo deciso il livello blu è a circa due settimane`;
+  };
 
   // ---------- 1 MONITOR ----------
   function renderMonitor() {
     const rows = SECTOR_KEYS.map((s) => {
       const c = S.adjclose[s];
       return {
-        s, state: stateOf(s), rot: ctx.rotation(s), last: c[NOW], d1: (c[NOW] / c[NOW - 1] - 1) * 100, m1: (c[NOW] / c[NOW - 21] - 1) * 100,
+        s, state: stateOf(s), appr: approach(s).on, rot: ctx.rotation(s), last: c[NOW], d1: (c[NOW] / c[NOW - 1] - 1) * 100, m1: (c[NOW] / c[NOW - 21] - 1) * 100,
         dd: PX[s].dd[NOW], dp: PX[s].dp[NOW], worst: Math.min(...PX[s].dd.slice(NOW - 1259, NOW + 1).filter((v) => v != null)),
         b: BR[s].pct200[NOW], b1m: BR[s].pct200[NOW - 21], n: BR[s].n[NOW], above: BR[s].above200[NOW], L: st.blue[s],
       };
-    }).sort((a, b) => ORDER[a.state.code] - ORDER[b.state.code] || (a.b - a.L) - (b.b - b.L));
+    }).sort((a, b) => ORDER[a.appr ? 'appr' : a.state.code] - ORDER[b.appr ? 'appr' : b.state.code] || (a.b - a.L) - (b.b - b.L));
     const DDMAX = 35;
     const body = rows.map((r) => {
       const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
       return `<tr data-sym="${r.s}" tabindex="0">
         <td><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></td>
-        <td>${badge(r.state.code)}</td>
+        <td>${r.appr ? apprBadge() : badge(r.state.code)}</td>
         <td><span class="cellv num" title="${titoli(r.above)} su ${r.n}">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
         <td class="num r">${r.L}%${changed(r.s) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
         <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
@@ -156,17 +171,17 @@ export function createBottom(ctx) {
       ['S&amp;P 500 sopra media 200', `${fmt(spx.pct200[NOW])}% ${sparkline(spx.pct200.slice(NOW - 251, NOW + 1), 96, 26)}`, `${titoli(spx.above200[NOW])} su ${spx.n[NOW]} · linea grigia al 20%`],
       ['Settori in zona blu', `${by(['setup', 'fail']).length}<small> / 11</small>`, list(by(['setup', 'fail']))],
       [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / 11</small>`, list(by(['trig', 'cool']))],
-      ['Settori in attenzione', `${by(['watch']).length}<small> / 11</small>`, list(by(['watch']))],
+      ['Settori in attenzione', `${by(['watch']).length}<small> / 11</small>`, list(by(['watch'])) + (rows.some((r) => r.appr) ? ` · in avvicinamento: ${rows.filter((r) => r.appr).map((r) => r.s).join(' · ')}` : '')],
       ['SPY · S&amp;P 500', fmt(spy[NOW], 2), `${sgn(PX.SPY.dd[NOW])}% dal massimo a 52 settimane${ddp('SPY') == null ? '' : ` · solo prezzo ${sgn(ddp('SPY'))}%`}`],
     ];
     $('boardKpis').innerHTML = kpi.map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
-    const active = rows.filter((r) => r.state.code !== 'normal');
-    $('activeMeta').textContent = `${active.length} su 11 · in attenzione, zona blu o dopo un trigger`;
+    const active = rows.filter((r) => r.state.code !== 'normal' || r.appr);
+    $('activeMeta').textContent = `${active.length} su 11 · in avvicinamento, attenzione, zona blu o dopo un trigger`;
     $('activeList').innerHTML = active.length ? active.map((r) => `<div class="acard" data-sym="${r.s}" tabindex="0">
-        <div class="acard-h"><span><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></span>${badge(r.state.code)}</div>
-        <div class="acard-t">${esc(r.state.why)}</div></div>`).join('') : '<p class="note">Nessun settore vicino al livello blu.</p>';
+        <div class="acard-h"><span><span class="sym">${r.s}</span><span class="nm">${NAMES[r.s]}</span></span>${r.appr ? apprBadge() : badge(r.state.code)}</div>
+        <div class="acard-t">${esc(r.appr ? apprWhy(r.s) : r.state.why)}</div></div>`).join('') : '<p class="note">Nessun settore vicino al livello blu.</p>';
     $('activeList').querySelectorAll('.acard').forEach((c) => { c.onclick = () => openSector(c.dataset.sym); c.onkeydown = (e) => { if (e.key === 'Enter') openSector(c.dataset.sym); }; });
-    $('stateLegend').innerHTML = [
+    $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth sotto la soglia di avvicinamento del settore: livello blu più il suo calo forte in 10 sedute (in un calo deciso il livello è a circa due settimane). Da mettere in osservazione; non cambia lo stato e non manda alert.</span></div>` + [
       ['watch', `breadth entro ${P.watchBand} punti dal livello blu, oppure drawdown più profondo ${delPct(P.ddWatch)} della storia del settore. Sotto il livello blu per meno di ${P.setupCloses} chiusure si resta qui.`],
       ['setup', `breadth sotto il livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile. Qui si formano i bottom, spesso in anticipo: ci si prepara.`],
       ['trig', `la breadth risale sopra il livello blu di almeno ${P.minRecoveryPoints} punti (o ${P.minRecoveryStocks} titoli, se valgono di più) con una conferma: spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V, cioè la breadth di nuovo sopra max(${P.resetFloor}%, livello + ${P.resetAbove}), basta da solo.`],
@@ -187,9 +202,10 @@ export function createBottom(ctx) {
     return out;
   }
   const mapStates = () => Object.fromEntries(SECTOR_KEYS.map((s) => [s, stateOf(s).code]));
+  const mapRings = () => SECTOR_KEYS.filter((s) => approach(s).on);
   function renderMap() {
     mapSeries = mapData();
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), size: chartWidth($('bm'), SIZE) });
+    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), rings: mapRings(), size: chartWidth($('bm'), SIZE) });
     $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[NOW])} · colore del punto = stato attuale (in zona blu si entra dopo ${P.setupCloses} chiusure sotto il livello)`;
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
     const rows = SECTOR_KEYS.map((s) => ({ s, d: BR[s].pct200[NOW] - st.blue[s], need: BR[s].above200[NOW] - Math.floor((st.blue[s] * BR[s].n[NOW]) / 100) })).sort((a, b) => a.d - b.d);
@@ -212,7 +228,7 @@ export function createBottom(ctx) {
     });
   }
   function redrawMap() {
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), size: chartWidth($('bm'), SIZE) });
+    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), rings: mapRings(), size: chartWidth($('bm'), SIZE) });
     $('distList').querySelectorAll('.r').forEach((r) => r.classList.toggle('sel', r.dataset.sym === st.mapFocus));
   }
   function bindMap() {
@@ -227,7 +243,8 @@ export function createBottom(ctx) {
       tip.innerHTML = `<div class="row"><b>${s}</b><span>${NAMES[s]}</span></div>
         <div class="row"><span>Sopra media 200</span><b>${fmt(BR[s].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[s]}%</b></div>
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[s].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
-        <div class="row"><span>Stato</span><b>${esc(STATES[stateOf(s).code])}</b></div>
+        <div class="row"><span>Stato</span><b>${approach(s).on ? 'Avvicinamento' : esc(STATES[stateOf(s).code])}</b></div>
+        <div class="row"><span>Soglia di avvicinamento</span><b>${approach(s).A == null ? '—' : fmt(approach(s).A, 0) + '%'}</b></div>
         <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
       placeTip(tip, $('bmWrap'), e);
     });

@@ -81,3 +81,13 @@ test('segnale fallito tardivo: prezzo sotto il minimo e breadth sotto il livello
   // prima del fallimento, con la breadth sotto il livello ma dopo il trigger, la seduta è "sospesa"
   assert.ok(m.off.slice(trig, fail.t).every((x) => x == null || x === 'cool' || x === 'rearm'));
 });
+
+test('soglia di avvicinamento: livello + calo forte in 10 sedute', async () => {
+  const { approachLevel } = await import('../js/signals.js');
+  // breadth che scende di 1 punto al giorno: ogni calo in 10 sedute vale 10 punti
+  const b = Array.from({ length: 60 }, (_, i) => 80 - i);
+  assert.equal(approachLevel(b, 5), 15);
+  assert.equal(approachLevel([50, 50, 50], 5), null);
+  // i null non contano
+  assert.equal(approachLevel([null, ...b, null], 5), 15);
+});

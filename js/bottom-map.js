@@ -24,10 +24,11 @@ const STATE_ZONE = { setup: 'setup', fail: 'setup', watch: 'watch', normal: 'nor
 /**
  * @param {SVGSVGElement} svg
  * @param {{series: Record<string, {x: number, y: number}[]>, syms: string[], focus?: string|null, params: {ddSetup: number, ddWatch: number, watchBand: number},
- *          states?: Record<string, string>, size?: number, clipId?: string, unit?: string}} p  states: stato attuale di ogni settore
- *   (colora il punto finale); clipId: id del ritaglio, diverso per ogni mappa della pagina; unit: «del settore», «dell'indice»
+ *          states?: Record<string, string>, size?: number, clipId?: string, unit?: string, rings?: string[]}} p  states: stato attuale
+ *   di ogni settore (colora il punto finale); clipId: id del ritaglio, diverso per ogni mappa della pagina; unit: «del settore»,
+ *   «dell'indice»; rings: settori con l'anello tratteggiato dell'avvicinamento al livello blu
  */
-export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore' }) {
+export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore', rings = [] }) {
   const W = size || SIZE, H = Math.round(W * 0.875), M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = W - M.l - M.r, PH = H - M.t - M.b;
   let top = 60;
@@ -73,6 +74,7 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
     }
     for (let i = 0; i < n; i++) el('circle', { cx: sx(pts[i].x), cy: sy(pts[i].y), r: 1.8, class: 'dot', 'fill-opacity': (0.25 + 0.6 * (i / Math.max(1, n))).toFixed(2) }, grp);
     const q = pts[n];
+    if (rings.includes(s)) el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 12 : 10, class: 'appr-ring' }, grp);
     el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}` }, grp);
     heads.push({ sym: s, label: s, px: sx(q.x), py: sy(q.y), dim });
   }

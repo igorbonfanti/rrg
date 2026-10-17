@@ -633,3 +633,6 @@ svg.bub { touch-action: pan-y; }
 .ph #toTit { margin-left: auto; }
 .t.pain tr.worst td:first-child { box-shadow: inset 3px 0 0 var(--down); }
 @media (max-width: 480px) { .t.pain .nm { display: none; } }
+/* avvicinamento al livello blu (solo indicazione, non è uno stato): bordo tratteggiato color attenzione */
+.st-appr { color: var(--watch-line); background: transparent; box-shadow: inset 0 0 0 1px var(--watch-line); }
+.rrg .appr-ring { fill: none; stroke: var(--watch-line); stroke-width: 1.6; stroke-dasharray: 3 2.5; }

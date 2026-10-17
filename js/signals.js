@@ -79,6 +79,21 @@ export function breadthSeries(breadth, key, dates) {
   return out;
 }
 
+/**
+ * Soglia di avvicinamento al livello blu: livello + il calo forte della breadth in `h` sedute (quantile `q` dei
+ * cali di tutta la storia del settore). Da qui, in un calo deciso, il livello blu è a circa due settimane.
+ * Calibrata sui settori dal 2005 (ricerca/attenzione/fasce.md): anticipo mediano circa un mese, avvisati 59 tocchi
+ * del livello su 73, ma meno della metà degli avvicinamenti arriva davvero al livello. Serve per la watchlist,
+ * non cambia gli stati né gli alert.
+ */
+export function approachLevel(b, L, h = 10, q = 0.9) {
+  const d = [];
+  for (let t = h; t < b.length; t++) if (b[t] != null && b[t - h] != null && b[t] < b[t - h]) d.push(b[t - h] - b[t]);
+  if (!d.length) return null;
+  d.sort((x, y) => x - y);
+  return L + d[Math.floor(q * (d.length - 1))];
+}
+
 // Serie di prezzo derivate: drawdown dal massimo a 52 settimane e sua profondità storica
 export function priceSeries(close) {
   const dd = drawdown(close);
