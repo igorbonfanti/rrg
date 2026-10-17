@@ -636,3 +636,6 @@ svg.bub { touch-action: pan-y; }
 /* avvicinamento al livello blu (solo indicazione, non è uno stato): bordo tratteggiato color attenzione */
 .st-appr { color: var(--watch-line); background: transparent; box-shadow: inset 0 0 0 1px var(--watch-line); }
 .rrg .appr-ring { fill: none; stroke: var(--watch-line); stroke-width: 1.6; stroke-dasharray: 3 2.5; }
+/* versione in alto e avviso quando il browser usa file vecchi */
+.ver { font: 500 11px var(--f-mono); color: var(--ink-3); white-space: nowrap; cursor: help; }
+.newver { font: 600 11px var(--f-mono); color: #000; background: var(--q-weak-fill); border: 0; padding: 3px 9px; cursor: pointer; white-space: nowrap; }

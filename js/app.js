@@ -3,6 +3,7 @@ import { build, stats, CENTER } from './engine.js';
 import { createBottom, NAMES as SECTOR_NAMES } from './bottom.js';
 import { createIndices } from './indices.js';
 import { createTitles } from './titles.js';
+import { VERSION, RELEASE, NOTES } from './version.js';
 import { priceMetrics, priceDrawdown } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
@@ -38,6 +39,23 @@ const state = {
 };
 
 // ---------- avvio ----------
+// versione del codice in uso; version.json (letto sempre fresco) dice l'ultima pubblicata: se sono diverse il
+// browser sta usando file vecchi dalla cache e lo si dice in alto
+$('verTag').textContent = 'v' + VERSION;
+$('verTag').title = `Versione ${VERSION} del ${dIT(RELEASE)}\nNovità:\n· ${NOTES.join('\n· ')}`;
+function checkVersion() {
+  fetch(`version.json?t=${Date.now()}`, { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null)).then((v) => {
+    if (!v || !v.version || v.version === VERSION) return;
+    const b = $('newVer');
+    b.hidden = false;
+    b.textContent = `Nuova versione ${v.version}: ricarica`;
+    b.title = `Stai usando la ${VERSION}. Se dopo il clic resta questo avviso, ricarica con Ctrl+F5 (su Mac Cmd+Maiusc+R).`;
+    b.onclick = () => location.reload();
+  }).catch(() => { /* senza rete: si resta sulla versione in uso */ });
+}
+checkVersion();
+document.addEventListener('visibilitychange', () => { if (!document.hidden) checkVersion(); });
+
 const getJSON = (url, optional) => fetch(url).then((r) => {
   if (r.ok) return r.json();
   if (optional) return null;
@@ -233,7 +251,7 @@ function renderHeader() {
   const breadthNote = bAsOf < asOf ? ` <span class="muted">· breadth al ${dIT(bAsOf)}</span>` : '';
   $('clock').innerHTML = `EOD <b>${dIT(asOf)}</b>${breadthNote} ${badge}`;
   $('clock').title = `Chiusure USA · ${NEXT_UPDATE}`;
-  $('genLine').textContent = `generato ${new Date(d.generated).toLocaleString('it-IT')}`;
+  $('genLine').textContent = `versione ${VERSION} del ${dIT(RELEASE)} · dati generati ${new Date(d.generated).toLocaleString('it-IT')}`;
 }
 
 // ---------- modello ----------

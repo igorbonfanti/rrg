@@ -138,3 +138,11 @@ test('indici con limiti: holdings iShares, B3 e tabelle di Wikipedia', () => {
   const asx = '{|\n!Code!!Company\n|-\n|FPH|FPH\n|x\n|-\n|360\n|Life360\n|}';
   assert.deepEqual(PARSERS.ASX200(asx), ['FPH.AX', '360.AX']);
 });
+
+test('version.json e js/version.js hanno la stessa versione', async () => {
+  const { VERSION, RELEASE } = await import('../js/version.js');
+  const v = read('version.json');
+  assert.equal(v.version, VERSION);
+  assert.equal(v.release, RELEASE);
+  assert.match(VERSION, /^\d+\.\d+\.\d+$/);
+});
