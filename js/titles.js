@@ -224,8 +224,14 @@ export function createTitles(ctx) {
   const streakText = (z, dates) => (!z.sign ? '' : `${lead(z.sign)} ${z.all ? `da almeno ${z.weeks} settimane` : `da ${z.weeks} ${z.weeks === 1 ? 'settimana' : 'settimane'} (dal ${dIT(dates[z.start])})`}`);
   function drawHist() {
     const box = $('titHistPanel');
-    if (!D.hist || !D.hist.sectors) { box.hidden = true; return; }
     box.hidden = false;
+    if (!D.hist || !D.hist.sectors) {
+      // file dei titoli di una versione precedente (copia del browser o aggiornamento notturno non ancora passato)
+      $('titHistTitle').textContent = 'Storia della divergenza'; $('titHistMeta').textContent = '';
+      $('titHistNote').textContent = 'Il file dei titoli in uso non ha ancora la storia: ricarica la pagina (Ctrl+F5, su Mac Cmd+Maiusc+R).';
+      $('titHist').innerHTML = ''; $('titHist').setAttribute('viewBox', '0 0 10 1');
+      return;
+    }
     $('titHistTip').hidden = true;
     const sec = ctx.getSector(), H = D.hist, dates = H.dates, n = dates.length;
     const v = H.sectors[sec][st.per], ref = H.sectors.SPX ? H.sectors.SPX[st.per] : null;
