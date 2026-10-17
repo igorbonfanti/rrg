@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { parseSpChanges, membership, resetDays, align, sectorIndex, windowOf, buildSectorMembers, parseIvv, wikiDate, normName, PERIODS, OFFSETS } from '../scripts/lib/capeq.js';
+import { parseSpChanges, membership, inIndex, lastEntry, resetDays, align, sectorIndex, windowOf, buildSectorMembers, parseIvv, wikiDate, normName, PERIODS, OFFSETS } from '../scripts/lib/capeq.js';
 import { parseCSV } from '../scripts/fetch_breadth.js';
 
 const read = (f) => JSON.parse(fs.readFileSync(new URL('../' + f, import.meta.url)));
@@ -50,10 +50,26 @@ test('appartenenza: ingressi, uscite con settore, ticker cambiato dopo l\'ingres
   ];
   const life = membership(members, changes, { BBB: { name: 'Beta', sector: 'XLK' } });
   assert.equal(normName('EchoStar Corporation'), 'echostar');
-  assert.deepEqual(life.AAA, { sector: 'XLK', in: '2025-11-03', out: '9999' });
-  assert.equal(life.ECHO.in, '2026-03-23');
-  assert.deepEqual(life.BBB, { sector: 'XLK', in: '0000', out: '2026-03-23', former: true });
+  assert.deepEqual(life.AAA, { sector: 'XLK', spans: [['2025-11-03', '9999']] });
+  assert.equal(lastEntry(life.ECHO), '2026-03-23');
+  assert.deepEqual(life.BBB, { sector: 'XLK', spans: [['0000', '2026-03-23']], former: true });
   assert.equal(life.CCC, undefined); // uscito senza settore noto: resta fuori
+  assert.equal(inIndex(life.BBB, '2026-03-20'), true);
+  assert.equal(inIndex(life.BBB, '2026-03-23'), false);
+});
+
+test('appartenenza: entrato e uscito nella finestra, uscito e rientrato', () => {
+  const members = [{ s: 'ILMN', name: 'Illumina', sector: 'XLV' }];
+  const changes = [
+    { date: '2026-09-21', add: 'ILMN', addName: 'Illumina', rem: 'TTD' },
+    { date: '2025-07-18', add: 'TTD', addName: 'Trade Desk', rem: 'ANSS' },
+    { date: '2024-06-24', add: 'GDDY', addName: 'GoDaddy', rem: 'ILMN' },
+  ];
+  const life = membership(members, changes, { TTD: { sector: 'XLC' }, ANSS: { sector: 'XLK' } });
+  assert.deepEqual(life.TTD.spans, [['2025-07-18', '2026-09-21']]); // non conta prima dell'ingresso
+  assert.deepEqual(life.ILMN.spans, [['0000', '2024-06-24'], ['2026-09-21', '9999']]);
+  assert.equal(inIndex(life.ILMN, '2025-01-02'), false);
+  assert.equal(lastEntry(life.ILMN), '2026-09-21');
 });
 
 test('ribilanciamenti: 3° venerdì (giovedì se festivo) con la data di riferimento', () => {
@@ -74,9 +90,10 @@ test('indici simulati: cap a buy-and-hold, equal ribilanciato, ingressi e uscite
   const up = cal.map((_, t) => 100 * 1.01 ** t), flat = cal.map(() => 50);
   // A sale dell'1% al giorno, B è fermo; C entra a metà e D esce a metà
   const px = { A: up, B: flat, C: cal.map((d, t) => (t >= 20 ? 20 : null)), D: cal.map((d, t) => (t <= 30 ? 30 : null)) };
-  const life = { A: { in: '0000', out: '9999' }, B: { in: '0000', out: '9999' }, C: { in: cal[25], out: '9999' }, D: { in: '0000', out: cal[30] } };
+  const life = { A: { spans: [['0000', '9999']] }, B: { spans: [['0000', '9999']] }, C: { spans: [[cal[25], '9999']] }, D: { spans: [['0000', cal[30]]] } };
   const shares = { A: 3 / up[N], B: 1 / 50, C: 1, D: 1 };
   const solo = sectorIndex({ cal, s0: 0, names: ['A', 'B'], life, px, shares, resets: new Map() });
+  assert.equal(solo.n[N], 2);
   // cap-weighted a buy-and-hold: valore del paniere con azioni fisse
   const val = (t) => shares.A * up[t] + shares.B * 50;
   assert.ok(Math.abs(solo.cw[N] - val(N) / val(0)) < 1e-9);
@@ -100,13 +117,14 @@ test('finestre dei periodi: YTD parte dall\'ultima seduta dell\'anno prima', () 
   assert.equal(windowOf(cal, 'YTD', a), null);
 });
 
-test('holdings di IVV: valore di mercato e data', () => {
-  const csv = 'iShares Core S&P 500 ETF\nFund Holdings as of,"Oct 15, 2026"\n\nTicker,Name,Sector,Asset Class,Market Value,Weight (%)\n' +
-    '"NVDA","NVIDIA","Information Technology","Equity","69,926,310,497.94","7.86"\n"BRKB","BERKSHIRE","Financials","Equity","1,000.5","0.01"\n"USD","USD CASH","Cash","Cash","5","0.00"\n';
+test('holdings di IVV: valore di mercato, azioni e data', () => {
+  const csv = 'iShares Core S&P 500 ETF\nFund Holdings as of,"Oct 15, 2026"\n\nTicker,Name,Sector,Asset Class,Market Value,Weight (%),Notional Value,Quantity\n' +
+    '"NVDA","NVIDIA","Information Technology","Equity","69,926,310,497.94","7.86","1","321,899,878.00"\n"BRK B","BERKSHIRE","Financials","Equity","1,000.5","0.01","1","2.00"\n"USD","USD CASH","Cash","Cash","5","0.00","1","5"\n';
   const p = parseIvv(csv, parseCSV);
   assert.equal(p.asOf, '2026-10-15');
-  assert.deepEqual(Object.keys(p.mv), ['NVDA', 'BRKB']);
+  assert.deepEqual(Object.keys(p.mv), ['NVDA', 'BRK-B']);
   assert.equal(p.mv.NVDA, 69926310497.94);
+  assert.equal(p.qty.NVDA, 321899878);
 });
 
 test('buildSectorMembers: forma del file e numeri dei titoli', () => {
@@ -114,15 +132,19 @@ test('buildSectorMembers: forma del file e numeri dei titoli', () => {
   const members = [{ s: 'A', name: 'A', sector: 'XLK', sub: 'x' }, { s: 'B', name: 'B', sector: 'XLK', sub: 'y' }, { s: 'C', name: 'C', sector: 'XLU', sub: 'z' }];
   const px = { A: cal.map((_, t) => 100 + t), B: cal.map((_, t) => 200 - t / 10), C: cal.map(() => 10) };
   const life = membership(members, [], {});
-  const out = buildSectorMembers({ cal, members, life, px, mv: { A: 3, B: 1, C: 1 }, sectors: ['XLK', 'XLU'] });
+  // A vale 3 × 100+N, B 1 × 200−N/10, C 1 × 10: pesi dalle azioni per i prezzi dell'ultima seduta
+  const out = buildSectorMembers({ cal, members, life, px, qty: { A: 3, B: 1, C: 1 }, sectors: ['XLK', 'XLU', 'XLE'] });
   assert.equal(out.asOf, cal[N]);
-  assert.deepEqual(Object.keys(out.sectors), ['XLK', 'XLU', 'SPX']);
+  assert.deepEqual(Object.keys(out.sectors), ['XLK', 'XLU', 'XLE', 'SPX']);
+  assert.equal(out.sectors.XLE['3M'][0], null); // settore senza titoli: nessun rendimento, non 0%
   for (const p of PERIODS) assert.equal(out.sectors.XLK[p].length, OFFSETS.length);
   assert.deepEqual(out.sectors.XLU['3M'][0], [0, 0]);
   const a = out.stocks.find((x) => x.s === 'A');
   assert.equal(a.r['3M'], Math.round((px.A[N] / px.A[N - 63] - 1) * 1000) / 10);
   assert.equal(a.dd, 0);
-  assert.equal(a.w, 60);
+  const va = 3 * px.A[N], vb = px.B[N], vc = 10;
+  assert.equal(a.w, Math.round((va / (va + vb + vc)) * 1e5) / 1e3);
+  assert.equal(a.q, 3);
   assert.ok(a.d200 > 0);
 });
 

@@ -9,7 +9,7 @@ import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
 export const NAMES = {
@@ -265,7 +265,8 @@ export function createBottom(ctx) {
     const hist = BR[s].pct200.slice(f0, NOW + 1).filter((v) => v != null);
     const under = hist.filter((v) => v <= L).length;
     const n = BR[s].n[NOW];
-    $('blueInfo').textContent = `Il ${fmt((100 * under) / hist.length)}% delle sedute dal ${DATES[f0].slice(0, 4)} è stato sotto questo livello. Con ${n} titoli, uno vale ${fmt(100 / n)} punti.`;
+    const share = fmt((100 * under) / hist.length);
+    $('blueInfo').textContent = `${ilPct(share)} ${share}% delle sedute dal ${DATES[f0].slice(0, 4)} è stato sotto questo livello. Con ${n} titoli, uno vale ${fmt(100 / n)} punti.`;
     $('blueSrc').innerHTML = changed(s)
       ? `<span class="loc">modificato in questo browser · livello di default ${config.blue[s]}%</span>`
       : 'Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea. Le regole di zona blu, trigger e cooldown sono di questa app.';

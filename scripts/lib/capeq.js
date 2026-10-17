@@ -59,22 +59,44 @@ export function parseSpChanges(text, from = '0000') {
 }
 
 /**
- * Periodo di appartenenza all'indice di ogni titolo: {s: {sector, in, out}} con in/out ISO ('0000'/'9999' = da
- * sempre / ancora dentro). members: lista di oggi [{s, sector}]; changes: tabella dei cambi; former: {s: {sector}}.
+ * Periodi di appartenenza all'indice di ogni titolo: {s: {sector, spans: [[ingresso, uscita), …], former?}} con date
+ * ISO ('0000'/'9999' = da sempre / ancora dentro). Gestisce chi entra ed esce (anche più volte) nella finestra.
+ * members: lista di oggi [{s, name, sector}]; changes: tabella dei cambi; former: {s: {sector}}.
  */
 export function membership(members, changes, former) {
-  const life = {};
-  for (const m of members) life[m.s] = { sector: m.sector, in: '0000', out: '9999' };
+  const current = new Map(members.map((m) => [m.s, m]));
   // un titolo che ha cambiato ticker dopo l'ingresso (SATS → ECHO) si ritrova dal nome
   const byName = new Map(members.map((m) => [normName(m.name), m.s]));
-  // dal più vecchio al più recente: vale l'ultimo ingresso e l'ultima uscita
-  for (const c of [...changes].sort((a, b) => a.date.localeCompare(b.date))) {
-    const add = life[c.add] ? c.add : c.add && c.addName ? byName.get(normName(c.addName)) : null;
-    if (add && life[add] && !life[add].former) life[add].in = c.date;
-    if (c.rem && !members.some((m) => m.s === c.rem) && former[c.rem]) life[c.rem] = { sector: former[c.rem].sector, in: '0000', out: c.date, former: true };
+  const events = {}; // ticker → [[data, +1 ingresso | -1 uscita]]
+  const push = (s, d, e) => { (events[s] = events[s] || []).push([d, e]); };
+  for (const c of changes) {
+    const add = c.add && (current.has(c.add) || former[c.add] ? c.add : c.addName ? byName.get(normName(c.addName)) : null);
+    if (add) push(add, c.date, 1);
+    if (c.rem) push(c.rem, c.date, -1);
+  }
+  const life = {};
+  for (const s of new Set([...current.keys(), ...Object.keys(events)])) {
+    const sector = current.has(s) ? current.get(s).sector : former[s] && former[s].sector;
+    if (!sector) continue; // uscito senza settore noto: resta fuori
+    // periodi di appartenenza [ingresso, uscita): chi esce senza un ingresso registrato c'era da sempre
+    const ev = (events[s] || []).sort((a, b) => a[0].localeCompare(b[0]) || a[1] - b[1]);
+    const spans = [];
+    let open = ev.length && ev[0][1] < 0 ? '0000' : current.has(s) && !ev.length ? '0000' : null;
+    for (const [d, e] of ev) {
+      if (e > 0 && open == null) open = d;
+      else if (e < 0 && open != null) { spans.push([open, d]); open = null; }
+    }
+    if (open != null) spans.push([open, '9999']);
+    else if (current.has(s)) spans.push([ev.length ? ev[ev.length - 1][0] : '0000', '9999']); // dati incoerenti: dentro dall'ultimo cambio
+    if (!spans.length) continue;
+    life[s] = { sector, spans, ...(current.has(s) ? {} : { former: true }) };
   }
   return life;
 }
+// il titolo è nell'indice nel giorno d?
+export const inIndex = (l, d) => l.spans.some(([a, b]) => a <= d && d < b);
+// ultima data di ingresso nell'indice di chi ne fa parte oggi (null = da prima della tabella dei cambi)
+export const lastEntry = (l) => { const s = l.spans[l.spans.length - 1]; return s && s[0] !== '0000' ? s[0] : null; };
 
 // Nome senza forma societaria e punteggiatura, per riconoscere lo stesso titolo con un altro ticker
 export const normName = (s) => String(s || '').toLowerCase().replace(/&amp;/g, '&').replace(/[.,'()]/g, ' ')
@@ -107,16 +129,17 @@ export function align(cal, dates, close) {
 /**
  * Indici cap ed equal-weight dal giorno s0 (valore 1) a fine calendario.
  * @param {string[]} names titoli candidati; life da membership(); px {s: prezzi allineati}; shares {s: azioni}
- * @returns {{cw: number[], ew: number[]}} indice t - s0
+ * @returns {{cw: number[], ew: number[], n: number[]}} indice t - s0; n = titoli nell'indice nel giorno
  */
 export function sectorIndex({ cal, s0, names, life, px, shares, resets }) {
   const N = cal.length - 1;
   const at = new Map(cal.map((d, i) => [d, i]));
-  const inIdx = (s, t) => life[s].in <= cal[t] && cal[t] < life[s].out && px[s][t - 1] != null && px[s][t] != null;
-  const cw = [1], ew = [1];
+  const inIdx = (s, t) => inIndex(life[s], cal[t]) && px[s][t - 1] != null && px[s][t] != null;
+  const cw = [1], ew = [1], n = [0];
   let h = null; // quote dell'equal-weight
   for (let t = s0 + 1; t <= N; t++) {
     const act = names.filter((s) => inIdx(s, t));
+    n.push(act.length);
     let a = 0, b = 0;
     for (const s of act) { const c0 = shares[s] * px[s][t - 1]; a += (c0 * px[s][t]) / px[s][t - 1]; b += c0; }
     cw.push(b ? (cw[cw.length - 1] * a) / b : cw[cw.length - 1]);
@@ -140,7 +163,7 @@ export function sectorIndex({ cal, s0, names, life, px, shares, resets }) {
     }
     ew.push(Object.entries(h).reduce((x, [s, q]) => x + q * px[s][t], 0));
   }
-  return { cw, ew };
+  return { cw, ew, n };
 }
 
 // Finestra [inizio, fine] del periodo p che termina alla seduta e (indici del calendario), o null
@@ -159,35 +182,37 @@ const r1 = (v) => (v == null || !Number.isFinite(v) ? null : Math.round(v * 1000
 
 /**
  * File data/sector_members.json.
- * @param {object} o cal (sedute fino a asOf), members [{s, name, sector, sub}], life, px {s: allineati}, mv {s: valore
- *   di mercato in IVV} (anche parziale), sectors (11 chiavi)
+ * @param {object} o cal (sedute fino a asOf), members [{s, name, sector, sub}], life, px {s: allineati}, qty {s: azioni
+ *   detenute da IVV, o salvate per chi è uscito} (anche parziale), sectors (11 chiavi)
  */
-export function buildSectorMembers({ cal, members, life, px, mv, sectors }) {
+export function buildSectorMembers({ cal, members, life, px, qty, sectors }) {
   const N = cal.length - 1;
   const s0 = simStart(cal);
   const resets = resetDays(cal);
   const names = Object.keys(life).filter((s) => px[s] && px[s].some((v) => v != null));
-  // azioni: valore di mercato ÷ ultimo prezzo. Senza peso in IVV (usciti, appena entrati): un titolo piccolo,
-  // 0,7 × il 20° percentile del settore, che pesa poco nel cap-weighted e nulla cambia nell'equal-weight
+  // azioni: quelle detenute da IVV (proporzionali al flottante). Chi non è in IVV (uscito senza quantità salvata,
+  // appena entrato) vale come un titolo piccolo del settore: 0,7 × il 20° percentile dei valori di mercato
   const lastPx = (s) => { const a = px[s]; for (let t = a.length - 1; t >= 0; t--) if (a[t] != null) return a[t]; return null; };
-  const small = {};
-  for (const k of sectors) { const v = names.filter((s) => life[s].sector === k && mv[s]).map((s) => mv[s]).sort((a, b) => a - b); small[k] = v.length ? 0.7 * v[Math.floor(v.length * 0.2)] : 1; }
-  const shares = Object.fromEntries(names.map((s) => [s, (mv[s] || small[life[s].sector]) / lastPx(s)]));
+  const value = (s) => (qty[s] ? qty[s] * lastPx(s) : null), small = {};
+  for (const k of sectors) { const v = names.filter((s) => life[s].sector === k && qty[s]).map(value).sort((a, b) => a - b); small[k] = v.length ? 0.7 * v[Math.floor(v.length * 0.2)] : 1; }
+  const shares = Object.fromEntries(names.map((s) => [s, qty[s] || small[life[s].sector] / lastPx(s)]));
   const out = { asOf: cal[N], dates: OFFSETS.map((k) => cal[N - k]), starts: {}, sectors: {}, stocks: [] };
   for (const p of PERIODS) out.starts[p] = OFFSETS.map((k) => { const w = windowOf(cal, p, N - k); return w ? cal[w[0]] : null; });
   for (const k of [...sectors, 'SPX']) {
-    const { cw, ew } = sectorIndex({ cal, s0, names: names.filter((s) => k === 'SPX' || life[s].sector === k), life, px, shares, resets });
+    const own = names.filter((s) => k === 'SPX' || life[s].sector === k);
+    const { cw, ew, n } = sectorIndex({ cal, s0, names: own, life, px, shares, resets });
     out.sectors[k] = {};
     for (const p of PERIODS) {
       out.sectors[k][p] = OFFSETS.map((off) => {
         const w = windowOf(cal, p, N - off);
-        if (!w || w[0] < s0) return null;
+        // senza titoli quotati in qualche seduta della finestra il rendimento non c'è (non 0%)
+        if (!w || w[0] < s0 || n.slice(w[0] - s0 + 1, w[1] - s0 + 1).some((x) => !x)) return null;
         const [a, b] = w.map((t) => t - s0);
         return [r1(cw[b] / cw[a] - 1), r1(ew[b] / ew[a] - 1)];
       });
     }
   }
-  const tot = members.reduce((a, m) => a + (mv[m.s] || 0), 0);
+  const tot = members.reduce((a, m) => a + (value(m.s) || 0), 0);
   const y0 = lastBeforeYear(cal, cal[N].slice(0, 4)), yPrev = lastBeforeYear(cal, String(+cal[N].slice(0, 4) - 1));
   for (const m of members) {
     const c = px[m.s];
@@ -202,18 +227,20 @@ export function buildSectorMembers({ cal, members, life, px, mv, sectors }) {
     const m200 = sma(200), m50 = sma(50);
     const first = c.findIndex((v) => v != null);
     out.stocks.push({
-      s: m.s, n: m.name, sec: m.sector, sub: m.sub || '', w: mv[m.s] && tot ? Math.round((mv[m.s] / tot) * 1e5) / 1e3 : null,
+      s: m.s, n: m.name, sec: m.sector, sub: m.sub || '', w: value(m.s) && tot ? Math.round((value(m.s) / tot) * 1e5) / 1e3 : null,
+      ...(qty[m.s] ? { q: qty[m.s] } : {}),
       px: Math.round(c[N] * 100) / 100, r, prev, dd: r1(c[N] / Math.max(...year) - 1),
       d200: m200 ? r1(c[N] / m200 - 1) : null, d50: m50 ? r1(c[N] / m50 - 1) : null,
-      ...(first > N - 252 ? { since: cal[first] } : {}), ...(life[m.s] && life[m.s].in !== '0000' ? { added: life[m.s].in } : {}),
+      ...(first > N - 252 ? { since: cal[first] } : {}), ...(life[m.s] && lastEntry(life[m.s]) ? { added: lastEntry(life[m.s]) } : {}),
     });
   }
   return out;
 }
 
 /**
- * Holdings di IVV (CSV di iShares): valore di mercato per ticker (stessa forma dei simboli dei membri).
- * Si usa il valore di mercato e non il peso, che nel file ha solo 2 decimali.
+ * Holdings di IVV (CSV di iShares): valore di mercato e azioni detenute per ticker (stessa forma dei simboli dei
+ * membri). Per i pesi si usano le azioni, moltiplicate per i nostri prezzi della stessa seduta: il valore di mercato
+ * del file è della sera prima e il peso ha solo 2 decimali.
  */
 export function parseIvv(text, parseCSV) {
   const lines = text.replace(/^﻿/, '').split(/\r?\n/);
@@ -222,12 +249,12 @@ export function parseIvv(text, parseCSV) {
   const raw = (/Fund Holdings as of,"([^"]+)"/.exec(text) || [])[1];
   const d = raw ? new Date(`${raw} 12:00 UTC`) : null;
   const asOf = d && !Number.isNaN(d.getTime()) ? d.toISOString().slice(0, 10) : null;
-  const mv = {};
+  const mv = {}, qty = {};
   for (const r of parseCSV(lines.slice(h).join('\n'))) {
     if (r['Asset Class'] !== 'Equity') continue;
     const t = tick((r.Ticker || '').replace(/ /g, '-'));
-    const v = Number(String(r['Market Value']).replace(/,/g, ''));
-    if (t && t !== '-' && v > 0) mv[t] = (mv[t] || 0) + v;
+    const v = Number(String(r['Market Value']).replace(/,/g, '')), q = Number(String(r.Quantity).replace(/,/g, ''));
+    if (t && t !== '-' && v > 0) { mv[t] = (mv[t] || 0) + v; if (q > 0) qty[t] = (qty[t] || 0) + q; }
   }
-  return { asOf, mv };
+  return { asOf, mv, qty };
 }
