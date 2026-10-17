@@ -713,3 +713,9 @@ svg.bub { touch-action: pan-y; }
 .cq.hist .cross { stroke: var(--chart-axis); stroke-width: 1; stroke-dasharray: 2 2; }
 .cq.hist .tick { font: 10.5px var(--f-mono); fill: var(--ink-3); }
 .tit-streak { margin-top: 0; }
+
+/* Bottom Map con la data: sul telefono il cursore su una riga sua */
+@media (max-width: 600px) {
+  .bm-ctl { flex-wrap: wrap; }
+  .bm-ctl .scrub { order: 3; flex: 1 1 100%; }
+}

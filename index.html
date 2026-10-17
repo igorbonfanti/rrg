@@ -294,6 +294,12 @@
     <div class="grid-2">
       <div class="panel">
         <div class="ph"><h2>Bottom Map · drawdown e breadth</h2><span class="meta" id="bmMeta"></span></div>
+        <div class="controls bm-ctl">
+          <button class="play" id="bmPlay" type="button" title="Rivedi le settimane una dopo l'altra fino a oggi">▶ PLAY</button>
+          <div class="scrub"><input type="range" id="bmDate" step="1" aria-label="Data della Bottom Map" /><span class="date" id="bmDateVal"></span></div>
+          <button type="button" class="mini" id="bmToday" hidden>Oggi</button>
+        </div>
+        <div class="controls bm-jumps"><span class="ctl">Crisi passate</span><div class="chips" id="bmJumps"></div></div>
         <div class="chart-wrap" id="bmWrap">
           <svg class="rrg" id="bm" role="img" aria-label="Bottom Map: drawdown e breadth dei settori rispetto al livello blu"></svg>
           <div class="tip" id="bmTip" hidden></div>

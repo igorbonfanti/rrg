@@ -9,7 +9,7 @@ import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, keepFocus, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
 export const NAMES = {
@@ -73,7 +73,7 @@ export function createBottom(ctx) {
   const st = {
     blue: { ...config.blue, ...validBlue(store.get('blue', {})) },
     sector: SECTOR_KEYS.includes(store.get('sector')) ? store.get('sector') : 'XLU',
-    range: ['3A', '10A', 'MAX'].includes(store.get('range')) ? store.get('range') : '3A', mapFocus: null,
+    range: ['3A', '10A', 'MAX'].includes(store.get('range')) ? store.get('range') : '3A', mapFocus: null, mapWeek: null,
   };
   const cache = new Map();
   // livelli blu salvati nel browser: solo settori noti e interi da 0 a 60
@@ -238,23 +238,78 @@ export function createBottom(ctx) {
 
   // ---------- 3 BOTTOM MAP ----------
   let mapDraw = null, mapSeries = null;
-  function mapData() {
-    const weeks = weeklyIndices(DATES.slice(0, NOW + 1)).slice(-9);
+  // Data della mappa: oggi oppure una settimana passata (cursore, replay, crisi passate). Alla data T tutto è come si
+  // vedeva allora: coda delle 8 settimane prima, stato della macchina quel giorno, avvicinamento con la storia fino a T
+  const WEEKS = weeklyIndices(DATES.slice(0, NOW + 1));
+  const FIRST_WEEK = Math.max(0, WEEKS.findIndex((k) => SECTOR_KEYS.filter((s) => BR[s].pct200[k] != null && PX[s].dp[k] != null).length >= 6));
+  const JUMPS = [['2008-11-20', 'nov 2008'], ['2011-10-03', 'ott 2011'], ['2016-02-11', 'feb 2016'], ['2018-12-24', 'dic 2018'], ['2020-03-23', 'mar 2020'], ['2022-10-12', 'ott 2022'], ['2025-04-08', 'apr 2025']];
+  const mapT = () => (st.mapWeek == null ? NOW : WEEKS[st.mapWeek]);
+  function mapData(T) {
+    const weeks = WEEKS.filter((k) => k <= T).slice(-9);
+    if (weeks.at(-1) !== T) weeks.push(T); // l'ultima seduta, anche a settimana non finita
     const out = {};
     for (const s of SECTOR_KEYS) {
-      out[s] = weeks.filter((k) => BR[s].pct200[k] != null && PX[s].dp[k] != null)
+      out[s] = weeks.slice(-9).filter((k) => BR[s].pct200[k] != null && PX[s].dp[k] != null)
         .map((k) => ({ x: PX[s].dp[k], y: BR[s].pct200[k] - st.blue[s], t: k }));
     }
     return out;
   }
-  const mapStates = () => Object.fromEntries(SECTOR_KEYS.map((s) => [s, stateOf(s).code]));
-  const mapRings = () => SECTOR_KEYS.filter((s) => approach(s).on);
+  // stato di un settore alla seduta T (l'ultima calcolata fino a lì)
+  function stateAt(s, T) {
+    if (T === NOW) return stateOf(s).code;
+    const m = machine(s);
+    let t = T;
+    while (t > 0 && m.days[t] == null) t--;
+    return m.days[t] || 'normal';
+  }
+  // avvicinamento alla seduta T, con la soglia calcolata sulla storia fino a T (nessun dato del futuro)
+  function approachAt(s, T) {
+    if (T === NOW) return approach(s);
+    const b = BR[s].pct200[T], A = approachLevel(BR[s].pct200.slice(0, T + 1), st.blue[s]);
+    return { A, on: A != null && b != null && stateAt(s, T) === 'normal' && b <= A };
+  }
+  const mapStates = (T) => Object.fromEntries(SECTOR_KEYS.map((s) => [s, stateAt(s, T)]));
+  const mapRings = (T) => SECTOR_KEYS.filter((s) => approachAt(s, T).on);
+  function mapControls() {
+    const T = mapT(), today = st.mapWeek == null;
+    const r = $('bmDate');
+    r.min = FIRST_WEEK; r.max = WEEKS.length - 1; r.value = today ? WEEKS.length - 1 : st.mapWeek;
+    $('bmDateVal').textContent = today ? `oggi · ${dIT(DATES[T])}` : `settimana al ${dIT(DATES[T])}`;
+    $('bmToday').hidden = today;
+    keepFocus($('bmJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && Math.abs(Date.parse(DATES[T]) - Date.parse(d)) < 6 * 864e5}">${l}</button>`).join(''));
+    $('bmJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
+  }
+  const weekOf = (d) => { let i = WEEKS.length - 1; while (i > 0 && DATES[WEEKS[i]] > d) i--; return Math.max(FIRST_WEEK, i); };
+  function setMapWeek(i) {
+    st.mapWeek = i == null || i >= WEEKS.length - 1 ? null : Math.max(FIRST_WEEK, i);
+    st.mapFocus = null;
+    renderMap();
+  }
+  let replay = null;
+  function stopReplay() { if (replay) { clearInterval(replay); replay = null; $('bmPlay').textContent = '▶ PLAY'; } }
+  function playReplay() {
+    if (replay) { stopReplay(); return; }
+    // da oggi si riparte da un anno fa; altrimenti dalla settimana scelta
+    if (st.mapWeek == null) st.mapWeek = Math.max(FIRST_WEEK, WEEKS.length - 53);
+    $('bmPlay').textContent = '❚❚ STOP';
+    renderMap();
+    replay = setInterval(() => {
+      if (st.mapWeek == null || $('v-btm').hidden) { stopReplay(); return; }
+      setMapWeek(st.mapWeek + 1);
+      if (st.mapWeek == null) stopReplay();
+    }, 220);
+  }
+  // per le date passate l'asse verticale è fisso (fino a 100 punti sopra il livello più basso), così nel replay non salta
+  const mapTop = () => 96 - Math.min(...SECTOR_KEYS.map((s) => st.blue[s]));
+  const mapOpts = (T) => ({ series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(T), rings: mapRings(T), size: chartWidth($('bm'), SIZE), ...(T !== NOW ? { top: mapTop() } : {}) });
   function renderMap() {
-    mapSeries = mapData();
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), rings: mapRings(), size: chartWidth($('bm'), SIZE) });
-    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[NOW])} · colore del punto = stato attuale (in zona blu si entra dopo ${P.setupCloses} chiusure sotto il livello)`;
+    const T = mapT(), past = T !== NOW;
+    mapControls();
+    mapSeries = mapData(T);
+    mapDraw = drawBottomMap($('bm'), mapOpts(T));
+    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[T])}${past ? ' (storico)' : ''} · colore del punto = stato ${past ? 'di quel giorno' : 'attuale'} (in zona blu si entra dopo ${P.setupCloses} chiusure sotto il livello)${past ? ' · livelli blu di oggi, scelti conoscendo anche quella crisi' : ''}`;
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
-    const rows = SECTOR_KEYS.map((s) => ({ s, d: BR[s].pct200[NOW] - st.blue[s], need: BR[s].above200[NOW] - Math.floor((st.blue[s] * BR[s].n[NOW]) / 100) })).sort((a, b) => a.d - b.d);
+    const rows = SECTOR_KEYS.filter((s) => BR[s].pct200[T] != null).map((s) => ({ s, d: BR[s].pct200[T] - st.blue[s], need: BR[s].above200[T] - Math.floor((st.blue[s] * BR[s].n[T]) / 100) })).sort((a, b) => a.d - b.d);
     const lo = Math.min(-10, Math.floor(Math.min(...rows.map((r) => r.d)) / 5) * 5), hi = Math.max(40, Math.ceil(Math.max(...rows.map((r) => r.d)) / 10) * 10);
     const pos = (v) => ((v - lo) / (hi - lo)) * 100;
     $('distList').innerHTML = rows.map(({ s, d, need }) => {
@@ -274,7 +329,8 @@ export function createBottom(ctx) {
     });
   }
   function redrawMap() {
-    mapDraw = drawBottomMap($('bm'), { series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(), rings: mapRings(), size: chartWidth($('bm'), SIZE) });
+    const T = mapT();
+    mapDraw = drawBottomMap($('bm'), mapOpts(T));
     $('distList').querySelectorAll('.r').forEach((r) => r.classList.toggle('sel', r.dataset.sym === st.mapFocus));
   }
   function bindMap() {
@@ -285,16 +341,21 @@ export function createBottom(ctx) {
       const s = h ? h.sym : null;
       if (s !== st.mapFocus) { st.mapFocus = s; redrawMap(); }
       if (!h) { tip.hidden = true; return; }
-      const q = mapSeries[s][mapSeries[s].length - 1];
-      tip.innerHTML = `<div class="row"><b>${s}</b><span>${NAMES[s]}</span></div>
+      const q = mapSeries[s][mapSeries[s].length - 1], T = mapT(), ap = approachAt(s, T);
+      tip.innerHTML = `<div class="row"><b>${s}</b><span>${NAMES[s]}</span></div>${T !== NOW ? `<div class="row"><span>Settimana al</span><b>${dIT(DATES[T])}</b></div>` : ''}
         <div class="row"><span>Sopra media 200</span><b>${fmt(BR[s].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[s]}%</b></div>
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[s].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
-        <div class="row"><span>Stato</span><b>${approach(s).on ? 'Avvicinamento' : esc(STATES[stateOf(s).code])}</b></div>
-        <div class="row"><span>Soglia di avvicinamento</span><b>${approach(s).A == null ? '—' : fmt(approach(s).A, 0) + '%'}</b></div>
+        <div class="row"><span>Stato</span><b>${ap.on ? 'Avvicinamento' : esc(STATES[stateAt(s, T)])}</b></div>
+        <div class="row"><span>Soglia di avvicinamento</span><b>${ap.A == null ? '—' : fmt(ap.A, 0) + '%'}</b></div>
         <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
       placeTip(tip, $('bmWrap'), e);
     });
     svg.addEventListener('pointerleave', () => { tip.hidden = true; if (st.mapFocus) { st.mapFocus = null; redrawMap(); } });
+    // data: cursore, una settimana avanti o indietro con le frecce, replay, oggi
+    $('bmDate').oninput = (e) => { stopReplay(); setMapWeek(+e.target.value); };
+    $('bmDate').onkeydown = (e) => e.stopPropagation(); // le frecce muovono il cursore, non la rotazione
+    $('bmPlay').onclick = playReplay;
+    $('bmToday').onclick = () => { stopReplay(); setMapWeek(null); };
     // clic o tocco sul punto più vicino: apre il settore
     svg.addEventListener('click', (e) => { const h = mapDraw ? nearestHead(svg, mapDraw.heads, e) : null; if (h) openSector(h.sym); });
   }
