@@ -1,7 +1,8 @@
 /* app.js — stato, viste (Monitor, RRG, Bottom Map, Settore, Alert, Indici), barra comandi e scorciatoie. */
 import { build, stats, CENTER } from './engine.js';
-import { createBottom } from './bottom.js';
+import { createBottom, NAMES as SECTOR_NAMES } from './bottom.js';
 import { createIndices } from './indices.js';
+import { createTitles } from './titles.js';
 import { priceMetrics, priceDrawdown } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
@@ -10,7 +11,7 @@ import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
-const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx'];
+const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx', 'tit'];
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // La GitHub Action pubblica i dati di fine giornata alle 00:40 italiane (22:40 UTC), con due corse
 // di recupero: prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
@@ -169,12 +170,19 @@ function init() {
   // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
   state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json') }) : null;
   if (!state.indices) $('tab-idx').hidden = true;
+  // vista 7 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
+  state.titles = createTitles({
+    $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json'),
+    getSector: () => state.bottom.sector(), setSector: (s) => state.bottom.selectSector(s), stateCode: (s) => state.bottom.stateCode(s),
+  });
   renderHeader();
   $('loadingNote').hidden = true;
   $('intro').hidden = !!store.get('introSeen', false);
   bind();
   state.bottom.bind();
   if (state.indices) state.indices.bind();
+  state.titles.bind();
+  $('toTit').onclick = () => setView('tit');
   syncControls();
   setPlaceholder();
   recompute(true, false);
@@ -264,6 +272,7 @@ function renderAll() {
   else if (state.view === 'sec') b.renderSector();
   else if (state.view === 'alr') b.renderAlerts();
   else if (state.view === 'idx' && state.indices) state.indices.render();
+  else if (state.view === 'tit') state.titles.render();
 }
 
 // ---------- tabella prezzi dell'universo (vista RRG, modalità "Prezzi") ----------
@@ -818,7 +827,7 @@ function bind() {
     $('cmd').value = '';
     // un nuovo comando toglie l'avviso di quello non trovato
     clearTimeout(cmdErrTimer); $('cmdForm').classList.remove('err'); setPlaceholder();
-    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx' };
+    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx', TIT: 'tit', TITOLI: 'tit' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }

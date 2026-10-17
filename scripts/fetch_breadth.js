@@ -14,6 +14,10 @@
  *     delle 252 sedute e ultima chiusura senza rettifica (stesse date: i due drawdown differiscono solo
  *     per le cedole), cedole staccate nel periodo e dopo il massimo, massimo intraday («52 week high»).
  *  5. data/breadth_latest.json: fotografia titolo per titolo dell'ultima seduta.
+ *  6. data/sector_members.json (vista 7 Titoli): settori cap-weighted contro equal-weight e numeri di ogni
+ *     titolo, calcolati in scripts/lib/capeq.js con la composizione dell'epoca di data/sp500_history.json
+ *     (tabella dei cambi di Wikipedia, ricaricata ogni sera, più nome e settore di chi esce) e i pesi delle
+ *     holdings dell'ETF iShares IVV.
  * Lo storico iniziale viene da scripts/backfill_breadth.py.
  */
 import fs from 'node:fs';
@@ -23,10 +27,14 @@ import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expandRLE, encodeRLE } from '../js/signals.js';
 import { expectedSession } from '../js/calendar.js';
 import { closeHigh, intradayHigh, exDates } from '../js/metrics.js';
+import { membership, buildSectorMembers, parseSpChanges, parseIvv, align, simStart, HISTORY } from './lib/capeq.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
 const CONSTITUENTS_URL = 'https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv';
+const CHANGES_URL = 'https://en.wikipedia.org/w/index.php?title=Historical_components_of_the_S%26P_500&action=raw';
+const IVV_URL = 'https://www.ishares.com/us/products/239726/x/latest-holdings.csv';
+const CHANGES_FROM = '2024-06-01';
 const GICS = {
   'Information Technology': 'XLK', 'Communication Services': 'XLC', 'Consumer Discretionary': 'XLY',
   'Consumer Staples': 'XLP', 'Energy': 'XLE', 'Financials': 'XLF', 'Health Care': 'XLV',
@@ -96,6 +104,7 @@ async function loadMembers(today) {
     const added = [...after].filter((s) => !before.has(s)), removed = [...before].filter((s) => !after.has(s));
     if (added.length || removed.length) {
       out.changes.push({ date: today, added, removed });
+      rememberFormer(prev.members.filter((m) => removed.includes(m.s)));
       console.log(`Cambi nell'indice: +${added.join(' +') || '—'} / -${removed.join(' -') || '—'}`);
     }
   }
@@ -195,6 +204,65 @@ export function mergeBreadth(breadth, counts) {
   return added;
 }
 
+// Nome e settore di chi esce dall'indice: la tabella dei cambi di Wikipedia ha solo il ticker
+function rememberFormer(list) {
+  const file = path.join(DATA, 'sp500_history.json');
+  const h = readJSON(file, { changes: [], former: {} });
+  for (const m of list) h.former[m.s] = { name: m.name, sector: m.sector };
+  writeHistory(file, h);
+}
+const writeHistory = (file, h) => fs.writeFileSync(file, JSON.stringify(h).replace(/\},\{/g, '},\n{'));
+
+// Vista 7 Titoli: tabella dei cambi aggiornata, prezzi di chi è uscito nel periodo, pesi di IVV, poi capeq.js
+async function updateSectorMembers(members, prices, breadth) {
+  const file = path.join(DATA, 'sp500_history.json');
+  const h = readJSON(file, { changes: [], former: {} });
+  try {
+    const r = await fetch(CHANGES_URL, { headers: { 'User-Agent': 'sector-monitor/1.0 (github.com/igorbonfanti/rrg)' } });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const parsed = parseSpChanges(await r.text(), CHANGES_FROM);
+    // una tabella vuota o molto più corta di quella salvata è un errore di lettura, non una novità
+    if (!parsed || parsed.length < h.changes.length * 0.9) throw new Error(`tabella dei cambi sospetta (${parsed ? parsed.length : 0} righe)`);
+    h.changes = parsed;
+  } catch (e) {
+    console.warn(`Cambi dell'S&P 500 non aggiornati (${e.message}): uso quelli salvati`);
+  }
+  h.asOf = breadth.asOf;
+  writeHistory(file, h);
+  const noSector = h.changes.filter((c) => c.rem && !h.former[c.rem] && !members.some((m) => m.s === c.rem)).map((c) => c.rem);
+  if (noSector.length) console.warn(`  usciti senza settore (restano fuori): ${noSector.join(' ')}`);
+
+  const N = breadth.dates.length - 1;
+  const cal = breadth.dates.slice(Math.max(0, N - HISTORY));
+  const life = membership(members, h.changes, h.former);
+  const px = {};
+  for (const m of members) if (prices[m.s]) px[m.s] = align(cal, prices[m.s].dates, prices[m.s].close);
+  const gone = Object.keys(life).filter((s) => life[s].former && life[s].out > cal[simStart(cal)]);
+  const got = await mapLimit(gone, 3, async (s) => { try { return await fetchDaily(s, { range: '2y' }); } catch { return null; } }, 150);
+  const missing = [];
+  gone.forEach((s, i) => { if (got[i] && got[i].dates.length) px[s] = align(cal, got[i].dates, got[i].close); else missing.push(s); });
+  // pesi: valore di mercato nelle holdings di IVV; se non arrivano, i pesi della sera prima
+  const prev = readJSON(path.join(DATA, 'sector_members.json'), null);
+  let mv = null, ivvAsOf = null;
+  try {
+    const r = await fetch(IVV_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const p = parseIvv(await r.text(), parseCSV);
+    const found = p ? members.filter((m) => p.mv[m.s]).length : 0;
+    if (found < members.length * 0.95) throw new Error(`${found} membri su ${members.length} nelle holdings`);
+    mv = p.mv; ivvAsOf = p.asOf;
+  } catch (e) {
+    console.warn(`Holdings IVV non disponibili (${e.message}): uso i pesi salvati`);
+    if (prev) { mv = Object.fromEntries(prev.stocks.filter((x) => x.w).map((x) => [x.s, x.w])); ivvAsOf = prev.weightsAsOf; }
+  }
+  if (!mv) throw new Error('nessun peso disponibile');
+  const out = buildSectorMembers({ cal, members, life, px, mv, sectors: Object.values(GICS) });
+  out.weightsAsOf = ivvAsOf;
+  out.missing = missing;
+  writeJSON(path.join(DATA, 'sector_members.json'), out);
+  console.log(`sector_members.json: ${out.stocks.length} titoli al ${out.asOf}, pesi IVV ${ivvAsOf || '—'}` + (missing.length ? `, usciti senza prezzi: ${missing.join(' ')}` : ''));
+}
+
 // at: data della breadth pubblicata; il drawdown sul solo prezzo si calcola a quella seduta (o alla precedente
 // presente per gli ETF), la stessa del Monitor, anche quando gli ETF hanno già la seduta dopo
 async function updateSectors(at) {
@@ -234,7 +302,8 @@ async function main() {
   const etf = readJSON(path.join(DATA, 'sectors.json'), null);
   // un sectors.json nel formato precedente (senza max52 o senza il conto delle cedole) si rifà subito
   const fresh = etf && etf.max52 && etf.max52.SPY && etf.max52.SPY.dv != null;
-  if (current && etf && current.asOf >= today && etf.asOf >= today && fresh && !process.argv.includes('--force')) {
+  const titles = readJSON(path.join(DATA, 'sector_members.json'), null);
+  if (current && etf && current.asOf >= today && etf.asOf >= today && fresh && titles && titles.asOf >= current.asOf && !process.argv.includes('--force')) {
     console.log(`Breadth ed ETF già aggiornati al ${current.asOf} (seduta attesa ${today}): niente da fare.`);
     return;
   }
@@ -277,6 +346,8 @@ async function main() {
     return { s: m.s, name: m.name, sector: m.sector, close: Math.round(c[i] * 100) / 100, d20: dist(20), d50: dist(50), d200: dist(200), up200: m200 != null && c[i] > m200, dd: Math.round((c[i] / hi - 1) * 1000) / 10 };
   });
   writeJSON(path.join(DATA, 'breadth_latest.json'), { asOf: d, members: snap });
+
+  try { await updateSectorMembers(members, prices, breadth); } catch (e) { console.warn(`sector_members.json non aggiornato: ${e.message}`); }
 
   await updateSectors(breadth.asOf);
 }
