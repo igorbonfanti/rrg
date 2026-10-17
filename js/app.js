@@ -440,7 +440,7 @@ function renderRotTable() {
     .sort((a, b) => QORDER[a.r.q] - QORDER[b.r.q] || b.r.dist - a.r.dist);
   $('rotMeta').textContent = `${dIT(state.model.dates[f])}${isProvisional() ? ' (in corso)' : ''}`;
   const dl = (v) => `<span class="dlt ${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '▲' : v < 0 ? '▼' : ''}${fmt(Math.abs(v), 2)}</span>`;
-  $('rotTable').innerHTML = `<thead><tr><th>Titolo</th><th>Quadrante</th><th class="r" title="Forza relativa: sopra 100 più forte del benchmark">Forza</th><th class="r" title="Momentum relativo: sopra 100 forza in aumento">Mom.</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
+  $('rotTable').innerHTML = `<thead><tr><th>Titolo</th><th>Quadrante</th><th class="r">RS-Ratio</th><th class="r">RS-Mom</th><th class="r">Direz.</th><th class="r">Vel.</th><th class="r">Dist.</th><th class="r">${unit()}</th><th>Prima</th></tr></thead><tbody>` +
     rows.map(({ s, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td title="${esc((byLabel() ? baseSym(s) + ' · ' : '') + ds().tickers[s].name)}"><input type="checkbox" class="vis" data-sym="${esc(s)}" aria-label="Mostra ${esc(label(s))} sul grafico" ${state.hidden.has(s) ? '' : 'checked'}> <span class="sym">${esc(label(s))}</span></td>
       <td><span class="pill q-${QKEY[r.q]}-c"><span class="d"></span>${r.q}</span></td>
@@ -809,7 +809,7 @@ function bind() {
     if (!r) { tip.hidden = true; return; }
     tip.innerHTML = `<div class="row"><b>${esc(label(sym))}</b><span>${esc((byLabel() ? baseSym(sym) + ' · ' : '') + ds().tickers[sym].name)}</span></div>
       <div class="row"><span>Quadrante</span><b class="q-${QKEY[r.q]}-c">${r.q}</b></div>
-      <div class="row"><span>Forza relativa</span><b>${fmt(r.x, 2)}</b></div><div class="row"><span>Momentum relativo</span><b>${fmt(r.y, 2)}</b></div>
+      <div class="row"><span>RS-Ratio</span><b>${fmt(r.x, 2)}</b></div><div class="row"><span>RS-Momentum</span><b>${fmt(r.y, 2)}</b></div>
       <div class="row"><span>Direzione</span><b>${fmt(r.heading, 0)}°</b></div><div class="row"><span>Nel quadrante da</span><b>${r.weeks} ${unit()}</b></div>`;
     placeTip(tip, $('rrgWrap'), e);
   };

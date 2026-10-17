@@ -7,15 +7,15 @@
  *   lr  = ln(prezzo / benchmark)
  *   σ   = volatilità delle variazioni di lr da una barra all'altra (media esponenziale dei quadrati, emivita 26 barre)
  *   X   = (EMA10(lr) − EMA30(lr)) / (σ·√10)
- *   forza       = 100 + 2,5·X
- *   momentum    = 100 + 2,5·√8·(X − EMA8(X))
+ *   RS-Ratio    = 100 + 2,5·X
+ *   RS-Momentum = 100 + 2,5·√8·(X − EMA8(X))
  *   Un trend relativo più forte finisce più a destra; niente salti quando un vecchio
  *   dato esce da una finestra mobile.
  *
  * "semplice" (medie semplici, come StockCharts)
  *   rs          = prezzo / benchmark
- *   forza       = 100·SMA10(rs) / SMA30(rs)
- *   momentum    = 100·forza / SMA9(forza)
+ *   RS-Ratio    = 100·SMA10(rs) / SMA30(rs)
+ *   RS-Momentum = 100·RS-Ratio / SMA9(RS-Ratio)
  *   Nessuna normalizzazione: la distanza da 100 è uno scarto percentuale, quindi i titoli
  *   con forza relativa più volatile disegnano code più lunghe. Ricostruzione pubblica
  *   (script AmiBroker «RRG 2.1» con le medie 10/30): con l'indice S&P 500 come benchmark
@@ -26,7 +26,7 @@
  *   rsMomentum = 100 + zscore(rsRatio − rsRatio[−4], 26)
  *
  * Le stesse lunghezze (in barre) valgono per il settimanale e per il giornaliero.
- * Metriche della tabella: direzione in gradi bussola
+ * Metriche della tabella con le convenzioni JdK: direzione in gradi bussola
  * (0° = nord, 90° = est) calcolata sull'ultimo spostamento.
  */
 import { weekHasMoreSessions } from './calendar.js';
@@ -182,7 +182,7 @@ export function build(dataset, cfg) {
   for (const s of symbols) {
     if (!dataset.tickers[s] || s === benchmark) continue;
     const r = fn(idx.map((i) => dataset.tickers[s].close[i]), bench, params);
-    // un punto esiste solo con entrambe le coordinate (con la classica e la semplice la forza arriva prima del momentum)
+    // un punto esiste solo con entrambe le coordinate (con la classica e la semplice RS-Ratio arriva prima di RS-Momentum)
     series[s] = { x: r.rsRatio.map((v, i) => (v == null || r.rsMomentum[i] == null ? null : v)), y: r.rsMomentum };
   }
   // primo punto in cui almeno metà dei simboli ha un valore: un ETF quotato da poco non accorcia

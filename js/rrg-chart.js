@@ -96,8 +96,8 @@ export function drawRRG(svg, p) {
     ['LAGGING', M.l + 8, M.t + PH - 9, 'start', 'lag'], ['WEAKENING', M.l + PW - 8, M.t + PH - 9, 'end', 'weak']]) {
     el('text', { x, y, 'text-anchor': a, class: `qlabel ql-${k}` }, svg).textContent = t;
   }
-  el('text', { x: M.l + PW, y: S - 8, 'text-anchor': 'end', class: 'axlabel' }, svg).textContent = 'FORZA RELATIVA  →';
-  el('text', { x: 12, y: M.t, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 12 ${M.t})` }, svg).textContent = 'MOMENTUM RELATIVO  →';
+  el('text', { x: M.l + PW, y: S - 8, 'text-anchor': 'end', class: 'axlabel' }, svg).textContent = 'RS-RATIO  →  forza relativa';
+  el('text', { x: 12, y: M.t, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 12 ${M.t})` }, svg).textContent = 'RS-MOMENTUM  →  slancio';
 
   const plot = el('g', { 'clip-path': `url(#${clipId})` }, svg);
   const heads = [];
