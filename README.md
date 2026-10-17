@@ -59,6 +59,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - In orizzontale la profondità del drawdown (percentile della storia del settore), in verticale la distanza dal livello blu.
   - In basso a sinistra la zona blu.
   - Accanto, quanti punti e quanti titoli mancano al livello blu.
+  - **Avvicinamento** (anello tratteggiato; anche nel Monitor e tra i settori da osservare): breadth sotto la soglia del settore, cioè il livello blu più il calo forte (90° percentile) della sua breadth in 10 sedute (`approachLevel` in `js/signals.js`). In un calo deciso il livello è a circa due settimane. Dal 2005: anticipo mediano circa un mese, 59 tocchi del livello su 73 avvisati, ma meno della metà degli avvicinamenti arriva al livello (`ricerca/attenzione/`, ramo di sviluppo). Non è uno stato: non cambia la macchina a stati né gli alert.
 - **4 Settore**: prezzo con la media 200, drawdown e breadth (a 200 e 50 sedute) sullo stesso asse del tempo (3 anni, 10 anni o dal 2005), con le zone blu e i trigger del passato.
   - Livello blu regolabile (vale nel browser, con "Copia configurazione" per portarlo nel repository).
   - Titoli del settore dal più sopra al più sotto la media 200: si vede chi sta per attraversarla.
