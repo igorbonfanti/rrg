@@ -282,6 +282,7 @@ export function validateGlobal(G) {
   for (const [g, v] of Object.entries(G.groups)) {
     const tick = v.tickers || {};
     if (!Object.keys(tick).length) err.push(`${g}: nessun ticker`);
+    for (const [sym, t] of Object.entries(tick)) if (t.history && (typeof t.history.proxy !== 'string' || !t.history.proxy || t.history.proxy === sym)) err.push(`${g}: ${sym} ha "history" senza un "proxy" valido`);
     const benches = v.benchmarks || [v.defaultBenchmark];
     if (!benches.includes(v.defaultBenchmark)) err.push(`${g}: il benchmark di default non è tra i benchmark`);
     for (const b of benches) {
@@ -318,11 +319,39 @@ export function collectGlobalTickers(G) {
     const m = meta[sym] || (meta[sym] = { label: sym.replace(/\..*$/, ''), name: sym, groups: [] });
     if (info.label) m.label = info.label;
     if (info.name) m.name = info.name;
+    if (info.history && info.history.proxy) m.proxy = info.history.proxy;
     if (group && !m.groups.includes(group)) m.groups.push(group);
   };
   for (const [sym, info] of Object.entries(G.benchmarks || {})) { put(sym, info); meta[sym].isBenchmark = true; }
   for (const [g, v] of Object.entries(G.groups || {})) for (const [sym, info] of Object.entries(v.tickers || {})) put(sym, info, g);
   return meta;
+}
+
+/**
+ * Storia di un ETF giovane allungata con un proxy (universe.json: "history": {"proxy": "DBMF"}): le barre del proxy
+ * prima della prima barra dell'ETF, scalate in modo che i due prezzi coincidano nel giorno di raccordo (l'ultima barra
+ * del proxy fino a quel giorno). Dal raccordo in poi resta solo l'ETF. Le serie devono essere già nella stessa valuta.
+ * @returns {{dates: string[], close: number[], adjclose: number[], high: number[], from: string, until: string, factor: number}|null}
+ *   null se il proxy non ha barre prima dell'ETF
+ */
+export function spliceHistory(live, proxy) {
+  const d0 = live.dates[0];
+  let j = -1;
+  while (j + 1 < proxy.dates.length && proxy.dates[j + 1] <= d0) j++;
+  if (j < 0 || proxy.adjclose[j] == null || !live.adjclose[0]) return null;
+  const k = live.adjclose[0] / proxy.adjclose[j]; // stessa scala sulle chiusure rettificate (il proxy distribuisce)
+  const pre = proxy.dates.findIndex((d) => d >= d0);
+  const n = pre < 0 ? proxy.dates.length : pre;
+  if (!n) return null;
+  const take = (a) => a.slice(0, n).map((v) => (v == null ? v : v * k));
+  // il proxy distribuisce dividendi: prima del raccordo vale la chiusura rettificata anche come chiusura
+  return {
+    dates: proxy.dates.slice(0, n).concat(live.dates),
+    close: take(proxy.adjclose).concat(live.close),
+    adjclose: take(proxy.adjclose).concat(live.adjclose),
+    high: take(proxy.adjclose).concat(live.high),
+    from: proxy.dates[0], until: d0, factor: k,
+  };
 }
 
 // Calendario: sedute di Borsa Italiana in cui almeno metà dei ticker già quotati ha una barra.
@@ -462,7 +491,24 @@ async function updateGlobal() {
   if (Object.keys(series).length < symbols.length * 0.8) {
     throw new Error(`troppi ticker falliti (${failed.length}/${symbols.length}): non aggiorno i dati`);
   }
+  // proxy per la storia degli ETF giovani: scaricati a parte, portati in euro, poi cuciti prima della prima barra
+  const proxies = {}, withProxy = symbols.filter((x) => meta[x].proxy && series[x]);
+  for (const sym of withProxy) {
+    const p = meta[sym].proxy;
+    try { proxies[p] = await fetchDaily(p, { range: RANGE, raw: true }); } catch (e) { console.log(`::warning::proxy ${p} di ${sym} non disponibile (${e.message}): solo la storia dell'ETF`); }
+  }
   await toCurrency(series, currency);
+  await toCurrency(proxies, currency);
+  const spliced = {};
+  for (const sym of withProxy) {
+    const px = proxies[meta[sym].proxy];
+    const sp = px && series[sym] && spliceHistory(series[sym], px);
+    if (!sp) continue;
+    const { from, until, factor, ...bars } = sp;
+    series[sym] = { ...series[sym], ...bars };
+    spliced[sym] = { proxy: meta[sym].proxy, until };
+    console.log(`  ${sym}: storia dal ${from} con ${meta[sym].proxy} fino al ${until} (fattore ${factor.toFixed(4)})`);
+  }
 
   const isCrypto = (sym) => series[sym].meta.instrumentType === 'CRYPTOCURRENCY';
   const expected = MILAN.expectedSession();
@@ -511,7 +557,7 @@ async function updateGlobal() {
   for (const sym of symbols) {
     if (!closes[sym]) continue;
     const max52 = high52(series[sym], dates, closes[sym], isCrypto(sym));
-    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, ...(max52 ? { max52 } : {}), close: closes[sym] };
+    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, ...(spliced[sym] ? { spliced: spliced[sym] } : {}), ...(max52 ? { max52 } : {}), close: closes[sym] };
   }
   const payload = {
     generated: new Date().toISOString(),

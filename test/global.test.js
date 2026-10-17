@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { parse } from '../scripts/lib/yahoo.js';
-import { alignToCalendar, globalCalendar, pickAsOf, repairSpikes, validateGlobal, marketIndex, dropAfter, keepPublished, withMeta, collectGlobalTickers } from '../scripts/fetch_data.js';
+import { alignToCalendar, globalCalendar, pickAsOf, repairSpikes, validateGlobal, marketIndex, dropAfter, keepPublished, withMeta, collectGlobalTickers, spliceHistory } from '../scripts/fetch_data.js';
 import { MILAN } from '../js/calendar.js';
 import { portfolioIndex, cleanWeights, toHundred } from '../js/portfolio.js';
 
@@ -260,4 +260,27 @@ test('prezzi tenuti: nomi, etichette e gruppi arrivano comunque da universe.json
   // universo invariato: il file risulta identico, quindi non si riscrive
   const same = withMeta(next, groups, collectGlobalTickers(G));
   assert.equal(JSON.stringify(same), JSON.stringify(next));
+});
+
+test('storia allungata con un proxy: stessa scala al raccordo, poi solo l\'ETF', () => {
+  const proxy = { dates: ['2025-04-23', '2025-04-24', '2025-04-25', '2025-04-28', '2025-04-29'], close: [9, 9, 9, 9, 9], adjclose: [20, 21, 22, 24, 30], high: [9, 9, 9, 9, 9] };
+  const live = { dates: ['2025-04-28', '2025-04-29'], close: [96, 97], adjclose: [96, 97], high: [96.5, 97.5] };
+  const s = spliceHistory(live, proxy);
+  assert.deepEqual(s.dates, ['2025-04-23', '2025-04-24', '2025-04-25', '2025-04-28', '2025-04-29']);
+  assert.equal(s.factor, 4); // 96 / 24: i due prezzi coincidono nel giorno di raccordo
+  assert.deepEqual(s.adjclose, [80, 84, 88, 96, 97]);
+  assert.deepEqual(s.close.slice(0, 3), [80, 84, 88]); // prima del raccordo vale la chiusura rettificata del proxy
+  assert.equal(s.until, '2025-04-28');
+  // raccordo in un giorno senza barra del proxy: si usa l'ultima prima
+  const gap = spliceHistory({ ...live, dates: ['2025-04-26', '2025-04-29'] }, proxy);
+  assert.equal(gap.factor, 96 / 22);
+  assert.equal(gap.dates.length, 5);
+  assert.equal(spliceHistory(live, { dates: ['2025-05-01'], close: [1], adjclose: [1], high: [1] }), null);
+  // configurazione: "history" senza proxy valido è un errore
+  const u = JSON.parse(fs.readFileSync(new URL('../universe.json', import.meta.url)));
+  assert.equal(u.global.groups['1 · Asset class'].tickers['DBMFE.PA'].history.proxy, 'DBMF');
+  assert.equal(u.global.groups['1 · Asset class'].portfolio.weights['DBMFE.PA'], 0);
+  const bad = JSON.parse(JSON.stringify(u.global));
+  bad.groups['1 · Asset class'].tickers['DBMFE.PA'].history = {};
+  assert.ok(validateGlobal(bad).some((e) => /history/.test(e)));
 });
