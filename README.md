@@ -2,6 +2,8 @@
 
 App web per seguire la **rotazione relativa** dei settori S&P 500, dei titoli MAG7 e di quattro universi globali di ETF in euro (asset class, fattori, regioni, paesi), e per individuare i **possibili bottom** dei settori e dei principali indici azionari, combinando il drawdown degli ETF con la breadth (% di titoli del settore sopra la media a 200 sedute) e un **livello blu** per settore.
 
+Idee ispirate al lavoro di Massimo Rea ([quant-rea.com](https://quant-rea.com/it/)): se vi interessano gli studi completi, li trovate lì. Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.
+
 Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento.
 
 🔗 Live: https://igorbonfanti.github.io/rrg/
