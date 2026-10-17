@@ -77,3 +77,19 @@ export function checklistHTML(e) {
   return `<p class="note ck-why">${esc(e.why)}</p><p class="ck-goal">${{ 'zona blu': 'Per la zona blu servono tutte:', trigger: 'Per il trigger servono la breadth e le conferme (una qualsiasi tra le quattro, il rimbalzo a V basta da solo):', 'tenuta del segnale': 'Dopo il trigger:' }[e.goal]}</p>` +
     `<ul class="cklist">${e.items.map((x) => `<li class="${x.sub ? 'sub' : ''}${x.ok === false ? ' no' : ''}">${mark(x.ok)}<span>${esc(x.text)}</span></li>`).join('')}</ul>`;
 }
+
+// Tabella di paragone degli episodi (signals.js signalContext): mediane per orizzonte e quante volte positivo.
+// o = {h: ['+1M', '+3M', '+6M'], key: 1, since: '2005', bench: 'SPY', what: 'il settore'}
+export function contextHTML(rows, o) {
+  const name = {
+    trig: 'Dopo ogni trigger, anche quelli poi falliti', setup: "Dall'ingresso in zona blu", any: `Una seduta qualsiasi dal ${o.since}`,
+    bench: `${o.bench} dopo gli stessi trigger`, excess: `${o.what.charAt(0).toUpperCase() + o.what.slice(1)} meno ${o.bench}, dopo il trigger`,
+  };
+  const n = (r) => (r.key === 'any' ? `${r.n.toLocaleString('it-IT')} sedute` : r.n);
+  const cell = (v) => (v == null ? '<span class="muted">—</span>' : `<span class="${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(1).replace('.', ',')}%</span>`);
+  const pos = (r) => (!r.pos[1] ? '—' : r.key === 'any' ? `${Math.round((100 * r.pos[0]) / r.pos[1])}%` : r.key === 'excess' ? `meglio in ${r.pos[0]} su ${r.pos[1]}` : `${r.pos[0]} su ${r.pos[1]}`);
+  return `<thead><tr><th>Mediane</th><th class="r">Casi</th>${o.h.map((h) => `<th class="r">${h}</th>`).join('')}<th class="r">${o.h[o.key]} positivi</th></tr></thead><tbody>` +
+    rows.map((r) => `<tr class="ctx-${r.key}"><td>${esc(name[r.key])}</td><td class="num r">${n(r)}</td>${r.med.map((v) => `<td class="num r">${cell(v)}</td>`).join('')}<td class="num r">${pos(r)}</td></tr>`).join('') + '</tbody>';
+}
+// "5 su 6" invece di una percentuale sui pochi casi
+export const outOf = (a) => { const v = a.filter((x) => x != null); return `${v.filter((x) => x > 0).length} su ${v.length}`; };

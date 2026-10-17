@@ -4,14 +4,14 @@
  * bottom-map.js senza cambiarne la logica. Dati: data/indices.json (formato in indexdata.js) e
  * config/indices.json (livelli e qualità della storia), caricati alla prima apertura della pagina.
  */
-import { priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, DEFAULT_PARAMS, STATES } from './signals.js';
+import { priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, signalContext, DEFAULT_PARAMS, STATES } from './signals.js';
 import { indexSeries } from './indexdata.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML } from './format.js';
+import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -21,8 +21,6 @@ const TV = {
 };
 const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}`;
 const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
-const median = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
-const positive = (a) => { const v = a.filter((x) => x != null); return v.length ? (100 * v.filter((x) => x > 0).length) / v.length : null; };
 
 /**
  * @param {{$: (id: string) => HTMLElement, store: {get: Function, set: Function}, params: object, config: object,
@@ -298,10 +296,11 @@ export function createIndices(ctx) {
       start: u.t, bmin: u.bmin, dd: u.dd, trig: u.trig ? u.trig.t : null, conf: u.trig ? u.trig.conf.join(' + ') : '', fails: u.fails,
       z63: forward(c, u.t, 63), t63: forward(c, u.trig && u.trig.t, 63), t126: forward(c, u.trig && u.trig.t, 126), t252: forward(c, u.trig && u.trig.t, 252), mae: worstWithin(c, u.trig && u.trig.t, 63),
     })).reverse();
-    const tr = eps.filter((e) => e.t63 != null);
     const first = S[k].pct200.findIndex((v) => v != null);
-    $('ixEpiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(dates[first])} con livello ${st.blue[k]}%` +
-      (tr.length ? ` · dopo il trigger +3M mediana ${sgn(median(tr.map((e) => e.t63)))}%` + (tr.length >= 5 ? `, positivi ${fmt(positive(tr.map((e) => e.t63)), 0)}% su ${tr.length} casi` : ` (${tr.length === 1 ? 'un solo caso' : `solo ${tr.length} casi`}: troppo pochi per una statistica)`) : '');
+    const nTrig = m.events.filter((e) => e.code === 'trig').length, nFail = m.events.filter((e) => e.code === 'fail').length;
+    $('ixEpiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(dates[first])} con livello ${st.blue[k]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''} · rendimenti a confronto sotto la tabella`;
+    const at = { trig: m.events.filter((e) => e.code === 'trig').map((e) => e.t), setup: m.setups.map((u) => u.t) };
+    $('ixEpiCtx').innerHTML = contextHTML(signalContext(c, at, first, [63, 126, 252]), { h: ['+3M', '+6M', '+12M'], key: 0, since: dates[first].slice(0, 4), what: "l'indice" });
     if (!eps.length) { $('ixEpiTable').innerHTML = '<tbody><tr><td class="muted">Nessuna zona blu nel periodo con questo livello.</td></tr></tbody>'; return; }
     const cell = (v) => (v == null ? '<span class="muted">—</span>' : pct(v));
     $('ixEpiTable').innerHTML = `<thead><tr><th>Zona blu dal</th><th class="r">Breadth min</th><th class="r">DD ingresso</th><th class="r">+3M da zona blu</th><th>Trigger</th><th>Conferma</th><th class="r">+3M</th><th class="r">+6M</th><th class="r">+12M</th><th class="r">Peggior calo 3M</th></tr></thead><tbody>` +
