@@ -39,6 +39,21 @@ const ticks = (s) => { const out = []; for (let v = s.lo; v <= s.hi + s.step / 1
 const quant = (a, q) => { const s = [...a].sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.max(0, Math.round(q * (s.length - 1))))]; };
 const tickLabel = (v, step) => (v === 0 ? '0' : `${v < 0 ? '−' : ''}${fmt(Math.abs(v), step < 1 ? 1 : 0)}%`);
 const pp = (v) => `${sgn(v)} pp`;
+const MESI = ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'];
+
+/**
+ * Da quante settimane dura il segno di oggi della divergenza (equal − cap): settimane consecutive dalla più recente
+ * con lo stesso segno; un valore mancante o zero interrompe.
+ * @param {(number|null)[]} a divergenze settimanali, dalla più vecchia
+ * @returns {{sign: number, weeks: number, start: number, all: boolean}} start = indice della prima settimana della serie
+ */
+export function leadStreak(a) {
+  const last = a.length - 1, sign = a[last] == null ? 0 : Math.sign(a[last]);
+  if (!sign) return { sign: 0, weeks: 0, start: last, all: false };
+  let i = last;
+  while (i > 0 && a[i - 1] != null && Math.sign(a[i - 1]) === sign) i--;
+  return { sign, weeks: last - i + 1, start: i, all: i === 0 };
+}
 
 /**
  * @param {{$: Function, store: {get: Function, set: Function}, load: () => Promise<object>, names: object,
@@ -70,6 +85,7 @@ export function createTitles(ctx) {
     $('titLoading').hidden = true; $('titBody').hidden = false;
     renderControls();
     drawSpread();
+    drawHist();
     drawBubble();
   }
 
@@ -189,6 +205,7 @@ export function createTitles(ctx) {
     tip.innerHTML = `<div class="row"><b>${r.k}</b><span>${esc(ctx.names[r.k] || 'S&P 500')}</span></div>` +
       `<div class="row"><span>${PER_TEXT[st.per]}</span><span>cap · equal · diff.</span></div>` +
       r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span>${sgn(p[0])}% · ${sgn(p[1])}% · <span class="${p[1] - p[0] >= 0 ? 'q-lead-c' : 'q-imp-c'}">${pp(p[1] - p[0])}</span></span></div>` : '')).join('') +
+      (D.hist && D.hist.sectors && D.hist.sectors[r.k] ? (() => { const z = leadStreak(D.hist.sectors[r.k][st.per]); return z.sign ? `<div class="row"><span>da quanto</span><span>${esc(streakText(z, D.hist.dates))}</span></div>` : ''; })() : '') +
       (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: la scia tiene l\'inizio al 31/12 e sposta solo la fine.</span>' : '');
     placeTip(tip, $('titSpreadWrap'), e);
     keepOnScreen(tip, e);
@@ -197,6 +214,89 @@ export function createTitles(ctx) {
   function keepOnScreen(tip, e) {
     const r = tip.getBoundingClientRect();
     if (r.bottom > window.innerHeight - 4) tip.style.top = Math.max(0, parseFloat(tip.style.top) - r.height - 28) + 'px';
+  }
+
+  // ---------- storia della divergenza ----------
+  // Equal − cap del periodo scelto alla fine di ognuna delle ultime 52 settimane per il settore scelto, con l'S&P 500
+  // tratteggiato come riferimento: area verde acqua sopra lo zero (davanti l'equal-weight), viola sotto (i grandi).
+  let hist = null; // ultimo disegno: posizioni per il passaggio del mouse
+  const lead = (sign) => (sign > 0 ? "davanti l'equal-weight" : 'guidano i grandi');
+  const streakText = (z, dates) => (!z.sign ? '' : `${lead(z.sign)} ${z.all ? `da almeno ${z.weeks} settimane` : `da ${z.weeks} ${z.weeks === 1 ? 'settimana' : 'settimane'} (dal ${dIT(dates[z.start])})`}`);
+  function drawHist() {
+    const box = $('titHistPanel');
+    if (!D.hist || !D.hist.sectors) { box.hidden = true; return; }
+    box.hidden = false;
+    $('titHistTip').hidden = true;
+    const sec = ctx.getSector(), H = D.hist, dates = H.dates, n = dates.length;
+    const v = H.sectors[sec][st.per], ref = H.sectors.SPX ? H.sectors.SPX[st.per] : null;
+    $('titHistTitle').textContent = `Storia della divergenza · ${sec} ${ctx.names[sec]}`;
+    $('titHistMeta').textContent = `${st.per} · ultime ${n} settimane`;
+    const z = leadStreak(v), ok = v.filter((x) => x != null);
+    const hi = ok.length ? Math.max(...ok) : null, lo = ok.length ? Math.min(...ok) : null;
+    $('titHistNote').innerHTML = !z.sign ? 'Nessun dato per questo periodo.'
+      : `<b class="${z.sign > 0 ? 'q-lead-c' : 'q-imp-c'}">${esc(streakText(z, dates).replace(/^./, (c) => c.toUpperCase()))}</b> sul periodo ${st.per}: oggi ${pp(v[n - 1])}` +
+        ` · nell'anno da ${pp(lo)} (${dIT(dates[v.indexOf(lo)])}) a ${pp(hi)} (${dIT(dates[v.indexOf(hi)])})`;
+    const svg = $('titHist');
+    const W = chartWidth(svg, 1120, 340), narrow = W < 640, HH = narrow ? 150 : 180;
+    const M = { l: 38, r: narrow ? 46 : 80, t: 12, b: 24 }, PW = W - M.l - M.r, PH = HH - M.t - M.b;
+    svg.setAttribute('viewBox', `0 0 ${W} ${HH}`); svg.innerHTML = '';
+    const vals = [...ok, ...(ref || []).filter((x) => x != null), 0];
+    const pad = (Math.max(...vals) - Math.min(...vals)) * 0.08 || 1;
+    const sy = nice(Math.min(...vals) - pad, Math.max(...vals) + pad, narrow ? 4 : 5);
+    const X = (i) => M.l + (n > 1 ? (i / (n - 1)) * PW : PW / 2), Y = (x) => M.t + ((sy.hi - x) / (sy.hi - sy.lo)) * PH, y0 = Y(0);
+    const g = el('g', { class: 'grid' }, svg);
+    for (const t of ticks(sy)) {
+      el('line', { x1: M.l, x2: M.l + PW, y1: Y(t), y2: Y(t) }, g);
+      text(svg, M.l - 6, Y(t) + 4, t === 0 ? '0' : `${t > 0 ? '+' : '−'}${fmt(Math.abs(t), sy.step < 1 ? 1 : 0)}`, { class: 'tick', 'text-anchor': 'end' });
+    }
+    for (let i = 1; i < n; i++) {
+      const m = +dates[i].slice(5, 7), m0 = +dates[i - 1].slice(5, 7);
+      if (m !== m0 && (narrow ? m % 3 === 1 : true)) {
+        el('line', { x1: X(i), x2: X(i), y1: M.t + PH, y2: M.t + PH + 4, class: 'zero' }, svg);
+        text(svg, X(i), M.t + PH + 16, m === 1 || i < 6 ? `${MESI[m - 1]} ${dates[i].slice(2, 4)}` : MESI[m - 1], { class: 'tick', 'text-anchor': 'middle' });
+      }
+    }
+    // area tra la linea e lo zero, colorata dal segno (ritagliata sopra e sotto lo zero), poi la linea
+    const runs = [];
+    v.forEach((x, i) => { if (x == null) return; const r = runs.at(-1); if (r && r.at(-1) === i - 1) r.push(i); else runs.push([i]); });
+    const defs = el('defs', {}, svg);
+    el('rect', { x: M.l, y: M.t, width: PW, height: Math.max(0, y0 - M.t) }, el('clipPath', { id: 'titHistUp' }, defs));
+    el('rect', { x: M.l, y: y0, width: PW, height: Math.max(0, M.t + PH - y0) }, el('clipPath', { id: 'titHistDn' }, defs));
+    for (const r of runs) {
+      const d = `M${X(r[0])},${y0} ` + r.map((i) => `L${X(i)},${Y(v[i])}`).join(' ') + ` L${X(r.at(-1))},${y0} Z`;
+      el('path', { d, class: 'ar up', 'clip-path': 'url(#titHistUp)' }, svg);
+      el('path', { d, class: 'ar dn', 'clip-path': 'url(#titHistDn)' }, svg);
+    }
+    el('line', { x1: M.l, x2: M.l + PW, y1: y0, y2: y0, class: 'zero' }, svg);
+    const poly = (a, cls) => { const pts = a.map((x, i) => (x == null ? null : `${X(i)},${Y(x)}`)); let d = '', pen = false; pts.forEach((p) => { if (!p) { pen = false; return; } d += `${pen ? 'L' : 'M'}${p} `; pen = true; }); if (d) el('path', { d, class: cls }, svg); };
+    if (ref && sec !== 'SPX') poly(ref, 'refl');
+    poly(v, 'ln');
+    // etichette a destra: settore e S&P 500, senza sovrapporsi
+    const yv = v[n - 1] != null ? Y(v[n - 1]) : null, yr = ref && sec !== 'SPX' && ref[n - 1] != null ? Y(ref[n - 1]) : null;
+    if (yv != null) {
+      el('circle', { cx: X(n - 1), cy: yv, r: 4.5, class: `end ${v[n - 1] >= 0 ? 'up' : 'dn'}` }, svg);
+      let a = yv + 4, b = yr != null ? yr + 4 : null;
+      if (b != null && Math.abs(a - b) < 13) { if (a <= b) b = a + 13; else a = b + 13; }
+      text(svg, X(n - 1) + 8, a, narrow ? sgn(v[n - 1]) : `${sec} ${sgn(v[n - 1])}`, { class: 'lab' });
+      if (b != null) text(svg, X(n - 1) + 8, b, narrow ? 'S&P' : `S&P ${sgn(ref[n - 1])}`, { class: 'lab ref' });
+    }
+    const cross = el('line', { x1: 0, x2: 0, y1: M.t, y2: M.t + PH, class: 'cross', visibility: 'hidden' }, svg);
+    hist = { X, M, PW, n, v, ref, dates, sec, cross };
+  }
+  function histTip(e) {
+    if (!hist) return;
+    const svg = $('titHist'), r = svg.getBoundingClientRect(), vb = svg.viewBox.baseVal;
+    const x = ((e.clientX - r.left) / r.width) * vb.width;
+    const { X, M, PW, n, v, ref, dates, sec, cross } = hist;
+    if (x < M.l - 10 || x > M.l + PW + 10) { $('titHistTip').hidden = true; cross.setAttribute('visibility', 'hidden'); return; }
+    const i = Math.max(0, Math.min(n - 1, Math.round(((x - M.l) / PW) * (n - 1))));
+    cross.setAttribute('x1', X(i)); cross.setAttribute('x2', X(i)); cross.setAttribute('visibility', 'visible');
+    const tip = $('titHistTip');
+    tip.innerHTML = `<div class="row"><b>Settimana al ${dIT(dates[i])}</b><span>${st.per}</span></div>` +
+      `<div class="row"><span>${sec} equal − cap</span><b class="${v[i] == null ? '' : v[i] >= 0 ? 'q-lead-c' : 'q-imp-c'}">${v[i] == null ? '—' : pp(v[i])}</b></div>` +
+      (ref && sec !== 'SPX' ? `<div class="row"><span>S&amp;P 500</span><span>${ref[i] == null ? '—' : pp(ref[i])}</span></div>` : '') +
+      (v[i] == null ? '' : `<span class="note-row">${v[i] >= 0 ? "davanti l'equal-weight: i piccoli fanno meglio" : 'davanti il cap-weighted: guidano i grandi'}</span>`);
+    placeTip(tip, $('titHistWrap'), e);
   }
 
   // ---------- titoli del settore ----------
@@ -357,7 +457,7 @@ export function createTitles(ctx) {
     const seg = (id, attr, key, after) => document.querySelectorAll(`#${id} button`).forEach((b) => {
       b.onclick = () => { st[key] = b.dataset[attr]; store.set('tit' + key[0].toUpperCase() + key.slice(1), st[key]); renderControls(); after(); };
     });
-    seg('titPerSeg', 'per', 'per', () => { drawSpread(); drawBubble(); });
+    seg('titPerSeg', 'per', 'per', () => { drawSpread(); drawHist(); drawBubble(); });
     seg('titTrailSeg', 'trail', 'trail', drawSpread);
     seg('titSortSeg', 'sort', 'sort', drawSpread);
     seg('titSizeSeg', 'size', 'size', drawBubble);
@@ -370,6 +470,10 @@ export function createTitles(ctx) {
     svg.addEventListener('pointermove', show);
     svg.addEventListener('click', show); // al tocco
     svg.addEventListener('pointerleave', () => { $('titBubbleTip').hidden = true; setHover(null); });
+    const hs = $('titHist');
+    hs.addEventListener('pointermove', histTip);
+    hs.addEventListener('click', histTip); // al tocco
+    hs.addEventListener('pointerleave', () => { $('titHistTip').hidden = true; if (hist) hist.cross.setAttribute('visibility', 'hidden'); });
   }
 
   return { bind, render, ensure };

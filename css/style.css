@@ -699,3 +699,17 @@ svg.bub { touch-action: pan-y; }
 @media (hover: none) {
   th[title], .facts [title], .legend [title], .kpi [title] { text-decoration: underline dotted var(--ink-3); text-underline-offset: 3px; }
 }
+
+/* storia della divergenza (vista 7) */
+.cq.hist .ar { stroke: none; }
+.cq.hist .ar.up { fill: var(--q-lead); opacity: 0.28; }
+.cq.hist .ar.dn { fill: var(--q-imp); opacity: 0.28; }
+.cq.hist .ln { fill: none; stroke: var(--ink); stroke-width: 1.8; stroke-linejoin: round; }
+.cq.hist .refl { fill: none; stroke: var(--ink-3); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.cq.hist .end { stroke: var(--bg); stroke-width: 2; }
+.cq.hist .end.up { fill: var(--q-lead); } .cq.hist .end.dn { fill: var(--q-imp); }
+.cq.hist .lab { font: 600 11.5px var(--f-mono); fill: var(--ink); }
+.cq.hist .lab.ref { font-weight: 400; fill: var(--ink-3); }
+.cq.hist .cross { stroke: var(--chart-axis); stroke-width: 1; stroke-dasharray: 2 2; }
+.cq.hist .tick { font: 10.5px var(--f-mono); fill: var(--ink-3); }
+.tit-streak { margin-top: 0; }

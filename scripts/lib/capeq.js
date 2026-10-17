@@ -21,6 +21,7 @@ import { splitTop, cellText } from './members.js';
 export const PERIODS = ['1M', '3M', '6M', 'YTD', '1A'];
 export const LEN = { '1M': 21, '3M': 63, '6M': 126, '1A': 252 };
 export const OFFSETS = [0, 5, 21, 63]; // oggi, 1 settimana, 1 mese, 3 mesi fa (sedute)
+export const WEEKS = 52; // storia della divergenza: fine di ognuna delle ultime 52 settimane (ogni 5 sedute)
 // sedute di storia che servono: 1 anno + 3 mesi di scia + il periodo precedente per la bubble
 export const HISTORY = 2 * 252 + 5;
 const MONTHS = { January: 1, February: 2, March: 3, April: 4, May: 5, June: 6, July: 7, August: 8, September: 9, October: 10, November: 11, December: 12 };
@@ -206,20 +207,26 @@ export function buildSectorMembers({ cal, members, life, px, qty, sectors }) {
   const value = (s) => (qty[s] ? qty[s] * lastPx(s) : null), small = {};
   for (const k of sectors) { const v = names.filter((s) => life[s].sector === k && qty[s]).map(value).sort((a, b) => a - b); small[k] = v.length ? 0.7 * v[Math.floor(v.length * 0.2)] : 1; }
   const shares = Object.fromEntries(names.map((s) => [s, qty[s] || small[life[s].sector] / lastPx(s)]));
-  const out = { asOf: cal[N], dates: OFFSETS.map((k) => cal[N - k]), starts: {}, sectors: {}, stocks: [] };
+  // storia: sedute N, N−5, N−10… dalla più vecchia; per ogni periodo la divergenza equal − cap in punti
+  const weeks = Array.from({ length: WEEKS }, (_, j) => N - 5 * (WEEKS - 1 - j)).filter((t) => t >= 0);
+  const out = { asOf: cal[N], dates: OFFSETS.map((k) => cal[N - k]), starts: {}, sectors: {}, hist: { dates: weeks.map((t) => cal[t]), sectors: {} }, stocks: [] };
   for (const p of PERIODS) out.starts[p] = OFFSETS.map((k) => { const w = windowOf(cal, p, N - k); return w ? cal[w[0]] : null; });
   for (const k of [...sectors, 'SPX']) {
     const own = names.filter((s) => k === 'SPX' || life[s].sector === k);
     const { cw, ew, n } = sectorIndex({ cal, s0, names: own, life, px, shares, resets });
+    // rendimenti cap ed equal nel periodo p che finisce alla seduta e (null se la finestra non è coperta)
+    const pair = (p, e) => {
+      const w = windowOf(cal, p, e);
+      // senza titoli quotati in qualche seduta della finestra il rendimento non c'è (non 0%)
+      if (!w || w[0] < s0 || n.slice(w[0] - s0 + 1, w[1] - s0 + 1).some((x) => !x)) return null;
+      const [a, b] = w.map((t) => t - s0);
+      return [r1(cw[b] / cw[a] - 1), r1(ew[b] / ew[a] - 1)];
+    };
     out.sectors[k] = {};
+    out.hist.sectors[k] = {};
     for (const p of PERIODS) {
-      out.sectors[k][p] = OFFSETS.map((off) => {
-        const w = windowOf(cal, p, N - off);
-        // senza titoli quotati in qualche seduta della finestra il rendimento non c'è (non 0%)
-        if (!w || w[0] < s0 || n.slice(w[0] - s0 + 1, w[1] - s0 + 1).some((x) => !x)) return null;
-        const [a, b] = w.map((t) => t - s0);
-        return [r1(cw[b] / cw[a] - 1), r1(ew[b] / ew[a] - 1)];
-      });
+      out.sectors[k][p] = OFFSETS.map((off) => pair(p, N - off));
+      out.hist.sectors[k][p] = weeks.map((t) => { const x = pair(p, t); return x ? Math.round((x[1] - x[0]) * 10) / 10 : null; });
     }
   }
   const tot = members.reduce((a, m) => a + (value(m.s) || 0), 0);

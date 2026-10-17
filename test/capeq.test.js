@@ -150,6 +150,16 @@ test('buildSectorMembers: forma del file e numeri dei titoli', () => {
   assert.equal(out.asOf, cal[N]);
   assert.deepEqual(Object.keys(out.sectors), ['XLK', 'XLU', 'XLE', 'SPX']);
   assert.equal(out.sectors.XLE['3M'][0], null); // settore senza titoli: nessun rendimento, non 0%
+  // storia della divergenza: 52 fine settimana, l'ultima è oggi e coincide con il dumbbell
+  assert.equal(out.hist.dates.length, 52);
+  assert.equal(out.hist.dates.at(-1), cal[N]);
+  assert.equal(out.hist.dates.at(-2), cal[N - 5]);
+  for (const p of PERIODS) {
+    const [c, e] = out.sectors.XLK[p][0];
+    assert.equal(out.hist.sectors.XLK[p].at(-1), Math.round((e - c) * 10) / 10, p);
+    assert.equal(out.hist.sectors.XLK[p].at(-2), Math.round((out.sectors.XLK[p][1][1] - out.sectors.XLK[p][1][0]) * 10) / 10, p);
+  }
+  assert.ok(out.hist.sectors.XLE['3M'].every((v) => v == null));
   for (const p of PERIODS) assert.equal(out.sectors.XLK[p].length, OFFSETS.length);
   assert.deepEqual(out.sectors.XLU['3M'][0], [0, 0]);
   const a = out.stocks.find((x) => x.s === 'A');
@@ -170,4 +180,15 @@ test('data/sector_members.json: 11 settori, S&P 500 e titoli della lista', () =>
     assert.ok(now && now.every((v) => Number.isFinite(v)), `${k} ${p}`);
   }
   assert.ok(d.stocks.every((s) => s.r && 'YTD' in s.r && s.sec));
+  // storia della divergenza (dalla 0.8.5; i file precedenti non l'hanno)
+  if (d.hist) for (const k in d.sectors) assert.equal(d.hist.sectors[k]['3M'].length, d.hist.dates.length, k);
+});
+
+test('vista 7: da quante settimane guida il segno di oggi', async () => {
+  const { leadStreak } = await import('../js/titles.js');
+  assert.deepEqual(leadStreak([1, -2, 3, 0.5, 2]), { sign: 1, weeks: 3, start: 2, all: false });
+  assert.deepEqual(leadStreak([-1, -2, -0.1]), { sign: -1, weeks: 3, start: 0, all: true });
+  assert.deepEqual(leadStreak([2, null, 1]), { sign: 1, weeks: 1, start: 2, all: false }); // un buco interrompe
+  assert.equal(leadStreak([1, 0]).sign, 0);
+  assert.equal(leadStreak([3, 0, 2]).weeks, 1);
 });

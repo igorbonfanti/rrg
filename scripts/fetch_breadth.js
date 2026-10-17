@@ -329,7 +329,8 @@ async function main() {
   // un sectors.json nel formato precedente (senza max52 o senza il conto delle cedole) si rifà subito
   const fresh = etf && etf.max52 && etf.max52.SPY && etf.max52.SPY.dv != null;
   const titles = readJSON(path.join(DATA, 'sector_members.json'), null);
-  if (current && etf && current.asOf >= today && etf.asOf >= today && fresh && titles && titles.asOf >= current.asOf && !process.argv.includes('--force')) {
+  // un sector_members.json senza la storia della divergenza (formato precedente) si rifà subito
+  if (current && etf && current.asOf >= today && etf.asOf >= today && fresh && titles && titles.hist && titles.asOf >= current.asOf && !process.argv.includes('--force')) {
     console.log(`Breadth ed ETF già aggiornati al ${current.asOf} (seduta attesa ${today}): niente da fare.`);
     return;
   }
