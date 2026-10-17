@@ -35,6 +35,7 @@ const CONSTITUENTS_URL = 'https://raw.githubusercontent.com/datasets/s-and-p-500
 const CHANGES_URL = 'https://en.wikipedia.org/w/index.php?title=Historical_components_of_the_S%26P_500&action=raw';
 const IVV_URL = 'https://www.ishares.com/us/products/239726/x/latest-holdings.csv';
 const CHANGES_FROM = '2024-06-01';
+const SINCE = () => Math.floor(Date.now() / 1000) - 790 * 86400; // circa 540 sedute
 const GICS = {
   'Information Technology': 'XLK', 'Communication Services': 'XLC', 'Consumer Discretionary': 'XLY',
   'Consumer Staples': 'XLP', 'Energy': 'XLE', 'Financials': 'XLF', 'Health Care': 'XLV',
@@ -205,10 +206,13 @@ export function mergeBreadth(breadth, counts) {
 }
 
 // Nome e settore di chi esce dall'indice: la tabella dei cambi di Wikipedia ha solo il ticker
+// e le azioni detenute da IVV l'ultima sera, per il suo peso nel cap-weighted fino all'uscita
 function rememberFormer(list) {
   const file = path.join(DATA, 'sp500_history.json');
   const h = readJSON(file, { changes: [], former: {} });
-  for (const m of list) h.former[m.s] = { name: m.name, sector: m.sector };
+  const prev = readJSON(path.join(DATA, 'sector_members.json'), null);
+  const q = new Map(prev ? prev.stocks.filter((x) => x.q).map((x) => [x.s, x.q]) : []);
+  for (const m of list) h.former[m.s] = { name: m.name, sector: m.sector, ...(q.has(m.s) ? { q: q.get(m.s) } : {}) };
   writeHistory(file, h);
 }
 const writeHistory = (file, h) => fs.writeFileSync(file, JSON.stringify(h).replace(/\},\{/g, '},\n{'));
@@ -237,26 +241,37 @@ async function updateSectorMembers(members, prices, breadth) {
   const life = membership(members, h.changes, h.former);
   const px = {};
   for (const m of members) if (prices[m.s]) px[m.s] = align(cal, prices[m.s].dates, prices[m.s].close);
-  const gone = Object.keys(life).filter((s) => life[s].former && life[s].out > cal[simStart(cal)]);
-  const got = await mapLimit(gone, 3, async (s) => { try { return await fetchDaily(s, { range: '2y' }); } catch { return null; } }, 150);
+  const gone = Object.keys(life).filter((s) => life[s].former && life[s].spans.some(([, out]) => out > cal[simStart(cal)]));
+  const got = await mapLimit(gone, 3, async (s) => { try { return await fetchDaily(s, { period1: SINCE() }); } catch { return null; } }, 150);
   const missing = [];
   gone.forEach((s, i) => { if (got[i] && got[i].dates.length) px[s] = align(cal, got[i].dates, got[i].close); else missing.push(s); });
-  // pesi: valore di mercato nelle holdings di IVV; se non arrivano, i pesi della sera prima
+  // pesi: azioni detenute da IVV; se le holdings non arrivano, quelle salvate la sera prima
   const prev = readJSON(path.join(DATA, 'sector_members.json'), null);
-  let mv = null, ivvAsOf = null;
+  let qty = null, ivvAsOf = null;
   try {
     const r = await fetch(IVV_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const p = parseIvv(await r.text(), parseCSV);
-    const found = p ? members.filter((m) => p.mv[m.s]).length : 0;
+    const found = p ? members.filter((m) => p.qty[m.s]).length : 0;
     if (found < members.length * 0.95) throw new Error(`${found} membri su ${members.length} nelle holdings`);
-    mv = p.mv; ivvAsOf = p.asOf;
+    qty = p.qty; ivvAsOf = p.asOf;
   } catch (e) {
-    console.warn(`Holdings IVV non disponibili (${e.message}): uso i pesi salvati`);
-    if (prev) { mv = Object.fromEntries(prev.stocks.filter((x) => x.w).map((x) => [x.s, x.w])); ivvAsOf = prev.weightsAsOf; }
+    console.warn(`Holdings IVV non disponibili (${e.message}): uso le azioni salvate`);
+    if (prev && prev.stocks.some((x) => x.q)) { qty = Object.fromEntries(prev.stocks.filter((x) => x.q).map((x) => [x.s, x.q])); ivvAsOf = prev.weightsAsOf; }
   }
-  if (!mv) throw new Error('nessun peso disponibile');
-  const out = buildSectorMembers({ cal, members, life, px, mv, sectors: Object.values(GICS) });
+  if (!qty) throw new Error('nessun peso disponibile');
+  for (const [s, f] of Object.entries(h.former)) if (f.q && !qty[s]) qty[s] = f.q;
+  // un titolo pesante senza la chiusura dell'ultima seduta falserebbe settore e lista: si tiene il file di ieri
+  const N1 = cal.length - 1, tot = members.reduce((a, m) => a + (qty[m.s] && px[m.s] && px[m.s][N1] ? qty[m.s] * px[m.s][N1] : 0), 0);
+  const noClose = members.filter((m) => !px[m.s] || px[m.s][N1] == null);
+  const heavy = noClose.filter((m) => prev && (prev.stocks.find((x) => x.s === m.s) || {}).w >= 0.1);
+  if (noClose.length > members.length * 0.01 || heavy.length) {
+    console.log(`::warning::sector_members.json non aggiornato: ${noClose.length} membri senza la chiusura del ${cal[N1]}${heavy.length ? ` (pesanti: ${heavy.map((m) => m.s).join(' ')})` : ''}`);
+    return;
+  }
+  if (noClose.length) console.warn(`  senza la chiusura del ${cal[N1]} (fuori dalla lista): ${noClose.map((m) => m.s).join(' ')}`);
+  if (!tot) throw new Error('pesi nulli');
+  const out = buildSectorMembers({ cal, members, life, px, qty, sectors: Object.values(GICS) });
   out.weightsAsOf = ivvAsOf;
   out.missing = missing;
   writeJSON(path.join(DATA, 'sector_members.json'), out);
@@ -311,7 +326,8 @@ async function main() {
   console.log(`${members.length} membri S&P 500`);
 
   const results = await mapLimit(members, 3, async (m) => {
-    try { return await fetchDaily(m.s, { range: '2y' }); } catch (e) { console.warn(`  ${m.s}: ${e.message}`); return null; }
+    // 2 anni e un mese: la vista 7 Titoli confronta l'ultimo anno con quello prima (HISTORY in capeq.js)
+    try { return await fetchDaily(m.s, { period1: SINCE() }); } catch (e) { console.warn(`  ${m.s}: ${e.message}`); return null; }
   }, 150);
   const prices = {};
   members.forEach((m, k) => {
@@ -347,7 +363,7 @@ async function main() {
   });
   writeJSON(path.join(DATA, 'breadth_latest.json'), { asOf: d, members: snap });
 
-  try { await updateSectorMembers(members, prices, breadth); } catch (e) { console.warn(`sector_members.json non aggiornato: ${e.message}`); }
+  try { await updateSectorMembers(members, prices, breadth); } catch (e) { console.log(`::warning::sector_members.json non aggiornato: ${e.message}`); }
 
   await updateSectors(breadth.asOf);
 }
