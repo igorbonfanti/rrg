@@ -4,16 +4,16 @@
  * bottom-map.js senza cambiarne la logica. Dati: data/indices.json (formato in indexdata.js) e
  * config/indices.json (livelli e qualità della storia), caricati alla prima apertura della pagina.
  */
-import { priceSeries, runMachine, forward, worstWithin, offReasons, DEFAULT_PARAMS, STATES } from './signals.js';
+import { priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, DEFAULT_PARAMS, STATES } from './signals.js';
 import { indexSeries } from './indexdata.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { badge } from './bottom.js';
+import { badge, apprBadge } from './bottom.js';
 import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct } from './format.js';
 
-const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, normal: 5 };
+const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
 const TV = {
   SPX: ['SP:SPX', 'INDEX:S5TH'], NDX: ['NASDAQ:NDX', 'INDEX:NDTH'], DJI: ['DJ:DJI', 'INDEX:DITH'], N225: ['TVC:NI225'],
@@ -90,6 +90,14 @@ export function createIndices(ctx) {
     }[code];
     return { code, why };
   }
+  // Avvicinamento: indice in stato normale con la breadth sotto la sua soglia (stessa regola dei settori)
+  const apprCache = new Map();
+  function approach(k) {
+    const L = st.blue[k], key = k + ':' + L;
+    if (!apprCache.has(key)) apprCache.set(key, approachLevel(S[k].pct200.slice(0, NOW[k] + 1), L));
+    const A = apprCache.get(key), b = S[k].pct200[NOW[k]];
+    return { A, on: A != null && b != null && stateOf(k).code === 'normal' && b <= A };
+  }
   const name = (k) => CFG[k].name;
   const asOf = () => KEYS.map((k) => S[k].dates[NOW[k]]).sort().at(-1);
 
@@ -119,11 +127,11 @@ export function createIndices(ctx) {
     const rows = VIS().map((k) => {
       const s = S[k], c = s.close, t = NOW[k], last = c.length - 1;
       return {
-        k, state: stateOf(k), b: s.pct200[t], b1m: s.pct200[Math.max(0, t - 21)], n: s.n[t], above: s.above200[t], mem: s.members[t], L: st.blue[k],
+        k, state: stateOf(k), appr: approach(k).on, b: s.pct200[t], b1m: s.pct200[Math.max(0, t - 21)], n: s.n[t], above: s.above200[t], mem: s.members[t], L: st.blue[k],
         dd: PX[k].dd[last], dp: PX[k].dp[last], worst: Math.min(...PX[k].dd.slice(Math.max(0, last - 1259)).filter((v) => v != null)),
         last: c[last], d1: (c[last] / c[last - 1] - 1) * 100, m1: (c[last] / c[last - 21] - 1) * 100, date: s.dates[last], bdate: s.dates[t],
       };
-    }).sort((a, b) => ORDER[a.state.code] - ORDER[b.state.code] || (a.b - a.L) - (b.b - b.L));
+    }).sort((a, b) => ORDER[a.appr ? 'appr' : a.state.code] - ORDER[b.appr ? 'appr' : b.state.code] || (a.b - a.L) - (b.b - b.L));
     const DDMAX = 35;
     const quality = (k, r) => CFG[k].composition === 'epoca'
       ? `<span class="muted" title="Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}">d'epoca</span>`
@@ -136,7 +144,7 @@ export function createIndices(ctx) {
         const need = r.above - Math.floor((r.L * r.n) / 100);
         return `<tr data-ix="${r.k}" tabindex="0">
         <td><span class="sym">${r.k}</span><span class="nm">${esc(name(r.k))}</span></td>
-        <td>${badge(r.state.code)}</td>
+        <td${r.appr ? ` title="${esc(`breadth ${fmt(r.b)}%, sotto la soglia di avvicinamento ${fmt(approach(r.k).A, 0)}% (livello blu ${r.L}% + il calo forte dell'indice in 10 sedute): in un calo deciso il livello blu è a circa due settimane`)}"` : ''}>${r.appr ? apprBadge() : badge(r.state.code)}</td>
         <td><span class="cellv num" title="${titoli(r.above)} su ${r.n}${need > 0 ? ` · ne devono scendere sotto la media ancora ${need} per il livello blu` : ''}">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
         <td class="num r">${r.L}%${changed(r.k) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
         <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
@@ -155,7 +163,7 @@ export function createIndices(ctx) {
     $('ixKpis').innerHTML = [
       ['Indici in zona blu', `${by(['setup', 'fail']).length}<small> / ${rows.length}</small>`, list(by(['setup', 'fail']))],
       [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / ${rows.length}</small>`, list(by(['trig', 'cool']))],
-      ['Indici in attenzione', `${by(['watch']).length}<small> / ${rows.length}</small>`, list(by(['watch']))],
+      ['Indici in attenzione', `${by(['watch']).length}<small> / ${rows.length}</small>`, list(by(['watch'])) + (rows.some((r) => r.appr) ? ` · in avvicinamento: ${rows.filter((r) => r.appr).map((r) => r.k).join(' · ')}` : '')],
       ['Più vicino al livello blu', rows.length ? `${[...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0].k}` : '—', rows.length ? (() => { const r = [...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0]; return `${fmt(r.b)}% contro un livello di ${r.L}% (${sgn(r.b - r.L)} punti)`; })() : ''],
     ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
   }
@@ -211,7 +219,7 @@ export function createIndices(ctx) {
   const markDist = () => $('ixDist').querySelectorAll('.r').forEach((r) => r.classList.toggle('sel', r.dataset.ix === st.focus));
   function drawMap() {
     mapDraw = drawBottomMap($('ixMap'), {
-      series: mapSeries, syms: VIS(), focus: st.focus, params: P, states: Object.fromEntries(VIS().map((k) => [k, stateOf(k).code])),
+      series: mapSeries, syms: VIS(), focus: st.focus, params: P, states: Object.fromEntries(VIS().map((k) => [k, stateOf(k).code])), rings: VIS().filter((k) => approach(k).on),
       size: chartWidth($('ixMap'), SIZE), clipId: 'ixclip', unit: "dell'indice",
     });
   }
@@ -316,7 +324,8 @@ export function createIndices(ctx) {
       tip.innerHTML = `<div class="row"><b>${k}</b><span>${esc(name(k))}</span></div>
         <div class="row"><span>Sopra media 200</span><b>${fmt(S[k].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[k]}%</b></div>
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[k].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
-        <div class="row"><span>Stato</span><b>${esc(STATES[stateOf(k).code])}</b></div>
+        <div class="row"><span>Stato</span><b>${approach(k).on ? 'Avvicinamento' : esc(STATES[stateOf(k).code])}</b></div>
+        <div class="row"><span>Soglia di avvicinamento</span><b>${approach(k).A == null ? '—' : fmt(approach(k).A, 0) + '%'}</b></div>
         <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
       placeTip(tip, $('ixMapWrap'), e);
     });

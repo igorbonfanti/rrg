@@ -42,3 +42,13 @@ Due fasce sulla Bottom Map:
 2. **Attenzione** (quella di oggi, +10 punti): attivarsi.
 
 Al 16/10/2026: XLRE è in Attenzione (17 contro 18), XLU in Avvicinamento (16 contro 36).
+
+## Indici (pagina 6), 17/10/2026
+Stessa prova sui 22 indici (`script/indici.mjs`):
+
+| Regola | Arrivano al blu | Anticipo mediano | Tocchi avvisati |
+|---|---|---|---|
+| fisso +10 punti | 57% | 9 sedute | 83/134 |
+| velocità del settore/indice (10 sedute) | 47% | 20 sedute | 96/134 |
+
+La regola tiene anche sugli indici. È applicata come per i settori: anello e voce «Avvicinamento», senza stati né alert.
