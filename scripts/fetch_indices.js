@@ -69,10 +69,10 @@ async function loadMembers(k, today) {
   try {
     const list = await fetchList(k);
     const problems = checkList(list, prev && prev.tickers, SOURCES[k]);
-    if (problems.length) console.warn(`${k}: lista scartata (${problems.join('; ')}), tengo l'ultima buona`);
+    if (problems.length) console.log(`::warning::${k}: lista scartata (${problems.join('; ')}), tengo l'ultima buona`);
     else fresh = [...list].sort();
   } catch (e) {
-    console.warn(`${k}: lista non disponibile (${e.message}), tengo l'ultima buona`);
+    console.log(`::warning::${k}: lista non disponibile (${e.message}), tengo l'ultima buona`);
   }
   if (!fresh) {
     if (!prev) throw new Error(`${k}: nessuna lista dei membri`);

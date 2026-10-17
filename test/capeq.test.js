@@ -34,12 +34,22 @@ test('tabella dei cambi di Wikipedia: date, ticker, nomi e righe con la data sop
 || March 1, 2020 || OLD || [[Old]] || OLDX || [[Older]] || x
 |}`;
   assert.equal(wikiDate('October 6, 2026'), '2026-10-06');
-  assert.deepEqual(parseSpChanges(text, '2024-01-01'), [
+  const parsed = parseSpChanges(text, '2024-01-01');
+  assert.deepEqual(parsed.bad, []);
+  assert.deepEqual([...parsed], [
     { date: '2026-10-06', add: 'TWLO', addName: 'Twilio', rem: 'WBD' },
     { date: '2026-09-21', add: 'BRK-B', addName: 'Berkshire Hathaway', rem: '' },
     { date: '2026-09-21', add: 'SATS', addName: 'EchoStar', rem: 'TAP' },
   ]);
   assert.equal(parseSpChanges('niente', '2024-01-01'), null);
+  // data in un formato che non si legge, o colonne spostate: la riga si segnala e non diventa un cambio sbagliato
+  const odd = text.replace('|| March 1, 2020', '|| October 9th 2026').replace('|| SATS ||', '|| Some Co ||');
+  assert.equal(wikiDate('6 October 2026'), '2026-10-06');
+  assert.equal(wikiDate('Oct. 6, 2026'), '2026-10-06');
+  assert.equal(wikiDate('June 31, 2026'), null);
+  const p2 = parseSpChanges(odd, '2024-01-01');
+  assert.equal(p2.bad.length, 2);
+  assert.deepEqual(p2.map((c) => c.add), ['TWLO', 'BRK-B']);
 });
 
 test('appartenenza: ingressi, uscite con settore, ticker cambiato dopo l\'ingresso', () => {
@@ -54,6 +64,9 @@ test('appartenenza: ingressi, uscite con settore, ticker cambiato dopo l\'ingres
   assert.equal(lastEntry(life.ECHO), '2026-03-23');
   assert.deepEqual(life.BBB, { sector: 'XLK', spans: [['0000', '2026-03-23']], former: true });
   assert.equal(life.CCC, undefined); // uscito senza settore noto: resta fuori
+  // cambiato ticker dopo l'ingresso e poi uscito: conta dall'ingresso, non da sempre
+  const gone = membership([], [{ date: '2026-09-01', add: '', rem: 'ECHO' }, ...changes.slice(0, 1)], { ECHO: { name: 'EchoStar Corporation', sector: 'XLC' } });
+  assert.deepEqual(gone.ECHO.spans, [['2026-03-23', '2026-09-01']]);
   assert.equal(inIndex(life.BBB, '2026-03-20'), true);
   assert.equal(inIndex(life.BBB, '2026-03-23'), false);
 });

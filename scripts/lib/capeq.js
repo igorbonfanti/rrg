@@ -25,10 +25,15 @@ export const OFFSETS = [0, 5, 21, 63]; // oggi, 1 settimana, 1 mese, 3 mesi fa (
 export const HISTORY = 2 * 252 + 5;
 const MONTHS = { January: 1, February: 2, March: 3, April: 4, May: 5, June: 6, July: 7, August: 8, September: 9, October: 10, November: 11, December: 12 };
 
-// Data di Wikipedia ("October 6, 2026") → ISO, altrimenti null
+// Data di Wikipedia ("October 6, 2026", anche "Oct. 6, 2026" o "6 October 2026") → ISO, altrimenti null
 export function wikiDate(s) {
-  const m = /^([A-Z][a-z]+)\s+(\d{1,2}),\s*(\d{4})$/.exec(String(s).trim());
-  return m && MONTHS[m[1]] ? `${m[3]}-${String(MONTHS[m[1]]).padStart(2, '0')}-${m[2].padStart(2, '0')}` : null;
+  const t = String(s).replace(/&nbsp;|\u00a0/g, ' ').trim();
+  const m = /^([A-Z][a-z]+)\.?\s+(\d{1,2}),?\s*(\d{4})$/.exec(t) || /^(\d{1,2})\s+([A-Z][a-z]+)\.?,?\s+(\d{4})$/.exec(t);
+  if (!m) return null;
+  const [mon, day] = /^\d/.test(m[1]) ? [m[2], m[1]] : [m[1], m[2]];
+  const n = MONTHS[mon] || Object.entries(MONTHS).find(([k]) => mon.length >= 3 && k.startsWith(mon))?.[1];
+  const iso = n && `${m[3]}-${String(n).padStart(2, '0')}-${day.padStart(2, '0')}`;
+  return iso && new Date(iso + 'T00:00:00Z').toISOString().startsWith(iso) ? iso : null;
 }
 const tick = (s) => s.replace(/\./g, '-').toUpperCase().trim();
 
@@ -40,21 +45,26 @@ export function parseSpChanges(text, from = '0000') {
   const start = text.indexOf('id="changes"');
   if (start < 0) return null;
   const body = text.slice(start).split(/^\|\}/m)[0];
-  const out = [];
+  const out = [], bad = [];
   let lastDate = null;
   for (const row of body.split(/^\|-.*$/m).slice(1)) {
     const lines = row.split('\n').filter((l) => l.startsWith('|') && !l.startsWith('|}'));
     if (!lines.length) continue;
     const cells = lines.flatMap((l) => splitTop(l.slice(1).replace(/^\|/, ''), '||')).map(cellText);
     let date = wikiDate(cells[0]);
-    if (date) cells.shift(); else date = lastDate; // data in rowspan sulla riga sopra
+    if (date) cells.shift();
+    else if (/\b(19|20)\d{2}\b/.test(cells[0] || '')) { bad.push(cells[0]); continue; } // data in un formato nuovo
+    else date = lastDate; // data in rowspan sulla riga sopra
     if (!date || cells.length < 4) continue;
     lastDate = date;
     if (date < from) break;
     const c = { date, add: cells[0] ? tick(cells[0]) : '', rem: cells[2] ? tick(cells[2]) : '' };
+    // un ticker che non sembra un ticker vuol dire colonne spostate: la riga non si usa
+    if (![c.add, c.rem].every((x) => x === '' || /^[A-Z0-9-]{1,7}$/.test(x))) { bad.push(cells.slice(0, 3).join(' | ')); continue; }
     if (c.add) c.addName = cells[1];
     out.push(c);
   }
+  out.bad = bad; // righe non lette: chi chiama tiene la tabella salvata
   return out;
 }
 
@@ -65,8 +75,8 @@ export function parseSpChanges(text, from = '0000') {
  */
 export function membership(members, changes, former) {
   const current = new Map(members.map((m) => [m.s, m]));
-  // un titolo che ha cambiato ticker dopo l'ingresso (SATS → ECHO) si ritrova dal nome
-  const byName = new Map(members.map((m) => [normName(m.name), m.s]));
+  // un titolo che ha cambiato ticker dopo l'ingresso (SATS → ECHO) si ritrova dal nome, anche se poi è uscito
+  const byName = new Map([...Object.entries(former).filter(([, f]) => f.name).map(([s, f]) => [normName(f.name), s]), ...members.map((m) => [normName(m.name), m.s])]);
   const events = {}; // ticker → [[data, +1 ingresso | -1 uscita]]
   const push = (s, d, e) => { (events[s] = events[s] || []).push([d, e]); };
   for (const c of changes) {

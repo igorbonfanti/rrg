@@ -14,7 +14,7 @@ import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_T
 const $ = (id) => document.getElementById(id);
 const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx', 'tit'];
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
-// La GitHub Action pubblica i dati di fine giornata alle 00:40 italiane (22:40 UTC), con due corse
+// La GitHub Action pubblica i dati di fine giornata alle 22:40 UTC (00:40 in Italia con l'ora legale, 23:40 d'inverno), con due corse
 // di recupero: prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
 const PUBLISH_US = 20 * 60 + 30; // 20:30 a New York
 const PUBLISH_EU = 26 * 60 + 30; // 02:30 a Roma del giorno dopo la seduta
@@ -193,7 +193,7 @@ function init() {
   state.bottom = createBottom({
     $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store,
     rotation: sectorRotation, rotationNote: () => `vs SPY, settimanale, ${formulaText()} (la formula si sceglie nella pagina Rotazione)`,
-    setView: (v) => setView(v), openRRG: focusSymbol,
+    setView: (v, silent) => setView(v, silent), openRRG: focusSymbol,
   });
   // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
   state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json') }) : null;
@@ -201,7 +201,9 @@ function init() {
   // vista 7 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
     $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json'),
-    getSector: () => state.bottom.sector(), setSector: (s) => state.bottom.selectSector(s), stateCode: (s) => state.bottom.stateCode(s),
+    getSector: () => state.bottom.sector(), stateCode: (s) => state.bottom.stateCode(s),
+    // scelta di un settore nella vista 7: nuova voce nella cronologia (#tit-XLK), come i settori della vista 4
+    setSector: (s) => { state.bottom.selectSector(s); syncHash('tit', false, 'tit'); },
   });
   renderHeader();
   $('loadingNote').hidden = true;
@@ -224,10 +226,12 @@ function init() {
   });
 }
 
-// #mon #rrg #btm #sec #alr, oppure #XLU per il dettaglio di un settore
+// #mon #rrg #btm #sec #alr #idx #tit, #XLU per il dettaglio di un settore, #tit-XLU per i suoi titoli
 function routeHash(silent) {
   const h = location.hash.replace('#', '').toUpperCase();
-  if (state.bottom.isSector(h)) { state.bottom.openSector(h); return; }
+  if (state.bottom.isSector(h)) { state.bottom.openSector(h, silent); return; }
+  const t = /^TIT-(\w+)$/.exec(h);
+  if (t && state.bottom.isSector(t[1])) { state.bottom.selectSector(t[1]); setView('tit', silent); return; }
   const v = h.toLowerCase();
   setView(VIEWS.includes(v) ? v : 'mon', silent);
 }
@@ -607,16 +611,18 @@ function findSymbol(v) {
   names.sort((a, b) => (a === state.group ? -1 : b === state.group ? 1 : 0));
   const exact = (g, s) => [s, baseSym(s), labelOf(g.ds, s)].some((x) => x.toUpperCase() === v);
   const byName = (g, s) => v.length >= 3 && (g.ds.tickers[s].name || '').toUpperCase().split(/[^A-Z0-9&+-]+/).some((w) => w.startsWith(v));
-  const scan = (match, list) => {
-    for (const name of names) {
+  const scan = (match, list, among = names) => {
+    for (const name of among) {
       const g = state.groups[name];
       const sym = list(g).find((s) => g.ds.tickers[s] && match(g, s));
       if (sym) return { group: name, sym };
     }
     return null;
   };
-  const bench = scan(exact, (g) => g.benchmarks);
-  return scan(exact, (g) => g.tickers) || (bench && { ...bench, bench: true }) || scan(byName, (g) => g.tickers);
+  // prima l'universo attuale (titoli, poi benchmark: SPY con i settori resta il benchmark dei settori), poi gli altri
+  const cur = names.slice(0, 1), rest = names.slice(1);
+  const bench = (among) => { const b = scan(exact, (g) => g.benchmarks, among); return b && { ...b, bench: true }; };
+  return scan(exact, (g) => g.tickers, cur) || bench(cur) || scan(exact, (g) => g.tickers, rest) || bench(rest) || scan(byName, (g) => g.tickers);
 }
 
 // Data dei dati globali e ritardo rispetto all'ultima seduta chiusa di Borsa Italiana
@@ -698,13 +704,16 @@ function setView(v, silent) {
   });
   for (const id of VIEWS) $('v-' + id).hidden = id !== v;
   $('filters').hidden = v !== 'rrg';
-  const hash = v === 'sec' ? '#' + state.bottom.sector() : '#' + v;
-  // un cambio di vista (o di settore) aggiunge una voce alla cronologia, così il tasto Indietro torna alla vista di
-  // prima; all'avvio e quando l'indirizzo arriva già dal tasto Indietro si sostituisce solo la voce attuale
-  if (location.hash !== hash) {
-    try { if (!silent && from && (from !== v || v === 'sec')) history.pushState(null, '', hash); else history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ }
-  }
+  syncHash(v, silent, from);
   renderAll();
+}
+// indirizzo della vista: #mon, #XLU (vista 4), #tit-XLU (vista 7 con il settore). Un cambio di vista o di settore
+// aggiunge una voce alla cronologia, così il tasto Indietro torna alla vista di prima; all'avvio e quando l'indirizzo
+// arriva già dal tasto Indietro si sostituisce solo la voce attuale
+function syncHash(v, silent, from) {
+  const hash = v === 'sec' ? '#' + state.bottom.sector() : v === 'tit' ? '#tit-' + state.bottom.sector() : '#' + v;
+  if (location.hash === hash) return;
+  try { if (!silent && from && (from !== v || v === 'sec' || v === 'tit')) history.pushState(null, '', hash); else history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ }
 }
 function segPress(id, attr, value) {
   document.querySelectorAll(`#${id} button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset[attr] === String(value))));
@@ -725,7 +734,7 @@ let helpOpener = null;
 const narrow = () => window.innerWidth < 600;
 let cmdErrTimer = null;
 function setPlaceholder() {
-  $('cmd').placeholder = narrow() ? 'Ticker o nome: XLU, ORO, HELP' : 'Comando: un ticker (XLU, NVDA, SWDA), un nome (ORO, TESLA), MON, ROT, BTM, ALRT, HELP · poi Invio';
+  $('cmd').placeholder = narrow() ? 'Ticker o nome: XLU, ORO, HELP' : 'Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP';
 }
 // ---------- tema chiaro o scuro (sistema «Terminale ambra», come Bond Ladder) ----------
 // Attributo su <html>: i colori li cambia solo il CSS, quindi grafici e tabelle non si ridisegnano.
@@ -866,6 +875,13 @@ function bind() {
     if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }
     if (words[v]) { setView(words[v]); return; }
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
+    // settore + vista: XLK TIT apre i titoli di XLK, XLU SEC il suo dettaglio
+    const [w1, w2, ...rest] = v.split(/\s+/);
+    if (w2 && !rest.length && words[w2] && state.bottom.isSector(w1)) {
+      state.bottom.selectSector(w1);
+      if (words[w2] === 'sec') state.bottom.openSector(w1); else setView(words[w2]);
+      return;
+    }
     const hit = findSymbol(v);
     // cambia universo e benchmark (e li ricorda) solo se serve
     const switchTo = (group, bench) => {

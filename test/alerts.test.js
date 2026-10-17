@@ -26,6 +26,25 @@ test('CSV con virgolette e validazione della lista', () => {
   assert.ok(problems.length > 0); // due righe non sono una lista S&P 500 valida
 });
 
+test('lista dei membri: riclassificazione GICS accettata, cambi anomali scartati', () => {
+  const prev = read('data/sp500_members.json').members;
+  const NAME = { XLK: 'Information Technology', XLF: 'Financials', XLV: 'Health Care', XLY: 'Consumer Discretionary', XLP: 'Consumer Staples', XLI: 'Industrials', XLB: 'Materials', XLU: 'Utilities', XLRE: 'Real Estate', XLC: 'Communication Services', XLE: 'Energy' };
+  const rowsOf = (list) => list.map((m) => ({ Symbol: m.s, Security: m.name, 'GICS Sector': NAME[m.sector] }));
+  assert.deepEqual(validateMembers(rowsOf(prev), prev).problems, []);
+  // 6 titoli da Tecnologia a Finanziari, come nel 2023: la lista passa e i cambi si segnalano
+  const tech = prev.filter((m) => m.sector === 'XLK').slice(0, 6).map((m) => m.s);
+  const re = validateMembers(rowsOf(prev.map((m) => (tech.includes(m.s) ? { ...m, sector: 'XLF' } : m))), prev);
+  assert.deepEqual(re.problems, []);
+  assert.equal(re.moved.length, 6);
+  // 5 uscite nell'Energia sostituite da titoli tecnologici in una sera: lista sospetta
+  const en = prev.filter((m) => m.sector === 'XLE').slice(0, 5).map((m) => m.s);
+  const odd = prev.filter((m) => !en.includes(m.s)).concat(en.map((s, i) => ({ s: 'NEW' + i, name: 'n', sector: 'XLK' })));
+  assert.ok(validateMembers(rowsOf(odd), prev).problems.length > 0);
+  // colonna dei settori sballata: troppi cambi di settore
+  const shuffled = prev.map((m, i) => ({ ...m, sector: prev[(i + 7) % prev.length].sector }));
+  assert.ok(validateMembers(rowsOf(shuffled), prev).problems.some((p) => /cambiano settore/.test(p)));
+});
+
 test('si pubblicano solo sedute complete', () => {
   const members = [{ s: 'A', sector: 'XLU' }, { s: 'B', sector: 'XLU' }, { s: 'C', sector: 'XLK' }];
   const mk = (dates, close) => ({ dates, close, index: new Map(dates.map((d, i) => [d, i])) });
