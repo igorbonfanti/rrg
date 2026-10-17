@@ -600,8 +600,9 @@ svg.bub { touch-action: pan-y; }
 .cq .tr-line { fill: none; stroke: var(--chart-trail); stroke-width: 1; stroke-dasharray: 1.5 2.5; opacity: 0.5; }
 .cq .td.cw { fill: var(--chart-trail); }
 .cq .td.ew { fill: var(--bg); stroke: var(--chart-trail); stroke-width: 1.2; }
-.cq .tr-arr { stroke: var(--ink-2); stroke-width: 1.2; opacity: 0.85; }
-.cq .tr-head { fill: var(--ink-2); opacity: 0.9; }
+/* freccia dell'ultima settimana: verde se sale, rossa se scende (anche nei colori per daltonici e nel tema chiaro) */
+.cq .st-up { stop-color: var(--up); } .cq .st-down { stop-color: var(--down); }
+.cq .tr-head.up { fill: var(--up); } .cq .tr-head.down { fill: var(--down); }
 .cq .ring { fill: none; stroke: var(--amber); stroke-width: 1.6; }
 .cq .sp { font-size: 12px; }
 .cq .row.hot .sp { font-weight: 600; }

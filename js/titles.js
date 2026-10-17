@@ -94,7 +94,8 @@ export function createTitles(ctx) {
   // Una riga per settore: pallino pieno = cap-weighted (pesano i grandi), vuoto = equal-weight (ogni titolo uguale),
   // la barra tra i due è la divergenza (verde acqua se è davanti l'equal-weight, viola se guidano i grandi).
   // La scia resta in secondo piano, come nel grafico di Rea: dove erano i due pallini 1 settimana, 1 mese e 3 mesi
-  // fa, con la stessa forma e sempre più piccoli, e una freccia sottile per il movimento dell'ultima settimana.
+  // fa, con la stessa forma e sempre più piccoli, e una freccia sottile per il movimento dell'ultima settimana:
+  // verde se sale, rossa se scende, sfumata da trasparente (1 settimana fa) a piena (oggi).
   function rowOf(k) {
     const v = D.sectors[k][st.per];
     const sp = (p) => (p ? p[1] - p[0] : null);
@@ -118,6 +119,13 @@ export function createTitles(ctx) {
     const H = T + RH * (all.length + 0.6) + 6;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.innerHTML = '';
+    // sfumature delle frecce: verso destra (sale) verde, verso sinistra (scende) rosso; la coda è trasparente
+    const defs = el('defs', {}, svg);
+    for (const [id, cls, x1, x2] of [['titArrUp', 'up', 0, 1], ['titArrDn', 'down', 1, 0]]) {
+      const gr = el('linearGradient', { id, x1, x2, y1: 0, y2: 0 }, defs);
+      el('stop', { offset: 0, class: `st-${cls}`, 'stop-opacity': 0.08 }, gr);
+      el('stop', { offset: 1, class: `st-${cls}`, 'stop-opacity': 1 }, gr);
+    }
     const X = (v) => L + ((v - sc.lo) / (sc.hi - sc.lo)) * (W - L - R);
     for (const v of ticks(sc)) {
       el('line', { class: v === 0 ? 'zero' : 'grid', x1: X(v), x2: X(v), y1: T - 6, y2: H - 4 }, svg);
@@ -150,9 +158,10 @@ export function createTitles(ctx) {
       for (const [x0, x1, rr] of arrows) {
         const d = x1 - x0, dir = Math.sign(d);
         if (Math.abs(d) < rr + 7) continue; // movimento troppo piccolo per una freccia
-        const tip = x1 - dir * (rr + 1.5);
-        el('line', { class: 'tr-arr', x1: x0, y1: y, x2: tip - dir * 4, y2: y }, g);
-        el('path', { class: 'tr-head', d: `M${tip} ${y} L${tip - dir * 5} ${y - 3.2} L${tip - dir * 5} ${y + 3.2} Z` }, g);
+        const tip = x1 - dir * (rr + 1.5), end = tip - dir * 4.5;
+        // corpo come rettangolo sottile: la sfumatura su una linea orizzontale (altezza 0) non si vedrebbe
+        el('rect', { class: 'tr-arr', x: Math.min(x0, end), y: y - 1.2, width: Math.abs(end - x0), height: 2.4, fill: `url(#${dir > 0 ? 'titArrUp' : 'titArrDn'})` }, g);
+        el('path', { class: `tr-head ${dir > 0 ? 'up' : 'down'}`, d: `M${tip} ${y} L${tip - dir * 5.5} ${y - 3.6} L${tip - dir * 5.5} ${y + 3.6} Z` }, g);
       }
       el('circle', { class: 'cw', cx: X(r.cw), cy: y, r: 5.2 }, g);
       el('circle', { class: 'ew', cx: X(r.ew), cy: y, r: 4.4 }, g);
