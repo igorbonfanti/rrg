@@ -37,7 +37,7 @@
     }
   },
   "global": {
-    "_comment": "Universi globali: ETF UCITS in euro (simboli Yahoo con il suffisso di borsa: .MI Milano, .DE Xetra, .PA Parigi, .AS Amsterdam, .MC Madrid) e bitcoin in euro. Calendario di Borsa Italiana. 'label' è il nome breve sul grafico. Il benchmark 'PTF' è il portafoglio sintetico del gruppo, calcolato nell'app dai pesi di 'portfolio' e ribilanciato a fine mese.",
+    "_comment": "Universi globali: ETF UCITS in euro (simboli Yahoo con il suffisso di borsa: .MI Milano, .DE Xetra, .PA Parigi, .AS Amsterdam, .MC Madrid) e bitcoin in euro. Calendario di Borsa Italiana. 'label' è il nome breve sul grafico. Il benchmark 'PTF' è il portafoglio sintetico del gruppo, calcolato nell'app dai pesi di 'portfolio' e ribilanciato a fine mese. 'history': {'proxy': 'TICKER'} allunga la storia di un ETF giovane con un altro strumento, convertito in euro, prima della sua prima barra.",
     "currency": "EUR",
     "benchmarks": {
       "SWDA.MI": {
@@ -72,14 +72,16 @@
             "SGLD.MI": 10,
             "IWDP.MI": 5,
             "CMOD.MI": 3,
-            "BTC-EUR": 2
+            "BTC-EUR": 2,
+            "DBMFE.PA": 0
           },
           "classes": [
             { "name": "Azioni", "tickers": ["SWDA.MI", "EIMI.MI"] },
             { "name": "Obbligazioni governative euro", "tickers": ["EM13.MI", "EM710.MI", "EM15.MI"] },
             { "name": "Oro e materie prime", "tickers": ["SGLD.MI", "CMOD.MI"] },
             { "name": "Immobiliare", "tickers": ["IWDP.MI"] },
-            { "name": "Cripto", "tickers": ["BTC-EUR"] }
+            { "name": "Cripto", "tickers": ["BTC-EUR"] },
+            { "name": "Alternativi (trend following)", "tickers": ["DBMFE.PA"] }
           ]
         },
         "tickers": {
@@ -118,6 +120,11 @@
           "BTC-EUR": {
             "label": "Bitcoin",
             "name": "Bitcoin, prezzo spot in euro"
+          },
+          "DBMFE.PA": {
+            "label": "Trend",
+            "name": "Managed futures (trend following) · iMGP DBi Managed Futures R EUR UCITS ETF (Acc), Euronext Parigi, non coperto dal cambio. Prima del 28/04/2025 la storia è quella del DBMF americano (stessa strategia) convertito in euro. Periodi piatti di anni e cali del 20% sono normali per la strategia",
+            "history": { "proxy": "DBMF" }
           }
         }
       },
