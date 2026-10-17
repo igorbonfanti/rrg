@@ -73,6 +73,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
   - **Titoli del settore**: una bolla per titolo (area proporzionale al peso nell'S&P 500, oppure tutte uguali); in verticale il rendimento del periodo, in orizzontale la distanza dalla media 200 (predefinito), dal massimo a 52 settimane o il rendimento nel periodo precedente. Linee del settore cap ed equal; in rosso e con l'etichetta gli 8 più in pena, valori estremi fermati al bordo con una freccia.
   - **I più in pena**: i 12 titoli con la media più bassa delle posizioni nel settore per rendimento del periodo e distanza dal massimo; ticker con il link a TradingView.
   - I dati (`data/sector_members.json`) si scaricano alla prima apertura; periodo, scia, ordine, asse e bolle restano nel browser.
+  - **Rispetto al grafico di Rea** i numeri sono vicini ma non uguali: per noi 3 mesi sono 63 sedute (per lui 3 mesi di calendario); il suo cap-weighted pesa i rendimenti con la capitalizzazione di oggi (più peso a chi è già salito: valori più alti del rendimento reale di un indice), il nostro usa i pesi di inizio periodo; il suo equal-weight è la media semplice dei membri di oggi, il nostro l'indice con i membri di ogni data e il ribilanciamento trimestrale. Confronto del 16/10/2026 in `ricerca/settori-titoli/confronto-rea.md` (ramo di sviluppo).
 
 **Comandi** (barra in alto, oppure `/`):
 - un ETF settoriale (es. `XLU`) apre il dettaglio;
