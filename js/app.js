@@ -53,20 +53,23 @@ function checkVersion() {
     b.onclick = refreshApp;
   }).catch(() => { /* senza rete: si resta sulla versione in uso */ });
 }
-// GitHub Pages fa tenere i file al browser per 10 minuti: prima di ricaricare si riscaricano pagina, script e
-// stili già usati (cache: 'reload' aggiorna la copia in memoria), così la ricarica prende la versione nuova
+// GitHub Pages fa tenere i file al browser per 10 minuti: prima di ricaricare si riscaricano pagina, script, stili e
+// dati già usati (cache: 'reload' aggiorna la copia in memoria), così la ricarica prende la versione nuova
 async function refreshApp() {
   const b = $('newVer');
   b.disabled = true; b.textContent = 'Aggiorno…';
   const urls = new Set([location.href.split('#')[0], new URL('version.json', location.href).href]);
-  for (const e of performance.getEntriesByType('resource')) if (/\.(js|css)(\?|$)/.test(e.name) && e.name.startsWith(location.origin)) urls.add(e.name);
+  for (const e of performance.getEntriesByType('resource')) if (/\.(js|css|json)(\?|$)/.test(e.name) && e.name.startsWith(location.origin) && !/version\.json/.test(e.name)) urls.add(e.name);
   await Promise.allSettled([...urls].map((u) => fetch(u, { cache: 'reload' })));
   location.reload();
 }
 checkVersion();
 document.addEventListener('visibilitychange', () => { if (!document.hidden) checkVersion(); });
 
-const getJSON = (url, optional) => fetch(url).then((r) => {
+// fresh: chiede sempre al server se il file è cambiato (risposta breve se non lo è). Serve per i file scaricati dopo
+// l'avvio: GitHub Pages li fa tenere al browser 10 minuti e dopo un aggiornamento si vedrebbero quelli vecchi. I file
+// dell'avvio no, perché sono già in arrivo con i preload della pagina (stessa richiesta, stessa copia)
+const getJSON = (url, optional, fresh) => fetch(url, fresh ? { cache: 'no-cache' } : undefined).then((r) => {
   if (r.ok) return r.json();
   if (optional) return null;
   throw new Error(`${url}: HTTP ${r.status}`);
@@ -76,7 +79,7 @@ const getJSON = (url, optional) => fetch(url).then((r) => {
 // e degli asset reali, che servono solo alla rotazione. Aprendo direttamente la rotazione si aspettano anche quelli,
 // perché l'universo salvato può essere lì.
 let extras = null;
-const loadExtras = () => extras || (extras = Promise.all([getJSON('data/prices_global.json', true), getJSON('data/prices_macro.json', true)]));
+const loadExtras = () => extras || (extras = Promise.all([getJSON('data/prices_global.json', true, true), getJSON('data/prices_macro.json', true, true)]));
 Promise.all([
   getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
   getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('config/indices.json', true),
@@ -224,11 +227,11 @@ function init() {
     setView: (v, silent) => setView(v, silent), openRRG: focusSymbol,
   });
   // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
-  state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json'), loadMore: () => getJSON('data/indices_more.json', true) }) : null;
+  state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json', false, true), loadMore: () => getJSON('data/indices_more.json', true, true) }) : null;
   if (!state.indices) $('tab-idx').hidden = true;
   // vista 7 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
-    $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json'),
+    $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json', false, true),
     getSector: () => state.bottom.sector(), stateCode: (s) => state.bottom.stateCode(s),
     // scelta di un settore nella vista 7: nuova voce nella cronologia (#tit-XLK), come i settori della vista 4
     setSector: (s) => { state.bottom.selectSector(s); syncHash('tit', false, 'tit'); },
