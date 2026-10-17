@@ -570,7 +570,11 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .ixarea { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
 .ixarea .lbl { font: 500 11px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; min-width: 108px; }
 
-/* vista 7 Titoli: grandi contro piccoli (.cq) e bolle dei titoli del settore (.bub) */
+/* vista 7 Titoli: grandi contro piccoli (.cq) e bolle dei titoli del settore (.bub).
+   Cap-weighted blu, equal-weight arancio: coppia verificata per i daltonici su fondo nero e bianco */
+:root { --cap: #3987e5; --eq: #e8642c; }
+:root[data-theme="light"] { --cap: #2a78d6; --eq: #d9531f; }
+@media print { :root { --cap: #2a78d6; --eq: #d9531f; } }
 .tit-ctl { border-bottom: 1px solid var(--rule); }
 .grid-tit { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 12px; align-items: start; }
 @media (max-width: 1100px) { .grid-tit { grid-template-columns: minmax(0, 1fr); } }
@@ -590,38 +594,35 @@ svg.bub { touch-action: pan-y; }
 .cq .sym { font-size: 12px; font-weight: 600; fill: var(--ink); }
 .cq .row.sel .sym { fill: var(--amber-2); }
 .cq .nm { font: 11.5px var(--f-ui); fill: var(--ink-3); }
-.cq .bar { stroke-width: 3; opacity: 0.75; }
-.cq .row.hot .bar, .cq .row.sel .bar { stroke-width: 5; opacity: 1; }
-.cq .bar.b { stroke: var(--q-lead); }
-.cq .bar.n { stroke: var(--q-imp); }
-.cq .cw { fill: var(--ink); }
-.cq .ew { fill: var(--bg); stroke: var(--ink); stroke-width: 1.7; }
-.cq .tr-cw, .cq .tr-ew { fill: none; stroke-width: 1; opacity: 0.75; }
-.cq .tr-cw { stroke: var(--chart-trail); }
-.cq .tr-ew { stroke: var(--blue-light); stroke-dasharray: 3 2; }
-.cq .td-cw { fill: var(--chart-trail); }
-.cq .td-ew { fill: var(--bg); stroke: var(--blue-light); }
-.cq .sp { font-size: 12px; }
+.cq .arr { stroke-width: 2; opacity: 0.85; }
+.cq .row.hot .arr, .cq .row.sel .arr { stroke-width: 2.6; opacity: 1; }
+.cq .arr.cap { stroke: var(--cap); } .cq .arr.eq { stroke: var(--eq); }
+.cq .head.cap, .cq .tail.cap, .cq .key.cap { fill: var(--cap); }
+.cq .head.eq, .cq .tail.eq, .cq .key.eq { fill: var(--eq); }
+.cq .tail { opacity: 0.7; }
+.cq .head { stroke: var(--bg); stroke-width: 1; }
+.cq .sp { font-size: 12px; fill: var(--ink); }
 .cq .row.hot .sp { font-weight: 600; }
-.cq .sp.b, .cq .dm.b { fill: var(--q-lead); }
-.cq .sp.n, .cq .dm.n { fill: var(--q-imp); }
+.cq .dm { fill: var(--ink-2); }
+.cq .dm .eq { fill: var(--eq); } .cq .dm .cap { fill: var(--cap); }
+.cap-c { color: var(--cap); } .eq-c { color: var(--eq); }
 .bub .axl { fill: var(--ink-2); }
 .bub .pain { fill: var(--down); fill-opacity: 0.06; }
 .bub .dot { fill: var(--ink-3); fill-opacity: 0.42; stroke: var(--bg); stroke-width: 1; }
 .bub .dot.bad { fill: var(--down); fill-opacity: 0.8; }
 .bub .dot.on { fill: var(--amber); fill-opacity: 0.95; stroke: var(--amber-2); }
 .bub .out { fill: var(--ink-3); }
-.bub .l-ew { stroke: var(--blue-light); stroke-dasharray: 4 3; }
-.bub .l-cw { stroke: var(--ink); stroke-dasharray: 1 3; }
-.bub .t-ew { fill: var(--blue-light); }
-.bub .t-cw { fill: var(--ink); }
+.bub .l-ew { stroke: var(--eq); stroke-dasharray: 5 3; stroke-width: 1.5; }
+.bub .l-cw { stroke: var(--cap); stroke-dasharray: 5 3; stroke-width: 1.5; }
+.bub .t-ew { fill: var(--eq); }
+.bub .t-cw { fill: var(--cap); }
 .bub .lab { font-size: 11px; font-weight: 600; fill: var(--ink-2); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .bub .lab.bad { fill: var(--ink); }
 .bub .lab.on { fill: var(--amber-2); }
 .legend .kd { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--ink); vertical-align: -1px; margin-right: 5px; }
 .legend .kd.o { background: transparent; box-shadow: inset 0 0 0 1.6px var(--ink); }
-.legend .kl-dash { background: none; border-top: 1.5px dashed var(--blue-light); height: 0; }
-.legend .kl-dot { background: none; border-top: 1.5px dotted var(--ink); height: 0; }
+.legend .kl-dash { background: none; border-top: 1.5px dashed var(--ink-2); height: 0; }
+.legend .ka { display: inline-block; width: 22px; height: 10px; vertical-align: -1px; margin-right: 5px; }
 .t.pain .nm { color: var(--ink-3); margin-left: 6px; display: inline-block; max-width: 13ch; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; }
 .t.pain tbody tr { cursor: default; }
 #v-tit .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 16px; }

@@ -1,7 +1,7 @@
 /*
  * titles.js — vista 7 Titoli: dentro i settori S&P 500.
- *  - Grandi contro piccoli: per ogni settore il rendimento cap-weighted (pesano i grandi) ed equal-weight
- *    (ogni titolo conta uguale) nel periodo, con la scia di 1 settimana, 1 mese e 3 mesi fa e la divergenza;
+ *  - Grandi contro piccoli: per ogni settore il rendimento cap-weighted (pesano i grandi, blu) ed equal-weight
+ *    (ogni titolo conta uguale, arancio) nel periodo, con le frecce da 1 settimana, 1 mese o 3 mesi fa e la divergenza;
  *  - Titoli del settore: una bolla per titolo (rendimento del periodo contro distanza dalla media 200, dal
  *    massimo a 52 settimane o rendimento nel periodo precedente) e la lista dei più in pena.
  * Dati: data/sector_members.json (scripts/lib/capeq.js), caricato alla prima apertura della vista.
@@ -50,7 +50,7 @@ export function createTitles(ctx) {
   let D = null, loading = null, failed = null;
   const st = {
     per: PERIODS.includes(store.get('titPer')) ? store.get('titPer') : '3M',
-    trail: ['sel', 'all', 'off'].includes(store.get('titTrail')) ? store.get('titTrail') : 'sel',
+    from: ['1', '2', '3', 'off'].includes(store.get('titFrom')) ? store.get('titFrom') : '2',
     sort: ['div', 'sec'].includes(store.get('titSort')) ? store.get('titSort') : 'div',
     ax: AXES[store.get('titAx')] ? store.get('titAx') : 'd200',
     size: ['w', 'eq'].includes(store.get('titSize')) ? store.get('titSize') : 'w',
@@ -79,7 +79,7 @@ export function createTitles(ctx) {
     $('titChips').innerHTML = SECTORS.map((k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}" title="${esc(ctx.names[k])}">${ctx.stateCode ? `<span class="sd sd-${ctx.stateCode(k)}"></span>` : ''}${k}</button>`).join('');
     $('titChips').querySelectorAll('button').forEach((b) => { b.onclick = () => pick(b.dataset.sym); });
     const press = (id, attr, v) => document.querySelectorAll(`#${id} button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset[attr] === v)));
-    press('titPerSeg', 'per', st.per); press('titTrailSeg', 'trail', st.trail); press('titSortSeg', 'sort', st.sort); press('titSizeSeg', 'size', st.size);
+    press('titPerSeg', 'per', st.per); press('titFromSeg', 'from', st.from); press('titSortSeg', 'sort', st.sort); press('titSizeSeg', 'size', st.size);
     $('titAx').value = st.ax;
     $('titMeta').textContent = `al ${dIT(D.asOf)} · ${PER_TEXT[st.per]}, dal ${dIT(D.starts[st.per][0])}`;
     $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
@@ -87,6 +87,10 @@ export function createTitles(ctx) {
   function pick(s) { ctx.setSector(s); st.hover = null; render(); }
 
   // ---------- grandi contro piccoli ----------
+  // due corsie per settore: in alto il cap-weighted (blu, pesano i grandi), sotto l'equal-weight (arancio, ogni
+  // titolo uguale). La freccia va da dove era la misura 1 settimana, 1 mese o 3 mesi fa (sulla stessa durata) a
+  // oggi; la distanza tra le due punte è la divergenza di oggi. Le date intermedie sono nel riquadro al passaggio
+  // del mouse: con i periodi mobili non stanno sulla linea della freccia.
   function rowOf(k) {
     const v = D.sectors[k][st.per];
     const sp = (p) => (p ? p[1] - p[0] : null);
@@ -99,62 +103,69 @@ export function createTitles(ctx) {
     if (st.sort === 'div') rows.sort((a, b) => b.sp - a.sp);
     const top3 = new Set([...rows].sort((a, b) => Math.abs(b.sp) - Math.abs(a.sp)).slice(0, 3).map((r) => r.k));
     const all = [...rows, rowOf('SPX')];
-    const trail = (r) => st.trail === 'all' || (st.trail === 'sel' && (r.k === sel || r.k === 'SPX'));
+    const from = st.from === 'off' ? 0 : +st.from; // 1 = 1 settimana, 2 = 1 mese, 3 = 3 mesi fa
     const vals = [0];
-    for (const r of all) r.v.forEach((p, i) => { if (p && (i === 0 || trail(r))) vals.push(p[0], p[1]); });
+    for (const r of all) for (let o = 0; o <= from; o++) if (r.v[o]) vals.push(r.v[o][0], r.v[o][1]);
     const sc = nice(Math.min(...vals), Math.max(...vals), narrow ? 4 : 8);
-    const L = narrow ? 50 : 210, R = narrow ? 92 : 178, T = 22, RH = narrow ? 30 : 27;
+    const L = narrow ? 50 : 210, R = narrow ? 86 : 190, T = 24, RH = narrow ? 36 : 34, LANE = 6;
     const H = T + RH * (all.length + 0.6) + 6;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.innerHTML = '';
     const X = (v) => L + ((v - sc.lo) / (sc.hi - sc.lo)) * (W - L - R);
     for (const v of ticks(sc)) {
-      el('line', { class: v === 0 ? 'zero' : 'grid', x1: X(v), x2: X(v), y1: T - 6, y2: H - 4 }, svg);
+      el('line', { class: v === 0 ? 'zero' : 'grid', x1: X(v), x2: X(v), y1: T - 8, y2: H - 4 }, svg);
       text(svg, X(v), 12, tickLabel(v, sc.step), { 'text-anchor': 'middle' });
     }
-    text(svg, W - R + 20, 12, 'EW − CW');
+    text(svg, W - R + 24, 12, narrow ? 'EW−CW' : 'equal − cap');
     text(svg, W - 6, 12, narrow ? '1M' : 'in 1 mese', { 'text-anchor': 'end' });
     all.forEach((r, i) => {
       const ref = r.k === 'SPX';
       const y = T + RH * (i + 0.5) + (ref ? RH * 0.6 : 0);
       if (ref) el('line', { class: 'sep', x1: 0, x2: W, y1: y - RH * 0.8, y2: y - RH * 0.8 }, svg);
-      const cls = r.sp >= 0 ? 'b' : 'n';
       const g = el('g', { class: `row${r.k === sel ? ' sel' : ''}${ref ? ' ref' : ''}${top3.has(r.k) ? ' hot' : ''}`, 'data-k': r.k }, svg);
       el('rect', { class: 'rowbg', x: 0, y: y - RH / 2, width: W, height: RH }, g);
       el('rect', { class: 'mark', x: 0, y: y - RH / 2, width: 3, height: RH }, g);
       text(g, 8, y + 4, r.k, { class: 'sym' });
       if (!narrow) text(g, 52, y + 4, ctx.names[r.k] || 'S&P 500', { class: 'nm' });
-      if (trail(r)) {
-        for (const leg of [0, 1]) {
-          const dy = leg ? 3 : -3;
-          const pts = [3, 2, 1, 0].filter((o) => r.v[o]).map((o) => `${X(r.v[o][leg]).toFixed(1)} ${y + dy}`);
-          el('path', { class: leg ? 'tr-ew' : 'tr-cw', d: 'M' + pts.join(' L') }, g);
-          [3, 2, 1].forEach((o, j) => { if (r.v[o]) el('circle', { class: leg ? 'td-ew' : 'td-cw', cx: X(r.v[o][leg]), cy: y + dy, r: 1.8 + j * 0.5, opacity: 0.5 + j * 0.2 }, g); });
+      for (const leg of [0, 1]) {
+        const ly = y + (leg ? LANE : -LANE), cls = leg ? 'eq' : 'cap', x1 = X(r.v[0][leg]);
+        const o = from && r.v[from] ? from : 0;
+        const x0 = o ? X(r.v[o][leg]) : x1;
+        if (Math.abs(x1 - x0) >= 7) {
+          // freccia: corpo dal punto di partenza alla punta, punta triangolare nella direzione del movimento
+          const dir = x1 > x0 ? 1 : -1;
+          el('line', { class: `arr ${cls}`, x1: x0, y1: ly, x2: x1 - dir * 6, y2: ly }, g);
+          el('circle', { class: `tail ${cls}`, cx: x0, cy: ly, r: 2.2 }, g);
+          el('path', { class: `head ${cls}`, d: `M${x1 + dir * 1.5} ${ly} L${x1 - dir * 7} ${ly - 4.6} L${x1 - dir * 7} ${ly + 4.6} Z` }, g);
+        } else {
+          el('circle', { class: `head ${cls}`, cx: x1, cy: ly, r: 4.2 }, g);
         }
       }
-      el('line', { class: `bar ${cls}`, x1: X(r.cw), x2: X(r.ew), y1: y, y2: y }, g);
-      el('circle', { class: 'cw', cx: X(r.cw), cy: y, r: 5.2 }, g);
-      el('circle', { class: 'ew', cx: X(r.ew), cy: y, r: 4.4 }, g);
-      text(g, W - R + 20, y + 4, sgn(r.sp), { class: `sp ${cls}` });
+      const lead = r.sp >= 0 ? 'eq' : 'cap';
+      el('circle', { class: `key ${lead}`, cx: W - R + 28, cy: y, r: 3.6 }, g);
+      text(g, W - R + 36, y + 4, sgn(r.sp), { class: 'sp' });
       if (r.sp1m != null) {
         const d = r.sp - r.sp1m, flat = Math.abs(d) < 0.5;
-        const sym = flat ? '=' : d > 0 ? '▲' : '▼';
-        text(g, W - 6, y + 4, narrow ? sym : `${sym} ${sgn(d)}`, { class: `dm ${flat ? '' : d > 0 ? 'b' : 'n'}`, 'text-anchor': 'end' });
+        const t = text(g, W - 6, y + 4, '', { class: 'dm', 'text-anchor': 'end' });
+        const tri = el('tspan', { class: flat ? '' : d > 0 ? 'eq' : 'cap' }, t);
+        tri.textContent = flat ? '=' : d > 0 ? '▲' : '▼';
+        if (!narrow) { const v = el('tspan', {}, t); v.textContent = ` ${sgn(d)}`; }
       }
       if (!ref) g.addEventListener('click', () => pick(r.k));
       g.addEventListener('mousemove', (e) => spreadTip(e, r));
       g.addEventListener('mouseleave', () => { $('titSpreadTip').hidden = true; });
     });
     const lead = rows.filter((r) => r.sp > 0).length;
-    $('titSpreadNote').textContent = `Equal-weight davanti in ${lead} settori su 11. Ultima colonna: come è cambiata la divergenza rispetto a 1 mese fa ` +
-      `(▲ verso l'equal-weight, ▼ verso i grandi). Clic su un settore per vederne i titoli.`;
+    $('titSpreadNote').textContent = `Equal-weight davanti in ${lead} settori su 11. ` +
+      (from ? `Le frecce vanno da ${OFF_TEXT[from]} a oggi. ` : '') +
+      `A destra la divergenza di oggi (pallino del colore di chi è davanti) e come è cambiata in 1 mese: ▲ arancio verso l'equal-weight, ▼ blu verso i grandi. Clic su un settore per vederne i titoli.`;
   }
   function spreadTip(e, r) {
     const tip = $('titSpreadTip');
     tip.innerHTML = `<div class="row"><b>${r.k}</b><span>${esc(ctx.names[r.k] || 'S&P 500')}</span></div>` +
-      `<div class="row"><span>${PER_TEXT[st.per]}</span><span>cap · equal · diff.</span></div>` +
-      r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span>${sgn(p[0])}% · ${sgn(p[1])}% · <span class="${p[1] - p[0] >= 0 ? 'q-lead-c' : 'q-imp-c'}">${pp(p[1] - p[0])}</span></span></div>` : '')).join('') +
-      (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: la scia ferma l\'inizio al 31/12 e sposta solo la fine.</span>' : '');
+      `<div class="row"><span>${PER_TEXT[st.per]}</span><span><span class="cap-c">cap</span> · <span class="eq-c">equal</span> · diff.</span></div>` +
+      r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span><span class="cap-c">${sgn(p[0])}%</span> · <span class="eq-c">${sgn(p[1])}%</span> · ${pp(p[1] - p[0])}</span></div>` : '')).join('') +
+      (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: le date passate tengono l\'inizio al 31/12 e spostano solo la fine.</span>' : '');
     placeTip(tip, $('titSpreadWrap'), e);
   }
 
@@ -286,7 +297,7 @@ export function createTitles(ctx) {
       b.onclick = () => { st[key] = b.dataset[attr]; store.set('tit' + key[0].toUpperCase() + key.slice(1), st[key]); renderControls(); after(); };
     });
     seg('titPerSeg', 'per', 'per', () => { drawSpread(); drawBubble(); });
-    seg('titTrailSeg', 'trail', 'trail', drawSpread);
+    seg('titFromSeg', 'from', 'from', drawSpread);
     seg('titSortSeg', 'sort', 'sort', drawSpread);
     seg('titSizeSeg', 'size', 'size', drawBubble);
     $('titAx').onchange = (e) => { st.ax = e.target.value; store.set('titAx', st.ax); drawBubble(); };
