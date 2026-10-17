@@ -24,7 +24,7 @@
               "note": "Dal 2020 l'indice è passato da 50 a circa 85 titoli, sempre più società della Cina continentale: la storia con i membri di oggi descrive un indice diverso da quello di allora." },
     "CSI300":{ "name": "CSI 300 (Cina)",    "area": "Asia-Pacifico", "price": "510300.SS", "composition": "oggi", "limits": true, "from": "2012-06-01", "blue": 14, "blueSource": "p3", "source": "en.wikipedia CSI 300 Index",
               "note": "Prezzo: ETF Huatai-PineBridge CSI 300 (510300), perché l'indice non ha storico su Yahoo; la storia del prezzo parte dal 2012. Molti membri sono quotati da pochi anni." },
-    "KOSPI200":{ "name": "KOSPI 200 (Corea)", "area": "Asia-Pacifico", "price": "^KS11",    "composition": "oggi", "limits": true, "from": "2006-12-01", "blue": 15, "blueSource": "p3", "source": "en.wikipedia KOSPI 200",
+    "KOSPI200":{ "name": "KOSPI 200 (Corea)", "main": true, "area": "Asia-Pacifico", "price": "^KS11",    "composition": "oggi", "limits": true, "from": "2006-12-01", "blue": 15, "blueSource": "p3", "source": "en.wikipedia KOSPI 200",
               "note": "Prezzo: KOSPI (tutto il listino), perché il KOSPI 200 non ha storico su Yahoo. Storia con i membri di oggi." },
     "TWN":  { "name": "Taiwan (MSCI)",      "area": "Asia-Pacifico", "price": "^TWII",     "composition": "oggi", "limits": true, "from": "2003-01-02", "blue": 8, "blueSource": "p3", "source": "holdings iShares EWT (MSCI Taiwan)",
               "note": "Breadth del paniere MSCI Taiwan (circa 76 titoli, dall'ETF EWT): il TAIEX intero non ha una lista gratuita. Prezzo: TAIEX." },

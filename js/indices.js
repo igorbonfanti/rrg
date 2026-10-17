@@ -242,7 +242,7 @@ export function createIndices(ctx) {
     $('ixChips').querySelectorAll('button').forEach((b) => b.onclick = () => open(b.dataset.ix));
     document.querySelectorAll('#ixRange button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('ixTitle').textContent = `${k} · ${name(k)}`;
-    $('ixBadge').innerHTML = badge(stateOf(k).code);
+    $('ixBadge').innerHTML = approach(k).on ? apprBadge() : badge(stateOf(k).code);
     drawSector($('ixTs'), {
       dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: rangeStart(k), sym: k, blue: L,
@@ -270,6 +270,7 @@ export function createIndices(ctx) {
       ['Titoli sopra media 200', `${s.above200[t]}/${n} · ${fmt(b)}%`],
       ['Sopra media 50', `${fmt(s.pct50[t])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
+      ...(approach(k).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(k).A, 0)}% · ${b <= approach(k).A ? 'sotto' : `${sgn(b - approach(k).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert.']]),
       ['Drawdown da max 52s', `${sgn(PX[k].dd[last])}%`, 'Dalla chiusura più alta delle ultime 252 sedute. Gli indici sono di solo prezzo: è il valore che si vede su TradingView (che però usa il massimo intraday).'],
       ['Profondità storica DD', `${PX[k].dp[last]}° percentile`],
       ['Copertura', `${n} su ${s.members[t]} membri con prezzi`, 'Titoli dell\'indice con i prezzi su Yahoo Finance: quelli tolti dal listino mancano, e nella storia la copertura è più bassa.'],
