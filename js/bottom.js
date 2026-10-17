@@ -29,7 +29,7 @@ const ICON = {
 export const badge = (code, label = STATES[code]) => `<span class="st st-${code}">${ICON[code]}${esc(label)}</span>`;
 // avvicinamento al livello blu: non è uno stato della macchina (niente alert), solo un'indicazione per la watchlist
 const APPR_ICON = '<svg viewBox="0 0 12 12" aria-hidden="true"><circle cx="6" cy="6" r="4.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.2 1.6"/></svg>';
-const apprBadge = () => `<span class="st st-appr">${APPR_ICON}Avvicinamento</span>`;
+export const apprBadge = () => `<span class="st st-appr">${APPR_ICON}Avvicinamento</span>`;
 const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}`;
 // Titoli: TradingView scrive le classi di azioni con il punto (BRK.B), i dati con il trattino (BRK-B)
 const tvStock = (sym) => tvLink(sym.replace('-', '.'));
