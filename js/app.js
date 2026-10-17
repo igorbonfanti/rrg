@@ -50,8 +50,18 @@ function checkVersion() {
     b.hidden = false;
     b.textContent = `Nuova versione ${v.version}: ricarica`;
     b.title = `Stai usando la ${VERSION}. Se dopo il clic resta questo avviso, ricarica con Ctrl+F5 (su Mac Cmd+Maiusc+R).`;
-    b.onclick = () => location.reload();
+    b.onclick = refreshApp;
   }).catch(() => { /* senza rete: si resta sulla versione in uso */ });
+}
+// GitHub Pages fa tenere i file al browser per 10 minuti: prima di ricaricare si riscaricano pagina, script e
+// stili già usati (cache: 'reload' aggiorna la copia in memoria), così la ricarica prende la versione nuova
+async function refreshApp() {
+  const b = $('newVer');
+  b.disabled = true; b.textContent = 'Aggiorno…';
+  const urls = new Set([location.href.split('#')[0], new URL('version.json', location.href).href]);
+  for (const e of performance.getEntriesByType('resource')) if (/\.(js|css)(\?|$)/.test(e.name) && e.name.startsWith(location.origin)) urls.add(e.name);
+  await Promise.allSettled([...urls].map((u) => fetch(u, { cache: 'reload' })));
+  location.reload();
 }
 checkVersion();
 document.addEventListener('visibilitychange', () => { if (!document.hidden) checkVersion(); });
