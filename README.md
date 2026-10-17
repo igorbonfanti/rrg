@@ -141,6 +141,11 @@ Il sistema serve a dirigere l'attenzione, non è una regola di trading validata:
 
 Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, trigger, fallito) e li registra in `data/alerts.json`.
 
+## Versioni
+Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
+
+- **0.7.0** (17/10/2026): numero di versione e avviso dei file vecchi; avvicinamento al livello blu (Bottom Map, Monitor, schede di settori e indici); KOSPI 200 tra gli indici principali; vista 7 Titoli in prova (grandi contro piccoli con la scia e le frecce dell'ultima settimana, bolle dei titoli); tasto Indietro tra le viste; crediti a Massimo Rea.
+
 ## Indici
 Stesso metodo, stessi parametri e stessa macchina a stati dei settori; cambiano solo l'universo e i livelli blu (`config/indices.json`). Ricerca, fonti e validazione in `ricerca/indici/` (ramo di sviluppo).
 
