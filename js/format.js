@@ -35,11 +35,26 @@ export function ddpTip(m, asOf, dd, synthetic = false) {
   return t.join(' ');
 }
 
-// Larghezza del disegno in unità SVG: i pixel reali × 1,15, tra `min` e `max`. Sul telefono il
+// Tooltip dei grafici con il mouse e al tocco: col mouse segue il puntatore e sparisce uscendo; al tocco (o con la penna)
+// si apre dove si tocca, resta aperto e si chiude con un tocco fuori dal grafico.
+const TIPPED = new Set();
+export function bindTip(target, svg, show, hide) {
+  target.addEventListener('pointermove', show);
+  target.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') show(e); });
+  target.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hide(); });
+  hideOnTapOutside(svg, hide);
+}
+export function hideOnTapOutside(svg, hide) {
+  svg._tipHide = hide;
+  if (!TIPPED.size) document.addEventListener('pointerdown', (e) => { for (const x of TIPPED) if (!x.contains(e.target) && x._tipHide) x._tipHide(); }, true);
+  TIPPED.add(svg);
+}
+
+// Larghezza del disegno in unità SVG: i pixel reali × 1,15 (sul telefono × 1), tra `min` e `max`. Sul telefono il
 // grafico si disegna più stretto invece di rimpicciolirsi, così il testo resta di circa 10 px.
-export function chartWidth(svg, max, min = 340) {
+export function chartWidth(svg, max, min = 280) {
   const w = svg.getBoundingClientRect().width;
-  return w ? Math.round(Math.max(min, Math.min(max, w * 1.15))) : max;
+  return w ? Math.round(Math.max(min, Math.min(max, w * (w < 500 ? 1 : 1.15)))) : max;
 }
 
 // Articolo davanti a una percentuale scritta come `s` («0,0» → Lo, «1»/«8»/«11»/«80-89» → L', altrimenti Il)

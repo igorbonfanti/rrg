@@ -9,7 +9,7 @@ import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, chartWidth, keepFocus, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
+import { esc, fmt, sgn, pct, dIT, qPill, placeTip, hideOnTapOutside, chartWidth, keepFocus, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
 export const NAMES = {
@@ -72,7 +72,7 @@ export function createBottom(ctx) {
   const st = {
     blue: { ...config.blue, ...validBlue(store.get('blue', {})) },
     sector: SECTOR_KEYS.includes(store.get('sector')) ? store.get('sector') : 'XLU',
-    range: ['3A', '10A', 'MAX'].includes(store.get('range')) ? store.get('range') : '3A', mapFocus: null, mapWeek: null,
+    range: ['3A', '10A', 'MAX'].includes(store.get('range')) ? store.get('range') : '3A', mapFocus: null, mapWeek: null, zoom: store.get('bmZoom', false) === true,
   };
   const cache = new Map();
   // livelli blu salvati nel browser: solo settori noti e interi da 0 a 60
@@ -275,6 +275,7 @@ export function createBottom(ctx) {
     r.min = FIRST_WEEK; r.max = WEEKS.length - 1; r.value = today ? WEEKS.length - 1 : st.mapWeek;
     $('bmDateVal').textContent = today ? `oggi · ${dIT(DATES[T])}` : `settimana al ${dIT(DATES[T])}`;
     $('bmToday').hidden = today;
+    $('bmZoom').setAttribute('aria-pressed', String(st.zoom));
     keepFocus($('bmJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && DATES[T] >= d && Date.parse(DATES[T]) - Date.parse(d) < 7 * 864e5}">${l}</button>`).join(''));
     $('bmJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
   }
@@ -301,7 +302,7 @@ export function createBottom(ctx) {
   }
   // per le date passate l'asse verticale è fisso (fino a 100 punti sopra il livello più basso), così nel replay non salta
   const mapTop = () => 96 - Math.min(...SECTOR_KEYS.map((s) => st.blue[s]));
-  const mapOpts = (T) => ({ series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(T), rings: mapRings(T), size: chartWidth($('bm'), SIZE), ...(T !== NOW ? { top: mapTop() } : {}) });
+  const mapOpts = (T) => ({ series: mapSeries, syms: SECTOR_KEYS, focus: st.mapFocus, params: P, states: mapStates(T), rings: mapRings(T), size: chartWidth($('bm'), SIZE), zoom: st.zoom, ...(T !== NOW ? { top: mapTop() } : {}) });
   function renderMap() {
     const T = mapT(), past = T !== NOW;
     mapControls();
@@ -335,29 +336,45 @@ export function createBottom(ctx) {
   }
   function bindMap() {
     const svg = $('bm'), tip = $('bmTip');
-    svg.addEventListener('pointermove', (e) => {
-      if (!mapDraw || e.pointerType === 'touch') return;
-      const h = nearestHead(svg, mapDraw.heads, e);
-      const s = h ? h.sym : null;
-      if (s !== st.mapFocus) { st.mapFocus = s; redrawMap(); }
-      if (!h) { tip.hidden = true; return; }
-      const q = mapSeries[s][mapSeries[s].length - 1], T = mapT(), ap = approachAt(s, T);
+    // con il mouse il tooltip segue il puntatore e il clic apre il settore; al tocco il primo tocco mostra i valori,
+    // il secondo sullo stesso punto apre il settore
+    let tapped = null, lastType = 'mouse';
+    const showTip = (e, h, touch) => {
+      const s = h.sym, q = mapSeries[s][mapSeries[s].length - 1], T = mapT(), ap = approachAt(s, T);
       tip.innerHTML = `<div class="row"><b>${s}</b><span>${NAMES[s]}</span></div>${T !== NOW ? `<div class="row"><span>Settimana al</span><b>${dIT(DATES[T])}</b></div>` : ''}
         <div class="row"><span>Sopra media 200</span><b>${fmt(BR[s].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[s]}%</b></div>
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[s].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
         <div class="row"><span>Stato</span><b>${ap.on ? 'Avvicinamento' : esc(STATES[stateAt(s, T)])}</b></div>
         <div class="row"><span>Soglia di avvicinamento</span><b>${ap.A == null ? '—' : fmt(ap.A, 0) + '%'}</b></div>
-        <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
+        <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>` +
+        (touch ? `<div class="row note-row">Tocca di nuovo il punto per aprire ${s}</div>` : '');
       placeTip(tip, $('bmWrap'), e);
+    };
+    svg.addEventListener('pointerdown', (e) => { lastType = e.pointerType; });
+    svg.addEventListener('pointermove', (e) => {
+      if (!mapDraw || e.pointerType !== 'mouse') return;
+      const h = nearestHead(svg, mapDraw.heads, e);
+      const s = h ? h.sym : null;
+      if (s !== st.mapFocus) { st.mapFocus = s; redrawMap(); }
+      if (!h) { tip.hidden = true; return; }
+      showTip(e, h, false);
     });
-    svg.addEventListener('pointerleave', () => { tip.hidden = true; if (st.mapFocus) { st.mapFocus = null; redrawMap(); } });
+    const hideTip = () => { tip.hidden = true; tapped = null; if (st.mapFocus) { st.mapFocus = null; redrawMap(); } };
+    svg.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hideTip(); });
+    hideOnTapOutside(svg, hideTip);
     // data: cursore, una settimana avanti o indietro con le frecce, replay, oggi
     $('bmDate').oninput = (e) => { stopReplay(); setMapWeek(+e.target.value); };
     $('bmDate').onkeydown = (e) => e.stopPropagation(); // le frecce muovono il cursore, non la rotazione
     $('bmPlay').onclick = playReplay;
     $('bmToday').onclick = () => { stopReplay(); setMapWeek(null); };
+    $('bmZoom').onclick = () => { st.zoom = !st.zoom; store.set('bmZoom', st.zoom); renderMap(); };
     // clic o tocco sul punto più vicino: apre il settore
-    svg.addEventListener('click', (e) => { const h = mapDraw ? nearestHead(svg, mapDraw.heads, e) : null; if (h) openSector(h.sym); });
+    svg.addEventListener('click', (e) => {
+      const h = mapDraw ? nearestHead(svg, mapDraw.heads, e) : null;
+      if (!h) { if (lastType !== 'mouse') hideTip(); return; }
+      if (lastType === 'mouse' || tapped === h.sym) { tapped = null; openSector(h.sym); return; }
+      tapped = h.sym; st.mapFocus = h.sym; redrawMap(); showTip(e, h, true);
+    });
   }
 
   // ---------- 4 SETTORE ----------
@@ -381,7 +398,7 @@ export function createBottom(ctx) {
     const i0 = rangeStart(s);
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
-      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940, 380),
+      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940),
       off: m.off, offText: offReasons(P),
     });
     // livello blu

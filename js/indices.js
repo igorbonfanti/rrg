@@ -11,7 +11,7 @@ import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, pxDec, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
+import { esc, fmt, sgn, pct, dIT, pxDec, placeTip, hideOnTapOutside, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -35,7 +35,7 @@ export function createIndices(ctx) {
   const ALL = Object.keys(CFG);
   let D = null, KEYS = [], loading = null, failed = null, more = null, moreFailed = null;
   const S = {}, PX = {}, NOW = {}, cache = new Map();
-  const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set(), mapWeek: null };
+  const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set(), mapWeek: null, zoom: store.get('ixZoom', false) === true };
   // indici mostrati in tabellone, Bottom Map e schede: di partenza i principali ("main" in config), poi
   // quelli scelti nel selettore (salvati nel browser). Il selettore li raggruppa per area.
   const ORDER_AREAS = ['Nord America', 'Europa', 'Asia-Pacifico', 'Emergenti'];
@@ -175,13 +175,13 @@ export function createIndices(ctx) {
         const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
         const need = r.above - Math.floor((r.L * r.n) / 100);
         return `<tr data-ix="${r.k}" tabindex="0">
-        <td><span class="sym">${r.k}</span><span class="nm">${esc(name(r.k))}</span></td>
-        <td${r.appr ? ` title="${esc(`breadth ${fmt(r.b)}%, sotto la soglia di avvicinamento ${fmt(approach(r.k).A, 0)}% (livello blu ${r.L}% + il calo forte dell'indice in 10 sedute): in un calo deciso il livello blu è a circa due settimane`)}"` : ''}>${r.appr ? apprBadge() : badge(r.state.code)}</td>
-        <td><span class="cellv num" title="${titoli(r.above)} su ${r.n}${need > 0 ? ` · ne devono scendere sotto la media ancora ${need} per il livello blu` : ''}">${fmt(r.b)}%<span class="cnt" title="${titoli(r.above)} sopra la media 200 su ${r.n}: un titolo vale ${fmt(100 / r.n)} punti">${r.above}/${r.n}</span></span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
-        <td class="num r">${r.L}%${changed(r.k) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
-        <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
-        <td>${quality(r.k, r)}</td>${cap ? cap.cell(r.k, CFG[r.k].noCap) : '<td></td>'}
-        <td class="num r" title="chiusura del ${dIT(r.date)}${r.bdate < r.date ? ` · breadth al ${dIT(r.bdate)}` : ''}">${fmt(r.last, r.last >= 1000 ? 0 : 2)}</td><td class="num r">${pct(r.d1)}</td><td class="num r">${pct(r.m1)}</td></tr>`;
+        <td class="c-name"><span class="sym">${r.k}</span><span class="nm">${esc(name(r.k))}</span></td>
+        <td class="c-state"${r.appr ? ` title="${esc(`breadth ${fmt(r.b)}%, sotto la soglia di avvicinamento ${fmt(approach(r.k).A, 0)}% (livello blu ${r.L}% + il calo forte dell'indice in 10 sedute): in un calo deciso il livello blu è a circa due settimane`)}"` : ''}>${r.appr ? apprBadge() : badge(r.state.code)}</td>
+        <td class="c-br" data-l="breadth"><span class="cellv num" title="${titoli(r.above)} su ${r.n}${need > 0 ? ` · ne devono scendere sotto la media ancora ${need} per il livello blu` : ''}">${fmt(r.b)}%<span class="cnt" title="${titoli(r.above)} sopra la media 200 su ${r.n}: un titolo vale ${fmt(100 / r.n)} punti">${r.above}/${r.n}</span></span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
+        <td class="num r c-blue" data-l="blu">${r.L}%${changed(r.k) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
+        <td class="c-dd" data-l="drawdown"><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
+        <td class="c-hist" data-l="storia">${quality(r.k, r)}</td>${cap ? cap.cell(r.k, CFG[r.k].noCap) : '<td class="c-cap"></td>'}
+        <td class="num r c-last" data-l="ultimo" title="chiusura del ${dIT(r.date)}${r.bdate < r.date ? ` · breadth al ${dIT(r.bdate)}` : ''}">${fmt(r.last, r.last >= 1000 ? 0 : pxDec(r.last))}</td><td class="num r c-d1" data-l="1G">${pct(r.d1)}</td><td class="num r c-m1" data-l="1M">${pct(r.m1)}</td></tr>`;
       }).join('') + '</tbody>';
     $('ixTable').querySelectorAll('tbody tr[data-ix]').forEach((tr) => {
       tr.onclick = () => open(tr.dataset.ix, true);
@@ -288,6 +288,7 @@ export function createIndices(ctx) {
     r.min = 0; r.max = F.length - 1; r.value = today ? F.length - 1 : st.mapWeek;
     $('ixDateVal').textContent = today ? `oggi · ${dIT(asOf())}` : `settimana al ${dIT(D)}`;
     $('ixToday').hidden = today;
+    $('ixZoom').setAttribute('aria-pressed', String(st.zoom));
     keepFocus($('ixJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && D >= d && Date.parse(D) - Date.parse(d) < 7 * 864e5}">${l}</button>`).join(''));
     $('ixJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
   }
@@ -329,7 +330,7 @@ export function createIndices(ctx) {
     const syms = Object.keys(mapT), past = mapDate() != null;
     mapDraw = drawBottomMap($('ixMap'), {
       series: mapSeries, syms, focus: st.focus, params: P, states: Object.fromEntries(syms.map((k) => [k, stateAt(k, mapT[k])])), rings: syms.filter((k) => approachAt(k, mapT[k]).on),
-      size: chartWidth($('ixMap'), SIZE), clipId: 'ixclip', unit: "dell'indice",
+      size: chartWidth($('ixMap'), SIZE), clipId: 'ixclip', unit: "dell'indice", zoom: st.zoom,
       // per le date passate l'asse verticale è fisso, così nel replay non salta
       ...(past ? { top: 96 - Math.min(...syms.map((k) => st.blue[k])) } : {}),
     });
@@ -358,7 +359,7 @@ export function createIndices(ctx) {
     drawSector($('ixTs'), {
       dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: rangeStart(k), sym: k, blue: L,
-      tipEl: $('ixTsTip'), wrapEl: $('ixTsWrap'), width: chartWidth($('ixTs'), 940, 380), ddNote: 'SOLO PREZZO',
+      tipEl: $('ixTsTip'), wrapEl: $('ixTsWrap'), width: chartWidth($('ixTs'), 940), ddNote: 'SOLO PREZZO',
       off: m.off, offText: offReasons(P),
     });
     // livello blu
@@ -432,27 +433,42 @@ export function createIndices(ctx) {
     $('ixPickMain').onclick = () => setShown(MAIN());
     $('ixPickAll').onclick = () => setShown(KEYS);
     const svg = $('ixMap'), tip = $('ixMapTip');
-    svg.addEventListener('pointermove', (e) => {
-      if (!mapDraw || e.pointerType === 'touch') return;
-      const h = nearestHead(svg, mapDraw.heads, e);
-      const k = h ? h.sym : null;
-      if (k !== st.focus) { st.focus = k; drawMap(); markDist(); }
-      if (!h) { tip.hidden = true; return; }
-      const q = mapSeries[k][mapSeries[k].length - 1], T = mapT[k], ap = approachAt(k, T);
+    // mouse: tooltip e clic per aprire; tocco: il primo tocco mostra i valori, il secondo apre l'indice
+    let tapped = null, lastType = 'mouse';
+    const showTip = (e, h, touch) => {
+      const k = h.sym, q = mapSeries[k][mapSeries[k].length - 1], T = mapT[k], ap = approachAt(k, T);
       tip.innerHTML = `<div class="row"><b>${k}</b><span>${esc(name(k))}</span></div>${T !== NOW[k] ? `<div class="row"><span>Seduta</span><b>${dIT(S[k].dates[T])}</b></div>` : ''}
         <div class="row"><span>Sopra media 200</span><b>${fmt(S[k].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[k]}%</b></div>
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[k].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
         <div class="row"><span>Stato</span><b>${ap.on ? 'Avvicinamento' : esc(STATES[stateAt(k, T)])}</b></div>
         <div class="row"><span>Soglia di avvicinamento</span><b>${ap.A == null ? '—' : fmt(ap.A, 0) + '%'}</b></div>
-        <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
+        <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>` +
+        (touch ? `<div class="row note-row">Tocca di nuovo il punto per aprire ${k}</div>` : '');
       placeTip(tip, $('ixMapWrap'), e);
+    };
+    svg.addEventListener('pointerdown', (e) => { lastType = e.pointerType; });
+    svg.addEventListener('pointermove', (e) => {
+      if (!mapDraw || e.pointerType !== 'mouse') return;
+      const h = nearestHead(svg, mapDraw.heads, e);
+      const k = h ? h.sym : null;
+      if (k !== st.focus) { st.focus = k; drawMap(); markDist(); }
+      if (!h) { tip.hidden = true; return; }
+      showTip(e, h, false);
     });
-    svg.addEventListener('pointerleave', () => { tip.hidden = true; if (st.focus) { st.focus = null; drawMap(); markDist(); } });
-    svg.addEventListener('click', (e) => { const h = mapDraw ? nearestHead(svg, mapDraw.heads, e) : null; if (h) open(h.sym, true); });
+    const hideTip = () => { tip.hidden = true; tapped = null; if (st.focus) { st.focus = null; drawMap(); markDist(); } };
+    svg.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hideTip(); });
+    hideOnTapOutside(svg, hideTip);
+    svg.addEventListener('click', (e) => {
+      const h = mapDraw ? nearestHead(svg, mapDraw.heads, e) : null;
+      if (!h) { if (lastType !== 'mouse') hideTip(); return; }
+      if (lastType === 'mouse' || tapped === h.sym) { tapped = null; open(h.sym, true); return; }
+      tapped = h.sym; st.focus = h.sym; drawMap(); markDist(); showTip(e, h, true);
+    });
     $('ixDate').oninput = (e) => { stopReplay(); setMapWeek(+e.target.value); };
     $('ixDate').onkeydown = (e) => e.stopPropagation();
     $('ixPlay').onclick = playReplay;
     $('ixToday').onclick = () => { stopReplay(); setMapWeek(null); };
+    $('ixZoom').onclick = () => { st.zoom = !st.zoom; store.set('ixZoom', st.zoom); renderMap(); };
   }
 
   return {

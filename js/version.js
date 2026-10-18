@@ -4,11 +4,11 @@
  * e l'app lo dice in alto. Schema 0.vista.correzione: 0 finché è in prova, la cifra di mezzo sale con una funzione
  * nuova, l'ultima con le correzioni.
  */
-export const VERSION = '0.9.1';
+export const VERSION = '0.9.2';
 export const RELEASE = '2026-10-18';
 export const NOTES = [
-  'Numeri verificati con un audit completo: cali forti nei giorni di panico corretti (10/10/2008: 46 titoli), mediane, percentile con 0 cali',
-  'Indici: sedute mancanti nella fonte riscaricate, CSI 300 con i decimali giusti; settimane della mappa e della storia della divergenza',
-  'Avvertenze nuove: prezzi ricopiati (asterisco nella tabella Prezzi), copertura dei settori prima del 2013, dati non arrivati',
-  'Testi corretti dove i dati li smentivano (durata dell\'allerta, livelli di Rea, ore dell\'aggiornamento e altri)',
+  'Telefono e tablet: tabellone degli indici a schede come il Monitor, testo dei grafici più grande, «Perché questo stato» subito dopo il grafico',
+  'Al tocco: i grafici mostrano i numeri del punto toccato, la Bottom Map al primo tocco i valori e al secondo apre; spiegazioni anche dentro le schede',
+  'Bottom Map: colori degli stati come nel Monitor, «Zoom sulla zona» per le crisi passate, etichette che non si sovrappongono',
+  'Focus da tastiera visibile, fasce di sfondo più leggibili, scala della rotazione salvata'
 ];

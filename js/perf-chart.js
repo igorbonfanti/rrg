@@ -3,7 +3,7 @@
  * Linee grigie, benchmark in bianco, titolo in evidenza in ambra; etichette solo
  * su benchmark, evidenza, migliore e peggiore. Mirino con i valori di tutti i titoli.
  */
-import { fmt, dIT, esc, placeTip } from './format.js';
+import { fmt, dIT, esc, placeTip, bindTip } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -89,7 +89,7 @@ export function drawPerf(svg, p) {
   // mirino
   const xh = el('line', { x1: 0, x2: 0, y1: T, y2: T + PH, class: 'xhair', visibility: 'hidden' }, svg);
   const hit = el('rect', { x: L, y: T, width: PW, height: PH, fill: 'transparent' }, svg);
-  hit.addEventListener('pointermove', (e) => {
+  const show = (e) => {
     const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
     const q = pt.matrixTransform(svg.getScreenCTM().inverse());
     const i = Math.max(0, Math.min(n - 1, Math.round(((q.x - L) / PW) * (n - 1))));
@@ -100,8 +100,8 @@ export function drawPerf(svg, p) {
       return `<div class="row"><span><span class="kl" style="background:${col}"></span>${esc(lab(s))}</span><b>${fmt(lines[s][i], 1)}</b></div>`;
     }).join('');
     placeTip(tipEl, wrapEl, e, -40);
-  });
-  hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); tipEl.hidden = true; });
+  };
+  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); tipEl.hidden = true; });
 
   legendEl.innerHTML = `<span><span class="kl" style="background:var(--ink)"></span>${esc(lab(bench))} (benchmark)</span>` +
     (focus && lines[focus] ? `<span><span class="kl" style="background:var(--amber)"></span>${esc(lab(focus))} (in evidenza)</span>` : '') +
