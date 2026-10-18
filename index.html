@@ -452,6 +452,12 @@
     <div class="grid-2" style="margin-top:12px">
       <div class="panel">
         <div class="ph"><h2>Bottom Map degli indici</h2><span class="meta" id="ixMapMeta"></span></div>
+        <div class="controls bm-ctl">
+          <button class="play" id="ixPlay" type="button" title="Rivedi le settimane una dopo l'altra fino a oggi">▶ PLAY</button>
+          <div class="scrub"><input type="range" id="ixDate" step="1" aria-label="Data della Bottom Map degli indici" /><span class="date" id="ixDateVal"></span></div>
+          <button type="button" class="mini" id="ixToday" hidden>Oggi</button>
+        </div>
+        <div class="controls bm-jumps"><span class="ctl">Crisi passate</span><div class="chips" id="ixJumps"></div></div>
         <div class="chart-wrap" id="ixMapWrap">
           <svg class="rrg" id="ixMap" role="img" aria-label="Bottom Map: drawdown e breadth degli indici rispetto al livello blu"></svg>
           <div class="tip" id="ixMapTip" hidden></div>
