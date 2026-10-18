@@ -82,7 +82,7 @@ export function breadthSeries(breadth, key, dates) {
 /**
  * Soglia di avvicinamento al livello blu: livello + il calo forte della breadth in `h` sedute (quantile `q` dei
  * cali di tutta la storia del settore). Da qui, in un calo deciso, il livello blu è a circa due settimane.
- * Calibrata sui settori dal 2005 (ricerca/attenzione/fasce.md): anticipo mediano circa un mese, avvisati 59 tocchi
+ * Calibrata nel campione sui settori dal 2005 (ricerca/attenzione/fasce.md): anticipo mediano circa un mese, avvisati 59 tocchi
  * del livello su 73, ma meno della metà degli avvicinamenti arriva davvero al livello. Serve per la watchlist,
  * non cambia gli stati né gli alert.
  */
