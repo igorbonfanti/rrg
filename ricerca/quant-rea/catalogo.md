@@ -1,0 +1,68 @@
+# Catalogo delle analisi di Quant Rea (dal fascicolo di un utente)
+
+Fonte: «Fascicolo di Analisi Quantitativa» scritto da un utente della piattaforma Quant Rea (ricevuto il 18/10/2026; 34 sezioni, 147 grafici, esempi aggiornati a luglio 2026). Il fascicolo originale non è nel repository, che è pubblico: qui ci sono solo la sintesi e i numeri citati.
+Per ogni analisi: la domanda a cui risponde, il metodo come lo descrive il fascicolo, i parametri, i numeri dichiarati e i primi dubbi emersi dalla lettura. Le verifiche sui dati sono in `verifica.md`.
+
+Dati: lo strumento scarica i prezzi da TradingView con la libreria `tvDatafeed` (Sez. 22). Si può scegliere qualunque ticker, e ci sono scorciatoie per SPX, NDX, DAX, FTSEMIB, BTC, ETH, NI225, HSI, oro, petrolio e VIX. Nella maggior parte degli strumenti la data di partenza è libera.
+
+**Indizio sui dati.** TVC:SPX ha barre mensili prima del 1950 e giornaliere dopo. Infatti la Sez. 17 dice «19.972 barre giornaliere dal 1871», e la Sez. 29 parla di «19.965 barre mensili dal 1871» e di «19.288 mesi dal 1950»: in realtà quelli dal 1950 sono circa 920 mesi, cioè circa 19.200 sedute. Ogni statistica «giornaliera» che parte dal 1871 mescola quindi mesi e giorni.
+
+## Parte I: rendimenti, stagionalità, proiezioni, ampiezza (Sez. 1–19)
+
+| # | Analisi | Metodo dichiarato | Parametri / esempio | Numeri dichiarati | Primi dubbi |
+|---|---|---|---|---|---|
+| 1 | Anno normalizzato contro la mediana storica | percorso da inizio anno del 2026 e del 2025 contro la mediana di tutti gli anni dal 1950, con bande del 25–75° e del 10–90° percentile | SPX | 2026 dentro la banda centrale, +5–10% | descrittiva |
+| 2 | Rendimenti annui e Z-score | barre annue, indice base 100, media mobile a 5 anni; Z-score di ogni anno; hit ratio e CAGR | SPX, 155 anni (dal 1871) | media annua 6,50% | la Sez. 8 dice 8,99% per la stessa media: campioni diversi non dichiarati |
+| 3 | Stagionalità a 10 anni | percorso medio degli ultimi 10 anni ±1 deviazione standard, contro il 2026 | SPX | — | 10 anni sono pochi; descrittiva |
+| 4–7 | Proiezione di fine anno per anni analoghi | i 5 anni più correlati con il percorso da inizio anno (Pearson, Spearman, Kendall); media del loro rendimento a fine anno | SPX al ~luglio 2026 | Pearson 5,82%, Spearman e Kendall 8,05%; anni 1968, 2007, 1957… | nessuna prova di capacità previsiva fuori campione; analoghi con esiti da −13% a +28% |
+| 8 | Rendimenti mensili e annui | barre annue; luglio anno per anno; istogrammi; box plot mensile; volatilità a 12 mesi; drawdown mensile; probabilità che il mese sia positivo | SPX, mese luglio | luglio +0,87% di media; correlazione luglio-anno 0,247 (R² 0,061); settembre unico mese sotto il 50% | luglio fa parte dell'anno: la correlazione è in parte meccanica |
+| 9 | Nuovi massimi dell'anno e rendimento annuo | numero di giorni con nuovo massimo dell'anno, azzerato a gennaio, contro il rendimento dell'anno | SPX | correlazione 0,84; record nel 1995 (>90 massimi) | tautologica: si sa solo a fine anno, come ammette il fascicolo |
+| 10 | Rendimenti da ogni minimo di bear market | minimi dopo un calo ≥20%; rendimenti a 1, 2, 3, 5 e 10 anni dal minimo | SPX dal 1950: 14 minimi | vittorie al 100% su ogni orizzonte; 1 anno tra +21% e +75% | il minimo si conosce solo dopo; nella lista ci sono 1990, 1998 e 2025 (sotto il 20% in chiusura) ma mancano 2011 e 2018 |
+| 11 | Ampiezza del Nasdaq-100: titoli in rialzo | % di titoli in rialzo per giorno, settimana e mese; segnale quando la media a N giorni è sotto una soglia; soglia «dinamica» = media dei massimi mobili (105, 52, 12 periodi); rendimenti a 5…252 sedute | NDX dal 2010, soglia 2%, media a 1 giorno | 62 segnali; a 252 sedute oltre +11% di media | manca il confronto con il rendimento normale del NDX nello stesso periodo; i segnali sono a grappoli; probabili membri di oggi (sopravvivenza) |
+| 12 | Shuffle a blocchi del PAC | rendimenti mensili in blocchi di 12 mesi rimescolati 60 volte; IRR del PAC per anno di inizio e di fine (triangolo) contro la storia reale | SPX dal 1950 | la storia reale sta quasi sempre sopra la mediana degli shuffle | 60 rimescolamenti sono pochi; la storia reale finisce su un massimo storico (effetto data di fine) |
+| 13 | Senza i giorni migliori e peggiori | buy & hold contro l'esclusione dei 100 giorni migliori, dei 100 peggiori o di entrambi; distanza tra giorni estremi; giorno dopo un giorno estremo; test binomiale | SPX dal 1980 | senza entrambi i gruppi ≈ buy & hold; entro 10 giorni il 58–75% dei giorni estremi ha la controparte | nella tabella i denominatori sono 31, 63, 69 e 37, non 100; i p-value sono incoerenti con il testo |
+| 14 | Ampiezza dell'S&P 500: titoli che battono l'indice | numero di membri con rendimento superiore all'indice, per giorno, settimana e mese; soglia dinamica come in Sez. 11 | SPX dal 2010; «tutti i 500 titoli», in cache | ultimo dato 355 su 500 | membri di oggi applicati al passato; la soglia dinamica sale per costruzione |
+| 15 | Cap-weighted contro equal-weight per settore | per ognuno degli 11 settori, rendimento pesato per capitalizzazione contro la media semplice dei membri; con i valori di 1 settimana e 1 mese prima | 6 orizzonti, dati settimanali | 3 mesi: Comunicazione con il cap positivo e l'equal negativo | già verificato il 17/10: pesi di fine periodo e membri di oggi (`ricerca/settori-titoli/confronto-rea.md`) |
+| 16 | Escursione massimo-minimo da inizio anno e ARMA | per ogni anno, distanza % tra massimo e minimo da gennaio a una data scelta; modello ARMA scelto in automatico, ACF/PACF, test di normalità e di stazionarietà, trend | SPX, data 10 luglio, 81 anni | media 16,87%; 2026 19,01% (65° percentile); ARMA(0,0,1), Ljung-Box p=0,91 | la serie è rumore bianco: la previsione coincide con la media |
+| 17 | Comprare ai massimi storici | rendimento medio e mediano da un giorno qualsiasi contro i soli giorni di nuovo massimo storico; orizzonti da 3 mesi a 30 anni; cursori per il periodo | SPX dal 1871 (1.536 giorni di massimo) | ai massimi un po' peggio (30 anni: 714,6% contro 850,1%) | mescola mesi e giorni prima del 1950; la letteratura trova in genere l'opposto nel breve termine |
+| 18 | Distanza dalla media a 200 sedute | giorni con prezzo oltre ±X% dalla SMA 200; rendimenti a 1 settimana, 1 mese e 3 mesi sopra, sotto e in assoluto; istogrammi e violin plot | GOOG dal 2015, 5% | sopra: 6,09% a 3 mesi; sotto: 4,96% | manca il confronto con il rendimento normale del titolo; un solo titolo; giorni sovrapposti |
+| 19 | Serie di giorni positivi e negativi | NBBG (sedute dall'ultimo doppio rialzo), lunghezza delle serie, R(t+1) dopo un giorno su o giù, matrice di transizione, autocorrelazione del segno, versione mobile a 252 sedute | SPX dal 1871 | P(su dopo su) ≈ 55–65% nel primo Novecento; il giorno dopo arriva fino a +50% e −27% | +50% in un giorno non è mai esistito: sono barre mensili; le medie mensili creano autocorrelazione finta |
+
+## Parte II: «strategie» (Sez. 20–21)
+
+| # | Analisi | Metodo dichiarato | Parametri / esempio | Numeri dichiarati | Primi dubbi |
+|---|---|---|---|---|---|
+| 20 | Processo di Poisson dei giorni anomali | evento = giorno con \|rendimento\| ≥ soglia; eventi al mese, λ mobile, confronto con la Poisson (distribuzione e QQ plot); segnale quando i conteggi superano una soglia fissa o dinamica; lift contro la baseline; hit rate «da minimo» | SPX dal 1950, 2%, λ a 12 mesi, X=90 | λ=0,97; lift +2/+3/+7/+11% a 1/3/6/12 mesi; hit rate 66,67% | i segnali sono poche decine e a grappoli; la soglia dinamica usa i massimi passati |
+| 21 | Entropia | Shannon (rendimenti, volatilità, asimmetria) e permutation entropy; regimi bassa, media e alta contro i rendimenti futuri; scatter con r e p; percentile storico; correlazione tra le due entropie | SPX | 12 mesi: bassa 11,9%, alta 6,1%; r da −0,09 a −0,19 con p=0,000; P33=0,991 e P67=0,995 | p-value su giorni sovrapposti; soglie calcolate su tutta la storia (lo ammette); probabilmente l'entropia misura solo la volatilità |
+
+## Parte III: drawdown e bear market (Sez. 22–31)
+
+| # | Analisi | Metodo dichiarato | Parametri / esempio | Numeri dichiarati | Primi dubbi |
+|---|---|---|---|---|---|
+| 22 | Drawdown dell'anno e rendimento annuo | massimo drawdown intraday (minimo contro il massimo cumulato) e rendimento annuo; scatter | SPX dal 1950 | 77 anni, 56 positivi (73%) | descrittiva, corretta come idea (come il grafico «intra-year declines» di JPMorgan) |
+| 23 | Studio delle correzioni | episodi oltre −X% dal massimo; percorsi a 250 sedute dal trigger (spaghetti); giorni al minimo; recupero; probabilità di andare più giù | NDX «dal 1950», −20%, episodio da febbraio 2025 | 40 correzioni; DD medio −45,5%; 11 episodi a −75/−80%; recupero medio 1.306 giorni; da −20%: 90% arriva a −25%, 80% a −30% | il NDX parte nel 1985; il 2000 compare con minimo nel settembre 2001 a −76% (il minimo vero è nell'ottobre 2002, circa −83%); 40 episodi fanno pensare a trigger contati più volte |
+| 24 | Giorni in bear market | ogni giorno è «bear» se il drawdown dal massimo storico supera la soglia; somma per anno; durata delle fasi | NDX dal 1985, −20% | ~40% dei giorni in bear; ~40 fasi; una fase di oltre 3.000 sedute | conta come bear anche tutto il recupero fino al vecchio massimo |
+| 25 | «Ergodicità» | media mobile a 252 sedute dei rendimenti logaritmici meno la media dall'inizio della serie; fuori da ±soglia = «non ergodico» | SPX dal 1950, ±0,0011 | 6,1% dei giorni non ergodici | non è un test di ergodicità: è un rendimento a 12 mesi confrontato con la media storica |
+| 26 | Bear market e secondo drawdown | bear ≥20%; poi, prima di tornare al massimo pre-bear, una nuova discesa ≥10% dal massimo del rimbalzo | SPX dal 1871 | 21 bear, 9 con un secondo drawdown; mediana 676 giorni | date prima del 1950 tutte al giorno 1 (barre mensili); il «secondo drawdown» del 1987 (21–26/10) è lo stesso crollo |
+| 27 | Numero di drawdown nell'anno | evento quando il minimo del giorno scende sotto il massimo dell'anno × (1−soglia), azzerato a ogni nuovo massimo; rendimenti a 5, 21 e 63 sedute | SPX dal 1950; soglie 1–15% | 5%: 158 eventi, 63 sedute +3,22%, positivi il 71,97% | manca il rendimento normale a 63 sedute (≈ +2,3% dal 1950) per capire se c'è un vantaggio |
+| 28 | Mese del massimo annuale | mese del massimo intraday di ogni anno; probabilità che il massimo debba ancora arrivare; rendimenti futuri di tutti i giorni | SPX dal 1950 | dicembre 33/77, gennaio 12/77; probabilità ancora avanti sotto il 50% tra ottobre e novembre | con una deriva al rialzo il massimo tende per costruzione a fine anno |
+| 29 | Dashboard bull e bear | fasi alternate con soglia ±20% e bull di almeno 5 mesi; durata, rendimento, volatilità, recupero; Sharpe e drawdown mobili | SPX dal 1950 | 19 bull e 18 bear; bull in media 3,2 anni +99,8%; bear 10 mesi −27,6% | bull 1990–98 «oltre il 65% annuo» contro 7,8 anni a +300% (≈19% annuo): numeri incoerenti |
+| 30 | Dashboard drawdown dei titoli | per ogni membro di oggi di S&P 500, NDX, Nasdaq Composite e NYSE: max drawdown, CAGR, Sharpe, Sortino, Calmar, VaR, Ulcer, recupero per soglia | S&P 500 (503 titoli) | mediana del max DD −70%; il 96% ha toccato −40%; SNDK CAGR 1.291% | sopravvivenza (lo ammette); CAGR annualizzato su storie brevi |
+| 31 | Drop giornaliero cumulato | numero di membri con calo giornaliero ≤ −soglia, sommato su N giorni | NDX −7% su 5 giorni; SPX −5% su 5 giorni | marzo 2020: SPX oltre 1.200, NDX oltre 150 | misura di «capitolazione» sensata; probabili membri di oggi |
+
+## Parte IV: volatilità (Sez. 32–34)
+
+| # | Analisi | Metodo dichiarato | Parametri / esempio | Numeri dichiarati | Primi dubbi |
+|---|---|---|---|---|---|
+| 32 | Volatilità e rendimenti su più orizzonti | rendimenti giornalieri, settimanali (5 sedute) e mensili (22 sedute); volatilità annualizzata a 30 giorni | oro (GC1!) dagli anni '70 | picco del 93% nel 1980 | descrittiva |
+| 33 | GARCH contro VIX contro realizzata | GARCH(1,1) stimato prima del 2000 e usato fuori campione; confronto con la volatilità realizzata a 30 giorni (MAE, RMSE, correlazione, R², regressione, sMAPE) | SPX e VIX, dal 2000 | GARCH MAE 1,53, correlazione 0,979; VIX MAE 4,82, correlazione 0,863 | probabile confronto con la volatilità realizzata passata (che il GARCH ricopia) invece che con quella dei 30 giorni dopo, che è ciò che il VIX prevede |
+| 34 | S&P 500 con il VIX sopra 30 | rendimenti a 1, 3, 6 e 12 mesi da ogni giorno con VIX > 30; scatter contro il livello del VIX; curva gaussiana | SPX, VIX dal 1990 | μ 2,59 / 6,83 / 12,97 / 22,35% | giorni sovrapposti (lo ammette); nessun confronto con il rendimento normale; episodi distinti pochi |
+
+## Cosa ricorre in tutto il fascicolo
+
+- **Rendimenti condizionati senza confronto.** Quasi ogni studio «cosa succede dopo X» riporta il rendimento medio dopo il segnale, ma non il rendimento di un giorno qualsiasi nello stesso periodo. La Sez. 20 è l'unica con baseline e lift.
+- **Osservazioni sovrapposte.** Giorni consecutivi dello stesso episodio sono contati come casi separati: N si gonfia e i p-value ottimistici. Le Sez. 34 e 21 lo ammettono; le Sez. 11, 18, 21, 27 e 34 ne soffrono.
+- **Sopravvivenza.** Le analisi sui membri degli indici (Sez. 11, 14, 15, 30, 31) usano verosimilmente la lista di oggi.
+- **Conoscenza del futuro.** I minimi di bear market (Sez. 10), le soglie su tutta la storia (Sez. 21) e i nuovi massimi a fine anno (Sez. 9) usano informazioni che sul momento non c'erano.
+- **Dati misti.** Barre mensili prima del 1950 nelle analisi «giornaliere» dal 1871 (Sez. 17, 19, 26, 29).
+- **Numeri incoerenti** dentro il fascicolo: Sez. 2 contro Sez. 8, Sez. 13, 23, 26 e 29.
