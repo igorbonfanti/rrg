@@ -275,10 +275,11 @@ export function createBottom(ctx) {
     r.min = FIRST_WEEK; r.max = WEEKS.length - 1; r.value = today ? WEEKS.length - 1 : st.mapWeek;
     $('bmDateVal').textContent = today ? `oggi · ${dIT(DATES[T])}` : `settimana al ${dIT(DATES[T])}`;
     $('bmToday').hidden = today;
-    keepFocus($('bmJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && Math.abs(Date.parse(DATES[T]) - Date.parse(d)) < 6 * 864e5}">${l}</button>`).join(''));
+    keepFocus($('bmJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && DATES[T] >= d && Date.parse(DATES[T]) - Date.parse(d) < 7 * 864e5}">${l}</button>`).join(''));
     $('bmJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
   }
-  const weekOf = (d) => { let i = WEEKS.length - 1; while (i > 0 && DATES[WEEKS[i]] > d) i--; return Math.max(FIRST_WEEK, i); };
+  // settimana che contiene la data (la prima che finisce in quel giorno o dopo): il minimo della crisi è nella mappa
+  const weekOf = (d) => { let i = WEEKS.findIndex((w) => DATES[w] >= d); if (i < 0) i = WEEKS.length - 1; return Math.max(FIRST_WEEK, i); };
   function setMapWeek(i) {
     st.mapWeek = i == null || i >= WEEKS.length - 1 ? null : Math.max(FIRST_WEEK, i);
     st.mapFocus = null;

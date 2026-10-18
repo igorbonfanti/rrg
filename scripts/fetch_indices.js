@@ -122,20 +122,29 @@ async function spark(symbols) {
   return out;
 }
 
-// Simboli da riscaricare: assenti, con un buco di più di 5 giorni negli ultimi 60, o con l'ultima seduta
-// più vecchia di quella della maggior parte dei titoli della stessa borsa (suffisso del simbolo)
+// Simboli da riscaricare: assenti, più indietro della maggior parte dei titoli della stessa borsa (suffisso del
+// simbolo), o senza una seduta che ha la maggior parte di quei titoli. Spark perde sempre le stesse sedute di alcuni
+// titoli (circa metà del Nikkei e due terzi del FTSE 100 in un anno, ottobre 2026) e chart le ha: un buco sposta
+// le medie e fa coprire due sedute al rendimento dei cali forti.
 export function needsChart(px, symbols) {
   const suffix = (s) => (s.includes('.') ? s.slice(s.lastIndexOf('.')) : '');
-  const lasts = {};
-  for (const s of symbols) if (px[s]) (lasts[suffix(s)] ||= []).push(px[s].dates.at(-1));
-  const ref = Object.fromEntries(Object.entries(lasts).map(([k, a]) => [k, a.sort()[Math.floor(a.length / 2)]]));
+  const by = {};
+  for (const s of symbols) if (px[s] && px[s].dates.length) (by[suffix(s)] ||= []).push(s);
+  const ref = {}, peer = {};
+  for (const [k, syms] of Object.entries(by)) {
+    const a = syms.map((s) => px[s].dates.at(-1)).sort();
+    ref[k] = a[Math.floor(a.length / 2)];
+    const cnt = new Map();
+    for (const s of syms) for (const d of px[s].dates) cnt.set(d, (cnt.get(d) || 0) + 1);
+    peer[k] = [...cnt].filter(([, c]) => c >= syms.length / 2).map(([d]) => d);
+  }
   return symbols.filter((s) => {
     const p = px[s];
     if (!p || !p.dates.length) return true;
-    const d = p.dates, end = d.at(-1);
-    if (end < ref[suffix(s)]) return true;
-    for (let i = d.length - 1; i > 0 && days(d[i], end) <= 60; i--) if (days(d[i - 1], d[i]) > STALE_DAYS) return true;
-    return false;
+    const d = p.dates, k = suffix(s);
+    if (d.at(-1) < ref[k]) return true;
+    const own = new Set(d);
+    return peer[k].some((x) => x > d[0] && x <= d.at(-1) && !own.has(x));
   });
 }
 
@@ -201,7 +210,7 @@ export function pack(e) {
 // Inserisce o sostituisce le chiusure dell'indice (le date nuove vanno in ordine; i conteggi seguono)
 export function mergePrices(e, dates, close) {
   for (let k = 0; k < dates.length; k++) {
-    const d = dates[k], c = Math.round(close[k] * 100) / 100;
+    const d = dates[k], c = Math.round(close[k] * 10000) / 10000; // packIndex tiene 2 o 4 decimali
     let i = e.dates.indexOf(d);
     if (i >= 0) { e.close[i] = c; continue; }
     if (d < e.dates[0]) continue;

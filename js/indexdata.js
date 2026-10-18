@@ -41,16 +41,18 @@ export function deltaDecode(a, scale = 1) {
   let p = null;
   return a.map((r) => { if (r == null) { p = null; return null; } p = p == null ? r : p + r; return p / scale; });
 }
-// Serie di un indice dal formato del file (compatto o esteso) a quello esteso, e ritorno
+// Serie di un indice dal formato del file (compatto o esteso) a quello esteso, e ritorno. Chiusure con 2 decimali;
+// sotto 100 con 4 (ps: 10000), come l'ETF del CSI 300 a circa 4 yuan
 export function unpackIndex(x) {
   if (!x.cd) return x;
-  const { cd, d20, d50, d200, ...rest } = x;
-  return { ...rest, close: deltaDecode(cd, 100), a20: deltaDecode(d20), a50: deltaDecode(d50), a200: deltaDecode(d200) };
+  const { cd, d20, d50, d200, ps, ...rest } = x;
+  return { ...rest, close: deltaDecode(cd, ps || 100), a20: deltaDecode(d20), a50: deltaDecode(d50), a200: deltaDecode(d200) };
 }
 export function packIndex(x) {
   if (x.cd) return x;
-  const { close, a20, a50, a200, ...rest } = x;
-  return { ...rest, cd: deltaEncode(close, 100), d20: deltaEncode(a20), d50: deltaEncode(a50), d200: deltaEncode(a200) };
+  const { close, a20, a50, a200, ps: _, ...rest } = x;
+  const last = close.filter((v) => v != null).at(-1), ps = last != null && last < 100 ? 10000 : 100;
+  return { ...rest, ...(ps !== 100 ? { ps } : {}), cd: deltaEncode(close, ps), d20: deltaEncode(a20), d50: deltaEncode(a50), d200: deltaEncode(a200) };
 }
 
 /**

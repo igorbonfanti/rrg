@@ -104,6 +104,9 @@ test('spark: si riscaricano i titoli con sedute mancanti o indietro', () => {
   const full = { dates: ['2026-10-05', '2026-10-06', '2026-10-07', '2026-10-08', '2026-10-09', '2026-10-12'], close: [1, 1, 1, 1, 1, 1] };
   const px = { 'A.WA': { dates: ['2026-09-30', '2026-10-01', '2026-10-12'], close: [1, 1, 1] }, 'B.WA': full, 'C.WA': full, 'D.L': { dates: ['2026-10-09'], close: [1] }, 'E.L': full, 'F.L': full };
   assert.deepEqual(needsChart(px, ['A.WA', 'B.WA', 'C.WA', 'D.L', 'E.L', 'F.L', 'G.L']), ['A.WA', 'D.L', 'G.L']);
+  // una sola seduta mancante (come spark su metà del Nikkei); un titolo quotato da poco non ha buchi
+  const gap = { dates: full.dates.filter((d) => d !== '2026-10-07'), close: [1, 1, 1, 1, 1] }, young = { dates: full.dates.slice(3), close: [1, 1, 1] };
+  assert.deepEqual(needsChart({ ...px, 'H.L': gap, 'I.L': young }, ['E.L', 'F.L', 'H.L', 'I.L']), ['H.L']);
 });
 
 test('pulizia degli errori di scala', () => {
@@ -128,7 +131,10 @@ test('conteggi di una seduta e aggiornamento del file', () => {
   const x = { symbol: '^X', ...encodeDates(['2026-10-12', '2026-10-13', '2026-10-14']), close: [1, 2, 3], b0: 1, members: [[0, 10]], n: [[0, 10]], a20: [5], a50: [5], a200: [5] };
   const e = expand(x);
   mergePrices(e, ['2026-10-14', '2026-10-15'], [3.333, 4]);
-  assert.deepEqual(e.close, [1, 2, 3.33, 4]);
+  assert.deepEqual(e.close, [1, 2, 3.333, 4]); // 4 decimali in memoria; nel file 2, o 4 sotto 100 (ETF del CSI 300)
+  assert.equal(packIndex({ symbol: 'X', d0: '2026-01-02', gaps: '1', close: [4.2421, 4.2363], a20: [], a50: [], a200: [] }).ps, 10000);
+  assert.deepEqual(unpackIndex(packIndex({ symbol: 'X', d0: '2026-01-02', gaps: '1', close: [4.2421, 4.2363], a20: [], a50: [], a200: [] })).close, [4.2421, 4.2363]);
+  assert.equal(packIndex({ symbol: 'X', d0: '2026-01-02', gaps: '1', close: [5000.123, 5001], a20: [], a50: [], a200: [] }).ps, undefined);
   assert.ok(setCounts(e, '2026-10-15', { members: 10, n: 9, a20: 1, a50: 2, a200: 3 }));
   assert.ok(!setCounts(e, '2026-10-12', { members: 10, n: 9, a20: 1, a50: 2, a200: 3 }));
   const s = indexSeries(pack(e));

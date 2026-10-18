@@ -362,7 +362,7 @@ def build(cache, asof=None, only=None):
             m = bisect.bisect_right(idx_dates, asof)
             idx_dates, idx_close = idx_dates[:m], idx_close[:m]
         f0 = bisect.bisect_left(idx_dates, PRICE_FROM)
-        prices[k] = {'symbol': cfg[k]['price'], 'dates': idx_dates[f0:], 'close': [round(x, 2) for x in idx_close[f0:]]}
+        prices[k] = {'symbol': cfg[k]['price'], 'dates': idx_dates[f0:], 'close': [round(x, 4 if x < 100 else 2) for x in idx_close[f0:]]}
         start = cfg[k].get('from')
         if not start:
             # indici con limiti: si parte dal mese dopo la prima seduta in cui almeno il 60% dei membri di oggi

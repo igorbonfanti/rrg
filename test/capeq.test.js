@@ -153,11 +153,13 @@ test('buildSectorMembers: forma del file e numeri dei titoli', () => {
   // storia della divergenza: 52 fine settimana, l'ultima è oggi e coincide con il dumbbell
   assert.equal(out.hist.dates.length, 52);
   assert.equal(out.hist.dates.at(-1), cal[N]);
-  assert.equal(out.hist.dates.at(-2), cal[N - 5]);
+  // le altre sono l'ultima seduta della loro settimana: la seduta dopo è di un'altra settimana, una per settimana
+  const monday = (d) => { const t = Date.parse(d + 'T12:00:00Z'); return t - ((new Date(t).getUTCDay() + 6) % 7) * 864e5; };
+  for (const d of out.hist.dates.slice(0, -1)) assert.notEqual(monday(cal[cal.indexOf(d) + 1]), monday(d), d);
+  assert.equal(new Set(out.hist.dates.map(monday)).size, 52);
   for (const p of PERIODS) {
     const [c, e] = out.sectors.XLK[p][0];
     assert.equal(out.hist.sectors.XLK[p].at(-1), Math.round((e - c) * 10) / 10, p);
-    assert.equal(out.hist.sectors.XLK[p].at(-2), Math.round((out.sectors.XLK[p][1][1] - out.sectors.XLK[p][1][0]) * 10) / 10, p);
   }
   assert.ok(out.hist.sectors.XLE['3M'].every((v) => v == null));
   for (const p of PERIODS) assert.equal(out.sectors.XLK[p].length, OFFSETS.length);

@@ -147,7 +147,8 @@ export function capAnalysis(s, opt = {}) {
     const past = sum.slice(Math.max(0, from), last).filter((v) => v != null);
     const recent = on.slice(Math.max(0, last - o.look + 1), last + 1).filter(Boolean).length;
     today = { i: last, value: sum[last], cnt: cnt[last], alert: alert[last], on: on[last],
-      pct: past.length ? (100 * past.filter((v) => v <= sum[last]).length) / past.length : null, recent };
+      // percentile: quota delle sedute precedenti con una somma più bassa (con 0 cali vale 0, anche se lo zero è frequente)
+      pct: past.length ? (100 * past.filter((v) => v < sum[last]).length) / past.length : null, recent };
   }
   return { sum, cnt, alert, on, episodes, today, from };
 }

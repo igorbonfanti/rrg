@@ -11,7 +11,7 @@ import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
+import { esc, fmt, sgn, pct, dIT, pxDec, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -164,7 +164,7 @@ export function createIndices(ctx) {
       ? `<span class="muted" title="Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}">d'epoca</span>`
       : CFG[k].limits
         ? `<span class="loc" title="${esc(`Storia dal ${S[k].dates[S[k].pct200.findIndex((v) => v != null)].slice(0, 4)} · ${CFG[k].note || ''}`)}">con limiti</span>`
-        : `<span class="muted" title="Storia ricostruita con i membri di oggi: nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
+        : `<span class="muted" title="Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 4 punti più alta (da −7 a +18 nelle singole date); vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
     $('ixTable').innerHTML = `<thead><tr><th>Indice</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l">Drawdown da max 52s</th><th>Storia</th><th class="r" title="Cali forti dei titoli (scheda «Cali forti» nel dettaglio): allerta oggi, sedute in allerta negli ultimi 3 mesi o percentile di oggi">Cali forti</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>` +
       rows.map((r) => {
         const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
@@ -254,7 +254,8 @@ export function createIndices(ctx) {
     const b = S[k].pct200[T], A = approachLevel(S[k].pct200.slice(0, T + 1), st.blue[k]);
     return { A, on: A != null && b != null && stateAt(k, T) === 'normal' && b <= A };
   }
-  const weekOf = (d) => { const F = fridays(); let i = F.length - 1; while (i > 0 && F[i] > d) i--; return i; };
+  // settimana che contiene la data (la prima che finisce in quel giorno o dopo): il minimo della crisi è nella mappa
+  const weekOf = (d) => { const F = fridays(); const i = F.findIndex((f) => f >= d); return i < 0 ? F.length - 1 : i; };
   function setMapWeek(i) {
     const F = fridays();
     st.mapWeek = i == null || i >= F.length - 1 ? null : Math.max(0, i);
@@ -279,7 +280,7 @@ export function createIndices(ctx) {
     r.min = 0; r.max = F.length - 1; r.value = today ? F.length - 1 : st.mapWeek;
     $('ixDateVal').textContent = today ? `oggi · ${dIT(asOf())}` : `settimana al ${dIT(D)}`;
     $('ixToday').hidden = today;
-    keepFocus($('ixJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && Math.abs(Date.parse(D) - Date.parse(d)) < 6 * 864e5}">${l}</button>`).join(''));
+    keepFocus($('ixJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && D >= d && Date.parse(D) - Date.parse(d) < 7 * 864e5}">${l}</button>`).join(''));
     $('ixJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
   }
   function renderMap() {
@@ -364,12 +365,12 @@ export function createIndices(ctx) {
       ? `<span class="loc">modificato in questo browser · livello di default ${CFG[k].blue}%</span>`
       : CFG[k].blueSource === 'Rea'
         ? 'Livello di default dai grafici di Massimo Rea (quant-rea). Le regole di zona blu, trigger e cooldown sono quelle dei settori.'
-        : 'Livello di default calcolato: 3° percentile della storia dell\'indice, la regola che ritrova i livelli di Rea sugli indici che li hanno. Regole di zona blu, trigger e cooldown come per i settori.';
+        : 'Livello di default calcolato: 3° percentile della breadth dell\'indice in tutta la sua storia, la quota di sedute (circa il 3%) che i livelli di Rea lasciano sotto la soglia sull\'S&P 500 e sui settori. Sugli indici con un livello di Rea la regola gli arriva entro un punto in 6 casi su 13 e altrove se ne scosta di molto (Nasdaq-100 11 contro 18). Regole di zona blu, trigger e cooldown come per i settori.';
     $('ixBlueReset').hidden = !changed(k);
     // situazione
     const b = s.pct200[t];
     const facts = [
-      ['Ultimo', `${fmt(s.close[last], 2)} · ${dIT(s.dates[last])}`],
+      ['Ultimo', `${fmt(s.close[last], pxDec(s.close[last]))} · ${dIT(s.dates[last])}`],
       ['Titoli sopra media 200', `${s.above200[t]}/${n} · ${fmt(b)}%`],
       ['Sopra media 50', `${fmt(s.pct50[t])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
