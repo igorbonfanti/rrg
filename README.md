@@ -13,7 +13,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
 ## Viste
 - **1 Monitor**: gli 11 settori ordinati per stato.
   - Stato: Normale, Attenzione, Zona blu, Trigger, Fallito, Cooldown.
-  - % di titoli sopra la media 200 contro il livello blu, con il valore di un mese fa.
+  - % di titoli sopra la media 200 contro il livello blu, con il valore di un mese fa e, sotto, quanti titoli su quanti (5/31).
   - Drawdown dal massimo a 52 settimane: in rosso se più profondo dell'80% della storia del settore.
     - Si calcola sulle chiusure rettificate per i dividendi, come se le cedole fossero reinvestite: è la perdita di chi ha tenuto l'ETF ed è la base di segnali e percentili.
     - Accanto, **Solo prezzo** è lo stesso calcolo sulle chiusure senza la rettifica per i dividendi, come sul grafico di TradingView: stesse sedute, stessa chiusura più alta, quindi i due valori differiscono solo per le cedole staccate dopo il massimo e coincidono per chi non ne paga. Al 29/09/2026 XLU è a −15,1% con i dividendi e a −16,8% sul solo prezzo; GLD a −22,8% in tutte e due.
@@ -152,6 +152,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.8.10** (18/10/2026): accanto alla breadth, nel Monitor e nel tabellone degli indici, quanti titoli sono sopra la media su quanti (5/31): nei settori piccoli un titolo vale 3 punti. Le statistiche dell'Avvicinamento sono dette «nel campione» (regola scelta sulla stessa storia) nella guida rapida, nella legenda degli stati e nella Situazione.
 - **0.8.9** (18/10/2026): guida completa (`guida.html`) con ogni vista e funzione, aperta dalla guida rapida alla sezione della vista in uso.
 - **0.8.8** (18/10/2026): data scorrevole, replay e crisi passate anche nella Bottom Map degli indici.
 - **0.8.7** (18/10/2026): Bottom Map con la data scorrevole, il replay settimana per settimana e le scorciatoie per le crisi passate.
