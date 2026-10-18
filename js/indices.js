@@ -34,7 +34,7 @@ export function createIndices(ctx) {
   const ALL = Object.keys(CFG);
   let D = null, KEYS = [], loading = null, failed = null, more = null;
   const S = {}, PX = {}, NOW = {}, cache = new Map();
-  const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set() };
+  const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set(), mapWeek: null };
   // indici mostrati in tabellone, Bottom Map e schede: di partenza i principali ("main" in config), poi
   // quelli scelti nel selettore (salvati nel browser). Il selettore li raggruppa per area.
   const ORDER_AREAS = ['Nord America', 'Europa', 'Asia-Pacifico', 'Emergenti'];
@@ -216,17 +216,87 @@ export function createIndices(ctx) {
   }
 
   // ---------- Bottom Map ----------
-  let mapDraw = null, mapSeries = null;
+  // Data della mappa: oggi oppure un venerdì passato. Gli indici hanno calendari diversi: a quel venerdì ognuno usa
+  // l'ultima sua seduta fino a lì; stato, avvicinamento e distanze sono quelli di allora (come la mappa dei settori)
+  let mapDraw = null, mapSeries = null, mapT = {};
+  const JUMPS = [['2008-11-20', 'nov 2008'], ['2011-10-03', 'ott 2011'], ['2016-02-11', 'feb 2016'], ['2018-12-24', 'dic 2018'], ['2020-03-23', 'mar 2020'], ['2022-10-12', 'ott 2022'], ['2025-04-08', 'apr 2025']];
+  let FRIDAYS = [], gridKey = '';
+  function fridays() {
+    const key = KEYS.join(',');
+    if (key === gridKey) return FRIDAYS;
+    const first = KEYS.map((k) => S[k].dates[Math.max(S[k].pct200.findIndex((v) => v != null), PX[k].dp.findIndex((v) => v != null))]).filter(Boolean).sort()[0];
+    const out = [], d = new Date(first + 'T12:00:00Z');
+    d.setUTCDate(d.getUTCDate() + ((5 - d.getUTCDay() + 7) % 7));
+    for (const end = asOf(); d.toISOString().slice(0, 10) < end; d.setUTCDate(d.getUTCDate() + 7)) out.push(d.toISOString().slice(0, 10));
+    FRIDAYS = out; gridKey = key;
+    return out;
+  }
+  const mapDate = () => (st.mapWeek == null ? null : fridays()[st.mapWeek]);
+  // seduta dell'indice k alla data della mappa (null se a quella data l'indice non ha ancora dati)
+  function seduta(k, D) {
+    if (D == null) return NOW[k];
+    let i = NOW[k];
+    while (i >= 0 && S[k].dates[i] > D) i--;
+    return i >= 0 && S[k].pct200[i] != null && PX[k].dp[i] != null ? i : null;
+  }
+  function stateAt(k, T) {
+    if (T === NOW[k]) return stateOf(k).code;
+    const m = machine(k);
+    let t = T;
+    while (t > 0 && m.days[t] == null) t--;
+    return m.days[t] || 'normal';
+  }
+  function approachAt(k, T) {
+    if (T === NOW[k]) return approach(k);
+    const b = S[k].pct200[T], A = approachLevel(S[k].pct200.slice(0, T + 1), st.blue[k]);
+    return { A, on: A != null && b != null && stateAt(k, T) === 'normal' && b <= A };
+  }
+  const weekOf = (d) => { const F = fridays(); let i = F.length - 1; while (i > 0 && F[i] > d) i--; return i; };
+  function setMapWeek(i) {
+    const F = fridays();
+    st.mapWeek = i == null || i >= F.length - 1 ? null : Math.max(0, i);
+    st.focus = null;
+    renderMap();
+  }
+  let replay = null;
+  function stopReplay() { if (replay) { clearInterval(replay); replay = null; $('ixPlay').textContent = '▶ PLAY'; } }
+  function playReplay() {
+    if (replay) { stopReplay(); return; }
+    if (st.mapWeek == null) st.mapWeek = Math.max(0, fridays().length - 53);
+    $('ixPlay').textContent = '❚❚ STOP';
+    renderMap();
+    replay = setInterval(() => {
+      if (st.mapWeek == null || $('v-idx').hidden) { stopReplay(); return; }
+      setMapWeek(st.mapWeek + 1);
+      if (st.mapWeek == null) stopReplay();
+    }, 220);
+  }
+  function mapControls() {
+    const F = fridays(), D = mapDate(), today = D == null, r = $('ixDate');
+    r.min = 0; r.max = F.length - 1; r.value = today ? F.length - 1 : st.mapWeek;
+    $('ixDateVal').textContent = today ? `oggi · ${dIT(asOf())}` : `settimana al ${dIT(D)}`;
+    $('ixToday').hidden = today;
+    keepFocus($('ixJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && Math.abs(Date.parse(D) - Date.parse(d)) < 6 * 864e5}">${l}</button>`).join(''));
+    $('ixJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
+  }
   function renderMap() {
-    mapSeries = {};
+    const D = mapDate();
+    mapControls();
+    mapSeries = {}; mapT = {};
     for (const k of VIS()) {
-      const weeks = weeklyIndices(S[k].dates.slice(0, NOW[k] + 1)).slice(-9);
-      mapSeries[k] = weeks.filter((t) => S[k].pct200[t] != null && PX[k].dp[t] != null).map((t) => ({ x: PX[k].dp[t], y: S[k].pct200[t] - st.blue[k], t }));
+      const T = seduta(k, D);
+      if (T == null) continue;
+      mapT[k] = T;
+      const weeks = weeklyIndices(S[k].dates.slice(0, T + 1)).slice(-9);
+      if (weeks.at(-1) !== T) weeks.push(T);
+      mapSeries[k] = weeks.slice(-9).filter((t) => S[k].pct200[t] != null && PX[k].dp[t] != null).map((t) => ({ x: PX[k].dp[t], y: S[k].pct200[t] - st.blue[k], t }));
     }
     drawMap();
-    $('ixMapMeta').textContent = 'settimanale · coda 8 settimane · colore del punto = stato attuale';
+    const hidden = VIS().filter((k) => mapT[k] == null);
+    $('ixMapMeta').textContent = D == null ? 'settimanale · coda 8 settimane · colore del punto = stato attuale'
+      : `settimanale · coda 8 settimane · al ${dIT(D)} (storico) · colore del punto = stato di quel giorno · livelli blu di oggi` + (hidden.length ? ` · senza dati a quella data: ${hidden.join(', ')}` : '');
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
-    const rows = VIS().map((k) => { const t = NOW[k], s = S[k]; return { k, d: s.pct200[t] - st.blue[k], need: s.above200[t] - Math.floor((st.blue[k] * s.n[t]) / 100) }; }).sort((a, b) => a.d - b.d);
+    const rows = Object.keys(mapT).map((k) => { const t = mapT[k], s = S[k]; return { k, d: s.pct200[t] - st.blue[k], need: s.above200[t] - Math.floor((st.blue[k] * s.n[t]) / 100) }; }).sort((a, b) => a.d - b.d);
     const lo = Math.min(-10, Math.floor(Math.min(...rows.map((r) => r.d)) / 5) * 5), hi = Math.max(40, Math.ceil(Math.max(...rows.map((r) => r.d)) / 10) * 10);
     const pos = (v) => ((v - lo) / (hi - lo)) * 100;
     $('ixDist').innerHTML = rows.map(({ k, d, need }) => {
@@ -244,9 +314,12 @@ export function createIndices(ctx) {
   }
   const markDist = () => $('ixDist').querySelectorAll('.r').forEach((r) => r.classList.toggle('sel', r.dataset.ix === st.focus));
   function drawMap() {
+    const syms = Object.keys(mapT), past = mapDate() != null;
     mapDraw = drawBottomMap($('ixMap'), {
-      series: mapSeries, syms: VIS(), focus: st.focus, params: P, states: Object.fromEntries(VIS().map((k) => [k, stateOf(k).code])), rings: VIS().filter((k) => approach(k).on),
+      series: mapSeries, syms, focus: st.focus, params: P, states: Object.fromEntries(syms.map((k) => [k, stateAt(k, mapT[k])])), rings: syms.filter((k) => approachAt(k, mapT[k]).on),
       size: chartWidth($('ixMap'), SIZE), clipId: 'ixclip', unit: "dell'indice",
+      // per le date passate l'asse verticale è fisso, così nel replay non salta
+      ...(past ? { top: 96 - Math.min(...syms.map((k) => st.blue[k])) } : {}),
     });
   }
 
@@ -349,17 +422,21 @@ export function createIndices(ctx) {
       const k = h ? h.sym : null;
       if (k !== st.focus) { st.focus = k; drawMap(); markDist(); }
       if (!h) { tip.hidden = true; return; }
-      const q = mapSeries[k][mapSeries[k].length - 1];
-      tip.innerHTML = `<div class="row"><b>${k}</b><span>${esc(name(k))}</span></div>
+      const q = mapSeries[k][mapSeries[k].length - 1], T = mapT[k], ap = approachAt(k, T);
+      tip.innerHTML = `<div class="row"><b>${k}</b><span>${esc(name(k))}</span></div>${T !== NOW[k] ? `<div class="row"><span>Seduta</span><b>${dIT(S[k].dates[T])}</b></div>` : ''}
         <div class="row"><span>Sopra media 200</span><b>${fmt(S[k].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[k]}%</b></div>
         <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[k].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
-        <div class="row"><span>Stato</span><b>${approach(k).on ? 'Avvicinamento' : esc(STATES[stateOf(k).code])}</b></div>
-        <div class="row"><span>Soglia di avvicinamento</span><b>${approach(k).A == null ? '—' : fmt(approach(k).A, 0) + '%'}</b></div>
+        <div class="row"><span>Stato</span><b>${ap.on ? 'Avvicinamento' : esc(STATES[stateAt(k, T)])}</b></div>
+        <div class="row"><span>Soglia di avvicinamento</span><b>${ap.A == null ? '—' : fmt(ap.A, 0) + '%'}</b></div>
         <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>`;
       placeTip(tip, $('ixMapWrap'), e);
     });
     svg.addEventListener('pointerleave', () => { tip.hidden = true; if (st.focus) { st.focus = null; drawMap(); markDist(); } });
     svg.addEventListener('click', (e) => { const h = mapDraw ? nearestHead(svg, mapDraw.heads, e) : null; if (h) open(h.sym, true); });
+    $('ixDate').oninput = (e) => { stopReplay(); setMapWeek(+e.target.value); };
+    $('ixDate').onkeydown = (e) => e.stopPropagation();
+    $('ixPlay').onclick = playReplay;
+    $('ixToday').onclick = () => { stopReplay(); setMapWeek(null); };
   }
 
   return {
