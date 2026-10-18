@@ -768,6 +768,9 @@ def sec19():
     out["mensile_MEDIA_mese_(stile_Shiller)_1928+"] = streak_stats(mavg)
     out["mensile_MEDIA_mese_1950+"] = streak_stats(mavg.loc["1950":])
     out["mensile_fine_mese_1950+"] = streak_stats(me.loc["1950":])
+    # serie ibrida stile TVC:SPX: medie mensili (Shiller-like) fino al 1949 + giornaliero dal 1950
+    hyb = pd.concat([C.loc[:"1949-12-31"].resample("ME").mean(), C.loc["1950-01-01":]])
+    out["IBRIDA_media_mensile<1950+giornaliero"] = streak_stats(hyb.pct_change())
     # bootstrap CI per E[R+1|up/down] 1950+
     up = (r > 0)
     nx = r.shift(-1)

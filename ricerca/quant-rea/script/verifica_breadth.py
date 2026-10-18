@@ -590,6 +590,41 @@ rows = [{"gruppo": "coorte membri 2010-01-04 (con prezzo)", "n": len(cohs), "CAG
 T(pd.DataFrame(rows).set_index("gruppo"), "{:.1f}",
   note=f"Coorte 2010: {int(snap.loc[:d0].iloc[-1].sum())} membri da snapshot, {len(coh)} con prezzo (gli altri {int(snap.loc[:d0].iloc[-1].sum())-len(coh)} mancano nel dataset prezzi: in gran parte usciti/acquisiti/falliti → bias residuo).")
 
+# ----------------------------------------------------------------------------- F. ridondanza con %>MA
+P("F ...")
+H2("F. Ridondanza con le misure già usate dall'app (% membri PIT sopra la media mobile 20/50/200)")
+MA = {}
+for w in (20, 50, 200):
+    ma = PI.rolling(w, min_periods=w).mean()
+    v = MEM & ma.notna() & PI.notna()
+    MA[w] = (((PI > ma) & v).sum(axis=1) / v.sum(axis=1) * 100).reindex(idx)
+pma = pd.DataFrame({f"pct>MA{w}": MA[w] for w in MA})
+pma.to_csv(f"{OUT}/pct_above_ma_pit.csv", float_format="%.2f")
+rows = []
+for per, lo in (("1996+", "1996-01-01"), ("2010+", "2010-01-01")):
+    rows.append(base_row(lo, "2026-12-31"))
+    for lab, sig in (("%>MA20 < 10", pma["pct>MA20"] < 10), ("%>MA50 < 10", pma["pct>MA50"] < 10),
+                     ("%>MA200 < 15", pma["pct>MA200"] < 15),
+                     ("drop5 % r5 > p99 (espansiva)", BR["PIT_drop5p_r5"] > BR["PIT_drop5p_r5"].expanding(min_periods=1260).quantile(0.99).shift(1)),
+                     ("adv < 5%", BR["PIT_adv"] < 5)):
+        r = summarize(f"{per} {lab}", episodes(sig.loc[lo:]), lo, "2026-12-31")
+        rows.append(r)
+T(pd.DataFrame(rows).set_index("evento"), "{:.2f}")
+H3("Sovrapposizione temporale: episodi drop5/adv che cadono entro ±10 sedute da un episodio %>MA20<10")
+e_ma = episodes(pma["pct>MA20"] < 10)
+pos_ma = np.searchsorted(idx, e_ma)
+sig_ma = (pma["pct>MA20"] < 10).values
+rows = []
+for lab, sig in (("drop5 % r5 > p99 (espansiva)", BR["PIT_drop5p_r5"] > BR["PIT_drop5p_r5"].expanding(min_periods=1260).quantile(0.99).shift(1)),
+                 ("adv < 5%", BR["PIT_adv"] < 5), ("adv < 2%", BR["PIT_adv"] < 2)):
+    e = episodes(sig)
+    pe = np.searchsorted(idx, e)
+    near = [sig_ma[max(0, p - 10): p + 11].any() for p in pe]
+    rows.append({"segnale": lab, "episodi": len(e), "% con %>MA20<10 entro ±10 sedute": np.mean(near) * 100,
+                 "%>MA20 mediano al segnale": pma["pct>MA20"].reindex(e).median(),
+                 "%>MA50 mediano al segnale": pma["pct>MA50"].reindex(e).median()})
+T(pd.DataFrame(rows).set_index("segnale"), "{:.1f}")
+
 with open(f"{OUT}/tabelle_breadth.md", "w") as fh:
     fh.write("\n".join(md))
 P("scritto", f"{OUT}/tabelle_breadth.md")
