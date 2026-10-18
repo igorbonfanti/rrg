@@ -4,10 +4,10 @@
  * e l'app lo dice in alto. Schema 0.vista.correzione: 0 finché è in prova, la cifra di mezzo sale con una funzione
  * nuova, l'ultima con le correzioni.
  */
-export const VERSION = '0.8.10';
+export const VERSION = '0.9.0';
 export const RELEASE = '2026-10-18';
 export const NOTES = [
-  'Breadth con quanti titoli su quanti (5/31) nel Monitor e negli indici',
-  'Statistiche dell\'Avvicinamento indicate «nel campione»',
-  'Guida completa: ogni vista e ogni funzione spiegata (tasto ?)',
+  'Cali forti (capitolazione): quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute, con la soglia di allerta',
+  'Scheda nel dettaglio di indici e settori, colonna e riquadro nella tabella degli indici',
+  'Riga ⓘ in «Perché questo stato» quando c\'è stata allerta negli ultimi 3 mesi',
 ];

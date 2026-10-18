@@ -24,10 +24,11 @@ const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
 
 /**
  * @param {{$: (id: string) => HTMLElement, store: {get: Function, set: Function}, params: object, config: object,
- *          load: () => Promise<object>}} ctx  config: config/indices.json; load: restituisce data/indices.json
+ *          load: () => Promise<object>, cap?: object}} ctx  config: config/indices.json; load: restituisce data/indices.json;
+ *   cap: scheda dei cali forti (cap-view.js)
  */
 export function createIndices(ctx) {
-  const { $, store } = ctx;
+  const { $, store, cap } = ctx;
   const P = { ...DEFAULT_PARAMS, ...ctx.params };
   const CFG = ctx.config.indices;
   // KEYS: indici con i dati già scaricati (prima i principali, poi gli altri); ALL: tutti quelli in configurazione
@@ -164,7 +165,7 @@ export function createIndices(ctx) {
       : CFG[k].limits
         ? `<span class="loc" title="${esc(`Storia dal ${S[k].dates[S[k].pct200.findIndex((v) => v != null)].slice(0, 4)} · ${CFG[k].note || ''}`)}">con limiti</span>`
         : `<span class="muted" title="Storia ricostruita con i membri di oggi: nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
-    $('ixTable').innerHTML = `<thead><tr><th>Indice</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l">Drawdown da max 52s</th><th>Storia</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>` +
+    $('ixTable').innerHTML = `<thead><tr><th>Indice</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l">Drawdown da max 52s</th><th>Storia</th><th class="r" title="Cali forti dei titoli (scheda «Cali forti» nel dettaglio): allerta oggi, sedute in allerta negli ultimi 3 mesi o percentile di oggi">Cali forti</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>` +
       rows.map((r) => {
         const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
         const need = r.above - Math.floor((r.L * r.n) / 100);
@@ -174,7 +175,7 @@ export function createIndices(ctx) {
         <td><span class="cellv num" title="${titoli(r.above)} su ${r.n}${need > 0 ? ` · ne devono scendere sotto la media ancora ${need} per il livello blu` : ''}">${fmt(r.b)}%<span class="cnt" title="${titoli(r.above)} sopra la media 200 su ${r.n}: un titolo vale ${fmt(100 / r.n)} punti">${r.above}/${r.n}</span></span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
         <td class="num r">${r.L}%${changed(r.k) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
         <td><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
-        <td>${quality(r.k, r)}</td>
+        <td>${quality(r.k, r)}</td>${cap ? cap.cell(r.k, CFG[r.k].noCap) : '<td></td>'}
         <td class="num r" title="chiusura del ${dIT(r.date)}${r.bdate < r.date ? ` · breadth al ${dIT(r.bdate)}` : ''}">${fmt(r.last, r.last >= 1000 ? 0 : 2)}</td><td class="num r">${pct(r.d1)}</td><td class="num r">${pct(r.m1)}</td></tr>`;
       }).join('') + '</tbody>';
     $('ixTable').querySelectorAll('tbody tr[data-ix]').forEach((tr) => {
@@ -190,6 +191,8 @@ export function createIndices(ctx) {
       ['Indici in zona blu', `${by(['setup', 'fail']).length}<small> / ${rows.length}</small>`, list(by(['setup', 'fail']))],
       [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / ${rows.length}</small>`, list(by(['trig', 'cool']))],
       ['Indici in attenzione', `${by(['watch']).length}<small> / ${rows.length}</small>`, list(by(['watch'])) + (rows.some((r) => r.appr) ? ` · in avvicinamento: ${rows.filter((r) => r.appr).map((r) => r.k).join(' · ')}` : '')],
+      ...(cap && cap.ready() ? [(() => { const on = rows.filter((r) => (cap.status(r.k) || {}).on), rec = rows.filter((r) => !(cap.status(r.k) || {}).on && (cap.status(r.k) || {}).recent);
+        return ['Cali forti in allerta', `${on.length}<small> / ${rows.filter((r) => !CFG[r.k].noCap).length}</small>`, list(on) + (rec.length ? ` · negli ultimi 3 mesi: ${list(rec)}` : '')]; })()] : []),
       ['Più vicino al livello blu', rows.length ? `${[...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0].k}` : '—', rows.length ? (() => { const r = [...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0]; return `${fmt(r.b)}% contro un livello di ${r.L}% (${sgn(r.b - r.L)} punti)`; })() : ''],
     ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
   }
@@ -342,7 +345,7 @@ export function createIndices(ctx) {
     document.querySelectorAll('#ixRange button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('ixTitle').textContent = `${k} · ${name(k)}`;
     $('ixBadge').innerHTML = approach(k).on ? apprBadge() : badge(stateOf(k).code);
-    $('ixCheck').innerHTML = checklistHTML(explain(k));
+    $('ixCheck').innerHTML = checklistHTML(explain(k)) + (cap ? cap.info(k) : '');
     drawSector($('ixTs'), {
       dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: rangeStart(k), sym: k, blue: L,
@@ -382,6 +385,7 @@ export function createIndices(ctx) {
       : `${CFG[k].limits ? 'Indice con limiti. ' : ''}Storia ricostruita con i membri di oggi, dal ${s.dates[f0].slice(0, 4)}: nelle fasi intermedie la breadth risulta più alta del vero, vicino ai minimi lo scarto è piccolo.${CFG[k].note ? ' ' + CFG[k].note : ''} Fonte della lista: ${CFG[k].source}.`;
     $('ixLinks').innerHTML = (TV[k] || []).map((x) => `<a href="${tvLink(x)}" target="_blank" rel="noopener">${esc(x.split(':')[1])} su TradingView ↗</a>`).join('');
     renderEpisodes(k, m);
+    if (cap) cap.card('ix', k, { dates: s.dates, close: s.close, from: s.dates[rangeStart(k)], noCap: CFG[k].noCap, what: "l'indice" });
   }
   function renderEpisodes(k, m) {
     const c = S[k].close, dates = S[k].dates;
@@ -407,6 +411,9 @@ export function createIndices(ctx) {
     store.set('ixBlue', Object.fromEntries(Object.entries(st.blue).filter(([x, y]) => y !== CFG[x].blue)));
     renderBoard(); renderMap(); renderDetail();
   }
+
+  // arrivo dei dati dei cali forti o scelte cambiate nella scheda
+  if (cap) cap.onChange(() => { if (D && !$('v-idx').hidden) { renderBoard(); renderDetail(); } });
 
   function bind() {
     $('ixBlueMinus').onclick = () => setBlue(st.blue[st.sel] - 1);

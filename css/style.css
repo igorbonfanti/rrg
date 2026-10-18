@@ -728,3 +728,18 @@ svg.bub { touch-action: pan-y; }
 .cellv .cnt { display: block; margin-top: 1px; font: 10px/1.1 var(--f-mono); color: var(--ink-3); letter-spacing: 0; }
 @media (max-width: 600px) { .board-cards .cellv .cnt { display: inline; margin-left: 6px; } .board-cards .cellv { width: auto; } }
 #boardTable .cellv, #ixTable .cellv { vertical-align: middle; }
+
+/* scheda «Cali forti» (cap-view.js): chiusa di default, intestazione come quella degli altri pannelli */
+.capcard > summary { cursor: pointer; list-style: none; }
+.capcard > summary::-webkit-details-marker { display: none; }
+.capcard > summary h2::before { content: '▸ '; color: var(--ink-3); }
+.capcard[open] > summary h2::before { content: '▾ '; }
+.capcard .capctl { flex-wrap: wrap; gap: 8px 14px; margin-bottom: 6px; }
+.capcard .note { margin: 6px 0; }
+.legend .kl.dash { height: 0; border-top: 2px dashed; background: none !important; }
+.ts .caparea { fill: var(--down); fill-opacity: .45; stroke: var(--down); stroke-width: .8; }
+.ts .capalert { fill: none; stroke: var(--amber); stroke-width: 1.4; stroke-dasharray: 5 3; }
+.ts .band-cap { fill: var(--down); fill-opacity: .12; }
+.capflag { display: inline-block; padding: 0 6px; border: 1px solid var(--down); color: var(--down); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.capflag.weak { border-style: dashed; opacity: .85; }
+.capinfo { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--rule); }

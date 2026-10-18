@@ -112,18 +112,9 @@ def rle(values):
     return out
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--jb', required=True)
-    ap.add_argument('--repo', required=True)
-    ap.add_argument('--asof')
-    ap.add_argument('--out', default='data')
-    args = ap.parse_args()
-    import duckdb
-
-    con = duckdb.connect()
-    jb = args.jb.rstrip('/')
-    snaps = snapshots(args.repo)
+def sector_map(con, jb, repo):
+    """{ticker della release jb: settore GICS} per i membri dal 2005 (lo usa anche backfill_capitulation.py)."""
+    snaps = snapshots(repo)
     latest_date, latest = snaps[-1]
     print(f'{len(snaps)} versioni della lista costituenti ({snaps[0][0]} → {latest_date}), {len(latest)} membri attuali')
     renames = {}
@@ -166,6 +157,21 @@ def main():
         else:
             how['senza settore'].append(t)
     print({k: len(v) for k, v in how.items()})
+    return sector_of
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--jb', required=True)
+    ap.add_argument('--repo', required=True)
+    ap.add_argument('--asof')
+    ap.add_argument('--out', default='data')
+    args = ap.parse_args()
+    import duckdb
+
+    con = duckdb.connect()
+    jb = args.jb.rstrip('/')
+    sector_of = sector_map(con, jb, args.repo)
 
     con.execute(f"""CREATE TABLE px AS SELECT ticker, CAST(date AS DATE) d, close FROM '{jb}/prices.parquet' WHERE close IS NOT NULL AND close > 0""")
     # ultima seduta con i prezzi di almeno il 99% dei membri attuali

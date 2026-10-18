@@ -16,7 +16,7 @@ const DAY = 864e5;
 const age = (from, to) => Math.round((Date.parse(to) - Date.parse(from)) / DAY);
 
 /**
- * @param {object} d {breadth, sectors, members, history, sectorMembers, indices, indexMembers: {k: {asOf}}}
+ * @param {object} d {breadth, sectors, members, history, sectorMembers, indices, capitulation, indexMembers: {k: {asOf}}}
  * @param {string} today data ISO di oggi
  * @returns {string[]} problemi
  */
@@ -33,6 +33,7 @@ export function staleData(d, today) {
     ['sector_members.json', d.sectorMembers && d.sectorMembers.asOf, B, 4],
     ['sector_members.json (holdings IVV)', d.sectorMembers && d.sectorMembers.weightsAsOf, B, 10],
     ['indices.json', d.indices && d.indices.asOf, B, 4],
+    ['capitulation.json (cali forti)', d.capitulation && d.capitulation.asOf, B, 4],
   ];
   for (const [k, m] of Object.entries(d.indexMembers || {})) checks.push([`index_members/${k}.json`, m && m.asOf, today, 14]);
   for (const [name, at, ref, max] of checks) {
@@ -49,7 +50,7 @@ function main() {
   const indexMembers = fs.existsSync(dir) ? Object.fromEntries(fs.readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => [f.slice(0, -5), read('index_members/' + f)])) : {};
   const problems = staleData({
     breadth: read('breadth.json'), sectors: read('sectors.json'), members: read('sp500_members.json'), history: read('sp500_history.json'),
-    sectorMembers: read('sector_members.json'), indices: read('indices.json'), indexMembers,
+    sectorMembers: read('sector_members.json'), indices: read('indices.json'), capitulation: read('capitulation.json'), indexMembers,
   }, new Date().toISOString().slice(0, 10));
   for (const p of problems) console.log(`::error::Dati non aggiornati: ${p}`);
   if (problems.length) process.exit(1);

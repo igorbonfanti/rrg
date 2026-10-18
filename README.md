@@ -152,6 +152,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.9.0** (18/10/2026): **Cali forti (capitolazione)**, dal «Drop giornaliero cumulato» di Quant Rea con il suo preset: quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute, con la soglia di allerta al 99° percentile delle sedute precedenti (almeno 5 cali). Scheda richiudibile nel dettaglio di indici e settori (soglia 5/7/10%, 3/5/10 sedute, titoli o %), colonna e riquadro nella tabella degli indici, riga ⓘ in «Perché questo stato» quando c'è stata allerta negli ultimi 3 mesi. Solo contesto: stati, regole e alert non cambiano. Dati in `data/capitulation.json` (`js/capitulation.js`); Taiwan escluso (`noCap`). Prova sui 22 indici in `ricerca/quant-rea/risultati/capitolazione/` (ramo di sviluppo).
 - **0.8.10** (18/10/2026): accanto alla breadth, nel Monitor e nel tabellone degli indici, quanti titoli sono sopra la media su quanti (5/31): nei settori piccoli un titolo vale 3 punti. Le statistiche dell'Avvicinamento sono dette «nel campione» (regola scelta sulla stessa storia) nella guida rapida, nella legenda degli stati e nella Situazione.
 - **0.8.9** (18/10/2026): guida completa (`guida.html`) con ogni vista e funzione, aperta dalla guida rapida alla sezione della vista in uso.
 - **0.8.8** (18/10/2026): data scorrevole, replay e crisi passate anche nella Bottom Map degli indici.
@@ -201,6 +202,8 @@ Stesso metodo, stessi parametri e stessa macchina a stati dei settori; cambiano 
 | Ibovespa | ^BVSP | 11% (3° percentile) | dal 2008 | B3 |
 
 Esclusi: KOSPI e TAIEX interi e S&P/TSX Composite (nessuna lista gratuita dei membri).
+
+**Cali forti (capitolazione).** Per ogni indice e settore, membri con un calo giornaliero di almeno il 5, 7 o 10% (chiusure rettificate per gli split; per l'S&P 500 anche per gli eventi straordinari), con la stessa composizione della breadth. Non contano i cali che la seduta dopo si riprendono quasi tutti in una giornata tranquilla per gli altri membri (errori di stampa) e i crolli oltre il 60% in giornate normali. L'app somma i conteggi sulle ultime N sedute (preset di Rea: −7% su 5) e segna l'allerta sopra il 99° percentile delle sedute precedenti, dopo 3 anni di storia, con almeno 5 cali. Nella prova sui 22 indici le allerte sono state seguite in media da rendimenti migliori di una seduta qualsiasi, ma quasi tutto il vantaggio viene dai crolli rapidi (2020, 2025); all'inizio dei mercati orso lunghi (2007-2008) sono arrivate presto e si sono ripetute per mesi. Taiwan escluso: la chiusura di Yahoo non rettifica i dividendi in azioni.
 
 - **Livelli**: dove esiste, quello letto dai grafici di Massimo Rea; altrimenti il 3° percentile della storia dell'indice. Sui nostri dati i livelli di Rea lasciano sotto la soglia circa il 3% delle sedute (S&P 500 3,0%, settori dal 2,4% al 4%), e la regola ritrova i suoi livelli su S&P 500, Nikkei, CAC e SMI.
 - **Membri di oggi**: dove la composizione storica non è disponibile gratis, il passato è ricostruito con i membri attuali; nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo (verifica sul Nasdaq-100).
@@ -264,6 +267,7 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
     - `data/sectors.json`: storia degli ETF dal 2004, rettificata per i dividendi, più `max52` per la colonna «Solo prezzo», calcolato alla seduta della breadth (`max52At`);
     - `data/sp500_members.json`: lista dei membri con i cambi giorno per giorno;
     - `data/sp500_history.json`: tabella dei cambi con la data di efficacia (Wikipedia, «Historical components of the S&P 500», dal giugno 2024, ricaricata ogni sera) e nome e settore di chi esce;
+    - `data/capitulation.json`, serie SPX e settori: cali forti delle sedute pubblicate (`js/capitulation.js`);
     - `data/sector_members.json` (vista 7 Titoli, `scripts/lib/capeq.js`): indici cap ed equal-weight di ogni settore simulati giorno per giorno con la composizione dell'epoca (equal-weight ribilanciato dopo il 3° venerdì di marzo, giugno, settembre e dicembre ai prezzi della data di riferimento, come gli indici S&P; cap-weighted con i valori di mercato delle holdings dell'ETF iShares IVV, senza il taglio dei giganti degli ETF SPDR) e i numeri di ogni titolo. Verifica del 16/10/2026: equal-weight in media a 0,5 punti dagli ETF Invesco RSP* su 3M, 6M, YTD e 1A. Se le holdings non arrivano restano i pesi della sera prima; i titoli usciti senza più prezzi (acquisiti) restano fuori e sono elencati nel file.
 
     Una seduta si pubblica solo con i prezzi di almeno il 99% dei membri; le ultime 5 sedute si ricalcolano.
@@ -271,10 +275,12 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
     - Liste dei membri da Wikipedia, dal CSV di Nikkei, dalle holdings iShares (EXSA, IWM, EEM, EWT), dall'API Nasdaq e da B3 (`scripts/lib/members.js`): una lista nuova si accetta solo se il numero di titoli è plausibile e almeno l'80% coincide con l'ultima buona; i cambi si registrano nel file della lista.
     - Prezzi dall'endpoint spark di Yahoo (20 titoli a richiesta); chi ha sedute mancanti si riscarica dall'endpoint chart.
     - Una seduta si pubblica se almeno il 75% dei titoli quotati ha la chiusura di quel giorno; le ultime 5 si ricalcolano.
+    - Cali forti degli indici in `data/capitulation.json`, sulle stesse sedute (fuori quelli con `noCap`).
   - `scripts/backfill_indices.py`: ricostruzione una tantum dello storico degli indici (composizioni in `config/index_history.json`).
+  - `scripts/backfill_capitulation.py`: ricostruzione una tantum di `data/capitulation.json` (S&P 500 e settori dalla release usata per la breadth, indici dalla cache dei prezzi di `backfill_indices.py`); istruzioni nel file.
   - `scripts/send_alerts.js` → notifiche Telegram e `data/alerts.json`; un invio fallito si riprova per 5 sedute e fa fallire l'esito del workflow.
   - `scripts/keep_unchanged.js` (prima del commit): un file che cambia solo per l'ora di generazione non si pubblica.
-  - `scripts/check_fresh.js` (ultimo passo): se una fonte resta ferma oltre il suo limite (lista dei costituenti 7 giorni, cambi di Wikipedia 7, holdings IVV 10, liste degli indici 14, ETF e indici 4) l'esito del workflow fallisce e GitHub manda la mail.
+  - `scripts/check_fresh.js` (ultimo passo): se una fonte resta ferma oltre il suo limite (lista dei costituenti 7 giorni, cambi di Wikipedia 7, holdings IVV 10, liste degli indici 14, ETF, indici e cali forti 4) l'esito del workflow fallisce e GitHub manda la mail.
   - `scripts/backfill_breadth.py`: ricostruzione una tantum dello storico della breadth; istruzioni nel file.
 - Nell'intestazione dell'app un badge indica se i dati sono indietro rispetto all'ultima seduta chiusa.
 

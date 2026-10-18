@@ -53,7 +53,7 @@ function sparkline(arr, w, h) {
  *          setView: (v: string) => void, openRRG: (s: string) => void}} ctx
  */
 export function createBottom(ctx) {
-  const { $, sectors: S, breadth: B, latest, config, alertLog, store } = ctx;
+  const { $, sectors: S, breadth: B, latest, config, alertLog, store, cap } = ctx;
   const DATES = S.dates;
   const P = { ...DEFAULT_PARAMS, ...config.params };
   const PX = {}, BR = {};
@@ -377,7 +377,7 @@ export function createBottom(ctx) {
     document.querySelectorAll('#rangeSeg button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
     $('secTitle').textContent = `${s} · ${NAMES[s]}`;
     $('secBadge').innerHTML = approach(s).on ? apprBadge() : badge(state.code);
-    $('secCheck').innerHTML = checklistHTML(explain(s));
+    $('secCheck').innerHTML = checklistHTML(explain(s)) + (cap ? cap.info(s) : '');
     const i0 = rangeStart(s);
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
@@ -414,6 +414,7 @@ export function createBottom(ctx) {
     $('tvLinks').innerHTML = `<a href="${tvLink('AMEX:' + s)}" target="_blank" rel="noopener">${s} su TradingView ↗</a><a href="${tvLink('INDEX:' + TV[s])}" target="_blank" rel="noopener">${TV[s]} su TradingView ↗</a>`;
     renderMembers(s);
     renderEpisodes(s, m);
+    if (cap) cap.card('sec', s, { dates: DATES, close: PX[s].close, from: DATES[i0], what: 'il settore' });
   }
   function renderMembers(s) {
     if (!latest) { $('memTable').innerHTML = '<tbody><tr><td class="muted">Fotografia per titolo non disponibile.</td></tr></tbody>'; return; }
@@ -508,6 +509,8 @@ export function createBottom(ctx) {
       catch { $('cfgText').value = text; $('cfgText').hidden = false; $('cfgText').select(); $('copyMsg').textContent = 'Copia il testo selezionato in config/thresholds.json.'; }
     };
     bindMap();
+    // arrivo dei dati dei cali forti o scelte cambiate nella scheda
+    if (cap) cap.onChange(() => { if (!$('v-sec').hidden) renderSector(); });
   }
 
   return {
