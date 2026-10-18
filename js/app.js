@@ -5,7 +5,7 @@ import { createIndices } from './indices.js';
 import { createCap } from './cap-view.js';
 import { createTitles } from './titles.js';
 import { VERSION, RELEASE, NOTES } from './version.js';
-import { priceMetrics, priceDrawdown } from './metrics.js';
+import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
@@ -206,7 +206,7 @@ function addMetrics(set) {
   set.metrics = {};
   for (const [s, t] of Object.entries(set.tickers)) {
     const m = t.max52 || null, ddp = priceDrawdown(m);
-    set.metrics[s] = { ...priceMetrics(set.dates, t.close), ...(m && m.all && ddp != null ? { dd52: ddp } : {}), max52: m, ddp };
+    set.metrics[s] = { ...priceMetrics(set.dates, t.close), ...(m && m.all && ddp != null ? { dd52: ddp } : {}), max52: m, ddp, copied: copiedAt(set.dates, t.copied) };
   }
 }
 
@@ -380,15 +380,24 @@ function renderPriceTable() {
   };
   // drawdown sul solo prezzo, alla stessa data (l'ultima del file)
   const ddpTd = (s, mt) => `<td class="num r" title="${esc(ddpTip(mt.max52, d.dates[d.dates.length - 1], mt.dd52, d.tickers[s].synthetic))}">${mt.ddp == null ? '<span class="muted">—</span>' : sgn(mt.ddp) + '%'}</td>`;
+  // prezzo e rendimenti: asterisco se usano un prezzo ricopiato dalla seduta prima (Yahoo senza la barra)
+  const pxTds = (mt) => ['last', 'd1', 'w1', 'm1', 'm3', 'ytd'].map((k) => {
+    const c = mt.copied && mt.copied[k], v = k === 'last' ? fmt(mt.last, 2) : pct(mt[k]);
+    return c ? `<td class="num r" title="${esc(`Prezzo del ${c.map(dIT).join(' e del ')} ricopiato dalla seduta prima: Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante).`)}">${v}<sup class="cp">*</sup></td>` : `<td class="num r">${v}</td>`;
+  }).join('');
   const body = rows.map(({ s, name, mt, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td>${symCell(s, name)}</td>
-      <td class="num r">${fmt(mt.last, 2)}</td><td class="num r">${pct(mt.d1)}</td><td class="num r">${pct(mt.w1)}</td><td class="num r">${pct(mt.m1)}</td><td class="num r">${pct(mt.m3)}</td><td class="num r">${pct(mt.ytd)}</td>
+      ${pxTds(mt)}
       <td>${ddCell(mt)}</td>${ddpTd(s, mt)}<td class="num r">${pct(mt.vs200)}</td>
       <td>${r ? qPill(r.q, r.heading) : '<span class="muted">—</span>'}</td><td class="num r">${r ? `${r.weeks} ${unit()}` : '—'}</td></tr>`).join('');
   const benchRow = `<tr class="bench"><td>${symCell(bench, d.tickers[bench].name, ' · benchmark')}</td>
-      <td class="num r">${fmt(bm.last, 2)}</td><td class="num r">${pct(bm.d1)}</td><td class="num r">${pct(bm.w1)}</td><td class="num r">${pct(bm.m1)}</td><td class="num r">${pct(bm.m3)}</td><td class="num r">${pct(bm.ytd)}</td>
+      ${pxTds(bm)}
       <td>${ddCell(bm)}</td>${ddpTd(bench, bm)}<td class="num r">${pct(bm.vs200)}</td><td></td><td></td></tr>`;
   $('monTable').innerHTML = head + '<tbody>' + body + benchRow + '</tbody>';
+  const COLS = { last: 'ultimo', d1: '1G', w1: '1S', m1: '1M', m3: '3M', ytd: 'YTD' };
+  const cps = rows.map(({ s, mt }) => [s, mt]).concat([[bench, bm]]).filter(([, mt]) => mt.copied)
+    .map(([s, mt]) => `${s} (${Object.keys(mt.copied).map((k) => COLS[k]).join(', ')}: ${[...new Set(Object.values(mt.copied).flat())].sort().map(dIT).join(', ')})`);
+  $('pxCopied').textContent = cps.length ? ` * Con un prezzo ricopiato dalla seduta prima, perché Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante): ${cps.join('; ')}.` : '';
   $('monTable').querySelectorAll('th button').forEach((b) => b.onclick = () => {
     const k = b.dataset.sort;
     state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : (k === 'sym' || k === 'rot' ? 1 : -1) };

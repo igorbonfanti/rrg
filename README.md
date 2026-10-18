@@ -249,7 +249,9 @@ Direzione, velocità e distanza seguono le convenzioni JdK: gradi bussola sull'u
   - `scripts/fetch_data.js` → prezzi rettificati dei ticker di `universe.json`, in tre file indipendenti (un ritardo su una borsa, o di FRED, non blocca gli altri). Si pubblica solo l'ultima seduta presente per tutti i ticker e mai dati più vecchi di quelli già pubblicati. Con un argomento aggiorna solo un file: `node scripts/fetch_data.js macro`.
     - `data/prices.json`: universi USA, calendario NYSE.
     - `data/prices_global.json`: universi globali in euro, calendario di Borsa Italiana.
-      - Una data entra nel calendario se quota la maggioranza degli ETF attivi; un ETF senza prezzo quel giorno prende l'ultimo prezzo noto.
+      - Una data entra nel calendario se quota la maggioranza degli ETF attivi; un ETF senza prezzo quel giorno prende l'ultimo prezzo noto. Il file elenca queste sedute per ogni ETF (`copied`) e la tabella Prezzi le segna con un asterisco quando un prezzo o un rendimento le usa (per esempio lo YTD di CSNDX.MI, che al 30/12/2025 ha il prezzo del 23/12).
+      - Yahoo a volte mette barre «segnaposto» al posto delle sedute che non ha: volume 0, apertura, massimo, minimo e chiusura uguali alla chiusura precedente. Si scartano, quindi contano come prezzi mancanti. Per questo mancano le sedute di Milano dal 13 al 20/09/2022 (Yahoo non le ha per la maggior parte degli ETF: il rendimento del 21/09 copre 7 sedute), e dal 04 al 06/12/2023 i 13 ETF di Xetra hanno il prezzo dell'01/12.
+      - Il calendario è quello di Milano: per gli ETF di Parigi e Amsterdam lo YTD parte dal 30/12/2025, l'ultima seduta di Milano dell'anno, e la loro seduta del 31/12 finisce nel nuovo anno.
       - Yahoo inserisce la chiusura europea nella serie solo il giorno dopo: per l'ultima seduta si usa il prezzo finale della quotazione.
       - Il bitcoin quota sempre: si prende il suo ultimo prezzo a ogni seduta di Milano, e si esclude se è fermo da più di 4 giorni.
       - I ticker non in euro si convertono con il cambio.

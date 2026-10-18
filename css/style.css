@@ -78,6 +78,7 @@ h1.brand { margin: 0; }
 .clock { font: 12px var(--f-mono); color: var(--ink-2); white-space: nowrap; display: flex; gap: 8px; align-items: center; }
 .clock b { color: var(--ink); font-weight: 500; }
 .fresh { font: 600 10.5px var(--f-mono); padding: 1px 6px; letter-spacing: 0.04em; }
+sup.cp { color: var(--amber); font-size: 0.8em; margin-left: 1px; }
 .fresh.ok { color: #000; background: var(--up); }
 .fresh.late { color: #000; background: var(--q-weak); }
 .fresh.stale { color: #000; background: var(--down); }

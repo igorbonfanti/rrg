@@ -31,7 +31,7 @@ function barDate(ts, gmtoffset) {
  *   close e high rettificati solo per gli split, adjclose anche per i dividendi
  */
 export async function fetchDaily(symbol, opt = {}) {
-  const { range = '5y', period1, period2, interval = '1d', retries = 3, raw = false, fillLast = false, keepOpenCrypto = false } = opt;
+  const { range = '5y', period1, period2, interval = '1d', retries = 3, raw = false, fillLast = false, keepOpenCrypto = false, dropStale = false } = opt;
   const q = period1 != null ? `period1=${period1}&period2=${period2 ?? Math.floor(Date.now() / 1000)}` : `range=${range}`;
   let lastErr;
   for (let attempt = 0; attempt <= retries; attempt++) {
@@ -44,7 +44,7 @@ export async function fetchDaily(symbol, opt = {}) {
       const j = await r.json();
       const res = j.chart && j.chart.result && j.chart.result[0];
       if (!res || !res.timestamp) throw new Error('nessun dato');
-      return parse(res, { fillLast, keepOpenCrypto });
+      return parse(res, { fillLast, keepOpenCrypto, dropStale });
     } catch (e) {
       lastErr = e;
       if (!e.retry && !(e instanceof TypeError)) break; // TypeError = errore di rete
@@ -54,7 +54,12 @@ export async function fetchDaily(symbol, opt = {}) {
   throw lastErr;
 }
 
-export function parse(res, { fillLast = false, keepOpenCrypto = false, nowSec = Date.now() / 1000 } = {}) {
+/**
+ * Barre giornaliere dalla risposta di Yahoo (chart v8).
+ * dropStale: scarta le barre «segnaposto» (volume 0, apertura = massimo = minimo = chiusura = chiusura precedente):
+ * Yahoo le mette quando non ha la seduta (Milano 13–20/09/2022, Xetra 04–06/12/2023) e sembrano sedute ferme.
+ */
+export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale = false, nowSec = Date.now() / 1000 } = {}) {
   const meta = res.meta || {};
   const ts = res.timestamp;
   const quote = res.indicators.quote[0] || {};
@@ -76,6 +81,8 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, nowSec = 
       if (h == null) h = meta.regularMarketDayHigh;
     }
     if (c == null || a == null) continue;
+    if (dropStale && quote.volume && quote.volume[i] === 0 && quote.open && quote.low && quote.open[i] === c && h === c && quote.low[i] === c &&
+        out.close.length && out.close[out.close.length - 1] === c) continue;
     // massimo della seduta; se manca (o è sotto la chiusura, dato sporco) vale la chiusura
     const hi = h != null && h > c ? h : c;
     if (out.dates.length && out.dates[out.dates.length - 1] === d) {

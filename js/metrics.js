@@ -88,6 +88,20 @@ export function smaLast(close, w) {
   return s / w;
 }
 
+/**
+ * Rendimenti del Monitor con un estremo ricopiato dalla seduta prima (`copied` del file globale: indici delle date
+ * senza barra di Yahoo). Per ogni colonna (last, d1, w1, m1, m3, ytd) le date ricopiate che usa; null se nessuna.
+ */
+export function copiedAt(dates, idx) {
+  if (!idx || !idx.length) return null;
+  const cp = new Set(idx), L = dates.length - 1;
+  const y0 = dates.findIndex((d) => d >= dates[L].slice(0, 4) + '-01-01') - 1;
+  const at = (...ii) => ii.filter((i) => i >= 0 && cp.has(i)).map((i) => dates[i]);
+  const out = { last: at(L), d1: at(L, L - 1), w1: at(L, L - 5), m1: at(L, L - 21), m3: at(L, L - 63), ytd: y0 >= 0 ? at(L, y0) : [] };
+  for (const k of Object.keys(out)) if (!out[k].length) delete out[k];
+  return Object.keys(out).length ? out : null;
+}
+
 // Metriche all'ultima data disponibile
 export function priceMetrics(dates, close) {
   const L = close.length - 1;
