@@ -89,7 +89,11 @@
       <li><a href="#btm">3 Bottom Map</a></li>
       <li><a href="#sec">4 Settore</a></li>
       <li><a href="#alr">5 Alert</a></li>
-      <li><a href="#idx">6 Indici</a></li>
+      <li><a href="#idx">6 Indici</a>
+        <ul>
+          <li><a href="#cali">Cali forti (capitolazione)</a></li>
+        </ul>
+      </li>
       <li><a href="#tit">7 Titoli</a></li>
       <li><a href="#comandi">Comandi e tasti</a></li>
       <li><a href="#schermo">Telefono, temi, accessibilità</a></li>
@@ -280,6 +284,7 @@
     <p><b>Situazione</b> riassume breadth, distanza dal livello, soglia di avvicinamento, drawdown e profondità storica, con i link ai grafici su TradingView. <b>Titoli del settore</b> elenca i membri dal più sopra al più sotto la media 200, con una linea tra chi è sopra e chi è sotto: vedi subito chi sta per attraversarla. Il pulsante <b>7 Titoli →</b> porta all'analisi grandi/piccoli dello stesso settore.</p>
     <h3>Episodi e confronto</h3>
     <p>La tabella degli episodi elenca ogni zona blu dal 2005: data di ingresso, breadth minima, drawdown, rendimento a 3 mesi dall'ingresso, trigger (con gli eventuali segnali falliti), conferma, rendimenti a 1, 3 e 6 mesi dal trigger e peggior calo nei 3 mesi.</p>
+    <p>Sotto gli episodi, la scheda richiudibile <b>Cali forti</b> conta i titoli del settore in forte calo: è spiegata <a href="#cali">qui</a>.</p>
     <p>Sotto, <b>Per confronto</b> mette accanto le mediane dopo ogni trigger, dall'ingresso in zona blu, dopo una seduta qualsiasi della stessa storia, di SPY negli stessi giorni e del settore meno SPY. Quante volte è andata bene è scritto come «5 su 6», non in percentuale: i casi sono pochi e spesso cadono nella stessa crisi per più settori. Leggile come esempi, non come probabilità.</p>
   </section>
 
@@ -300,11 +305,22 @@
     <p>La stessa analisi dei settori su 22 indici azionari: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets, Ibovespa.</p>
     <ul>
       <li><b>Indici mostrati</b>: di partenza i 10 principali; un clic aggiunge o toglie un indice, «Principali» e «Tutti» sono le scelte rapide. La scelta resta nel browser. I principali arrivano subito, gli altri un attimo dopo.</li>
-      <li><b>Tabellone</b>: stato, breadth contro il livello blu, drawdown (solo prezzo, valuta locale), come è ricostruita la storia (con la composizione di ogni data, oppure con i membri di oggi) e variazioni.</li>
+      <li><b>Tabellone</b>: stato, breadth contro il livello blu, drawdown (solo prezzo, valuta locale), come è ricostruita la storia (con la composizione di ogni data, oppure con i membri di oggi), <a href="#cali">cali forti</a> e variazioni.</li>
       <li><b>Bottom Map degli indici</b> con la distanza dal livello blu: funziona come quella dei settori, compresa la <a href="#btm">data scorrevole</a>. Gli indici hanno calendari diversi, quindi la data è un venerdì e ogni indice usa la sua ultima seduta fino a lì; quelli che non avevano ancora dati non compaiono e la nota li elenca.</li>
-      <li><b>Dettaglio</b>: grafico, «Perché questo stato», livello blu, situazione ed episodi con i rendimenti a 3, 6 e 12 mesi e il confronto con una seduta qualsiasi. Si apre con un clic o scrivendo il nome breve nella barra (<code>NDX</code>, <code>DAX</code>, <code>N225</code>…).</li>
+      <li><b>Dettaglio</b>: grafico, «Perché questo stato», livello blu, situazione, episodi con i rendimenti a 3, 6 e 12 mesi e il confronto con una seduta qualsiasi, e la scheda <a href="#cali">Cali forti</a>. Si apre con un clic o scrivendo il nome breve nella barra (<code>NDX</code>, <code>DAX</code>, <code>N225</code>…).</li>
     </ul>
     <p>I livelli di default vengono dai grafici di Massimo Rea o, dove non ci sono, dal 3° percentile della storia. <b>Con limiti</b> segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione. Gli indici ricostruiti con i membri di oggi hanno una breadth un po' più alta del vero nelle fasi intermedie.</p>
+    <h3 id="cali">Cali forti (capitolazione)</h3>
+    <p>Una scheda chiusa di default sotto gli episodi, nel dettaglio di ogni indice e di ogni settore (vista 4). Conta quanti titoli hanno perso almeno il 7% in una sola seduta e li somma sulle ultime 5 sedute: è il «Drop giornaliero cumulato» di Massimo Rea (quant-rea), con il suo stesso preset. Un indice che scende trascinato da pochi grandi titoli è una cosa; centinaia di titoli che crollano insieme sono un'altra.</p>
+    <ul>
+      <li><b>Allerta</b>: la somma supera la linea tratteggiata, cioè il 99° percentile di tutte le sedute precedenti di quell'indice o settore (dopo almeno 3 anni di storia), con almeno 5 cali nella somma. Ogni indice ha la sua soglia: un −7% è frequente in Corea e raro in Svizzera.</li>
+      <li><b>Sedute in allerta</b>: nei crolli rapidi (2020, aprile 2025) l'allerta dura pochi giorni; nei mercati orso lunghi (2008) torna a scattare per settimane. Per questo la scheda dice quante sedute è stata in allerta negli ultimi 3 mesi, e la tabella quante per ogni episodio: un'allerta che si ripete dice che qualcosa di grosso si muove sotto la superficie.</li>
+      <li><b>Scelte</b>: calo del 5, 7 o 10%, somma su 3, 5 o 10 sedute, titoli o percentuale dei titoli (utile nei settori e negli indici con pochi membri). Le scelte restano nel browser; «Preset di Rea» torna a −7% su 5 sedute.</li>
+      <li><b>Episodi</b>: per ogni allerta il primo e l'ultimo giorno, le sedute in allerta, il picco, quanto l'indice era sotto il massimo a 52 settimane quel giorno (solo come informazione), quanto è sceso ancora nei 3 mesi dopo e i rendimenti a 3 e 12 mesi, accanto a quelli di una seduta qualsiasi.</li>
+      <li><b>Nella tabella degli indici</b> la colonna «Cali forti» mostra <span class="capflag">allerta</span> se l'allerta è attiva oggi, le sedute in allerta negli ultimi 3 mesi, oppure il percentile di oggi; un riquadro in alto conta gli indici in allerta.</li>
+      <li><b>In «Perché questo stato»</b> compare una riga ⓘ quando c'è stata allerta negli ultimi 3 mesi.</li>
+    </ul>
+    <p>È un'informazione di contesto da leggere insieme alla breadth: <b>non cambia stati, regole né alert Telegram</b>. Nella prova sui 22 indici, dopo le allerte gli indici sono andati in media meglio di una seduta qualsiasi, ma quasi tutto il vantaggio viene dai crolli rapidi (marzo 2020, aprile 2025). All'inizio dei mercati orso lunghi le allerte sono arrivate presto: tra agosto 2007 e settembre 2008 l'indice era più in basso un anno dopo. La storia usa la stessa composizione della breadth (di ogni data per S&amp;P 500, settori, Dow e Nasdaq-100; di oggi per gli altri). I cali che il giorno dopo si annullano in una giornata tranquilla sono errori della fonte e non contano. Taiwan non ha la scheda: lì i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.</p>
   </section>
 
   <section id="tit">

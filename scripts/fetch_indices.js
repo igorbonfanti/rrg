@@ -13,6 +13,8 @@
  *     Una seduta si pubblica se almeno il 75% dei titoli quotati ha la chiusura di quel giorno
  *     (nello STOXX 600 le borse hanno festività diverse); le ultime 5 si ricalcolano.
  *  4. S&P 500: la breadth è la serie SPX di data/breadth.json (scripts/fetch_breadth.js), il prezzo ^GSPC.
+ *  5. data/capitulation.json: membri con un calo giornaliero di almeno il 5/7/10% nelle sedute pubblicate (metodo in
+ *     js/capitulation.js; l'S&P 500 lo aggiorna fetch_breadth.js; fuori gli indici con "noCap" in config).
  * Va eseguito dopo fetch_breadth.js. Lo storico iniziale viene da scripts/backfill_indices.py.
  */
 import fs from 'node:fs';
@@ -23,6 +25,7 @@ import { SOURCES, PARSERS, parseNikkei, parseExsa, parseNasdaq, parseIShares, pa
 import { parseCSV } from './fetch_breadth.js';
 import { encodeRLE, expandRLE } from '../js/signals.js';
 import { decodeDates, encodeDates, unpackIndex, packIndex } from '../js/indexdata.js';
+import { countsOn, mergeCap } from '../js/capitulation.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -267,6 +270,7 @@ async function main() {
 
   // 3. conteggi
   const breadth = readJSON(path.join(DATA, 'breadth.json'), null);
+  const capFile = path.join(DATA, 'capitulation.json'), cap = readJSON(capFile, null);
   Object.keys(cfg).forEach((k, n) => {
     if (!data.series[k] || !idx[n]) return;
     const e = expand(data.series[k]);
@@ -286,6 +290,7 @@ async function main() {
         if (r.n && r.fresh >= r.n * MIN_FRESH) { setCounts(e, d, r); done.push(d); }
         else console.log(`${k} ${d}: non ancora pubblicabile (chiusure del giorno per ${r.fresh}/${r.n} titoli)`);
       }
+      if (cap && !cfg[k].noCap && done.length) cap.series[k] = mergeCap(cap.series[k] || null, Object.fromEntries(done.map((d) => [d, countsOn(lists[k], px, d)])));
     }
     data.series[k] = pack(e);
     console.log(`${k}: prezzo al ${e.dates.at(-1)}, breadth ricalcolata/aggiunta per ${done.length} sedute${done.length ? ` (fino al ${done.at(-1)})` : ''}`);
@@ -297,6 +302,10 @@ async function main() {
   writeJSON(file, main);
   writeJSON(fileMore, more);
   for (const [f, o] of writes) writeJSON(f, o);
+  if (cap) {
+    cap.generated = new Date().toISOString();
+    writeJSON(capFile, cap);
+  } else console.log('::warning::manca data/capitulation.json: esegui scripts/backfill_capitulation.py');
   console.log(`indices.json al ${data.asOf}`);
 }
 

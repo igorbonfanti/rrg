@@ -14,7 +14,9 @@
  *     delle 252 sedute e ultima chiusura senza rettifica (stesse date: i due drawdown differiscono solo
  *     per le cedole), cedole staccate nel periodo e dopo il massimo, massimo intraday («52 week high»).
  *  5. data/breadth_latest.json: fotografia titolo per titolo dell'ultima seduta.
- *  6. data/sector_members.json (vista 7 Titoli): settori cap-weighted contro equal-weight e numeri di ogni
+ *  6. data/capitulation.json, serie SPX e settori: membri con un calo giornaliero di almeno il 5/7/10% nelle sedute
+ *     pubblicate (metodo in js/capitulation.js; storico da scripts/backfill_capitulation.py).
+ *  7. data/sector_members.json (vista 7 Titoli): settori cap-weighted contro equal-weight e numeri di ogni
  *     titolo, calcolati in scripts/lib/capeq.js con la composizione dell'epoca di data/sp500_history.json
  *     (tabella dei cambi di Wikipedia, ricaricata ogni sera, più nome e settore di chi esce) e i pesi delle
  *     holdings dell'ETF iShares IVV.
@@ -28,6 +30,7 @@ import { expandRLE, encodeRLE } from '../js/signals.js';
 import { expectedSession } from '../js/calendar.js';
 import { closeHigh, intradayHigh, exDates } from '../js/metrics.js';
 import { membership, buildSectorMembers, parseSpChanges, parseIvv, align, simStart, HISTORY } from './lib/capeq.js';
+import { countsOn, mergeCap } from '../js/capitulation.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -214,6 +217,28 @@ export function mergeBreadth(breadth, counts) {
   return added;
 }
 
+// Cali forti delle sedute pubblicate (ricalcolate insieme alla breadth: il controllo degli errori di stampa guarda
+// la seduta dopo, che la prima sera non c'è ancora)
+export function capRows(members, prices, dates) {
+  const keys = [...Object.values(GICS), 'SPX'], out = Object.fromEntries(keys.map((k) => [k, {}]));
+  for (const k of keys) {
+    const syms = members.filter((m) => k === 'SPX' || m.sector === k).map((m) => m.s);
+    for (const d of dates) out[k][d] = countsOn(syms, prices, d);
+  }
+  return out;
+}
+function updateCapitulation(members, prices, dates) {
+  const file = path.join(DATA, 'capitulation.json');
+  const cap = readJSON(file, null);
+  if (!cap) { console.log('::warning::manca data/capitulation.json: esegui scripts/backfill_capitulation.py'); return; }
+  const rows = capRows(members, prices, dates);
+  for (const [k, r] of Object.entries(rows)) cap.series[k] = mergeCap(cap.series[k] || null, r);
+  cap.asOf = dates.length ? [cap.asOf, dates.at(-1)].sort().at(-1) : cap.asOf;
+  cap.generated = new Date().toISOString();
+  writeJSON(file, cap);
+  console.log(`capitulation.json: SPX e settori ricalcolati per ${dates.length} sedute`);
+}
+
 // Nome e settore di chi esce dall'indice: la tabella dei cambi di Wikipedia ha solo il ticker
 // e le azioni detenute da IVV l'ultima sera, per il suo peso nel cap-weighted fino all'uscita
 function rememberFormer(list) {
@@ -344,7 +369,7 @@ async function main() {
   const prices = {};
   members.forEach((m, k) => {
     const r = results[k];
-    if (r && r.dates.length) prices[m.s] = { dates: r.dates, close: r.close, index: new Map(r.dates.map((d, i) => [d, i])) };
+    if (r && r.dates.length) prices[m.s] = { dates: r.dates, close: r.close, adj: r.adjclose, index: new Map(r.dates.map((d, i) => [d, i])) };
   });
   const got = Object.keys(prices).length;
   console.log(`Prezzi scaricati per ${got}/${members.length} membri`);
@@ -374,6 +399,8 @@ async function main() {
     return { s: m.s, name: m.name, sector: m.sector, close: Math.round(c[i] * 100) / 100, d20: dist(20), d50: dist(50), d200: dist(200), up200: m200 != null && c[i] > m200, dd: Math.round((c[i] / hi - 1) * 1000) / 10 };
   });
   writeJSON(path.join(DATA, 'breadth_latest.json'), { asOf: d, members: snap });
+
+  updateCapitulation(members, prices, dates);
 
   try { await updateSectorMembers(members, prices, breadth); } catch (e) { console.log(`::warning::sector_members.json non aggiornato: ${e.message}`); }
 

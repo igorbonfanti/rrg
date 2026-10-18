@@ -2,6 +2,7 @@
 import { build, stats, CENTER } from './engine.js';
 import { createBottom, NAMES as SECTOR_NAMES } from './bottom.js';
 import { createIndices } from './indices.js';
+import { createCap } from './cap-view.js';
 import { createTitles } from './titles.js';
 import { VERSION, RELEASE, NOTES } from './version.js';
 import { priceMetrics, priceDrawdown } from './metrics.js';
@@ -221,13 +222,15 @@ function init() {
   $('cvdBtn').setAttribute('aria-pressed', String(cvdOn));
   $('themeBtn').setAttribute('aria-checked', String(isLight()));
   const x = state.extra;
+  // cali forti (schede delle viste 4 e 6): un solo file per le due viste, scaricato alla prima apertura
+  const cap = createCap({ store, load: () => getJSON('data/capitulation.json', false, true) });
   state.bottom = createBottom({
-    $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store,
+    $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store, cap,
     rotation: sectorRotation, rotationNote: () => `vs SPY, settimanale, ${formulaText()} (la formula si sceglie nella pagina Rotazione)`,
     setView: (v, silent) => setView(v, silent), openRRG: focusSymbol,
   });
   // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
-  state.indices = x.indices ? createIndices({ $, store, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json', false, true), loadMore: () => getJSON('data/indices_more.json', true, true) }) : null;
+  state.indices = x.indices ? createIndices({ $, store, cap, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json', false, true), loadMore: () => getJSON('data/indices_more.json', true, true) }) : null;
   if (!state.indices) $('tab-idx').hidden = true;
   // vista 7 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
