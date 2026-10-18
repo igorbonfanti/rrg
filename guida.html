@@ -154,7 +154,7 @@
         <tr><td><b>Cooldown</b></td><td>dopo un trigger, 63 sedute senza nuovi segnali. Una nuova zona blu richiede prima il <b>riarmo</b>: breadth sopra il più alto tra 40% e livello + 25.</td></tr>
       </tbody>
     </table></div>
-    <p>Nel grafico della vista 4 le bande blu chiare sono le sedute con la breadth sotto il livello ma fuori dalla zona blu (prima chiusura, drawdown non abbastanza profondo, cooldown o riarmo mancante): il motivo è nel riquadro al passaggio del mouse.</p>
+    <p>Nel grafico della vista 4 le bande blu a righe sono le sedute con la breadth sotto il livello ma fuori dalla zona blu (prima chiusura, drawdown non abbastanza profondo, cooldown o riarmo mancante): il motivo è nel riquadro al passaggio del mouse.</p>
 
     <h3 id="avvicinamento">Avvicinamento</h3>
     <p>Un settore in stato Normale è in <b>Avvicinamento</b> quando la breadth scende sotto la sua <b>soglia di avvicinamento</b>: il livello blu più il calo forte della sua breadth in 10 sedute (90° percentile dei cali della sua storia). Da lì, in un calo deciso, il livello blu è a circa due settimane: è il momento di metterlo in osservazione.</p>
@@ -217,7 +217,7 @@
       <li><b>Timeframe</b>: settimanale (predefinito) o giornaliero. Il punto della settimana in corso è vuoto perché provvisorio.</li>
       <li><b>Formula</b>: Nuova o Medie semplici (vedi <a href="#formule">sotto</a>).</li>
       <li><b>Coda</b>: quanti periodi di storia mostra ogni punto (4, 10, 16, 26).</li>
-      <li><b>Scala</b>: «Adatta» stringe gli assi sulle code visibili; «Massima» li tiene fissi su tutto il periodo, utile con l'animazione.</li>
+      <li><b>Scala</b>: «Adatta» stringe gli assi sulle code visibili; «Massima» li tiene fissi su tutto il periodo, utile con l'animazione. La scelta resta nel browser.</li>
       <li><b>PLAY</b> e il cursore: rivedono la rotazione nel tempo. Con <kbd>←</kbd> <kbd>→</kbd> ti sposti di un periodo, con <kbd>Spazio</kbd> parte o si ferma l'animazione.</li>
       <li>Passando sopra un titolo gli altri si attenuano; un clic lo <b>fissa</b>, un secondo clic lo libera. La spunta nella tabella nasconde un titolo dal grafico.</li>
     </ul>
@@ -259,6 +259,7 @@
     <h3>Data scorrevole e replay</h3>
     <ul>
       <li>Il <b>cursore</b> riporta la mappa a una settimana qualsiasi dal 2005; <b>PLAY</b> la fa scorrere una settimana alla volta fino a oggi (da oggi riparte da un anno fa); <b>Oggi</b> torna ai dati attuali.</li>
+      <li><b>Zoom sulla zona</b>: ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi, così nelle crisi passate i punti non si ammucchiano e il replay non salta. La scelta resta nel browser.</li>
       <li>Le scorciatoie <b>Crisi passate</b> portano ai minimi di nov 2008 (minimo della breadth; il prezzo dell'S&amp;P 500 tocca il fondo il 09/03/2009), ott 2011, feb 2016, dic 2018, mar 2020, ott 2022 e apr 2025.</li>
       <li>A una data passata tutto è come si vedeva allora: coda, stato di quel giorno, avvicinamento (con la soglia calcolata solo sulla storia fino a lì) e distanze. L'asse verticale resta fisso, così il replay non salta.</li>
     </ul>
@@ -270,7 +271,7 @@
     <a class="open" href="./#XLU">Apri un settore (XLU) →</a>
     <p>Il dettaglio di un settore: si sceglie dai bottoni in alto, da una riga del Monitor o scrivendo il ticker (per esempio <code>XLK</code>) nella barra dei comandi.</p>
     <h3>Grafico</h3>
-    <p>Prezzo con la media 200, drawdown e breadth (a 200 e 50 sedute) sullo stesso asse del tempo, per 3 anni, 10 anni o dal 2005. Le bande blu sono le zone blu passate, i segni verde acqua i trigger; le bande blu chiare le sedute sotto il livello ma fuori dalla zona blu. Passando il mouse vedi tutti i valori di quella seduta.</p>
+    <p>Prezzo con la media 200, drawdown e breadth (a 200 e 50 sedute) sullo stesso asse del tempo, per 3 anni, 10 anni o dal 2005. Le bande blu sono le zone blu passate, i segni verde acqua i trigger; le bande blu a righe le sedute sotto il livello ma fuori dalla zona blu. Passando il mouse vedi tutti i valori di quella seduta.</p>
     <h3>Perché questo stato</h3>
     <p>Le condizioni della macchina a stati, con ✓ (soddisfatta) e ✗ (manca), calcolate con le stesse regole degli stati:</p>
     <ul>
@@ -372,7 +373,7 @@
   <section id="schermo">
     <h2>Telefono, temi, accessibilità</h2>
     <ul>
-      <li><b>Telefono</b>: i grafici si disegnano alla larghezza dello schermo; nel Monitor ogni settore diventa una scheda e i settori da osservare vengono prima. Un tocco su un punto mostra i suoi numeri, un tocco su un'intestazione la sua spiegazione.</li>
+      <li><b>Telefono e tablet</b>: i grafici si disegnano alla larghezza dello schermo; nel Monitor e nel tabellone degli indici ogni riga diventa una scheda, e sul telefono i settori da osservare vengono prima. Un tocco su un grafico mostra i numeri di quel punto (un tocco fuori lo chiude); sulla Bottom Map il primo tocco su un punto mostra i suoi numeri, il secondo apre il settore o l'indice. Un tocco su un valore con la sottolineatura a puntini, anche dentro una scheda, mostra la sua spiegazione; il nome apre il settore. Nelle viste Settore e Indici il riquadro «Perché questo stato» viene subito dopo il grafico; nelle tabelle larghe alcune colonne secondarie sono nascoste e la nota sotto lo dice.</li>
       <li><b>Chiaro / Scuro</b>: l'interruttore in alto (o i comandi <code>CHIARO</code> e <code>SCURO</code>). La scelta resta nel browser.</li>
       <li><b>CVD</b>: colori per chi distingue male rosso e verde: su e giù diventano blu e rosso. I quadranti e gli stati hanno sempre anche un'etichetta o una forma, non solo il colore.</li>
       <li>Le tabelle larghe scorrono di lato: un'ombra sul bordo lo segnala.</li>

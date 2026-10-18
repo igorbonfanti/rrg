@@ -114,7 +114,8 @@ export function createCap(ctx) {
       `<button type="button" class="mini" data-preset ${isPreset(opt) ? 'hidden' : ''}>Preset di Rea (−7%, 5 sedute)</button>`);
     $('CapCtl').querySelectorAll('button[data-k]').forEach((b) => { b.onclick = () => setOpt(b.dataset.k, b.dataset.k === 'mode' ? b.dataset.v : +b.dataset.v); });
     const pr = $('CapCtl').querySelector('button[data-preset]');
-    if (pr) pr.onclick = () => { opt.thr = CAP_DEFAULT.thr; opt.win = CAP_DEFAULT.win; opt.mode = CAP_DEFAULT.mode; store.set('cap', { ...opt }); notify(); };
+    // il pulsante sparisce con il preset: il focus passa alla soglia scelta
+    if (pr) pr.onclick = () => { opt.thr = CAP_DEFAULT.thr; opt.win = CAP_DEFAULT.win; opt.mode = CAP_DEFAULT.mode; store.set('cap', { ...opt }); notify(); const b = $('CapCtl').querySelector('button[data-k="thr"][aria-pressed="true"]'); if (b) b.focus(); };
 
     const since = a.from >= 0 ? s.dates[a.from] : null;
     $('CapNow').innerHTML = (t.on
@@ -148,7 +149,7 @@ export function createCap(ctx) {
       `. Per confronto, in media dopo una seduta qualsiasi della stessa storia: +3M ${c(base.r63)}, +12M ${c(base.r252)}.`;
     $('CapNote').innerHTML = `Quanti ${what()} (preset di Quant Rea, «Drop giornaliero cumulato»: −7% su 5 sedute). La linea tratteggiata è la soglia di allerta: il 99° percentile delle sedute precedenti, con almeno 5 cali nella somma. ` +
       'Un\'allerta dice che sotto la superficie le vendite sono forti e diffuse. Conta soprattutto se si ripete: con il preset, nei 12 mesi dal primo episodio le serie dell\'app sono state in allerta 31,5 sedute di mediana nel 2007-2009 (in più episodi), 12 nel 2020 e 5 nell\'aprile 2025. ' +
-      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati).';
+      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati).<span class="only-phone"> Sul telefono «Dal max 52s» e «Calo dopo, 3M» sono nascoste.</span>';
     body.dataset.k = k;
   }
   return { ensure, onChange, status, info, cell, card, ready: () => !!data, failed: () => failed };

@@ -25,7 +25,7 @@ const ok = (name, cond, extra = '') => res.push(`${cond ? 'OK  ' : 'FAIL'} ${nam
       await page.screenshot({ path: `${OUT}${tag}-${v}.png`, fullPage: false });
     }
     // versione
-    ok(`${tag} versione 0.9.1`, /0\.9\.1/.test(await page.evaluate(() => document.getElementById('verTag').textContent)));
+    ok(`${tag} versione ${process.env.VER || '0.9.2'}`, new RegExp((process.env.VER || '0.9.2').replace(/\./g, '\\.')).test(await page.evaluate(() => document.getElementById('verTag').textContent)));
     // asterisco nella tabella Prezzi: universo 6 · Indici, CSNDX YTD
     await page.goto(BASE + '#rrg'); await page.waitForTimeout(1500);
     await page.evaluate(() => { const s = document.getElementById('groupSel'); s.value = '6 · Indici'; s.dispatchEvent(new Event('change')); });

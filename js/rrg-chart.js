@@ -103,7 +103,7 @@ export function drawRRG(svg, p) {
     el('text', { x, y, 'text-anchor': a, class: `qlabel ql-${k}` }, svg).textContent = t;
   }
   el('text', { x: M.l + PW, y: S - 8, 'text-anchor': 'end', class: 'axlabel' }, svg).textContent = 'RS-RATIO  →  forza relativa';
-  el('text', { x: 12, y: M.t, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 12 ${M.t})` }, svg).textContent = 'RS-MOMENTUM  →  slancio';
+  el('text', { x: 14, y: M.t + 6, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 14 ${M.t + 6})` }, svg).textContent = 'RS-MOMENTUM  →  slancio';
 
   const plot = el('g', { 'clip-path': `url(#${clipId})` }, svg);
   const heads = [];
@@ -120,7 +120,7 @@ export function drawRRG(svg, p) {
       const age = (i - f0) / n;
       el('line', {
         x1: sx(x[i - 1]), y1: sy(y[i - 1]), x2: sx(x[i]), y2: sy(y[i]),
-        class: isFocus ? `seg segq-${QKEY[quadrant(x[i], y[i])]}` : 'seg', 'stroke-opacity': (0.2 + 0.6 * age).toFixed(2),
+        class: isFocus ? `seg segq-${QKEY[quadrant(x[i], y[i])]}` : 'seg', 'stroke-opacity': (0.35 + 0.5 * age).toFixed(2),
       }, grp);
     }
     for (let i = f0; i < frame; i++) {

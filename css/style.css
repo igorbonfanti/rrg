@@ -41,7 +41,7 @@
   --q-lead-fill: var(--q-lead); --q-weak-fill: var(--q-weak); --q-lag-fill: var(--q-lag); --q-imp-fill: var(--q-imp);
   /* propri di Sector Monitor: fondi dei quadranti e delle zone, area del drawdown, linee dei grafici e dei link */
   --q-lead-tint: rgba(53, 208, 186, 0.04); --q-weak-tint: rgba(255, 196, 0, 0.04); --q-lag-tint: rgba(255, 92, 77, 0.04); --q-imp-tint: rgba(155, 123, 255, 0.05);
-  --watch-zone: rgba(255, 196, 0, 0.045); --blue-zone: rgba(59, 123, 255, 0.16); --dd-area: rgba(239, 68, 68, 0.14);
+  --watch-zone: rgba(255, 196, 0, 0.09); --blue-zone: rgba(59, 123, 255, 0.28); --dd-area: rgba(239, 68, 68, 0.14);
   --watch-line: #ffc400; --trig-line: #22c55e; --blue-text: #3b7bff; --chart-br50: #4a4a4a; --key-br50: #555555; --link-line: #5a3a0f;
   --f-ui: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
   --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -53,7 +53,9 @@
 html, body { margin: 0; background: var(--bg); }
 body { color: var(--ink); font: 13px/1.4 var(--f-ui); padding: 16px; }
 button, input, select { font: inherit; color: inherit; }
-:focus-visible { outline: 1px solid var(--amber); outline-offset: 1px; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+/* sugli elementi premuti o scelti lo sfondo è ambra: il contorno usa il colore del testo */
+[aria-selected="true"]:focus-visible, [aria-pressed="true"]:focus-visible, [aria-checked="true"]:focus-visible { outline-color: var(--ink); }
 [hidden] { display: none !important; }
 a { color: var(--amber); }
 .num, .mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
@@ -88,7 +90,7 @@ sup.cp { color: var(--amber); font-size: 0.8em; margin-left: 1px; }
 .fnkeys button { font: 600 12px var(--f-mono); letter-spacing: 0.03em; color: var(--amber); background: var(--panel-2); border: 0; padding: 7px 14px; cursor: pointer; white-space: nowrap; }
 .fnkeys button:hover { background: var(--row-hi); }
 .fnkeys button[aria-selected="true"] { background: var(--amber); color: #000; }
-.fnkeys button:focus-visible { outline-offset: -3px; }
+.fnkeys button:focus-visible { outline-offset: -4px; }
 .tools { display: flex; gap: 1px; }
 .tool { font: 600 11.5px var(--f-mono); letter-spacing: 0.03em; color: var(--ink-3); background: var(--panel-2); border: 0; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
 .tool:hover { color: var(--amber); }
@@ -136,7 +138,7 @@ details.owner[open] summary { margin-bottom: 8px; }
 /* ---------- pannelli ---------- */
 .panel { background: var(--bg); border: 1px solid var(--rule); min-width: 0; }
 .ph { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 6px 10px; border-bottom: 1px solid var(--rule); }
-.ph h2 { margin: 0; font: 600 12px var(--f-mono); letter-spacing: 0.06em; color: var(--amber); text-transform: uppercase; }
+.ph h2, .ph .h2 { margin: 0; font: 600 12px var(--f-mono); letter-spacing: 0.06em; color: var(--amber); text-transform: uppercase; }
 .ph .meta { font: 11px var(--f-mono); color: var(--ink-3); }
 .pb { padding: 10px; }
 .note { font: 12px/1.45 var(--f-ui); color: var(--ink-3); margin: 0; }
@@ -215,7 +217,9 @@ table.t { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .t td .vis { accent-color: var(--amber); margin: 0; cursor: pointer; }
 /* tabella di rotazione: celle più strette, così entra anche con i nomi brevi più lunghi (Commodity, Emergenti) */
 #rotTable th, #rotTable td { padding-left: 6px; padding-right: 6px; }
-@media (min-width: 1101px) and (max-width: 1439px) { #rotTable th, #rotTable td { padding-left: 4px; padding-right: 4px; } }
+@media (min-width: 1101px) and (max-width: 1439px) { #rotTable th, #rotTable td { padding-left: 4px; padding-right: 4px; font-size: 12px; } }
+/* intestazioni lunghe degli episodi su due righe: la tabella sta nel pannello senza scorrere */
+#epiTable th, #ixEpiTable th { white-space: normal; vertical-align: bottom; }
 .sym { font: 600 12.5px var(--f-mono); color: var(--amber); }
 .nm { color: var(--ink-2); margin-left: 6px; }
 .dlt { font-size: 10.5px; margin-left: 3px; }
@@ -423,7 +427,7 @@ button.mini:hover { color: var(--amber); border-color: var(--amber); }
 .members a.sym { text-decoration: none; border-bottom: 1px solid var(--link-line); }
 .members a.sym:hover { border-color: var(--amber); }
 .t tr.cut td { border-top: 1px solid var(--blue); }
-.wrapc { white-space: normal !important; min-width: 170px; font-size: 12px; color: var(--ink-2); }
+.wrapc { white-space: normal !important; min-width: 140px; font-size: 12px; color: var(--ink-2); }
 
 svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch-action: pan-y; }
 .ts .gridl { stroke: var(--grid); }
@@ -436,8 +440,10 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .ts .br50 { fill: none; stroke: var(--chart-br50); stroke-width: 1; }
 .ts .brfill { fill: var(--blue); opacity: 0.55; }
 .ts .blue { stroke: var(--blue); stroke-width: 1.5; }
-.ts .band { fill: var(--blue); opacity: 0.14; }
-.ts .band-off { fill: var(--blue); opacity: 0.08; }
+.ts .band { fill: var(--blue); opacity: 0.22; }
+/* sotto il livello ma fuori dalla zona blu: a righe, per distinguerla dalla zona blu */
+.ts .band-off { fill: url(#hatchOff); }
+.kb-hatch { background: repeating-linear-gradient(135deg, var(--blue) 0 1.5px, transparent 1.5px 4px); opacity: .8; }
 .tip .note-row { display: block; max-width: 230px; white-space: normal; color: var(--ink-2); margin-top: 4px; font-size: 11px; line-height: 1.35; }
 .ts .zero { stroke: var(--chart-base); }
 .ts .trigmark { fill: var(--q-lead); stroke: var(--bg); stroke-width: 1; }
@@ -447,7 +453,7 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .ts .lasttxt { fill: #000; font: 600 10.5px var(--f-mono); }
 
 .rrg .bz-watch { fill: var(--watch-zone); }
-.rrg .bz-setup { fill: var(--blue-zone); }
+.rrg .bz-setup { fill: var(--blue-zone); stroke: var(--blue); stroke-opacity: 0.35; }
 .rrg .bm-blue { stroke: var(--blue); stroke-width: 1.5; }
 .rrg .bl-setup { fill: var(--blue-light); } .rrg .bl-watch { fill: var(--watch-line); } .rrg .bl-normal { fill: var(--ink-3); } .rrg .bl-blue { fill: var(--blue-text); }
 .rrg .segz-setup { stroke: var(--blue); } .rrg .segz-watch { stroke: var(--watch-line); } .rrg .segz-normal { stroke: var(--ink-2); }
@@ -467,6 +473,7 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .alist li { display: grid; grid-template-columns: 86px 56px 1fr; gap: 10px; padding: 7px 10px; border-bottom: 1px solid var(--grid); font-size: 12.5px; align-items: baseline; }
 .alist .when { font: 11.5px var(--f-mono); color: var(--ink-3); }
 .alist .who { all: unset; cursor: pointer; font: 600 12px var(--f-mono); color: var(--amber); }
+.alist .who:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 .alist .who:hover, .alist .who:focus-visible { text-decoration: underline; }
 .atext { color: var(--ink-2); }
 .rules, .sent { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; font-size: 12.5px; color: var(--ink-2); }
@@ -537,7 +544,7 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
    scuri quando sono testo, linee o punti (i badge restano pieni e vivi, con testo nero) */
 :root[data-theme="light"] {
   --q-lead-tint: rgba(53, 208, 186, 0.08); --q-weak-tint: rgba(255, 196, 0, 0.1); --q-lag-tint: rgba(255, 92, 77, 0.07); --q-imp-tint: rgba(155, 123, 255, 0.08);
-  --watch-zone: rgba(255, 196, 0, 0.14); --blue-zone: rgba(59, 123, 255, 0.14); --dd-area: rgba(194, 39, 39, 0.12);
+  --watch-zone: rgba(255, 196, 0, 0.24); --blue-zone: rgba(59, 123, 255, 0.24); --dd-area: rgba(194, 39, 39, 0.12);
   --watch-line: #825e00; --trig-line: #127337; --blue-text: #1f5ad6; --chart-br50: #a8a8a8; --key-br50: #a8a8a8; --link-line: #e0b98f;
 }
 
@@ -569,7 +576,7 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
   .term { border: 0; }
   .st, .fresh { color: #000 !important; }
   .cmdbar, nav, .filters, .intro, .controls, .loading, details.owner, #blueReset, .tip { display: none !important; }
-  .ph h2, .sym, a, .t th[aria-sort] { color: #000 !important; }
+  .ph h2, .ph .h2, .sym, a, .t th[aria-sort] { color: #000 !important; }
   .panel { break-inside: avoid; margin-bottom: 8px; }
 }
 /* pagina Indici: selettore degli indici mostrati, una riga per area */
@@ -634,7 +641,7 @@ svg.bub { touch-action: pan-y; }
 .legend .kl-dash { background: none; border-top: 1.5px dashed var(--blue-light); height: 0; }
 .legend .kl-dot { background: none; border-top: 1.5px dotted var(--ink); height: 0; }
 .legend .ka { display: inline-block; height: 10px; vertical-align: -1px; margin-right: 5px; }
-.t.pain .nm { color: var(--ink-3); margin-left: 6px; display: inline-block; max-width: 13ch; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; }
+.t.pain .nm { color: var(--ink-3); margin-left: 6px; display: inline-block; max-width: 9ch; overflow: hidden; text-overflow: ellipsis; vertical-align: bottom; }
 .t.pain tbody tr { cursor: default; }
 #v-tit .how { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px 16px; }
 #v-tit .how b { color: var(--ink-2); }
@@ -749,7 +756,33 @@ svg.bub { touch-action: pan-y; }
 .legend .kl.dash { height: 0; border-top: 2px dashed; background: none !important; }
 .ts .caparea { fill: var(--down); fill-opacity: .45; stroke: var(--down); stroke-width: .8; }
 .ts .capalert { fill: none; stroke: var(--amber); stroke-width: 1.4; stroke-dasharray: 5 3; }
-.ts .band-cap { fill: var(--down); fill-opacity: .12; }
+.ts .band-cap { fill: var(--down); fill-opacity: .25; }
+[data-theme="light"] .ts .band-cap { fill-opacity: .14; }
 .capflag { display: inline-block; padding: 0 6px; border: 1px solid var(--down); color: var(--down); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
-.capflag.weak { border-style: dashed; opacity: .85; }
+.capflag.weak { border-style: dashed; }
 .capinfo { margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--rule); }
+
+/* telefono: tabelle larghe con le colonne principali; le altre sono nei tooltip, nel grafico o su schermi più grandi */
+@media (max-width: 600px) {
+  #rotTable th:nth-child(6), #rotTable td:nth-child(6), #rotTable th:nth-child(7), #rotTable td:nth-child(7), #rotTable th:nth-child(9), #rotTable td:nth-child(9) { display: none; }
+  #rotTable .dlt { display: none; }
+  #epiTable th:nth-child(3), #epiTable td:nth-child(3), #epiTable th:nth-child(4), #epiTable td:nth-child(4), #epiTable th:nth-child(10), #epiTable td:nth-child(10),
+  #ixEpiTable th:nth-child(3), #ixEpiTable td:nth-child(3), #ixEpiTable th:nth-child(4), #ixEpiTable td:nth-child(4), #ixEpiTable th:nth-child(10), #ixEpiTable td:nth-child(10) { display: none; }
+  #secCapTable th:nth-child(5), #secCapTable td:nth-child(5), #secCapTable th:nth-child(6), #secCapTable td:nth-child(6),
+  #ixCapTable th:nth-child(5), #ixCapTable td:nth-child(5), #ixCapTable th:nth-child(6), #ixCapTable td:nth-child(6) { display: none; }
+}
+.only-phone { display: none; }
+@media (max-width: 600px) { .only-phone { display: inline; } }
+/* Settore e Indici su una colonna: subito dopo il grafico il riquadro «Perché questo stato», poi il resto */
+@media (max-width: 1100px) {
+  #v-sec .grid-side > .stack, #v-idx .grid-side > .stack { display: contents; }
+  #v-sec .grid-side > .stack > *, #v-idx .grid-side > .stack > * { order: 3; }
+  #v-sec .grid-side .panel:has(#tsWrap), #v-idx .grid-side .panel:has(#ixTsWrap) { order: 1; }
+  #v-sec .grid-side .panel:has(#secCheck), #v-idx .grid-side .panel:has(#ixCheck) { order: 2; }
+}
+/* durante il caricamento del Monitor non si vedono riquadri e legende vuoti */
+.loading:not([hidden]) ~ .grid-side { visibility: hidden; }
+#titAx { max-width: 100%; }
+.ts .capalert-t { fill: var(--amber-2); }
+/* tablet: i cinque riquadri in una riga, senza celle vuote */
+@media (min-width: 601px) and (max-width: 1100px) { .kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); } .kpis .kpi .s { overflow-wrap: anywhere; } }

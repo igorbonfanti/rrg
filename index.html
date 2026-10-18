@@ -51,6 +51,7 @@
   <link rel="preload" href="config/indices.json" as="fetch" crossorigin />
 </head>
 <body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="hatchOff" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" style="fill:var(--blue);opacity:.08"/><line x1="0" y1="0" x2="0" y2="6" style="stroke:var(--blue);stroke-width:2;opacity:.4"/></pattern></defs></svg>
 <div class="term" id="term">
   <header class="cmdbar">
     <h1 class="brand">SECTOR·MON</h1>
@@ -58,7 +59,7 @@
     <button type="button" class="newver" id="newVer" hidden></button>
     <form class="cmd" id="cmdForm" autocomplete="off">
       <span class="prompt">&gt;</span>
-      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Comando: un ticker (XLU, NVDA, SWDA), un nome (ORO, TESLA), MON, ROT, BTM, ALRT, HELP · poi Invio" />
+      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Ticker o nome: XLU, ORO, HELP" />
       <button class="go" type="submit">GO</button>
     </form>
     <span class="clock" id="clock"></span>
@@ -104,7 +105,7 @@
     <div class="intro" id="intro" hidden>
       <p><b>Sector Monitor</b> cerca i possibili bottom dei settori S&amp;P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
       <ol>
-        <li>Leggi il <b>Monitor</b>: lo stato di ogni settore e, a destra, quelli da osservare con il motivo.</li>
+        <li>Leggi il <b>Monitor</b>: lo stato di ogni settore e, accanto (sul telefono sopra), quelli da osservare con il motivo.</li>
         <li>Clic su un settore per il <b>dettaglio</b>: prova il livello blu con + e −.</li>
         <li>Apri <b>2 Rotazione</b> e scegli un universo in euro: Asset class, Fattori, Regioni, Paesi o Indici.</li>
       </ol>
@@ -268,7 +269,7 @@
             </span></div>
           <div class="tscroll" id="rotWrap"><table class="t" id="rotTable"></table></div>
           <div class="tscroll" id="pxWrap" hidden><table class="t" id="monTable"></table></div>
-          <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p>
+          <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.<span class="only-phone"> Sul telefono Vel., Dist., Prima e le variazioni sono nascoste: ruotalo o usa un computer per vederle.</span></p>
           <p class="note pb" id="pxNote" hidden>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni (nel Monitor il percentile usa la storia dal 2004, quindi lo stesso ETF può essere rosso in una tabella e no nell'altra); il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Clic su un'intestazione per ordinare.<span id="pxCopied"></span></p>
         </div>
         <div class="panel">
@@ -352,8 +353,8 @@
             <span><span class="kl" style="background:var(--ink-2)"></span>% sopra media 200</span>
             <span><span class="kl" style="background:var(--key-br50)"></span>% sopra media 50</span>
             <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
-            <span><span class="kb" style="background:var(--blue);opacity:.4"></span>zona blu</span>
-            <span><span class="kb" style="background:var(--blue);opacity:.15"></span>sotto il livello, fuori dalla zona blu</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.45"></span>zona blu</span>
+            <span><span class="kb kb-hatch"></span>sotto il livello, fuori dalla zona blu (a righe)</span>
             <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
           </div>
         </div>
@@ -362,10 +363,10 @@
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu"><table class="t" id="epiTable"></table></div>
           <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni.</p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi a confronto con una seduta qualsiasi e con SPY"><table class="t ctx" id="epiCtx"></table></div>
-          <p class="note pb">Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.</p>
+          <p class="note pb">Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
         </div>
         <details class="panel capcard" id="secCap">
-          <summary class="ph"><h2>Cali forti · capitolazione</h2><span class="meta" id="secCapMeta"></span></summary>
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="secCapMeta"></span></summary>
           <div class="pb" id="secCapBody">
             <div class="controls capctl" id="secCapCtl"></div>
             <p class="note" id="secCapNow"></p>
@@ -531,8 +532,8 @@
             <span><span class="kl" style="background:var(--ink-2)"></span>% sopra media 200</span>
             <span><span class="kl" style="background:var(--key-br50)"></span>% sopra media 50</span>
             <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
-            <span><span class="kb" style="background:var(--blue);opacity:.4"></span>zona blu</span>
-            <span><span class="kb" style="background:var(--blue);opacity:.15"></span>sotto il livello, fuori dalla zona blu</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.45"></span>zona blu</span>
+            <span><span class="kb kb-hatch"></span>sotto il livello, fuori dalla zona blu (a righe)</span>
             <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
           </div>
         </div>
@@ -541,10 +542,10 @@
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu dell'indice"><table class="t" id="ixEpiTable"></table></div>
           <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.</p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi dell'indice a confronto con una seduta qualsiasi"><table class="t ctx" id="ixEpiCtx"></table></div>
-          <p class="note pb">Rendimenti dell'indice (solo prezzo, valuta locale) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.</p>
+          <p class="note pb">Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
         </div>
         <details class="panel capcard" id="ixCap">
-          <summary class="ph"><h2>Cali forti · capitolazione</h2><span class="meta" id="ixCapMeta"></span></summary>
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="ixCapMeta"></span></summary>
           <div class="pb" id="ixCapBody">
             <div class="controls capctl" id="ixCapCtl"></div>
             <p class="note" id="ixCapNow"></p>
@@ -631,7 +632,7 @@
         <span><span class="kd o"></span>equal-weight · ogni titolo conta uguale</span>
         <span><span class="kl" style="background:var(--q-lead);height:4px"></span>davanti l'equal-weight · movimento largo</span>
         <span><span class="kl" style="background:var(--q-imp);height:4px"></span>davanti il cap-weighted · guidano i grandi</span>
-        <span><svg class="ka" width="58" viewBox="0 0 58 10" aria-hidden="true"><circle cx="4" cy="5" r="1.9" fill="var(--chart-trail)" opacity=".4"/><circle cx="14" cy="5" r="2.6" fill="var(--chart-trail)" opacity=".55"/><circle cx="26" cy="5" r="3.4" fill="var(--chart-trail)" opacity=".75"/><defs><linearGradient id="kArrUp"><stop offset="0" stop-color="var(--up)" stop-opacity=".08"/><stop offset="1" stop-color="var(--up)"/></linearGradient></defs><rect x="26" y="3.8" width="18" height="2.4" fill="url(#kArrUp)"/><path d="M49 5 L43.5 1.4 L43.5 8.6 Z" fill="var(--up)"/><circle cx="53" cy="5" r="4.2" fill="var(--ink)"/></svg>scia: 3 mesi, 1 mese, 1 settimana fa (pallini sempre più grandi) e freccia dell'ultima settimana, verde se sale, rossa se scende</span>
+        <span><svg class="ka" width="58" viewBox="0 0 58 10" aria-hidden="true"><circle cx="4" cy="5" r="1.9" fill="var(--chart-trail)" opacity=".4"/><circle cx="14" cy="5" r="2.6" fill="var(--chart-trail)" opacity=".55"/><circle cx="26" cy="5" r="3.4" fill="var(--chart-trail)" opacity=".75"/><defs><linearGradient id="kArrUp"><stop offset="0" stop-color="var(--up)" stop-opacity=".08"/><stop offset="1" stop-color="var(--up)"/></linearGradient></defs><rect x="26" y="3.8" width="18" height="2.4" fill="url(#kArrUp)"/><path d="M49 5 L43.5 1.4 L43.5 8.6 Z" fill="var(--up)"/><circle cx="53" cy="5" r="4.2" fill="var(--ink)"/></svg>scia: 3 mesi, 1 mese, 1 settimana fa (pallini sempre più grandi) e freccia dell'ultima settimana, verde (blu con CVD) se sale, rossa se scende</span>
         <span><svg class="ka" width="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--amber)" stroke-width="1.5"/></svg>le 3 divergenze più ampie</span>
       </div>
       <p class="note pb" id="titSpreadNote"></p>
@@ -686,7 +687,7 @@
     <div class="panel" style="margin-top:12px">
       <div class="ph"><h2>Come si legge</h2></div>
       <div class="pb how">
-        <p class="note"><b>Grandi contro piccoli.</b> Per ogni settore il rendimento dell'indice pesato per capitalizzazione (pallino pieno, pesano i grandi) e dello stesso settore con ogni titolo a peso uguale (pallino vuoto, pesano i medi e i piccoli). La barra è la divergenza: verde acqua se vanno meglio i titoli medi (il movimento è largo), viola se guidano i grandi. Le tre divergenze più ampie hanno un anello sul pallino di chi è davanti. La scia, in grigio, segna dove erano i due pallini 3 mesi, 1 mese e 1 settimana fa (sulla stessa durata del periodo), con la stessa forma e sempre più grandi man mano che si avvicinano a oggi; la freccia sottile è il movimento dell'ultima settimana, verde se sale e rossa se scende, sfumata da 1 settimana fa a oggi. Così si vede chi si è mosso per primo e in che direzione. Al passaggio del mouse tutti i valori.</p>
+        <p class="note"><b>Grandi contro piccoli.</b> Per ogni settore il rendimento dell'indice pesato per capitalizzazione (pallino pieno, pesano i grandi) e dello stesso settore con ogni titolo a peso uguale (pallino vuoto, pesano i medi e i piccoli). La barra è la divergenza: verde acqua se vanno meglio i titoli medi (il movimento è largo), viola se guidano i grandi. Le tre divergenze più ampie hanno un anello sul pallino di chi è davanti. La scia, in grigio, segna dove erano i due pallini 3 mesi, 1 mese e 1 settimana fa (sulla stessa durata del periodo), con la stessa forma e sempre più grandi man mano che si avvicinano a oggi; la freccia sottile è il movimento dell'ultima settimana, verde (blu con CVD) se sale e rossa se scende, sfumata da 1 settimana fa a oggi. Così si vede chi si è mosso per primo e in che direzione. Al passaggio del mouse tutti i valori.</p>
         <p class="note"><b>Titoli del settore.</b> Una bolla per titolo, grande quanto il suo peso nell'S&amp;P 500. In alto il rendimento del periodo; le linee tratteggiate sono il settore equal e cap-weighted. In basso a sinistra i titoli che scendono e stanno sotto la media 200 (o lontani dal massimo). Con «periodo precedente» si separano i deboli da tempo (in basso a sinistra) dai cedimenti recenti (in basso a destra). Valori estremi fermati al bordo con una freccia.</p>
         <p class="note"><b>Dati.</b> Calcolati da noi sui costituenti: prezzi senza dividendi, pesi dalle holdings dell'ETF iShares IVV, composizione dell'indice di ogni data (tabella dei cambi di Wikipedia); chi non è nelle holdings (uscito, appena entrato) pesa come un titolo piccolo del settore, una stima che sposta i rendimenti al massimo di 0,07 punti. L'equal-weight si ribilancia ogni trimestre come gli indici S&amp;P: in media a mezzo punto dagli ETF settoriali Invesco RSP* (verifica del 16/10/2026). Il cap-weighted non taglia il peso dei giganti come fanno gli ETF SPDR, quindi può scostarsi dagli ETF settoriali: soprattutto in Tecnologia, Comunicazioni e Discrezionali, ma di un punto o due anche in Beni di consumo e Materiali su 3 mesi. <span id="titData"></span></p>
         <p class="note"><b>Perché non coincide con il grafico di Rea.</b> I numeri sono vicini ma non uguali, per tre motivi. Il periodo: per noi 3 mesi sono 63 sedute, per Rea 3 mesi di calendario, quindi si parte da una o due sedute diverse. Il cap-weighted: Rea pesa i rendimenti con la capitalizzazione di oggi, che dà più peso a chi è già salito, quindi il suo valore di solito è più alto di quanto ha reso davvero un indice a capitalizzazione (3 mesi al 16/10/2026, Tecnologia: 8,1% contro 5,8% dalla stessa data di partenza; 5,7% sulle nostre 63 sedute); noi usiamo i pesi di inizio periodo, che poi seguono i prezzi. L'equal-weight: per Rea è la media semplice dei membri di oggi, per noi l'indice con i membri di ogni data e il ribilanciamento trimestrale. Su 3 mesi l'equal-weight resta di solito entro un punto (9 settori su 11 al 16/10/2026); il cap-weighted si scosta in media di un punto, fino a 2-3 in Energia e Tecnologia, e a volte cambia chi è davanti (Tecnologia e Industriali al 16/10/2026); su YTD e 1 anno la differenza cresce.</p>
@@ -726,7 +727,7 @@
         <li><b>Attenzione</b>: breadth entro 10 punti dal livello blu o drawdown molto profondo; anche sotto il livello da una sola chiusura.</li>
         <li><b>Zona blu</b>: breadth al livello blu o sotto per 2 chiusure e drawdown oltre il 70° percentile della storia del settore. Lì si formano spesso i bottom, di solito in anticipo.</li>
         <li><b>Trigger</b>: la breadth risale di almeno 5 punti sopra il livello (o 2 titoli, se valgono di più) e di almeno 2 titoli sopra il minimo della zona blu, con una conferma (due dopo un fallimento o una zona blu lunga): spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V (breadth di nuovo sopra il più alto tra 40% e livello + 25) basta da solo.</li>
-        <li><b>Fallito</b>: il prezzo chiude sotto il minimo della zona blu, con un piccolo margine, entro 20 sedute dal trigger; oppure più tardi, finché la breadth non è tornata sopra il livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali. Nel grafico le bande blu chiare sono le sedute con la breadth sotto il livello ma fuori dalla zona blu: il motivo è nel riquadro al passaggio del mouse.</li>
+        <li><b>Fallito</b>: il prezzo chiude sotto il minimo della zona blu, con un piccolo margine, entro 20 sedute dal trigger; oppure più tardi, finché la breadth non è tornata sopra il livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali. Nel grafico le bande blu a righe sono le sedute con la breadth sotto il livello ma fuori dalla zona blu: il motivo è nel riquadro al passaggio del mouse.</li>
       </ul>
       <h3>Rotazione relativa</h3>
       <p>Ogni titolo è confrontato con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>

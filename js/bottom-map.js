@@ -74,7 +74,7 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
   }
   el('text', { x: M.l + PW - 8, y: sy(0) - 5, 'text-anchor': 'end', class: 'axlabel bl-blue' }, svg).textContent = 'LIVELLO BLU';
   el('text', { x: M.l + PW, y: H - 8, 'text-anchor': 'end', class: 'axlabel' }, svg).textContent = W < 560 ? '←  DRAWDOWN PIÙ PROFONDO' : `←  DRAWDOWN PIÙ PROFONDO (percentile storico ${unit})`;
-  el('text', { x: 12, y: M.t, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 12 ${M.t})` }, svg).textContent = 'BREADTH − LIVELLO BLU (punti)  →';
+  el('text', { x: 14, y: M.t + 6, 'text-anchor': 'end', class: 'axlabel', transform: `rotate(-90 14 ${M.t + 6})` }, svg).textContent = 'BREADTH − LIVELLO BLU (punti)  →';
 
   const plot = el('g', { 'clip-path': `url(#${clipId})` }, svg);
   const headsG = el('g', {}, svg); // punti di oggi fuori dal ritaglio: a drawdown 0 restano interi sul bordo destro

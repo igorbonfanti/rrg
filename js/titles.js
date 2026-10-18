@@ -244,7 +244,7 @@ export function createTitles(ctx) {
         ` · nell'anno da ${pp(lo)} (${dIT(dates[v.indexOf(lo)])}) a ${pp(hi)} (${dIT(dates[v.indexOf(hi)])})`;
     const svg = $('titHist');
     const W = chartWidth(svg, 1120), narrow = W < 640, HH = narrow ? 150 : 180;
-    const M = { l: 38, r: narrow ? 46 : 80, t: 12, b: 24 }, PW = W - M.l - M.r, PH = HH - M.t - M.b;
+    const M = { l: 38, r: narrow ? 72 : 80, t: 12, b: 24 }, PW = W - M.l - M.r, PH = HH - M.t - M.b;
     svg.setAttribute('viewBox', `0 0 ${W} ${HH}`); svg.innerHTML = '';
     const vals = [...ok, ...(ref || []).filter((x) => x != null), 0];
     const pad = (Math.max(...vals) - Math.min(...vals)) * 0.08 || 1;
@@ -282,9 +282,10 @@ export function createTitles(ctx) {
     if (yv != null) {
       el('circle', { cx: X(n - 1), cy: yv, r: 4.5, class: `end ${v[n - 1] >= 0 ? 'up' : 'dn'}` }, svg);
       let a = yv + 4, b = yr != null ? yr + 4 : null;
-      if (b != null && Math.abs(a - b) < 13) { if (a <= b) b = a + 13; else a = b + 13; }
-      text(svg, X(n - 1) + 8, a, narrow ? sgn(v[n - 1]) : `${sec} ${sgn(v[n - 1])}`, { class: 'lab' });
-      if (b != null) text(svg, X(n - 1) + 8, b, narrow ? 'S&P' : `S&P ${sgn(ref[n - 1])}`, { class: 'lab ref' });
+      // sempre ticker e valore, così l'S&P non prende il valore del settore
+      if (b != null && Math.abs(a - b) < 16) { if (a <= b) b = a + 16; else a = b + 16; }
+      text(svg, X(n - 1) + 8, a, `${sec} ${sgn(v[n - 1])}`, { class: 'lab' });
+      if (b != null) text(svg, X(n - 1) + 8, b, `S&P ${sgn(ref[n - 1])}`, { class: 'lab ref' });
     }
     const cross = el('line', { x1: 0, x2: 0, y1: M.t, y2: M.t + PH, class: 'cross', visibility: 'hidden' }, svg);
     hist = { X, M, PW, n, v, ref, dates, sec, cross };

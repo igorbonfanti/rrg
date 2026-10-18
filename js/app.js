@@ -498,7 +498,7 @@ function renderRotTable() {
       <td class="num r">${fmt(r.x, 2)} ${dl(r.dx)}</td><td class="num r">${fmt(r.y, 2)} ${dl(r.dy)}</td>
       <td class="num r${r.heading != null && r.heading <= 90 ? ' hpos' : ''}"><span class="q-${QKEY[r.q]}-c">${arrow(r.heading)}</span> ${fmt(r.heading, 0)}°</td>
       <td class="num r">${fmt(r.speed, 2)}</td><td class="num r">${fmt(r.dist, 2)}</td><td class="num r">${r.weeks}</td>
-      <td>${r.prev ? `<span class="q-${QKEY[r.prev]}-c mini">${r.prev.slice(0, 3).toUpperCase()}</span>` : ''}</td></tr>`).join('') + '</tbody>';
+      <td>${r.prev ? `<span class="q-${QKEY[r.prev]}-c mini" title="quadrante precedente: ${esc(r.prev)}">${r.prev.slice(0, 3).toUpperCase()}</span>` : ''}</td></tr>`).join('') + '</tbody>';
   $('rotTable').querySelectorAll('tbody tr').forEach((tr) => {
     const s = tr.dataset.sym;
     tr.onmouseenter = () => { if (!state.pinned && !state.hidden.has(s)) { state.focus = s; refreshFocus(); } };
@@ -791,7 +791,7 @@ let helpOpener = null;
 const narrow = () => window.innerWidth < 600;
 let cmdErrTimer = null;
 function setPlaceholder() {
-  $('cmd').placeholder = narrow() ? 'Ticker o nome: XLU, ORO, HELP' : 'Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP';
+  $('cmd').placeholder = window.innerWidth < 900 ? 'Ticker o nome: XLU, ORO, HELP' : 'Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP';
 }
 // ---------- tema chiaro o scuro (sistema «Terminale ambra», come Bond Ladder) ----------
 // Attributo su <html>: i colori li cambia solo il CSS, quindi grafici e tabelle non si ridisegnano.
@@ -897,7 +897,7 @@ function bind() {
   });
 
   $('helpBtn').onclick = () => openHelp(true);
-  $('introClose').onclick = () => { $('intro').hidden = true; store.set('introSeen', true); };
+  $('introClose').onclick = () => { $('intro').hidden = true; store.set('introSeen', true); const t = document.querySelector('.fnkeys button[aria-selected="true"]'); if (t) t.focus(); };
   $('introHelp').onclick = () => openHelp(true);
   $('helpClose').onclick = () => openHelp(false);
   // clic sullo sfondo scuro: il bersaglio è il <dialog> ma il punto è fuori dal riquadro

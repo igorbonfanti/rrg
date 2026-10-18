@@ -77,7 +77,7 @@ export function drawCap(svg, p) {
     const tagY = lastVal[k] == null ? null : q.sy(lastVal[k]);
     for (const v of tk) {
       el('line', { x1: L, x2: L + PW, y1: q.sy(v), y2: q.sy(v), class: 'gridl' }, svg);
-      if (tagY != null && Math.abs(q.sy(v) - tagY) < 13) continue;
+      if (tagY != null && Math.abs(q.sy(v) - tagY) < 16) continue;
       el('text', { x: L + PW + 6, y: q.sy(v) + 3.5, class: 'axt' }, svg).textContent = k ? fmt(v, v >= 10 || !unit ? 0 : 1) + unit : fmt(v, v >= 100 ? 0 : v >= 10 ? 1 : 2);
     }
     el('rect', { x: L, y: q.y0, width: PW, height: q.h, class: 'frame' }, svg);
@@ -107,6 +107,9 @@ export function drawCap(svg, p) {
   }
   el('path', { d, class: 'caparea' }, svg);
   el('path', { d: path(alert, P1.sy), class: 'capalert' }, svg);
+  // valore della soglia di allerta all'ultima seduta, accanto alla sua linea
+  const aL = alert[n - 1];
+  if (aL != null) el('text', { x: L + PW - 4, y: P1.sy(aL) - 4, 'text-anchor': 'end', class: 'axt capalert-t' }, svg).textContent = `soglia ${fmt(aL, unit ? 1 : 0)}${unit}`;
   for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], c[n - 1] >= 1000 ? 0 : pxDec(c[n - 1]))], [P1, sum[n - 1], sum[n - 1] == null ? '' : fmt(sum[n - 1], unit ? 1 : 0) + unit]]) {
     if (v == null) continue;
     const yy = q.sy(v);
