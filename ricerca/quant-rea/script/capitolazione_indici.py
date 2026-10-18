@@ -117,6 +117,7 @@ def stats(ev, fwd, base):
     return out
 
 
+EPIS = []                                  # un episodio per riga: indice, tipo, data, rendimenti, base
 cfg, comp = bi.compositions()
 ONLY = os.environ.get('ONLY')            # per prove: ONLY=SPX,DAX
 if ONLY:
@@ -180,6 +181,9 @@ for k in cfg:
             res[f'{thr}_{h}_p'] = st[h]['p']
             res[f'{thr}_{h}_pos'] = st[h]['pos']
         if thr == 7:
+            for d in ev:
+                EPIS.append(dict(indice=k, tipo='capitolazione', data=d, **{f'r{h}': fwd[h].get(d) for h in H},
+                                 **{f'b{h}': base[h].mean() for h in H}))
             res['episodi 7%'] = ', '.join(d.strftime('%Y-%m') for d in ev)
             res['valutato dal'] = str(eligible.min().date())
             glob[k] = sig.reindex(pd.date_range('2000-01-01', '2026-12-31', freq='B'), fill_value=False)
@@ -200,12 +204,17 @@ for k in cfg:
     if q01.notna().any():
         stp = stats(evp, fwd, fwd.loc[q01.dropna().index.min():])
         res['ep prezzo'] = len(evp)
+        bp = fwd.loc[q01.dropna().index.min():]
+        for d in evp:
+            EPIS.append(dict(indice=k, tipo='solo prezzo', data=d, **{f'r{h}': fwd[h].get(d) for h in H},
+                             **{f'b{h}': bp[h].mean() for h in H}))
         for h in H:
             res[f'prezzo_{h}'] = stp[h]['m']
             res[f'prezzo_{h}_p'] = stp[h]['p']
     rows.append(res)
     print(k, res.get('ep7'), res.get('episodi 7%'), flush=True)
 
+pd.DataFrame(EPIS).to_csv(f'{OUT}/episodi.csv', index=False, float_format='%.3f')
 T = pd.DataFrame(rows).set_index('indice')
 T.to_csv(f'{OUT}/capitolazione_indici.csv', float_format='%.2f')
 for k, d in detail.items():
