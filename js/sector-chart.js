@@ -6,7 +6,7 @@
  * Le bande blu verticali sono i periodi in zona blu calcolati dalla macchina a stati; quelle più chiare
  * le sedute con la breadth sotto il livello blu fuori dalla zona blu (il motivo è nel tooltip).
  */
-import { fmt, sgn, dIT, placeTip } from './format.js';
+import { fmt, sgn, dIT, placeTip, pxDec } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -108,7 +108,7 @@ export function drawSector(svg, p) {
     for (const v of tk) {
       el('line', { x1: L, x2: L + PW, y1: q.sy(v), y2: q.sy(v), class: 'gridl' }, svg);
       if (tagY != null && Math.abs(q.sy(v) - tagY) < 13) continue;
-      el('text', { x: L + PW + 6, y: q.sy(v) + 3.5, class: 'axt' }, svg).textContent = q.key === 'px' ? fmt(v, v >= 100 ? 0 : 1) : fmt(v, 0) + '%';
+      el('text', { x: L + PW + 6, y: q.sy(v) + 3.5, class: 'axt' }, svg).textContent = q.key === 'px' ? fmt(v, v >= 100 ? 0 : v >= 10 ? 1 : 2) : fmt(v, 0) + '%';
     }
     el('rect', { x: L, y: q.y0, width: PW, height: q.h, class: 'frame' }, svg);
     el('text', { x: L + 6, y: q.y0 - 7, class: 'pane-t' }, svg).textContent = q.title;
@@ -147,7 +147,7 @@ export function drawSector(svg, p) {
     el('path', { d: path(b, P2.sy), class: 'br' }, svg);
   }
   el('line', { x1: L, x2: L + PW, y1: P2.sy(blue), y2: P2.sy(blue), class: 'blue' }, svg);
-  for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], 2)], [P1, dd[n - 1], fmt(dd[n - 1]) + '%'], [P2, b[n - 1], fmt(b[n - 1]) + '%']]) {
+  for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], pxDec(c[n - 1]))], [P1, dd[n - 1], fmt(dd[n - 1]) + '%'], [P2, b[n - 1], fmt(b[n - 1]) + '%']]) {
     if (v == null) continue;
     const yy = q.sy(v);
     el('rect', { x: L + PW + 1, y: yy - 8, width: R - 3, height: 16, class: 'lasttag' }, svg);
@@ -169,7 +169,7 @@ export function drawSector(svg, p) {
       dots[k].setAttribute('cx', sx(i)); dots[k].setAttribute('cy', qq.sy(v)); dots[k].setAttribute('visibility', 'visible');
     });
     tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${sym}${days[i] ? ' · ' + STATE[days[i]] : ''}</span></div>
-      <div class="row"><span>Prezzo</span><b>${fmt(c[i], 2)}</b></div><div class="row"><span>Media 200</span><b>${fmt(m[i], 2)}</b></div>
+      <div class="row"><span>Prezzo</span><b>${fmt(c[i], pxDec(c[i]))}</b></div><div class="row"><span>Media 200</span><b>${fmt(m[i], pxDec(m[i]))}</b></div>
       <div class="row"><span>Drawdown 52s</span><b>${sgn(dd[i])}%</b></div>
       <div class="row"><span>Sopra media 200</span><b>${b[i] == null ? '—' : fmt(b[i]) + '%'}</b></div><div class="row"><span>Sopra media 50</span><b>${b50[i] == null ? '—' : fmt(b50[i]) + '%'}</b></div>` +
       (off[i] && p.offText ? `<div class="row note-row">${p.offText[off[i]]}</div>` : '');

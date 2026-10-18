@@ -75,7 +75,7 @@ export function createTitles(ctx) {
 
   function ensure() {
     if (D || failed) return Promise.resolve();
-    if (!loading) loading = ctx.load().then((d) => { D = d; }).catch((e) => { failed = e; });
+    if (!loading) loading = ctx.load().then((d) => { if (!d || !Array.isArray(d.stocks) || !d.sectors || !d.starts || !d.dates) throw new Error('file incompleto'); D = d; }).catch((e) => { failed = e; });
     return loading;
   }
 

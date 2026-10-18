@@ -4,7 +4,7 @@
  * breadth.json (titoli sopra le medie), breadth_latest.json (fotografia per titolo),
  * config/thresholds.json (livelli blu e parametri), alerts.json (invii Telegram).
  */
-import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, signalContext, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
+import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, signalContext, median, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
@@ -35,7 +35,6 @@ const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURICo
 const tvStock = (sym) => tvLink(sym.replace('-', '.'));
 // "del 70%" ma "dell'80%", "dell'8%", "dell'11%", "dell'1%"
 const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
-const median = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
 const positive = (a) => { const v = a.filter((x) => x != null); return v.length ? (100 * v.filter((x) => x > 0).length) / v.length : null; };
 
 function sparkline(arr, w, h) {
@@ -276,10 +275,11 @@ export function createBottom(ctx) {
     r.min = FIRST_WEEK; r.max = WEEKS.length - 1; r.value = today ? WEEKS.length - 1 : st.mapWeek;
     $('bmDateVal').textContent = today ? `oggi · ${dIT(DATES[T])}` : `settimana al ${dIT(DATES[T])}`;
     $('bmToday').hidden = today;
-    keepFocus($('bmJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && Math.abs(Date.parse(DATES[T]) - Date.parse(d)) < 6 * 864e5}">${l}</button>`).join(''));
+    keepFocus($('bmJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && DATES[T] >= d && Date.parse(DATES[T]) - Date.parse(d) < 7 * 864e5}">${l}</button>`).join(''));
     $('bmJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
   }
-  const weekOf = (d) => { let i = WEEKS.length - 1; while (i > 0 && DATES[WEEKS[i]] > d) i--; return Math.max(FIRST_WEEK, i); };
+  // settimana che contiene la data (la prima che finisce in quel giorno o dopo): il minimo della crisi è nella mappa
+  const weekOf = (d) => { let i = WEEKS.findIndex((w) => DATES[w] >= d); if (i < 0) i = WEEKS.length - 1; return Math.max(FIRST_WEEK, i); };
   function setMapWeek(i) {
     st.mapWeek = i == null || i >= WEEKS.length - 1 ? null : Math.max(FIRST_WEEK, i);
     st.mapFocus = null;
@@ -434,7 +434,8 @@ export function createBottom(ctx) {
       start: u.t, bmin: u.bmin, dd: u.dd, trig: u.trig ? u.trig.t : null, conf: u.trig ? u.trig.conf.join(' + ') : '', fails: u.fails,
       z63: forward(c, u.t, 63), t21: forward(c, u.trig && u.trig.t, 21), t63: forward(c, u.trig && u.trig.t, 63), t126: forward(c, u.trig && u.trig.t, 126), mae: worstWithin(c, u.trig && u.trig.t, 63),
     })).reverse();
-    const first = BR[s].pct200.findIndex((v) => v != null);
+    // la zona blu chiede il percentile del drawdown: per XLRE e XLC (ETF dal 2015 e dal 2018) la storia utile parte dopo
+    const first = Math.max(BR[s].pct200.findIndex((v) => v != null), PX[s].dp.findIndex((v) => v != null));
     const nTrig = m.events.filter((e) => e.code === 'trig').length, nFail = m.events.filter((e) => e.code === 'fail').length;
     $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''} · rendimenti a confronto sotto la tabella`;
     // per confronto: una seduta qualsiasi della stessa storia e SPY negli stessi giorni dei trigger
@@ -488,7 +489,7 @@ export function createBottom(ctx) {
     const sent = alertLog && alertLog.log ? alertLog.log.slice(-8).reverse() : [];
     $('sentInfo').innerHTML = alertLog
       ? `La GitHub Action ha controllato i dati fino al <b>${dIT(alertLog.checkedThrough)}</b>.` + (sent.length ? `<ul class="sent">${sent.map((e) => `<li>${dIT(e.date)} · ${e.sector} · ${esc(STATES[e.code])} ${e.telegram ? '· inviato' : '· solo registrato'}</li>`).join('')}</ul>` : ' Nessun cambio di stato dall\'attivazione.')
-      : 'La GitHub Action non ha ancora registrato controlli.';
+      : 'Registro degli invii non disponibile: il file data/alerts.json non è arrivato.';
     $('rulesList').innerHTML = [
       'Alert solo sui cambi di stato: ingresso in zona blu, trigger, segnale fallito.',
       `Zona blu: breadth ≤ livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile.`,

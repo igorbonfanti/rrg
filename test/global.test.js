@@ -284,3 +284,27 @@ test('storia allungata con un proxy: stessa scala al raccordo, poi solo l\'ETF',
   bad.groups['1 · Asset class'].tickers['DBMFE.PA'].history = {};
   assert.ok(validateGlobal(bad).some((e) => /history/.test(e)));
 });
+
+test('barre segnaposto di Yahoo scartate, prezzi ricopiati segnati, rendimenti del Monitor che li usano', async () => {
+  const { parse } = await import('../scripts/lib/yahoo.js');
+  const { copiedIdx } = await import('../scripts/fetch_data.js');
+  const { copiedAt } = await import('../js/metrics.js');
+  const day = (d) => Date.parse(d + 'T16:00:00Z') / 1000;
+  const res = {
+    meta: { gmtoffset: 7200 },
+    timestamp: ['2022-09-12', '2022-09-13', '2022-09-14', '2022-09-21'].map(day),
+    indicators: { quote: [{ open: [413, 418, 418, 400], high: [419, 418, 418, 404.7], low: [412, 418, 418, 399], close: [418, 418, 418, 404.2], volume: [28055, 0, 0, 6992] }] },
+  };
+  assert.deepEqual(parse(res, { dropStale: true, nowSec: day('2026-01-01') }).dates, ['2022-09-12', '2022-09-21']);
+  assert.equal(parse(res, { nowSec: day('2026-01-01') }).dates.length, 4);
+  const dates = ['2025-12-22', '2025-12-23', '2025-12-29', '2025-12-30', '2026-01-02', '2026-01-05'];
+  const close = [10, 10, 10, 10, 11, 11];
+  assert.deepEqual(copiedIdx(dates, close, new Set(['2025-12-22', '2025-12-23', '2026-01-02', '2026-01-05'])), [2, 3]);
+  // stesso prezzo con la barra: seduta vera, non ricopiata
+  assert.deepEqual(copiedIdx(dates, close, new Set(dates)), []);
+  // base dello YTD (30/12) ricopiata; con la seduta precedente all'ultima ricopiata anche l'1G
+  assert.deepEqual(copiedAt(dates, [2, 3]), { ytd: ['2025-12-30'] });
+  assert.deepEqual(copiedAt(dates, [4]), { d1: ['2026-01-02'] });
+  assert.deepEqual(copiedAt(dates, [5]), { last: ['2026-01-05'], d1: ['2026-01-05'], w1: ['2026-01-05'], m1: ['2026-01-05'], m3: ['2026-01-05'], ytd: ['2026-01-05'] });
+  assert.equal(copiedAt(dates, []), null);
+});

@@ -4,7 +4,7 @@
  *   2. somma dei cali forti sulle ultime N sedute (titoli o % dei titoli) con la soglia di allerta.
  * Le bande rosse chiare sono gli episodi di allerta (capAnalysis in capitulation.js).
  */
-import { fmt, dIT, placeTip } from './format.js';
+import { fmt, dIT, placeTip, pxDec } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -78,7 +78,7 @@ export function drawCap(svg, p) {
     for (const v of tk) {
       el('line', { x1: L, x2: L + PW, y1: q.sy(v), y2: q.sy(v), class: 'gridl' }, svg);
       if (tagY != null && Math.abs(q.sy(v) - tagY) < 13) continue;
-      el('text', { x: L + PW + 6, y: q.sy(v) + 3.5, class: 'axt' }, svg).textContent = k ? fmt(v, v >= 10 || !unit ? 0 : 1) + unit : fmt(v, v >= 100 ? 0 : 1);
+      el('text', { x: L + PW + 6, y: q.sy(v) + 3.5, class: 'axt' }, svg).textContent = k ? fmt(v, v >= 10 || !unit ? 0 : 1) + unit : fmt(v, v >= 100 ? 0 : v >= 10 ? 1 : 2);
     }
     el('rect', { x: L, y: q.y0, width: PW, height: q.h, class: 'frame' }, svg);
     el('text', { x: L + 6, y: q.y0 - 7, class: 'pane-t' }, svg).textContent = q.title;
@@ -107,7 +107,7 @@ export function drawCap(svg, p) {
   }
   el('path', { d, class: 'caparea' }, svg);
   el('path', { d: path(alert, P1.sy), class: 'capalert' }, svg);
-  for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], c[n - 1] >= 1000 ? 0 : 2)], [P1, sum[n - 1], sum[n - 1] == null ? '' : fmt(sum[n - 1], unit ? 1 : 0) + unit]]) {
+  for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], c[n - 1] >= 1000 ? 0 : pxDec(c[n - 1]))], [P1, sum[n - 1], sum[n - 1] == null ? '' : fmt(sum[n - 1], unit ? 1 : 0) + unit]]) {
     if (v == null) continue;
     const yy = q.sy(v);
     el('rect', { x: L + PW + 1, y: yy - 8, width: R - 3, height: 16, class: 'lasttag' }, svg);
@@ -128,7 +128,7 @@ export function drawCap(svg, p) {
     });
     const num = (v) => (v == null ? '—' : fmt(v, unit ? 1 : 0) + unit);
     tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${p.sym}${on[i] ? ' · <span class="down">allerta</span>' : ''}</span></div>
-      <div class="row"><span>Prezzo</span><b>${c[i] == null ? '—' : fmt(c[i], 2)}</b></div>
+      <div class="row"><span>Prezzo</span><b>${c[i] == null ? '—' : fmt(c[i], pxDec(c[i]))}</b></div>
       <div class="row"><span>Cali forti</span><b>${num(sum[i])}</b></div><div class="row"><span>Soglia di allerta</span><b>${num(alert[i])}</b></div>`;
     placeTip(tipEl, wrapEl, e, 12);
   });

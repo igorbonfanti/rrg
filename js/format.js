@@ -4,8 +4,10 @@ export const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', 
 // Numeri all'italiana con il segno meno tipografico (−); un valore che arrotondato vale zero non ha segno
 const zero = (v, d) => +Math.abs(v).toFixed(d) === 0;
 export const fmt = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : (v < 0 && !zero(v, d) ? '−' : '') + Math.abs(v).toFixed(d).replace('.', ','));
+/** Decimali di un prezzo: tre sotto 10 (l'ETF del CSI 300 vale circa 4 yuan: con due decimali un centesimo è lo 0,24%). */
+export const pxDec = (v) => (v != null && Math.abs(v) < 10 ? 3 : 2);
 export const sgn = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : (zero(v, d) ? '' : v > 0 ? '+' : '−') + fmt(Math.abs(v), d));
-export const pct = (v, d = 1) => (v == null ? '<span class="muted">—</span>' : `<span class="${zero(v, d) ? '' : v > 0 ? 'up' : 'down'}">${sgn(v, d)}%</span>`);
+export const pct = (v, d = 1) => (v == null || Number.isNaN(v) ? '<span class="muted">—</span>' : `<span class="${zero(v, d) ? '' : v > 0 ? 'up' : 'down'}">${sgn(v, d)}%</span>`);
 export const dIT = (iso) => (iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso.slice(0, 4)}` : '—');
 
 export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improving: 'imp' };
@@ -74,7 +76,7 @@ export const qPill = (q, deg) => `<span class="pill q-${QKEY[q]}-c"><span class=
 // Lista "perché questo stato e cosa manca" (signals.js explainState): ✓ soddisfatta, ✗ manca, i = informazione
 export function checklistHTML(e) {
   const mark = (ok) => (ok == null ? '<span class="ck ck-i" aria-label="informazione">i</span>' : ok ? '<span class="ck ck-ok" aria-label="sì">✓</span>' : '<span class="ck ck-no" aria-label="manca">✗</span>');
-  return `<p class="note ck-why">${esc(e.why)}</p><p class="ck-goal">${{ 'zona blu': 'Per la zona blu servono tutte:', trigger: 'Per il trigger servono la breadth e le conferme (una qualsiasi tra le quattro, il rimbalzo a V basta da solo):', 'tenuta del segnale': 'Dopo il trigger:' }[e.goal]}</p>` +
+  return `<p class="note ck-why">${esc(e.why)}</p><p class="ck-goal">${{ 'zona blu': 'Per la zona blu servono tutte:', trigger: 'Per il trigger servono la breadth e le conferme richieste, una o due tra le quattro (quante, nella riga «conferme»); il rimbalzo a V basta da solo:', 'tenuta del segnale': 'Dopo il trigger:' }[e.goal]}</p>` +
     `<ul class="cklist">${e.items.map((x) => `<li class="${x.sub ? 'sub' : ''}${x.ok === false ? ' no' : ''}">${mark(x.ok)}<span>${esc(x.text)}</span></li>`).join('')}</ul>`;
 }
 
@@ -86,7 +88,7 @@ export function contextHTML(rows, o) {
     bench: `${o.bench} dopo gli stessi trigger`, excess: `${o.what.charAt(0).toUpperCase() + o.what.slice(1)} meno ${o.bench}, dopo il trigger`,
   };
   const n = (r) => (r.key === 'any' ? `${r.n.toLocaleString('it-IT')} sedute` : r.n);
-  const cell = (v) => (v == null ? '<span class="muted">—</span>' : `<span class="${v > 0 ? 'up' : v < 0 ? 'down' : ''}">${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v).toFixed(1).replace('.', ',')}%</span>`);
+  const cell = (v) => pct(v); // un valore che arrotondato vale zero si scrive 0,0% senza segno
   const pos = (r) => (!r.pos[1] ? '—' : r.key === 'any' ? `${Math.round((100 * r.pos[0]) / r.pos[1])}%` : r.key === 'excess' ? `meglio in ${r.pos[0]} su ${r.pos[1]}` : `${r.pos[0]} su ${r.pos[1]}`);
   return `<thead><tr><th>Mediane</th><th class="r">Casi</th>${o.h.map((h) => `<th class="r">${h}</th>`).join('')}<th class="r">${o.h[o.key]} positivi</th></tr></thead><tbody>` +
     rows.map((r) => `<tr class="ctx-${r.key}"><td>${esc(name[r.key])}</td><td class="num r">${n(r)}</td>${r.med.map((v) => `<td class="num r">${cell(v)}</td>`).join('')}<td class="num r">${pos(r)}</td></tr>`).join('') + '</tbody>';

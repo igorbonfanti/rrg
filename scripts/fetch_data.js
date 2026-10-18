@@ -133,6 +133,14 @@ export function pickAsOf(lastDates, between = sessionsBetween) {
 // Date con una barra vera (non riempita) per ogni ticker
 const realDates = (series) => Object.fromEntries(Object.entries(series).map(([s, v]) => [s, new Set(v.dates)]));
 
+// Sedute in cui il prezzo pubblicato è quello della seduta prima: nessuna barra di Yahoo per il ticker e nessun
+// valore diverso tenuto dal file precedente. Indici delle date, per dirlo nell'app.
+export function copiedIdx(dates, close, real) {
+  const out = [];
+  for (let i = 1; i < dates.length; i++) if (close[i] != null && close[i] === close[i - 1] && !real.has(dates[i])) out.push(i);
+  return out;
+}
+
 // Chiusure senza la rettifica per i dividendi sulle date del file: la chiusura pubblicata (rettificata)
 // divisa per il fattore di rettifica di Yahoo in vigore quel giorno. Il fattore vale 1 dopo l'ultimo
 // stacco e sempre 1 per chi non paga cedole: lì le due serie sono identiche.
@@ -477,7 +485,7 @@ async function updateGlobal() {
 
   const results = await mapLimit(symbols, 2, async (sym) => {
     try {
-      const s = await fetchDaily(sym, { range: RANGE, raw: true, fillLast: true, keepOpenCrypto: true });
+      const s = await fetchDaily(sym, { range: RANGE, raw: true, fillLast: true, keepOpenCrypto: true, dropStale: true });
       console.log(`  ok ${sym}: ${s.dates.length} barre, ultima ${s.dates.at(-1)} (${s.meta.currency})`);
       return s;
     } catch (e) {
@@ -537,7 +545,8 @@ async function updateGlobal() {
   const exchange = Object.fromEntries(Object.entries(series).filter(([s]) => !isCrypto(s)));
   const dates = globalCalendar(exchange, asOf);
   const closes = alignToCalendar(series, dates);
-  const kept = keepPublished(dates, closes, realDates(series), prev);
+  const real = realDates(series);
+  const kept = keepPublished(dates, closes, real, prev);
   if (kept) console.log(`  Tenuti ${kept} prezzi già pubblicati dove Yahoo ora ha una lacuna`);
 
   // prezzi anomali, rispetto all'indice di mercato (mediana dei rendimenti di tutti gli ETF)
@@ -557,7 +566,8 @@ async function updateGlobal() {
   for (const sym of symbols) {
     if (!closes[sym]) continue;
     const max52 = high52(series[sym], dates, closes[sym], isCrypto(sym));
-    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, ...(spliced[sym] ? { spliced: spliced[sym] } : {}), ...(max52 ? { max52 } : {}), close: closes[sym] };
+    const copied = copiedIdx(dates, closes[sym], real[sym]);
+    tickers[sym] = { name: meta[sym].name, label: meta[sym].label, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, quoteCurrency: series[sym].meta.currency, ...(spliced[sym] ? { spliced: spliced[sym] } : {}), ...(max52 ? { max52 } : {}), ...(copied.length ? { copied } : {}), close: closes[sym] };
   }
   const payload = {
     generated: new Date().toISOString(),

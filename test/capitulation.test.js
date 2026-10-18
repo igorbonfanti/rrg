@@ -17,6 +17,11 @@ test('cali di una seduta: soglie, errori di stampa e crolli impossibili', () => 
   assert.equal(dayCounts(calm, nx).x5, 0);
   assert.equal(dayCounts(calm, [0.02, 0, 0, 0, 0, 0]).x10, 1); // senza ripresa resta
   assert.equal(dayCounts([-0.7, 0, 0.01, 0], null).x5, 0); // −70% in una giornata normale: frazionamento non registrato
+  // giorno di panico seguito dal rimbalzo di tutto il mercato (10 e 13/10/2008): i cali sono veri e contano
+  const panic = [-0.09, -0.08, -0.06, 0.01, -0.01, 0], rebound = [0.1, 0.09, 0.07, 0.08, 0.06, 0.09];
+  assert.equal(dayCounts(panic, rebound).x7, 2);
+  // l'ultima seduta, senza la seduta dopo: nessun filtro (si ricontrolla la sera dopo)
+  assert.equal(dayCounts(calm, null).x10, 1);
   assert.deepEqual(dayCounts([null, null], null), { n: 0, x5: 0, x7: 0, x10: 0 });
 });
 

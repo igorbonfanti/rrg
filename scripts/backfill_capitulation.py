@@ -6,8 +6,8 @@ scripts/fetch_indices.js (indici).
 
 Per ogni seduta e serie: membri con il rendimento della seduta (n) e quanti hanno perso almeno il 5%, il 7% e il
 10% (x5, x7, x10). Rendimento = chiusura del giorno su quella della seduta prima del titolo, al massimo 7 giorni di
-calendario prima, rettificata per gli split. Si scarta un calo che la seduta dopo si riprende quasi tutto in una
-giornata tranquilla per gli altri membri (mediana entro ±2%) e un crollo oltre il 60% in una giornata normale.
+calendario prima, rettificata per gli split. Si scarta un calo che la seduta dopo si riprende quasi tutto quando quel
+giorno e il giorno dopo sono tranquilli per gli altri membri (mediana entro ±2% in tutte e due) e un crollo oltre il 60% in una giornata normale.
   - S&P 500 e settori: composizione di ogni data e prezzi della release Johnbrick123/sp500-data (--jb), settori
     come in backfill_breadth.py (--repo, storia di datasets/s-and-p-500-companies), sulle sedute di
     data/breadth.json; dove la chiusura rettificata per i dividendi si discosta di oltre 5 punti (spin-off e
@@ -76,7 +76,7 @@ def counts(R, valid):
     R = R.where(valid)
     nxt = R.shift(-1)
     med = R.median(axis=1, skipna=True)
-    calm = med.abs() < 0.02
+    calm = (med.abs() < 0.02) & (med.shift(-1).abs() < 0.02)  # il giorno e quello dopo: dopo il panico il rimbalzo è di tutti
     rec = nxt >= (1 / (1 + R) - 1) * 0.9
     bad = (R <= -0.05 + EPS) & rec & calm.values[:, None]
     bad |= (R <= -0.6) & (med > -0.05).values[:, None]

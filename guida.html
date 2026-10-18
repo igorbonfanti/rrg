@@ -137,7 +137,7 @@
     <dl>
       <dt>Drawdown</dt><dd>calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (chiusure rettificate). È la perdita di chi ha tenuto l'ETF ed è la base dei segnali.</dd>
       <dt>Solo prezzo</dt><dd>lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Differisce solo per le cedole staccate dopo il massimo; per oro, bitcoin o un ETF ad accumulazione coincide.</dd>
-      <dt>Percentile</dt><dd>quanto è profondo il drawdown di oggi rispetto a tutta la storia del settore: 90° vuol dire più profondo del 90% delle sedute dal 2005. Nella tabella del Monitor il drawdown è rosso oltre l'80°.</dd>
+      <dt>Percentile</dt><dd>quanto è profondo il drawdown di oggi rispetto a tutta la storia del settore: 90° vuol dire più profondo del 90% delle sedute precedenti, dal 2004 (Real Estate dal 2015 e Comunicazioni dal 2018, quando sono nati gli ETF; il percentile parte dopo un anno di storia). Nella tabella del Monitor il drawdown è rosso oltre l'80°.</dd>
     </dl>
     <p>Il «massimo a 52 settimane» della scheda di TradingView è il picco intraday, che dopo una seduta con un forte rovescio sta più in alto della chiusura: per questo i numeri possono differire leggermente.</p>
 
@@ -206,11 +206,11 @@
         <tr><td>2 · Fattori</td><td>Value, Quality, Momentum, Min Vol, Small Cap, Growth (Nasdaq-100), Dividendi, Equal Weight</td><td>MSCI World o ACWI</td></tr>
         <tr><td>3 · Regioni</td><td>USA, Europa, Giappone, Pacifico ex-Giappone, Emergenti</td><td>MSCI ACWI o World</td></tr>
         <tr><td>4 · Paesi</td><td>15 paesi sviluppati ed emergenti</td><td>MSCI ACWI o World</td></tr>
-        <tr><td>6 · Indici</td><td>ETF in euro sugli indici della vista 6</td><td>MSCI ACWI o World</td></tr>
+        <tr><td>6 · Indici</td><td>ETF in euro su 9 indici della vista 6 (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40; la Svizzera con l'MSCI Switzerland)</td><td>MSCI ACWI o World</td></tr>
         <tr><td>5 · Asset reali</td><td>Oro, Argento, Rame, Petrolio, Commodity, Bitcoin, TIPS, in dollari</td><td>liquidità in dollari, inflazione USA, «senza dollaro», Treasury, azioni USA, oro</td></tr>
       </tbody>
     </table></div>
-    <p>Gli universi globali usano ETF UCITS in euro, sul calendario di Borsa Italiana. Sul grafico hanno un nome breve (World, Gov 1-3, Oro…); ticker e nome completo sono in tabella e al passaggio del mouse. Nell'universo <b>5 · Asset reali</b> il pannello sotto il grafico spiega cosa mostra ogni benchmark: contro la liquidità e l'inflazione si legge soprattutto il trend assoluto, contro gli altri il confronto tra asset (clic su una riga per cambiarlo).</p>
+    <p>Gli universi globali usano ETF UCITS in euro, sul calendario di Borsa Italiana: un ETF quotato altrove (Xetra, Parigi, Madrid, Amsterdam) che quel giorno è chiuso per festa conta con il suo ultimo prezzo, e il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC, cioè ore dopo Milano (per l'ultima seduta, il prezzo al momento dell'aggiornamento). Sul grafico hanno un nome breve (World, Gov 1-3, Oro…); ticker e nome completo sono in tabella e al passaggio del mouse. Nell'universo <b>5 · Asset reali</b> il pannello sotto il grafico spiega cosa mostra ogni benchmark: contro la liquidità e l'inflazione si legge soprattutto il trend assoluto, contro gli altri il confronto tra asset (clic su una riga per cambiarlo).</p>
 
     <h3 id="rrg-grafico">Grafico e comandi</h3>
     <ul>
@@ -235,9 +235,9 @@
     </ul>
 
     <h3 id="trend">Trend (managed futures)</h3>
-    <p>«Trend» è l'ETF <b>iMGP DBi Managed Futures R EUR</b> (ISIN LU2951555403, ticker DBMFE a Parigi): replica i grandi gestori trend following (CTA), che possono andare lunghi o corti su azioni, obbligazioni, valute e materie prime. Ha avuto anni molto buoni nelle crisi lente (+21% nel 2008, +27% nel 2022 per l'indice dei trend follower) e lunghi periodi piatti.</p>
+    <p>«Trend» è l'ETF <b>iMGP DBi Managed Futures R EUR</b> (ISIN LU2951555403, ticker DBMFE a Parigi): replica i grandi gestori trend following (CTA), che possono andare lunghi o corti su azioni, obbligazioni, valute e materie prime. Ha avuto anni molto buoni nelle crisi lente (+21% nel 2008, +27% nel 2022 per l'SG Trend Index dei trend follower; fonti Cambridge Associates e Hedgeweek) e lunghi periodi piatti.</p>
     <ul>
-      <li>Nel portafoglio ha <b>peso 0</b>: lo vedi nella rotazione e puoi provarlo con i cursori (per esempio 5%, tolto dai governativi 15+ e dalle materie prime).</li>
+      <li>Nel portafoglio ha <b>peso 0</b>: lo vedi nella rotazione e puoi provarlo con i cursori, togliendo un peso piccolo da altre componenti: è una prova, non un'indicazione.</li>
       <li>Non è quotato a Milano e non è coperto dal cambio: sotto c'è un portafoglio in dollari.</li>
       <li>Prima del 28/04/2025 la storia è quella del DBMF americano (stessa strategia) convertito in euro.</li>
     </ul>
@@ -259,7 +259,7 @@
     <h3>Data scorrevole e replay</h3>
     <ul>
       <li>Il <b>cursore</b> riporta la mappa a una settimana qualsiasi dal 2005; <b>PLAY</b> la fa scorrere una settimana alla volta fino a oggi (da oggi riparte da un anno fa); <b>Oggi</b> torna ai dati attuali.</li>
-      <li>Le scorciatoie <b>Crisi passate</b> portano ai minimi di nov 2008, ott 2011, feb 2016, dic 2018, mar 2020, ott 2022 e apr 2025.</li>
+      <li>Le scorciatoie <b>Crisi passate</b> portano ai minimi di nov 2008 (minimo della breadth; il prezzo dell'S&amp;P 500 tocca il fondo il 09/03/2009), ott 2011, feb 2016, dic 2018, mar 2020, ott 2022 e apr 2025.</li>
       <li>A una data passata tutto è come si vedeva allora: coda, stato di quel giorno, avvicinamento (con la soglia calcolata solo sulla storia fino a lì) e distanze. L'asse verticale resta fisso, così il replay non salta.</li>
     </ul>
     <p class="tip warn">I livelli blu sono quelli di oggi, scelti conoscendo anche quelle crisi: la mappa storica è un po' più «brava» di quanto sarebbe stata dal vivo.</p>
@@ -305,7 +305,8 @@
     <p>La stessa analisi dei settori su 22 indici azionari: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets, Ibovespa.</p>
     <ul>
       <li><b>Indici mostrati</b>: di partenza i 10 principali; un clic aggiunge o toglie un indice, «Principali» e «Tutti» sono le scelte rapide. La scelta resta nel browser. I principali arrivano subito, gli altri un attimo dopo.</li>
-      <li><b>Tabellone</b>: stato, breadth contro il livello blu, drawdown (solo prezzo, valuta locale), come è ricostruita la storia (con la composizione di ogni data, oppure con i membri di oggi), <a href="#cali">cali forti</a> e variazioni.</li>
+      <li><b>Tabellone</b>: stato, breadth contro il livello blu, drawdown (solo prezzo, nella valuta dell'indice; per l'MSCI Emerging l'ETF EEM in dollari), come è ricostruita la storia (con la composizione di ogni data, oppure con i membri di oggi), <a href="#cali">cali forti</a> e variazioni.</li>
+      <li><b>Breadth degli indici</b>: una seduta si pubblica quando almeno il 75% dei titoli ha la chiusura di quel giorno (le borse hanno feste diverse); per gli altri vale l'ultima chiusura entro 5 giorni, e le ultime 5 sedute si ricalcolano ogni sera.</li>
       <li><b>Bottom Map degli indici</b> con la distanza dal livello blu: funziona come quella dei settori, compresa la <a href="#btm">data scorrevole</a>. Gli indici hanno calendari diversi, quindi la data è un venerdì e ogni indice usa la sua ultima seduta fino a lì; quelli che non avevano ancora dati non compaiono e la nota li elenca.</li>
       <li><b>Dettaglio</b>: grafico, «Perché questo stato», livello blu, situazione, episodi con i rendimenti a 3, 6 e 12 mesi e il confronto con una seduta qualsiasi, e la scheda <a href="#cali">Cali forti</a>. Si apre con un clic o scrivendo il nome breve nella barra (<code>NDX</code>, <code>DAX</code>, <code>N225</code>…).</li>
     </ul>
@@ -314,13 +315,14 @@
     <p>Una scheda chiusa di default sotto gli episodi, nel dettaglio di ogni indice e di ogni settore (vista 4). Conta quanti titoli hanno perso almeno il 7% in una sola seduta e li somma sulle ultime 5 sedute: è il «Drop giornaliero cumulato» di Massimo Rea (quant-rea), con il suo stesso preset. Un indice che scende trascinato da pochi grandi titoli è una cosa; centinaia di titoli che crollano insieme sono un'altra.</p>
     <ul>
       <li><b>Allerta</b>: la somma supera la linea tratteggiata, cioè il 99° percentile di tutte le sedute precedenti di quell'indice o settore (dopo almeno 3 anni di storia), con almeno 5 cali nella somma. Ogni indice ha la sua soglia: un −7% è frequente in Corea e raro in Svizzera.</li>
-      <li><b>Sedute in allerta</b>: nei crolli rapidi (2020, aprile 2025) l'allerta dura pochi giorni; nei mercati orso lunghi (2008) torna a scattare per settimane. Per questo la scheda dice quante sedute è stata in allerta negli ultimi 3 mesi, e la tabella quante per ogni episodio: un'allerta che si ripete dice che qualcosa di grosso si muove sotto la superficie.</li>
+      <li><b>Percentile</b>: la quota delle sedute precedenti con una somma più bassa di quella di oggi. Con 0 cali vale 0°, anche dove lo zero è la norma.</li>
+      <li><b>Sedute in allerta</b>: conta soprattutto se l'allerta si ripete. Con il preset, nei 12 mesi dal primo episodio le serie dell'app sono state in allerta 31,5 sedute di mediana nel 2007-2009, di solito in più episodi separati (S&amp;P 500: 5 episodi, 60 sedute); 12 nel 2020, in un solo episodio; 5 nell'aprile 2025. Per questo la scheda dice quante sedute è stata in allerta negli ultimi 3 mesi e quanti episodi negli ultimi 12, e la tabella quante sedute per ogni episodio: un'allerta che si ripete dice che qualcosa di grosso si muove sotto la superficie.</li>
       <li><b>Scelte</b>: calo del 5, 7 o 10%, somma su 3, 5 o 10 sedute, titoli o percentuale dei titoli (utile nei settori e negli indici con pochi membri). Le scelte restano nel browser; «Preset di Rea» torna a −7% su 5 sedute.</li>
       <li><b>Episodi</b>: per ogni allerta il primo e l'ultimo giorno, le sedute in allerta, il picco, quanto l'indice era sotto il massimo a 52 settimane quel giorno (solo come informazione), quanto è sceso ancora nei 3 mesi dopo e i rendimenti a 3 e 12 mesi, accanto a quelli di una seduta qualsiasi.</li>
       <li><b>Nella tabella degli indici</b> la colonna «Cali forti» mostra <span class="capflag">allerta</span> se l'allerta è attiva oggi, le sedute in allerta negli ultimi 3 mesi, oppure il percentile di oggi; un riquadro in alto conta gli indici in allerta.</li>
       <li><b>In «Perché questo stato»</b> compare una riga ⓘ quando c'è stata allerta negli ultimi 3 mesi.</li>
     </ul>
-    <p>È un'informazione di contesto da leggere insieme alla breadth: <b>non cambia stati, regole né alert Telegram</b>. Nella prova sui 22 indici, dopo le allerte gli indici sono andati in media meglio di una seduta qualsiasi, ma quasi tutto il vantaggio viene dai crolli rapidi (marzo 2020, aprile 2025). All'inizio dei mercati orso lunghi le allerte sono arrivate presto: tra agosto 2007 e settembre 2008 l'indice era più in basso un anno dopo. La storia usa la stessa composizione della breadth (di ogni data per S&amp;P 500, settori, Dow e Nasdaq-100; di oggi per gli altri). I cali che il giorno dopo si annullano in una giornata tranquilla sono errori della fonte e non contano. Taiwan non ha la scheda: lì i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.</p>
+    <p>È un'informazione di contesto da leggere insieme alla breadth: <b>non cambia stati, regole né alert Telegram</b>. Nella prova sui 22 indici, dopo le allerte gli indici sono andati in media meglio di una seduta qualsiasi, ma quasi tutto il vantaggio viene dai crolli rapidi (marzo 2020, aprile 2025). All'inizio dei mercati orso lunghi le allerte sono arrivate presto: tra agosto 2007 e settembre 2008 l'indice era più in basso un anno dopo. La storia usa la stessa composizione della breadth (di ogni data per S&amp;P 500, settori, Dow e Nasdaq-100; di oggi per gli altri). Non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli: sono errori di stampa della fonte. Dopo un giorno di panico il rimbalzo è di tutto il mercato, e quei cali contano. Non contano neppure i crolli oltre il 60% in una giornata normale (frazionamenti non registrati dalla fonte). Taiwan non ha la scheda: lì i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.</p>
   </section>
 
   <section id="tit">
@@ -380,7 +382,7 @@
   <section id="dati">
     <h2>Dati e aggiornamenti</h2>
     <ul>
-      <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate ogni notte da un processo automatico (verso mezzanotte e mezza ora italiana, con due corse di recupero al mattino presto e a metà giornata). In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
+      <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate ogni notte da un processo automatico (parte alle 00:40 ora italiana con l'ora legale, alle 23:40 con l'ora solare, e dura qualche minuto; due corse di recupero al mattino presto e a metà giornata). In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
       <li>La <b>breadth dei settori</b> è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 7 vengono dalle holdings dell'ETF iShares IVV.</li>
       <li>La <b>breadth degli indici</b> è calcolata ogni sera sui loro membri (circa 4.600 titoli).</li>
       <li>Le scelte personali (livelli blu provati, pesi del portafoglio, universo, indici mostrati, tema) restano solo nel tuo browser.</li>
@@ -390,11 +392,11 @@
   <section id="limiti">
     <h2>Limiti da tenere a mente</h2>
     <ul>
-      <li><b>Storia ricostruita</b>: per i primi anni una parte dei titoli usciti dall'indice non ha più prezzi (copertura dal 65% nel 2005 al 99% dal 2021); quei valori vanno letti con cautela.</li>
+      <li><b>Storia ricostruita</b>: per i primi anni una parte dei titoli usciti dall'indice non ha più prezzi (copertura dal 65% nel 2005 al 99% dal 2021); nei settori mancano anche i titoli usciti prima del 2013, che non hanno un settore noto (copertura del 58% nel 2005, del 76% nel 2009). Quei valori vanno letti con cautela.</li>
       <li><b>Senno di poi</b>: i livelli blu e la regola dell'avvicinamento sono stati scelti guardando la stessa storia su cui si calcolano episodi e statistiche.</li>
       <li><b>Campioni piccoli</b>: ogni settore ha pochi episodi, spesso nella stessa crisi; per questo l'app scrive «5 su 6» e mette sempre un termine di paragone.</li>
       <li><b>Prezzo di chiusura del segnale</b>: i rendimenti degli episodi partono dalla chiusura del giorno del segnale, che si conosce solo a mercato chiuso.</li>
-      <li><b>Dati gratuiti</b>: Yahoo a volte pubblica una chiusura in ritardo o con errori; l'aggiornamento controlla, scarta i prezzi anomali e segnala le fonti ferme.</li>
+      <li><b>Dati gratuiti</b>: Yahoo a volte pubblica una chiusura in ritardo o con errori; l'aggiornamento controlla, scarta i prezzi anomali e segnala le fonti ferme. Quando per un ETF europeo manca la seduta (nessuno scambio o dato mancante) vale il prezzo della seduta prima: nella tabella Prezzi un asterisco segna i valori che lo usano. Gli ETF di Parigi e Amsterdam seguono il calendario di Milano: il loro YTD parte dall'ultima seduta di Milano dell'anno prima.</li>
     </ul>
     <p class="tip">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è uno strumento di studio, con calcoli propri su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</p>
     <p class="tip warn">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri. «Relative Rotation Graphs» è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente.</p>

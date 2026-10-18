@@ -21,7 +21,7 @@ import { splitTop, cellText } from './members.js';
 export const PERIODS = ['1M', '3M', '6M', 'YTD', '1A'];
 export const LEN = { '1M': 21, '3M': 63, '6M': 126, '1A': 252 };
 export const OFFSETS = [0, 5, 21, 63]; // oggi, 1 settimana, 1 mese, 3 mesi fa (sedute)
-export const WEEKS = 52; // storia della divergenza: fine di ognuna delle ultime 52 settimane (ogni 5 sedute)
+export const WEEKS = 52; // storia della divergenza: ultima seduta di ognuna delle ultime 52 settimane (l'ultima è oggi)
 // sedute di storia che servono: 1 anno + 3 mesi di scia + il periodo precedente per la bubble
 export const HISTORY = 2 * 252 + 5;
 const MONTHS = { January: 1, February: 2, March: 3, April: 4, May: 5, June: 6, July: 7, August: 8, September: 9, October: 10, November: 11, December: 12 };
@@ -196,6 +196,14 @@ const r1 = (v) => (v == null || !Number.isFinite(v) ? null : Math.round(v * 1000
  * @param {object} o cal (sedute fino a asOf), members [{s, name, sector, sub}], life, px {s: allineati}, qty {s: azioni
  *   detenute da IVV, o salvate per chi è uscito} (anche parziale), sectors (11 chiavi)
  */
+/** Indici dell'ultima seduta di ogni settimana fino a N compreso (N chiude la settimana in corso). */
+export function weekEnds(cal, N) {
+  const monday = (d) => { const t = Date.parse(d + 'T12:00:00Z'); return t - ((new Date(t).getUTCDay() + 6) % 7) * 864e5; };
+  const out = [];
+  for (let t = 0; t <= N; t++) if (t === N || monday(cal[t + 1]) !== monday(cal[t])) out.push(t);
+  return out;
+}
+
 export function buildSectorMembers({ cal, members, life, px, qty, sectors }) {
   const N = cal.length - 1;
   const s0 = simStart(cal);
@@ -207,8 +215,9 @@ export function buildSectorMembers({ cal, members, life, px, qty, sectors }) {
   const value = (s) => (qty[s] ? qty[s] * lastPx(s) : null), small = {};
   for (const k of sectors) { const v = names.filter((s) => life[s].sector === k && qty[s]).map(value).sort((a, b) => a - b); small[k] = v.length ? 0.7 * v[Math.floor(v.length * 0.2)] : 1; }
   const shares = Object.fromEntries(names.map((s) => [s, qty[s] || small[life[s].sector] / lastPx(s)]));
-  // storia: sedute N, N−5, N−10… dalla più vecchia; per ogni periodo la divergenza equal − cap in punti
-  const weeks = Array.from({ length: WEEKS }, (_, j) => N - 5 * (WEEKS - 1 - j)).filter((t) => t >= 0);
+  // storia: ultima seduta di ogni settimana (lunedì–domenica), dalla più vecchia; la settimana in corso finisce oggi.
+  // Per ogni periodo la divergenza equal − cap in punti
+  const weeks = weekEnds(cal, N).slice(-WEEKS);
   const out = { asOf: cal[N], dates: OFFSETS.map((k) => cal[N - k]), starts: {}, sectors: {}, hist: { dates: weeks.map((t) => cal[t]), sectors: {} }, stocks: [] };
   for (const p of PERIODS) out.starts[p] = OFFSETS.map((k) => { const w = windowOf(cal, p, N - k); return w ? cal[w[0]] : null; });
   for (const k of [...sectors, 'SPX']) {

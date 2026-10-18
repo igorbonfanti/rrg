@@ -205,6 +205,12 @@ export function runMachine(px, br, L, params = {}) {
 }
 
 // Rendimento % da t a t+k sedute (null se il futuro non è ancora disponibile)
+/** Mediana dei valori non nulli; con un numero pari di valori, la media dei due centrali (come numpy e i fogli di calcolo). */
+export function median(a) {
+  const v = a.filter((x) => x != null && !Number.isNaN(x)).sort((x, y) => x - y), m = v.length >> 1;
+  if (!v.length) return null;
+  return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2;
+}
 export function forward(close, t, k) {
   return t != null && t + k < close.length && close[t] && close[t + k] != null ? (close[t + k] / close[t] - 1) * 100 : null;
 }
@@ -220,7 +226,7 @@ export function forward(close, t, k) {
  * @returns {{key: string, n: number, med: (number|null)[], pos: [number, number]}[]}
  */
 export function signalContext(close, at, from, horizons, bench = null, key = 1) {
-  const med = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
+  const med = median;
   const row = (k, days, f) => {
     const vals = horizons.map((h) => days.map((t) => f(t, h)));
     const at2 = vals[Math.min(key, horizons.length - 1)].filter((x) => x != null);
@@ -316,9 +322,9 @@ export function explainState(px, br, L, params, m, dates, t) {
     why = trig ? `Trigger del ${dIt(dates[trig.t])}: ${trig.conf.join(' + ') || 'rimbalzo'}.` : 'Trigger recente.';
     if (stop != null && since <= P.failWindow) {
       const left = P.failWindow - since;
-      items.push({ ok: c[t] >= stop, text: `fallisce se il prezzo chiude sotto ${f1(stop)} (minimo della zona blu ${f1(setup.pmin)} meno un'escursione media) entro ${sedute(left)}, fino a circa il ${dIt(sessionsAfter(dates[t], left))}; ora ${f1(c[t])}` });
+      items.push({ ok: c[t] >= stop, text: `per la regola dell'app fallisce se il prezzo chiude sotto ${f1(stop)} (minimo della zona blu ${f1(setup.pmin)} meno un'escursione media) entro ${sedute(left)}, fino a circa il ${dIt(sessionsAfter(dates[t], left))}; ora ${f1(c[t])}` });
     } else if (stop != null && !m.armed) {
-      items.push({ ok: c[t] >= stop || b > L, text: `fallisce se il prezzo chiude sotto ${f1(stop)} con la breadth di nuovo sotto il livello blu (${L}%), finché la breadth non torna sopra ${f0(reset)}%` });
+      items.push({ ok: c[t] >= stop || b > L, text: `per la regola dell'app fallisce se il prezzo chiude sotto ${f1(stop)} con la breadth di nuovo sotto il livello blu (${L}%), finché la breadth non torna sopra ${f0(reset)}%` });
     }
     items.push(m.armed ? { ok: true, text: `riarmo: la breadth è tornata sopra ${f0(reset)}%` }
       : { ok: null, text: `riarmo: breadth ${f1(b)}%, deve tornare sopra ${f0(reset)}% (${titoli(toAbove(reset))}) prima di una nuova zona blu` });

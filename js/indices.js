@@ -11,7 +11,7 @@ import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
+import { esc, fmt, sgn, pct, dIT, pxDec, placeTip, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -33,7 +33,7 @@ export function createIndices(ctx) {
   const CFG = ctx.config.indices;
   // KEYS: indici con i dati già scaricati (prima i principali, poi gli altri); ALL: tutti quelli in configurazione
   const ALL = Object.keys(CFG);
-  let D = null, KEYS = [], loading = null, failed = null, more = null;
+  let D = null, KEYS = [], loading = null, failed = null, more = null, moreFailed = null;
   const S = {}, PX = {}, NOW = {}, cache = new Map();
   const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set(), mapWeek: null };
   // indici mostrati in tabellone, Bottom Map e schede: di partenza i principali ("main" in config), poi
@@ -75,7 +75,7 @@ export function createIndices(ctx) {
       addSeries(data);
       st.blue = { ...defaults(), ...validBlue(store.get('ixBlue', {})) };
       if (!$('v-idx').hidden) render();
-    }).catch(() => { /* restano i principali */ });
+    }).catch((e) => { moreFailed = e; if (!$('v-idx').hidden) render(); }); // restano i principali, con l'avviso
   }
   const defaults = () => Object.fromEntries(ALL.map((k) => [k, CFG[k].blue]));
   function validBlue(v) {
@@ -160,11 +160,16 @@ export function createIndices(ctx) {
       };
     }).sort((a, b) => ORDER[a.appr ? 'appr' : a.state.code] - ORDER[b.appr ? 'appr' : b.state.code] || (a.b - a.L) - (b.b - b.L));
     const DDMAX = 35;
+    // copertura all'inizio della storia: i titoli usciti senza prezzi su Yahoo mancano (sopravvivenza nei primi anni)
+    const epocaTip = (k, r) => {
+      const x = S[k], f = x.pct200.findIndex((v) => v != null), c0 = f >= 0 && x.members[f] ? Math.round((100 * x.n[f]) / x.members[f]) : null;
+      return `Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}` + (c0 != null ? `, all'inizio (${x.dates[f].slice(0, 4)}) ${c0}%: i titoli usciti senza prezzi su Yahoo mancano` : '');
+    };
     const quality = (k, r) => CFG[k].composition === 'epoca'
-      ? `<span class="muted" title="Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}">d'epoca</span>`
+      ? `<span class="muted" title="${esc(epocaTip(k, r))}">d'epoca</span>`
       : CFG[k].limits
         ? `<span class="loc" title="${esc(`Storia dal ${S[k].dates[S[k].pct200.findIndex((v) => v != null)].slice(0, 4)} · ${CFG[k].note || ''}`)}">con limiti</span>`
-        : `<span class="muted" title="Storia ricostruita con i membri di oggi: nelle fasi intermedie la breadth risulta 3-6 punti più alta, vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
+        : `<span class="muted" title="Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 4 punti più alta (da −7 a +18 nelle singole date); vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
     $('ixTable').innerHTML = `<thead><tr><th>Indice</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l">Drawdown da max 52s</th><th>Storia</th><th class="r" title="Cali forti dei titoli (scheda «Cali forti» nel dettaglio): allerta oggi, sedute in allerta negli ultimi 3 mesi o percentile di oggi">Cali forti</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>` +
       rows.map((r) => {
         const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
@@ -191,6 +196,7 @@ export function createIndices(ctx) {
       ['Indici in zona blu', `${by(['setup', 'fail']).length}<small> / ${rows.length}</small>`, list(by(['setup', 'fail']))],
       [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / ${rows.length}</small>`, list(by(['trig', 'cool']))],
       ['Indici in attenzione', `${by(['watch']).length}<small> / ${rows.length}</small>`, list(by(['watch'])) + (rows.some((r) => r.appr) ? ` · in avvicinamento: ${rows.filter((r) => r.appr).map((r) => r.k).join(' · ')}` : '')],
+      ...(cap && cap.failed() ? [['Cali forti in allerta', '—', `dati non disponibili (${esc(cap.failed().message)})`]] : []),
       ...(cap && cap.ready() ? [(() => { const on = rows.filter((r) => (cap.status(r.k) || {}).on), rec = rows.filter((r) => !(cap.status(r.k) || {}).on && (cap.status(r.k) || {}).recent);
         return ['Cali forti in allerta', `${on.length}<small> / ${rows.filter((r) => !CFG[r.k].noCap).length}</small>`, list(on) + (rec.length ? ` · negli ultimi 3 mesi: ${list(rec)}` : '')]; })()] : []),
       ['Più vicino al livello blu', rows.length ? `${[...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0].k}` : '—', rows.length ? (() => { const r = [...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0]; return `${fmt(r.b)}% contro un livello di ${r.L}% (${sgn(r.b - r.L)} punti)`; })() : ''],
@@ -202,7 +208,9 @@ export function createIndices(ctx) {
     const same = (a) => a.length === st.shown.size && a.every((k) => st.shown.has(k));
     keepFocus($('ixPick'), 'data-ix', AREAS.map((a) => `<div class="ixarea"><span class="lbl">${esc(a)}</span>` +
       KEYS.filter((k) => CFG[k].area === a).map((k) => `<button type="button" class="chip" data-ix="${k}" aria-pressed="${st.shown.has(k)}" title="${esc(name(k))}${CFG[k].limits ? ' · con limiti' : ''}">${k}</button>`).join('') + '</div>').join(''));
-    $('ixPickMeta').textContent = `${st.shown.size} su ${KEYS.length} mostrati` + (same(MAIN()) ? ' · i principali' : '');
+    const absent = ALL.filter((k) => !S[k]);
+    $('ixPickMeta').textContent = `${VIS().length} su ${KEYS.length} mostrati` + (same(MAIN()) ? ' · i principali' : '') +
+      (absent.length ? (moreFailed ? ` · ${absent.length} indici non disponibili (dati non arrivati: ${moreFailed.message}): ${absent.join(', ')}` : ` · altri ${absent.length} in arrivo`) : '');
     $('ixPickMain').setAttribute('aria-pressed', String(same(MAIN())));
     $('ixPickAll').setAttribute('aria-pressed', String(same(KEYS)));
     $('ixPick').querySelectorAll('button').forEach((b) => b.onclick = () => {
@@ -254,7 +262,8 @@ export function createIndices(ctx) {
     const b = S[k].pct200[T], A = approachLevel(S[k].pct200.slice(0, T + 1), st.blue[k]);
     return { A, on: A != null && b != null && stateAt(k, T) === 'normal' && b <= A };
   }
-  const weekOf = (d) => { const F = fridays(); let i = F.length - 1; while (i > 0 && F[i] > d) i--; return i; };
+  // settimana che contiene la data (la prima che finisce in quel giorno o dopo): il minimo della crisi è nella mappa
+  const weekOf = (d) => { const F = fridays(); const i = F.findIndex((f) => f >= d); return i < 0 ? F.length - 1 : i; };
   function setMapWeek(i) {
     const F = fridays();
     st.mapWeek = i == null || i >= F.length - 1 ? null : Math.max(0, i);
@@ -279,7 +288,7 @@ export function createIndices(ctx) {
     r.min = 0; r.max = F.length - 1; r.value = today ? F.length - 1 : st.mapWeek;
     $('ixDateVal').textContent = today ? `oggi · ${dIT(asOf())}` : `settimana al ${dIT(D)}`;
     $('ixToday').hidden = today;
-    keepFocus($('ixJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && Math.abs(Date.parse(D) - Date.parse(d)) < 6 * 864e5}">${l}</button>`).join(''));
+    keepFocus($('ixJumps'), 'data-d', JUMPS.map(([d, l]) => `<button type="button" class="chip" data-d="${d}" aria-pressed="${!today && D >= d && Date.parse(D) - Date.parse(d) < 7 * 864e5}">${l}</button>`).join(''));
     $('ixJumps').querySelectorAll('button').forEach((b) => { b.onclick = () => { stopReplay(); setMapWeek(weekOf(b.dataset.d)); }; });
   }
   function renderMap() {
@@ -364,16 +373,16 @@ export function createIndices(ctx) {
       ? `<span class="loc">modificato in questo browser · livello di default ${CFG[k].blue}%</span>`
       : CFG[k].blueSource === 'Rea'
         ? 'Livello di default dai grafici di Massimo Rea (quant-rea). Le regole di zona blu, trigger e cooldown sono quelle dei settori.'
-        : 'Livello di default calcolato: 3° percentile della storia dell\'indice, la regola che ritrova i livelli di Rea sugli indici che li hanno. Regole di zona blu, trigger e cooldown come per i settori.';
+        : 'Livello di default calcolato: 3° percentile della breadth dell\'indice in tutta la sua storia, la quota di sedute (circa il 3%) che i livelli di Rea lasciano sotto la soglia sull\'S&P 500 e sui settori. Sugli indici con un livello di Rea la regola gli arriva entro un punto in 6 casi su 13 e altrove se ne scosta di molto (Nasdaq-100 11 contro 18). Regole di zona blu, trigger e cooldown come per i settori.';
     $('ixBlueReset').hidden = !changed(k);
     // situazione
     const b = s.pct200[t];
     const facts = [
-      ['Ultimo', `${fmt(s.close[last], 2)} · ${dIT(s.dates[last])}`],
+      ['Ultimo', `${fmt(s.close[last], pxDec(s.close[last]))} · ${dIT(s.dates[last])}`],
       ['Titoli sopra media 200', `${s.above200[t]}/${n} · ${fmt(b)}%`],
       ['Sopra media 50', `${fmt(s.pct50[t])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
-      ...(approach(k).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(k).A, 0)}% · ${b <= approach(k).A ? 'sotto' : `${sgn(b - approach(k).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione dal 2001 sui 22 indici (regola scelta su questa stessa storia): anticipo mediano 20 sedute, 96 tocchi del livello su 134 avvisati; il 47% degli avvicinamenti arriva al livello.']]),
+      ...(approach(k).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(k).A, 0)}% · ${b <= approach(k).A ? 'sotto' : `${sgn(b - approach(k).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione, sulla storia di ciascuno dei 22 indici dal 2000 (regola scelta su questa stessa storia): anticipo mediano 20 sedute, 96 tocchi del livello su 134 avvisati; il 47% degli avvicinamenti arriva al livello.']]),
       ['Drawdown da max 52s', `${sgn(PX[k].dd[last])}%`, 'Dalla chiusura più alta delle ultime 252 sedute. Gli indici sono di solo prezzo: è il valore che si vede su TradingView (che però usa il massimo intraday).'],
       ['Profondità storica DD', `${PX[k].dp[last]}° percentile`],
       ['Copertura', `${n} su ${s.members[t]} membri con prezzi`, 'Titoli dell\'indice con i prezzi su Yahoo Finance: quelli tolti dal listino mancano, e nella storia la copertura è più bassa.'],

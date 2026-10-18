@@ -5,7 +5,7 @@ import { createIndices } from './indices.js';
 import { createCap } from './cap-view.js';
 import { createTitles } from './titles.js';
 import { VERSION, RELEASE, NOTES } from './version.js';
-import { priceMetrics, priceDrawdown } from './metrics.js';
+import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
@@ -19,7 +19,7 @@ const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // di recupero: prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
 const PUBLISH_US = 20 * 60 + 30; // 20:30 a New York
 const PUBLISH_EU = 26 * 60 + 30; // 02:30 a Roma del giorno dopo la seduta
-const NEXT_UPDATE = 'aggiornamento automatico ogni notte verso l\'1 (ora italiana), dopo la chiusura USA';
+const NEXT_UPDATE = 'aggiornamento automatico ogni notte dopo la chiusura USA (alle 00:40 ora italiana con l\'ora legale, alle 23:40 con l\'ora solare)';
 
 // preferenze del singolo browser (se lo storage non è disponibile si usano i default)
 const store = {
@@ -108,6 +108,11 @@ function afterExtras() {
   state.groups = buildGroups();
   fillSelects();
   const saved = store.get('group');
+  // universo salvato i cui prezzi non sono arrivati: si resta sui settori, ma lo si dice
+  const lost = [[state.global, 'ETF in euro'], [state.macro, 'asset reali in dollari']].filter(([set]) => !set).map(([, l]) => l);
+  const w = $('grpWarn');
+  w.hidden = !lost.length;
+  w.textContent = lost.length ? `prezzi non arrivati: ${lost.join(' e ')}${saved && !state.groups[saved] ? ` · l'universo salvato «${saved}» non è disponibile` : ''}` : '';
   if (saved && saved !== state.group && state.groups[saved]) {
     state.group = saved;
     state.benchmark = pickBenchmark(saved);
@@ -206,7 +211,7 @@ function addMetrics(set) {
   set.metrics = {};
   for (const [s, t] of Object.entries(set.tickers)) {
     const m = t.max52 || null, ddp = priceDrawdown(m);
-    set.metrics[s] = { ...priceMetrics(set.dates, t.close), ...(m && m.all && ddp != null ? { dd52: ddp } : {}), max52: m, ddp };
+    set.metrics[s] = { ...priceMetrics(set.dates, t.close), ...(m && m.all && ddp != null ? { dd52: ddp } : {}), max52: m, ddp, copied: copiedAt(set.dates, t.copied) };
   }
 }
 
@@ -288,6 +293,8 @@ function sectorRotation(s) {
   return m && m.series[s] ? stats(m.series[s], m.dates.length - 1, 10) : null;
 }
 
+// ticker esclusi dall'ultimo aggiornamento (Yahoo non ha risposto o è rimasto indietro): non compaiono nelle tabelle
+const missTxt = (set) => (set && set.missing && set.missing.length ? ` <span class="fresh stale" title="${esc(`Esclusi dall'ultimo aggiornamento, dati non arrivati o fermi: ${set.missing.join(', ')}`)}">senza ${esc(set.missing.join(', '))}</span>` : '');
 function renderHeader() {
   const d = state.data;
   const asOf = d.asOf || d.dates[d.dates.length - 1];
@@ -297,7 +304,7 @@ function renderHeader() {
   const lag = Math.max(sessionsBetween(asOf, exp), sessionsBetween(bAsOf, exp));
   const badge = lag === 0 ? '<span class="fresh ok">Aggiornato</span>' : `<span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'seduta' : 'sedute'} indietro</span>`;
   const breadthNote = bAsOf < asOf ? ` <span class="muted">· breadth al ${dIT(bAsOf)}</span>` : '';
-  $('clock').innerHTML = `EOD <b>${dIT(asOf)}</b>${breadthNote} ${badge}`;
+  $('clock').innerHTML = `EOD <b>${dIT(asOf)}</b>${breadthNote} ${badge}${missTxt(d)}`;
   $('clock').title = `Chiusure USA · ${NEXT_UPDATE}`;
   $('genLine').textContent = `versione ${VERSION} del ${dIT(RELEASE)} · dati generati ${new Date(d.generated).toLocaleString('it-IT')}`;
 }
@@ -380,15 +387,25 @@ function renderPriceTable() {
   };
   // drawdown sul solo prezzo, alla stessa data (l'ultima del file)
   const ddpTd = (s, mt) => `<td class="num r" title="${esc(ddpTip(mt.max52, d.dates[d.dates.length - 1], mt.dd52, d.tickers[s].synthetic))}">${mt.ddp == null ? '<span class="muted">—</span>' : sgn(mt.ddp) + '%'}</td>`;
+  // prezzo e rendimenti: asterisco se usano un prezzo ricopiato dalla seduta prima (Yahoo senza la barra)
+  const pxTds = (mt) => ['last', 'd1', 'w1', 'm1', 'm3', 'ytd'].map((k) => {
+    const c = mt.copied && mt.copied[k], v = k === 'last' ? fmt(mt.last, 2) : pct(mt[k]);
+    return c ? `<td class="num r" title="${esc(`Prezzo del ${c.map(dIT).join(' e del ')} ricopiato dalla seduta prima: Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante).`)}">${v}<sup class="cp">*</sup></td>` : `<td class="num r">${v}</td>`;
+  }).join('');
   const body = rows.map(({ s, name, mt, r }) => `<tr data-sym="${esc(s)}" class="${foc === s ? 'sel' : ''}${state.hidden.has(s) ? ' off' : ''}" tabindex="0">
       <td>${symCell(s, name)}</td>
-      <td class="num r">${fmt(mt.last, 2)}</td><td class="num r">${pct(mt.d1)}</td><td class="num r">${pct(mt.w1)}</td><td class="num r">${pct(mt.m1)}</td><td class="num r">${pct(mt.m3)}</td><td class="num r">${pct(mt.ytd)}</td>
+      ${pxTds(mt)}
       <td>${ddCell(mt)}</td>${ddpTd(s, mt)}<td class="num r">${pct(mt.vs200)}</td>
       <td>${r ? qPill(r.q, r.heading) : '<span class="muted">—</span>'}</td><td class="num r">${r ? `${r.weeks} ${unit()}` : '—'}</td></tr>`).join('');
   const benchRow = `<tr class="bench"><td>${symCell(bench, d.tickers[bench].name, ' · benchmark')}</td>
-      <td class="num r">${fmt(bm.last, 2)}</td><td class="num r">${pct(bm.d1)}</td><td class="num r">${pct(bm.w1)}</td><td class="num r">${pct(bm.m1)}</td><td class="num r">${pct(bm.m3)}</td><td class="num r">${pct(bm.ytd)}</td>
+      ${pxTds(bm)}
       <td>${ddCell(bm)}</td>${ddpTd(bench, bm)}<td class="num r">${pct(bm.vs200)}</td><td></td><td></td></tr>`;
   $('monTable').innerHTML = head + '<tbody>' + body + benchRow + '</tbody>';
+  const COLS = { last: 'ultimo', d1: '1G', w1: '1S', m1: '1M', m3: '3M', ytd: 'YTD' };
+  const cps = rows.map(({ s, mt }) => [s, mt]).concat([[bench, bm]]).filter(([, mt]) => mt.copied)
+    .map(([s, mt]) => `${s} (${Object.keys(mt.copied).map((k) => COLS[k]).join(', ')}: ${[...new Set(Object.values(mt.copied).flat())].sort().map(dIT).join(', ')})`);
+  $('pxCopied').textContent = (isGlobal() ? ' Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l\'ultima seduta, il prezzo al momento dell\'aggiornamento).' : '') +
+    (cps.length ? ` * Con un prezzo ricopiato dalla seduta prima, perché Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante): ${cps.join('; ')}.` : '');
   $('monTable').querySelectorAll('th button').forEach((b) => b.onclick = () => {
     const k = b.dataset.sort;
     state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : (k === 'sym' || k === 'rot' ? 1 : -1) };
@@ -560,7 +577,7 @@ function updatePortfolioText() {
   // riga sopra il grafico: solo le classi (o componenti) con un peso
   const mix = classes ? classes.filter((c) => sum(c.tickers, w) > 0).map((c) => `${c.name} ${pw(eff(sum(c.tickers, w)))}`) : syms.filter((s) => w[s] > 0).map((s) => `${label(s)} ${pw(eff(w[s]))}`);
   const who = custom ? 'il <b>tuo portafoglio</b>' : 'un <b>portafoglio di esempio</b>';
-  $('ptfLine').innerHTML = `Contro ${who}: ${esc(mix.join(' · '))}. Composizione e cursori sotto il grafico.`;
+  $('ptfLine').innerHTML = mix.length ? `Contro ${who}: ${esc(mix.join(' · '))}. Composizione e cursori sotto il grafico.` : `Contro ${who}: tutti i pesi sono a 0, quindi il portafoglio è vuoto. Sposta un cursore sotto il grafico.`;
   $('ptfLine').hidden = !isPtf;
   $('ptfMeta').textContent = `${syms.length} componenti · ribilanciato a fine mese${custom ? ' · pesi tuoi' : ''}`;
   $('ptfWhat').innerHTML = isPtf
@@ -639,11 +656,13 @@ function focusSymbol(s) {
 }
 
 // Cerca un titolo per ticker (con o senza suffisso di borsa) o etichetta, prima nell'universo aperto;
-// poi tra i benchmark (SPY, QQQ, ACWI, Liquidità: { bench: true }); infine per una parola del nome (TESLA, DAX)
-function findSymbol(v) {
+// poi negli altri universi, uno alla volta (prima quelli USA): titoli, poi benchmark (SPY, QQQ, ACWI, Liquidità:
+// { bench: true }); infine per una parola del nome (TESLA). tickerOnly: solo il ticker, senza etichette né nomi
+function findSymbol(v, tickerOnly = false) {
+  const MK = { US: 0, global: 1, macro: 2 };
   const names = Object.keys(state.groups);
-  names.sort((a, b) => (a === state.group ? -1 : b === state.group ? 1 : 0));
-  const exact = (g, s) => [s, baseSym(s), labelOf(g.ds, s)].some((x) => x.toUpperCase() === v);
+  names.sort((a, b) => (a === state.group ? -1 : b === state.group ? 1 : MK[state.groups[a].market] - MK[state.groups[b].market]));
+  const exact = (g, s) => [s, baseSym(s), ...(tickerOnly ? [] : [labelOf(g.ds, s)])].some((x) => x.toUpperCase() === v);
   const byName = (g, s) => v.length >= 3 && (g.ds.tickers[s].name || '').toUpperCase().split(/[^A-Z0-9&+-]+/).some((w) => w.startsWith(v));
   const scan = (match, list, among = names) => {
     for (const name of among) {
@@ -656,7 +675,8 @@ function findSymbol(v) {
   // prima l'universo attuale (titoli, poi benchmark: SPY con i settori resta il benchmark dei settori), poi gli altri
   const cur = names.slice(0, 1), rest = names.slice(1);
   const bench = (among) => { const b = scan(exact, (g) => g.benchmarks, among); return b && { ...b, bench: true }; };
-  return scan(exact, (g) => g.tickers, cur) || bench(cur) || scan(exact, (g) => g.tickers, rest) || bench(rest) || scan(byName, (g) => g.tickers);
+  const each = () => { for (const n of rest) { const h = scan(exact, (g) => g.tickers, [n]) || bench([n]); if (h) return h; } return null; };
+  return scan(exact, (g) => g.tickers, cur) || bench(cur) || each() || (tickerOnly ? null : scan(byName, (g) => g.tickers));
 }
 
 // Data dei dati globali e ritardo rispetto all'ultima seduta chiusa di Borsa Italiana
@@ -666,7 +686,7 @@ function globalFreshness() {
   const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'seduta' : 'sedute'} indietro</span>`;
   const n = g.repaired ? g.repaired.length : 0;
   const fixed = n ? ` · <span title="${esc(g.repaired.map((r) => `${r.sym} ${dIT(r.date)}: ${r.from} → ${r.to}`).join('\n'))}">${n} ${n === 1 ? 'prezzo anomalo corretto' : 'prezzi anomali corretti'}</span>` : '';
-  return `ETF in euro, dati al ${dIT(g.asOf)}${badge}${fixed}`;
+  return `ETF in euro, dati al ${dIT(g.asOf)}${badge}${fixed}${missTxt(g)}`;
 }
 
 const MESI = ['gennaio', 'febbraio', 'marzo', 'aprile', 'maggio', 'giugno', 'luglio', 'agosto', 'settembre', 'ottobre', 'novembre', 'dicembre'];
@@ -678,7 +698,9 @@ function macroFreshness() {
   const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'seduta' : 'sedute'} indietro</span>`;
   const last = m.cpi && m.cpi.months ? Object.keys(m.cpi.months).sort().at(-1) : null;
   const cpi = last && m.cpi.releases[last] ? ` · CPI di ${monthIT(last)}, uscito il ${dIT(m.cpi.releases[last])}` : '';
-  return `ETF e bitcoin in dollari, dati al ${dIT(m.asOf)}${badge}${cpi}`;
+  const n = m.repaired ? m.repaired.length : 0;
+  const fixed = n ? ` · <span title="${esc(m.repaired.map((r) => `${r.sym} ${dIT(r.date)}: ${r.from} → ${r.to}`).join('\n'))}">${n} ${n === 1 ? 'prezzo anomalo corretto' : 'prezzi anomali corretti'}</span>` : '';
+  return `ETF e bitcoin in dollari, dati al ${dIT(m.asOf)}${badge}${cpi}${fixed}${missTxt(m)}`;
 }
 
 // ---------- asset reali: come leggere il benchmark scelto (la tabella con tutti i benchmark è in index.html) ----------
@@ -728,6 +750,7 @@ function step(k) {
 
 // ---------- navigazione e controlli ----------
 function setView(v, silent) {
+  if (v === 'idx' && !state.indices) v = 'mon'; // senza config/indices.json la pagina Indici non c'è (la scheda è nascosta)
   const from = state.view;
   state.view = v;
   if (v !== 'rrg') stop();
@@ -944,6 +967,9 @@ function bind() {
       if (words[w2] === 'sec') state.bottom.openSector(w1); else setView(words[w2]);
       return;
     }
+    // un indice della pagina Indici (DAX, SMI, NDX…) prima delle etichette e dei nomi degli ETF della rotazione,
+    // ma non di un ticker vero
+    if (state.indices && state.indices.isIndex(v) && !findSymbol(v, true)) { state.indices.open(v); setView('idx'); return; }
     const hit = findSymbol(v);
     // cambia universo e benchmark (e li ricorda) solo se serve
     const switchTo = (group, bench) => {
@@ -965,7 +991,7 @@ function bind() {
     }
     // un indice della pagina Indici (NDX, N225, SMI…), se non è già un ticker della rotazione
     if (state.indices && state.indices.isIndex(v)) { state.indices.open(v); setView('idx'); return; }
-    $('cmd').placeholder = narrow() ? `"${v}" non trovato · prova HELP` : `"${v}" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP`;
+    $('cmd').placeholder = narrow() ? `"${v}" non trovato · prova HELP` : `"${v}" non trovato. Prova un ticker (XLU${state.global ? ', SWDA' : ''}), un nome (${state.macro || state.global ? 'ORO, ' : ''}TESLA), MON, ROT o HELP`;
     $('cmdForm').classList.add('err');
     clearTimeout(cmdErrTimer);
     cmdErrTimer = setTimeout(() => { $('cmdForm').classList.remove('err'); setPlaceholder(); }, 4000);
