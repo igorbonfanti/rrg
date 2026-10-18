@@ -115,7 +115,7 @@ Workflow `.github/workflows/update-data.yml`, dopo la chiusura USA e due volte i
 - **Cali forti** (0.9.0):
   - membri con un calo giornaliero di almeno il 5, 7 o 10%, sommati su N sedute (preset di Rea: −7% su 5);
   - allerta oltre il 99° percentile delle sedute precedenti, dopo 3 anni di storia, con almeno 5 cali;
-  - solo contesto, «un'allerta che si ripete per settimane» è il segno dei mercati orso lunghi;
+  - solo contesto, conta se l'allerta si ripete: mediana di 31,5 sedute in allerta nei 12 mesi dal primo episodio nel 2007-2009, 12 nel 2020, 5 nell'aprile 2025 (script `ricerca/quant-rea/script/capitolazione_persistenza.mjs`);
   - prova sui 22 indici in `ricerca/quant-rea/risultati/capitolazione/`.
 
 ## 5. Decisioni prese con l'utente

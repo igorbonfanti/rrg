@@ -5,8 +5,8 @@
  * somme, la soglia di allerta e gli episodi.
  *
  * Conteggio di una seduta (dayCounts): membri con un rendimento giornaliero di −5%, −7%, −10% o peggio, chiusura su
- * chiusura rettificata per gli split. Un calo che la seduta dopo si riprende quasi tutto, in una giornata tranquilla
- * per gli altri membri (mediana entro ±2%), è un errore di stampa della fonte e non conta; un crollo oltre il 60% in
+ * chiusura rettificata per gli split. Un calo che la seduta dopo si riprende quasi tutto, quando quel giorno e il giorno
+ * dopo sono tranquilli per gli altri membri (mediana entro ±2% in tutte e due), è un errore di stampa della fonte e non conta; un crollo oltre il 60% in
  * una giornata normale anche (frazionamento non registrato). Denominatore n: membri con il rendimento della seduta.
  *
  * Formato di data/capitulation.json: per ogni serie (SPX, settori XL*, indici di config/indices.json) d0 e gaps delle
@@ -14,8 +14,9 @@
  *
  * Lettura (preset di Rea: −7% su 5 sedute): somma dei conteggi, o delle percentuali, sulle ultime N sedute; allerta
  * quando la somma supera il 99° percentile delle sedute precedenti (almeno 3 anni di storia) con almeno 5 cali nella
- * somma. Nei crolli rapidi l'allerta dura pochi giorni; nei mercati orso lunghi torna a scattare per mesi: per questo
- * si guarda anche quante sedute è rimasta sopra la soglia. È contesto: non entra nelle regole del semaforo.
+ * somma. Conta se l'allerta si ripete: nei 12 mesi dal primo episodio, mediana di 31,5 sedute in allerta nel 2007-2009,
+ * 12 nel 2020, 5 nell'aprile 2025 (ricerca/quant-rea/script/capitolazione_persistenza.mjs). È contesto: non entra
+ * nelle regole del semaforo.
  */
 import { decodeDates, encodeDates } from './indexdata.js';
 import { expandRLE, encodeRLE } from './signals.js';
@@ -61,7 +62,10 @@ export function dayCounts(r, next) {
   const v = r.filter((x) => x != null && Number.isFinite(x));
   const out = { n: v.length, x5: 0, x7: 0, x10: 0 };
   if (!v.length) return out;
-  const med = median(v), calm = Math.abs(med) < 0.02;
+  // errore di stampa solo se la seduta e quella dopo sono tranquille per gli altri membri: dopo un giorno di panico
+  // il rimbalzo è di tutto il mercato (13/10/2008, 9/4/2025) e i cali del giorno prima sono veri
+  const nv = next ? next.filter((x) => x != null && Number.isFinite(x)) : [];
+  const med = median(v), calm = Math.abs(med) < 0.02 && nv.length > 0 && Math.abs(median(nv)) < 0.02;
   r.forEach((x, i) => {
     if (x == null || !Number.isFinite(x) || x > -0.05 + EPS) return;
     const nx = next ? next[i] : null;

@@ -79,6 +79,63 @@ Numero di indici con il segnale attivo nello stesso periodo (massimo del mese, T
 
 Oggi, 16/10/2026: nessun indice è sopra la soglia, tranne Taiwan (dato da verificare). Sono però alti, oltre il 93° percentile: Nasdaq-100, Nikkei, KOSPI, Russell 2000 e MSCI Emerging. Nel 2026 ci sono già stati episodi su KOSPI (marzo e luglio, −15% e −21% in 5 sedute), Nasdaq-100 (febbraio e luglio) e Taiwan.
 
+## Quanto dura l'allerta (dati dell'app, 18/10/2026)
+
+Con i conteggi dell'app (`data/capitulation.json`, filtro degli errori di stampa corretto il 18/10/2026) e il preset di Rea, contate le sedute in allerta nei 12 mesi dal primo episodio di ogni periodo. Script: `script/capitolazione_persistenza.mjs`.
+
+| Periodo | Serie con allerta | Sedute in allerta in 12 mesi, mediana | Da – a |
+|---|---|---|---|
+| 2007-2009 | 20 | 31,5 | 10 – 60 |
+| 2020 | 30 | 12 | 1 – 27 |
+| 2022 | 6 | 4,5 | 1 – 11 |
+| aprile 2025 | 22 | 5 | 2 – 10 |
+
+Nei mercati orso lunghi l'allerta torna in più episodi separati (S&P 500 nel 2008: 5 episodi, 60 sedute); nel 2020 il primo episodio è durato quanto basta (12 sedute di mediana) ma poi non è tornato. Quindi non basta la durata del primo episodio: conta se l'allerta si ripete. Nel 2007-2009 la soglia serve 3 anni di storia: S&P 500 e settori partono dal 10/01/2008, FTSE MIB dal 26/03/2008, STOXX 600 dal 12/01/2009 (nessun episodio dopo); Nasdaq-100, Russell 2000, Euro Stoxx 50, IBEX, Hang Seng, CSI 300, KOSPI, Nifty, ASX, MSCI Emerging e Ibovespa non l'hanno ancora.
+
+```
+dati al 2026-10-16
+
+serie     2020                  2022                  2007-2009             apr 2025              
+SPX       1 ep., 12 sed.        0                     5 ep., 60 sed. (dal 2008-01-10)1 ep., 4 sed.         
+XLK       1 ep., 12 sed.        0                     3 ep., 27 sed. (dal 2008-01-10)1 ep., 10 sed.        
+XLC       1 ep., 13 sed.        0                     2 ep., 27 sed. (dal 2008-01-10)0                     
+XLY       2 ep., 24 sed.        1 ep., 1 sed.         5 ep., 45 sed. (dal 2008-01-10)0                     
+XLP       1 ep., 15 sed.        1 ep., 5 sed.         2 ep., 19 sed. (dal 2008-01-10)0                     
+XLE       2 ep., 14 sed.        0                     4 ep., 47 sed. (dal 2008-01-10)1 ep., 5 sed.         
+XLF       1 ep., 11 sed.        0                     7 ep., 55 sed. (dal 2008-01-10)1 ep., 4 sed.         
+XLV       1 ep., 14 sed.        0                     3 ep., 27 sed. (dal 2008-01-10)0                     
+XLI       2 ep., 21 sed.        0                     3 ep., 36 sed. (dal 2008-01-10)1 ep., 5 sed.         
+XLB       1 ep., 12 sed.        0                     2 ep., 37 sed. (dal 2008-01-10)1 ep., 2 sed.         
+XLRE      1 ep., 12 sed.        0                     3 ep., 46 sed. (dal 2008-01-10)0                     
+XLU       1 ep., 19 sed.        0                     2 ep., 13 sed. (dal 2008-01-10)1 ep., 5 sed.         
+NDX       1 ep., 12 sed.        2 ep., 4 sed.         —                     1 ep., 6 sed.         
+DJI       2 ep., 17 sed.        0                     3 ep., 36 sed.        1 ep., 4 sed.         
+N225      1 ep., 1 sed.         0                     3 ep., 10 sed.        1 ep., 5 sed.         
+SXXP      1 ep., 12 sed.        0                     0 (dal 2009-01-12)    1 ep., 5 sed.         
+UKX       1 ep., 19 sed.        0                     3 ep., 37 sed.        1 ep., 3 sed.         
+DAX       1 ep., 12 sed.        0                     2 ep., 21 sed.        0                     
+CAC       1 ep., 12 sed.        1 ep., 2 sed.         2 ep., 20 sed.        0                     
+SMI       1 ep., 7 sed.         0                     1 ep., 14 sed.        1 ep., 5 sed.         
+RUT       0 (dal 2020-09-10)    0                     —                     1 ep., 5 sed.         
+TSX60     1 ep., 17 sed.        0                     2 ep., 50 sed.        1 ep., 5 sed.         
+SX5E      1 ep., 10 sed.        0                     —                     1 ep., 3 sed.         
+FTSEMIB   1 ep., 10 sed.        1 ep., 7 sed.         2 ep., 19 sed. (dal 2008-03-26)1 ep., 5 sed.         
+IBEX      1 ep., 12 sed.        0                     —                     1 ep., 5 sed.         
+HSI       1 ep., 5 sed.         2 ep., 11 sed.        —                     1 ep., 5 sed.         
+CSI300    0                     0                     —                     1 ep., 3 sed.         
+KOSPI200  1 ep., 11 sed.        0                     —                     0                     
+NIFTY50   1 ep., 12 sed.        0                     —                     0                     
+ASX200    1 ep., 16 sed.        0                     —                     1 ep., 4 sed.         
+EEM       1 ep., 11 sed.        0                     —                     1 ep., 5 sed.         
+IBOV      2 ep., 27 sed.        0                     —                     0                     
+
+sedute in allerta nei 12 mesi dal primo episodio, tra le serie con almeno un episodio:
+  2020       30 serie · mediana 12 · da 1 a 27
+  2022        6 serie · mediana 4.5 · da 1 a 11
+  2007-2009  20 serie · mediana 31.5 · da 10 a 60
+  apr 2025   22 serie · mediana 5 · da 2 a 10
+```
+
 ## Giudizio per l'app
 
 | Gruppo | Indici | Come mostrarla |

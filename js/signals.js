@@ -205,6 +205,12 @@ export function runMachine(px, br, L, params = {}) {
 }
 
 // Rendimento % da t a t+k sedute (null se il futuro non è ancora disponibile)
+/** Mediana dei valori non nulli; con un numero pari di valori, la media dei due centrali (come numpy e i fogli di calcolo). */
+export function median(a) {
+  const v = a.filter((x) => x != null && !Number.isNaN(x)).sort((x, y) => x - y), m = v.length >> 1;
+  if (!v.length) return null;
+  return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2;
+}
 export function forward(close, t, k) {
   return t != null && t + k < close.length && close[t] && close[t + k] != null ? (close[t + k] / close[t] - 1) * 100 : null;
 }
@@ -220,7 +226,7 @@ export function forward(close, t, k) {
  * @returns {{key: string, n: number, med: (number|null)[], pos: [number, number]}[]}
  */
 export function signalContext(close, at, from, horizons, bench = null, key = 1) {
-  const med = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
+  const med = median;
   const row = (k, days, f) => {
     const vals = horizons.map((h) => days.map((t) => f(t, h)));
     const at2 = vals[Math.min(key, horizons.length - 1)].filter((x) => x != null);

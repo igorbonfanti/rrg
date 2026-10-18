@@ -4,7 +4,7 @@
  * breadth.json (titoli sopra le medie), breadth_latest.json (fotografia per titolo),
  * config/thresholds.json (livelli blu e parametri), alerts.json (invii Telegram).
  */
-import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, signalContext, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
+import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, signalContext, median, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
@@ -35,7 +35,6 @@ const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURICo
 const tvStock = (sym) => tvLink(sym.replace('-', '.'));
 // "del 70%" ma "dell'80%", "dell'8%", "dell'11%", "dell'1%"
 const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
-const median = (a) => { const v = a.filter((x) => x != null).sort((x, y) => x - y); return v.length ? v[Math.floor((v.length - 1) / 2)] : null; };
 const positive = (a) => { const v = a.filter((x) => x != null); return v.length ? (100 * v.filter((x) => x > 0).length) / v.length : null; };
 
 function sparkline(arr, w, h) {

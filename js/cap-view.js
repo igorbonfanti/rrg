@@ -7,6 +7,7 @@ import { capSeries, capAnalysis, capOutcomes, CAP_DEFAULT } from './capitulation
 import { drawCap } from './cap-chart.js';
 import { esc, fmt, pct, sgn, dIT, chartWidth, keepFocus } from './format.js';
 
+
 const CHOICES = { thr: [5, 7, 10], win: [3, 5, 10], mode: ['count', 'pct'] };
 const isPreset = (o) => o.thr === CAP_DEFAULT.thr && o.win === CAP_DEFAULT.win && o.mode === CAP_DEFAULT.mode;
 const titoli = (v) => `${fmt(v, 0)} ${v === 1 ? 'calo' : 'cali'}`;
@@ -56,11 +57,19 @@ export function createCap(ctx) {
     const a = analysis(k);
     return a && a.today ? { ...a.today, date: series(k).dates[a.today.i], episodes: a.episodes.length } : null;
   }
+  /** Episodi e sedute in allerta nelle ultime 252 sedute (12 mesi). */
+  function yearText(a) {
+    const n = a.on.length, i0 = Math.max(0, n - 252);
+    let on = 0;
+    for (let i = i0; i < n; i++) if (a.on[i]) on++;
+    const ep = a.episodes.filter((e) => e.end >= i0).length;
+    return on ? `; negli ultimi 12 mesi ${ep} ${ep === 1 ? 'episodio' : 'episodi'}, ${on} ${on === 1 ? 'seduta' : 'sedute'} in allerta` : '';
+  }
   /** Riga informativa per «Perché questo stato»: solo se c'è stata allerta negli ultimi 3 mesi. */
   function info(k) {
     const t = status(k);
     if (!t || (!t.on && !t.recent)) return '';
-    const head = t.on ? `<b>Cali forti: allerta oggi</b> (${val(t.value)} in ${opt.win} sedute, soglia ${val(t.alert)})` : '<b>Cali forti</b>: nessuna allerta oggi';
+    const head = t.on ? `<b>Cali forti: allerta al ${dIT(t.date)}</b> (${val(t.value)} in ${opt.win} sedute, soglia ${val(t.alert)})` : `<b>Cali forti</b>: nessuna allerta al ${dIT(t.date)}`;
     return `<p class="note capinfo">ⓘ ${head} · ${t.recent} ${t.recent === 1 ? 'seduta' : 'sedute'} in allerta negli ultimi 3 mesi. Informativo: non fa parte delle regole del semaforo (scheda «Cali forti» qui sotto).</p>`;
   }
   /** Cella della tabella degli indici. */
@@ -68,7 +77,7 @@ export function createCap(ctx) {
     if (noCap) return `<td class="muted" title="${esc(noCap)}">—</td>`;
     const t = status(k);
     if (!t) return '<td class="muted">…</td>';
-    const tip = `Cali forti: ${val(t.value)} nelle ultime ${opt.win} sedute (calo di almeno il ${opt.thr}%), ${fmt(t.pct, 0)}° percentile della storia · soglia di allerta ${val(t.alert)} · ${t.recent} sedute in allerta negli ultimi 3 mesi`;
+    const tip = `Cali forti al ${dIT(t.date)}: ${val(t.value)} nelle ultime ${opt.win} sedute (calo di almeno il ${opt.thr}%), ${fmt(t.pct, 0)}° percentile della storia · soglia di allerta ${val(t.alert)} · ${t.recent} sedute in allerta negli ultimi 3 mesi`;
     const body = t.on ? '<span class="capflag">allerta</span>' : t.recent ? `<span class="capflag weak">${t.recent} sed.</span>` : `<span class="muted num">${fmt(t.pct, 0)}°</span>`;
     return `<td class="r" title="${esc(tip)}">${body}</td>`;
   }
@@ -96,7 +105,7 @@ export function createCap(ctx) {
     if (!s || !a || !a.today) { meta.textContent = 'non disponibile'; show(false); $('CapNote').textContent = 'Per questa serie i cali forti non sono ancora calcolati.'; return; }
     show(true);
     const t = a.today;
-    meta.innerHTML = t.on ? '<span class="capflag">allerta</span>' : `oggi ${fmt(t.pct, 0)}° percentile${t.recent ? ` · ${t.recent} sedute in allerta negli ultimi 3 mesi` : ''}`;
+    meta.innerHTML = t.on ? `<span class="capflag">allerta</span> <span class="muted">al ${dIT(s.dates[t.i])}</span>` : `al ${dIT(s.dates[t.i])}: ${fmt(t.pct, 0)}° percentile${t.recent ? ` · ${t.recent} sedute in allerta negli ultimi 3 mesi` : ''}`;
     // scelte: soglia, sedute, unità; il preset di Quant Rea è −7% su 5 sedute in titoli
     const seg = (key, label, fmtv) => `<span class="ctl">${label}<span class="seg" role="group" aria-label="${label}">` +
       CHOICES[key].map((v) => `<button type="button" data-k="${key}" data-v="${v}" aria-pressed="${opt[key] === v}">${fmtv(v)}</button>`).join('') + '</span></span>';
@@ -108,9 +117,9 @@ export function createCap(ctx) {
 
     const since = a.from >= 0 ? s.dates[a.from] : null;
     $('CapNow').innerHTML = (t.on
-      ? `<b class="down">Allerta</b>: ${val(t.value)} nelle ultime ${opt.win} sedute, sopra la soglia di ${val(t.alert)}.`
-      : `Oggi ${val(t.value)} nelle ultime ${opt.win} sedute: ${fmt(t.pct, 0)}° percentile della storia${since ? ` dal ${since.slice(0, 4)}` : ''}, soglia di allerta ${val(t.alert)}.`) +
-      ` In allerta ${t.recent} ${t.recent === 1 ? 'seduta' : 'sedute'} negli ultimi 3 mesi` + (t.recent >= 10 ? ': un\'allerta che si ripete per settimane è il segno dei mercati orso lunghi.' : '.');
+      ? `<b class="down">Allerta</b> al ${dIT(s.dates[t.i])}: ${val(t.value)} nelle ultime ${opt.win} sedute, sopra la soglia di ${val(t.alert)}.`
+      : `Al ${dIT(s.dates[t.i])} ${val(t.value)} nelle ultime ${opt.win} sedute: ${fmt(t.pct, 0)}° percentile della storia${since ? ` dal ${since.slice(0, 4)}` : ''}, soglia di allerta ${val(t.alert)}.`) +
+      ` In allerta ${t.recent} ${t.recent === 1 ? 'seduta' : 'sedute'} negli ultimi 3 mesi` + yearText(a) + '.';
 
     // grafico: dal periodo della vista, prezzo allineato per data
     const at = new Map(o.dates.map((d, i) => [d, o.close[i]]));
@@ -135,10 +144,10 @@ export function createCap(ctx) {
     const neg = rows.filter((r) => r.r252 != null && r.r252 < 0).length, done = rows.filter((r) => r.r252 != null).length;
     $('CapBase').innerHTML = `${rows.length} ${rows.length === 1 ? 'episodio' : 'episodi'}${since ? ` dal ${dIT(since)}` : ''}` +
       (done ? `, ${neg} su ${done} con ${esc(o.what)} più in basso dopo 12 mesi` : '') +
-      `. Per confronto, dopo una seduta qualsiasi della stessa storia: +3M ${c(base.r63)}, +12M ${c(base.r252)}.`;
+      `. Per confronto, in media dopo una seduta qualsiasi della stessa storia: +3M ${c(base.r63)}, +12M ${c(base.r252)}.`;
     $('CapNote').innerHTML = `Quanti ${what()} (preset di Quant Rea, «Drop giornaliero cumulato»: −7% su 5 sedute). La linea tratteggiata è la soglia di allerta: il 99° percentile delle sedute precedenti, con almeno 5 cali nella somma. ` +
-      'Un\'allerta dice che sotto la superficie le vendite sono forti e diffuse. Nei crolli rapidi dura pochi giorni; nei mercati orso lunghi (2007-2009) torna per mesi, ed è lì che conta guardare quante sedute resta in allerta. ' +
-      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; i cali che il giorno dopo si annullano in una giornata tranquilla sono errori della fonte e non contano.';
+      'Un\'allerta dice che sotto la superficie le vendite sono forti e diffuse. Conta soprattutto se si ripete: con il preset, nei 12 mesi dal primo episodio le serie dell\'app sono state in allerta 31,5 sedute di mediana nel 2007-2009 (in più episodi), 12 nel 2020 e 5 nell\'aprile 2025. ' +
+      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte).';
     body.dataset.k = k;
   }
   return { ensure, onChange, status, info, cell, card, ready: () => !!data };
