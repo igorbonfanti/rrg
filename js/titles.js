@@ -123,7 +123,7 @@ export function createTitles(ctx) {
   function drawSpread() {
     const svg = $('titSpread'), sel = ctx.getSector();
     $('titSpreadTip').hidden = true;
-    const W = chartWidth(svg, 1120, 360), narrow = W < 640;
+    const W = chartWidth(svg, 1120), narrow = W < 640;
     const rows = SECTORS.filter((k) => D.sectors[k] && D.sectors[k][st.per][0]).map(rowOf); // settore senza titoli: fuori
     if (st.sort === 'div') rows.sort((a, b) => b.sp - a.sp);
     const top3 = new Set([...rows].sort((a, b) => Math.abs(b.sp) - Math.abs(a.sp)).slice(0, 3).map((r) => r.k));
@@ -243,7 +243,7 @@ export function createTitles(ctx) {
       : `<b class="${z.sign > 0 ? 'q-lead-c' : 'q-imp-c'}">${esc(streakText(z, dates).replace(/^./, (c) => c.toUpperCase()))}</b> sul periodo ${st.per}: oggi ${pp(v[n - 1])}` +
         ` · nell'anno da ${pp(lo)} (${dIT(dates[v.indexOf(lo)])}) a ${pp(hi)} (${dIT(dates[v.indexOf(hi)])})`;
     const svg = $('titHist');
-    const W = chartWidth(svg, 1120, 340), narrow = W < 640, HH = narrow ? 150 : 180;
+    const W = chartWidth(svg, 1120), narrow = W < 640, HH = narrow ? 150 : 180;
     const M = { l: 38, r: narrow ? 46 : 80, t: 12, b: 24 }, PW = W - M.l - M.r, PH = HH - M.t - M.b;
     svg.setAttribute('viewBox', `0 0 ${W} ${HH}`); svg.innerHTML = '';
     const vals = [...ok, ...(ref || []).filter((x) => x != null), 0];
@@ -314,7 +314,7 @@ export function createTitles(ctx) {
   }
   function drawBubble() {
     const svg = $('titBubble'), sec = ctx.getSector(), ax = AXES[st.ax];
-    const W = chartWidth(svg, 940, 360), narrow = W < 640;
+    const W = chartWidth(svg, 940), narrow = W < 640;
     const H = Math.round(Math.min(600, Math.max(340, W * (narrow ? 1.1 : 0.6))));
     const getX = (s) => ax.get(s, st.per);
     $('titBubbleTip').hidden = true;

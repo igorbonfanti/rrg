@@ -452,6 +452,7 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .rrg .bl-setup { fill: var(--blue-light); } .rrg .bl-watch { fill: var(--watch-line); } .rrg .bl-normal { fill: var(--ink-3); } .rrg .bl-blue { fill: var(--blue-text); }
 .rrg .segz-setup { stroke: var(--blue); } .rrg .segz-watch { stroke: var(--watch-line); } .rrg .segz-normal { stroke: var(--ink-2); }
 .rrg .headz-setup { fill: var(--blue); } .rrg .headz-watch { fill: var(--watch-line); } .rrg .headz-normal { fill: var(--ink-2); }
+.rrg .headz-trig { fill: var(--st-trig); } .rrg .headz-fail { fill: var(--down); } .rrg .headz-cool { fill: var(--bg); stroke: var(--ink-2); stroke-width: 1.5; }
 .dist { display: grid; gap: 2px; padding-top: 4px; }
 .dist .r { display: grid; grid-template-columns: 50px 1fr 62px 72px; gap: 8px; align-items: center; padding: 4px 10px; cursor: pointer; }
 .dist .r:hover, .dist .r.sel { background: var(--row-hi); }
@@ -670,10 +671,13 @@ svg.bub { touch-action: pan-y; }
 .changes .chg-br { display: inline-flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; color: var(--ink-3); }
 .changes .chg-none { color: var(--ink-3); }
 
-/* Monitor sul telefono: una scheda per settore al posto delle 10 colonne, «da osservare» prima della tabella */
+/* Monitor sul telefono: «da osservare» prima della tabella */
 @media (max-width: 600px) {
   .mon-side { display: contents; }
   .watch-panel { order: -1; }
+}
+/* Monitor e tabellone degli indici fino al tablet: una scheda per riga al posto delle 10 colonne */
+@media (max-width: 900px) {
   .board-cards thead { display: none; }
   .board-cards, .board-cards tbody { display: block; }
   .board-cards tr { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 9px 10px; border-bottom: 1px solid var(--grid); }
@@ -693,6 +697,11 @@ svg.bub { touch-action: pan-y; }
   .board-cards td[data-l]::before { content: attr(data-l); margin-right: 6px; font: 600 10px var(--f-mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
   .board-cards .c-blue:empty, .board-cards .c-rot:empty { display: none; }
   .board-cards .c-br::before, .board-cards .c-dd::before { min-width: 62px; }
+  .board-cards .c-blue { min-width: 7ch; }
+  #ixTable .c-name .nm { display: inline; margin-left: 6px; font-size: 12px; }
+  .board-cards .c-cap { order: 5; margin-left: auto; text-align: right; }
+  .board-cards .c-hist { order: 8; flex: 1 1 100%; }
+  .board-cards .c-cap:empty { display: none; }
 }
 
 /* spiegazioni al tocco (app.js bindTapTips) */
@@ -727,7 +736,7 @@ svg.bub { touch-action: pan-y; }
 
 /* quanti titoli sopra la media 200 su quanti, accanto alla breadth (nei settori piccoli un titolo vale 3 punti) */
 .cellv .cnt { display: block; margin-top: 1px; font: 10px/1.1 var(--f-mono); color: var(--ink-3); letter-spacing: 0; }
-@media (max-width: 600px) { .board-cards .cellv .cnt { display: inline; margin-left: 6px; } .board-cards .cellv { width: auto; } }
+@media (max-width: 900px) { .board-cards .cellv .cnt { display: inline; margin-left: 6px; } .board-cards .cellv { width: auto; } }
 #boardTable .cellv, #ixTable .cellv { vertical-align: middle; }
 
 /* scheda «Cali forti» (cap-view.js): chiusa di default, intestazione come quella degli altri pannelli */

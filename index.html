@@ -298,6 +298,7 @@
           <button class="play" id="bmPlay" type="button" title="Rivedi le settimane una dopo l'altra fino a oggi">▶ PLAY</button>
           <div class="scrub"><input type="range" id="bmDate" step="1" aria-label="Data della Bottom Map" /><span class="date" id="bmDateVal"></span></div>
           <button type="button" class="mini" id="bmToday" hidden>Oggi</button>
+          <button type="button" class="mini" id="bmZoom" aria-pressed="false" title="Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano">Zoom sulla zona</button>
         </div>
         <div class="controls bm-jumps"><span class="ctl">Crisi passate</span><div class="chips" id="bmJumps"></div></div>
         <div class="chart-wrap" id="bmWrap">
@@ -307,6 +308,10 @@
         <div class="legend">
           <span><span class="kb" style="background:var(--blue)"></span>zona blu: breadth sotto il livello e drawdown profondo</span>
           <span><span class="kb" style="background:var(--q-weak)"></span>attenzione</span>
+          <span><span class="kb" style="background:var(--st-trig)"></span>trigger</span>
+          <span><span class="kb" style="background:var(--down)"></span>fallito</span>
+          <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
+          <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
           <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia del settore (livello blu + il suo calo forte in 10 sedute)</span>
           <span class="muted">coda = ultime 8 settimane · il percorso di un bottom scende a sinistra, poi risale · clic per il dettaglio</span>
         </div>
@@ -459,7 +464,7 @@
     <div class="kpis" id="ixKpis"></div>
     <div class="panel">
       <div class="ph"><h2>Indici · stato dei bottom</h2><span class="meta" id="ixMeta"></span></div>
-      <div class="tscroll"><table class="t" id="ixTable"></table></div>
+      <div class="tscroll"><table class="t board-cards" id="ixTable"></table></div>
       <div class="legend">
         <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
         <span><span class="kb" style="background:var(--blue);width:2px"></span>livello blu dell'indice</span>
@@ -476,6 +481,7 @@
           <button class="play" id="ixPlay" type="button" title="Rivedi le settimane una dopo l'altra fino a oggi">▶ PLAY</button>
           <div class="scrub"><input type="range" id="ixDate" step="1" aria-label="Data della Bottom Map degli indici" /><span class="date" id="ixDateVal"></span></div>
           <button type="button" class="mini" id="ixToday" hidden>Oggi</button>
+          <button type="button" class="mini" id="ixZoom" aria-pressed="false" title="Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano">Zoom sulla zona</button>
         </div>
         <div class="controls bm-jumps"><span class="ctl">Crisi passate</span><div class="chips" id="ixJumps"></div></div>
         <div class="chart-wrap" id="ixMapWrap">
@@ -485,6 +491,10 @@
         <div class="legend">
           <span><span class="kb" style="background:var(--blue)"></span>zona blu: breadth sotto il livello e drawdown profondo</span>
           <span><span class="kb" style="background:var(--q-weak)"></span>attenzione</span>
+          <span><span class="kb" style="background:var(--st-trig)"></span>trigger</span>
+          <span><span class="kb" style="background:var(--down)"></span>fallito</span>
+          <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
+          <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
           <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute)</span>
           <span class="muted">coda = ultime 8 settimane · clic per il dettaglio</span>
         </div>

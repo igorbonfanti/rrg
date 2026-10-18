@@ -6,7 +6,7 @@
  * Le bande blu verticali sono i periodi in zona blu calcolati dalla macchina a stati; quelle più chiare
  * le sedute con la breadth sotto il livello blu fuori dalla zona blu (il motivo è nel tooltip).
  */
-import { fmt, sgn, dIT, placeTip, pxDec } from './format.js';
+import { fmt, sgn, dIT, placeTip, pxDec, bindTip } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -55,8 +55,8 @@ export function drawSector(svg, p) {
   const panes = [
     { key: 'px', h: 220, title: 'PREZZO · MEDIA 200 SEDUTE' },
     // «con dividendi» solo se c'è spazio accanto alla nota del peggiore a destra
-    { key: 'dd', h: 100, title: narrow ? 'DRAWDOWN DAL MASSIMO 52 SETT.' : PW < 560 ? 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' : 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE · ' + (p.ddNote || 'CON DIVIDENDI') },
-    { key: 'br', h: 150, title: `% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU ${blue}%` },
+    { key: 'dd', h: 100, title: PW < 320 ? 'DRAWDOWN DA MAX 52S' : narrow ? 'DRAWDOWN DAL MASSIMO 52 SETT.' : PW < 560 ? 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE' : 'DRAWDOWN DAL MASSIMO A 52 SETTIMANE · ' + (p.ddNote || 'CON DIVIDENDI') },
+    { key: 'br', h: 150, title: PW < 320 ? `% SOPRA MEDIA 200 · BLU ${blue}%` : `% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU ${blue}%` },
   ];
   let y = 20;
   for (const q of panes) { q.y0 = y; q.y1 = y + q.h; y = q.y1 + GAP; }
@@ -76,7 +76,7 @@ export function drawSector(svg, p) {
     P0.sy = (v) => P0.y1 - ((Math.log(v) - a) / (bb - a)) * P0.h;
     P0.ticks = [];
     for (let e = Math.floor(Math.log10(P0.lo)); e <= Math.ceil(Math.log10(P0.hi)); e++) for (const k of [1, 2, 5]) { const v = k * 10 ** e; if (v >= P0.lo && v <= P0.hi) P0.ticks.push(v); }
-    P0.title = narrow ? 'PREZZO (SCALA LOG) · MEDIA 200' : 'PREZZO (SCALA LOGARITMICA) · MEDIA 200 SEDUTE';
+    P0.title = PW < 320 ? 'PREZZO (LOG) · MEDIA 200' : narrow ? 'PREZZO (SCALA LOG) · MEDIA 200' : 'PREZZO (SCALA LOGARITMICA) · MEDIA 200 SEDUTE';
   } else {
     const pad = (pHi - pLo) * 0.06;
     P0.lo = pLo - pad; P0.hi = pHi + pad;
@@ -159,7 +159,7 @@ export function drawSector(svg, p) {
   const dots = panes.map(() => el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg));
   const hit = el('rect', { x: L, y: P0.y0, width: PW, height: P2.y1 - P0.y0, fill: 'transparent' }, svg);
   const STATE = { normal: 'normale', watch: 'attenzione', setup: 'zona blu', trig: 'trigger', fail: 'fallito', cool: 'cooldown' };
-  hit.addEventListener('pointermove', (e) => {
+  const show = (e) => {
     const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
     const q = pt.matrixTransform(svg.getScreenCTM().inverse());
     const i = Math.max(0, Math.min(n - 1, Math.round(((q.x - L) / PW) * (n - 1))));
@@ -174,6 +174,6 @@ export function drawSector(svg, p) {
       <div class="row"><span>Sopra media 200</span><b>${b[i] == null ? '—' : fmt(b[i]) + '%'}</b></div><div class="row"><span>Sopra media 50</span><b>${b50[i] == null ? '—' : fmt(b50[i]) + '%'}</b></div>` +
       (off[i] && p.offText ? `<div class="row note-row">${p.offText[off[i]]}</div>` : '');
     placeTip(tipEl, wrapEl, e, 12);
-  });
-  hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
+  };
+  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
 }

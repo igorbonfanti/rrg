@@ -32,7 +32,7 @@ const store = {
 const state = {
   data: null, global: null, groups: {}, view: 'mon',
   group: null, benchmark: null, timeframe: store.pick('timeframe', ['weekly', 'daily'], 'weekly'), formula: store.pick('formula', ['nuova', 'semplice'], 'nuova'), // la classica resta in js/engine.js, fuori dall'app
-  tail: store.pick('tail', [4, 10, 16, 26], 10), scale: 'fit', perfDays: store.pick('perfDays', [63, 126, 252, 504], 126),
+  tail: store.pick('tail', [4, 10, 16, 26], 10), scale: store.pick('scale', ['fit', 'max'], 'fit'), perfDays: store.pick('perfDays', [63, 126, 252, 504], 126),
   shortcuts: store.get('shortcuts', true) !== false, // scorciatoie da un tasto (si spengono dalla guida)
   frame: 0, focus: null, pinned: null, hidden: new Set(), timer: null,
   sort: { key: 'rot', dir: 1 }, tableMode: 'rot',
@@ -820,20 +820,24 @@ function bindTapTips() {
   document.body.append(tip);
   let on = null;
   const hide = () => { tip.hidden = true; on = null; };
+  // in fase di cattura: un valore con spiegazione dentro una riga che apre il settore o l'indice mostra la spiegazione
+  // e non apre la riga (si apre toccando il nome)
   document.addEventListener('click', (e) => {
     const touch = e.pointerType === 'touch' || (window.matchMedia && matchMedia('(hover: none)').matches);
     if (!touch) { if (on) hide(); return; }
     const el = e.target.closest('[title]');
-    if (!el || el === on || el.closest('a, button, select, input, label, tr[data-sym], tr[data-s], .acard, svg')) { hide(); return; }
+    if (!el || el === on || el.closest('a, button, select, input, label, .acard, svg') || el.matches('tr')) { hide(); return; }
+    const row = el.closest('tr[data-sym], tr[data-s], tr[data-ix]');
+    if (row) e.stopPropagation();
     on = el;
-    tip.textContent = el.getAttribute('title');
+    tip.textContent = el.getAttribute('title') + (row ? ' (Tocca il nome per aprire.)' : '');
     tip.hidden = false;
     const r = el.getBoundingClientRect(), w = Math.min(320, innerWidth - 24);
     tip.style.width = w + 'px';
     tip.style.left = Math.max(12, Math.min(innerWidth - w - 12, r.left)) + 'px';
     const below = r.bottom + 6, h = tip.offsetHeight;
     tip.style.top = (below + h > innerHeight - 8 ? Math.max(8, r.top - h - 6) : below) + 'px';
-  });
+  }, true);
   addEventListener('scroll', hide, { passive: true });
 }
 
@@ -857,7 +861,7 @@ function bind() {
   seg('formulaSeg', 'formula', (v) => { state.formula = v; store.set('formula', v); recompute(false); });
   seg('tableSeg', 'mode', (v) => { state.tableMode = v; renderRRGView(); });
   seg('tailSeg', 'tail', (v) => { state.tail = +v; store.set('tail', state.tail); renderAll(); });
-  seg('scaleSeg', 'scale', (v) => { state.scale = v; renderAll(); });
+  seg('scaleSeg', 'scale', (v) => { state.scale = v; store.set('scale', v); renderAll(); });
   seg('perfSeg', 'days', (v) => { state.perfDays = +v; store.set('perfDays', state.perfDays); renderPerf(); });
   $('frame').oninput = (e) => { stop(); state.frame = +e.target.value; renderRRGView(true); };
   $('playBtn').onclick = play;

@@ -18,8 +18,10 @@ function el(tag, attrs, parent) {
   return e;
 }
 export const zoneOf = (x, y, P) => (y <= 0 && x >= P.ddSetup ? 'setup' : y <= P.watchBand || x >= P.ddWatch ? 'watch' : 'normal');
-// colore del punto per lo stato della macchina a stati
-const STATE_ZONE = { setup: 'setup', fail: 'setup', watch: 'watch', normal: 'normal', trig: 'normal', cool: 'normal' };
+// colore del punto: lo stato della macchina a stati, con gli stessi colori del Monitor
+const STATE_ZONE = { setup: 'setup', fail: 'fail', watch: 'watch', normal: 'normal', trig: 'trig', cool: 'cool' };
+// zoom sulla zona dei bottom: drawdown oltre il 50° percentile, breadth tra −15 e +40 punti dal livello (assi fissi)
+export const ZOOM = { xLo: 50, yMin: -15, yMax: 40 };
 
 /**
  * @param {SVGSVGElement} svg
@@ -29,16 +31,17 @@ const STATE_ZONE = { setup: 'setup', fail: 'setup', watch: 'watch', normal: 'nor
  *   «dell'indice»; rings: settori con l'anello tratteggiato dell'avvicinamento al livello blu; top: massimo dell'asse
  *   verticale fisso (per le date passate e il replay, così l'asse non cambia a ogni settimana)
  */
-export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore', rings = [], top: fixedTop = null }) {
+export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore', rings = [], top: fixedTop = null, zoom = false }) {
   const W = size || SIZE, H = Math.round(W * 0.875), M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = W - M.l - M.r, PH = H - M.t - M.b;
   let top = fixedTop ?? 60;
   if (fixedTop == null) for (const s of syms) for (const q of series[s] || []) top = Math.max(top, q.y);
-  const yMin = -12, yMax = Math.ceil((top + 4) / 10) * 10;
+  const yMin = zoom ? ZOOM.yMin : -12, yMax = zoom ? ZOOM.yMax : Math.ceil((top + 4) / 10) * 10, xLo = zoom ? ZOOM.xLo : 0;
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
   svg.replaceChildren();
-  const sx = (v) => M.l + ((100 - v) / 100) * PW;
-  const sy = (v) => M.t + (1 - (Math.max(yMin, Math.min(yMax, v)) - yMin) / (yMax - yMin)) * PH;
+  // le code fuori dagli assi le taglia il ritaglio; i punti di oggi restano sul bordo (sxH, syH)
+  const sx = (v) => M.l + ((100 - v) / (100 - xLo)) * PW, sxH = (v) => sx(Math.max(xLo, v));
+  const sy = (v) => M.t + (1 - (v - yMin) / (yMax - yMin)) * PH, syH = (v) => sy(Math.max(yMin, Math.min(yMax, v)));
   el('rect', { x: M.l, y: M.t, width: PW, height: PH }, el('clipPath', { id: clipId }, el('defs', {}, svg)));
   // attenzione: drawdown oltre ddWatch, oppure breadth entro watchBand dal livello; la zona blu (sotto il livello,
   // drawdown oltre ddSetup) resta fuori, così i due colori trasparenti non si sommano
@@ -50,7 +53,7 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
   rect(Math.max(xW, xS), y0, R, B, 'bz-watch');
   rect(M.l, y0, xS, B, 'bz-setup');
   const g = el('g', { class: 'grid' }, svg);
-  for (const v of [0, 25, 50, 75, 100]) {
+  for (const v of zoom ? [50, 60, 70, 80, 90, 100] : [0, 25, 50, 75, 100]) {
     el('line', { x1: sx(v), x2: sx(v), y1: M.t, y2: M.t + PH }, g);
     el('text', { x: sx(v), y: M.t + PH + 15, class: 'tick', 'text-anchor': 'middle' }, svg).textContent = v + '°';
   }
@@ -61,8 +64,13 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
   el('line', { x1: M.l, x2: M.l + PW, y1: sy(0), y2: sy(0), class: 'bm-blue' }, svg);
   el('line', { x1: sx(P.ddSetup), x2: sx(P.ddSetup), y1: M.t, y2: M.t + PH, class: 'axis100' }, svg);
   el('rect', { x: M.l, y: M.t, width: PW, height: PH, class: 'frame' }, svg);
-  for (const [t, x, y, a, c] of [['ZONA BLU', M.l + 8, M.t + PH - 9, 'start', 'bl-setup'], ['ATTENZIONE', M.l + 8, M.t + 16, 'start', 'bl-watch'], ['NORMALE', M.l + PW - 8, M.t + 16, 'end', 'bl-normal']]) {
+  // nomi delle aree: «ZONA BLU» in basso a destra del suo riquadro, dove di solito non ci sono punti; le etichette dei
+  // settori le evitano
+  const avoid = [];
+  for (const [t, x, y, a, c] of [['ZONA BLU', xS - 6, M.t + PH - 9, 'end', 'bl-setup'], ['ATTENZIONE', M.l + 8, M.t + 16, 'start', 'bl-watch'], ['NORMALE', M.l + PW - 8, M.t + 16, 'end', 'bl-normal']]) {
     el('text', { x, y, 'text-anchor': a, class: 'qlabel ' + c }, svg).textContent = t;
+    const w = t.length * 8.2;
+    avoid.push({ x1: a === 'end' ? x - w : x, y1: y - 11, x2: a === 'end' ? x : x + w, y2: y + 2 });
   }
   el('text', { x: M.l + PW - 8, y: sy(0) - 5, 'text-anchor': 'end', class: 'axlabel bl-blue' }, svg).textContent = 'LIVELLO BLU';
   el('text', { x: M.l + PW, y: H - 8, 'text-anchor': 'end', class: 'axlabel' }, svg).textContent = W < 560 ? '←  DRAWDOWN PIÙ PROFONDO' : `←  DRAWDOWN PIÙ PROFONDO (percentile storico ${unit})`;
@@ -78,15 +86,15 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
     const isFocus = focus === s, dim = focus && !isFocus;
     const grp = el('g', { class: 'series' + (dim ? ' dim' : '') + (isFocus ? ' focus' : '') }, plot);
     for (let i = 1; i <= n; i++) {
-      el('line', { x1: sx(pts[i - 1].x), y1: sy(pts[i - 1].y), x2: sx(pts[i].x), y2: sy(pts[i].y), class: isFocus ? `seg segz-${zoneOf(pts[i].x, pts[i].y, P)}` : 'seg', 'stroke-opacity': (0.2 + 0.6 * (i / Math.max(1, n))).toFixed(2) }, grp);
+      el('line', { x1: sx(pts[i - 1].x), y1: sy(pts[i - 1].y), x2: sx(pts[i].x), y2: sy(pts[i].y), class: isFocus ? `seg segz-${zoneOf(pts[i].x, pts[i].y, P)}` : 'seg', 'stroke-opacity': (0.35 + 0.5 * (i / Math.max(1, n))).toFixed(2) }, grp);
     }
     for (let i = 0; i < n; i++) el('circle', { cx: sx(pts[i].x), cy: sy(pts[i].y), r: 1.8, class: 'dot', 'fill-opacity': (0.25 + 0.6 * (i / Math.max(1, n))).toFixed(2) }, grp);
     const q = pts[n], hg = el('g', { class: grp.getAttribute('class') }, headsG);
-    if (rings.includes(s)) el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 12 : 10, class: 'appr-ring' }, hg);
-    el('circle', { cx: sx(q.x), cy: sy(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}` }, hg);
-    heads.push({ sym: s, label: s, px: sx(q.x), py: sy(q.y), dim });
+    if (rings.includes(s)) el('circle', { cx: sxH(q.x), cy: syH(q.y), r: isFocus ? 12 : 10, class: 'appr-ring' }, hg);
+    el('circle', { cx: sxH(q.x), cy: syH(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}` }, hg);
+    heads.push({ sym: s, label: s, px: sxH(q.x), py: syH(q.y), dim });
   }
-  placeLabels(heads, { x1: M.l + 2, y1: M.t + 2, x2: M.l + PW - 2, y2: M.t + PH - 2 });
+  placeLabels(heads, { x1: M.l + 2, y1: M.t + 2, x2: M.l + PW - 2, y2: M.t + PH - 2 }, avoid);
   const lg = el('g', {}, svg);
   for (const h of heads) {
     if (h.lab.leader) {

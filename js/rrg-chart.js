@@ -17,29 +17,35 @@ function el(tag, attrs, parent) {
 }
 
 // Etichette senza sovrapposizioni: 8 posizioni attorno al punto, poi più lontano con una linea guida
-export function placeLabels(heads, box) {
-  const placed = [];
+export function placeLabels(heads, box, avoid = []) {
+  const placed = [...avoid];
   const CW = 7.1, CH = 12;
+  const ov = (r, p) => Math.max(0, Math.min(r.x2, p.x2) - Math.max(r.x1, p.x1)) * Math.max(0, Math.min(r.y2, p.y2) - Math.max(r.y1, p.y1));
   const hit = (r) =>
     placed.some((p) => !(r.x2 < p.x1 || r.x1 > p.x2 || r.y2 < p.y1 || r.y1 > p.y2)) ||
     heads.some((h) => h.px > r.x1 - 5 && h.px < r.x2 + 5 && h.py > r.y1 - 5 && h.py < r.y2 + 5) ||
     r.x1 < box.x1 || r.x2 > box.x2 || r.y1 < box.y1 || r.y2 > box.y2;
+  // senza posto libero: la posizione che copre meno le altre etichette, dentro il riquadro
+  const cost = (r) => placed.reduce((t, p) => t + ov(r, p), 0) + (r.x1 < box.x1 || r.x2 > box.x2 || r.y1 < box.y1 || r.y2 > box.y2 ? 1e6 : 0);
   const dirs = [[1, -1], [1, 1], [-1, -1], [-1, 1], [0, -1], [0, 1], [1, 0], [-1, 0]];
   for (const h of heads) h.crowd = heads.filter((o) => o !== h && Math.hypot(o.px - h.px, o.py - h.py) < 40).length;
   for (const h of heads.slice().sort((a, b) => b.crowd - a.crowd)) {
     const w = h.label.length * CW;
     let best = null;
-    for (const rad of [9, 16, 26, 38]) {
+    let cheap = null;
+    for (const rad of [9, 16, 26, 38, 52, 70]) {
       for (const [dx, dy] of dirs) {
         const cx = h.px + dx * rad, cy = h.py + dy * rad;
         const x1 = dx > 0 ? cx : dx < 0 ? cx - w : cx - w / 2;
         const y1 = dy > 0 ? cy : dy < 0 ? cy - CH : cy - CH / 2;
         const r = { x1, y1, x2: x1 + w, y2: y1 + CH };
         if (!hit(r)) { best = { r, rad }; break; }
+        const c = cost(r);
+        if (!cheap || c < cheap.c) cheap = { r, rad, c };
       }
       if (best) break;
     }
-    if (!best) { const x1 = h.px + 8, y1 = h.py - 14; best = { r: { x1, y1, x2: x1 + w, y2: y1 + CH }, rad: 9 }; }
+    if (!best) best = cheap;
     placed.push(best.r);
     h.lab = { x: best.r.x1, y: best.r.y1 + CH - 2.5, leader: best.rad > 12, r: best.r };
   }

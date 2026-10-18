@@ -74,13 +74,13 @@ export function createCap(ctx) {
   }
   /** Cella della tabella degli indici. */
   function cell(k, noCap) {
-    if (noCap) return `<td class="muted" title="${esc(noCap)}">—</td>`;
-    if (failed) return `<td class="muted" title="${esc(`Dati dei cali forti non disponibili (${failed.message})`)}">—</td>`;
+    if (noCap) return `<td class="muted c-cap" data-l="cali forti" title="${esc(noCap)}">—</td>`;
+    if (failed) return `<td class="muted c-cap" data-l="cali forti" title="${esc(`Dati dei cali forti non disponibili (${failed.message})`)}">—</td>`;
     const t = status(k);
-    if (!t) return data ? '<td class="muted" title="Cali forti non calcolati per questo indice">—</td>' : '<td class="muted" title="Dati dei cali forti in arrivo">…</td>';
+    if (!t) return data ? '<td class="muted c-cap" data-l="cali forti" title="Cali forti non calcolati per questo indice">—</td>' : '<td class="muted c-cap" data-l="cali forti" title="Dati dei cali forti in arrivo">…</td>';
     const tip = `Cali forti al ${dIT(t.date)}: ${val(t.value)} nelle ultime ${opt.win} sedute (calo di almeno il ${opt.thr}%), ${fmt(t.pct, 0)}° percentile della storia · soglia di allerta ${val(t.alert)} · ${t.recent} sedute in allerta negli ultimi 3 mesi`;
     const body = t.on ? '<span class="capflag">allerta</span>' : t.recent ? `<span class="capflag weak">${t.recent} sed.</span>` : `<span class="muted num">${fmt(t.pct, 0)}°</span>`;
-    return `<td class="r" title="${esc(tip)}">${body}</td>`;
+    return `<td class="r c-cap" data-l="cali forti" title="${esc(tip)}">${body}</td>`;
   }
 
   /**
@@ -132,7 +132,7 @@ export function createCap(ctx) {
       dates: s.dates.slice(i0), close: px.slice(i0), sum: a.sum.slice(i0), alert: a.alert.slice(i0), on: a.on.slice(i0),
       unit: unit(), label: `CALI FORTI · ${opt.mode === 'pct' ? '% DEI TITOLI' : 'TITOLI'} CON −${opt.thr}% O PEGGIO, SOMMA SU ${opt.win} SEDUTE`,
       short: `CALI FORTI · −${opt.thr}% · ${opt.win} SEDUTE${opt.mode === 'pct' ? ' · %' : ''}`,
-      sym: k, tipEl: $('CapTip'), wrapEl: $('CapWrap'), width: chartWidth($('CapSvg'), 940, 380),
+      sym: k, tipEl: $('CapTip'), wrapEl: $('CapWrap'), width: chartWidth($('CapSvg'), 940),
     });
 
     // episodi: dal più recente

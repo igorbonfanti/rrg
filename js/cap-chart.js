@@ -4,7 +4,7 @@
  *   2. somma dei cali forti sulle ultime N sedute (titoli o % dei titoli) con la soglia di allerta.
  * Le bande rosse chiare sono gli episodi di allerta (capAnalysis in capitulation.js).
  */
-import { fmt, dIT, placeTip, pxDec } from './format.js';
+import { fmt, dIT, placeTip, pxDec, bindTip } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -117,7 +117,7 @@ export function drawCap(svg, p) {
   const xh = el('line', { x1: 0, x2: 0, y1: P0.y0, y2: P1.y1, class: 'xhair', visibility: 'hidden' }, svg);
   const dots = [el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg), el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg)];
   const hit = el('rect', { x: L, y: P0.y0, width: PW, height: P1.y1 - P0.y0, fill: 'transparent' }, svg);
-  hit.addEventListener('pointermove', (e) => {
+  const show = (e) => {
     const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
     const q = pt.matrixTransform(svg.getScreenCTM().inverse());
     const i = Math.max(0, Math.min(n - 1, Math.round(((q.x - L) / PW) * (n - 1))));
@@ -131,6 +131,6 @@ export function drawCap(svg, p) {
       <div class="row"><span>Prezzo</span><b>${c[i] == null ? '—' : fmt(c[i], pxDec(c[i]))}</b></div>
       <div class="row"><span>Cali forti</span><b>${num(sum[i])}</b></div><div class="row"><span>Soglia di allerta</span><b>${num(alert[i])}</b></div>`;
     placeTip(tipEl, wrapEl, e, 12);
-  });
-  hit.addEventListener('pointerleave', () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((x) => x.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
+  };
+  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((x) => x.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
 }
