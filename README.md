@@ -105,11 +105,11 @@ Sul telefono i grafici si disegnano alla larghezza dello schermo e un tocco su u
 ## Ricerca dei bottom
 **Breadth.** Per ogni settore GICS e per l'S&P 500 si conta la % di membri che chiudono sopra la propria media a 20, 50 e 200 sedute.
 - Chiusure rettificate per gli split ma non per i dividendi, come le serie S5TH, SUTH… di Barchart/TradingView.
-- Storico dal 2005 ricostruito con la composizione dell'indice di allora. I settori dei titoli usciti vengono dalle versioni storiche della lista dei costituenti, riportati alla classificazione GICS attuale.
+- Storico dal 2005 ricostruito con la composizione dell'indice di allora. I settori dei titoli usciti vengono dalle versioni storiche della lista dei costituenti, disponibili dal dicembre 2012, riportati alla classificazione GICS attuale: chi è uscito prima non ha un settore e conta solo nella breadth dell'S&P 500. I settori coprono quindi meno titoli dell'S&P 500 nei primi anni: con i prezzi, 292 membri su 500 nel 2005 (58%), 378 su 500 nel 2009 (76%), 434 su 500 a fine 2012 (87%).
 - Verifica sui valori pubblicati:
   - Utilities (SUTH): 42,85 (27/04/2018), 82,75 (27/07/2018) e 3,57 (22/05/2020), identici;
-  - S&P 500 (S5TH): scarto tra 0 e +0,4 punti.
-- Una parte dei titoli usciti non ha prezzi disponibili: la copertura dei membri va dal 65% nel 2005 all'80% nel 2009, supera il 90% dal 2014 e il 99% dal 2021. I valori dei primi anni vanno letti con cautela.
+  - S&P 500 (S5TH): scarto tra −0,1 e +0,4 punti su 9 sedute del 2018 e del 22/05/2020.
+- Una parte dei titoli usciti non ha prezzi disponibili: la copertura dei membri dell'S&P 500 va dal 65% nel 2005 all'80% nel 2009, supera il 90% dal 2014 e il 99% dal 2021 (per i settori, vedi sopra). I valori dei primi anni vanno letti con cautela.
 
 **Stati** (`js/signals.js`; parametri e livelli blu in `config/thresholds.json`):
 - **Attenzione**: breadth entro 10 punti dal livello blu, oppure drawdown più profondo dell'85% della storia del settore.

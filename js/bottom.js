@@ -434,7 +434,8 @@ export function createBottom(ctx) {
       start: u.t, bmin: u.bmin, dd: u.dd, trig: u.trig ? u.trig.t : null, conf: u.trig ? u.trig.conf.join(' + ') : '', fails: u.fails,
       z63: forward(c, u.t, 63), t21: forward(c, u.trig && u.trig.t, 21), t63: forward(c, u.trig && u.trig.t, 63), t126: forward(c, u.trig && u.trig.t, 126), mae: worstWithin(c, u.trig && u.trig.t, 63),
     })).reverse();
-    const first = BR[s].pct200.findIndex((v) => v != null);
+    // la zona blu chiede il percentile del drawdown: per XLRE e XLC (ETF dal 2015 e dal 2018) la storia utile parte dopo
+    const first = Math.max(BR[s].pct200.findIndex((v) => v != null), PX[s].dp.findIndex((v) => v != null));
     const nTrig = m.events.filter((e) => e.code === 'trig').length, nFail = m.events.filter((e) => e.code === 'fail').length;
     $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''} · rendimenti a confronto sotto la tabella`;
     // per confronto: una seduta qualsiasi della stessa storia e SPY negli stessi giorni dei trigger
