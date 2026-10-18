@@ -489,7 +489,7 @@ export function createBottom(ctx) {
     const sent = alertLog && alertLog.log ? alertLog.log.slice(-8).reverse() : [];
     $('sentInfo').innerHTML = alertLog
       ? `La GitHub Action ha controllato i dati fino al <b>${dIT(alertLog.checkedThrough)}</b>.` + (sent.length ? `<ul class="sent">${sent.map((e) => `<li>${dIT(e.date)} · ${e.sector} · ${esc(STATES[e.code])} ${e.telegram ? '· inviato' : '· solo registrato'}</li>`).join('')}</ul>` : ' Nessun cambio di stato dall\'attivazione.')
-      : 'La GitHub Action non ha ancora registrato controlli.';
+      : 'Registro degli invii non disponibile: il file data/alerts.json non è arrivato.';
     $('rulesList').innerHTML = [
       'Alert solo sui cambi di stato: ingresso in zona blu, trigger, segnale fallito.',
       `Zona blu: breadth ≤ livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile.`,

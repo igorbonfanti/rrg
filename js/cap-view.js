@@ -75,8 +75,9 @@ export function createCap(ctx) {
   /** Cella della tabella degli indici. */
   function cell(k, noCap) {
     if (noCap) return `<td class="muted" title="${esc(noCap)}">—</td>`;
+    if (failed) return `<td class="muted" title="${esc(`Dati dei cali forti non disponibili (${failed.message})`)}">—</td>`;
     const t = status(k);
-    if (!t) return '<td class="muted">…</td>';
+    if (!t) return data ? '<td class="muted" title="Cali forti non calcolati per questo indice">—</td>' : '<td class="muted" title="Dati dei cali forti in arrivo">…</td>';
     const tip = `Cali forti al ${dIT(t.date)}: ${val(t.value)} nelle ultime ${opt.win} sedute (calo di almeno il ${opt.thr}%), ${fmt(t.pct, 0)}° percentile della storia · soglia di allerta ${val(t.alert)} · ${t.recent} sedute in allerta negli ultimi 3 mesi`;
     const body = t.on ? '<span class="capflag">allerta</span>' : t.recent ? `<span class="capflag weak">${t.recent} sed.</span>` : `<span class="muted num">${fmt(t.pct, 0)}°</span>`;
     return `<td class="r" title="${esc(tip)}">${body}</td>`;
@@ -150,5 +151,5 @@ export function createCap(ctx) {
       'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati).';
     body.dataset.k = k;
   }
-  return { ensure, onChange, status, info, cell, card, ready: () => !!data };
+  return { ensure, onChange, status, info, cell, card, ready: () => !!data, failed: () => failed };
 }

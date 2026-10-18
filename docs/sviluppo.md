@@ -144,10 +144,16 @@ Workflow `.github/workflows/update-data.yml`, dopo la chiusura USA e due volte i
 | `quant-rea/` | catalogo e verifica delle 34 analisi del fascicolo di un utente, classifica di utilità, prova della capitolazione su 22 indici, preset |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (0.9.0)
+## 7. Stato attuale (0.9.1)
 
 - 7 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
-- Test automatici: `npm test`, 98 test.
+- Test automatici: `npm test`, 99 test.
+- Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/` (dati, testi, codice, grafica, prova funzionale). Il passo 1 del piano (numeri, avvertenze, testi) è nella 0.9.1. Restano:
+  - **passo 2 (0.9.2), grafica e telefono**: tabellone degli indici a schede sul telefono, testo dei grafici (larghezza minima 380), spiegazioni al tocco (B9, B10 della prova funzionale), mappa affollata nelle crisi passate, colori della mappa contro gli stati, focus (B15, B16), etichette sovrapposte, bande chiare, ordine della vista Settore sul telefono, legenda CVD, contrasto di `.capflag.weak`, Monitor su tablet, code sul telefono, `<h2>` nel `<summary>` (B17);
+  - **passo 3 (0.9.3), robustezza della pipeline**: `check_fresh.js` su tutti i file (prices*.json, indices_more.json, asOf per indice, cali forti degli indici), avviso se manca il prezzo di un indice, timeout del workflow e di `fetchDaily`, validazione dei JSON prima del commit, Telegram dopo il push, cache di `decodeDates`, `e.sector` da proteggere in `bottom.js`, controllo di `currentTradingPeriod`;
+  - **passo 4**: di nuovo i 5 controlli, poi 1.0.0 se puliti.
+- **Da decidere con l'utente**: il minimo del giorno del segnale fallito non aggiornato (`js/signals.js`, 158-164; cambierebbe XLY 2008, il trigger SPX del 12/10/2011 al 10/10/2011, UKX dal 01/04/2008 al 04/04/2008); la scala Adatta/Massima della rotazione che non resta dopo la ricarica.
+- **Da verificare**: Taiwan, la chiusura di Yahoo non rettificata per i dividendi in azioni sposta forse anche la breadth (medie a 200 sedute); la statistica dell'Avvicinamento conta ogni discesa sotto la soglia, l'app mostra l'anello solo in stato Normale (differenza piccola); scorciatoia «mar 2009» per il minimo del prezzo nella crisi del 2008.
 - Il primo giro notturno con controllo dei dati fermi, salto dei commit inutili, nuovo tentativo di Telegram, file degli indici divisi e cali forti va verificato dopo la notte tra lunedì e martedì.
 - Lista dei membri dell'Ibovespa: la fonte B3 ha risposto 403 in una prova; `check_fresh.js` lo segnala dopo 14 giorni.
 

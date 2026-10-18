@@ -84,7 +84,7 @@
   <main>
 
   <div class="filters" id="filters" hidden>
-    <label class="ctl" for="groupSel">Universo <select id="groupSel"></select></label>
+    <label class="ctl" for="groupSel">Universo <select id="groupSel"></select></label><span class="fresh stale" id="grpWarn" hidden></span>
     <label class="ctl" for="benchSel">Benchmark <select id="benchSel"></select></label>
     <span class="ctl">Timeframe
       <span class="seg" id="tfSeg" role="group" aria-label="Timeframe">
@@ -269,7 +269,7 @@
           <div class="tscroll" id="rotWrap"><table class="t" id="rotTable"></table></div>
           <div class="tscroll" id="pxWrap" hidden><table class="t" id="monTable"></table></div>
           <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p>
-          <p class="note pb" id="pxNote" hidden>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni; il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Clic su un'intestazione per ordinare.<span id="pxCopied"></span></p>
+          <p class="note pb" id="pxNote" hidden>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni (nel Monitor il percentile usa la storia dal 2004, quindi lo stesso ETF può essere rosso in una tabella e no nell'altra); il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Clic su un'intestazione per ordinare.<span id="pxCopied"></span></p>
         </div>
         <div class="panel">
           <div class="ph"><h2>Performance relativa</h2>

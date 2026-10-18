@@ -33,7 +33,7 @@ export function createIndices(ctx) {
   const CFG = ctx.config.indices;
   // KEYS: indici con i dati già scaricati (prima i principali, poi gli altri); ALL: tutti quelli in configurazione
   const ALL = Object.keys(CFG);
-  let D = null, KEYS = [], loading = null, failed = null, more = null;
+  let D = null, KEYS = [], loading = null, failed = null, more = null, moreFailed = null;
   const S = {}, PX = {}, NOW = {}, cache = new Map();
   const st = { blue: {}, sel: null, range: null, focus: null, pending: null, shown: new Set(), mapWeek: null };
   // indici mostrati in tabellone, Bottom Map e schede: di partenza i principali ("main" in config), poi
@@ -75,7 +75,7 @@ export function createIndices(ctx) {
       addSeries(data);
       st.blue = { ...defaults(), ...validBlue(store.get('ixBlue', {})) };
       if (!$('v-idx').hidden) render();
-    }).catch(() => { /* restano i principali */ });
+    }).catch((e) => { moreFailed = e; if (!$('v-idx').hidden) render(); }); // restano i principali, con l'avviso
   }
   const defaults = () => Object.fromEntries(ALL.map((k) => [k, CFG[k].blue]));
   function validBlue(v) {
@@ -196,6 +196,7 @@ export function createIndices(ctx) {
       ['Indici in zona blu', `${by(['setup', 'fail']).length}<small> / ${rows.length}</small>`, list(by(['setup', 'fail']))],
       [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / ${rows.length}</small>`, list(by(['trig', 'cool']))],
       ['Indici in attenzione', `${by(['watch']).length}<small> / ${rows.length}</small>`, list(by(['watch'])) + (rows.some((r) => r.appr) ? ` · in avvicinamento: ${rows.filter((r) => r.appr).map((r) => r.k).join(' · ')}` : '')],
+      ...(cap && cap.failed() ? [['Cali forti in allerta', '—', `dati non disponibili (${esc(cap.failed().message)})`]] : []),
       ...(cap && cap.ready() ? [(() => { const on = rows.filter((r) => (cap.status(r.k) || {}).on), rec = rows.filter((r) => !(cap.status(r.k) || {}).on && (cap.status(r.k) || {}).recent);
         return ['Cali forti in allerta', `${on.length}<small> / ${rows.filter((r) => !CFG[r.k].noCap).length}</small>`, list(on) + (rec.length ? ` · negli ultimi 3 mesi: ${list(rec)}` : '')]; })()] : []),
       ['Più vicino al livello blu', rows.length ? `${[...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0].k}` : '—', rows.length ? (() => { const r = [...rows].sort((a, b) => (a.b - a.L) - (b.b - b.L))[0]; return `${fmt(r.b)}% contro un livello di ${r.L}% (${sgn(r.b - r.L)} punti)`; })() : ''],
@@ -207,7 +208,9 @@ export function createIndices(ctx) {
     const same = (a) => a.length === st.shown.size && a.every((k) => st.shown.has(k));
     keepFocus($('ixPick'), 'data-ix', AREAS.map((a) => `<div class="ixarea"><span class="lbl">${esc(a)}</span>` +
       KEYS.filter((k) => CFG[k].area === a).map((k) => `<button type="button" class="chip" data-ix="${k}" aria-pressed="${st.shown.has(k)}" title="${esc(name(k))}${CFG[k].limits ? ' · con limiti' : ''}">${k}</button>`).join('') + '</div>').join(''));
-    $('ixPickMeta').textContent = `${st.shown.size} su ${KEYS.length} mostrati` + (same(MAIN()) ? ' · i principali' : '');
+    const absent = ALL.filter((k) => !S[k]);
+    $('ixPickMeta').textContent = `${VIS().length} su ${KEYS.length} mostrati` + (same(MAIN()) ? ' · i principali' : '') +
+      (absent.length ? (moreFailed ? ` · ${absent.length} indici non disponibili (dati non arrivati: ${moreFailed.message}): ${absent.join(', ')}` : ` · altri ${absent.length} in arrivo`) : '');
     $('ixPickMain').setAttribute('aria-pressed', String(same(MAIN())));
     $('ixPickAll').setAttribute('aria-pressed', String(same(KEYS)));
     $('ixPick').querySelectorAll('button').forEach((b) => b.onclick = () => {
