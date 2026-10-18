@@ -1,7 +1,7 @@
 # Catalogo delle analisi di Quant Rea (dal fascicolo di un utente)
 
 Fonte: «Fascicolo di Analisi Quantitativa» scritto da un utente della piattaforma Quant Rea (ricevuto il 18/10/2026; 34 sezioni, 147 grafici, esempi aggiornati a luglio 2026). Il fascicolo originale non è nel repository, che è pubblico: qui ci sono solo la sintesi e i numeri citati.
-Per ogni analisi: la domanda a cui risponde, il metodo come lo descrive il fascicolo, i parametri, i numeri dichiarati e i primi dubbi emersi dalla lettura. Le verifiche sui dati sono in `verifica.md`.
+Per ogni analisi: la domanda a cui risponde, il metodo come lo descrive il fascicolo, i parametri, i numeri dichiarati e i primi dubbi emersi dalla lettura. Le verifiche sui dati sono in `rapporto.md` e in `risultati/`.
 
 Dati: lo strumento scarica i prezzi da TradingView con la libreria `tvDatafeed` (Sez. 22). Si può scegliere qualunque ticker, e ci sono scorciatoie per SPX, NDX, DAX, FTSEMIB, BTC, ETH, NI225, HSI, oro, petrolio e VIX. Nella maggior parte degli strumenti la data di partenza è libera.
 
