@@ -1,9 +1,9 @@
 // Stessa prova della fascia di avvicinamento sugli indici della pagina 6
 import fs from 'node:fs';
-import { approachLevel, forward } from '/home/user/rrg/js/signals.js';
-import { indexSeries } from '/home/user/rrg/js/indexdata.js';
-const R = (f) => JSON.parse(fs.readFileSync('/home/user/rrg/' + f));
-const cfg = R('config/indices.json').indices, IX = R('data/indices.json').series;
+import { approachLevel, forward } from '../../../js/signals.js';
+import { indexSeries } from '../../../js/indexdata.js';
+const R = (f) => JSON.parse(fs.readFileSync(new URL('../../../' + f, import.meta.url)));
+const cfg = R('config/indices.json').indices, IX = { ...R('data/indices_more.json').series, ...R('data/indices.json').series }; // tutti i 22 indici
 const med = (a) => { const s = [...a].sort((x, y) => x - y); return s.length ? s[Math.floor((s.length - 1) / 2)] : null; };
 const H = 126, tot = {};
 const rows = [];

@@ -147,7 +147,7 @@ export function createCap(ctx) {
       `. Per confronto, in media dopo una seduta qualsiasi della stessa storia: +3M ${c(base.r63)}, +12M ${c(base.r252)}.`;
     $('CapNote').innerHTML = `Quanti ${what()} (preset di Quant Rea, «Drop giornaliero cumulato»: −7% su 5 sedute). La linea tratteggiata è la soglia di allerta: il 99° percentile delle sedute precedenti, con almeno 5 cali nella somma. ` +
       'Un\'allerta dice che sotto la superficie le vendite sono forti e diffuse. Conta soprattutto se si ripete: con il preset, nei 12 mesi dal primo episodio le serie dell\'app sono state in allerta 31,5 sedute di mediana nel 2007-2009 (in più episodi), 12 nel 2020 e 5 nell\'aprile 2025. ' +
-      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte).';
+      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati).';
     body.dataset.k = k;
   }
   return { ensure, onChange, status, info, cell, card, ready: () => !!data };

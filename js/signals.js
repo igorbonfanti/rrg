@@ -322,9 +322,9 @@ export function explainState(px, br, L, params, m, dates, t) {
     why = trig ? `Trigger del ${dIt(dates[trig.t])}: ${trig.conf.join(' + ') || 'rimbalzo'}.` : 'Trigger recente.';
     if (stop != null && since <= P.failWindow) {
       const left = P.failWindow - since;
-      items.push({ ok: c[t] >= stop, text: `fallisce se il prezzo chiude sotto ${f1(stop)} (minimo della zona blu ${f1(setup.pmin)} meno un'escursione media) entro ${sedute(left)}, fino a circa il ${dIt(sessionsAfter(dates[t], left))}; ora ${f1(c[t])}` });
+      items.push({ ok: c[t] >= stop, text: `per la regola dell'app fallisce se il prezzo chiude sotto ${f1(stop)} (minimo della zona blu ${f1(setup.pmin)} meno un'escursione media) entro ${sedute(left)}, fino a circa il ${dIt(sessionsAfter(dates[t], left))}; ora ${f1(c[t])}` });
     } else if (stop != null && !m.armed) {
-      items.push({ ok: c[t] >= stop || b > L, text: `fallisce se il prezzo chiude sotto ${f1(stop)} con la breadth di nuovo sotto il livello blu (${L}%), finché la breadth non torna sopra ${f0(reset)}%` });
+      items.push({ ok: c[t] >= stop || b > L, text: `per la regola dell'app fallisce se il prezzo chiude sotto ${f1(stop)} con la breadth di nuovo sotto il livello blu (${L}%), finché la breadth non torna sopra ${f0(reset)}%` });
     }
     items.push(m.armed ? { ok: true, text: `riarmo: la breadth è tornata sopra ${f0(reset)}%` }
       : { ok: null, text: `riarmo: breadth ${f1(b)}%, deve tornare sopra ${f0(reset)}% (${titoli(toAbove(reset))}) prima di una nuova zona blu` });

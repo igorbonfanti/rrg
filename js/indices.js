@@ -160,8 +160,13 @@ export function createIndices(ctx) {
       };
     }).sort((a, b) => ORDER[a.appr ? 'appr' : a.state.code] - ORDER[b.appr ? 'appr' : b.state.code] || (a.b - a.L) - (b.b - b.L));
     const DDMAX = 35;
+    // copertura all'inizio della storia: i titoli usciti senza prezzi su Yahoo mancano (sopravvivenza nei primi anni)
+    const epocaTip = (k, r) => {
+      const x = S[k], f = x.pct200.findIndex((v) => v != null), c0 = f >= 0 && x.members[f] ? Math.round((100 * x.n[f]) / x.members[f]) : null;
+      return `Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}` + (c0 != null ? `, all'inizio (${x.dates[f].slice(0, 4)}) ${c0}%: i titoli usciti senza prezzi su Yahoo mancano` : '');
+    };
     const quality = (k, r) => CFG[k].composition === 'epoca'
-      ? `<span class="muted" title="Storia con i membri di ogni data · copertura oggi ${r.n}/${r.mem}">d'epoca</span>`
+      ? `<span class="muted" title="${esc(epocaTip(k, r))}">d'epoca</span>`
       : CFG[k].limits
         ? `<span class="loc" title="${esc(`Storia dal ${S[k].dates[S[k].pct200.findIndex((v) => v != null)].slice(0, 4)} · ${CFG[k].note || ''}`)}">con limiti</span>`
         : `<span class="muted" title="Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 4 punti più alta (da −7 a +18 nelle singole date); vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
@@ -374,7 +379,7 @@ export function createIndices(ctx) {
       ['Titoli sopra media 200', `${s.above200[t]}/${n} · ${fmt(b)}%`],
       ['Sopra media 50', `${fmt(s.pct50[t])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
-      ...(approach(k).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(k).A, 0)}% · ${b <= approach(k).A ? 'sotto' : `${sgn(b - approach(k).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione dal 2001 sui 22 indici (regola scelta su questa stessa storia): anticipo mediano 20 sedute, 96 tocchi del livello su 134 avvisati; il 47% degli avvicinamenti arriva al livello.']]),
+      ...(approach(k).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(k).A, 0)}% · ${b <= approach(k).A ? 'sotto' : `${sgn(b - approach(k).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione, sulla storia di ciascuno dei 22 indici dal 2000 (regola scelta su questa stessa storia): anticipo mediano 20 sedute, 96 tocchi del livello su 134 avvisati; il 47% degli avvicinamenti arriva al livello.']]),
       ['Drawdown da max 52s', `${sgn(PX[k].dd[last])}%`, 'Dalla chiusura più alta delle ultime 252 sedute. Gli indici sono di solo prezzo: è il valore che si vede su TradingView (che però usa il massimo intraday).'],
       ['Profondità storica DD', `${PX[k].dp[last]}° percentile`],
       ['Copertura', `${n} su ${s.members[t]} membri con prezzi`, 'Titoli dell\'indice con i prezzi su Yahoo Finance: quelli tolti dal listino mancano, e nella storia la copertura è più bassa.'],

@@ -1,0 +1,123 @@
+=== avvicinamento.mjs
+settori: prima breadth 2005-01-03 ultima 2026-10-16
+SETTORI (11, dal 2005) fisso+10: allarmi 168, arrivano 100 (59.5%), anticipo mediano allarmi arrivati 7 sedute, tocchi avvisati 50/73, anticipo mediano dei tocchi avvisati (ultimo allarme) 16
+SETTORI (11, dal 2005) velocita: allarmi 224, arrivano 91 (40.6%), anticipo mediano allarmi arrivati 23 sedute, tocchi avvisati 59/73, anticipo mediano dei tocchi avvisati (ultimo allarme) 23
+INDICI (22) fisso+10: allarmi 295, arrivano 169 (57.3%), anticipo mediano allarmi arrivati 9 sedute, tocchi avvisati 83/134, anticipo mediano dei tocchi avvisati (ultimo allarme) 19
+INDICI (22) velocita: allarmi 348, arrivano 164 (47.1%), anticipo mediano allarmi arrivati 20 sedute, tocchi avvisati 96/134, anticipo mediano dei tocchi avvisati (ultimo allarme) 22
+INDICI solo main (data/indices.json, 10) fisso+10: allarmi 135, arrivano 83 (61.5%), anticipo mediano allarmi arrivati 11 sedute, tocchi avvisati 41/62, anticipo mediano dei tocchi avvisati (ultimo allarme) 19
+INDICI solo main (data/indices.json, 10) velocita: allarmi 152, arrivano 80 (52.6%), anticipo mediano allarmi arrivati 22 sedute, tocchi avvisati 46/62, anticipo mediano dei tocchi avvisati (ultimo allarme) 22
+prima breadth degli indici: SPX 2005-01-03 · NDX 2008-01-02 · DJI 2000-01-03 · N225 2001-01-04 · SXXP 2006-01-02 · UKX 2001-01-02 · DAX 2001-01-02 · CAC 2001-01-02 · SMI 2001-01-03 · RUT 2017-09-01 · TSX60 2000-02-01 · SX5E 2007-04-02 · FTSEMIB 2005-04-01 · IBEX 2007-03-01 · HSI 2008-09-01 · CSI300 2012-06-01 · KOSPI200 2006-12-01 · TWN 2003-01-02 · NIFTY50 2007-10-01 · ASX200 2008-05-01 · EEM 2011-03-01 · IBOV 2008-11-03
+min prima data indici 2000-01-03
+=== livelli.mjs
+SETTORI: livello, % sedute <= livello, p3, membri ultimi
+XLK 6 3.36 < 3.36 p3 4.76 n 75 1 titolo = 1.33
+XLC 5 3.19 < 3.19 p3 4.17 n 22 1 titolo = 4.55
+XLY 8 3.14 < 3.14 p3 7.32 n 47 1 titolo = 2.13
+XLP 11 2.43 < 2.43 p3 15.79 n 34 1 titolo = 2.94
+XLE 1 3.32 < 3.32 p3 0.00 n 21 1 titolo = 4.76
+XLF 6 2.90 < 2.90 p3 6.56 n 76 1 titolo = 1.32
+XLV 11 2.65 < 2.65 p3 14.29 n 60 1 titolo = 1.67
+XLI 5 3.45 < 3.45 p3 3.77 n 83 1 titolo = 1.20
+XLB 10 3.99 < 3.99 p3 8.00 n 24 1 titolo = 4.17
+XLRE 8 5.76 < 5.76 p3 0.00 n 30 1 titolo = 3.33
+XLU 5 3.70 < 3.70 p3 4.00 n 31 1 titolo = 3.23
+SPX (breadth.json) 13: 2.97
+
+INDICI: livello, fonte, % sedute <= livello, p3, n ultimo, membri ultimo
+SPX       13 Rea    2.97 p3  13.28 round 13 n 503 members 503 last 2026-10-16
+NDX       18 Rea    5.50 p3  11.46 round 11 n 101 members 101 last 2026-10-16
+DJI       15 Rea    5.70 p3  10.00 round 10 n 30 members 30 last 2026-10-16
+N225      8 Rea    2.44 p3   9.47 round 9 n 225 members 225 last 2026-10-16
+SXXP      9 p3     2.95 p3   9.05 round 9 n 602 members 602 last 2026-10-16
+UKX       12 p3     3.70 p3  11.63 round 12 n 100 members 100 last 2026-10-16
+DAX       7 Rea    4.93 p3   3.33 round 3 n 40 members 40 last 2026-10-16
+CAC       4 Rea    2.77 p3   5.13 round 5 n 40 members 40 last 2026-10-16
+SMI       3 Rea    3.47 p3   0.00 round 0 n 20 members 20 last 2026-10-16
+RUT       15 Rea    2.88 p3  15.26 round 15 n 1966 members 1975 last 2026-10-16
+TSX60     23 p3     3.00 p3  23.33 round 23 n 60 members 60 last 2026-10-16
+SX5E      7 p3     4.45 p3   6.67 round 7 n 50 members 50 last 2026-10-16
+FTSEMIB   3 Rea    0.95 p3   3.57 round 4 n 40 members 40 last 2026-10-16
+IBEX      6 Rea    3.27 p3   3.85 round 4 n 35 members 35 last 2026-10-16
+HSI       8 Rea    3.45 p3   6.90 round 7 n 85 members 85 last 2026-10-16
+CSI300    14 p3     2.87 p3  14.17 round 14 n 298 members 300 last 2026-10-16
+KOSPI200  15 p3     2.88 p3  15.25 round 15 n 200 members 200 last 2026-10-16
+TWN       8 p3     2.81 p3   8.20 round 8 n 74 members 76 last 2026-10-16
+NIFTY50   10 p3     3.06 p3   9.52 round 10 n 50 members 50 last 2026-10-16
+ASX200    14 p3     2.92 p3  14.17 round 14 n 195 members 200 last 2026-10-16
+EEM       15 Rea    0.25 p3  21.55 round 22 n 1123 members 1182 last 2026-10-16
+IBOV      11 p3     2.97 p3  11.48 round 11 n 76 members 76 last 2026-10-16
+totale n 5913 totale members 5990
+somma membri settori 503
+=== copertura.mjs
+SPX copertura per anno (min-media %): 2005:64-65 2006:67-69 2007:70-72 2008:75-77 2009:79-80 2010:81-83 2011:83-84 2012:86-87 2013:88-89 2014:90-91 2015:91-91 2016:92-94 2017:95-96 2018:97-97 2019:97-98 2020:98-98 2021:98-99 2022:99-99 2023:99-99 2024:99-100 2025:99-100 2026:99-100
+XLRE 2005:60-64 2006:71-77 2007:73-76 2008:79-79 2009:79-82 2010:82-82 2011:82-83 2012:83-84 2013:84-85 2014:86-86 2015:86-88 2016:88-92 2017:93-94 2018:94-94 2019:94-94 2020:93-94 2021:93-93 2022:93-93 2023:94-94 2024:94-94 2025:94-94 2026:94-95
+XLC 2005:73-74 2006:74-80 2007:74-74 2008:74-74 2009:75-76 2010:71-74 2011:71-71 2012:71-71 2013:70-72 2014:75-76 2015:78-81 2016:81-84 2017:85-88 2018:87-87 2019:88-94 2020:96-96 2021:96-96 2022:96-99 2023:96-100 2024:100-100 2025:100-100 2026:96-100
+XLE 2005:89-90 2006:90-91 2007:84-84 2008:83-84 2009:82-83 2010:84-86 2011:82-82 2012:81-82 2013:81-81 2014:81-82 2015:80-82 2016:83-86 2017:89-94 2018:90-92 2019:90-94 2020:92-96 2021:92-98 2022:100-100 2023:100-100 2024:95-100 2025:96-100 2026:100-100
+SPX       epoca inizio 2005-01-03 copertura iniziale 64% oggi 100.0% prezzo dal 2000-01-03
+NDX       epoca inizio 2008-01-02 copertura iniziale 59% oggi 100.0% prezzo dal 2000-01-03
+DJI       epoca inizio 2000-01-03 copertura iniziale 87% oggi 100.0% prezzo dal 2000-01-03
+N225      oggi inizio 2001-01-04 copertura iniziale 84% oggi 100.0% prezzo dal 2000-01-04
+SXXP      oggi inizio 2006-01-02 copertura iniziale 74% oggi 100.0% prezzo dal 2004-04-26
+UKX       oggi inizio 2001-01-02 copertura iniziale 72% oggi 100.0% prezzo dal 2000-01-04
+DAX       oggi inizio 2001-01-02 copertura iniziale 70% oggi 100.0% prezzo dal 2000-01-03
+CAC       oggi inizio 2001-01-02 copertura iniziale 78% oggi 100.0% prezzo dal 2000-01-03
+SMI       oggi inizio 2001-01-03 copertura iniziale 70% oggi 100.0% prezzo dal 2000-01-04
+RUT       oggi inizio 2017-09-01 copertura iniziale 63% oggi 99.5% prezzo dal 2000-01-03
+TSX60     oggi inizio 2000-02-01 copertura iniziale 62% oggi 100.0% prezzo dal 2000-01-04
+SX5E      oggi inizio 2007-04-02 copertura iniziale 88% oggi 100.0% prezzo dal 2007-03-30
+FTSEMIB   oggi inizio 2005-04-01 copertura iniziale 63% oggi 100.0% prezzo dal 2000-01-03
+IBEX      oggi inizio 2007-03-01 copertura iniziale 63% oggi 100.0% prezzo dal 2000-01-03
+HSI       oggi inizio 2008-09-01 copertura iniziale 61% oggi 100.0% prezzo dal 2000-01-03
+CSI300    oggi inizio 2012-06-01 copertura iniziale 65% oggi 99.3% prezzo dal 2012-05-04
+KOSPI200  oggi inizio 2006-12-01 copertura iniziale 61% oggi 100.0% prezzo dal 2000-01-04
+TWN       oggi inizio 2003-01-02 copertura iniziale 66% oggi 97.4% prezzo dal 2000-01-04
+NIFTY50   oggi inizio 2007-10-01 copertura iniziale 80% oggi 100.0% prezzo dal 2007-09-17
+ASX200    oggi inizio 2008-05-01 copertura iniziale 63% oggi 97.5% prezzo dal 2000-01-04
+EEM       oggi inizio 2011-03-01 copertura iniziale 63% oggi 95.0% prezzo dal 2003-04-14
+IBOV      oggi inizio 2008-11-03 copertura iniziale 64% oggi 100.0% prezzo dal 2000-01-03
+=== suth.mjs
+[ 'generated', 'asOf', 'method', 'source', 'dates', 'series' ] [
+  'XLK',  'XLC', 'XLY',
+  'XLP',  'XLE', 'XLF',
+  'XLV',  'XLI', 'XLB',
+  'XLRE', 'XLU', 'SPX'
+] [ 'generated', 'asOf', 'dates', 'adjclose', 'max52At', 'max52' ]
+2018-04-27 42.86 12 28
+2018-07-27 82.76 24 29
+2020-05-22 3.57 1 28
+[ 'members', 'n', 'a20', 'a50', 'a200' ]
+=== rotazione.mjs
+gruppi [ 'Settori S&P 500', 'MAG7' ] benchmarks {
+  SPY: 'S&P 500',
+  QQQ: 'Nasdaq 100',
+  RSP: 'S&P 500 Equal Weight',
+  ACWI: 'MSCI All Country World'
+}
+weekly stesso quadrante 1788/2464 = 72.6% nuova |RS-Ratio-100|<=3: 99.8% (entrambi gli assi 99.6%) semplice |RS-Ratio-100|<=10: 99.1% (entrambi 99.1%)
+daily stesso quadrante 9515/13222 = 72.0% nuova |RS-Ratio-100|<=3: 98.8% (entrambi gli assi 98.6%) semplice |RS-Ratio-100|<=10: 99.9% (entrambi 99.9%)
+=== cali.mjs
+manca TWN
+
+count: episodi 101, con 12M 98; eccesso medio 12M 11.4 pt; senza mar2020/apr2025 3.1 (63); solo crolli rapidi 26.4 (35)
+  ago2007-set2008: 13 episodi, r252<0: 12, eccesso medio -30.3; SPX 2008-01-10 -37%, SPX 2008-07-02 -29%, SPX 2008-09-09 -16%, DJI 2008-07-28 -18%, DJI 2008-09-15 -11%, N225 2007-08-17 -17%, N225 2008-01-22 -36%, UKX 2008-09-16 0%, DAX 2008-01-21 -36%, CAC 2008-01-23 -36%, TSX60 2008-08-07 -18%, TSX60 2008-09-04 -13%, FTSEMIB 2008-09-29 -9%
+manca TWN
+
+pct: episodi 90, con 12M 87; eccesso medio 12M 12.7 pt; senza mar2020/apr2025 3.0 (55); solo crolli rapidi 29.2 (32)
+  ago2007-set2008: 12 episodi, r252<0: 11, eccesso medio -29.1; SPX 2008-01-10 -37%, SPX 2008-07-02 -29%, SPX 2008-09-09 -16%, DJI 2008-07-28 -18%, DJI 2008-09-15 -11%, N225 2007-08-17 -17%, N225 2008-01-22 -36%, UKX 2008-09-17 4%, DAX 2008-01-21 -36%, TSX60 2008-08-08 -20%, TSX60 2008-09-08 -13%, FTSEMIB 2008-09-29 -9%
+=== risultati_indici.mjs
+9 indici F1, tutti i trigger dal 2001: 75, mediana 14.8 (media dei due centrali 14.8), positivi 49
+9 indici F1, ultimo trigger di ogni episodio dal 2005: 39, mediana 18.7 (media dei due centrali 18.7), positivi 34
+9 indici F1, ultimo trigger di ogni episodio dal 2001: 50, mediana 18.0 (media dei due centrali 18.3), positivi 40
+13 indici con limiti, ultimo trigger per episodio: 54, mediana 22.8 (media dei due centrali 23.4), positivi 46 | tutti i trigger: 70, mediana 18.9 (media dei due centrali 19.7), positivi 56
+=== zonablu.mjs
+zone blu con 6 mesi dopo: 47; prezzo più basso nei 6 mesi dopo l'ingresso: 45/47; minimo dei ±6 mesi entro 3 mesi dall'ingresso: 29/47; trigger positivi a 3M 46/61
+2005-01-03 membri S&P 500 somma membri settori 331 con prezzi 292
+2009-03-09 membri S&P 500 somma membri settori 432 con prezzi 378
+2012-12-03 membri S&P 500 somma membri settori 493 con prezzi 434
+2016-06-01 membri S&P 507 somma membri settori 504 con prezzi 471
+2026-10-16 membri S&P 503 somma membri settori 503 con prezzi 503
+cali forti 2008 sedute in allerta per serie in 3 mesi: mediana 19 max 43
+cali forti 2020 sedute in allerta per serie in 3 mesi: mediana 12 max 27
+cali forti 2025 sedute in allerta per serie in 3 mesi: mediana 4 max 6
+XLC prezzo dal 2018-06-19 percentile dal 2019-06-20 breadth dal 2005-01-03 prima zona blu 2020-03-17
+XLRE prezzo dal 2015-10-08 percentile dal 2016-10-07 breadth dal 2005-01-03 prima zona blu 2016-11-11

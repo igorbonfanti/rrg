@@ -7,7 +7,7 @@
 export const VERSION = '0.9.0';
 export const RELEASE = '2026-10-18';
 export const NOTES = [
-  'Cali forti (capitolazione): quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute, con la soglia di allerta',
+  'Cali forti (capitolazione): quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute, con la soglia di allerta al 99° percentile delle sedute precedenti',
   'Scheda nel dettaglio di indici e settori, colonna e riquadro nella tabella degli indici',
   'Riga ⓘ in «Perché questo stato» quando c\'è stata allerta negli ultimi 3 mesi',
 ];

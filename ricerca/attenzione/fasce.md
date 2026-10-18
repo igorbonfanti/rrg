@@ -51,4 +51,6 @@ Stessa prova sui 22 indici (`script/indici.mjs`):
 | fisso +10 punti | 57% | 9 sedute | 83/134 |
 | velocità del settore/indice (10 sedute) | 47% | 20 sedute | 96/134 |
 
+Ricalcolato il 18/10/2026 dopo la correzione dello script (prima leggeva solo `data/indices.json`, cioè i 10 principali, e dava 46/62): stessi valori. La statistica usa la storia di ogni indice, la più lunga dal 2000 (Dow e S&P/TSX 60).
+
 La regola tiene anche sugli indici. È applicata come per i settori: anello e voce «Avvicinamento», senza stati né alert.

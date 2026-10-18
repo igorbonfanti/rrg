@@ -19,7 +19,7 @@ const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // di recupero: prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
 const PUBLISH_US = 20 * 60 + 30; // 20:30 a New York
 const PUBLISH_EU = 26 * 60 + 30; // 02:30 a Roma del giorno dopo la seduta
-const NEXT_UPDATE = 'aggiornamento automatico ogni notte verso l\'1 (ora italiana), dopo la chiusura USA';
+const NEXT_UPDATE = 'aggiornamento automatico ogni notte dopo la chiusura USA (alle 00:40 ora italiana con l\'ora legale, alle 23:40 con l\'ora solare)';
 
 // preferenze del singolo browser (se lo storage non è disponibile si usano i default)
 const store = {
@@ -397,7 +397,8 @@ function renderPriceTable() {
   const COLS = { last: 'ultimo', d1: '1G', w1: '1S', m1: '1M', m3: '3M', ytd: 'YTD' };
   const cps = rows.map(({ s, mt }) => [s, mt]).concat([[bench, bm]]).filter(([, mt]) => mt.copied)
     .map(([s, mt]) => `${s} (${Object.keys(mt.copied).map((k) => COLS[k]).join(', ')}: ${[...new Set(Object.values(mt.copied).flat())].sort().map(dIT).join(', ')})`);
-  $('pxCopied').textContent = cps.length ? ` * Con un prezzo ricopiato dalla seduta prima, perché Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante): ${cps.join('; ')}.` : '';
+  $('pxCopied').textContent = (isGlobal() ? ' Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l\'ultima seduta, il prezzo al momento dell\'aggiornamento).' : '') +
+    (cps.length ? ` * Con un prezzo ricopiato dalla seduta prima, perché Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante): ${cps.join('; ')}.` : '');
   $('monTable').querySelectorAll('th button').forEach((b) => b.onclick = () => {
     const k = b.dataset.sort;
     state.sort = { key: k, dir: state.sort.key === k ? -state.sort.dir : (k === 'sym' || k === 'rot' ? 1 : -1) };
@@ -687,7 +688,9 @@ function macroFreshness() {
   const badge = lag === 0 ? '' : ` <span class="fresh ${lag === 1 ? 'late' : 'stale'}">${lag} ${lag === 1 ? 'seduta' : 'sedute'} indietro</span>`;
   const last = m.cpi && m.cpi.months ? Object.keys(m.cpi.months).sort().at(-1) : null;
   const cpi = last && m.cpi.releases[last] ? ` · CPI di ${monthIT(last)}, uscito il ${dIT(m.cpi.releases[last])}` : '';
-  return `ETF e bitcoin in dollari, dati al ${dIT(m.asOf)}${badge}${cpi}`;
+  const n = m.repaired ? m.repaired.length : 0;
+  const fixed = n ? ` · <span title="${esc(m.repaired.map((r) => `${r.sym} ${dIT(r.date)}: ${r.from} → ${r.to}`).join('\n'))}">${n} ${n === 1 ? 'prezzo anomalo corretto' : 'prezzi anomali corretti'}</span>` : '';
+  return `ETF e bitcoin in dollari, dati al ${dIT(m.asOf)}${badge}${cpi}${fixed}`;
 }
 
 // ---------- asset reali: come leggere il benchmark scelto (la tabella con tutti i benchmark è in index.html) ----------
