@@ -719,3 +719,7 @@ svg.bub { touch-action: pan-y; }
   .bm-ctl { flex-wrap: wrap; }
   .bm-ctl .scrub { order: 3; flex: 1 1 100%; }
 }
+
+/* collegamento alla guida completa nella guida rapida */
+.help .guide-link { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0 0 12px; padding-bottom: 10px; border-bottom: 1px solid var(--grid); }
+.help .guide-link a.mini { color: #000; background: var(--amber); text-decoration: none; }

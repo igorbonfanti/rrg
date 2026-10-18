@@ -780,6 +780,8 @@ function setTheme(light) {
 }
 function openHelp(open) {
   const d = $('helpModal');
+  // la guida completa si apre alla sezione della vista in uso
+  $('guideLink').href = 'guida.html#' + (VIEWS.includes(state.view) ? state.view : 'inizio');
   if (open && !d.open) { helpOpener = document.activeElement; d.showModal(); $('helpClose').focus(); }
   else if (!open && d.open) d.close();
 }

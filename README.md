@@ -8,6 +8,8 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
 
 🔗 Live: https://igorbonfanti.github.io/rrg/
 
+**Guida**: `guida.html` spiega ogni vista e ogni funzione per chi usa l'app; si apre dalla guida rapida (tasto `?` o pulsante GUIDA) alla sezione della vista in uso, oppure direttamente con `guida.html#btm`, `#sec`, `#tit`…
+
 ## Viste
 - **1 Monitor**: gli 11 settori ordinati per stato.
   - Stato: Normale, Attenzione, Zona blu, Trigger, Fallito, Cooldown.
@@ -150,6 +152,7 @@ Dopo ogni aggiornamento la Action invia solo i nuovi cambi di stato (zona blu, t
 ## Versioni
 Il numero è in alto accanto al nome (`js/version.js`), con le novità al passaggio del mouse. A ogni pubblicazione si cambia insieme a `version.json`, che il browser legge sempre senza cache: se i due numeri non coincidono, il browser sta usando file vecchi e in alto compare «Nuova versione: ricarica». Schema `0.vista.correzione`: 0 finché l'app è in prova, la cifra di mezzo sale con una funzione nuova, l'ultima con le correzioni.
 
+- **0.8.9** (18/10/2026): guida completa (`guida.html`) con ogni vista e funzione, aperta dalla guida rapida alla sezione della vista in uso.
 - **0.8.8** (18/10/2026): data scorrevole, replay e crisi passate anche nella Bottom Map degli indici.
 - **0.8.7** (18/10/2026): Bottom Map con la data scorrevole, il replay settimana per settimana e le scorciatoie per le crisi passate.
 - **0.8.6** (18/10/2026): la storia della divergenza poteva non comparire perché il browser riusava per 10 minuti la copia vecchia del file dei titoli. I file scaricati dopo l'avvio (titoli, indici, prezzi della rotazione) ora chiedono sempre al server se sono cambiati, e «Nuova versione» riscarica anche i dati.

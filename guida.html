@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guida · Sector Monitor</title>
+  <meta name="description" content="Guida all'uso di Sector Monitor: viste, comandi, stati dei settori, rotazione relativa, Bottom Map, indici e titoli." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('antigravity-theme')==='light'?'light':'dark';d.setAttribute('data-theme',t);if(t==='light')document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');if(localStorage.getItem('sm.cvd')==='true')d.classList.add('cvd');}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* pagina della guida: una colonna di lettura, indice a lato sugli schermi larghi */
+    body { background: var(--bg); }
+    .g-wrap { max-width: 1180px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; align-items: start; }
+    .g-top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+    .g-top .brand { font: 700 13px var(--f-mono); letter-spacing: .08em; color: #000; background: var(--amber); padding: 6px 10px; text-decoration: none; }
+    .g-top h1 { font: 600 18px var(--f-mono); color: var(--ink); margin: 0; letter-spacing: .02em; }
+    .g-top .ver { margin-left: auto; font: 12px var(--f-mono); color: var(--ink-3); }
+    .g-toc { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; font: 12.5px var(--f-mono); }
+    .g-toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+    .g-toc ol ol { margin: 2px 0 6px 12px; }
+    .g-toc a { color: var(--ink-2); text-decoration: none; display: block; padding: 3px 6px; border-left: 2px solid transparent; }
+    .g-toc a:hover, .g-toc a.on { color: var(--amber-2); border-left-color: var(--amber); background: var(--row-hi); }
+    .g-toc summary { display: none; }
+    .g-main { min-width: 0; color: var(--ink-2); font: 15px/1.62 var(--f-ui); }
+    .g-main section { padding: 6px 0 22px; border-bottom: 1px solid var(--grid); scroll-margin-top: 12px; }
+    .g-main h2 { font: 600 15px var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--amber-2); margin: 18px 0 10px; }
+    .g-main h3 { font: 600 13.5px var(--f-mono); color: var(--ink); margin: 20px 0 6px; letter-spacing: .02em; scroll-margin-top: 12px; }
+    .g-main p { margin: 8px 0; }
+    .g-main ul, .g-main ol { margin: 6px 0 10px; padding-left: 22px; }
+    .g-main li { margin: 3px 0; }
+    .g-main b, .g-main strong { color: var(--ink); }
+    .g-main a { color: var(--amber-2); }
+    .g-main code, .g-main kbd, .g-main .mono { font: 12.5px var(--f-mono); color: var(--ink); background: var(--panel-2); padding: 1px 5px; }
+    .g-main kbd { border: 1px solid var(--rule); }
+    .g-main table { border-collapse: collapse; width: 100%; margin: 8px 0 12px; font-size: 13.5px; }
+    .g-main th, .g-main td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--grid); }
+    .g-main th { font: 600 11px var(--f-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+    .g-main .tw { overflow-x: auto; }
+    .g-main .open { display: inline-block; margin: 2px 0 6px; font: 600 12px var(--f-mono); color: #000; background: var(--amber); padding: 4px 10px; text-decoration: none; }
+    .g-main .tip { position: static; display: block; max-width: none; padding: 10px 12px; margin: 10px 0; border-left: 3px solid var(--amber); background: var(--panel); color: var(--ink-2); font-size: 14px; }
+    .g-main .warn { border-left-color: var(--down); }
+    .g-main .st { margin-right: 4px; }
+    .g-main dl { margin: 8px 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; }
+    .g-main dt { font: 600 12.5px var(--f-mono); color: var(--ink); }
+    .g-main dd { margin: 0; }
+    @media (max-width: 900px) {
+      .g-wrap { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+      .g-toc { position: static; max-height: none; border: 1px solid var(--rule); padding: 6px 10px; }
+      .g-toc summary { display: block; cursor: pointer; font: 600 12.5px var(--f-mono); color: var(--amber-2); padding: 4px 0; }
+      .g-main { font-size: 14.5px; }
+      .g-main dl { grid-template-columns: 1fr; gap: 2px 0; }
+      .g-main dd { margin-bottom: 6px; }
+    }
+  </style>
+</head>
+<body>
+<div class="g-wrap">
+  <header class="g-top">
+    <a class="brand" href="./#mon" title="Torna all'app">SECTOR·MON</a>
+    <h1>Guida</h1>
+    <a class="mini" href="./#mon">← Torna all'app</a>
+    <span class="ver" id="gVer"></span>
+  </header>
+
+  <nav class="g-toc" aria-label="Indice della guida">
+    <details id="tocBox" open><summary>Indice</summary>
+    <ol>
+      <li><a href="#inizio">Per cominciare</a></li>
+      <li><a href="#concetti">Concetti di base</a>
+        <ol>
+          <li><a href="#breadth">Breadth e livello blu</a></li>
+          <li><a href="#drawdown">Drawdown e percentile</a></li>
+          <li><a href="#stati">Stati di un settore</a></li>
+          <li><a href="#avvicinamento">Avvicinamento</a></li>
+          <li><a href="#rotazione-concetti">Rotazione relativa</a></li>
+        </ol></li>
+      <li><a href="#mon">1 Monitor</a></li>
+      <li><a href="#rrg">2 Rotazione</a>
+        <ol>
+          <li><a href="#universi">Universi e benchmark</a></li>
+          <li><a href="#rrg-grafico">Grafico e comandi</a></li>
+          <li><a href="#rrg-tabelle">Tabelle e performance</a></li>
+          <li><a href="#portafoglio">Portafoglio di riferimento</a></li>
+          <li><a href="#trend">Trend (managed futures)</a></li>
+          <li><a href="#formule">Le due formule</a></li>
+        </ol></li>
+      <li><a href="#btm">3 Bottom Map</a></li>
+      <li><a href="#sec">4 Settore</a></li>
+      <li><a href="#alr">5 Alert</a></li>
+      <li><a href="#idx">6 Indici</a></li>
+      <li><a href="#tit">7 Titoli</a></li>
+      <li><a href="#comandi">Comandi e tasti</a></li>
+      <li><a href="#schermo">Telefono, temi, accessibilità</a></li>
+      <li><a href="#dati">Dati e aggiornamenti</a></li>
+      <li><a href="#limiti">Limiti da tenere a mente</a></li>
+      <li><a href="#faq">Domande frequenti</a></li>
+    </ol>
+    </details>
+  </nav>
+
+  <main class="g-main">
+
+  <section id="inizio">
+    <h2>Per cominciare</h2>
+    <p><b>Sector Monitor</b> fa due lavori, con dati di fine giornata:</p>
+    <ul>
+      <li><b>cerca i possibili bottom</b> degli 11 settori S&amp;P 500 e di 22 indici azionari, mettendo insieme la <b>breadth</b> (quanti titoli stanno sopra la media a 200 sedute), un <b>livello blu</b> per ogni settore e il <b>drawdown</b> dell'ETF;</li>
+      <li>mostra la <b>rotazione relativa</b> di settori, MAG7, ETF in euro (asset class, fattori, regioni, paesi, indici) e asset reali contro le grandezze macro.</li>
+    </ul>
+    <p>Un percorso tipico, dall'alto verso il basso:</p>
+    <ol>
+      <li><b>1 Monitor</b>: come stanno i settori oggi, cosa è cambiato dall'ultima visita, quali sono da osservare e cosa manca al prossimo stato.</li>
+      <li><b>2 Rotazione</b> e <b>3 Bottom Map</b>: chi sta prendendo forza rispetto al mercato, chi si sta avvicinando alla zona blu.</li>
+      <li><b>4 Settore</b>: il dettaglio di un settore, perché è in quello stato, come sono andati gli episodi passati.</li>
+      <li><b>7 Titoli</b>: dentro il settore, se si muovono prima i grandi o i piccoli e quali titoli sono più in difficoltà.</li>
+      <li><b>6 Indici</b>: la stessa lettura sui principali indici del mondo; <b>5 Alert</b>: il registro dei segnali.</li>
+    </ol>
+    <p>In alto a sinistra c'è la versione in uso (passa il mouse per le novità). Se compare il pulsante giallo <b>«Nuova versione: ricarica»</b> il browser sta usando file vecchi: un clic riscarica app e dati.</p>
+    <p class="tip">Ogni intestazione di colonna e ogni voce con la sottolineatura a puntini ha una spiegazione: passa il mouse, oppure sul telefono toccala.</p>
+  </section>
+
+  <section id="concetti">
+    <h2>Concetti di base</h2>
+
+    <h3 id="breadth">Breadth e livello blu</h3>
+    <p>La <b>breadth</b> è la percentuale di titoli di un settore (o di un indice) che chiudono sopra la propria media a 200 sedute: la stessa misura delle serie SUTH, SKTH, S5TH… di TradingView. Nei crolli scende verso lo zero; i bottom dei settori si formano spesso quando è molto bassa.</p>
+    <p>Il <b>livello blu</b> è la soglia di breadth del settore sotto cui cercare un bottom: per Energia è l'1%, per Utilities il 5%, per Health Care l'11%. I livelli di default dei settori vengono dalla tabella «200 LEVEL SETTORI» di Massimo Rea; quelli degli indici dai suoi grafici o, dove non ci sono, dal 3° percentile della storia dell'indice. Puoi provarne altri nella vista <a href="#sec">4 Settore</a>: valgono solo nel tuo browser.</p>
+    <p>Un titolo vale 100/N punti di breadth: in un settore con 31 titoli (Utilities) uno solo sposta la breadth di 3,2 punti. Per questo l'app indica spesso anche <b>quanti titoli</b> mancano a una soglia.</p>
+
+    <h3 id="drawdown">Drawdown e percentile</h3>
+    <dl>
+      <dt>Drawdown</dt><dd>calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (chiusure rettificate). È la perdita di chi ha tenuto l'ETF ed è la base dei segnali.</dd>
+      <dt>Solo prezzo</dt><dd>lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Differisce solo per le cedole staccate dopo il massimo; per oro, bitcoin o un ETF ad accumulazione coincide.</dd>
+      <dt>Percentile</dt><dd>quanto è profondo il drawdown di oggi rispetto a tutta la storia del settore: 90° vuol dire più profondo del 90% delle sedute dal 2005. Nella tabella del Monitor il drawdown è rosso oltre l'80°.</dd>
+    </dl>
+    <p>Il «massimo a 52 settimane» della scheda di TradingView è il picco intraday, che dopo una seduta con un forte rovescio sta più in alto della chiusura: per questo i numeri possono differire leggermente.</p>
+
+    <h3 id="stati">Stati di un settore</h3>
+    <p>Ogni sera una <b>macchina a stati</b> legge breadth e prezzo di ogni settore e lo mette in uno di questi stati. Le stesse regole valgono per gli indici e per gli alert Telegram.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Stato</th><th>Quando</th></tr></thead>
+      <tbody>
+        <tr><td><b>Normale</b></td><td>breadth oltre 10 punti sopra il livello blu e drawdown meno profondo dell'85° percentile.</td></tr>
+        <tr><td><b>Attenzione</b></td><td>breadth entro 10 punti dal livello blu, oppure drawdown oltre l'85° percentile. Si resta qui anche sotto il livello per una sola chiusura.</td></tr>
+        <tr><td><b>Zona blu</b></td><td>breadth al livello blu o sotto per <b>2 chiusure</b> di fila e drawdown oltre il <b>70° percentile</b>. È la zona in cui si formano spesso i bottom, di solito in anticipo.</td></tr>
+        <tr><td><b>Trigger</b></td><td>dalla zona blu, la breadth risale di almeno <b>5 punti sopra il livello</b> (o 2 titoli, se valgono di più) e sopra il minimo, con almeno <b>una conferma</b> tra: spinta di breadth (a 20 giorni da ≤15% a ≥70% in 15 sedute, o a 50 giorni da ≤10% a ≥50% in 20), prezzo sopra una media 20 crescente, divergenza (prezzo più basso, breadth più alta). Servono <b>due</b> conferme se la zona blu dura da più di 60 sedute o dopo un segnale fallito. Il <b>rimbalzo a V</b> (breadth sopra il più alto tra 40% e livello + 25) basta da solo.</td></tr>
+        <tr><td><b>Fallito</b></td><td>dopo il trigger il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera: entro 20 sedute, oppure più tardi, finché la breadth non è tornata al livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. Si torna in zona blu, con regole più severe.</td></tr>
+        <tr><td><b>Cooldown</b></td><td>dopo un trigger, 63 sedute senza nuovi segnali. Una nuova zona blu richiede prima il <b>riarmo</b>: breadth sopra il più alto tra 40% e livello + 25.</td></tr>
+      </tbody>
+    </table></div>
+    <p>Nel grafico della vista 4 le bande blu chiare sono le sedute con la breadth sotto il livello ma fuori dalla zona blu (prima chiusura, drawdown non abbastanza profondo, cooldown o riarmo mancante): il motivo è nel riquadro al passaggio del mouse.</p>
+
+    <h3 id="avvicinamento">Avvicinamento</h3>
+    <p>Un settore in stato Normale è in <b>Avvicinamento</b> quando la breadth scende sotto la sua <b>soglia di avvicinamento</b>: il livello blu più il calo forte della sua breadth in 10 sedute (90° percentile dei cali della sua storia). Da lì, in un calo deciso, il livello blu è a circa due settimane: è il momento di metterlo in osservazione.</p>
+    <p>Si vede come anello tratteggiato sulla Bottom Map e come voce nel Monitor e tra i settori da osservare. <b>Non è uno stato</b>: non cambia la macchina e non manda alert. Dal 2005 ha avvisato con circa un mese di anticipo 59 tocchi del livello blu su 73, ma meno della metà degli avvicinamenti è poi arrivata al livello. Sono numeri «nel campione»: la regola è stata scelta guardando la stessa storia.</p>
+
+    <h3 id="rotazione-concetti">Rotazione relativa</h3>
+    <p>Ogni titolo è confrontato con un benchmark su due assi:</p>
+    <dl>
+      <dt>RS-Ratio</dt><dd>forza relativa rispetto al benchmark: sopra 100 più forte.</dd>
+      <dt>RS-Momentum</dt><dd>come sta cambiando quella forza: sopra 100 in miglioramento.</dd>
+    </dl>
+    <p>I quattro quadranti si percorrono di solito in senso orario: <b class="q-imp-c">Improving</b> (alto a sinistra: ancora debole, ma migliora) → <b class="q-lead-c">Leading</b> (alto a destra: forte e in miglioramento) → <b class="q-weak-c">Weakening</b> (basso a destra: forte, ma rallenta) → <b class="q-lag-c">Lagging</b> (basso a sinistra: debole e in peggioramento). Più un punto è lontano dal centro 100/100, più il movimento relativo è marcato.</p>
+  </section>
+
+  <section id="mon">
+    <h2>1 Monitor</h2>
+    <a class="open" href="./#mon">Apri il Monitor →</a>
+    <p>La pagina di partenza: tutti gli 11 settori, ordinati dallo stato più vicino a un bottom.</p>
+    <h3>Cosa è cambiato dall'ultima visita</h3>
+    <p>La striscia in alto confronta i dati di oggi con quelli della tua ultima visita fatta in un altro giorno di dati: cambi di stato (per esempio «XLU Zona blu → Trigger») e breadth che si sono mosse di almeno 5 punti. Ogni voce apre il settore. Ricaricando nello stesso giorno la striscia resta. La prima volta che apri l'app non compare: il browser deve prima salvare una fotografia.</p>
+    <h3>Riquadri in alto</h3>
+    <p>Breadth dell'S&amp;P 500 con la sua linea recente, quanti settori sono in zona blu, quanti hanno avuto un trigger nelle ultime 63 sedute, quanti sono in attenzione o in avvicinamento, e SPY con il suo drawdown.</p>
+    <h3>Tabella dei settori</h3>
+    <ul>
+      <li><b>Stato</b>: il badge dello stato (o «Avvicinamento»).</li>
+      <li><b>% titoli sopra media 200</b>: la breadth con una barra. La zona chiara arriva al livello blu, la tacca blu è il livello, la tacca grigia è il valore di un mese fa: se la barra è a sinistra della tacca grigia, la breadth sta scendendo.</li>
+      <li><b>Blu</b>: il livello blu del settore; un asterisco se l'hai cambiato nel browser.</li>
+      <li><b>Drawdown da max 52s</b>: rosso se più profondo dell'80% della storia; la tacca grigia è il peggior drawdown degli ultimi 5 anni. <b>Solo prezzo</b>: lo stesso senza dividendi.</li>
+      <li><b>Rotazione</b>: il quadrante del settore contro SPY, settimanale, con la direzione dell'ultimo movimento.</li>
+      <li><b>Ultimo, 1G, 1M</b>: prezzo e variazioni a un giorno e a un mese.</li>
+    </ul>
+    <p>Clic su una riga per il dettaglio nella vista 4. Sotto i settori, la riga di SPY fa da riferimento.</p>
+    <h3>Settori da osservare</h3>
+    <p>I settori non in stato Normale (o in avvicinamento), con il motivo in chiaro e, in arancione, cosa manca al prossimo stato: per esempio «per la zona blu: −3 titoli, 2 chiusure, drawdown oltre il 70°». Sotto, «Come si legge lo stato» riassume le regole.</p>
+  </section>
+
+  <section id="rrg">
+    <h2>2 Rotazione</h2>
+    <a class="open" href="./#rrg">Apri la Rotazione →</a>
+    <p>Il grafico di rotazione relativa di un intero universo contro un benchmark, con tabella, prezzi e performance.</p>
+
+    <h3 id="universi">Universi e benchmark</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Universo</th><th>Contenuto</th><th>Benchmark</th></tr></thead>
+      <tbody>
+        <tr><td>Settori S&amp;P 500</td><td>gli 11 ETF SPDR (XLK, XLF…), in dollari</td><td>SPY</td></tr>
+        <tr><td>MAG7</td><td>Apple, Microsoft, Nvidia, Alphabet, Amazon, Meta, Tesla</td><td>QQQ</td></tr>
+        <tr><td>1 · Asset class</td><td>World, Emergenti, governativi euro 1-3, 7-10 e 15+ anni, Oro, REIT, Commodity, Bitcoin, Trend</td><td>il portafoglio di riferimento, la liquidità in euro (XEON) o l'MSCI World</td></tr>
+        <tr><td>2 · Fattori</td><td>Value, Quality, Momentum, Min Vol, Small Cap, Growth (Nasdaq-100), Dividendi, Equal Weight</td><td>MSCI World o ACWI</td></tr>
+        <tr><td>3 · Regioni</td><td>USA, Europa, Giappone, Pacifico ex-Giappone, Emergenti</td><td>MSCI ACWI o World</td></tr>
+        <tr><td>4 · Paesi</td><td>15 paesi sviluppati ed emergenti</td><td>MSCI ACWI o World</td></tr>
+        <tr><td>6 · Indici</td><td>ETF in euro sugli indici della vista 6</td><td>MSCI ACWI o World</td></tr>
+        <tr><td>5 · Asset reali</td><td>Oro, Argento, Rame, Petrolio, Commodity, Bitcoin, TIPS, in dollari</td><td>liquidità in dollari, inflazione USA, «senza dollaro», Treasury, azioni USA, oro</td></tr>
+      </tbody>
+    </table></div>
+    <p>Gli universi globali usano ETF UCITS in euro, sul calendario di Borsa Italiana. Sul grafico hanno un nome breve (World, Gov 1-3, Oro…); ticker e nome completo sono in tabella e al passaggio del mouse. Nell'universo <b>5 · Asset reali</b> il pannello sotto il grafico spiega cosa mostra ogni benchmark: contro la liquidità e l'inflazione si legge soprattutto il trend assoluto, contro gli altri il confronto tra asset (clic su una riga per cambiarlo).</p>
+
+    <h3 id="rrg-grafico">Grafico e comandi</h3>
+    <ul>
+      <li><b>Timeframe</b>: settimanale (predefinito) o giornaliero. Il punto della settimana in corso è vuoto perché provvisorio.</li>
+      <li><b>Formula</b>: Nuova o Medie semplici (vedi <a href="#formule">sotto</a>).</li>
+      <li><b>Coda</b>: quanti periodi di storia mostra ogni punto (4, 10, 16, 26).</li>
+      <li><b>Scala</b>: «Adatta» stringe gli assi sulle code visibili; «Massima» li tiene fissi su tutto il periodo, utile con l'animazione.</li>
+      <li><b>PLAY</b> e il cursore: rivedono la rotazione nel tempo. Con <kbd>←</kbd> <kbd>→</kbd> ti sposti di un periodo, con <kbd>Spazio</kbd> parte o si ferma l'animazione.</li>
+      <li>Passando sopra un titolo gli altri si attenuano; un clic lo <b>fissa</b>, un secondo clic lo libera. La spunta nella tabella nasconde un titolo dal grafico.</li>
+    </ul>
+
+    <h3 id="rrg-tabelle">Tabelle e performance</h3>
+    <p>La <b>tabella di rotazione</b> riporta per ogni titolo: quadrante, RS-Ratio e RS-Momentum con la variazione dall'ultimo periodo, <b>direzione</b> dell'ultimo movimento in gradi bussola (0° su, 90° a destra, in grassetto tra 0° e 90° cioè verso Leading), <b>velocità</b>, <b>distanza</b> dal centro, da quante <b>settimane</b> è nel quadrante e il quadrante <b>precedente</b>. Clic sulle intestazioni per ordinare.</p>
+    <p>L'interruttore <b>Prezzi</b> mostra invece variazioni, drawdown (con i dividendi e sul solo prezzo) e distanza dalla media 200 di tutto l'universo. Il grafico <b>Performance relativa</b> mette a base 100 l'ultimo periodo scelto (3M, 6M, 1A, 2A), con il benchmark e il titolo in evidenza.</p>
+
+    <h3 id="portafoglio">Portafoglio di riferimento (1 · Asset class)</h3>
+    <p>Nell'universo Asset class il benchmark predefinito è un <b>portafoglio di esempio</b>: Azioni 50% (World 40, Emergenti 10), governativi euro 30%, Oro e materie prime 13%, Immobiliare 5%, Bitcoin 2%, ribilanciato a fine mese. Ogni punto del grafico confronta una componente con il portafoglio intero.</p>
+    <ul>
+      <li>Il pannello sotto il grafico mostra classi, peso obiettivo e peso di oggi (spostato dai prezzi dall'ultimo ribilanciamento).</li>
+      <li>Con i <b>cursori</b> (o scrivendo il numero) adatti i pesi al tuo portafoglio: grafico, tabelle e performance si ricalcolano subito. Se il totale non fa 100% i pesi valgono in proporzione; «Porta a 100%» riscrive i numeri, «Ripristina l'esempio» torna ai pesi di partenza.</li>
+      <li>I pesi scelti restano nel tuo browser. Sono indicativi, non una raccomandazione.</li>
+    </ul>
+
+    <h3 id="trend">Trend (managed futures)</h3>
+    <p>«Trend» è l'ETF <b>iMGP DBi Managed Futures R EUR</b> (ISIN LU2951555403, ticker DBMFE a Parigi): replica i grandi gestori trend following (CTA), che possono andare lunghi o corti su azioni, obbligazioni, valute e materie prime. Ha avuto anni molto buoni nelle crisi lente (+21% nel 2008, +27% nel 2022 per l'indice dei trend follower) e lunghi periodi piatti.</p>
+    <ul>
+      <li>Nel portafoglio ha <b>peso 0</b>: lo vedi nella rotazione e puoi provarlo con i cursori (per esempio 5%, tolto dai governativi 15+ e dalle materie prime).</li>
+      <li>Non è quotato a Milano e non è coperto dal cambio: sotto c'è un portafoglio in dollari.</li>
+      <li>Prima del 28/04/2025 la storia è quella del DBMF americano (stessa strategia) convertito in euro.</li>
+    </ul>
+
+    <h3 id="formule">Le due formule</h3>
+    <p>La <b>Nuova</b> (predefinita) usa medie esponenziali sul logaritmo della forza relativa, divise per la sua volatilità: tutti i titoli stanno sulla stessa scala e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> è la formula pubblica più vicina a quella delle piattaforme ufficiali: RS-Ratio = 100 × media a 10 barre ÷ media a 30 della forza relativa, RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Le due formule danno lo stesso quadrante circa tre volte su quattro; la nota «come si calcola» sotto il grafico le confronta.</p>
+  </section>
+
+  <section id="btm">
+    <h2>3 Bottom Map</h2>
+    <a class="open" href="./#btm">Apri la Bottom Map →</a>
+    <p>Ogni settore è un punto, con la coda delle ultime 8 settimane:</p>
+    <ul>
+      <li><b>in orizzontale</b> la profondità del drawdown (percentile della storia del settore): più a sinistra, più profondo;</li>
+      <li><b>in verticale</b> la distanza della breadth dal livello blu, in punti: sotto lo zero il settore è sotto il livello.</li>
+    </ul>
+    <p>L'area in basso a sinistra è la <b>zona blu</b>, quella gialla è l'<b>attenzione</b>. Il colore del punto è lo stato del settore; l'anello tratteggiato segna l'avvicinamento. Il percorso tipico di un bottom scende verso sinistra e in basso, poi risale. Passando sopra un punto vedi i numeri, con un clic apri il settore.</p>
+    <p>A destra, <b>Distanza dal livello blu</b>: quanti punti e quanti titoli mancano a ogni settore per arrivare al livello.</p>
+    <h3>Data scorrevole e replay</h3>
+    <ul>
+      <li>Il <b>cursore</b> riporta la mappa a una settimana qualsiasi dal 2005; <b>PLAY</b> la fa scorrere una settimana alla volta fino a oggi (da oggi riparte da un anno fa); <b>Oggi</b> torna ai dati attuali.</li>
+      <li>Le scorciatoie <b>Crisi passate</b> portano ai minimi di nov 2008, ott 2011, feb 2016, dic 2018, mar 2020, ott 2022 e apr 2025.</li>
+      <li>A una data passata tutto è come si vedeva allora: coda, stato di quel giorno, avvicinamento (con la soglia calcolata solo sulla storia fino a lì) e distanze. L'asse verticale resta fisso, così il replay non salta.</li>
+    </ul>
+    <p class="tip warn">I livelli blu sono quelli di oggi, scelti conoscendo anche quelle crisi: la mappa storica è un po' più «brava» di quanto sarebbe stata dal vivo.</p>
+  </section>
+
+  <section id="sec">
+    <h2>4 Settore</h2>
+    <a class="open" href="./#XLU">Apri un settore (XLU) →</a>
+    <p>Il dettaglio di un settore: si sceglie dai bottoni in alto, da una riga del Monitor o scrivendo il ticker (per esempio <code>XLK</code>) nella barra dei comandi.</p>
+    <h3>Grafico</h3>
+    <p>Prezzo con la media 200, drawdown e breadth (a 200 e 50 sedute) sullo stesso asse del tempo, per 3 anni, 10 anni o dal 2005. Le bande blu sono le zone blu passate, i segni verde acqua i trigger; le bande blu chiare le sedute sotto il livello ma fuori dalla zona blu. Passando il mouse vedi tutti i valori di quella seduta.</p>
+    <h3>Perché questo stato</h3>
+    <p>Le condizioni della macchina a stati, con ✓ (soddisfatta) e ✗ (manca), calcolate con le stesse regole degli stati:</p>
+    <ul>
+      <li>in <b>Normale o Attenzione</b>: cosa serve per la zona blu (titoli che devono scendere sotto la media, chiusure sotto il livello, drawdown oltre il 70°, riarmo);</li>
+      <li>in <b>Zona blu</b>: la breadth da raggiungere per il trigger, in titoli, e lo stato di ciascuna delle quattro conferme;</li>
+      <li><b>dopo il Trigger</b>: il prezzo sotto cui il segnale fallisce e fino a quando, il riarmo e la fine del cooldown.</li>
+    </ul>
+    <h3>Livello blu</h3>
+    <p>Con <b>−</b> e <b>+</b> provi un livello diverso: grafico, stato ed episodi si ricalcolano subito. La scelta vale solo nel tuo browser (un asterisco la segnala nel Monitor); «Ripristina» torna al default. Gli alert Telegram usano invece i livelli del repository: «Copia configurazione» serve a chi lo gestisce.</p>
+    <h3>Situazione e titoli</h3>
+    <p><b>Situazione</b> riassume breadth, distanza dal livello, soglia di avvicinamento, drawdown e profondità storica, con i link ai grafici su TradingView. <b>Titoli del settore</b> elenca i membri dal più sopra al più sotto la media 200, con una linea tra chi è sopra e chi è sotto: vedi subito chi sta per attraversarla. Il pulsante <b>7 Titoli →</b> porta all'analisi grandi/piccoli dello stesso settore.</p>
+    <h3>Episodi e confronto</h3>
+    <p>La tabella degli episodi elenca ogni zona blu dal 2005: data di ingresso, breadth minima, drawdown, rendimento a 3 mesi dall'ingresso, trigger (con gli eventuali segnali falliti), conferma, rendimenti a 1, 3 e 6 mesi dal trigger e peggior calo nei 3 mesi.</p>
+    <p>Sotto, <b>Per confronto</b> mette accanto le mediane dopo ogni trigger, dall'ingresso in zona blu, dopo una seduta qualsiasi della stessa storia, di SPY negli stessi giorni e del settore meno SPY. Quante volte è andata bene è scritto come «5 su 6», non in percentuale: i casi sono pochi e spesso cadono nella stessa crisi per più settori. Leggile come esempi, non come probabilità.</p>
+  </section>
+
+  <section id="alr">
+    <h2>5 Alert</h2>
+    <a class="open" href="./#alr">Apri gli Alert →</a>
+    <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore.</p>
+    <ul>
+      <li>I riquadri in alto riassumono quante zone blu, trigger e segnali falliti ci sono stati, con le mediane a 3 e 6 mesi e il confronto con una seduta qualsiasi e con SPY negli stessi giorni.</li>
+      <li><b>Notifiche Telegram</b>: ogni sera, dopo l'aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati.</li>
+      <li>Gli alert usano i livelli blu del repository, non quelli provati nel browser.</li>
+    </ul>
+  </section>
+
+  <section id="idx">
+    <h2>6 Indici</h2>
+    <a class="open" href="./#idx">Apri gli Indici →</a>
+    <p>La stessa analisi dei settori su 22 indici azionari: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets, Ibovespa.</p>
+    <ul>
+      <li><b>Indici mostrati</b>: di partenza i 10 principali; un clic aggiunge o toglie un indice, «Principali» e «Tutti» sono le scelte rapide. La scelta resta nel browser. I principali arrivano subito, gli altri un attimo dopo.</li>
+      <li><b>Tabellone</b>: stato, breadth contro il livello blu, drawdown (solo prezzo, valuta locale), come è ricostruita la storia (con la composizione di ogni data, oppure con i membri di oggi) e variazioni.</li>
+      <li><b>Bottom Map degli indici</b> con la distanza dal livello blu: funziona come quella dei settori, compresa la <a href="#btm">data scorrevole</a>. Gli indici hanno calendari diversi, quindi la data è un venerdì e ogni indice usa la sua ultima seduta fino a lì; quelli che non avevano ancora dati non compaiono e la nota li elenca.</li>
+      <li><b>Dettaglio</b>: grafico, «Perché questo stato», livello blu, situazione ed episodi con i rendimenti a 3, 6 e 12 mesi e il confronto con una seduta qualsiasi. Si apre con un clic o scrivendo il nome breve nella barra (<code>NDX</code>, <code>DAX</code>, <code>N225</code>…).</li>
+    </ul>
+    <p>I livelli di default vengono dai grafici di Massimo Rea o, dove non ci sono, dal 3° percentile della storia. <b>Con limiti</b> segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione. Gli indici ricostruiti con i membri di oggi hanno una breadth un po' più alta del vero nelle fasi intermedie.</p>
+  </section>
+
+  <section id="tit">
+    <h2>7 Titoli</h2>
+    <a class="open" href="./#tit">Apri i Titoli →</a>
+    <p>Dentro i settori. Il settore scelto è lo stesso della vista 4; il periodo (1M, 3M, 6M, YTD, 1A) vale per tutta la pagina.</p>
+    <h3>Grandi contro piccoli</h3>
+    <p>Per ogni settore e per l'S&amp;P 500, il rendimento del periodo:</p>
+    <ul>
+      <li><b>pallino pieno</b>: cap-weighted, pesano i grandi;</li>
+      <li><b>pallino vuoto</b>: equal-weight, ogni titolo conta uguale;</li>
+      <li>la <b>barra</b> tra i due è la divergenza: verde acqua se è davanti l'equal-weight (movimento largo), viola se guidano i grandi. Le 3 divergenze più ampie hanno un anello;</li>
+      <li>la <b>scia</b> grigia segna, con pallini sempre più piccoli, dove erano i due valori 1 settimana, 1 mese e 3 mesi fa; la <b>freccia</b> sottile è l'ultima settimana (verde se sale, rossa se scende). Si mostra per tutti, solo per il settore scelto o per nessuno;</li>
+      <li>a destra la divergenza in punti e come è cambiata in un mese (▲ verso l'equal-weight, ▼ verso i grandi).</li>
+    </ul>
+    <p>Clic su una riga per scegliere il settore. I numeri sono il rendimento di indici simulati con i membri di ogni data: possono differire da quelli del grafico di Rea, che usa altre convenzioni (il riquadro «Come si legge» spiega perché).</p>
+    <h3>Storia della divergenza</h3>
+    <p>La stessa divergenza (equal − cap sul periodo scelto) alla fine di ognuna delle ultime 52 settimane, per il settore scelto, con l'S&amp;P 500 tratteggiato per confronto. Area verde acqua sopra lo zero, viola sotto. Sopra il grafico: <b>da quante settimane</b> dura il segno di oggi (per esempio «davanti l'equal-weight da 7 settimane»), con minimo e massimo dell'anno. Con YTD la divergenza riparte da zero a gennaio.</p>
+    <h3>Titoli del settore e i più in pena</h3>
+    <ul>
+      <li>Una <b>bolla</b> per titolo: in verticale il rendimento del periodo; in orizzontale, a scelta, la distanza dalla media 200, dal massimo a 52 settimane o il rendimento nel periodo precedente. Grandezza secondo il peso nell'S&amp;P 500, oppure tutte uguali.</li>
+      <li>Le linee tratteggiate sono il settore cap ed equal. In rosso e con l'etichetta gli 8 più in pena; i valori estremi sono fermati al bordo con una freccia.</li>
+      <li><b>I più in pena</b>: i 12 titoli con la media più bassa delle posizioni nel settore per rendimento del periodo e distanza dal massimo. Passando sopra una riga si evidenzia la bolla; il ticker apre il grafico su TradingView. Chi è in pena non è per forza a sconto.</li>
+    </ul>
+  </section>
+
+  <section id="comandi">
+    <h2>Comandi e tasti</h2>
+    <p>Nella <b>barra dei comandi</b> in alto (o premendo <kbd>/</kbd>) scrivi e premi Invio:</p>
+    <div class="tw"><table>
+      <thead><tr><th>Scrivi</th><th>Cosa succede</th></tr></thead>
+      <tbody>
+        <tr><td><code>XLU</code></td><td>un ETF settoriale apre il suo dettaglio (vista 4)</td></tr>
+        <tr><td><code>XLK TIT</code>, <code>XLU SEC</code></td><td>settore e vista insieme</td></tr>
+        <tr><td><code>NVDA</code>, <code>SWDA</code>, <code>ORO</code>, <code>TESLA</code></td><td>un ticker (anche senza borsa), un nome breve o una parola del nome: lo evidenzia nella rotazione, cambiando universo se serve</td></tr>
+        <tr><td><code>SPY</code>, <code>QQQ</code>, <code>PTF</code></td><td>un benchmark: la rotazione contro di lui</td></tr>
+        <tr><td><code>NDX</code>, <code>DAX</code>, <code>N225</code></td><td>un indice: il suo dettaglio nella vista 6</td></tr>
+        <tr><td><code>MON</code> <code>ROT</code> <code>BTM</code> <code>SEC</code> <code>ALRT</code> <code>IDX</code> <code>TIT</code></td><td>apre la vista</td></tr>
+        <tr><td><code>HELP</code></td><td>la guida rapida</td></tr>
+        <tr><td><code>CHIARO</code>, <code>SCURO</code>, <code>TEMA</code></td><td>sceglie o inverte il tema</td></tr>
+      </tbody>
+    </table></div>
+    <p><b>Tasti</b>: <kbd>1</kbd>–<kbd>7</kbd> viste · <kbd>/</kbd> barra dei comandi · <kbd>←</kbd> <kbd>→</kbd> periodo nella rotazione · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida rapida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida rapida (utile con lettori di schermo o dettatura).</p>
+    <p><b>Indirizzi</b>: <code>#mon</code> <code>#rrg</code> <code>#btm</code> <code>#alr</code> <code>#idx</code> <code>#tit</code> aprono una vista, <code>#XLU</code> un settore, <code>#tit-XLK</code> i titoli di un settore. Puoi salvarli tra i preferiti; il tasto Indietro del browser torna alla vista o al settore precedente.</p>
+  </section>
+
+  <section id="schermo">
+    <h2>Telefono, temi, accessibilità</h2>
+    <ul>
+      <li><b>Telefono</b>: i grafici si disegnano alla larghezza dello schermo; nel Monitor ogni settore diventa una scheda e i settori da osservare vengono prima. Un tocco su un punto mostra i suoi numeri, un tocco su un'intestazione la sua spiegazione.</li>
+      <li><b>Chiaro / Scuro</b>: l'interruttore in alto (o i comandi <code>CHIARO</code> e <code>SCURO</code>). La scelta resta nel browser.</li>
+      <li><b>CVD</b>: colori per chi distingue male rosso e verde: su e giù diventano blu e rosso. I quadranti e gli stati hanno sempre anche un'etichetta o una forma, non solo il colore.</li>
+      <li>Le tabelle larghe scorrono di lato: un'ombra sul bordo lo segnala.</li>
+    </ul>
+  </section>
+
+  <section id="dati">
+    <h2>Dati e aggiornamenti</h2>
+    <ul>
+      <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate ogni notte da un processo automatico (verso mezzanotte e mezza ora italiana, con due corse di recupero al mattino presto e a metà giornata). In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
+      <li>La <b>breadth dei settori</b> è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 7 vengono dalle holdings dell'ETF iShares IVV.</li>
+      <li>La <b>breadth degli indici</b> è calcolata ogni sera sui loro membri (circa 4.600 titoli).</li>
+      <li>Le scelte personali (livelli blu provati, pesi del portafoglio, universo, indici mostrati, tema) restano solo nel tuo browser.</li>
+    </ul>
+  </section>
+
+  <section id="limiti">
+    <h2>Limiti da tenere a mente</h2>
+    <ul>
+      <li><b>Storia ricostruita</b>: per i primi anni una parte dei titoli usciti dall'indice non ha più prezzi (copertura dal 65% nel 2005 al 99% dal 2021); quei valori vanno letti con cautela.</li>
+      <li><b>Senno di poi</b>: i livelli blu e la regola dell'avvicinamento sono stati scelti guardando la stessa storia su cui si calcolano episodi e statistiche.</li>
+      <li><b>Campioni piccoli</b>: ogni settore ha pochi episodi, spesso nella stessa crisi; per questo l'app scrive «5 su 6» e mette sempre un termine di paragone.</li>
+      <li><b>Prezzo di chiusura del segnale</b>: i rendimenti degli episodi partono dalla chiusura del giorno del segnale, che si conosce solo a mercato chiuso.</li>
+      <li><b>Dati gratuiti</b>: Yahoo a volte pubblica una chiusura in ritardo o con errori; l'aggiornamento controlla, scarta i prezzi anomali e segnala le fonti ferme.</li>
+    </ul>
+    <p class="tip">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è uno strumento di studio, con calcoli propri su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</p>
+    <p class="tip warn">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri. «Relative Rotation Graphs» è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente.</p>
+  </section>
+
+  <section id="faq">
+    <h2>Domande frequenti</h2>
+    <h3>Non vedo le ultime novità.</h3>
+    <p>GitHub fa tenere i file al browser per 10 minuti. Se in alto compare «Nuova versione», cliccalo; altrimenti ricarica con Ctrl+F5 (su Mac Cmd+Maiusc+R).</p>
+    <h3>La breadth è sotto il livello blu ma il settore non è in zona blu.</h3>
+    <p>Mancano altre condizioni: una seconda chiusura sotto il livello, un drawdown oltre il 70° percentile, oppure il riarmo dopo l'ultimo trigger. Il riquadro «Perché questo stato» della vista 4 dice quale.</p>
+    <h3>I numeri della vista 7 non coincidono con il grafico di Rea.</h3>
+    <p>Sono vicini ma calcolati in modo diverso: periodi in sedute invece che di calendario, pesi di inizio periodo invece che di oggi, membri di ogni data con il ribilanciamento trimestrale. Il riquadro «Come si legge» della vista 7 spiega le differenze.</p>
+    <h3>Il drawdown è diverso da quello di TradingView.</h3>
+    <p>Il drawdown dell'app conta i dividendi reinvestiti; quello di TradingView è sul solo prezzo e parte dal massimo intraday. La colonna «Solo prezzo» e la nota al passaggio del mouse fanno il confronto.</p>
+    <h3>Le modifiche ai livelli blu cambiano gli alert?</h3>
+    <p>No: valgono solo nel tuo browser. Gli alert usano i livelli del repository.</p>
+    <h3>Dove vedo cosa è cambiato da ieri?</h3>
+    <p>Nella striscia in cima al Monitor, dalla seconda visita in poi.</p>
+  </section>
+
+  </main>
+</div>
+<script type="module">
+  import { VERSION, RELEASE } from './js/version.js';
+  const iso = (d) => `${d.slice(8, 10)}/${d.slice(5, 7)}/${d.slice(0, 4)}`;
+  document.getElementById('gVer').textContent = `versione ${VERSION} del ${iso(RELEASE)}`;
+  // indice: evidenzia la sezione che si sta leggendo; sul telefono si chiude dopo la scelta
+  const links = [...document.querySelectorAll('.g-toc a')];
+  const box = document.getElementById('tocBox');
+  if (matchMedia('(max-width: 900px)').matches && !location.hash) box.open = false;
+  links.forEach((a) => a.addEventListener('click', () => { if (matchMedia('(max-width: 900px)').matches) box.open = false; }));
+  const obs = new IntersectionObserver((es) => {
+    for (const e of es) if (e.isIntersecting) links.forEach((a) => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  }, { rootMargin: '0px 0px -70% 0px' });
+  document.querySelectorAll('.g-main section, .g-main h3[id]').forEach((s) => obs.observe(s));
+</script>
+</body>
+</html>
