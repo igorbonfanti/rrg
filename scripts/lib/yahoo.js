@@ -38,7 +38,7 @@ export async function fetchDaily(symbol, opt = {}) {
     const host = HOSTS[attempt % HOSTS.length];
     const url = `https://${host}/v8/finance/chart/${encodeURIComponent(raw ? symbol : yahooSymbol(symbol))}?${q}&interval=${interval}&includeAdjustedClose=true`;
     try {
-      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' } });
+      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' }, signal: AbortSignal.timeout(30000) });
       if (r.status === 429 || r.status >= 500) throw Object.assign(new Error(`HTTP ${r.status}`), { retry: true });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const j = await r.json();
@@ -47,7 +47,7 @@ export async function fetchDaily(symbol, opt = {}) {
       return parse(res, { fillLast, keepOpenCrypto, dropStale });
     } catch (e) {
       lastErr = e;
-      if (!e.retry && !(e instanceof TypeError)) break; // TypeError = errore di rete
+      if (!e.retry && !(e instanceof TypeError) && e.name !== 'TimeoutError') break; // TypeError = errore di rete; TimeoutError = 30 s senza risposta
       await sleep(800 * 2 ** attempt);
     }
   }
@@ -71,8 +71,9 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale
     let c = quote.close ? quote.close[i] : null;
     let a = adj[i];
     let h = quote.high ? quote.high[i] : null;
-    // barra della seduta in corso: cade dentro l'orario regolare attuale e la seduta non è finita
-    const open = reg && ts[i] >= reg.start && nowSec < reg.end;
+    // barra della seduta in corso: cade dentro l'orario regolare attuale e la seduta non è finita. Senza l'orario
+    // (meta ridotto) è aperta la barra di oggi nel fuso della borsa fino a 8,5 ore dall'apertura (le sedute durano meno)
+    const open = reg ? ts[i] >= reg.start && nowSec < reg.end : barDate(ts[i], meta.gmtoffset) === barDate(nowSec, meta.gmtoffset) && nowSec < ts[i] + 8.5 * 3600;
     if (open && !keepOpen) continue;
     const d = barDate(ts[i], meta.gmtoffset);
     if (c == null && fillLast && (!open || keepOpen) && i === ts.length - 1 && meta.regularMarketPrice != null &&

@@ -31,3 +31,11 @@ test('alert: un invio fallito si riprova per 5 sedute', () => {
   assert.equal(retryFrom(dates, 'd7'), 'd3');
   assert.equal(retryFrom(dates, 'd2'), 'd1');
 });
+
+test('dati fermi: file dei prezzi e ogni indice o serie dei cali forti, con le feste lunghe delle borse asiatiche', () => {
+  const base = { breadth: { asOf: '2026-10-16' }, prices: { asOf: '2026-10-16' }, pricesGlobal: { asOf: '2026-10-16' }, pricesMacro: { asOf: '2026-10-16' } };
+  assert.deepEqual(staleData({ ...base, indexLast: { CSI300: '2026-10-06' }, capLast: { NDX: '2026-10-16' } }, '2026-10-19'), []); // Golden Week: 10 giorni
+  const p = staleData({ ...base, prices: { asOf: '2026-10-09' }, pricesGlobal: { asOf: '2026-10-09' }, indexLast: { HSI: '2026-09-30' }, capLast: { KOSPI200: '2026-10-01' } }, '2026-10-19');
+  assert.equal(p.length, 4, p.join(' | '));
+  assert.ok(p.some((x) => /indici: HSI/.test(x)) && p.some((x) => /cali forti: KOSPI200/.test(x)));
+});

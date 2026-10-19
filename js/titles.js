@@ -7,7 +7,7 @@
  * Dati: data/sector_members.json (scripts/lib/capeq.js), caricato alla prima apertura della vista.
  * Il settore scelto è lo stesso della vista 4 Settore.
  */
-import { esc, fmt, sgn, pct, dIT, placeTip, chartWidth, keepFocus } from './format.js';
+import { esc, fmt, sgn, sgnP, pct, dIT, placeTip, chartWidth, keepFocus } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 const PERIODS = ['1M', '3M', '6M', 'YTD', '1A'];
@@ -204,7 +204,7 @@ export function createTitles(ctx) {
     const tip = $('titSpreadTip');
     tip.innerHTML = `<div class="row"><b>${r.k}</b><span>${esc(ctx.names[r.k] || 'S&P 500')}</span></div>` +
       `<div class="row"><span>${PER_TEXT[st.per]}</span><span>cap · equal · diff.</span></div>` +
-      r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span>${sgn(p[0])}% · ${sgn(p[1])}% · <span class="${p[1] - p[0] >= 0 ? 'q-lead-c' : 'q-imp-c'}">${pp(p[1] - p[0])}</span></span></div>` : '')).join('') +
+      r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span>${sgnP(p[0])} · ${sgnP(p[1])} · <span class="${p[1] - p[0] >= 0 ? 'q-lead-c' : 'q-imp-c'}">${pp(p[1] - p[0])}</span></span></div>` : '')).join('') +
       (D.hist && D.hist.sectors && D.hist.sectors[r.k] ? (() => { const z = leadStreak(D.hist.sectors[r.k][st.per]); return z.sign ? `<div class="row"><span>da quanto</span><span>${esc(streakText(z, D.hist.dates))}</span></div>` : ''; })() : '') +
       (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: la scia tiene l\'inizio al 31/12 e sposta solo la fine.</span>' : '');
     placeTip(tip, $('titSpreadWrap'), e);
@@ -355,8 +355,8 @@ export function createTitles(ctx) {
     const yEw = Y(ref[1]), yCw = Y(ref[0]), close = Math.abs(yEw - yCw) < 16;
     el('line', { class: 'l-ew', x1: L, x2: W - R, y1: yEw, y2: yEw }, svg);
     el('line', { class: 'l-cw', x1: L, x2: W - R, y1: yCw, y2: yCw }, svg);
-    text(svg, W - R - 2, yEw + (close && yEw >= yCw ? 12 : -4), `equal ${sgn(ref[1])}%`, { class: 't-ew', 'text-anchor': 'end' });
-    text(svg, W - R - 2, yCw + (close && yCw > yEw ? 12 : -4), `cap ${sgn(ref[0])}%`, { class: 't-cw', 'text-anchor': 'end' });
+    text(svg, W - R - 2, yEw + (close && yEw >= yCw ? 12 : -4), `equal ${sgnP(ref[1])}`, { class: 't-ew', 'text-anchor': 'end' });
+    text(svg, W - R - 2, yCw + (close && yCw > yEw ? 12 : -4), `cap ${sgnP(ref[0])}`, { class: 't-cw', 'text-anchor': 'end' });
     // bolle: area proporzionale al peso nell'indice (con un minimo e un massimo), le grandi sotto
     const maxW = Math.max(...list.map((s) => s.w || 0), 0.001), rMax = narrow ? 20 : 28;
     const rad = (s) => (st.size === 'eq' ? 5 : Math.max(3, rMax * Math.sqrt((s.w || 0) / maxW)));
@@ -381,8 +381,8 @@ export function createTitles(ctx) {
     // riquadri occupati {x, top, w, bottom}: un testo di 11 px sta da 11 sopra a 4 sotto la linea di base
     const box = (x, y, w) => ({ x, top: y - 11, w, bottom: y + 4 });
     const boxes = [
-      box(W - R - 2 - lw(`equal ${sgn(ref[1])}%`), yEw + (close && yEw >= yCw ? 12 : -4), lw(`equal ${sgn(ref[1])}%`)),
-      box(W - R - 2 - lw(`cap ${sgn(ref[0])}%`), yCw + (close && yCw > yEw ? 12 : -4), lw(`cap ${sgn(ref[0])}%`)),
+      box(W - R - 2 - lw(`equal ${sgnP(ref[1])}`), yEw + (close && yEw >= yCw ? 12 : -4), lw(`equal ${sgnP(ref[1])}`)),
+      box(W - R - 2 - lw(`cap ${sgnP(ref[0])}`), yCw + (close && yCw > yEw ? 12 : -4), lw(`cap ${sgnP(ref[0])}`)),
       box(L + 4, T + 10, lw(`↑ rendimento ${st.per}`)),
     ];
     const heavy = [...list].sort((a, b) => (b.w || 0) - (a.w || 0)).slice(0, narrow ? 2 : 3);

@@ -10,7 +10,7 @@ import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
 import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
-import { esc, fmt, sgn, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
+import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
 const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx', 'tit'];
@@ -357,12 +357,15 @@ function monitorRows() {
 const symCell = (s, name, extra = '') => (byLabel()
   ? `<span class="sym" title="${esc(name)}">${esc(label(s))}</span><span class="nm">${ds().tickers[s].synthetic ? '' : esc(baseSym(s))}${extra}</span>`
   : `<span class="sym">${esc(s)}</span><span class="nm">${esc(name)}${extra}</span>`);
+// un valore mancante (ETF quotato da poco, senza YTD) conta come il più basso, non come uno zero a metà classifica:
+// nell'ordine decrescente (quello di partenza) va in fondo
+const num = (f) => (a, b) => { const x = f(a), y = f(b); return x == null ? (y == null ? 0 : -1) : y == null ? 1 : x - y; };
 const SORTERS = {
   sym: (a, b) => label(a.s).localeCompare(label(b.s)),
-  last: (a, b) => a.mt.last - b.mt.last,
-  d1: (a, b) => a.mt.d1 - b.mt.d1, w1: (a, b) => a.mt.w1 - b.mt.w1, m1: (a, b) => a.mt.m1 - b.mt.m1,
-  m3: (a, b) => a.mt.m3 - b.mt.m3, ytd: (a, b) => a.mt.ytd - b.mt.ytd,
-  dd: (a, b) => a.mt.dd52 - b.mt.dd52, ddp: (a, b) => (a.mt.ddp ?? a.mt.dd52) - (b.mt.ddp ?? b.mt.dd52), vs200: (a, b) => a.mt.vs200 - b.mt.vs200,
+  last: num((r) => r.mt.last),
+  d1: num((r) => r.mt.d1), w1: num((r) => r.mt.w1), m1: num((r) => r.mt.m1),
+  m3: num((r) => r.mt.m3), ytd: num((r) => r.mt.ytd),
+  dd: num((r) => r.mt.dd52), ddp: num((r) => r.mt.ddp ?? r.mt.dd52), vs200: num((r) => r.mt.vs200),
   rot: (a, b) => (a.r && b.r ? QORDER[a.r.q] - QORDER[b.r.q] || b.r.dist - a.r.dist : 0),
   weeks: (a, b) => (a.r && b.r ? a.r.weeks - b.r.weeks : 0),
 };
@@ -383,7 +386,7 @@ function renderPriceTable() {
   }).join('') + '</tr></thead>';
   const ddCell = (mt) => {
     const w = Math.min(100, (Math.abs(mt.dd52) / DDMAX) * 100), worst = Math.min(100, (Math.abs(mt.ddWorst) / DDMAX) * 100);
-    return `<span class="cellv num">${sgn(mt.dd52)}%</span><span class="bar" title="peggiore negli ultimi 5 anni ${sgn(mt.ddWorst)}%"><i class="${mt.ddDepth != null && mt.ddDepth >= 80 ? 'deep' : ''}" style="width:${w}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span>`;
+    return `<span class="cellv num">${sgnP(mt.dd52)}</span><span class="bar" title="peggiore negli ultimi 5 anni ${sgnP(mt.ddWorst)}"><i class="${mt.ddDepth != null && mt.ddDepth >= 80 ? 'deep' : ''}" style="width:${w}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span>`;
   };
   // drawdown sul solo prezzo, alla stessa data (l'ultima del file)
   const ddpTd = (s, mt) => `<td class="num r" title="${esc(ddpTip(mt.max52, d.dates[d.dates.length - 1], mt.dd52, d.tickers[s].synthetic))}">${mt.ddp == null ? '<span class="muted">—</span>' : sgn(mt.ddp) + '%'}</td>`;

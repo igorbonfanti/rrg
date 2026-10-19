@@ -4,11 +4,10 @@
  * e l'app lo dice in alto. Schema 0.vista.correzione: 0 finché è in prova, la cifra di mezzo sale con una funzione
  * nuova, l'ultima con le correzioni.
  */
-export const VERSION = '0.9.2';
-export const RELEASE = '2026-10-18';
+export const VERSION = '0.9.3';
+export const RELEASE = '2026-10-19';
 export const NOTES = [
-  'Telefono e tablet: tabellone degli indici a schede come il Monitor, testo dei grafici più grande, «Perché questo stato» subito dopo il grafico',
-  'Al tocco: i grafici mostrano i numeri del punto toccato, la Bottom Map al primo tocco i valori e al secondo apre; spiegazioni anche dentro le schede',
-  'Bottom Map: colori degli stati come nel Monitor, «Zoom sulla zona» per le crisi passate, etichette che non si sovrappongono',
-  'Focus da tastiera visibile, fasce di sfondo più leggibili, scala della rotazione salvata'
+  'Aggiornamento notturno più robusto: controllo di ogni file e di ogni indice fermo, avvisi per ticker e prezzi mancanti, file troncati mai pubblicati',
+  'Telegram parte dopo la pubblicazione dei dati, così una corsa fallita non manda doppioni',
+  'Valori mancanti mostrati come «—» ovunque e in fondo agli ordinamenti; pagina Indici più veloce'
 ];

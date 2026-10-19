@@ -16,7 +16,8 @@ const DAY = 864e5;
 const age = (from, to) => Math.round((Date.parse(to) - Date.parse(from)) / DAY);
 
 /**
- * @param {object} d {breadth, sectors, members, history, sectorMembers, indices, capitulation, indexMembers: {k: {asOf}}}
+ * @param {object} d {breadth, sectors, members, history, sectorMembers, indices, capitulation, indexMembers: {k: {asOf}},
+ *   prices, pricesGlobal, pricesMacro, indexLast: {k: ultima seduta con la breadth}, capLast: {k: ultima seduta con i cali forti}}
  * @param {string} today data ISO di oggi
  * @returns {string[]} problemi
  */
@@ -34,7 +35,14 @@ export function staleData(d, today) {
     ['sector_members.json (holdings IVV)', d.sectorMembers && d.sectorMembers.weightsAsOf, B, 10],
     ['indices.json', d.indices && d.indices.asOf, B, 4],
     ['capitulation.json (cali forti)', d.capitulation && d.capitulation.asOf, B, 4],
+    ['prices.json (rotazione USA)', d.prices && d.prices.asOf, B, 4],
+    ['prices_global.json (ETF in euro)', d.pricesGlobal && d.pricesGlobal.asOf, today, 6],
+    ['prices_macro.json (asset reali)', d.pricesMacro && d.pricesMacro.asOf, B, 4],
   ];
+  // ogni indice e ogni serie dei cali forti con la sua ultima seduta: le borse hanno feste diverse, e le più lunghe
+  // (Capodanno cinese, Golden Week) tengono chiuse Shanghai e Hong Kong fino a 11 giorni di calendario
+  for (const [k, at] of Object.entries(d.indexLast || {})) checks.push([`indici: ${k}`, at, B, 12]);
+  for (const [k, at] of Object.entries(d.capLast || {})) checks.push([`cali forti: ${k}`, at, B, 12]);
   for (const [k, m] of Object.entries(d.indexMembers || {})) checks.push([`index_members/${k}.json`, m && m.asOf, today, 14]);
   for (const [name, at, ref, max] of checks) {
     if (at === undefined) continue; // campo non ancora scritto (prima sera con questo controllo)
@@ -44,13 +52,21 @@ export function staleData(d, today) {
   return out;
 }
 
-function main() {
+async function main() {
   const read = (f) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', f), 'utf-8')); } catch { return null; } };
   const dir = path.join(ROOT, 'data', 'index_members');
   const indexMembers = fs.existsSync(dir) ? Object.fromEntries(fs.readdirSync(dir).filter((f) => f.endsWith('.json')).map((f) => [f.slice(0, -5), read('index_members/' + f)])) : {};
+  const { indexSeries } = await import('../js/indexdata.js');
+  const { capSeries } = await import('../js/capitulation.js');
+  const last = (dates, a) => { let t = a.length - 1; while (t >= 0 && a[t] == null) t--; return t >= 0 ? dates[t] : null; };
+  const ix = { ...((read('indices_more.json') || {}).series || {}), ...((read('indices.json') || {}).series || {}) };
+  const indexLast = Object.fromEntries(Object.entries(ix).map(([k, x]) => { const s = indexSeries(x); return [k, last(s.dates, s.pct200)]; }));
+  const cap = read('capitulation.json');
+  const capLast = cap && cap.series ? Object.fromEntries(Object.entries(cap.series).map(([k, x]) => { const s = capSeries(x); return [k, last(s.dates, s.n)]; })) : {};
   const problems = staleData({
     breadth: read('breadth.json'), sectors: read('sectors.json'), members: read('sp500_members.json'), history: read('sp500_history.json'),
-    sectorMembers: read('sector_members.json'), indices: read('indices.json'), capitulation: read('capitulation.json'), indexMembers,
+    sectorMembers: read('sector_members.json'), indices: read('indices.json'), capitulation: cap, indexMembers,
+    prices: read('prices.json'), pricesGlobal: read('prices_global.json'), pricesMacro: read('prices_macro.json'), indexLast, capLast,
   }, new Date().toISOString().slice(0, 10));
   for (const p of problems) console.log(`::error::Dati non aggiornati: ${p}`);
   if (problems.length) process.exit(1);

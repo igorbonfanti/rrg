@@ -6,7 +6,7 @@
  * Le bande blu verticali sono i periodi in zona blu calcolati dalla macchina a stati; quelle più chiare
  * le sedute con la breadth sotto il livello blu fuori dalla zona blu (il motivo è nel tooltip).
  */
-import { fmt, sgn, dIT, placeTip, pxDec, bindTip } from './format.js';
+import { fmt, sgn, sgnP, dIT, placeTip, pxDec, bindTip } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -170,7 +170,7 @@ export function drawSector(svg, p) {
     });
     tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${sym}${days[i] ? ' · ' + STATE[days[i]] : ''}</span></div>
       <div class="row"><span>Prezzo</span><b>${fmt(c[i], pxDec(c[i]))}</b></div><div class="row"><span>Media 200</span><b>${fmt(m[i], pxDec(m[i]))}</b></div>
-      <div class="row"><span>Drawdown 52s</span><b>${sgn(dd[i])}%</b></div>
+      <div class="row"><span>Drawdown 52s</span><b>${sgnP(dd[i])}</b></div>
       <div class="row"><span>Sopra media 200</span><b>${b[i] == null ? '—' : fmt(b[i]) + '%'}</b></div><div class="row"><span>Sopra media 50</span><b>${b50[i] == null ? '—' : fmt(b50[i]) + '%'}</b></div>` +
       (off[i] && p.offText ? `<div class="row note-row">${p.offText[off[i]]}</div>` : '');
     placeTip(tipEl, wrapEl, e, 12);
