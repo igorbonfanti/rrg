@@ -130,3 +130,34 @@ test('episodi a confronto: trigger, zona blu, seduta qualsiasi e benchmark negli
   assert.equal(signalContext(c, { trig: [], setup: [] }, 0, [21]).length, 3);
   assert.equal(signalContext(c, { trig: [], setup: [] }, 0, [21])[0].med[0], null);
 });
+
+// segnale fallito (A1, audit della 0.9.0): il giorno del fallimento è un nuovo minimo della zona blu
+function failScenario() {
+  // 100 titoli (1 titolo = 1 punto), livello blu 10, drawdown sempre profondo
+  const n = 40, close = [], pct200 = [], N = [], dp = [], dd = [];
+  for (let t = 0; t < n; t++) {
+    close.push(t < 5 ? 100 : t < 10 ? 90 : t === 10 ? 85 : 86 + (t - 11) * 0.01);
+    pct200.push(t < 5 ? 50 : t < 7 ? 8 : t < 10 ? 45 : 8); // zona blu a t=6, trigger a V a t=7, di nuovo sotto dopo
+    N.push(100); dp.push(90); dd.push(-20);
+  }
+  return { px: { close, dd, dp }, br: { pct200, pct50: new Array(n).fill(null), pct20: new Array(n).fill(null), n: N } };
+}
+
+test('dopo il segnale fallito il minimo della zona blu comprende la chiusura del giorno del fallimento', () => {
+  const { px, br } = failScenario();
+  const m = runMachine(px, br, 10);
+  const codes = m.events.map((e) => `${e.t}:${e.code}`);
+  assert.ok(codes.includes('10:fail'), codes.join(' '));
+  const setup = m.setups.at(-1);
+  // il prezzo più basso della zona blu è 85 (t=10, giorno del fallimento)
+  assert.equal(setup.pmin, 85, `pmin=${setup.pmin} tp=${setup.tp}`);
+});
+
+test('«Perché questo stato» riporta il vero minimo del prezzo della zona blu', () => {
+  const { px, br } = failScenario();
+  const m = runMachine(px, br, 10);
+  const dates = px.close.map((_, i) => new Date(Date.UTC(2026, 0, 1 + i)).toISOString().slice(0, 10));
+  const t = px.close.length - 1;
+  const e = explainState(px, br, 10, {}, m, dates, t);
+  assert.match(e.why, /minimo del prezzo 85,0/, e.why);
+});

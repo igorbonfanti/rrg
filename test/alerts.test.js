@@ -97,3 +97,21 @@ test('breadth: due membri che non quotano più non bloccano la pubblicazione', (
   for (const s of ['L1', 'L2']) { members.push({ s, sector: 'XLF' }); prices[s] = mk(days.slice(0, -1)); }
   assert.deepEqual(publishable(members, prices, ['2026-09-24']), []);
 });
+
+test('rettifiche Telegram: evento spostato dal ricalcolo o sparito', async () => {
+  const { reconcile, formatMessage, formatCancel, newEvents: ne } = await import('../scripts/send_alerts.js');
+  const dates = ['2026-10-12', '2026-10-13', '2026-10-14', '2026-10-15', '2026-10-16'];
+  const state = { checkedThrough: '2026-10-15', log: [{ date: '2026-10-15', sector: 'XLU', code: 'trig', text: 'x', telegram: true }, { date: '2026-10-14', sector: 'XLK', code: 'setup', text: 'y', telegram: true }] };
+  // dopo il ricalcolo: il trigger di XLU è il 16, la zona blu di XLK non c'è più
+  const events = [{ date: '2026-10-16', sector: 'XLU', code: 'trig', text: 'breadth risale' }];
+  const fresh = ne(events, state, dates, '2026-10-16');
+  const cancelled = reconcile(fresh, events, state, dates, '2026-10-16');
+  assert.equal(fresh.length, 1);
+  assert.equal(fresh[0].moved, '2026-10-15');
+  assert.match(formatMessage(fresh[0]), /Rettifica: spostato dal 15\/10\/2026 al 16\/10\/2026/);
+  assert.deepEqual(cancelled.map((e) => e.sector), ['XLK']);
+  assert.match(formatCancel(cancelled[0]), /RETTIFICA.*XLK[\s\S]*ZONA BLU del 14\/10\/2026 annullato/);
+  // la sera dopo nulla si ripete: gli eventi vecchi sono segnati
+  assert.equal(state.log[0].retracted, '2026-10-16');
+  assert.equal(reconcile([], events, state, dates, '2026-10-16').length, 0);
+});

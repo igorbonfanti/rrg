@@ -150,7 +150,7 @@
         <tr><td><b>Attenzione</b></td><td>breadth entro 10 punti dal livello blu, oppure drawdown oltre l'85° percentile. Si resta qui anche sotto il livello per una sola chiusura.</td></tr>
         <tr><td><b>Zona blu</b></td><td>breadth al livello blu o sotto per <b>2 chiusure</b> di fila e drawdown oltre il <b>70° percentile</b>. È la zona in cui si formano spesso i bottom, di solito in anticipo.</td></tr>
         <tr><td><b>Trigger</b></td><td>dalla zona blu, la breadth risale di almeno <b>5 punti sopra il livello</b> (o 2 titoli, se valgono di più) e sopra il minimo, con almeno <b>una conferma</b> tra: spinta di breadth (a 20 giorni da ≤15% a ≥70% in 15 sedute, o a 50 giorni da ≤10% a ≥50% in 20), prezzo sopra una media 20 crescente, divergenza (prezzo più basso, breadth più alta). Servono <b>due</b> conferme se la zona blu dura da più di 60 sedute o dopo un segnale fallito. Il <b>rimbalzo a V</b> (breadth sopra il più alto tra 40% e livello + 25) basta da solo.</td></tr>
-        <tr><td><b>Fallito</b></td><td>dopo il trigger il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera: entro 20 sedute, oppure più tardi, finché la breadth non è tornata al livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. Si torna in zona blu, con regole più severe.</td></tr>
+        <tr><td><b>Fallito</b></td><td>dopo il trigger il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera: entro 20 sedute, oppure più tardi, finché la breadth non è tornata al livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. Si torna in zona blu, con regole più severe. Il giorno del fallimento conta come nuovo minimo della zona blu.</td></tr>
         <tr><td><b>Cooldown</b></td><td>dopo un trigger, 63 sedute senza nuovi segnali. Una nuova zona blu richiede prima il <b>riarmo</b>: breadth sopra il più alto tra 40% e livello + 25.</td></tr>
       </tbody>
     </table></div>
@@ -295,7 +295,7 @@
     <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore.</p>
     <ul>
       <li>I riquadri in alto riassumono quante zone blu, trigger e segnali falliti ci sono stati, con le mediane a 3 e 6 mesi e il confronto con una seduta qualsiasi e con SPY negli stessi giorni.</li>
-      <li><b>Notifiche Telegram</b>: ogni sera, dopo l'aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati.</li>
+      <li><b>Notifiche Telegram</b>: ogni sera, dopo l'aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Le ultime sedute si ricalcolano ogni sera: se un evento già inviato si sposta di un giorno arriva una rettifica con le due date, se non risulta più arriva un messaggio di annullamento. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati, con le rettifiche.</li>
       <li>Gli alert usano i livelli blu del repository, non quelli provati nel browser.</li>
     </ul>
   </section>
