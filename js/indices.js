@@ -18,6 +18,10 @@ const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal
 const TV = {
   SPX: ['SP:SPX', 'INDEX:S5TH'], NDX: ['NASDAQ:NDX', 'INDEX:NDTH'], DJI: ['DJ:DJI', 'INDEX:DITH'], N225: ['TVC:NI225'],
   SXXP: ['TVC:SXXP'], UKX: ['TVC:UKX'], DAX: ['XETR:DAX'], CAC: ['EURONEXT:PX1'], SMI: ['SIX:SMI'],
+  // con l'ETF o l'indice usato per il prezzo quando non è l'indice stesso (nota «Prezzo:» in config/indices.json)
+  RUT: ['TVC:RUT', 'INDEX:R2TH'], TSX60: ['TSX:TX60', 'TSX:XIU'], SX5E: ['TVC:SX5E'], FTSEMIB: ['INDEX:FTSEMIB'], IBEX: ['BME:IBC'],
+  HSI: ['TVC:HSI'], CSI300: ['SSE:000300', 'SSE:510300'], KOSPI200: ['KRX:KOSPI200', 'KRX:KOSPI'], TWN: ['TWSE:TAIEX', 'AMEX:EWT'],
+  NIFTY50: ['NSE:NIFTY'], ASX200: ['ASX:XJO'], EEM: ['AMEX:EEM'], IBOV: ['BMFBOVESPA:IBOV'],
 };
 const tvLink = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym)}`;
 const titoli = (k) => `${k} ${k === 1 ? 'titolo' : 'titoli'}`;
