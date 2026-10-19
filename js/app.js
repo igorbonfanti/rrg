@@ -227,6 +227,12 @@ function init() {
   $('cvdBtn').setAttribute('aria-pressed', String(cvdOn));
   $('themeBtn').setAttribute('aria-checked', String(isLight()));
   const x = state.extra;
+  // pannelli richiudibili delle viste 4 e 6 (episodi, cali forti): chiusi di default, aperti o chiusi come li ha lasciati questo browser
+  const opened = store.get('opened', {});
+  document.querySelectorAll('details[data-keep]').forEach((d) => {
+    d.open = !!(opened && opened[d.dataset.keep] === true);
+    d.addEventListener('toggle', () => { const o = store.get('opened', {}) || {}; o[d.dataset.keep] = d.open; store.set('opened', o); });
+  });
   // cali forti (schede delle viste 4 e 6): un solo file per le due viste, scaricato alla prima apertura
   const cap = createCap({ store, load: () => getJSON('data/capitulation.json', false, true) });
   state.bottom = createBottom({

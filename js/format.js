@@ -37,6 +37,12 @@ export function ddpTip(m, asOf, dd, synthetic = false) {
   return t.join(' ');
 }
 
+// Linea verticale condivisa tra i grafici con lo stesso asse del tempo (grafico principale e cali forti nelle viste Settore
+// e Indici): chi ha il puntatore manda la data, gli altri disegnano la linea alla stessa seduta. Un grafico per id.
+const SYNC = {};
+export function syncX(group, id, fn) { if (group) (SYNC[group] ||= new Map()).set(id, fn); }
+export function emitX(group, from, date) { const m = group && SYNC[group]; if (m) for (const [id, fn] of m) if (id !== from) fn(date); }
+
 // Tooltip dei grafici con il mouse e al tocco: col mouse segue il puntatore e sparisce uscendo; al tocco (o con la penna)
 // si apre dove si tocca, resta aperto e si chiude con un tocco fuori dal grafico.
 const TIPPED = new Set();

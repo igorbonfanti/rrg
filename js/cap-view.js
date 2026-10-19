@@ -18,7 +18,7 @@ const titoli = (v) => `${fmt(v, 0)} ${v === 1 ? 'calo' : 'cali'}`;
 export function createCap(ctx) {
   const { store } = ctx;
   let data = null, loading = null, failed = null, waiting = false;
-  const S = {}, cache = new Map(), listeners = new Set();
+  const S = {}, cache = new Map(), listeners = new Set(), last = {};
   const saved = store.get('cap', {}) || {};
   const opt = Object.fromEntries(Object.entries(CHOICES).map(([k, a]) => [k, a.includes(saved[k]) ? saved[k] : CAP_DEFAULT[k]]));
 
@@ -88,12 +88,16 @@ export function createCap(ctx) {
    * @param {string} p prefisso degli id
    * @param {string} k serie (indice o settore)
    * @param {{dates: string[], close: number[], from: string, name: string, noCap?: string, what: string}} o
-   *   dates/close: prezzo da mostrare e per i rendimenti; from: prima data del grafico (periodo della vista)
+   *   dates/close: date e prezzo del grafico principale della vista (asse del tempo e rendimenti); from: prima data del grafico
    */
   function card(p, k, o) {
     const $ = (id) => document.getElementById(p + id);
     const meta = $('CapMeta'), body = $('CapBody');
     if (!meta) return;
+    // chiusa la scheda ha larghezza zero: all'apertura si ridisegna alla larghezza vera, uguale al grafico principale
+    last[p] = [k, o];
+    const box = $('Cap');
+    if (box && !box.dataset.redraw) { box.dataset.redraw = '1'; box.addEventListener('toggle', () => { if (box.open && last[p]) card(p, ...last[p]); }); }
     const show = (on) => { for (const id of ['CapCtl', 'CapNow', 'CapWrap', 'CapLegend', 'CapScroll', 'CapBase']) $(id).hidden = !on; };
     if (o.noCap) { meta.textContent = 'non disponibile'; show(false); $('CapNote').textContent = o.noCap; return; }
     if (failed) { meta.textContent = 'dati non disponibili'; show(false); $('CapNote').textContent = `Dati dei cali forti non disponibili (${failed.message}).`; return; }
@@ -123,14 +127,14 @@ export function createCap(ctx) {
       : `Al ${dIT(s.dates[t.i])} ${val(t.value)} nelle ultime ${opt.win} sedute: ${fmt(t.pct, 0)}° percentile della storia${since ? ` dal ${since.slice(0, 4)}` : ''}, soglia di allerta ${val(t.alert)}.`) +
       ` In allerta ${t.recent} ${t.recent === 1 ? 'seduta' : 'sedute'} negli ultimi 3 mesi` + yearText(a) + '.';
 
-    // grafico: dal periodo della vista, prezzo allineato per data
-    const at = new Map(o.dates.map((d, i) => [d, o.close[i]]));
-    let i0 = s.dates.findIndex((d) => d >= o.from);
+    // grafico: sulle stesse sedute del grafico principale della vista (stesso asse del tempo, linea condivisa);
+    // i cali forti si prendono per data, e prima dell'inizio della loro storia restano vuoti
+    const ci = new Map(s.dates.map((d, i) => [d, i]));
+    let i0 = o.dates.indexOf(o.from);
     if (i0 < 0) i0 = 0;
-    let last = null;
-    const px = s.dates.map((d) => (at.has(d) ? (last = at.get(d)) : last));
+    const days = o.dates.slice(i0), pick = (arr, none) => days.map((d) => (ci.has(d) ? arr[ci.get(d)] : none));
     drawCap($('CapSvg'), {
-      dates: s.dates.slice(i0), close: px.slice(i0), sum: a.sum.slice(i0), alert: a.alert.slice(i0), on: a.on.slice(i0),
+      dates: days, close: o.close.slice(i0), sum: pick(a.sum, null), alert: pick(a.alert, null), on: pick(a.on, false), sync: p,
       unit: unit(), label: `CALI FORTI · ${opt.mode === 'pct' ? '% DEI TITOLI' : 'TITOLI'} CON −${opt.thr}% O PEGGIO, SOMMA SU ${opt.win} SEDUTE`,
       short: `CALI FORTI · −${opt.thr}% · ${opt.win} SEDUTE${opt.mode === 'pct' ? ' · %' : ''}`,
       sym: k, tipEl: $('CapTip'), wrapEl: $('CapWrap'), width: chartWidth($('CapSvg'), 940),
@@ -147,7 +151,7 @@ export function createCap(ctx) {
     $('CapBase').innerHTML = `${rows.length} ${rows.length === 1 ? 'episodio' : 'episodi'}${since ? ` dal ${dIT(since)}` : ''}` +
       (done ? `, ${neg} su ${done} con ${esc(o.what)} più in basso dopo 12 mesi` : '') +
       `. Per confronto, in media dopo una seduta qualsiasi della stessa storia: +3M ${c(base.r63)}, +12M ${c(base.r252)}.`;
-    $('CapNote').innerHTML = `Quanti ${what()} (preset di Quant Rea, «Drop giornaliero cumulato»: −7% su 5 sedute). La linea tratteggiata è la soglia di allerta: il 99° percentile delle sedute precedenti, con almeno 5 cali nella somma. ` +
+    $('CapNote').innerHTML = `Quanti ${what()} (preset di Quant Rea, «Drop giornaliero cumulato»: −7% su 5 sedute). La linea tratteggiata è la soglia di allerta: il 99° percentile delle sedute precedenti, con almeno 5 cali nella somma. Se un evento eccezionale supera di molto la soglia, la scala si ferma a 1,3 volte la soglia più alta del periodo e il valore del picco è scritto in alto (▲, con il mese): così restano leggibili anche gli episodi minori; il valore di ogni seduta è nel tooltip. ` +
       'Un\'allerta dice che sotto la superficie le vendite sono forti e diffuse. Conta soprattutto se si ripete: con il preset, nei 12 mesi dal primo episodio le serie dell\'app sono state in allerta 31,5 sedute di mediana nel 2007-2009 (in più episodi), 12 nel 2020 e 5 nell\'aprile 2025. ' +
       'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati).<span class="only-phone"> Sul telefono «Dal max 52s» e «Calo dopo, 3M» sono nascoste.</span>';
     body.dataset.k = k;

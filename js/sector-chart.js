@@ -6,7 +6,7 @@
  * Le bande blu verticali sono i periodi in zona blu calcolati dalla macchina a stati; quelle più chiare
  * le sedute con la breadth sotto il livello blu fuori dalla zona blu (il motivo è nel tooltip).
  */
-import { fmt, sgn, sgnP, dIT, placeTip, pxDec, bindTip } from './format.js';
+import { fmt, sgn, sgnP, dIT, placeTip, pxDec, bindTip, syncX, emitX } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -159,11 +159,16 @@ export function drawSector(svg, p) {
   const dots = panes.map(() => el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg));
   const hit = el('rect', { x: L, y: P0.y0, width: PW, height: P2.y1 - P0.y0, fill: 'transparent' }, svg);
   const STATE = { normal: 'normale', watch: 'attenzione', setup: 'zona blu', trig: 'trigger', fail: 'fallito', cool: 'cooldown' };
+  const line = (i) => { xh.setAttribute('x1', sx(i)); xh.setAttribute('x2', sx(i)); xh.setAttribute('visibility', 'visible'); };
+  const at = new Map(dates.map((d, i) => [d, i]));
+  // linea dal grafico dei cali forti della stessa vista
+  syncX(p.sync, svg.id, (d) => { const i = d == null ? null : at.get(d); dots.forEach((x) => x.setAttribute('visibility', 'hidden')); if (i == null) xh.setAttribute('visibility', 'hidden'); else line(i); });
   const show = (e) => {
     const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
     const q = pt.matrixTransform(svg.getScreenCTM().inverse());
     const i = Math.max(0, Math.min(n - 1, Math.round(((q.x - L) / PW) * (n - 1))));
-    xh.setAttribute('x1', sx(i)); xh.setAttribute('x2', sx(i)); xh.setAttribute('visibility', 'visible');
+    line(i);
+    emitX(p.sync, svg.id, dates[i]);
     [[c[i], P0], [dd[i], P1], [b[i], P2]].forEach(([v, qq], k) => {
       if (v == null) { dots[k].setAttribute('visibility', 'hidden'); return; }
       dots[k].setAttribute('cx', sx(i)); dots[k].setAttribute('cy', qq.sy(v)); dots[k].setAttribute('visibility', 'visible');
@@ -175,5 +180,5 @@ export function drawSector(svg, p) {
       (off[i] && p.offText ? `<div class="row note-row">${p.offText[off[i]]}</div>` : '');
     placeTip(tipEl, wrapEl, e, 12);
   };
-  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
+  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tipEl.hidden = true; emitX(p.sync, svg.id, null); });
 }

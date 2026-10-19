@@ -364,7 +364,7 @@ export function createIndices(ctx) {
       dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: rangeStart(k), sym: k, blue: L,
       tipEl: $('ixTsTip'), wrapEl: $('ixTsWrap'), width: chartWidth($('ixTs'), 940), ddNote: 'SOLO PREZZO',
-      off: m.off, offText: offReasons(P),
+      off: m.off, offText: offReasons(P), sync: 'ix',
     });
     // livello blu
     $('ixBlueVal').textContent = L + '%';
