@@ -7,7 +7,9 @@ export const fmt = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : (v < 0 
 /** Decimali di un prezzo: tre sotto 10 (l'ETF del CSI 300 vale circa 4 yuan: con due decimali un centesimo è lo 0,24%). */
 export const pxDec = (v) => (v != null && Math.abs(v) < 10 ? 3 : 2);
 export const sgn = (v, d = 1) => (v == null || Number.isNaN(v) ? '—' : (zero(v, d) ? '' : v > 0 ? '+' : '−') + fmt(Math.abs(v), d));
-export const pct = (v, d = 1) => (v == null || Number.isNaN(v) ? '<span class="muted">—</span>' : `<span class="${zero(v, d) ? '' : v > 0 ? 'up' : 'down'}">${sgn(v, d)}%</span>`);
+// variazione con segno e «%»; un valore mancante resta «—» (non «—%»)
+export const sgnP = (v, d = 1) => (v == null || !Number.isFinite(v) ? '—' : sgn(v, d) + '%');
+export const pct = (v, d = 1) => (v == null || !Number.isFinite(v) ? '<span class="muted">—</span>' : `<span class="${zero(v, d) ? '' : v > 0 ? 'up' : 'down'}">${sgnP(v, d)}</span>`);
 export const dIT = (iso) => (iso ? `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso.slice(0, 4)}` : '—');
 
 export const QKEY = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improving: 'imp' };
@@ -25,11 +27,11 @@ export function ddpTip(m, asOf, dd, synthetic = false) {
   if (!m) return synthetic ? "Serie calcolata dall'app: non c'è un grafico di prezzo con cui confrontarla." : DDP_TIP;
   const v = (m.c / m.hi - 1) * 100;
   const t = [m.c >= m.hi ? `Ultima chiusura ${fmt(m.c, 2)} del ${dIT(asOf)}: è la più alta delle 52 settimane.`
-    : `Chiusura più alta ${fmt(m.hi, 2)} del ${dIT(m.d)}, ultima ${fmt(m.c, 2)} del ${dIT(asOf)}: ${sgn(v)}%.`];
-  if (m.da > 0) t.push(`Con i dividendi reinvestiti ${sgn(dd)}%: la differenza ${m.da === 1 ? 'è la cedola staccata' : `sono le ${m.da} cedole staccate`} dopo il massimo.`);
+    : `Chiusura più alta ${fmt(m.hi, 2)} del ${dIT(m.d)}, ultima ${fmt(m.c, 2)} del ${dIT(asOf)}: ${sgnP(v)}.`];
+  if (m.da > 0) t.push(`Con i dividendi reinvestiti ${sgnP(dd)}: la differenza ${m.da === 1 ? 'è la cedola staccata' : `sono le ${m.da} cedole staccate`} dopo il massimo.`);
   else if (m.dv > 0) t.push('Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi.');
   if (m.ih != null && m.ih > m.hi * 1.0005) {
-    t.push(`Il «massimo a 52 settimane» di TradingView è il picco intraday, ${fmt(m.ih, 2)} del ${dIT(m.id)}: da lì il calo è ${sgn((m.c / m.ih - 1) * 100)}%.`);
+    t.push(`Il «massimo a 52 settimane» di TradingView è il picco intraday, ${fmt(m.ih, 2)} del ${dIT(m.id)}: da lì il calo è ${sgnP((m.c / m.ih - 1) * 100)}.`);
   }
   if (m.all) t.push('Quota tutti i giorni: contano anche i fine settimana.');
   return t.join(' ');

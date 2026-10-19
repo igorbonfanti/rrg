@@ -220,7 +220,7 @@ async function updateUS() {
       console.log(`  ok ${sym}: ${s.dates.length} barre, ultima ${s.dates.at(-1)}`);
       return s;
     } catch (e) {
-      console.warn(`  FALLITO ${sym}: ${e.message}`);
+      console.log(`::warning::${sym} non scaricato (${e.message}): escluso dal file, l'app lo dice in alto`);
       return null;
     }
   }, 150);
@@ -238,7 +238,7 @@ async function updateUS() {
   const lastDates = Object.fromEntries(Object.entries(series).map(([s, v]) => [s, v.dates.at(-1)]));
   const { asOf, maxDate, stale } = pickAsOf(lastDates);
   if (stale.length > symbols.length * 0.2) throw new Error(`troppi ticker fermi (${stale.join(', ')}): non aggiorno i dati`);
-  for (const s of stale) { console.warn(`  ESCLUSO ${s}: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
+  for (const s of stale) { console.log(`::warning::${s} escluso: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
   const behind = Object.entries(lastDates).filter(([s, d]) => !stale.includes(s) && d < maxDate).map(([s]) => s);
   if (behind.length) console.log(`  In ritardo su ${maxDate}: ${behind.join(', ')} → pubblico al ${asOf}`);
 
@@ -252,14 +252,20 @@ async function updateUS() {
   }
 
   const { dates, closes } = alignSeries(series, asOf);
-  const kept = keepPublished(dates, closes, realDates(series), prev);
+  const real = realDates(series);
+  const kept = keepPublished(dates, closes, real, prev);
   if (kept) console.log(`  Tenuti ${kept} prezzi già pubblicati dove Yahoo ora ha una lacuna`);
+  // prezzi isolati sospetti (salto rispetto al mercato che rientra la seduta dopo): per gli ETF USA solo un avviso,
+  // senza correggere, da controllare a mano
+  const mkt = marketIndex(Object.values(closes), dates.length);
+  for (const [sym, c] of Object.entries(closes)) for (const f of repairSpikes(c, mkt).fixes) console.log(`::warning::${sym} al ${dates[f.i]}: prezzo ${f.from} sospetto (salto isolato rispetto al mercato), non corretto`);
   const lag = sessionsBetween(asOf, expected);
   const tickers = {};
   for (const sym of symbols) {
     if (!closes[sym]) continue;
     const max52 = high52(series[sym], dates, closes[sym], series[sym].meta.instrumentType === 'CRYPTOCURRENCY');
-    tickers[sym] = { name: meta[sym].name, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, ...(max52 ? { max52 } : {}), close: closes[sym] };
+    const copied = copiedIdx(dates, closes[sym], real[sym]);
+    tickers[sym] = { name: meta[sym].name, groups: meta[sym].groups, isBenchmark: !!meta[sym].isBenchmark, ...(max52 ? { max52 } : {}), ...(copied.length ? { copied } : {}), close: closes[sym] };
   }
   const payload = {
     generated: new Date().toISOString(),
@@ -459,7 +465,7 @@ async function toCurrency(series, currency) {
     const cur = pence ? 'GBP' : s.meta.currency || currency;
     if (cur === currency) continue;
     const f = fx[cur];
-    if (!f) { console.warn(`  ESCLUSO ${sym}: nessun cambio ${currency}${cur}`); delete series[sym]; continue; }
+    if (!f) { console.log(`::warning::${sym} escluso: nessun cambio ${currency}${cur}`); delete series[sym]; continue; }
     let j = 0, rate = null;
     const conv = (v) => (pence ? v / 100 : v) / rate;
     const dates = [], close = [], adjclose = [], high = [];
@@ -489,7 +495,7 @@ async function updateGlobal() {
       console.log(`  ok ${sym}: ${s.dates.length} barre, ultima ${s.dates.at(-1)} (${s.meta.currency})`);
       return s;
     } catch (e) {
-      console.warn(`  FALLITO ${sym}: ${e.message}`);
+      console.log(`::warning::${sym} non scaricato (${e.message}): escluso dal file, l'app lo dice in alto`);
       return null;
     }
   }, 150);
@@ -526,11 +532,11 @@ async function updateGlobal() {
   const lastDates = Object.fromEntries(exchangeSyms.map((s) => [s, series[s].dates.at(-1)]));
   const { asOf, maxDate, stale } = pickAsOf(lastDates, MILAN.sessionsBetween);
   if (stale.length > exchangeSyms.length * 0.2) throw new Error(`troppi ticker fermi (${stale.join(', ')}): non aggiorno i dati`);
-  for (const s of stale) { console.warn(`  ESCLUSO ${s}: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
+  for (const s of stale) { console.log(`::warning::${s} escluso: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
   // una criptovaluta ferma da più di 4 giorni rispetto alla data di pubblicazione è un dato rotto
   const fourDaysBefore = new Date(Date.parse(asOf + 'T00:00:00Z') - 4 * 86400000).toISOString().slice(0, 10);
   for (const s of Object.keys(series).filter(isCrypto)) {
-    if (series[s].dates.at(-1) < fourDaysBefore) { console.warn(`  ESCLUSO ${s}: ultimo prezzo ${series[s].dates.at(-1)}, fermo`); stale.push(s); delete series[s]; }
+    if (series[s].dates.at(-1) < fourDaysBefore) { console.log(`::warning::${s} escluso: ultimo prezzo ${series[s].dates.at(-1)}, fermo`); stale.push(s); delete series[s]; }
   }
   const behind = Object.entries(lastDates).filter(([s, d]) => !stale.includes(s) && d < maxDate).map(([s]) => s);
   if (behind.length) console.log(`  In ritardo su ${maxDate}: ${behind.join(', ')} → pubblico al ${asOf}`);
@@ -683,7 +689,7 @@ async function updateMacro() {
       console.log(`  ok ${sym}: ${s.dates.length} barre, ultima ${s.dates.at(-1)} (${s.meta.instrumentType})`);
       return s;
     } catch (e) {
-      console.warn(`  FALLITO ${sym}: ${e.message}`);
+      console.log(`::warning::${sym} non scaricato (${e.message}): escluso dal file, l'app lo dice in alto`);
       return null;
     }
   }, 150);
@@ -704,10 +710,10 @@ async function updateMacro() {
   const lastDates = Object.fromEntries(exchangeSyms.map((s) => [s, series[s].dates.at(-1)]));
   const { asOf, maxDate, stale } = pickAsOf(lastDates);
   if (stale.length > exchangeSyms.length * 0.2) throw new Error(`troppi ticker fermi (${stale.join(', ')}): non aggiorno i dati`);
-  for (const s of stale) { console.warn(`  ESCLUSO ${s}: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
+  for (const s of stale) { console.log(`::warning::${s} escluso: ultima barra ${lastDates[s]}, troppo indietro`); delete series[s]; }
   const fourDaysBefore = new Date(Date.parse(asOf + 'T00:00:00Z') - 4 * 86400000).toISOString().slice(0, 10);
   for (const s of Object.keys(series).filter(offHours)) {
-    if (series[s].dates.at(-1) < fourDaysBefore) { console.warn(`  ESCLUSO ${s}: ultimo prezzo ${series[s].dates.at(-1)}, fermo`); stale.push(s); delete series[s]; }
+    if (series[s].dates.at(-1) < fourDaysBefore) { console.log(`::warning::${s} escluso: ultimo prezzo ${series[s].dates.at(-1)}, fermo`); stale.push(s); delete series[s]; }
   }
   const behind = Object.entries(lastDates).filter(([s, d]) => !stale.includes(s) && d < maxDate).map(([s]) => s);
   if (behind.length) console.log(`  In ritardo su ${maxDate}: ${behind.join(', ')} → pubblico al ${asOf}`);

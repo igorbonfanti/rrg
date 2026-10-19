@@ -14,7 +14,8 @@
 import { expandRLE } from './signals.js';
 
 const DAY = 86400000;
-const iso = (t) => new Date(t).toISOString().slice(0, 10);
+const ISO = new Map(); // le stesse date si ripetono in tutte le serie: la conversione si fa una volta sola
+const iso = (t) => { let s = ISO.get(t); if (s === undefined) { s = new Date(t).toISOString().slice(0, 10); ISO.set(t, s); } return s; };
 
 export function encodeDates(dates) {
   let g = '';

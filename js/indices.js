@@ -11,7 +11,7 @@ import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
-import { esc, fmt, sgn, pct, dIT, pxDec, placeTip, hideOnTapOutside, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
+import { esc, fmt, sgn, sgnP, pct, dIT, pxDec, placeTip, hideOnTapOutside, chartWidth, keepFocus, ilPct, delPct, checklistHTML, contextHTML } from './format.js';
 
 const ORDER = { setup: 0, fail: 1, trig: 2, cool: 3, watch: 4, appr: 4.5, normal: 5 };
 // grafici su TradingView: indice e, dove esiste, la serie pronta della % di titoli sopra la media 200
@@ -95,7 +95,7 @@ export function createIndices(ctx) {
     while (t > 0 && m.days[t] == null) t--;
     const code = m.days[t] || 'normal';
     const s = S[k], b = s.pct200[t0], L = st.blue[k], dd = PX[k].dd[t0], dp = PX[k].dp[t0];
-    const ddTxt = `drawdown ${sgn(dd)}%, più profondo ${delPct(dp)} delle sedute dal ${s.dates[0].slice(0, 4)}`;
+    const ddTxt = `drawdown ${sgnP(dd)}, più profondo ${delPct(dp)} delle sedute dal ${s.dates[0].slice(0, 4)}`;
     const setup = m.setups[m.setups.length - 1], lastEv = m.events[m.events.length - 1];
     const why = {
       setup: `${fmt(b)}% dei titoli sopra la media 200 (livello blu ${L}%)${setup ? ` · in zona blu dal ${dIT(s.dates[setup.t])}, minimo ${fmt(setup.bmin)}%` : ''} · ${ddTxt}`,
@@ -179,7 +179,7 @@ export function createIndices(ctx) {
         <td class="c-state"${r.appr ? ` title="${esc(`breadth ${fmt(r.b)}%, sotto la soglia di avvicinamento ${fmt(approach(r.k).A, 0)}% (livello blu ${r.L}% + il calo forte dell'indice in 10 sedute): in un calo deciso il livello blu è a circa due settimane`)}"` : ''}>${r.appr ? apprBadge() : badge(r.state.code)}</td>
         <td class="c-br" data-l="breadth"><span class="cellv num" title="${titoli(r.above)} su ${r.n}${need > 0 ? ` · ne devono scendere sotto la media ancora ${need} per il livello blu` : ''}">${fmt(r.b)}%<span class="cnt" title="${titoli(r.above)} sopra la media 200 su ${r.n}: un titolo vale ${fmt(100 / r.n)} punti">${r.above}/${r.n}</span></span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
         <td class="num r c-blue" data-l="blu">${r.L}%${changed(r.k) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
-        <td class="c-dd" data-l="drawdown"><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
+        <td class="c-dd" data-l="drawdown"><span class="cellv num">${sgnP(r.dd)}</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgnP(r.worst)}"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
         <td class="c-hist" data-l="storia">${quality(r.k, r)}</td>${cap ? cap.cell(r.k, CFG[r.k].noCap) : '<td class="c-cap"></td>'}
         <td class="num r c-last" data-l="ultimo" title="chiusura del ${dIT(r.date)}${r.bdate < r.date ? ` · breadth al ${dIT(r.bdate)}` : ''}">${fmt(r.last, r.last >= 1000 ? 0 : pxDec(r.last))}</td><td class="num r c-d1" data-l="1G">${pct(r.d1)}</td><td class="num r c-m1" data-l="1M">${pct(r.m1)}</td></tr>`;
       }).join('') + '</tbody>';
@@ -257,9 +257,13 @@ export function createIndices(ctx) {
     while (t > 0 && m.days[t] == null) t--;
     return m.days[t] || 'normal';
   }
+  // soglia alla data T, in cache: il replay la chiede a ogni fotogramma per tutti gli indici
+  const apprAt = new Map();
   function approachAt(k, T) {
     if (T === NOW[k]) return approach(k);
-    const b = S[k].pct200[T], A = approachLevel(S[k].pct200.slice(0, T + 1), st.blue[k]);
+    const key = `${k}:${st.blue[k]}:${T}`;
+    if (!apprAt.has(key)) apprAt.set(key, approachLevel(S[k].pct200.slice(0, T + 1), st.blue[k]));
+    const b = S[k].pct200[T], A = apprAt.get(key);
     return { A, on: A != null && b != null && stateAt(k, T) === 'normal' && b <= A };
   }
   // settimana che contiene la data (la prima che finisce in quel giorno o dopo): il minimo della crisi è nella mappa
@@ -384,7 +388,7 @@ export function createIndices(ctx) {
       ['Sopra media 50', `${fmt(s.pct50[t])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
       ...(approach(k).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(k).A, 0)}% · ${b <= approach(k).A ? 'sotto' : `${sgn(b - approach(k).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione, sulla storia di ciascuno dei 22 indici dal 2000 (regola scelta su questa stessa storia): anticipo mediano 20 sedute, 96 tocchi del livello su 134 avvisati; il 47% degli avvicinamenti arriva al livello.']]),
-      ['Drawdown da max 52s', `${sgn(PX[k].dd[last])}%`, 'Dalla chiusura più alta delle ultime 252 sedute. Gli indici sono di solo prezzo: è il valore che si vede su TradingView (che però usa il massimo intraday).'],
+      ['Drawdown da max 52s', `${sgnP(PX[k].dd[last])}`, 'Dalla chiusura più alta delle ultime 252 sedute. Gli indici sono di solo prezzo: è il valore che si vede su TradingView (che però usa il massimo intraday).'],
       ['Profondità storica DD', `${PX[k].dp[last]}° percentile`],
       ['Copertura', `${n} su ${s.members[t]} membri con prezzi`, 'Titoli dell\'indice con i prezzi su Yahoo Finance: quelli tolti dal listino mancano, e nella storia la copertura è più bassa.'],
     ];
@@ -411,7 +415,7 @@ export function createIndices(ctx) {
     if (!eps.length) { $('ixEpiTable').innerHTML = '<tbody><tr><td class="muted">Nessuna zona blu nel periodo con questo livello.</td></tr></tbody>'; return; }
     const cell = (v) => (v == null ? '<span class="muted">—</span>' : pct(v));
     $('ixEpiTable').innerHTML = `<thead><tr><th>Zona blu dal</th><th class="r">Breadth min</th><th class="r">DD ingresso</th><th class="r">+3M da zona blu</th><th>Trigger</th><th>Conferma</th><th class="r">+3M</th><th class="r">+6M</th><th class="r">+12M</th><th class="r">Peggior calo 3M</th></tr></thead><tbody>` +
-      eps.map((e) => `<tr><td class="num">${dIT(dates[e.start])}</td><td class="num r">${fmt(e.bmin)}%</td><td class="num r">${sgn(e.dd)}%</td><td class="num r">${cell(e.z63)}</td>
+      eps.map((e) => `<tr><td class="num">${dIT(dates[e.start])}</td><td class="num r">${fmt(e.bmin)}%</td><td class="num r">${sgnP(e.dd)}</td><td class="num r">${cell(e.z63)}</td>
         <td class="num">${e.trig != null ? dIT(dates[e.trig]) : '<span class="muted">in attesa</span>'}${e.fails ? ` <span class="down">· ${e.fails} ${e.fails === 1 ? 'fallito' : 'falliti'}</span>` : ''}</td><td class="wrapc">${esc(e.conf) || '<span class="muted">—</span>'}</td>
         <td class="num r">${cell(e.t63)}</td><td class="num r">${cell(e.t126)}</td><td class="num r">${cell(e.t252)}</td><td class="num r">${cell(e.mae)}</td></tr>`).join('') + '</tbody>';
   }
@@ -439,7 +443,7 @@ export function createIndices(ctx) {
       const k = h.sym, q = mapSeries[k][mapSeries[k].length - 1], T = mapT[k], ap = approachAt(k, T);
       tip.innerHTML = `<div class="row"><b>${k}</b><span>${esc(name(k))}</span></div>${T !== NOW[k] ? `<div class="row"><span>Seduta</span><b>${dIT(S[k].dates[T])}</b></div>` : ''}
         <div class="row"><span>Sopra media 200</span><b>${fmt(S[k].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[k]}%</b></div>
-        <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[k].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
+        <div class="row"><span>Drawdown 52s</span><b>${sgnP(PX[k].dd[q.t])}</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
         <div class="row"><span>Stato</span><b>${ap.on ? 'Avvicinamento' : esc(STATES[stateAt(k, T)])}</b></div>
         <div class="row"><span>Soglia di avvicinamento</span><b>${ap.A == null ? '—' : fmt(ap.A, 0) + '%'}</b></div>
         <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>` +

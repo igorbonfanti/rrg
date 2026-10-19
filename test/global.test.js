@@ -308,3 +308,11 @@ test('barre segnaposto di Yahoo scartate, prezzi ricopiati segnati, rendimenti d
   assert.deepEqual(copiedAt(dates, [5]), { last: ['2026-01-05'], d1: ['2026-01-05'], w1: ['2026-01-05'], m1: ['2026-01-05'], m3: ['2026-01-05'], ytd: ['2026-01-05'] });
   assert.equal(copiedAt(dates, []), null);
 });
+
+test('Yahoo: senza orario di contrattazione la barra di oggi si scarta solo a seduta probabilmente aperta', async () => {
+  const { parse } = await import('../scripts/lib/yahoo.js');
+  const open = Date.parse('2026-10-16T07:00:00Z') / 1000; // apertura di Francoforte
+  const res = { meta: { gmtoffset: 7200 }, timestamp: [open - 86400, open], indicators: { quote: [{ close: [100, 101] }] } };
+  assert.deepEqual(parse(res, { nowSec: open + 5 * 3600 }).dates, ['2026-10-15']); // 14:00 di Francoforte: aperta
+  assert.deepEqual(parse(res, { nowSec: open + 15 * 3600 }).dates, ['2026-10-15', '2026-10-16']); // sera: chiusa
+});

@@ -274,7 +274,7 @@ async function main() {
   console.log(`Prezzi dei membri: ${Object.keys(px).length}/${symbols.length}`);
   if (Object.keys(px).length < symbols.length * 0.8) throw new Error('troppi titoli senza prezzi: non aggiorno');
   const idx = await mapLimit(Object.keys(cfg), 2, async (k) => {
-    try { return await fetchDaily(cfg[k].price, { range: '1mo', raw: true }); } catch (e) { console.warn(`  ${cfg[k].price}: ${e.message}`); return null; }
+    try { return await fetchDaily(cfg[k].price, { range: '1mo', raw: true }); } catch (e) { console.log(`::warning::${k}: prezzo ${cfg[k].price} non disponibile (${e.message}): indice non aggiornato`); return null; }
   }, 200);
 
   // 3. conteggi

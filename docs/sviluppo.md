@@ -144,16 +144,16 @@ Workflow `.github/workflows/update-data.yml`, dopo la chiusura USA e due volte i
 | `quant-rea/` | catalogo e verifica delle 34 analisi del fascicolo di un utente, classifica di utilità, prova della capitolazione su 22 indici, preset |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (0.9.2)
+## 7. Stato attuale (0.9.3)
 
 - 7 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
-- Test automatici: `npm test`, 99 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro).
-- Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi) e il passo 2 (0.9.2: grafica e telefono). Del passo 2 restano, minori:
+- Test automatici: `npm test`, 101 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro).
+- Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
   - la tabella della rotazione sul telefono nasconde colonne invece di diventare a schede;
   - etichette che si toccano in casi stretti (bolle dei Titoli a 360 px, «RUT/NDX» sulla mappa degli indici del telefono): il posizionamento è migliorato ma non garantito;
   - sul tablet a 820 px Guida/CVD/Chiaro vanno ancora a capo.
-- **Passo 3 (0.9.3), robustezza della pipeline**: `check_fresh.js` su tutti i file (prices*.json, indices_more.json, asOf per indice, cali forti degli indici), avviso se manca il prezzo di un indice, timeout del workflow e di `fetchDaily`, validazione dei JSON prima del commit, Telegram dopo il push, cache di `decodeDates`, `e.sector` da proteggere in `bottom.js`, controllo di `currentTradingPeriod`.
+- **Passo 3 (0.9.3), fatto**: controllo dei dati fermi su tutti i file e su ogni indice e serie dei cali forti, avviso per il prezzo di un indice mancante, barra in corso senza orario, timeout (richieste 30 s, workflow 45 min), JSON validati prima del commit, Telegram dopo il push con un secondo commit per `alerts.json`, azioni per SHA e credenziali solo nei passi che pubblicano, breadth solo su sedute NYSE, avvisi per ticker esclusi, buchi degli ETF e prezzi USA sospetti, `—` per i valori mancanti, ordinamenti, escape di `e.sector`, cache di `decodeDates` e della soglia nel replay. Restano: un evento spostato di un giorno dal ricalcolo manda un secondo messaggio Telegram (decisione dell'utente su come gestirlo); la CSP dell'app; il cambio del giorno prima per l'ultima seduta del proxy DBMF (latente).
 - **Passo 4**: di nuovo i 5 controlli, poi 1.0.0 se puliti.
 - **Da decidere con l'utente**: il minimo del giorno del segnale fallito non aggiornato (`js/signals.js`, 158-164; cambierebbe XLY 2008, il trigger SPX del 12/10/2011 al 10/10/2011, UKX dal 01/04/2008 al 04/04/2008).
 - **Da verificare**: Taiwan, la chiusura di Yahoo non rettificata per i dividendi in azioni sposta forse anche la breadth (medie a 200 sedute); la statistica dell'Avvicinamento conta ogni discesa sotto la soglia, l'app mostra l'anello solo in stato Normale (differenza piccola); scorciatoia «mar 2009» per il minimo del prezzo nella crisi del 2008.

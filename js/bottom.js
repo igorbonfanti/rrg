@@ -9,7 +9,7 @@ import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
-import { esc, fmt, sgn, pct, dIT, qPill, placeTip, hideOnTapOutside, chartWidth, keepFocus, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
+import { esc, fmt, sgn, sgnP, pct, dIT, qPill, placeTip, hideOnTapOutside, chartWidth, keepFocus, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
 import { priceDrawdown } from './metrics.js';
 
 export const NAMES = {
@@ -93,7 +93,7 @@ export function createBottom(ctx) {
     const code = m.days[t] || 'normal';
     const b = BR[s].pct200[NOW], L = st.blue[s], dd = PX[s].dd[NOW], dp = PX[s].dp[NOW];
     const since = DATES[Math.max(0, PX[s].close.findIndex((v) => v != null))].slice(0, 4);
-    const ddTxt = `drawdown ${sgn(dd)}%, più profondo ${delPct(dp)} delle sedute dal ${since}`;
+    const ddTxt = `drawdown ${sgnP(dd)}, più profondo ${delPct(dp)} delle sedute dal ${since}`;
     const setup = m.setups[m.setups.length - 1];
     const lastEv = m.events[m.events.length - 1];
     const why = {
@@ -197,13 +197,13 @@ export function createBottom(ctx) {
         <td class="c-state">${r.appr ? apprBadge() : badge(r.state.code)}</td>
         <td class="c-br" data-l="breadth"><span class="cellv num" title="${titoli(r.above)} su ${r.n}">${fmt(r.b)}%<span class="cnt" title="${titoli(r.above)} sopra la media 200 su ${r.n}: nei settori piccoli un titolo vale ${fmt(100 / r.n)} punti">${r.above}/${r.n}</span></span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b)}%"></i><span class="ago" style="left:calc(${r.b1m}% - 1px)" title="un mese fa ${fmt(r.b1m)}%"></span><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
         <td class="num r c-blue" data-l="blu">${r.L}%${changed(r.s) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
-        <td class="c-dd" data-l="drawdown"><span class="cellv num">${sgn(r.dd)}%</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgn(r.worst)}%"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
+        <td class="c-dd" data-l="drawdown"><span class="cellv num">${sgnP(r.dd)}</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgnP(r.worst)}"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
         ${ddpCell(r.s)}
         <td class="c-rot">${r.rot ? qPill(r.rot.q, r.rot.heading) : ''}</td>
         <td class="num r c-last" data-l="ultimo">${fmt(r.last, 2)}</td><td class="num r c-d1" data-l="1G">${pct(r.d1)}</td><td class="num r c-m1" data-l="1M">${pct(r.m1)}</td></tr>`;
     }).join('');
     const spy = S.adjclose.SPY, spx = BR.SPX;
-    const bench = `<tr class="bench"><td class="c-name"><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted c-state">benchmark</td><td class="c-br" data-l="breadth"><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td class="c-blue"></td><td class="c-dd" data-l="drawdown"><span class="cellv num">${sgn(PX.SPY.dd[NOW])}%</span></td>${ddpCell('SPY')}<td class="c-rot"></td><td class="num r c-last" data-l="ultimo">${fmt(spy[NOW], 2)}</td><td class="num r c-d1" data-l="1G">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r c-m1" data-l="1M">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
+    const bench = `<tr class="bench"><td class="c-name"><span class="sym">SPY</span><span class="nm">S&amp;P 500</span></td><td class="muted c-state">benchmark</td><td class="c-br" data-l="breadth"><span class="cellv num">${fmt(spx.pct200[NOW])}%</span></td><td class="c-blue"></td><td class="c-dd" data-l="drawdown"><span class="cellv num">${sgnP(PX.SPY.dd[NOW])}</span></td>${ddpCell('SPY')}<td class="c-rot"></td><td class="num r c-last" data-l="ultimo">${fmt(spy[NOW], 2)}</td><td class="num r c-d1" data-l="1G">${pct((spy[NOW] / spy[NOW - 1] - 1) * 100)}</td><td class="num r c-m1" data-l="1M">${pct((spy[NOW] / spy[NOW - 21] - 1) * 100)}</td></tr>`;
     $('boardTable').innerHTML = `<thead><tr><th>Settore</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l" title="${esc(DD_TIP)}">Drawdown da max 52s</th><th class="r wrap" title="${esc(DDP_TIP)}">Solo prezzo</th><th${ctx.rotationNote ? ` title="${ctx.rotationNote()}"` : ''}>Rotazione</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>${body}${bench}</tbody>`;
     $('boardTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
       tr.onclick = () => openSector(tr.dataset.sym);
@@ -217,7 +217,7 @@ export function createBottom(ctx) {
       ['Settori in zona blu', `${by(['setup', 'fail']).length}<small> / 11</small>`, list(by(['setup', 'fail']))],
       [`Trigger nelle ultime ${P.cooldown} sedute`, `${by(['trig', 'cool']).length}<small> / 11</small>`, list(by(['trig', 'cool']))],
       ['Settori in attenzione', `${by(['watch']).length}<small> / 11</small>`, list(by(['watch'])) + (rows.some((r) => r.appr) ? ` · in avvicinamento: ${rows.filter((r) => r.appr).map((r) => r.s).join(' · ')}` : '')],
-      ['SPY · S&amp;P 500', fmt(spy[NOW], 2), `${sgn(PX.SPY.dd[NOW])}% dal massimo a 52 settimane${ddp('SPY') == null ? '' : ` · solo prezzo ${sgn(ddp('SPY'))}%`}`],
+      ['SPY · S&amp;P 500', fmt(spy[NOW], 2), `${sgnP(PX.SPY.dd[NOW])} dal massimo a 52 settimane${ddp('SPY') == null ? '' : ` · solo prezzo ${sgnP(ddp('SPY'))}`}`],
     ];
     $('boardKpis').innerHTML = kpi.map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
     const active = rows.filter((r) => r.state.code !== 'normal' || r.appr);
@@ -262,9 +262,13 @@ export function createBottom(ctx) {
     return m.days[t] || 'normal';
   }
   // avvicinamento alla seduta T, con la soglia calcolata sulla storia fino a T (nessun dato del futuro)
+  // soglia alla data T: nel replay ogni fotogramma la chiede per tutti i settori, quindi si tiene in cache
+  const apprAt = new Map();
   function approachAt(s, T) {
     if (T === NOW) return approach(s);
-    const b = BR[s].pct200[T], A = approachLevel(BR[s].pct200.slice(0, T + 1), st.blue[s]);
+    const key = `${s}:${st.blue[s]}:${T}`;
+    if (!apprAt.has(key)) apprAt.set(key, approachLevel(BR[s].pct200.slice(0, T + 1), st.blue[s]));
+    const b = BR[s].pct200[T], A = apprAt.get(key);
     return { A, on: A != null && b != null && stateAt(s, T) === 'normal' && b <= A };
   }
   const mapStates = (T) => Object.fromEntries(SECTOR_KEYS.map((s) => [s, stateAt(s, T)]));
@@ -343,7 +347,7 @@ export function createBottom(ctx) {
       const s = h.sym, q = mapSeries[s][mapSeries[s].length - 1], T = mapT(), ap = approachAt(s, T);
       tip.innerHTML = `<div class="row"><b>${s}</b><span>${NAMES[s]}</span></div>${T !== NOW ? `<div class="row"><span>Settimana al</span><b>${dIT(DATES[T])}</b></div>` : ''}
         <div class="row"><span>Sopra media 200</span><b>${fmt(BR[s].pct200[q.t])}%</b></div><div class="row"><span>Livello blu</span><b>${st.blue[s]}%</b></div>
-        <div class="row"><span>Drawdown 52s</span><b>${sgn(PX[s].dd[q.t])}%</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
+        <div class="row"><span>Drawdown 52s</span><b>${sgnP(PX[s].dd[q.t])}</b></div><div class="row"><span>Profondità storica</span><b>${q.x}° pct</b></div>
         <div class="row"><span>Stato</span><b>${ap.on ? 'Avvicinamento' : esc(STATES[stateAt(s, T)])}</b></div>
         <div class="row"><span>Soglia di avvicinamento</span><b>${ap.A == null ? '—' : fmt(ap.A, 0) + '%'}</b></div>
         <div class="row"><span>Area del grafico</span><b>${{ setup: 'zona blu', watch: 'attenzione', normal: 'normale' }[zoneOf(q.x, q.y, P)]}</b></div>` +
@@ -424,8 +428,8 @@ export function createBottom(ctx) {
       ['Sopra media 50', `${fmt(BR[s].pct50[NOW])}%`],
       ['Distanza dal livello blu', `${sgn(b - L)} pt`],
       ...(approach(s).A == null ? [] : [['Soglia di avvicinamento', `${fmt(approach(s).A, 0)}% · ${b <= approach(s).A ? 'sotto' : `${sgn(b - approach(s).A)} pt`}`, 'Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione dal 2005 (regola scelta su questa stessa storia): avvisati con circa un mese di anticipo 59 tocchi del livello su 73; meno della metà degli avvicinamenti arriva al livello.']]),
-      ['Drawdown da max 52s', `${sgn(PX[s].dd[NOW])}%`, DD_TIP],
-      ...(px == null ? [] : [['Sul solo prezzo', `${sgn(px)}% · max ${fmt(P52[s].hi, 2)}`, `${ddpTip(P52[s], DATES[NOW], PX[s].dd[NOW])} ${DDP_TIP}`]]),
+      ['Drawdown da max 52s', `${sgnP(PX[s].dd[NOW])}`, DD_TIP],
+      ...(px == null ? [] : [['Sul solo prezzo', `${sgnP(px)} · max ${fmt(P52[s].hi, 2)}`, `${ddpTip(P52[s], DATES[NOW], PX[s].dd[NOW])} ${DDP_TIP}`]]),
       ['Profondità storica DD', `${PX[s].dp[NOW]}° percentile`],
     ].map(([k, v, t]) => { const tt = t ? ` title="${esc(t)}"` : ''; return `<dt${tt}>${k}</dt><dd${tt}>${v}</dd>`; }).join('');
     $('tvLinks').innerHTML = `<a href="${tvLink('AMEX:' + s)}" target="_blank" rel="noopener">${s} su TradingView ↗</a><a href="${tvLink('INDEX:' + TV[s])}" target="_blank" rel="noopener">${TV[s]} su TradingView ↗</a>`;
@@ -443,7 +447,7 @@ export function createBottom(ctx) {
     const nUp = rows.filter(up).length, young = rows.filter((r) => r.d200 == null).length;
     $('memMeta').textContent = `${nUp} su ${rows.length} sopra la media 200 · al ${dIT(latest.asOf)}` + (young ? ` · ${young} con meno di 200 sedute` : '');
     $('memTable').innerHTML = `<thead><tr><th>Titolo</th><th class="r">vs m.200</th><th class="r">vs m.50</th><th class="r">DD 52s</th></tr></thead><tbody>` +
-      rows.map((r, i) => `<tr class="${i === firstBelow ? 'cut' : ''}"><td><a class="sym" href="${tvStock(r.s)}" target="_blank" rel="noopener" title="${esc(r.name)} · grafico su TradingView">${esc(r.s)}</a></td><td class="num r">${r.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(r.d200)}</td><td class="num r">${pct(r.d50)}</td><td class="num r">${sgn(r.dd)}%</td></tr>`).join('') + '</tbody>';
+      rows.map((r, i) => `<tr class="${i === firstBelow ? 'cut' : ''}"><td><a class="sym" href="${tvStock(r.s)}" target="_blank" rel="noopener" title="${esc(r.name)} · grafico su TradingView">${esc(r.s)}</a></td><td class="num r">${r.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(r.d200)}</td><td class="num r">${pct(r.d50)}</td><td class="num r">${sgnP(r.dd)}</td></tr>`).join('') + '</tbody>';
   }
   function renderEpisodes(s, m) {
     const c = PX[s].close;
@@ -461,7 +465,7 @@ export function createBottom(ctx) {
     if (!eps.length) { $('epiTable').innerHTML = '<tbody><tr><td class="muted">Nessuna zona blu nel periodo con questo livello.</td></tr></tbody>'; return; }
     const cell = (v) => (v == null ? '<span class="muted">—</span>' : pct(v));
     $('epiTable').innerHTML = `<thead><tr><th>Zona blu dal</th><th class="r">Breadth min</th><th class="r">DD ingresso</th><th class="r">+3M da zona blu</th><th>Trigger</th><th>Conferma</th><th class="r">+1M</th><th class="r">+3M</th><th class="r">+6M</th><th class="r">Peggior calo 3M</th></tr></thead><tbody>` +
-      eps.map((e) => `<tr><td class="num">${dIT(DATES[e.start])}</td><td class="num r">${fmt(e.bmin)}%</td><td class="num r">${sgn(e.dd)}%</td><td class="num r">${cell(e.z63)}</td>
+      eps.map((e) => `<tr><td class="num">${dIT(DATES[e.start])}</td><td class="num r">${fmt(e.bmin)}%</td><td class="num r">${sgnP(e.dd)}</td><td class="num r">${cell(e.z63)}</td>
         <td class="num">${e.trig != null ? dIT(DATES[e.trig]) : '<span class="muted">in attesa</span>'}${e.fails ? ` <span class="down">· ${e.fails} ${e.fails === 1 ? 'fallito' : 'falliti'}</span>` : ''}</td><td class="wrapc">${esc(e.conf) || '<span class="muted">—</span>'}</td>
         <td class="num r">${cell(e.t21)}</td><td class="num r">${cell(e.t63)}</td><td class="num r">${cell(e.t126)}</td><td class="num r">${cell(e.mae)}</td></tr>`).join('') + '</tbody>';
   }
@@ -495,9 +499,9 @@ export function createBottom(ctx) {
     }
     const excess = trig.map((x) => (x.r3 == null || x.spy == null ? null : x.r3 - x.spy));
     $('alertStats').innerHTML = [
-      ['Zone blu dal 2005', ev.filter((e) => e.code === 'setup').length, `+3M dall'ingresso: mediana ${sgn(median(zb))}% · positivi ${outOf(zb)}`],
-      ['Trigger dal 2005', ev.filter((e) => e.code === 'trig').length, `+3M mediana ${sgn(median(trig.map((x) => x.r3)))}% · positivi ${outOf(trig.map((x) => x.r3))} · +6M ${sgn(median(trig.map((x) => x.r6)))}%`],
-      ['Per confronto', 'seduta qualsiasi', `+3M mediana ${sgn(anyCache.med)}% · positivi ${fmt(anyCache.pos, 0)}% (tutti i settori dal 2005) · dopo i trigger SPY +3M ${sgn(median(trig.map((x) => x.spy)))}%, settore meglio di SPY ${outOf(excess)}`],
+      ['Zone blu dal 2005', ev.filter((e) => e.code === 'setup').length, `+3M dall'ingresso: mediana ${sgnP(median(zb))} · positivi ${outOf(zb)}`],
+      ['Trigger dal 2005', ev.filter((e) => e.code === 'trig').length, `+3M mediana ${sgnP(median(trig.map((x) => x.r3)))} · positivi ${outOf(trig.map((x) => x.r3))} · +6M ${sgnP(median(trig.map((x) => x.r6)))}`],
+      ['Per confronto', 'seduta qualsiasi', `+3M mediana ${sgnP(anyCache.med)} · positivi ${fmt(anyCache.pos, 0)}% (tutti i settori dal 2005) · dopo i trigger SPY +3M ${sgnP(median(trig.map((x) => x.spy)))}, settore meglio di SPY ${outOf(excess)}`],
       ['Segnali falliti', ev.filter((e) => e.code === 'fail').length, 'prezzo di nuovo sotto il minimo della zona blu dopo il trigger'],
     ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
     $('alertCount').textContent = `${ev.length} cambi di stato · ultimi 60`;
@@ -505,7 +509,7 @@ export function createBottom(ctx) {
     $('alertLog').querySelectorAll('.who').forEach((b) => b.onclick = () => openSector(b.dataset.sym));
     const sent = alertLog && alertLog.log ? alertLog.log.slice(-8).reverse() : [];
     $('sentInfo').innerHTML = alertLog
-      ? `La GitHub Action ha controllato i dati fino al <b>${dIT(alertLog.checkedThrough)}</b>.` + (sent.length ? `<ul class="sent">${sent.map((e) => `<li>${dIT(e.date)} · ${e.sector} · ${esc(STATES[e.code])} ${e.telegram ? '· inviato' : '· solo registrato'}</li>`).join('')}</ul>` : ' Nessun cambio di stato dall\'attivazione.')
+      ? `La GitHub Action ha controllato i dati fino al <b>${dIT(alertLog.checkedThrough)}</b>.` + (sent.length ? `<ul class="sent">${sent.map((e) => `<li>${dIT(e.date)} · ${esc(e.sector)} · ${esc(STATES[e.code])} ${e.telegram ? '· inviato' : '· solo registrato'}</li>`).join('')}</ul>` : ' Nessun cambio di stato dall\'attivazione.')
       : 'Registro degli invii non disponibile: il file data/alerts.json non è arrivato.';
     $('rulesList').innerHTML = [
       'Alert solo sui cambi di stato: ingresso in zona blu, trigger, segnale fallito.',

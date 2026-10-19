@@ -27,7 +27,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { expandRLE, encodeRLE } from '../js/signals.js';
-import { expectedSession } from '../js/calendar.js';
+import { expectedSession, isTradingDay } from '../js/calendar.js';
 import { closeHigh, intradayHigh, exDates } from '../js/metrics.js';
 import { membership, buildSectorMembers, parseSpChanges, parseIvv, align, simStart, HISTORY } from './lib/capeq.js';
 import { countsOn, mergeCap } from '../js/capitulation.js';
@@ -337,6 +337,9 @@ async function updateSectors(at) {
   const from = dates[Math.max(0, iTo - 251)], to = dates[iTo];
   ETFS.forEach((t, k) => {
     adjclose[t] = align(res[k], 'adjclose');
+    // l'ultima seduta c'è per tutti (asOf è la più vecchia delle ultime); dentro la storia un buco prende il prezzo prima
+    const own = new Set(res[k].dates), first = res[k].dates[0], gaps = dates.filter((d) => d >= first && !own.has(d)).length;
+    if (gaps) console.log(`::warning::${t}: ${gaps} sedute senza barra di Yahoo, con il prezzo della seduta prima`);
     // drawdown sul solo prezzo: stesse 252 sedute del drawdown rettificato, chiusure senza rettifica
     const p = closeHigh(dates, align(res[k], 'close'), from, to), ex = exDates(res[k], from, to);
     max52[t] = { ...p, dv: ex.length, da: p ? ex.filter((x) => x > p.d).length : 0, ...intradayHigh(res[k], from, to) };
@@ -379,7 +382,7 @@ async function main() {
   const breadth = readJSON(breadthFile, null);
   if (!breadth) throw new Error('manca data/breadth.json: esegui prima scripts/backfill_breadth.py');
   const from = breadth.dates[Math.max(0, breadth.dates.length - RECOMPUTE)];
-  const candidates = [...new Set(Object.values(prices).flatMap((p) => p.dates))].filter((d) => d >= from && d <= today).sort();
+  const candidates = [...new Set(Object.values(prices).flatMap((p) => p.dates))].filter((d) => d >= from && d <= today && isTradingDay(d)).sort(); // solo sedute NYSE: una barra piatta in un giorno di chiusura non si pubblica
   const dates = publishable(members, prices, candidates);
   const counts = computeCounts(members, prices, dates);
   const added = mergeBreadth(breadth, counts);
