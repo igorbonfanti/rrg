@@ -509,7 +509,7 @@ export function createBottom(ctx) {
     $('alertLog').querySelectorAll('.who').forEach((b) => b.onclick = () => openSector(b.dataset.sym));
     const sent = alertLog && alertLog.log ? alertLog.log.slice(-8).reverse() : [];
     $('sentInfo').innerHTML = alertLog
-      ? `La GitHub Action ha controllato i dati fino al <b>${dIT(alertLog.checkedThrough)}</b>.` + (sent.length ? `<ul class="sent">${sent.map((e) => `<li>${dIT(e.date)} · ${esc(e.sector)} · ${esc(STATES[e.code])} ${e.telegram ? '· inviato' : '· solo registrato'}</li>`).join('')}</ul>` : ' Nessun cambio di stato dall\'attivazione.')
+      ? `La GitHub Action ha controllato i dati fino al <b>${dIT(alertLog.checkedThrough)}</b>.` + (sent.length ? `<ul class="sent">${sent.map((e) => `<li>${dIT(e.date)} · ${esc(e.sector)} · ${esc(STATES[e.code])} ${e.telegram ? '· inviato' : '· solo registrato'}${e.moved ? ` · rettifica: prima del ${dIT(e.moved)}` : ''}${e.retracted === true ? ' · annullato dal ricalcolo' : e.retracted ? ` · spostato al ${dIT(e.retracted)}` : ''}</li>`).join('')}</ul>` : ' Nessun cambio di stato dall\'attivazione.')
       : 'Registro degli invii non disponibile: il file data/alerts.json non è arrivato.';
     $('rulesList').innerHTML = [
       'Alert solo sui cambi di stato: ingresso in zona blu, trigger, segnale fallito.',

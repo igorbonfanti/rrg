@@ -159,6 +159,9 @@ export function runMachine(px, br, L, params = {}) {
       if (c[t] < setup.pmin - avgRange(c, t) && (t - trig.t <= P.failWindow || b <= L)) {
         events.push({ t, code: 'fail', text: 'il prezzo chiude sotto il minimo della zona blu: segnale fallito, si torna in zona blu con regole più severe', setup });
         setup.fails++; setup.trig = null; setup.strict = true; trig = null; st = 'setup';
+        // il fallimento avviene su un nuovo minimo: conta per la soglia del fallimento successivo e per la divergenza
+        if (c[t] < setup.pmin) { setup.pmin = c[t]; setup.tp = t; }
+        if (b < setup.bmin) { setup.bmin = b; setup.tb = t; }
         days[t] = 'fail';
         continue;
       }

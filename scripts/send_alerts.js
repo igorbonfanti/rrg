@@ -46,6 +46,23 @@ export function newEvents(events, state, dates, asOf, recheck = 6) {
   return events.filter((e) => e.date <= asOf && !logged.has(key(e)) && (e.date > state.checkedThrough || e.date >= from));
 }
 
+// Rettifiche: un evento già registrato nelle ultime `recheck` sedute che dopo il ricalcolo non c'è più. Se tra i nuovi
+// ce n'è uno dello stesso settore e tipo, l'evento si è spostato di data (il nuovo messaggio lo dice); altrimenti
+// è sparito e si manda un messaggio di annullamento. Restituisce gli eventi annullati.
+export function reconcile(fresh, events, state, dates, asOf, recheck = 6) {
+  if (!state) return [];
+  const key = (e) => `${e.date}|${e.sector}|${e.code}`;
+  const now = new Set(events.map(key));
+  const upTo = dates.filter((d) => d <= asOf), from = upTo[Math.max(0, upTo.length - recheck)];
+  const gone = (state.log || []).filter((e) => e.date >= from && e.date <= asOf && !e.retracted && !now.has(key(e)));
+  const cancelled = [];
+  for (const old of gone) {
+    const moved = fresh.find((e) => e.sector === old.sector && e.code === old.code && !e.moved);
+    if (moved) { moved.moved = old.date; old.retracted = moved.date; } else { old.retracted = true; cancelled.push(old); }
+  }
+  return cancelled;
+}
+
 // un invio fallito si riprova per 5 sedute, poi resta solo nel registro
 export function retryFrom(dates, asOf, sessions = 5) {
   const upTo = dates.filter((d) => d <= asOf);
@@ -53,7 +70,11 @@ export function retryFrom(dates, asOf, sessions = 5) {
 }
 
 export function formatMessage(e) {
-  return `<b>${LABEL[e.code]}</b> · ${e.sector} ${escHtml(NAMES[e.sector] || '')}\n${dIT(e.date)} · ${escHtml(e.text)}\n${APP_URL}#${e.sector}`;
+  const fix = e.moved ? `\n↻ Rettifica: spostato dal ${dIT(e.moved)} al ${dIT(e.date)} dopo il ricalcolo delle ultime sedute` : '';
+  return `<b>${LABEL[e.code]}</b> · ${e.sector} ${escHtml(NAMES[e.sector] || '')}\n${dIT(e.date)} · ${escHtml(e.text)}${fix}\n${APP_URL}#${e.sector}`;
+}
+export function formatCancel(e) {
+  return `<b>↻ RETTIFICA</b> · ${e.sector} ${escHtml(NAMES[e.sector] || '')}\n${LABEL[e.code]} del ${dIT(e.date)} annullato: dopo il ricalcolo delle ultime sedute non risulta più.\n${APP_URL}#${e.sector}`;
 }
 
 async function sendTelegram(token, chat, text) {
@@ -71,18 +92,23 @@ async function main() {
   const asOf = [breadth.asOf, sectors.asOf].sort()[0];
   const events = collectEvents(breadth, sectors, cfg).filter((e) => e.date <= asOf);
   const fresh = newEvents(events, state, sectors.dates, asOf);
+  const cancelled = reconcile(fresh, events, state, sectors.dates, asOf);
   const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
   const sent = [];
   let failed = 0;
-  const send = async (e) => {
-    try { await sendTelegram(token, chat, formatMessage(e)); return true; } catch (err) { console.error(`::warning::Telegram non ha ricevuto ${e.sector} ${e.code} del ${e.date}: ${err.message}`); failed++; return false; }
+  const send = async (e, text = formatMessage(e)) => {
+    try { await sendTelegram(token, chat, text); return true; } catch (err) { console.error(`::warning::Telegram non ha ricevuto ${e.sector} ${e.code} del ${e.date}: ${err.message}`); failed++; return false; }
   };
   if (!state) console.log(`Prima esecuzione: registro lo stato al ${asOf} senza inviare lo storico.`);
   // invii falliti nelle sere scorse: si riprovano finché l'evento è recente
   const retry = (state ? state.log : []).filter((e) => e.failed && e.date >= retryFrom(sectors.dates, asOf));
   if (token && chat) for (const e of retry) if (await send(e)) { e.telegram = true; delete e.failed; console.log(`Inviato in ritardo: ${e.date} ${e.sector} ${e.code}`); }
+  for (const e of cancelled) {
+    console.log(`Annullato dopo il ricalcolo: ${e.date} ${e.sector} ${e.code}`);
+    if (token && chat && e.telegram) await send(e, formatCancel(e)); // si annulla solo ciò che era stato inviato
+  }
   for (const e of fresh) {
-    console.log(`${e.date} ${e.sector} ${e.code}: ${e.text}`);
+    console.log(`${e.date} ${e.sector} ${e.code}: ${e.text}${e.moved ? ` (spostato dal ${e.moved})` : ''}`);
     if (token && chat && (await send(e))) sent.push(e);
   }
   if (fresh.length && !(token && chat)) console.log('Telegram non configurato (segreti TELEGRAM_BOT_TOKEN e TELEGRAM_CHAT_ID): eventi solo registrati.');
