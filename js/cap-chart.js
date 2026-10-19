@@ -4,7 +4,7 @@
  *   2. somma dei cali forti sulle ultime N sedute (titoli o % dei titoli) con la soglia di allerta.
  * Le bande rosse chiare sono gli episodi di allerta (capAnalysis in capitulation.js).
  */
-import { fmt, dIT, placeTip, pxDec, bindTip } from './format.js';
+import { fmt, dIT, placeTip, pxDec, bindTip, syncX, emitX } from './format.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -56,9 +56,13 @@ export function drawCap(svg, p) {
     P0.lo = pLo - pad; P0.hi = pHi + pad;
     P0.sy = (v) => P0.y1 - ((v - P0.lo) / (P0.hi - P0.lo)) * P0.h;
   }
-  const top = Math.max(1, ...vals(sum), ...vals(alert));
+  // scala tagliata a 1,3 volte la soglia di allerta più alta del periodo: un evento eccezionale (2008, 2020) non schiaccia
+  // gli altri episodi; le punte oltre il taglio hanno il loro valore scritto in alto (▲)
+  const aMax = Math.max(0, ...vals(alert)), sMax = Math.max(1, ...vals(sum));
+  const cut = aMax > 0 && sMax > aMax * 1.3 ? aMax * 1.3 : null;
+  const top = cut ?? Math.max(sMax, aMax);
   P1.lo = 0; P1.hi = top * 1.08;
-  P1.sy = (v) => P1.y1 - ((v - P1.lo) / (P1.hi - P1.lo)) * P1.h;
+  P1.sy = (v) => P1.y1 - ((Math.min(v, P1.hi) - P1.lo) / (P1.hi - P1.lo)) * P1.h;
 
   // episodi di allerta
   let s0 = null;
@@ -107,6 +111,21 @@ export function drawCap(svg, p) {
   }
   el('path', { d, class: 'caparea' }, svg);
   el('path', { d: path(alert, P1.sy), class: 'capalert' }, svg);
+  if (cut != null) {
+    // un'etichetta per ogni tratto oltre il taglio, sul suo massimo; si salta se tocca la precedente
+    let lastX = -1e9;
+    for (let i = 0; i < n; i++) {
+      if (sum[i] == null || sum[i] <= P1.hi) continue;
+      let j = i, im = i;
+      while (j + 1 < n && sum[j + 1] != null && sum[j + 1] > P1.hi) { j++; if (sum[j] > sum[im]) im = j; }
+      const x = sx(im), txt = `▲${fmt(sum[im], unit ? 1 : 0)}${unit} (${MESI[+dates[im].slice(5, 7) - 1]} ${dates[im].slice(0, 4)})`;
+      if (x - lastX > txt.length * 6.6 + 8) {
+        el('text', { x: Math.min(Math.max(x, L + 40), L + PW - 40), y: P1.y0 + 11, 'text-anchor': 'middle', class: 'axt capcut' }, svg).textContent = txt;
+        lastX = x;
+      }
+      i = j;
+    }
+  }
   // valore della soglia di allerta all'ultima seduta, accanto alla sua linea
   const aL = alert[n - 1];
   if (aL != null) el('text', { x: L + PW - 4, y: P1.sy(aL) - 4, 'text-anchor': 'end', class: 'axt capalert-t' }, svg).textContent = `soglia ${fmt(aL, unit ? 1 : 0)}${unit}`;
@@ -120,11 +139,16 @@ export function drawCap(svg, p) {
   const xh = el('line', { x1: 0, x2: 0, y1: P0.y0, y2: P1.y1, class: 'xhair', visibility: 'hidden' }, svg);
   const dots = [el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg), el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg)];
   const hit = el('rect', { x: L, y: P0.y0, width: PW, height: P1.y1 - P0.y0, fill: 'transparent' }, svg);
+  const line = (i) => { xh.setAttribute('x1', sx(i)); xh.setAttribute('x2', sx(i)); xh.setAttribute('visibility', 'visible'); };
+  const at = new Map(dates.map((d, i) => [d, i]));
+  // linea dagli altri grafici della vista (stesso asse del tempo)
+  syncX(p.sync, svg.id, (d) => { const i = d == null ? null : at.get(d); dots.forEach((x) => x.setAttribute('visibility', 'hidden')); if (i == null) xh.setAttribute('visibility', 'hidden'); else line(i); });
   const show = (e) => {
     const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
     const q = pt.matrixTransform(svg.getScreenCTM().inverse());
     const i = Math.max(0, Math.min(n - 1, Math.round(((q.x - L) / PW) * (n - 1))));
-    xh.setAttribute('x1', sx(i)); xh.setAttribute('x2', sx(i)); xh.setAttribute('visibility', 'visible');
+    line(i);
+    emitX(p.sync, svg.id, dates[i]);
     [[c[i], P0], [sum[i], P1]].forEach(([v, qq], k) => {
       if (v == null) { dots[k].setAttribute('visibility', 'hidden'); return; }
       dots[k].setAttribute('cx', sx(i)); dots[k].setAttribute('cy', qq.sy(v)); dots[k].setAttribute('visibility', 'visible');
@@ -135,5 +159,5 @@ export function drawCap(svg, p) {
       <div class="row"><span>Cali forti</span><b>${num(sum[i])}</b></div><div class="row"><span>Soglia di allerta</span><b>${num(alert[i])}</b></div>`;
     placeTip(tipEl, wrapEl, e, 12);
   };
-  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((x) => x.setAttribute('visibility', 'hidden')); tipEl.hidden = true; });
+  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((x) => x.setAttribute('visibility', 'hidden')); tipEl.hidden = true; emitX(p.sync, svg.id, null); });
 }

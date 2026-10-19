@@ -358,14 +358,14 @@
             <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
           </div>
         </div>
-        <div class="panel">
-          <div class="ph"><h2>Episodi in zona blu</h2><span class="meta" id="epiMeta"></span></div>
+        <details class="panel fold" id="secEpiBox" data-keep="secEpi">
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="epiMeta"></span></summary>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu"><table class="t" id="epiTable"></table></div>
           <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni.</p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi a confronto con una seduta qualsiasi e con SPY"><table class="t ctx" id="epiCtx"></table></div>
           <p class="note pb">Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
-        </div>
-        <details class="panel capcard" id="secCap">
+        </details>
+        <details class="panel capcard fold" id="secCap" data-keep="secCap">
           <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="secCapMeta"></span></summary>
           <div class="pb" id="secCapBody">
             <div class="controls capctl" id="secCapCtl"></div>
@@ -537,14 +537,14 @@
             <span><span class="kb" style="background:var(--q-lead)"></span>trigger</span>
           </div>
         </div>
-        <div class="panel">
-          <div class="ph"><h2>Episodi in zona blu</h2><span class="meta" id="ixEpiMeta"></span></div>
+        <details class="panel fold" id="ixEpiBox" data-keep="ixEpi">
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="ixEpiMeta"></span></summary>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu dell'indice"><table class="t" id="ixEpiTable"></table></div>
           <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.</p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi dell'indice a confronto con una seduta qualsiasi"><table class="t ctx" id="ixEpiCtx"></table></div>
           <p class="note pb">Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
-        </div>
-        <details class="panel capcard" id="ixCap">
+        </details>
+        <details class="panel capcard fold" id="ixCap" data-keep="ixCap">
           <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="ixCapMeta"></span></summary>
           <div class="pb" id="ixCapBody">
             <div class="controls capctl" id="ixCapCtl"></div>
