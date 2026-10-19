@@ -671,7 +671,8 @@ function findSymbol(v, tickerOnly = false) {
   const MK = { US: 0, global: 1, macro: 2 };
   const names = Object.keys(state.groups);
   names.sort((a, b) => (a === state.group ? -1 : b === state.group ? 1 : MK[state.groups[a].market] - MK[state.groups[b].market]));
-  const exact = (g, s) => [s, baseSym(s), ...(tickerOnly ? [] : [labelOf(g.ds, s)])].some((x) => x.toUpperCase() === v);
+  // tickerOnly: solo il ticker intero (CAC apre l'indice CAC 40, CAC.PA l'ETF)
+  const exact = (g, s) => (tickerOnly ? [s] : [s, baseSym(s), labelOf(g.ds, s)]).some((x) => x.toUpperCase() === v);
   const byName = (g, s) => v.length >= 3 && (g.ds.tickers[s].name || '').toUpperCase().split(/[^A-Z0-9&+-]+/).some((w) => w.startsWith(v));
   const scan = (match, list, among = names) => {
     for (const name of among) {
@@ -980,8 +981,8 @@ function bind() {
       if (words[w2] === 'sec') state.bottom.openSector(w1); else setView(words[w2]);
       return;
     }
-    // un indice della pagina Indici (DAX, SMI, NDX…) prima delle etichette e dei nomi degli ETF della rotazione,
-    // ma non di un ticker vero
+    // un indice della pagina Indici (DAX, SMI, NDX, CAC…) prima delle etichette, dei ticker senza la borsa e dei nomi degli
+    // ETF della rotazione, ma non di un ticker scritto per intero
     if (state.indices && state.indices.isIndex(v) && !findSymbol(v, true)) { state.indices.open(v); setView('idx'); return; }
     const hit = findSymbol(v);
     // cambia universo e benchmark (e li ricorda) solo se serve
