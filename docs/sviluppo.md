@@ -144,10 +144,10 @@ Workflow `.github/workflows/update-data.yml`, dopo la chiusura USA e due volte i
 | `quant-rea/` | catalogo e verifica delle 34 analisi del fascicolo di un utente, classifica di utilità, prova della capitolazione su 22 indici, preset |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (0.9.4)
+## 7. Stato attuale (0.9.5)
 
 - 7 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
-- Test automatici: `npm test`, 104 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro).
+- Test automatici: `npm test`, 104 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro) e `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati).
 - Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
   - la tabella della rotazione sul telefono nasconde colonne invece di diventare a schede;
@@ -157,6 +157,7 @@ Workflow `.github/workflows/update-data.yml`, dopo la chiusura USA e due volte i
 - **Passo 4**: di nuovo i 5 controlli, poi 1.0.0 se puliti.
 - **Decisioni dell'utente del 19/10/2026**: il giorno del segnale fallito conta come nuovo minimo della zona blu (0.9.4; confronto prima/dopo in `ricerca/qa/audit-0.9.0/a1/`); Telegram manda una rettifica quando il ricalcolo sposta o annulla un evento già inviato.
 - **Da verificare**: Taiwan, la chiusura di Yahoo non rettificata per i dividendi in azioni sposta forse anche la breadth (medie a 200 sedute); la statistica dell'Avvicinamento conta ogni discesa sotto la soglia, l'app mostra l'anello solo in stato Normale (differenza piccola); scorciatoia «mar 2009» per il minimo del prezzo nella crisi del 2008.
+- **Richiesta dell'utente del 19/10/2026 (0.9.5)**: «Episodi in zona blu» richiudibile e chiuso di default (viste 4 e 6, stato in `sm.opened`); grafico dei cali forti sulle sedute e sulla larghezza del grafico principale, linea verticale condivisa tra i grafici della vista; scala dei cali forti tagliata a 1,3 volte la soglia più alta del periodo, con il valore dei picchi scritto (scelta dell'utente tra tagliata, logaritmica e radice).
 - Decisioni dell'utente del 18/10/2026: la scala Adatta/Massima della rotazione resta salvata nel browser.
 
 ## 8. Prossimi passi proposti (in ordine)
