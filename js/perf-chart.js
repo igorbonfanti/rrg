@@ -88,7 +88,8 @@ export function drawPerf(svg, p) {
 
   // mirino
   const xh = el('line', { x1: 0, x2: 0, y1: T, y2: T + PH, class: 'xhair', visibility: 'hidden' }, svg);
-  const hit = el('rect', { x: L, y: T, width: PW, height: PH, fill: 'transparent' }, svg);
+  // l'area dei tocchi arriva al bordo destro: un tocco sulle etichette dei valori apre l'ultima seduta
+  const hit = el('rect', { x: L, y: T, width: PW + R, height: PH, fill: 'transparent' }, svg);
   const show = (e) => {
     const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
     const q = pt.matrixTransform(svg.getScreenCTM().inverse());

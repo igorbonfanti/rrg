@@ -7,7 +7,7 @@ Scrive:
                       gli 11 settori GICS, dal 2005 (conteggi interi, vedi FORMAT sotto)
   data/sectors.json   chiusure rettificate degli ETF settoriali (XL*), SPY e RSP dal 2004
 
-Metodo (verificato sui valori pubblicati di S5TH: scarto tra -0,1 e +0,4 punti su 9 sedute del 2018 e del 2020):
+Metodo (verificato sui valori pubblicati di SUTH, identici in 3 sedute, e a mano su S5TH: vedi il README):
   - composizione storica dell'indice (point-in-time), non quella di oggi: con i soli membri
     attuali la breadth storica risulta 3-6 punti troppo alta;
   - chiusura rettificata per gli split ma NON per i dividendi (come i fornitori delle serie S5TH…);

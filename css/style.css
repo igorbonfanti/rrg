@@ -75,6 +75,7 @@ h1.brand { margin: 0; }
 .cmd input::placeholder { color: var(--placeholder); text-transform: none; letter-spacing: 0; }
 .cmd.err input::placeholder { color: var(--down); }
 .cmd input:focus { outline: none; }
+.cmd:focus-within { box-shadow: 0 0 0 2px var(--amber); }
 .cmd:focus-within { box-shadow: 0 1px 0 var(--amber); }
 .go { font: 600 11px var(--f-mono); color: #000; background: var(--go); border: 0; padding: 3px 9px; cursor: pointer; }
 .clock { font: 12px var(--f-mono); color: var(--ink-2); white-space: nowrap; display: flex; gap: 8px; align-items: center; }
@@ -418,13 +419,13 @@ button.mini:hover { color: var(--amber); border-color: var(--amber); }
 .stepper output { min-width: 48px; text-align: center; font: 600 13px var(--f-mono); color: #000; background: var(--blue); padding: 4px 0; }
 .cfgtext { width: 100%; background: var(--bg); color: var(--ink-2); border: 1px solid var(--rule); font: 11px var(--f-mono); }
 .facts { display: grid; grid-template-columns: 1fr auto; gap: 5px 10px; font: 12px var(--f-mono); margin: 0; }
-.facts dt { color: var(--ink-3); }
+.facts dt { color: var(--ink-3); white-space: nowrap; }
 .facts dd { margin: 0; text-align: right; color: var(--ink); }
 .tvlinks { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font: 12px var(--f-mono); }
 .tvlinks a { color: var(--amber); text-decoration: none; border-bottom: 1px solid var(--link-line); }
 .tvlinks a:hover { border-color: var(--amber); }
 .members { max-height: 380px; overflow-y: auto; }
-.members a.sym { text-decoration: none; border-bottom: 1px solid var(--link-line); }
+.members a.sym { text-decoration: none; border-bottom: 1px solid var(--link-line); display: inline-block; min-width: 24px; padding: 2px 0; }
 .members a.sym:hover { border-color: var(--amber); }
 .t tr.cut td { border-top: 1px solid var(--blue); }
 .wrapc { white-space: normal !important; min-width: 140px; font-size: 12px; color: var(--ink-2); }
@@ -446,7 +447,7 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .kb-hatch { background: repeating-linear-gradient(135deg, var(--blue) 0 1.5px, transparent 1.5px 4px); opacity: .8; }
 .tip .note-row { display: block; max-width: 230px; white-space: normal; color: var(--ink-2); margin-top: 4px; font-size: 11px; line-height: 1.35; }
 .ts .zero { stroke: var(--chart-base); }
-.ts .trigmark { fill: var(--q-lead); stroke: var(--bg); stroke-width: 1; }
+.ts .trigmark { fill: var(--st-trig); stroke: var(--bg); stroke-width: 1; }
 .ts .xhair { stroke: var(--amber); stroke-width: 1; }
 .ts .xdot { fill: var(--amber); stroke: var(--bg); stroke-width: 2; }
 .ts .lasttag { fill: var(--amber); }
@@ -756,12 +757,20 @@ svg.bub { touch-action: pan-y; }
 /* il grafico dei cali forti largo quanto quello principale sopra: stesse date sotto gli stessi pixel */
 .capcard .pb > .chart-wrap { margin: 0 -10px; }
 .ts .capcut { fill: var(--down); font-weight: 600; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+.ts .capcut-bg { fill: var(--bg); fill-opacity: .85; }
+/* valore della soglia: alone del colore di fondo, così resta leggibile anche sopra i picchi */
+.ts .capalert-t { paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .capcard .capctl { flex-wrap: wrap; gap: 8px 14px; margin-bottom: 6px; }
 .capcard .note { margin: 6px 0; }
 .legend .kl.dash { height: 0; border-top: 2px dashed; background: none !important; }
 .ts .caparea { fill: var(--down); fill-opacity: .45; stroke: var(--down); stroke-width: .8; }
 .ts .capalert { fill: none; stroke: var(--amber); stroke-width: 1.4; stroke-dasharray: 5 3; }
 .ts .band-cap { fill: var(--down); fill-opacity: .25; }
+/* legenda «allerta» come le fasce del grafico */
+.legend .kb-capband { background: var(--down); opacity: .25; }
+[data-theme="light"] .legend .kb-capband { opacity: .14; }
+/* registro degli alert: testo allineato dopo badge di larghezza uguale */
+#alertLog .st { min-width: 11ch; margin-right: 6px; }
 [data-theme="light"] .ts .band-cap { fill-opacity: .14; }
 .capflag { display: inline-block; padding: 0 6px; border: 1px solid var(--down); color: var(--down); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
 .capflag.weak { border-style: dashed; }
@@ -775,6 +784,11 @@ svg.bub { touch-action: pan-y; }
   #ixEpiTable th:nth-child(3), #ixEpiTable td:nth-child(3), #ixEpiTable th:nth-child(4), #ixEpiTable td:nth-child(4), #ixEpiTable th:nth-child(10), #ixEpiTable td:nth-child(10) { display: none; }
   #secCapTable th:nth-child(5), #secCapTable td:nth-child(5), #secCapTable th:nth-child(6), #secCapTable td:nth-child(6),
   #ixCapTable th:nth-child(5), #ixCapTable td:nth-child(5), #ixCapTable th:nth-child(6), #ixCapTable td:nth-child(6) { display: none; }
+  /* la prima colonna resta ferma (sticky, sopra) e le colonne di testo vanno a capo: i rendimenti entrano nello schermo */
+  #epiCtx td:first-child, #ixEpiCtx td:first-child { white-space: normal; min-width: 8.5em; max-width: 10em; }
+  #epiCtx td:nth-child(2), #ixEpiCtx td:nth-child(2) { white-space: normal; }
+  #epiCtx th, #ixEpiCtx th, #epiTable th, #ixEpiTable th, #secCapTable th, #ixCapTable th { white-space: normal; }
+  #epiTable td:nth-child(5), #epiTable td:nth-child(6), #ixEpiTable td:nth-child(5), #ixEpiTable td:nth-child(6) { white-space: normal; min-width: 6.5em; }
 }
 .only-phone { display: none; }
 @media (max-width: 600px) { .only-phone { display: inline; } }

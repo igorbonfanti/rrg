@@ -157,7 +157,7 @@ export function runMachine(px, br, L, params = {}) {
     // passate le prime `failWindow` sedute serve anche la breadth di nuovo sotto il livello blu
     if (trig && (st === 'trig' || st === 'cool' || !armed)) {
       if (c[t] < setup.pmin - avgRange(c, t) && (t - trig.t <= P.failWindow || b <= L)) {
-        events.push({ t, code: 'fail', text: 'il prezzo chiude sotto il minimo della zona blu: segnale fallito, si torna in zona blu con regole più severe', setup });
+        events.push({ t, code: 'fail', text: 'il prezzo chiude sotto il minimo della zona blu meno un\'escursione media: segnale fallito, si torna in zona blu con regole più severe', setup });
         setup.fails++; setup.trig = null; setup.strict = true; trig = null; st = 'setup';
         // il fallimento avviene su un nuovo minimo: conta per la soglia del fallimento successivo e per la divergenza
         if (c[t] < setup.pmin) { setup.pmin = c[t]; setup.tp = t; }

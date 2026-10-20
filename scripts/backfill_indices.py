@@ -238,7 +238,8 @@ def clean(dates, close):
     i = 1
     while i < len(c):
         r = c[i] / c[i - 1]
-        if not big(r):
+        # riapertura di un titolo sospeso: almeno 20 chiusure identiche prima del salto (CTD.AX, 03/09/2026)
+        if not big(r) or (i > 20 and all(x == c[i - 1] for x in c[i - 20:i])):
             i += 1
             continue
         back = next((j for j in range(i + 1, min(len(c), i + 61)) if big(c[j] / c[j - 1]) and 0.5 < r * c[j] / c[j - 1] < 2), None)

@@ -157,7 +157,8 @@ export function drawSector(svg, p) {
   // mirino con i valori dei tre pannelli
   const xh = el('line', { x1: 0, x2: 0, y1: P0.y0, y2: P2.y1, class: 'xhair', visibility: 'hidden' }, svg);
   const dots = panes.map(() => el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg));
-  const hit = el('rect', { x: L, y: P0.y0, width: PW, height: P2.y1 - P0.y0, fill: 'transparent' }, svg);
+  // l'area dei tocchi arriva al bordo destro: un tocco sulle etichette dei valori apre l'ultima seduta
+  const hit = el('rect', { x: L, y: P0.y0, width: PW + R, height: P2.y1 - P0.y0, fill: 'transparent' }, svg);
   const STATE = { normal: 'normale', watch: 'attenzione', setup: 'zona blu', trig: 'trigger', fail: 'fallito', cool: 'cooldown' };
   const line = (i) => { xh.setAttribute('x1', sx(i)); xh.setAttribute('x2', sx(i)); xh.setAttribute('visibility', 'visible'); };
   const at = new Map(dates.map((d, i) => [d, i]));

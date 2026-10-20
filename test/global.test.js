@@ -316,3 +316,14 @@ test('Yahoo: senza orario di contrattazione la barra di oggi si scarta solo a se
   assert.deepEqual(parse(res, { nowSec: open + 5 * 3600 }).dates, ['2026-10-15']); // 14:00 di Francoforte: aperta
   assert.deepEqual(parse(res, { nowSec: open + 15 * 3600 }).dates, ['2026-10-15', '2026-10-16']); // sera: chiusa
 });
+
+test('Yahoo: la chiusura di una borsa appena chiusa è provvisoria per un\'ora', () => {
+  // come il TAIEX il 20/10/2026: chiusura alle 05:30 UTC, corsa alle 05:46 con 46.280 (definitivo 46.293)
+  const res = {
+    meta: { gmtoffset: 28800, instrumentType: 'INDEX', currentTradingPeriod: { regular: { start: T('2026-10-20T01:00:00Z'), end: T('2026-10-20T05:30:00Z') } } },
+    timestamp: [T('2026-10-19T01:00:00Z'), T('2026-10-20T01:00:00Z')],
+    indicators: { quote: [{ close: [46800, 46280] }], adjclose: [{ adjclose: [46800, 46280] }] },
+  };
+  assert.deepEqual(parse(res, { nowSec: T('2026-10-20T05:46:00Z') }).dates, ['2026-10-19']);
+  assert.deepEqual(parse(res, { nowSec: T('2026-10-20T06:31:00Z') }).dates, ['2026-10-19', '2026-10-20']);
+});

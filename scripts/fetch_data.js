@@ -635,7 +635,7 @@ async function fetchFred(id, since) {
   let lastErr;
   for (let attempt = 0; attempt < 4; attempt++) {
     try {
-      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' } });
+      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' }, signal: AbortSignal.timeout(30000) });
       if (!r.ok) throw new Error(`HTTP ${r.status}`); // FRED risponde a volte 503: si riprova
       const months = parseFredCsv(await r.text());
       if (!Object.keys(months).length) throw new Error('nessun dato');
@@ -728,7 +728,9 @@ async function updateMacro() {
   const exchange = Object.fromEntries(Object.entries(series).filter(([s]) => !offHours(s)));
   const dates = globalCalendar(exchange, asOf, isTradingDay);
   const closes = alignToCalendar(series, dates);
-  const kept = keepPublished(dates, closes, realDates(series), prev);
+  // sedute senza barra di Yahoo (anche il bitcoin con la barra del giorno vuota): l'app le segna con l'asterisco
+  const real = realDates(series);
+  const kept = keepPublished(dates, closes, real, prev);
   if (kept) console.log(`  Tenuti ${kept} prezzi già pubblicati dove Yahoo ora ha una lacuna`);
 
   const repaired = [];
@@ -785,6 +787,8 @@ async function updateMacro() {
       t.quoteCurrency = series[sym].meta.currency;
       const max52 = high52(series[sym], dates, closes[sym], series[sym].meta.instrumentType === 'CRYPTOCURRENCY');
       if (max52) t.max52 = max52;
+      const copied = copiedIdx(dates, closes[sym], real[sym]);
+      if (copied.length) t.copied = copied;
     }
     tickers[sym] = { ...t, close: closes[sym] };
   }

@@ -59,6 +59,7 @@ export async function fetchDaily(symbol, opt = {}) {
  * dropStale: scarta le barre «segnaposto» (volume 0, apertura = massimo = minimo = chiusura = chiusura precedente):
  * Yahoo le mette quando non ha la seduta (Milano 13–20/09/2022, Xetra 04–06/12/2023) e sembrano sedute ferme.
  */
+const SETTLE = 3600;
 export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale = false, nowSec = Date.now() / 1000 } = {}) {
   const meta = res.meta || {};
   const ts = res.timestamp;
@@ -71,9 +72,10 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale
     let c = quote.close ? quote.close[i] : null;
     let a = adj[i];
     let h = quote.high ? quote.high[i] : null;
-    // barra della seduta in corso: cade dentro l'orario regolare attuale e la seduta non è finita. Senza l'orario
-    // (meta ridotto) è aperta la barra di oggi nel fuso della borsa fino a 8,5 ore dall'apertura (le sedute durano meno)
-    const open = reg ? ts[i] >= reg.start && nowSec < reg.end : barDate(ts[i], meta.gmtoffset) === barDate(nowSec, meta.gmtoffset) && nowSec < ts[i] + 8.5 * 3600;
+    // barra della seduta in corso: cade dentro l'orario regolare attuale e non è passata un'ora dalla chiusura (SETTLE:
+    // subito dopo la chiusura Yahoo può avere ancora un prezzo provvisorio, come Taiwan il 20/10/2026, 46.280 contro
+    // 46.293). Senza l'orario (meta ridotto) è aperta la barra di oggi nel fuso della borsa fino a 9,5 ore dall'apertura
+    const open = reg ? ts[i] >= reg.start && nowSec < reg.end + SETTLE : barDate(ts[i], meta.gmtoffset) === barDate(nowSec, meta.gmtoffset) && nowSec < ts[i] + 8.5 * 3600 + SETTLE;
     if (open && !keepOpen) continue;
     const d = barDate(ts[i], meta.gmtoffset);
     if (c == null && fillLast && (!open || keepOpen) && i === ts.length - 1 && meta.regularMarketPrice != null &&

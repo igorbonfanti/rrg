@@ -100,7 +100,7 @@ async function loadMembers(today) {
   const prev = readJSON(file, null);
   let fresh = null;
   try {
-    const r = await fetch(CONSTITUENTS_URL);
+    const r = await fetch(CONSTITUENTS_URL, { signal: AbortSignal.timeout(30000) });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const { members, problems, moved } = validateMembers(parseCSV(await r.text()), prev && prev.members);
     if (problems.length) console.log(`::warning::Lista costituenti scartata, uso quella salvata: ${problems.join('; ')}`);
@@ -256,7 +256,7 @@ async function updateSectorMembers(members, prices, breadth) {
   const file = path.join(DATA, 'sp500_history.json');
   const h = readJSON(file, { changes: [], former: {} });
   try {
-    const r = await fetch(CHANGES_URL, { headers: { 'User-Agent': 'sector-monitor/1.0 (github.com/igorbonfanti/rrg)' } });
+    const r = await fetch(CHANGES_URL, { headers: { 'User-Agent': 'sector-monitor/1.0 (github.com/igorbonfanti/rrg)' }, signal: AbortSignal.timeout(30000) });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const parsed = parseSpChanges(await r.text(), CHANGES_FROM);
     // una tabella vuota o molto più corta di quella salvata è un errore di lettura, non una novità
@@ -285,7 +285,7 @@ async function updateSectorMembers(members, prices, breadth) {
   const prev = readJSON(path.join(DATA, 'sector_members.json'), null);
   let qty = null, ivvAsOf = null;
   try {
-    const r = await fetch(IVV_URL, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+    const r = await fetch(IVV_URL, { headers: { 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(30000) });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     const p = parseIvv(await r.text(), parseCSV);
     const found = p ? members.filter((m) => p.qty[m.s]).length : 0;
