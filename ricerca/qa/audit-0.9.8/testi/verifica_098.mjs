@@ -246,15 +246,7 @@ function scale(k, oDates, fromDate) {
   out('T15', `media il 20/11/2008: ${(L.reduce((s, a) => s + a[i20], 0) / L.length).toFixed(1)}%; il 09/03/2009: ${(L.reduce((s, a) => s + a[i09], 0) / L.length).toFixed(1)}%`);
 }
 
-// ---------- T16. Vista 7: «a volte cambia chi è davanti (Tecnologia e Industriali al 16/10/2026)» ----------
-// Letture di Rea dallo screenshot del 16/10/2026, copiate da ricerca/settori-titoli/script/confronto_rea.mjs ([cap, equal]);
-// la nostra divergenza (equal − cap, 3M) è in data/sector_members.json, hist, alla settimana del 16/10/2026.
-{
-  const REA = { XLV: [12.86, 14.56], XLE: [21.04, 14.33], XLK: [8.14, 6.99], XLP: [4.80, 0.43], XLB: [5.14, 0.04], XLY: [-1.83, -3.11], XLF: [-1.58, -3.16], XLC: [0.09, -3.82], XLI: [-4.16, -4.86], XLU: [-6.06, -6.84], XLRE: [-6.38, -8.32] };
-  const h = R('data/sector_members.json').hist, i = h.dates.indexOf('2026-10-16');
-  const flip = Object.keys(REA).filter((k) => Math.sign(h.sectors[k]['3M'][i]) !== Math.sign(REA[k][1] - REA[k][0]));
-  out('T16', `settori con il segno della divergenza 3M diverso da Rea al 16/10/2026: ${flip.join(', ')}`);
-}
+// ---------- T16. tolto il 20/10/2026: confrontava con letture del grafico di Rea, che non stanno nel repository ----------
 
 // ---------- T17. «Nuova: di solito entro 3 punti da 100» anche fuori dai settori (universi in euro e asset reali) ----------
 {

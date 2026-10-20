@@ -142,14 +142,14 @@
     <p>Il «massimo a 52 settimane» della scheda di TradingView è il picco intraday, che dopo una seduta con un forte rovescio sta più in alto della chiusura: per questo i numeri possono differire leggermente.</p>
 
     <h3 id="stati">Stati di un settore</h3>
-    <p>Ogni sera una <b>macchina a stati</b> legge breadth e prezzo di ogni settore e lo mette in uno di questi stati. Le stesse regole valgono per gli indici e per gli alert Telegram.</p>
+    <p>A ogni aggiornamento dei dati una <b>macchina a stati</b> legge breadth e prezzo di ogni settore e lo mette in uno di questi stati. Le stesse regole valgono per gli indici e per gli alert Telegram.</p>
     <div class="tw"><table>
       <thead><tr><th>Stato</th><th>Quando</th></tr></thead>
       <tbody>
         <tr><td><b>Normale</b></td><td>breadth oltre 10 punti sopra il livello blu e drawdown meno profondo dell'85° percentile.</td></tr>
         <tr><td><b>Attenzione</b></td><td>breadth entro 10 punti dal livello blu, oppure drawdown oltre l'85° percentile. Si resta qui anche sotto il livello per una sola chiusura.</td></tr>
         <tr><td><b>Zona blu</b></td><td>breadth al livello blu o sotto per <b>2 chiusure</b> di fila e drawdown oltre il <b>70° percentile</b>. È la zona in cui si formano spesso i bottom, di solito in anticipo.</td></tr>
-        <tr><td><b>Trigger</b></td><td>dalla zona blu, la breadth risale di almeno <b>5 punti sopra il livello</b> (o 2 titoli, se valgono di più) e sopra il minimo, con almeno <b>una conferma</b> tra: spinta di breadth (a 20 giorni da ≤15% a ≥70% in 15 sedute, o a 50 giorni da ≤10% a ≥50% in 20), prezzo sopra una media 20 crescente, divergenza (prezzo più basso, breadth più alta). Servono <b>due</b> conferme se la zona blu dura da più di 60 sedute o dopo un segnale fallito. Il <b>rimbalzo a V</b> (breadth sopra il più alto tra 40% e livello + 25) basta da solo.</td></tr>
+        <tr><td><b>Trigger</b></td><td>dalla zona blu, la breadth risale di almeno <b>5 punti sopra il livello</b> (o 2 titoli, se valgono di più) e di almeno <b>2 titoli sopra il minimo</b> della zona blu, con almeno <b>una conferma</b> tra: spinta di breadth (a 20 giorni da ≤15% a ≥70% in 15 sedute, o a 50 giorni da ≤10% a ≥50% in 20), prezzo sopra una media 20 crescente, divergenza (prezzo più basso, breadth più alta). Servono <b>due</b> conferme se la zona blu dura da più di 60 sedute o dopo un segnale fallito. Il <b>rimbalzo a V</b> (breadth sopra il più alto tra 40% e livello + 25) basta da solo.</td></tr>
         <tr><td><b>Fallito</b></td><td>dopo il trigger il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera: entro 20 sedute, oppure più tardi, finché la breadth non è tornata al livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. Si torna in zona blu, con regole più severe. Il giorno del fallimento conta come nuovo minimo della zona blu.</td></tr>
         <tr><td><b>Cooldown</b></td><td>dopo un trigger, 63 sedute senza nuovi segnali. Una nuova zona blu richiede prima il <b>riarmo</b>: breadth sopra il più alto tra 40% e livello + 25.</td></tr>
       </tbody>
@@ -260,7 +260,7 @@
     <ul>
       <li>Il <b>cursore</b> riporta la mappa a una settimana qualsiasi dal 2005; <b>PLAY</b> la fa scorrere una settimana alla volta fino a oggi (da oggi riparte da un anno fa); <b>Oggi</b> torna ai dati attuali.</li>
       <li><b>Zoom sulla zona</b>: ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi, così nelle crisi passate i punti non si ammucchiano e il replay non salta. La scelta resta nel browser.</li>
-      <li>Le scorciatoie <b>Crisi passate</b> portano ai minimi di nov 2008 (minimo della breadth; il prezzo dell'S&amp;P 500 tocca il fondo il 09/03/2009), ott 2011, feb 2016, dic 2018, mar 2020, ott 2022 e apr 2025.</li>
+      <li>Le scorciatoie <b>Crisi passate</b> portano ai minimi di nov 2008 (minimo del prezzo nel 2008; la breadth dei settori era già a zero da ottobre, quella dell'S&amp;P 500 tocca il fondo il 02/03/2009 e il prezzo il 09/03/2009), ott 2011, feb 2016, dic 2018, mar 2020, ott 2022 e apr 2025.</li>
       <li>A una data passata tutto è come si vedeva allora: coda, stato di quel giorno, avvicinamento (con la soglia calcolata solo sulla storia fino a lì) e distanze. L'asse verticale resta fisso, così il replay non salta.</li>
     </ul>
     <p class="tip warn">I livelli blu sono quelli di oggi, scelti conoscendo anche quelle crisi: la mappa storica è un po' più «brava» di quanto sarebbe stata dal vivo.</p>
@@ -295,7 +295,7 @@
     <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore.</p>
     <ul>
       <li>I riquadri in alto riassumono quante zone blu, trigger e segnali falliti ci sono stati, con le mediane a 3 e 6 mesi e il confronto con una seduta qualsiasi e con SPY negli stessi giorni.</li>
-      <li><b>Notifiche Telegram</b>: ogni sera, dopo l'aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Le ultime sedute si ricalcolano ogni sera: se un evento già inviato si sposta di un giorno arriva una rettifica con le due date, se non risulta più arriva un messaggio di annullamento. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati, con le rettifiche.</li>
+      <li><b>Notifiche Telegram</b>: dopo ogni aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Le ultime sedute si ricalcolano a ogni aggiornamento: se un evento già inviato cambia data arriva una rettifica con le due date, se non risulta più arriva un messaggio di annullamento. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati, con le rettifiche.</li>
       <li>Gli alert usano i livelli blu del repository, non quelli provati nel browser.</li>
     </ul>
   </section>
@@ -307,7 +307,7 @@
     <ul>
       <li><b>Indici mostrati</b>: di partenza i 10 principali; un clic aggiunge o toglie un indice, «Principali» e «Tutti» sono le scelte rapide. La scelta resta nel browser. I principali arrivano subito, gli altri un attimo dopo.</li>
       <li><b>Tabellone</b>: stato, breadth contro il livello blu, drawdown (solo prezzo, nella valuta dell'indice; per l'MSCI Emerging l'ETF EEM in dollari), come è ricostruita la storia (con la composizione di ogni data, oppure con i membri di oggi), <a href="#cali">cali forti</a> e variazioni.</li>
-      <li><b>Breadth degli indici</b>: una seduta si pubblica quando almeno il 75% dei titoli ha la chiusura di quel giorno (le borse hanno feste diverse); per gli altri vale l'ultima chiusura entro 5 giorni, e le ultime 5 sedute si ricalcolano ogni sera.</li>
+      <li><b>Breadth degli indici</b>: una seduta si pubblica quando almeno il 75% dei titoli ha la chiusura di quel giorno (le borse hanno feste diverse); per gli altri vale l'ultima chiusura entro 5 giorni, e le ultime 5 sedute si ricalcolano a ogni aggiornamento.</li>
       <li><b>Bottom Map degli indici</b> con la distanza dal livello blu: funziona come quella dei settori, compresa la <a href="#btm">data scorrevole</a>. Gli indici hanno calendari diversi, quindi la data è un venerdì e ogni indice usa la sua ultima seduta fino a lì; quelli che non avevano ancora dati non compaiono e la nota li elenca.</li>
       <li><b>Dettaglio</b>: grafico, «Perché questo stato», livello blu, situazione (con i link ai grafici su TradingView: l'indice e, dove c'è, la sua breadth come S5TH, oppure l'ETF o l'indice usato per il prezzo), episodi con i rendimenti a 3, 6 e 12 mesi e il confronto con una seduta qualsiasi, e la scheda <a href="#cali">Cali forti</a>. Si apre con un clic o scrivendo il nome breve nella barra (<code>NDX</code>, <code>DAX</code>, <code>N225</code>…).</li>
     </ul>
@@ -324,7 +324,7 @@
       <li><b>Nella tabella degli indici</b> la colonna «Cali forti» mostra <span class="capflag">allerta</span> se l'allerta è attiva oggi, le sedute in allerta negli ultimi 3 mesi, oppure il percentile di oggi; un riquadro in alto conta gli indici in allerta.</li>
       <li><b>In «Perché questo stato»</b> compare una riga ⓘ quando c'è stata allerta negli ultimi 3 mesi.</li>
     </ul>
-    <p>È un'informazione di contesto da leggere insieme alla breadth: <b>non cambia stati, regole né alert Telegram</b>. Nella prova sui 22 indici, dopo le allerte gli indici sono andati in media meglio di una seduta qualsiasi, ma quasi tutto il vantaggio viene dai crolli rapidi (marzo 2020, aprile 2025). All'inizio dei mercati orso lunghi le allerte sono arrivate presto: tra agosto 2007 e settembre 2008 l'indice era più in basso un anno dopo. La storia usa la stessa composizione della breadth (di ogni data per S&amp;P 500, settori, Dow e Nasdaq-100; di oggi per gli altri). Non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli: sono errori di stampa della fonte. Dopo un giorno di panico il rimbalzo è di tutto il mercato, e quei cali contano. Non contano neppure i crolli oltre il 60% in una giornata normale (frazionamenti non registrati dalla fonte). Taiwan non ha la scheda: lì i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.</p>
+    <p>È un'informazione di contesto da leggere insieme alla breadth: <b>non cambia stati, regole né alert Telegram</b>. Nella prova sugli indici con i cali forti (tutti tranne Taiwan), dopo le allerte gli indici sono andati in media meglio di una seduta qualsiasi, ma quasi tutto il vantaggio viene dai crolli rapidi (marzo 2020, aprile 2025). All'inizio dei mercati orso lunghi le allerte sono arrivate presto: tra agosto 2007 e settembre 2008, in 13 casi su 14 l'indice era più in basso un anno dopo. La storia usa la stessa composizione della breadth (di ogni data per S&amp;P 500, settori, Dow e Nasdaq-100; di oggi per gli altri). Non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli: sono errori di stampa della fonte. Dopo un giorno di panico il rimbalzo è di tutto il mercato, e quei cali contano. Non contano neppure i crolli oltre il 60% in una giornata normale (frazionamenti non registrati dalla fonte). Taiwan non ha la scheda: lì i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.</p>
   </section>
 
   <section id="tit">
@@ -386,7 +386,7 @@
     <ul>
       <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate da un processo automatico su GitHub: parte dopo la chiusura USA (alle 00:40 ora italiana con l'ora legale, alle 23:40 con l'ora solare), riprova ogni ora nelle prime ore del mattino finché non trova la seduta e passa di nuovo a metà giornata. GitHub fa partire queste corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. Finché la seduta non arriva, il badge in alto dice «1 seduta indietro». In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
       <li>La <b>breadth dei settori</b> è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 7 vengono dalle holdings dell'ETF iShares IVV.</li>
-      <li>La <b>breadth degli indici</b> è calcolata ogni sera sui loro membri (circa 4.600 titoli).</li>
+      <li>La <b>breadth degli indici</b> è calcolata a ogni aggiornamento sui loro membri (circa 4.600 titoli).</li>
       <li>Le scelte personali (livelli blu provati, pesi del portafoglio, universo, indici mostrati, tema) restano solo nel tuo browser.</li>
     </ul>
   </section>

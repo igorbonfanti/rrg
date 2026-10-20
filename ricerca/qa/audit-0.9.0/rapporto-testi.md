@@ -125,7 +125,7 @@ Esito: **OK**, **SBAGLIATO**, **NON VERIFICABILE** (NV, con i dati del repositor
 | README.md:39, 47, guida.html:230 | pesi del portafoglio e classi | universe.json | OK | identici (Trend 0) |
 | guida.html:238 | Trend: +21% nel 2008, +27% nel 2022 «per l'indice dei trend follower» | ricerca/managed-futures/rapporto.md:17,21 (Cambridge Associates, Hedgeweek) | NV con i dati dell'app; la fonte non è citata | +20,9 / +27,3 nella ricerca |
 | README.md:271, index.html:681 | equal-weight in media a 0,5 punti dagli ETF RSP* | RSP* settoriali non sono nei dati | NV | sull'S&P 500, contro RSP (chiusura rettificata di Yahoo): 0,4 / 0,9 / 1,5 / 2,0 punti su 3M/6M/YTD/1A; il confronto mescola il solo prezzo con il rendimento totale |
-| index.html:682 | «3 mesi al 16/10/2026, Tecnologia: 8,1% contro 5,8%» | sector_members.json, confronto-rea.md | IMPRECISO | 8,1 è letto da uno screenshot (NV); 5,8 è il buy-and-hold dal 17/07, mentre l'app mostra **5,7%** (63 sedute) |
+| index.html:682 | «3 mesi al 16/10/2026, Tecnologia: [valore di Rea tolto] contro 5,8%» | sector_members.json, confronto-rea.md | IMPRECISO | il valore di Rea era letto da uno screenshot (NV); 5,8 è il buy-and-hold dal 17/07, mentre l'app mostra **5,7%** (63 sedute) |
 | index.html:682 | «su 3 mesi la differenza resta di solito entro un punto» | letture di Rea (confronto_rea.mjs) contro l'app | IMPRECISO | equal-weight entro 1 punto in 9 settori su 11 (media 0,6); cap-weighted solo in 6 su 11 (media 1,1, Energia −2,6, Tecnologia −2,4) |
 | index.html:682 | cambia chi è davanti in Tecnologia e Industriali | idem | OK | XLK, XLI |
 
@@ -258,7 +258,7 @@ Nessuno nel senso di un numero inventato: tutte le statistiche principali si ric
 **M10. Taiwan, breadth** (config/indices.json TWN.note). Se la chiusura di Yahoo non rettifica i dividendi in azioni, lo stesso difetto sposta anche le medie a 200 sedute. Va verificato. Se si conferma, nella nota: «La chiusura di Yahoo non rettifica i dividendi in azioni, frequenti a Taiwan: anche la breadth può risultarne più bassa nei mesi dopo gli stacchi.»
 
 **M11. Rea contro la vista 7** (index.html:682):
-- «(3 mesi al 16/10/2026, Tecnologia: 8,1% contro 5,8% dalla stessa data di partenza; 5,7% sulle nostre 63 sedute)».
+- «(3 mesi al 16/10/2026, Tecnologia: [valore di Rea tolto] contro 5,8% dalla stessa data di partenza; 5,7% sulle nostre 63 sedute)».
 - «Su 3 mesi l'equal-weight resta di solito entro un punto (9 settori su 11); il cap-weighted si scosta in media di un punto, fino a 2-3 punti in Energia, Tecnologia e Materiali, …».
 
 **M12. Ore dell'aggiornamento** (app.js:22, index.html:731, guida:383): «verso l'una di notte con l'ora legale, verso mezzanotte d'inverno (ora italiana)», oppure «circa 45 minuti dopo la mezzanotte UTC».

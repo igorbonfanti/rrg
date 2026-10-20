@@ -382,7 +382,7 @@ export function createIndices(ctx) {
       ? `<span class="loc">modificato in questo browser · livello di default ${CFG[k].blue}%</span>`
       : CFG[k].blueSource === 'Rea'
         ? 'Livello di default dai grafici di Massimo Rea (quant-rea). Le regole di zona blu, trigger e cooldown sono quelle dei settori.'
-        : 'Livello di default calcolato: 3° percentile della breadth dell\'indice in tutta la sua storia, la quota di sedute (circa il 3%) che i livelli di Rea lasciano sotto la soglia sull\'S&P 500 e sui settori. Sugli indici con un livello di Rea la regola gli arriva entro un punto in 6 casi su 13 e altrove se ne scosta di molto (Nasdaq-100 11 contro 18). Regole di zona blu, trigger e cooldown come per i settori.';
+        : 'Livello di default calcolato: 3° percentile della breadth dell\'indice in tutta la sua storia, la quota di sedute (circa il 3%) che i livelli di Rea lasciano sotto la soglia sull\'S&P 500 e sui settori. Sugli indici con un livello di Rea la regola gli arriva entro un punto in 6 casi su 12 e altrove se ne scosta di molto (Nasdaq-100 11 contro 18). Regole di zona blu, trigger e cooldown come per i settori.';
     $('ixBlueReset').hidden = !changed(k);
     // situazione
     const b = s.pct200[t];

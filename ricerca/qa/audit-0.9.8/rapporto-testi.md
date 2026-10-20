@@ -32,7 +32,7 @@ Sono stati rieseguiti anche i due script citati dai testi: `ricerca/quant-rea/sc
 - **Testi rimasti indietro rispetto alla 0.9.8 e alla 0.9.7.**
   - «Ogni sera» e «aggiornamento serale» compaiono ancora in 5 punti.
   - Il README dice ancora che un indice apre il dettaglio «se non è anche un ticker della rotazione».
-- **Da decidere con l'utente.** La vista 7 mostra un valore di Rea (8,1%) letto da uno screenshot della sua piattaforma, e le letture sono salvate in uno script del repository pubblico. CLAUDE.md dice «niente dati estratti dalla piattaforma».
+- **Da decidere con l'utente.** La vista 7 mostra un valore di Rea letto da uno screenshot della sua piattaforma, e le letture sono salvate in uno script del repository pubblico. CLAUDE.md dice «niente dati estratti dalla piattaforma».
 
 ---
 
@@ -147,9 +147,9 @@ Esito: **OK** · **SBAGLIATO** · **IMPRECISO** (vero in parte) · **INDIETRO** 
 | 81 | README 19 | XLU al 29/09/2026: −15,1% con i dividendi, −16,8% sul solo prezzo | −15,06%. Il solo prezzo a quella data non è nei dati (`max52` vale solo per l'ultima seduta) | OK / NV |
 | 82 | README 19 | GLD −22,8% in tutte e due | −22,79% | OK |
 | 83 | README 20 · index 748 | GLD il 29/01/2026: 509,70 contro 495,90 | `max52`: ih 509,7, hi 495,9 | OK |
-| 84 | **index 693** | «3 mesi al 16/10/2026, Tecnologia: 8,1% contro 5,8%; 5,7% sulle nostre 63 sedute» | 8,1 è una lettura da uno screenshot di Rea; 5,8 viene da `confronto-rea.md`. Non ricalcolabili senza dati scaricati | NV (vedi il problema D1) |
+| 84 | **index 693** | «3 mesi al 16/10/2026, Tecnologia: [valore di Rea tolto] contro 5,8%; 5,7% sulle nostre 63 sedute» | il valore di Rea era una lettura da uno screenshot; 5,8 viene da `confronto-rea.md`. Non ricalcolabili senza dati scaricati | NV (vedi il problema D1) |
 | 85 | index 693 | equal-weight di solito entro un punto (9 settori su 11); cap-weighted in media un punto, 2-3 in Energia e Tecnologia | `confronto_rea.mjs` legge prezzi scaricati (`fetch.mjs`) che non sono nel repository | NV |
-| 86 | index 693 | cambia chi è davanti in Tecnologia e Industriali (16/10/2026) | segno della divergenza 3M diverso da Rea solo in XLK e XLI (T16) | OK |
+| 86 | index 693 | cambia chi è davanti in Tecnologia e Industriali (16/10/2026) | confronto con le letture di Rea, tolte dal repository il 20/10/2026; testo reso qualitativo nella 0.9.10 | tolto |
 | 87 | README 284 · index 692 | equal-weight in media a 0,5 punti dagli RSP*; la stima sposta i rendimenti al massimo di 0,07 punti | `check.mjs` legge dati scaricati; l'audit dati 0.9.0 aveva misurato al massimo 0,07 | NV |
 | 88 | README 284 | chi non è nelle holdings pesa 0,7 volte il 20° percentile | scripts/lib/capeq.js 213-216 | OK |
 
@@ -267,7 +267,7 @@ Testo proposto: «…Sugli indici con un livello di Rea la regola gli arriva ent
 
 ### Da correggere
 
-**D1. Valore di Rea letto da uno screenshot** (index.html 693: «Tecnologia: 8,1%»; letture `REA` in `ricerca/settori-titoli/script/confronto_rea.mjs`, repository pubblico). CLAUDE.md dice: «Niente dati estratti dalla piattaforma». Va deciso con l'utente.
+**D1. Valore di Rea letto da uno screenshot** (index.html 693: valore di Tecnologia; letture `REA` in `ricerca/settori-titoli/script/confronto_rea.mjs`, repository pubblico). CLAUDE.md dice: «Niente dati estratti dalla piattaforma». Va deciso con l'utente.
 - Proposta: togliere il numero di Rea e usare il nostro ricalcolo del suo metodo. «…quindi il suo valore di solito è più alto di quanto ha reso davvero un indice a capitalizzazione (3 mesi al 16/10/2026, Tecnologia: con i pesi di fine periodo 8,2%, con i pesi di inizio periodo 5,8% dalla stessa data di partenza; 5,7% sulle nostre 63 sedute)…»
 - Nello script si possono lasciare solo i segni (chi è davanti), oppure togliere le letture.
 

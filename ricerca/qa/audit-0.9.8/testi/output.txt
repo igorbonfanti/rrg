@@ -185,7 +185,6 @@ XLRE prezzo dal 2015-10-08 percentile dal 2016-10-07 breadth dal 2005-01-03 prim
 [T15] SPX min 0.8% il 2009-03-02 (nov 2008: 1.0% il 2008-11-20) · XLK min 0.0% il 2008-10-03 (nov 2008: 0.0% il 2008-11-03) · XLC min 0.0% il 2008-09-24 (nov 2008: 0.0% il 2008-11-03) · XLY min 2.4% il 2008-11-14 (nov 2008: 2.4% il 2008-11-14) · XLP min 0.0% il 2008-10-09 (nov 2008: 5.9% il 2008-11-19) · XLE min 0.0% il 2008-09-03 (nov 2008: 0.0% il 2008-11-03) · XLF min 0.0% il 2008-10-09 (nov 2008: 0.0% il 2008-11-11) · XLV min 0.0% il 2008-10-10 (nov 2008: 0.0% il 2008-11-20) · XLI min 0.0% il 2008-10-02 (nov 2008: 0.0% il 2008-11-03) · XLB min 0.0% il 2008-10-03 (nov 2008: 0.0% il 2008-11-03) · XLRE min 0.0% il 2008-10-07 (nov 2008: 0.0% il 2008-11-03) · XLU min 0.0% il 2008-10-07 (nov 2008: 0.0% il 2008-11-10)
 [T15] media delle breadth degli 11 settori: minimo 0.4% il 2008-10-09
 [T15] media il 20/11/2008: 0.8%; il 09/03/2009: 1.0%
-[T16] settori con il segno della divergenza 3M diverso da Rea al 16/10/2026: XLK, XLI
 [T17] 1 · Asset class contro XEON.MI: |RS-Ratio − 100| ≤ 3 nel 98.3% dei punti settimanali (2320)
 [T17] 2 · Fattori contro SWDA.MI: |RS-Ratio − 100| ≤ 3 nel 98.3% dei punti settimanali (1701)
 [T17] 3 · Regioni contro IUSQ.DE: |RS-Ratio − 100| ≤ 3 nel 100.0% dei punti settimanali (1160)
