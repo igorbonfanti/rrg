@@ -1,0 +1,452 @@
+[
+ {
+  "id": "H1",
+  "area": "guida rapida",
+  "test": "phone/dark pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+  "ok": "BUG",
+  "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+  "shot": "shots/h-phone-dark-modal.png",
+  "sev": ""
+ },
+ {
+  "id": "H2",
+  "area": "guida rapida",
+  "test": "phone/dark chiusura con × e con clic sullo sfondo",
+  "ok": "OK",
+  "detail": "dopo ×: false, dopo clic fuori: false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H3",
+  "area": "guida rapida",
+  "test": "phone/dark la modale sta nello schermo",
+  "ok": "OK",
+  "detail": "{\"w\":366,\"right\":378,\"iw\":390,\"sw\":364,\"cw\":364,\"h\":759.59375,\"ih\":844}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/dark link «Guida completa» dalla vista mon",
+  "ok": "OK",
+  "detail": "guida.html#mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/dark link «Guida completa» dalla vista rrg",
+  "ok": "OK",
+  "detail": "guida.html#rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/dark link «Guida completa» dalla vista btm",
+  "ok": "OK",
+  "detail": "guida.html#btm",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/dark link «Guida completa» dalla vista sec",
+  "ok": "OK",
+  "detail": "guida.html#sec",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/dark link «Guida completa» dalla vista alr",
+  "ok": "OK",
+  "detail": "guida.html#alr",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/dark link «Guida completa» dalla vista idx",
+  "ok": "OK",
+  "detail": "guida.html#idx",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/dark link «Guida completa» dalla vista tit",
+  "ok": "OK",
+  "detail": "guida.html#tit",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H5",
+  "area": "guida",
+  "test": "phone/dark «Guida completa» dalla Bottom Map apre guida.html#btm alla sezione",
+  "ok": "OK",
+  "detail": "{\"hash\":\"#btm\",\"top\":12,\"ih\":844,\"sy\":9955,\"toc\":true,\"theme\":\"dark\"}",
+  "shot": "shots/g-phone-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "G1",
+  "area": "guida",
+  "test": "phone/dark tutte le ancore interne esistono",
+  "ok": "OK",
+  "detail": "ancore=32 mancanti=",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G2",
+  "area": "guida",
+  "test": "phone/dark versione e niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "versione 0.9.9 del 20/10/2026 ov=0",
+  "shot": "shots/g-phone-dark-top.png",
+  "sev": ""
+ },
+ {
+  "id": "G3",
+  "area": "guida",
+  "test": "phone/dark voci dell'indice portano alla sezione (26)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «SECTOR·MON» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «← Torna all'app» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «Apri il Monitor →» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «Apri la Rotazione →» (./#rrg)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-rrg\",\"hash\":\"#rrg\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «Apri la Bottom Map →» (./#btm)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-btm\",\"hash\":\"#btm\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «Apri un settore (XLU) →» (./#XLU)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «Apri gli Alert →» (./#alr)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-alr\",\"hash\":\"#alr\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «Apri gli Indici →» (./#idx)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-idx\",\"hash\":\"#idx\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/dark link «Apri i Titoli →» (./#tit)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-tit\",\"hash\":\"#tit-XLU\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G5",
+  "area": "guida",
+  "test": "phone/dark indice: chiuso senza hash; con #tit la sezione è visibile e non coperta",
+  "ok": "OK",
+  "detail": "{\"t1\":false,\"t2\":{\"open\":false,\"top\":12,\"tocBottom\":-15796,\"tocH\":30,\"pos\":\"static\"}}",
+  "shot": "shots/g-phone-dark-hash-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "phone/dark nessun errore (app + guida)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H1",
+  "area": "guida rapida",
+  "test": "phone/light pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+  "ok": "BUG",
+  "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+  "shot": "shots/h-phone-light-modal.png",
+  "sev": ""
+ },
+ {
+  "id": "H2",
+  "area": "guida rapida",
+  "test": "phone/light chiusura con × e con clic sullo sfondo",
+  "ok": "OK",
+  "detail": "dopo ×: false, dopo clic fuori: false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H3",
+  "area": "guida rapida",
+  "test": "phone/light la modale sta nello schermo",
+  "ok": "OK",
+  "detail": "{\"w\":366,\"right\":378,\"iw\":390,\"sw\":364,\"cw\":364,\"h\":759.59375,\"ih\":844}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/light link «Guida completa» dalla vista mon",
+  "ok": "OK",
+  "detail": "guida.html#mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/light link «Guida completa» dalla vista rrg",
+  "ok": "OK",
+  "detail": "guida.html#rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/light link «Guida completa» dalla vista btm",
+  "ok": "OK",
+  "detail": "guida.html#btm",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/light link «Guida completa» dalla vista sec",
+  "ok": "OK",
+  "detail": "guida.html#sec",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/light link «Guida completa» dalla vista alr",
+  "ok": "OK",
+  "detail": "guida.html#alr",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/light link «Guida completa» dalla vista idx",
+  "ok": "OK",
+  "detail": "guida.html#idx",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "phone/light link «Guida completa» dalla vista tit",
+  "ok": "OK",
+  "detail": "guida.html#tit",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H5",
+  "area": "guida",
+  "test": "phone/light «Guida completa» dalla Bottom Map apre guida.html#btm alla sezione",
+  "ok": "OK",
+  "detail": "{\"hash\":\"#btm\",\"top\":12,\"ih\":844,\"sy\":9955,\"toc\":true,\"theme\":\"light\"}",
+  "shot": "shots/g-phone-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "G1",
+  "area": "guida",
+  "test": "phone/light tutte le ancore interne esistono",
+  "ok": "OK",
+  "detail": "ancore=32 mancanti=",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G2",
+  "area": "guida",
+  "test": "phone/light versione e niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "versione 0.9.9 del 20/10/2026 ov=0",
+  "shot": "shots/g-phone-light-top.png",
+  "sev": ""
+ },
+ {
+  "id": "G3",
+  "area": "guida",
+  "test": "phone/light voci dell'indice portano alla sezione (26)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «SECTOR·MON» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «← Torna all'app» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «Apri il Monitor →» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «Apri la Rotazione →» (./#rrg)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-rrg\",\"hash\":\"#rrg\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «Apri la Bottom Map →» (./#btm)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-btm\",\"hash\":\"#btm\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «Apri un settore (XLU) →» (./#XLU)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «Apri gli Alert →» (./#alr)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-alr\",\"hash\":\"#alr\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «Apri gli Indici →» (./#idx)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-idx\",\"hash\":\"#idx\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "phone/light link «Apri i Titoli →» (./#tit)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-tit\",\"hash\":\"#tit-XLU\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G5",
+  "area": "guida",
+  "test": "phone/light indice: chiuso senza hash; con #tit la sezione è visibile e non coperta",
+  "ok": "OK",
+  "detail": "{\"t1\":false,\"t2\":{\"open\":false,\"top\":12,\"tocBottom\":-15796,\"tocH\":30,\"pos\":\"static\"}}",
+  "shot": "shots/g-phone-light-hash-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "phone/light nessun errore (app + guida)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

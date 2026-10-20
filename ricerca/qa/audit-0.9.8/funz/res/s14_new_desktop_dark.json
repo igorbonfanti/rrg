@@ -1,0 +1,407 @@
+[
+ {
+  "id": "P1",
+  "area": "pannelli",
+  "test": "desktop/dark XLF: episodi e cali forti chiusi di default",
+  "ok": "OK",
+  "detail": "[false,false,\"EPISODI IN ZONA BLU 5 zone blu dal 03/01/2005 con livello 6% · 7 trigger, 2 falliti · rendimenti a confronto sotto la tabella\"]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P2",
+  "area": "pannelli",
+  "test": "desktop/dark XLF: il titolo chiuso dice quante zone blu, trigger e falliti",
+  "ok": "OK",
+  "detail": "EPISODI IN ZONA BLU 5 zone blu dal 03/01/2005 con livello 6% · 7 trigger, 2 falliti · rendimenti a confronto sotto la tabella",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P3",
+  "area": "pannelli",
+  "test": "desktop/dark XLF: aperti con un clic, episodi visibili, scelta salvata in sm.opened",
+  "ok": "OK",
+  "detail": "righe episodi=10 sm.opened={\"secEpi\":true,\"secCap\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P4",
+  "area": "pannelli",
+  "test": "desktop/dark XLF: restano aperti dopo il ricaricamento",
+  "ok": "OK",
+  "detail": "[true,true]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P5",
+  "area": "pannelli",
+  "test": "desktop/dark XLF: restano aperti cambiando settore",
+  "ok": "OK",
+  "detail": "[true,true]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P1",
+  "area": "pannelli",
+  "test": "desktop/dark idx: episodi e cali forti chiusi di default",
+  "ok": "OK",
+  "detail": "[false,false,\"EPISODI IN ZONA BLU 4 zone blu dal 03/01/2005 con livello 13% · 6 trigger, 2 falliti · rendimenti a confronto sotto la tabella\"]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P2",
+  "area": "pannelli",
+  "test": "desktop/dark idx: il titolo chiuso dice quante zone blu e trigger",
+  "ok": "OK",
+  "detail": "EPISODI IN ZONA BLU 4 zone blu dal 03/01/2005 con livello 13% · 6 trigger, 2 falliti · rendimenti a confronto sotto la tabella",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P3",
+  "area": "pannelli",
+  "test": "desktop/dark idx: aperti con un clic, episodi visibili, scelta salvata in sm.opened",
+  "ok": "OK",
+  "detail": "righe episodi=7 sm.opened={\"secEpi\":true,\"secCap\":true,\"ixEpi\":true,\"ixCap\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P4",
+  "area": "pannelli",
+  "test": "desktop/dark idx: restano aperti dopo il ricaricamento",
+  "ok": "OK",
+  "detail": "[true,true]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P5",
+  "area": "pannelli",
+  "test": "desktop/dark idx: restano aperti cambiando indice",
+  "ok": "OK",
+  "detail": "[true,true]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X1",
+  "area": "cali forti",
+  "test": "desktop/dark XLF 3A: grafico dei cali forti largo come il principale, stesse date agli stessi pixel",
+  "ok": "OK",
+  "detail": "largh. 1048/1048 sin. 30/30 etichette [[\"gen 24\",110],[\"apr 24\",188],[\"lug 24\",269]] vs [[\"gen 24\",110],[\"apr 24\",188],[\"lug 24\",269]]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark XLF 3A: linea da ts a secCapSvg (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.0370370370371},{\"vis\":\"visible\",\"x\":651.0370370370371}] tip «08/09/2025 XLF · normale Prezzo 52,11 Media 200 49,32 Drawdown 52s −1,8% Sopra m» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark XLF 3A: linea da secCapSvg a ts (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.0370370370371},{\"vis\":\"visible\",\"x\":651.0370370370371}] tip «08/09/2025 XLF Prezzo 52,11 Cali forti 0 Soglia di allerta 70» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X4",
+  "area": "testo",
+  "test": "desktop/dark XLF 3A: niente NaN/undefined",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X1",
+  "area": "cali forti",
+  "test": "desktop/dark XLF 10A: grafico dei cali forti largo come il principale, stesse date agli stessi pixel",
+  "ok": "OK",
+  "detail": "largh. 1048/1048 sin. 30/30 etichette [[\"2017\",62],[\"2018\",159],[\"2019\",255]] vs [[\"2017\",62],[\"2018\",159],[\"2019\",255]]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark XLF 10A: linea da ts a secCapSvg (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.5514218169537},{\"vis\":\"visible\",\"x\":651.5514218169537}] tip «31/01/2023 XLF · normale Prezzo 34,42 Media 200 31,53 Drawdown 52s −9,0% Sopra m» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark XLF 10A: linea da secCapSvg a ts (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.5514218169537},{\"vis\":\"visible\",\"x\":651.5514218169537}] tip «31/01/2023 XLF Prezzo 34,42 Cali forti 0 Soglia di allerta 73» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X4",
+  "area": "testo",
+  "test": "desktop/dark XLF 10A: niente NaN/undefined",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X1",
+  "area": "cali forti",
+  "test": "desktop/dark XLF MAX: grafico dei cali forti largo come il principale, stesse date agli stessi pixel",
+  "ok": "OK",
+  "detail": "largh. 1048/1048 sin. 30/30 etichette [[\"2006\",84],[\"2007\",128],[\"2008\",173]] vs [[\"2006\",84],[\"2007\",128],[\"2008\",173]]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark XLF MAX: linea da ts a secCapSvg (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.4574025631273},{\"vis\":\"visible\",\"x\":651.4574025631273}] tip «21/09/2018 XLF · normale Prezzo 24,72 Media 200 23,96 Drawdown 52s −3,6% Sopra m» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark XLF MAX: linea da secCapSvg a ts (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.4574025631273},{\"vis\":\"visible\",\"x\":651.4574025631273}] tip «21/09/2018 XLF Prezzo 24,72 Cali forti 0 Soglia di allerta 73» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X4",
+  "area": "testo",
+  "test": "desktop/dark XLF MAX: niente NaN/undefined",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X1",
+  "area": "cali forti",
+  "test": "desktop/dark idx 3A: grafico dei cali forti largo come il principale, stesse date agli stessi pixel",
+  "ok": "OK",
+  "detail": "largh. 1048/1048 sin. 30/30 etichette [[\"gen 24\",110],[\"apr 24\",188],[\"lug 24\",269]] vs [[\"gen 24\",110],[\"apr 24\",188],[\"lug 24\",269]]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark idx 3A: linea da ixTs a ixCapSvg (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.0370370370371},{\"vis\":\"visible\",\"x\":651.0370370370371}] tip «08/09/2025 SPX · normale Prezzo 6495,15 Media 200 5972,23 Drawdown 52s −0,1% Sop» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark idx 3A: linea da ixCapSvg a ixTs (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.0370370370371},{\"vis\":\"visible\",\"x\":651.0370370370371}] tip «08/09/2025 SPX Prezzo 6495,15 Cali forti 3 Soglia di allerta 277» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X4",
+  "area": "testo",
+  "test": "desktop/dark idx 3A: niente NaN/undefined",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X1",
+  "area": "cali forti",
+  "test": "desktop/dark idx 10A: grafico dei cali forti largo come il principale, stesse date agli stessi pixel",
+  "ok": "OK",
+  "detail": "largh. 1048/1048 sin. 30/30 etichette [[\"2017\",62],[\"2018\",159],[\"2019\",255]] vs [[\"2017\",62],[\"2018\",159],[\"2019\",255]]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark idx 10A: linea da ixTs a ixCapSvg (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.5514218169537},{\"vis\":\"visible\",\"x\":651.5514218169537}] tip «31/01/2023 SPX · normale Prezzo 4076,60 Media 200 3954,01 Drawdown 52s −12,0% So» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark idx 10A: linea da ixCapSvg a ixTs (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.5514218169537},{\"vis\":\"visible\",\"x\":651.5514218169537}] tip «31/01/2023 SPX Prezzo 4076,60 Cali forti 3 Soglia di allerta 280» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X4",
+  "area": "testo",
+  "test": "desktop/dark idx 10A: niente NaN/undefined",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X1",
+  "area": "cali forti",
+  "test": "desktop/dark idx MAX: grafico dei cali forti largo come il principale, stesse date agli stessi pixel",
+  "ok": "OK",
+  "detail": "largh. 1048/1048 sin. 30/30 etichette [[\"2006\",84],[\"2007\",128],[\"2008\",173]] vs [[\"2006\",84],[\"2007\",128],[\"2008\",173]]",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark idx MAX: linea da ixTs a ixCapSvg (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.4574025631273},{\"vis\":\"visible\",\"x\":651.4574025631273}] tip «21/09/2018 SPX · normale Prezzo 2929,67 Media 200 2750,37 Drawdown 52s 0,0% Sopr» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "cursore",
+  "test": "desktop/dark idx MAX: linea da ixCapSvg a ixTs (mouse), poi sparisce",
+  "ok": "OK",
+  "detail": "linee [{\"vis\":\"visible\",\"x\":651.4574025631273},{\"vis\":\"visible\",\"x\":651.4574025631273}] tip «21/09/2018 SPX Prezzo 2929,67 Cali forti 2 Soglia di allerta 278» dopo: hidden/hidden",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X3",
+  "area": "cali forti",
+  "test": "desktop/dark SPX MAX: picchi tagliati scritti in alto (▲ valore, mese)",
+  "ok": "OK",
+  "detail": "▲557 (ott 2008) | ▲1082 (mar 2020)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X4",
+  "area": "testo",
+  "test": "desktop/dark idx MAX: niente NaN/undefined",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TV1",
+  "area": "TradingView",
+  "test": "desktop/dark 11 settori: link ETF e breadth nella Situazione, link di ogni titolo del settore (nuova scheda)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TV2",
+  "area": "TradingView",
+  "test": "desktop/dark 22 indici: link nella Situazione (indice + breadth o ETF del prezzo dove serve)",
+  "ok": "OK",
+  "detail": "SPX:SP:SPX+INDEX:S5TH NDX:NASDAQ:NDX+INDEX:NDTH DJI:DJ:DJI+INDEX:DITH N225:TVC:NI225 SXXP:TVC:SXXP UKX:TVC:UKX DAX:XETR:DAX CAC:EURONEXT:PX1 SMI:SIX:SMI RUT:TVC:RUT+INDEX:R2TH TSX60:TSX:TX60+TSX:XIU SX5E:TVC:SX5E FTSEMIB:INDEX:FTSEMIB IBEX:BME:IBC HSI:TVC:HSI CSI300:SSE:000300+SSE:510300 KOSPI200:KRX:KOSPI200+KRX:KOSPI TWN:TWSE:TAIEX+AMEX:EWT NIFTY50:NSE:NIFTY ASX200:ASX:XJO EEM:AMEX:EEM IBOV:BMFBOVESPA:IBOV",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TV3",
+  "area": "TradingView",
+  "test": "desktop/dark vista 7: link dei «più in pena»",
+  "ok": "OK",
+  "detail": "FICO https://www.tradingview.com/chart/?symbol=FICO _blank | WDC https://www.tradingview.com/chart/?symbol=WDC _blank | FLEX https://www.tradingview.com/chart/?symbol=FLEX _blank",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z1",
+  "area": "zoom",
+  "test": "desktop/dark btm: «Zoom sulla zona» cambia gli assi, resta dopo il ricaricamento, si spegne",
+  "ok": "OK",
+  "detail": "prima 0°,25°,50°,75°,100°,−10,0,+10,+20,+30,+40,+50,+60,+70,+80,+9 · zoom 50°,60°,70°,80°,90°,100°,−10,0,+10,+20,+30,+40 · ricaricato true · spento false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z2",
+  "area": "zoom",
+  "test": "desktop/dark btm: zoom alla crisi di marzo 2020, punti di oggi (teste) dentro il grafico, niente NaN (le code fuori dalla zona sono tagliate)",
+  "ok": "OK",
+  "detail": "fuori=0 ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z1",
+  "area": "zoom",
+  "test": "desktop/dark idx: «Zoom sulla zona» cambia gli assi, resta dopo il ricaricamento, si spegne",
+  "ok": "OK",
+  "detail": "prima 0°,25°,50°,75°,100°,−10,0,+10,+20,+30,+40,+50,+60,+70,+80 · zoom 50°,60°,70°,80°,90°,100°,−10,0,+10,+20,+30,+40 · ricaricato true · spento false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z2",
+  "area": "zoom",
+  "test": "desktop/dark idx: zoom alla crisi di marzo 2020, punti di oggi (teste) dentro il grafico, niente NaN (le code fuori dalla zona sono tagliate)",
+  "ok": "OK",
+  "detail": "fuori=0 ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "CF1",
+  "area": "cali forti",
+  "test": "desktop/dark indici con 0 cali nelle ultime sedute: percentile 0°",
+  "ok": "OK",
+  "detail": "CAC «0°» (Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0) | FTSEMIB «0°» (Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0) | DJI «0°» (Cali forti al 19/10/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0) | UKX «0°» (Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0) | IBEX «0°» (Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0) | DAX «0°» (Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0) | SMI «0°» (Cali forti al 16/10/2",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "desktop/dark nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "pagina",
+  "test": "desktop/dark niente scroll orizzontale alla fine",
+  "ok": "OK",
+  "detail": "0",
+  "shot": "",
+  "sev": ""
+ }
+]

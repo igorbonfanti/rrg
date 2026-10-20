@@ -1,0 +1,848 @@
+[
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «XLU»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":null,\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «xlk»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLK\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLK · Technology\",\"ix\":null,\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «XLK TIT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLK\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLK · Technology\",\"ix\":null,\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «XLU SEC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":null,\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «ORO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":null,\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «NDX»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"NDX\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «N225»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"N225\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «DAX»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"DAX\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «SMI»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"SMI\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «SPY»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"SMI\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «CAC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «CAC.PA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"6 · Indici\",\"bench\":\"IUSQ.DE\",\"pin\":\"CAC.PA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «cac»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"6 · Indici\",\"bench\":\"IUSQ.DE\",\"pin\":\"CAC.PA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «ORO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «SPY»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «FTSEMIB»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"FTSEMIB\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «TWN»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «QQQ»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"Settori S&P 500\",\"bench\":\"QQQ\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «INDIA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"4 · Paesi\",\"bench\":\"IUSQ.DE\",\"pin\":\"QDV5.DE\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «TESLA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"MAG7\",\"bench\":\"QQQ\",\"pin\":\"TSLA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «nvda»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"MAG7\",\"bench\":\"QQQ\",\"pin\":\"NVDA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «SWDA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SWDA.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «PTF»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SWDA.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «GLD»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"GLD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «BITCOIN»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «BTC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":true,\"ph\":\"\\\"BTC\\\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «XLU GO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «MON»",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «ROT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «RRG»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «BTM»",
+  "ok": "OK",
+  "detail": "{\"view\":\"btm\",\"hash\":\"#btm\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «SEC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «ALRT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"alr\",\"hash\":\"#alr\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «ALERT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"alr\",\"hash\":\"#alr\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «IDX»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «TIT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLU\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «indici»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «HELP»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":true,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «GUIDA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":true,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «CHIARO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"light\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «TEMA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «SCURO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «ZZZZ»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":true,\"ph\":\"\\\"ZZZZ\\\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «XLK FOO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":true,\"ph\":\"\\\"XLK FOO\\\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "desktop comando «   »",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K2",
+  "area": "comandi",
+  "test": "desktop avviso «non trovato» sparisce dopo 4 s",
+  "ok": "OK",
+  "detail": "Ticker, nome o vista: XLU, ORO, NDX, XLK TIT, HELP",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "desktop tasto 2 → rrg",
+  "ok": "OK",
+  "detail": "rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "desktop tasto 3 → btm",
+  "ok": "OK",
+  "detail": "btm",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "desktop tasto 4 → sec",
+  "ok": "OK",
+  "detail": "sec",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "desktop tasto 5 → alr",
+  "ok": "OK",
+  "detail": "alr",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "desktop tasto 6 → idx",
+  "ok": "OK",
+  "detail": "idx",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "desktop tasto 7 → tit",
+  "ok": "OK",
+  "detail": "tit",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "desktop tasto 1 → mon",
+  "ok": "OK",
+  "detail": "mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K4",
+  "area": "tasti",
+  "test": "desktop ? apre la guida, Esc la chiude",
+  "ok": "OK",
+  "detail": "true false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K5",
+  "area": "tasti",
+  "test": "desktop / porta alla barra; scrivendo un numero non cambia vista",
+  "ok": "OK",
+  "detail": "cmd mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K6",
+  "area": "tasti",
+  "test": "desktop frecce/Home/Fine sulle schede",
+  "ok": "OK",
+  "detail": "{\"a1\":{\"f\":\"tab-rrg\",\"v\":\"v-rrg\"},\"a2\":{\"f\":\"tab-tit\",\"v\":\"v-tit\"},\"a3\":{\"f\":\"tab-mon\"},\"a4\":{\"f\":\"tab-tit\"}}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K7",
+  "area": "accessibilità",
+  "test": "desktop schede con tabindex «roving»",
+  "ok": "OK",
+  "detail": "-1,-1,-1,-1,-1,-1,0",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K8",
+  "area": "tasti",
+  "test": "desktop scorciatoie spente dalla guida: 3 e ? non fanno niente",
+  "ok": "OK",
+  "detail": "tit help=false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #mon",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #rrg",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #btm",
+  "ok": "OK",
+  "detail": "{\"view\":\"btm\",\"hash\":\"#btm\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #sec",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #alr",
+  "ok": "OK",
+  "detail": "{\"view\":\"alr\",\"hash\":\"#alr\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #idx",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"sec\":\"\",\"ix\":\"TWN\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #tit",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLU\",\"sec\":\"\",\"tit\":\"XLU\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #xlu",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #XLE",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLE\",\"sec\":\"XLE · Energy\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #tit-XLK",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLK\",\"sec\":\"\",\"tit\":\"XLK\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #tit-xlb",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLB\",\"sec\":\"\",\"tit\":\"XLB\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #TIT-ZZZ",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #pippo",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "desktop apertura diretta #NDX",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K10",
+  "area": "indirizzi",
+  "test": "desktop cambio dell'hash a mano apre la vista",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K11",
+  "area": "indirizzi",
+  "test": "desktop Indietro: btm → XLK → XLU → rrg → mon; Avanti → rrg",
+  "ok": "OK",
+  "detail": "sec#XLK sec#XLU rrg#rrg mon#mon · avanti rrg#rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K12",
+  "area": "ricarica",
+  "test": "desktop universo, benchmark, formula, coda, timeframe, tema, CVD restano",
+  "ok": "OK",
+  "detail": "prima {\"g\":\"MAG7\",\"b\":\"QQQ\",\"f\":\"semplice\",\"t\":\"16\",\"tf\":\"daily\",\"th\":\"light\",\"cvd\":true,\"cvdA\":\"true\",\"thA\":\"true\"} dopo {\"g\":\"MAG7\",\"b\":\"QQQ\",\"f\":\"semplice\",\"t\":\"16\",\"tf\":\"daily\",\"th\":\"light\",\"cvd\":true,\"cvdA\":\"true\",\"thA\":\"true\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K12b",
+  "area": "tema",
+  "test": "desktop tema chiaro: color-scheme e theme-color coerenti",
+  "ok": "OK",
+  "detail": "{\"cs\":\"light\",\"meta\":\"dark\",\"tc\":\"#ffffff\"}",
+  "shot": "shots/k-desktop-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "K13",
+  "area": "ricarica",
+  "test": "desktop scala Massima resta dopo la ricarica (guida: «La scelta resta nel browser»)",
+  "ok": "OK",
+  "detail": "dopo ricarica: max",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z1",
+  "area": "console",
+  "test": "desktop nessun errore (comandi/tasti)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V1",
+  "area": "versione",
+  "test": "desktop version.json diversa: compare «Nuova versione»",
+  "ok": "OK",
+  "detail": "{\"h\":false,\"t\":\"Nuova versione 9.9.9: ricarica\",\"title\":\"Stai usando la 0.9.9. Se dopo il clic resta questo avviso, ricarica con Ctrl+F5 (su Mac Cmd+Maiusc+R).\"}",
+  "shot": "shots/v-desktop-banner.png",
+  "sev": ""
+ },
+ {
+  "id": "V2",
+  "area": "versione",
+  "test": "desktop clic: riscarica i file e ricarica la pagina",
+  "ok": "OK",
+  "detail": "ricariche=1 richieste=66",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V3",
+  "area": "versione",
+  "test": "desktop versione uguale: niente avviso",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V4",
+  "area": "versione",
+  "test": "desktop version.json non valida: niente avviso, niente errori",
+  "ok": "OK",
+  "detail": "[reqfail] http://127.0.0.1:8805/data/breadth_latest.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/engine.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/data/sectors.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/titles.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/rrg-chart.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/config/indices.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/perf-chart.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/portfolio.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/sector-chart.js net::ERR_ABORTED|[r",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V5",
+  "area": "versione",
+  "test": "desktop version.json irraggiungibile: niente avviso",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V6",
+  "area": "versione",
+  "test": "desktop controllo al ritorno sulla scheda (visibilitychange)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V7",
+  "area": "versione",
+  "test": "desktop numero di versione e novità al passaggio",
+  "ok": "OK",
+  "detail": "{\"t\":\"v0.9.9\",\"title\":\"Versione 0.9.9 del 20/10/2026\\nNovità:\\n· Aggiornamento notturno più robusto: una corsa partita in coda usa i dati appena pubblicati; il registro degli alert si salva anche se un invio Telegram fallisce, e un evento annullato non viene più rimandato\\n· Dati USA più presto la mattina: corse di recupero ogni ora nelle prime ore, che si fermano se la seduta c'è già; testi con gli orari reali dell'aggiornamento\\n· Settore e Indici: «Episodi in zona blu» richiudibile; grafico dei cali forti sulle stesse date del grafico principale, linea del cursore in tutti i grafici, scala ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N1",
+  "area": "intro",
+  "test": "desktop intro alla prima visita, «Apri la guida», «Ho capito» e non ricompare",
+  "ok": "OK",
+  "detail": "{\"in0\":true,\"in1\":true,\"fIntro\":\"introHelp\",\"in2\":{\"h\":true,\"ls\":\"true\",\"f\":\"BUTTON#tab-mon\"},\"in3\":true}",
+  "shot": "shots/i-desktop-intro.png",
+  "sev": ""
+ },
+ {
+  "id": "N2",
+  "area": "accessibilità",
+  "test": "desktop dopo «Ho capito» il focus non si perde sul body",
+  "ok": "OK",
+  "detail": "BUTTON#tab-mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N3",
+  "area": "monitor",
+  "test": "desktop striscia «cosa è cambiato»",
+  "ok": "OK",
+  "detail": "{\"h\":false,\"t\":\"DALLA TUA VISITA CON I DATI AL 09/10/2026 XLRE Normale → Attenzione XLU Zona blu → Trigger breadth XLRE 25 → 10% XLU 9 → 16%\",\"items\":[\"XLRE\",\"XLU\",\"XLRE\",\"XLU\"]}",
+  "shot": "shots/n-desktop-changes.png",
+  "sev": ""
+ },
+ {
+  "id": "N4",
+  "area": "monitor",
+  "test": "desktop voce della striscia apre il settore",
+  "ok": "OK",
+  "detail": "#XLRE",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N5",
+  "area": "monitor",
+  "test": "desktop clic su riga del Monitor apre il dettaglio",
+  "ok": "OK",
+  "detail": "XLU → #XLU",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N6",
+  "area": "accessibilità",
+  "test": "desktop riga del Monitor apribile con Invio",
+  "ok": "OK",
+  "detail": "#XLRE",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N7",
+  "area": "monitor",
+  "test": "desktop scheda «Settori da osservare» apre il settore",
+  "ok": "OK",
+  "detail": "#XLU",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z2",
+  "area": "console",
+  "test": "desktop nessun errore (intro/striscia)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

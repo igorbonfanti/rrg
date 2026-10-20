@@ -56,7 +56,7 @@ const R = new L.Rec('s4_alr_idx_' + prof + '_' + (process.argv[3] || 'dark'));
   const d0 = await ev(() => ({ t: document.getElementById('ixTitle').textContent, chip: document.querySelector('#ixChips button[aria-pressed="true"]').dataset.ix, ls: localStorage.getItem('sm.ixSel'), check: document.getElementById('ixCheck').innerText.length, epi: document.querySelectorAll('#ixEpiTable tr').length, facts: document.getElementById('ixFacts').innerText.length }));
   R.add('I8', 'indici', `${tag} clic su riga apre il dettaglio`, d0.chip === rowK && d0.check > 20 && d0.facts > 20 && d0.ls === JSON.stringify(rowK), JSON.stringify(d0));
   // coerenza tabella / dettaglio
-  const tb = await ev((k) => { const tr = document.querySelector(`#ixTable tbody tr[data-ix="${k}"]`); return [tr.cells[2].innerText.split('\n')[0], tr.cells[4].innerText.split('\n')[0], tr.cells[7].innerText]; }, rowK);
+  const tb = await ev((k) => { const tr = document.querySelector(`#ixTable tbody tr[data-ix="${k}"]`); const f = (t) => (t.match(/[−+-]?[\d.]+,\d+%/) || [t.split('\n')[0]])[0]; return [f(tr.cells[2].innerText), f(tr.cells[4].innerText), tr.cells[7].innerText]; }, rowK);
   const facts = await ev(() => document.getElementById('ixFacts').innerText.replace(/\s+/g, ' '));
   R.add('I9', 'coerenza', `${tag} ${rowK}: breadth, drawdown e ultimo uguali tra tabellone e Situazione`, tb.slice(0, 2).every((x) => facts.includes(x.trim())), `tabella ${tb.join(' / ')} · situazione ${facts.slice(0, 300)}`);
   // chip del dettaglio

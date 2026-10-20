@@ -1,0 +1,1109 @@
+[
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices.json (404): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (data/prices.json: HTTP 404). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices.json (troncato): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Expected ':' after property name in JSON at position 400 (line 1 column 401)). In locale esegui gli script in scripts/ e servi la c",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices.json (vuoto): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Unexpected end of JSON input). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "BUG",
+  "detail": "Impossibile caricare i dati (Cannot convert undefined or null to object). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sectors.json (404): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (data/sectors.json: HTTP 404). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sectors.json (troncato): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Unterminated string in JSON at position 400 (line 1 column 401)). In locale esegui gli script in scripts/ e servi la cartella con u",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sectors.json (vuoto): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Unexpected end of JSON input). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sectors.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "BUG",
+  "detail": "Impossibile caricare i dati (Cannot convert undefined or null to object). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth.json (404): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (data/breadth.json: HTTP 404). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth.json (troncato): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Unterminated string in JSON at position 400 (line 1 column 401)). In locale esegui gli script in scripts/ e servi la cartella con u",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth.json (vuoto): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Unexpected end of JSON input). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "BUG",
+  "detail": "Impossibile caricare i dati (Cannot read properties of undefined (reading 'XLK')). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/thresholds.json (404): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (config/thresholds.json: HTTP 404). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/thresholds.json (troncato): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Unterminated string in JSON at position 381 (line 4 column 17)). In locale esegui gli script in scripts/ e servi la cartella con un",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/thresholds.json (vuoto): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "OK",
+  "detail": "Impossibile caricare i dati (Failed to execute 'json' on 'Response': Unexpected end of JSON input). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D1",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/thresholds.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+  "ok": "BUG",
+  "detail": "Impossibile caricare i dati (Cannot read properties of undefined (reading 'XLU')). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (404): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (troncato): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json (vuoto): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json ({}): nessun errore JavaScript non gestito",
+  "ok": "BUG",
+  "detail": "[pageerror] Cannot read properties of undefined (reading 'filter')",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/breadth_latest.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (404): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (troncato): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json (vuoto): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/alerts.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (404): scheda Indici nascosta e #idx non porta a una pagina vuota",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (troncato): scheda Indici nascosta e #idx non porta a una pagina vuota",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json (vuoto): scheda Indici nascosta e #idx non porta a una pagina vuota",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark config/indices.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "BUG",
+  "detail": "mon: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | rrg: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | btm: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | sec: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | alr: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | idx: ssibile caricare i dati (Cannot convert undefined or null to",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (404): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (data/capitulation.json: HTTP 404) PIÙ VICINO AL LIVELLO B»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (troncato): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json (vuoto): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/capitulation.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (404): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (data/indices.json: HTTP 404).»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (troncato): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json (vuoto): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "BUG",
+  "detail": "idx:  disponibili (Cannot read properties of undefined (reading 'SPX')).",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (404): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (troncato): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json (vuoto): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/indices_more.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (404): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | tit: «Dati dei titoli non disponibili (data/sector_members.json: HTTP 404).»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (troncato): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | tit: «Dati dei titoli non disponibili (Unexpected end of JSON input).»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json (vuoto): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | tit: «Dati dei titoli non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/sector_members.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (404): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (troncato): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json (vuoto): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json ({}): nessun errore JavaScript non gestito",
+  "ok": "BUG",
+  "detail": "[error] UNHANDLED_REJECTION TypeError: Cannot convert undefined or null to object\n    at Object.entries (<anonymous>)\n    at addPortfolios (http://127.0.0.1:8805/js/app.js:130:36)\n    at setExtras (http://127.0.0.1:8805/js/app.js:102:27)\n    at http://127.0.0.1:8805/js/app.js:95:58 | [pageerror] Cannot convert undefined or null to object",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_global.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (404): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (troncato): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json (vuoto): l'app dice che il dato manca",
+  "ok": "BUG",
+  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json ({}): nessun errore JavaScript non gestito",
+  "ok": "BUG",
+  "detail": "[error] UNHANDLED_REJECTION TypeError: Cannot convert undefined or null to object\n    at Object.entries (<anonymous>)\n    at addMetrics (http://127.0.0.1:8805/js/app.js:212:31)\n    at afterExtras (http://127.0.0.1:8805/js/app.js:107:59)\n    at http://127.0.0.1:8805/js/app.js:95:72 | [pageerror] Cannot convert undefined or null to object",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark data/prices_macro.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "desktop/dark version.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]
