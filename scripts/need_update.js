@@ -34,6 +34,14 @@ export function needUpdate(s) {
 }
 
 async function main() {
+  const schedule = process.env.SCHEDULE || '';
+  // le corse principali partono senza leggere i dati: un file rotto non deve fermare l'aggiornamento che lo riscrive
+  const r = schedule === RECOVERY ? await check(schedule).catch((e) => ({ run: true, why: `controllo non riuscito (${e.message})` })) : needUpdate({ schedule });
+  console.log(`${r.run ? 'Aggiorno' : 'Salto'}: ${r.why}.`);
+  if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `run=${r.run}\n`);
+}
+
+async function check(schedule) {
   const read = (f) => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', f), 'utf-8')); } catch { return null; } };
   const { indexSeries } = await import('../js/indexdata.js');
   const ix = (read('indices.json') || {}).series || {};
@@ -43,12 +51,10 @@ async function main() {
     while (t >= 0 && x.pct200[t] == null) t--;
     return [k, t >= 0 ? x.dates[t] : null];
   }));
-  const r = needUpdate({
-    schedule: process.env.SCHEDULE || '', expected: expectedSession(),
+  return needUpdate({
+    schedule, expected: expectedSession(),
     prices: (read('prices.json') || {}).asOf, breadth: (read('breadth.json') || {}).asOf, indexLast,
   });
-  console.log(`${r.run ? 'Aggiorno' : 'Salto'}: ${r.why}.`);
-  if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `run=${r.run}\n`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

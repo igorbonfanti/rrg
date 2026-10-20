@@ -101,7 +101,7 @@ async function main() {
   };
   if (!state) console.log(`Prima esecuzione: registro lo stato al ${asOf} senza inviare lo storico.`);
   // invii falliti nelle sere scorse: si riprovano finché l'evento è recente
-  const retry = (state ? state.log : []).filter((e) => e.failed && e.date >= retryFrom(sectors.dates, asOf));
+  const retry = (state ? state.log : []).filter((e) => e.failed && !e.retracted && e.date >= retryFrom(sectors.dates, asOf)); // non un evento annullato dal ricalcolo
   if (token && chat) for (const e of retry) if (await send(e)) { e.telegram = true; delete e.failed; console.log(`Inviato in ritardo: ${e.date} ${e.sector} ${e.code}`); }
   for (const e of cancelled) {
     console.log(`Annullato dopo il ricalcolo: ${e.date} ${e.sector} ${e.code}`);
