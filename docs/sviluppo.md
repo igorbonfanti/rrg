@@ -178,7 +178,7 @@ Altri punti:
 
 ## 9. Procedure
 
-- **Pubblicare**: vedi `CLAUDE.md`. Si copiano su `main` solo i file dell'app, mai `ricerca/`; i dati su `main` li aggiorna la Action.
+- **Pubblicare**: vedi `CLAUDE.md`. Si copiano su `main` solo i file dell'app, mai `ricerca/`; i dati su `main` li aggiorna la Action. Prima di copiare si fa il merge di `origin/main` nel ramo di sviluppo e non si copia mai `data/`: il 20/10/2026 la pubblicazione della 0.9.9 ha ricopiato su `main` sei file di dati più vecchi (ripristinati subito con un commit).
 - **Verifiche nel browser**: `node ricerca/qa/server/gzserve.mjs <cartella> <porta>`, poi gli script in `ricerca/qa/browser/` con Playwright (Chromium in `/opt/pw-browsers`).
 - **Ricostruire i cali forti**:
   1. `python3 scripts/backfill_indices.py prices --cache DIR`
