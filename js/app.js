@@ -413,7 +413,7 @@ function renderPriceTable() {
   const COLS = { last: 'ultimo', d1: '1G', w1: '1S', m1: '1M', m3: '3M', ytd: 'YTD' };
   const cps = rows.map(({ s, mt }) => [s, mt]).concat([[bench, bm]]).filter(([, mt]) => mt.copied)
     .map(([s, mt]) => `${s} (${Object.keys(mt.copied).map((k) => COLS[k]).join(', ')}: ${[...new Set(Object.values(mt.copied).flat())].sort().map(dIT).join(', ')})`);
-  $('pxCopied').textContent = (isGlobal() ? ' Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l\'ultima seduta, il prezzo al momento dell\'aggiornamento).' : '') +
+  $('pxCopied').textContent = (isGlobal() ? ' Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l\'ultima seduta, il prezzo al momento dell\'aggiornamento; se Yahoo non ha la barra del giorno, quello del giorno prima, con l\'asterisco).' : '') +
     (cps.length ? ` * Con un prezzo ricopiato dalla seduta prima, perché Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante): ${cps.join('; ')}.` : '');
   $('monTable').querySelectorAll('th button').forEach((b) => b.onclick = () => {
     const k = b.dataset.sort;

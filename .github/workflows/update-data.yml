@@ -9,7 +9,12 @@ on:
     - cron: "40 22 * * 1-5"
     - cron: "10 1-6 * * 2-6"
     - cron: "40 11 * * 2-6"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      recompute:
+        description: "Sedute della breadth degli indici da ricalcolare (5 di solito; fino a 50 dopo una correzione)"
+        required: false
+        default: "5"
 
 permissions:
   contents: write
@@ -72,6 +77,8 @@ jobs:
       - name: Breadth degli indici (pagina Indici)
         id: indices
         continue-on-error: true
+        env:
+          RECOMPUTE: ${{ inputs.recompute }}
         run: node scripts/fetch_indices.js
 
       - name: Commit dati aggiornati

@@ -167,3 +167,14 @@ test('version.json e js/version.js hanno la stessa versione', async () => {
   assert.equal(v.release, RELEASE);
   assert.match(VERSION, /^\d+\.\d+\.\d+$/);
 });
+
+test('errori di scala: uno split non registrato si riporta, la riapertura dopo una sospensione resta', async () => {
+  const { clean } = await import('../scripts/fetch_indices.js');
+  const dates = Array.from({ length: 40 }, (_, i) => `2026-01-${String(i + 1).padStart(2, '0')}`);
+  // split 1:10 non registrato: la storia prima del salto si riporta alla nuova scala
+  const split = dates.map((_, i) => (i < 20 ? 100 + i : 12 + i * 0.1));
+  assert.ok(Math.abs(clean(dates, split).close[0] - 100 * (split[20] / split[19])) < 1e-9);
+  // titolo sospeso: 25 chiusure identiche, poi −86% vero
+  const susp = dates.map((_, i) => (i < 5 ? 15 + i : i < 30 ? 16.07 : 2.3));
+  assert.deepEqual(clean(dates, susp).close, susp);
+});

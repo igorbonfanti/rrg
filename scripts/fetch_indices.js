@@ -29,7 +29,9 @@ import { countsOn, mergeCap } from '../js/capitulation.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
-const RECOMPUTE = 5, STALE_DAYS = 5, MIN_FRESH = 0.75, MIN_OVERLAP = 0.8;
+// RECOMPUTE: sedute ricalcolate a ogni corsa; a mano fino a 50 dopo una correzione (input del workflow): con un anno
+// di prezzi la media a 200 sedute c'è per le ultime 50 circa
+const RECOMPUTE = Math.max(5, Math.min(50, +process.env.RECOMPUTE || 5)), STALE_DAYS = 5, MIN_FRESH = 0.75, MIN_OVERLAP = 0.8;
 const UA = 'Mozilla/5.0 (sector-monitor data fetch)';
 const DAY = 86400000;
 const readJSON = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf-8')) : d);
@@ -148,7 +150,10 @@ export function needsChart(px, symbols) {
   });
 }
 
-// Errori di scala di Yahoo, come clean() in backfill_indices.py
+// Errori di scala di Yahoo, come clean() in backfill_indices.py. Un salto dopo almeno SUSPENDED chiusure identiche è
+// la riapertura di un titolo sospeso (CTD.AX: fermo a 16,07 per 261 sedute, poi −86% il 03/09/2026) e resta com'è.
+const SUSPENDED = 20;
+const flatBefore = (c, i) => i > SUSPENDED && c.slice(i - SUSPENDED, i).every((x) => x === c[i - 1]);
 export function clean(dates, close) {
   let d = [], c = [];
   for (let i = 0; i < close.length; i++) {
@@ -159,7 +164,7 @@ export function clean(dates, close) {
   const big = (r) => r >= 4 || r <= 0.25;
   for (let i = 1; i < c.length;) {
     const r = c[i] / c[i - 1];
-    if (!big(r)) { i++; continue; }
+    if (!big(r) || flatBefore(c, i)) { i++; continue; }
     let back = -1;
     for (let j = i + 1; j < Math.min(c.length, i + 61); j++) {
       const q = c[j] / c[j - 1];
