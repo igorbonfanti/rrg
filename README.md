@@ -107,7 +107,7 @@ Sul telefono i grafici si disegnano alla larghezza dello schermo; un tocco su un
 - Chiusure rettificate per gli split ma non per i dividendi, come le serie S5TH, SUTH… di Barchart/TradingView.
 - Storico dal 2005 ricostruito con la composizione dell'indice di allora. I settori dei titoli usciti vengono dalle versioni storiche della lista dei costituenti, disponibili dal dicembre 2012, riportati alla classificazione GICS attuale: chi è uscito prima non ha un settore e conta solo nella breadth dell'S&P 500. I settori coprono quindi meno titoli dell'S&P 500 nei primi anni: con i prezzi, 292 membri su 500 nel 2005 (58%), 378 su 500 nel 2009 (76%), 434 su 500 a fine 2012 (87%).
 - Verifica sui valori pubblicati:
-  - Utilities (SUTH): 42,85 (27/04/2018), 82,75 (27/07/2018) e 3,57 (22/05/2020), identici (`ricerca/qa/audit-0.9.0/testi/suth.mjs` stampa i valori dell'app per quelle sedute);
+  - Utilities (SUTH): 42,85 (27/04/2018), 82,75 (27/07/2018) e 3,57 (22/05/2020): stessi titoli sopra la media (12 su 28, 24 su 29, 1 su 28; il valore pubblicato tronca al centesimo), `ricerca/qa/audit-0.9.0/testi/suth.mjs`;
   - S&P 500 (S5TH): confrontato a mano su 9 sedute del 2018 e del 22/05/2020, con valori molto vicini; i valori pubblicati di quel confronto non sono salvati nel repository, quindi non è ricalcolabile.
 - Una parte dei titoli usciti non ha prezzi disponibili: la copertura dei membri dell'S&P 500 va dal 65% nel 2005 all'80% nel 2009, supera il 90% dal 2014 e il 99% dal 2021 (per i settori, vedi sopra). I valori dei primi anni vanno letti con cautela.
 
