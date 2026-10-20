@@ -14,8 +14,9 @@
     body { background: var(--bg); }
     .g-wrap { max-width: 1180px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; align-items: start; }
     .g-top { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
-    .g-top .brand { font: 700 13px var(--f-mono); letter-spacing: .08em; color: #000; background: var(--amber); padding: 6px 10px; text-decoration: none; }
+    .g-top .brand { font: 700 13px var(--f-mono); letter-spacing: .08em; color: #000; background: var(--amber-fill, var(--amber)); padding: 6px 10px; text-decoration: none; }
     .g-top h1 { font: 600 18px var(--f-mono); color: var(--ink); margin: 0; letter-spacing: .02em; }
+    .g-top .mini { font-size: 12px; padding: 6px 4px; }
     .g-top .ver { margin-left: auto; font: 12px var(--f-mono); color: var(--ink-3); }
     .g-toc { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; font: 12.5px var(--f-mono); }
     .g-toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
@@ -38,7 +39,7 @@
     .g-main th, .g-main td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--grid); }
     .g-main th { font: 600 11px var(--f-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
     .g-main .tw { overflow-x: auto; }
-    .g-main .open { display: inline-block; margin: 2px 0 6px; font: 600 12px var(--f-mono); color: #000; background: var(--amber); padding: 4px 10px; text-decoration: none; }
+    .g-main .open { display: inline-block; margin: 2px 0 6px; font: 600 12px var(--f-mono); color: #000; background: var(--amber-fill, var(--amber)); padding: 4px 10px; text-decoration: none; }
     .g-main .tip { position: static; display: block; max-width: none; padding: 10px 12px; margin: 10px 0; border-left: 3px solid var(--amber); background: var(--panel); color: var(--ink-2); font-size: 14px; }
     .g-main .warn { border-left-color: var(--down); }
     .g-main .st { margin-right: 4px; }
@@ -90,9 +91,9 @@
       <li><a href="#sec">4 Settore</a></li>
       <li><a href="#alr">5 Alert</a></li>
       <li><a href="#idx">6 Indici</a>
-        <ul>
+        <ol>
           <li><a href="#cali">Cali forti (capitolazione)</a></li>
-        </ul>
+        </ol>
       </li>
       <li><a href="#tit">7 Titoli</a></li>
       <li><a href="#comandi">Comandi e tasti</a></li>

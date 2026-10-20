@@ -119,10 +119,15 @@ export function drawCap(svg, p) {
       let j = i, im = i;
       while (j + 1 < n && sum[j + 1] != null && sum[j + 1] > P1.hi) { j++; if (sum[j] > sum[im]) im = j; }
       const x = sx(im), txt = `▲${fmt(sum[im], unit ? 1 : 0)}${unit} (${MESI[+dates[im].slice(5, 7) - 1]} ${dates[im].slice(0, 4)})`;
-      if (x - lastX > txt.length * 6.6 + 8) {
-        el('text', { x: Math.min(Math.max(x, L + 40), L + PW - 40), y: P1.y0 + 11, 'text-anchor': 'middle', class: 'axt capcut' }, svg).textContent = txt;
-        lastX = x;
-      }
+      // larghezza vera del testo: l'etichetta resta dentro il grafico e su un fondo che la stacca dai picchi
+      const t = el('text', { x, y: P1.y0 + 11, 'text-anchor': 'middle', class: 'axt capcut' }, svg);
+      t.textContent = txt;
+      const w = (t.getComputedTextLength && t.getComputedTextLength()) || txt.length * 6.6;
+      const cx = Math.min(Math.max(x, L + w / 2 + 3), L + PW - w / 2 - 3);
+      if (cx - w / 2 < lastX + 8) { t.remove(); i = j; continue; }
+      t.setAttribute('x', cx);
+      svg.insertBefore(el('rect', { x: cx - w / 2 - 3, y: P1.y0 + 1, width: w + 6, height: 14, class: 'capcut-bg' }), t);
+      lastX = cx + w / 2;
       i = j;
     }
   }
@@ -138,7 +143,8 @@ export function drawCap(svg, p) {
 
   const xh = el('line', { x1: 0, x2: 0, y1: P0.y0, y2: P1.y1, class: 'xhair', visibility: 'hidden' }, svg);
   const dots = [el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg), el('circle', { r: 3.5, class: 'xdot', visibility: 'hidden' }, svg)];
-  const hit = el('rect', { x: L, y: P0.y0, width: PW, height: P1.y1 - P0.y0, fill: 'transparent' }, svg);
+  // l'area dei tocchi arriva al bordo destro: un tocco sulle etichette dei valori apre l'ultima seduta
+  const hit = el('rect', { x: L, y: P0.y0, width: PW + R, height: P1.y1 - P0.y0, fill: 'transparent' }, svg);
   const line = (i) => { xh.setAttribute('x1', sx(i)); xh.setAttribute('x2', sx(i)); xh.setAttribute('visibility', 'visible'); };
   const at = new Map(dates.map((d, i) => [d, i]));
   // linea dagli altri grafici della vista (stesso asse del tempo)

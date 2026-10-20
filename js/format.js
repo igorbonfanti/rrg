@@ -58,11 +58,11 @@ export function hideOnTapOutside(svg, hide) {
   TIPPED.add(svg);
 }
 
-// Larghezza del disegno in unità SVG: i pixel reali × 1,15 (sul telefono × 1), tra `min` e `max`. Sul telefono il
+// Larghezza del disegno in unità SVG: i pixel reali × 1,15 da 1000 px in su (sotto × 1), tra `min` e `max`. Sul telefono e sul tablet il
 // grafico si disegna più stretto invece di rimpicciolirsi, così il testo resta di circa 10 px.
 export function chartWidth(svg, max, min = 280) {
   const w = svg.getBoundingClientRect().width;
-  return w ? Math.round(Math.max(min, Math.min(max, w * (w < 500 ? 1 : 1.15)))) : max;
+  return w ? Math.round(Math.max(min, Math.min(max, w * (w < 1000 ? 1 : 1.15)))) : max;
 }
 
 // Articolo davanti a una percentuale scritta come `s` («0,0» → Lo, «1»/«8»/«11»/«80-89» → L', altrimenti Il)
