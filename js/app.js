@@ -15,11 +15,11 @@ import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth
 const $ = (id) => document.getElementById(id);
 const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx', 'tit'];
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
-// La GitHub Action pubblica i dati di fine giornata alle 22:40 UTC (00:40 in Italia con l'ora legale, 23:40 d'inverno), con due corse
-// di recupero: prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
+// La GitHub Action parte alle 22:40 UTC, riprova ogni ora dalle 01:10 alle 06:10 UTC e di nuovo alle 11:40; GitHub fa partire
+// le corse programmate anche con ore di ritardo. Prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
 const PUBLISH_US = 20 * 60 + 30; // 20:30 a New York
 const PUBLISH_EU = 26 * 60 + 30; // 02:30 a Roma del giorno dopo la seduta
-const NEXT_UPDATE = 'aggiornamento automatico ogni notte dopo la chiusura USA (alle 00:40 ora italiana con l\'ora legale, alle 23:40 con l\'ora solare)';
+const NEXT_UPDATE = 'aggiornamento automatico dopo la chiusura USA: di solito i dati della seduta arrivano tra la notte e la mattina in Italia (GitHub fa partire le corse anche con qualche ora di ritardo)';
 
 // preferenze del singolo browser (se lo storage non è disponibile si usano i default)
 const store = {
