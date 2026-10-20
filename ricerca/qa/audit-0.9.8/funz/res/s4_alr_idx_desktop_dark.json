@@ -1,0 +1,398 @@
+[
+ {
+  "id": "A1",
+  "area": "alert",
+  "test": "desktop registro, riquadri e regole",
+  "ok": "OK",
+  "detail": "{\"kpis\":4,\"n\":60,\"cnt\":\"122 cambi di stato · ultimi 60\",\"sent\":\"La GitHub Action ha controllato i dati fino al 19/10/2026.12/10/2026 · XLU · Trigger · inviato25/09/2026 · XLU · Zona blu · inviato\",\"rules\":5,\"first\":\"12/10/2026 XLU TRIGGER breadth risale a 16,1% · spinta di breadth a 20 giorni\"}",
+  "shot": "shots/a-desktop.png",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "alert",
+  "test": "desktop ordinati dal più recente",
+  "ok": "OK",
+  "detail": "2026-10-12,2026-09-25,2025-04-30,2025-03-13,2023-11-06",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "alert",
+  "test": "desktop clic sul ticker apre il settore",
+  "ok": "OK",
+  "detail": "#XLU",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I1",
+  "area": "indici",
+  "test": "desktop apertura: 10 principali, 22 chip, «Principali» premuto",
+  "ok": "OK",
+  "detail": "{\"load\":true,\"body\":true,\"rows\":10,\"meta\":\"10 su 22 mostrati · i principali\",\"chips\":22,\"main\":\"true\",\"all\":\"false\",\"kpis\":[\"Indici in zona blu\",\"Trigger nelle ultime 63 sedute\",\"Indici in attenzione\",\"Cali forti in allerta\",\"Più vicino al livello blu\"]}",
+  "shot": "shots/i-desktop-0.png",
+  "sev": ""
+ },
+ {
+  "id": "I1b",
+  "area": "indici",
+  "test": "desktop riquadro «Cali forti in allerta» presente",
+  "ok": "OK",
+  "detail": "Indici in zona blu | Trigger nelle ultime 63 sedute | Indici in attenzione | Cali forti in allerta | Più vicino al livello blu",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I2",
+  "area": "indici",
+  "test": "desktop colonna «Cali forti» valorizzata (nessun «…»)",
+  "ok": "OK",
+  "detail": "KOSPI200KOSPI 200 (Corea):5 SED. [Cali forti al 19/10/2026: 62 cali nelle ultime 5 sedute (cal] | EEMMSCI Emerging Markets:93° [Cali forti al 16/10/2026: 127 cali nelle ultime 5 sedute (ca] | RUTRussell 2000:96° [Cali forti al 19/10/2026: 456 cali nelle ultime 5 sedute (ca] | SPXS&P 500:91° [Cali forti al 19/10/2026: 30 cali nelle ultime 5 sedute (cal] | NDXNasdaq-100:97° [Cali forti al 19/10/2026: 17 cali nelle ultime 5 sedute (cal] | FTSEMIBFTSE MIB:0° [Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo] | N225Nikkei 225:97° [Cali forti al 19/10/2026: 38 cali nelle ultime 5 sedute ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I3",
+  "area": "indici",
+  "test": "desktop «Tutti» mostra 22 indici e salva",
+  "ok": "OK",
+  "detail": "{\"rows\":22,\"all\":\"true\",\"meta\":\"22 su 22 mostrati\",\"ls\":\"[\\\"SPX\\\",\\\"NDX\\\",\\\"DJI\\\",\\\"N225\\\",\\\"SXXP\\\",\\\"UKX\\\",\\\"DAX\\\",\\\"CAC\\\",\\\"SMI\\\",\\\"RUT\\\",\\\"TSX60\\\",\\\"SX5E\\\",\\\"FTSEMIB\\\",\\\"IBEX\\\",\\\"HSI\\\",\\\"CSI300\\\",\\\"KOSPI200\\\",\\\"TWN\\\",\\\"NIFTY50\\\",\\\"ASX200\\\",\\\"EEM\\\",\\\"IBOV\\\"]\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I3b",
+  "area": "indici",
+  "test": "desktop 22 indici senza NaN",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/i-desktop-all.png",
+  "sev": ""
+ },
+ {
+  "id": "I4",
+  "area": "indici",
+  "test": "desktop Taiwan senza cali forti, con spiegazione",
+  "ok": "OK",
+  "detail": "— | Cali forti non disponibili: a Taiwan i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I5",
+  "area": "indici",
+  "test": "desktop clic su chip toglie l'indice (focus resta)",
+  "ok": "OK",
+  "detail": "{\"rows\":21,\"p\":\"false\",\"all\":\"false\",\"focus\":\"SPX\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I6",
+  "area": "indici",
+  "test": "desktop «Principali» torna a 10",
+  "ok": "OK",
+  "detail": "{\"rows\":10,\"main\":\"true\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I7",
+  "area": "indici",
+  "test": "desktop non si possono togliere tutti (resta 1)",
+  "ok": "OK",
+  "detail": "{\"rows\":1,\"n\":1,\"meta\":\"1 su 22 mostrati\"}",
+  "shot": "shots/i-desktop-one.png",
+  "sev": ""
+ },
+ {
+  "id": "I8",
+  "area": "indici",
+  "test": "desktop clic su riga apre il dettaglio",
+  "ok": "OK",
+  "detail": "{\"t\":\"SPX · S&P 500\",\"chip\":\"SPX\",\"ls\":\"\\\"SPX\\\"\",\"check\":327,\"epi\":5,\"facts\":262}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I9",
+  "area": "coerenza",
+  "test": "desktop SPX: breadth, drawdown e ultimo uguali tra tabellone e Situazione",
+  "ok": "OK",
+  "detail": "tabella 50,3% / −1,6% / 7691 · situazione Ultimo 7690,73 · 19/10/2026 Titoli sopra media 200 253/503 · 50,3% Sopra media 50 43,7% Distanza dal livello blu +37,3 pt Soglia di avvicinamento 28% · +22,4 pt Drawdown da max 52s −1,6% Profondità storica DD 39° percentile Copertura 503 su 503 membri con prezzi",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio SPX",
+  "ok": "OK",
+  "detail": "{\"chip\":\"SPX\",\"t\":\"SPX · S&P 500\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio NDX",
+  "ok": "OK",
+  "detail": "{\"chip\":\"NDX\",\"t\":\"NDX · Nasdaq-100\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio DJI",
+  "ok": "OK",
+  "detail": "{\"chip\":\"DJI\",\"t\":\"DJI · Dow Jones\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio N225",
+  "ok": "OK",
+  "detail": "{\"chip\":\"N225\",\"t\":\"N225 · Nikkei 225\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio SXXP",
+  "ok": "OK",
+  "detail": "{\"chip\":\"SXXP\",\"t\":\"SXXP · STOXX Europe 600\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio DAX",
+  "ok": "OK",
+  "detail": "{\"chip\":\"DAX\",\"t\":\"DAX · DAX\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio RUT",
+  "ok": "OK",
+  "detail": "{\"chip\":\"RUT\",\"t\":\"RUT · Russell 2000\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio FTSEMIB",
+  "ok": "OK",
+  "detail": "{\"chip\":\"FTSEMIB\",\"t\":\"FTSEMIB · FTSE MIB\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio KOSPI200",
+  "ok": "OK",
+  "detail": "{\"chip\":\"KOSPI200\",\"t\":\"KOSPI200 · KOSPI 200 (Corea)\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I10",
+  "area": "indici",
+  "test": "desktop chip dettaglio EEM",
+  "ok": "OK",
+  "detail": "{\"chip\":\"EEM\",\"t\":\"EEM · MSCI Emerging Markets\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I11",
+  "area": "indici",
+  "test": "desktop periodo 10A",
+  "ok": "OK",
+  "detail": "10A",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I11",
+  "area": "indici",
+  "test": "desktop periodo MAX",
+  "ok": "OK",
+  "detail": "MAX",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I11",
+  "area": "indici",
+  "test": "desktop periodo 3A",
+  "ok": "OK",
+  "detail": "3A",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I12",
+  "area": "livello blu",
+  "test": "desktop indice: +, −, asterisco in tabella, Ripristina",
+  "ok": "OK",
+  "detail": "{\"b0\":\"15%\",\"b1\":\"16%\",\"star\":\"16%*\",\"b2\":\"14%\",\"b3\":{\"v\":\"15%\",\"reset\":false,\"src\":\"Livello di default dai grafici di Massimo Rea (quant-rea). Le regole di zona blu, trigger e cooldown sono quelle dei settori.\",\"ls\":\"{}\"}}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I13",
+  "area": "mappa indici",
+  "test": "desktop data passata: nota con gli indici senza dati",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 21/12/2001\",\"meta\":\"settimanale · coda 8 settimane · al 21/12/2001 (storico) · colore del punto = stato di quel giorno · livelli blu di oggi · senza dati a quella data: SPX, NDX, SXXP, RUT, FTSEMIB, KOSPI200, EEM\",\"today\":true,\"dist\":3}",
+  "shot": "shots/i-desktop-map-past.png",
+  "sev": ""
+ },
+ {
+  "id": "I14",
+  "area": "mappa indici",
+  "test": "desktop crisi «nov 2008»",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 21/11/2008\",\"pressed\":[\"2008-11-20\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I14",
+  "area": "mappa indici",
+  "test": "desktop crisi «ott 2011»",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 07/10/2011\",\"pressed\":[\"2011-10-03\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I14",
+  "area": "mappa indici",
+  "test": "desktop crisi «feb 2016»",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 12/02/2016\",\"pressed\":[\"2016-02-11\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I14",
+  "area": "mappa indici",
+  "test": "desktop crisi «dic 2018»",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 28/12/2018\",\"pressed\":[\"2018-12-24\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I14",
+  "area": "mappa indici",
+  "test": "desktop crisi «mar 2020»",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 27/03/2020\",\"pressed\":[\"2020-03-23\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I14",
+  "area": "mappa indici",
+  "test": "desktop crisi «ott 2022»",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 14/10/2022\",\"pressed\":[\"2022-10-12\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I14",
+  "area": "mappa indici",
+  "test": "desktop crisi «apr 2025»",
+  "ok": "OK",
+  "detail": "{\"v\":\"settimana al 11/04/2025\",\"pressed\":[\"2025-04-08\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I15",
+  "area": "mappa indici",
+  "test": "desktop PLAY/STOP",
+  "ok": "OK",
+  "detail": "{\"pl\":{\"t\":\"❚❚ STOP\",\"v\":\"settimana al 21/11/2025\"},\"pl2\":{\"t\":\"▶ PLAY\",\"v\":\"settimana al 21/11/2025\"}}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I16",
+  "area": "tooltip",
+  "test": "desktop tooltip mappa indici = distanza = tabellone",
+  "ok": "OK",
+  "detail": "ok=10 ",
+  "shot": "shots/i-desktop-tip.png",
+  "sev": ""
+ },
+ {
+  "id": "IC1",
+  "area": "cali forti",
+  "test": "desktop scheda indice SPX",
+  "ok": "OK",
+  "detail": "{\"open\":true,\"meta\":\"al 19/10/2026: 91° percentile\",\"now\":\"Al 19/10/2026 30 cali nelle ultime 5 sedute: 91° percentile della storia dal 2008, soglia di allerta 268 cali. In allerta 0 sedute negli ultimi 3 mesi.\",\"rows\":8,\"base\":\"8 episodi dal 10/01/2008, 4 su 8 con l'indice più in basso dopo 12 mesi. Per confronto, in media dopo una seduta qualsiasi della stessa storia: +3M +2,7%, +12M +11,8%.\"}",
+  "shot": "shots/i-desktop-cap.png",
+  "sev": ""
+ },
+ {
+  "id": "IC2",
+  "area": "cali forti",
+  "test": "desktop la scelta −5% si riflette anche nella colonna della tabella",
+  "ok": "OK",
+  "detail": "Cali forti al 19/10/2026: 94 cali nelle ultime 5 sedute (calo di almeno il 5%), 97° percentile della storia · soglia di allerta 166 cali · 6 sedute in allerta negli ultimi 3 mesi|Cali forti al 16/10/2",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "IC3",
+  "area": "cali forti",
+  "test": "desktop Taiwan: scheda «non disponibile» con motivo",
+  "ok": "OK",
+  "detail": "{\"meta\":\"non disponibile\",\"note\":\"Cali forti non disponibili: a Taiwan i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.\",\"ctl\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "IC4",
+  "area": "cali forti",
+  "test": "desktop con 0 cali il percentile mostrato non deve sembrare alto",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "I17",
+  "area": "indici",
+  "test": "desktop dopo ricarica restano «Tutti» e l'indice scelto (anche non principale)",
+  "ok": "OK",
+  "detail": "{\"rows\":22,\"sel\":\"TWN\"} atteso TWN",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "desktop nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

@@ -1,0 +1,164 @@
+[
+ {
+  "id": "TT1",
+  "area": "spiegazioni",
+  "test": "phone Monitor: elementi con spiegazione visibili",
+  "ok": "OK",
+  "detail": "visibili=44",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT2",
+  "area": "spiegazioni",
+  "test": "phone Monitor a schede: tocco su k/n, barra del drawdown e tacca del mese prima mostra la spiegazione senza aprire il settore",
+  "ok": "BUG",
+  "detail": "#boardTable tbody tr[data-sym] .cnt[title]: «5 titoli sopra la media 200 su 31: nei s» hash=#mon | #boardTable tbody tr[data-sym] .bar[title]: «più profondo dell'86% delle sedute; pegg» hash=#mon | #boardTable tbody tr[data-sym] .ago[title]: «un mese fa 6,5% (Tocca il nome per aprir» hash=#mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT2b",
+  "area": "spiegazioni",
+  "test": "phone Monitor a schede: legenda e nota spiegano drawdown con i dividendi e «Solo prezzo»",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT3",
+  "area": "taptip",
+  "test": "phone tocco su voce della Situazione mostra la spiegazione",
+  "ok": "OK",
+  "detail": "mostrato: Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa",
+  "shot": "shots/tt-phone-facts.png",
+  "sev": ""
+ },
+ {
+  "id": "TT4",
+  "area": "taptip",
+  "test": "phone tocco altrove chiude la spiegazione",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT5",
+  "area": "taptip",
+  "test": "phone il riquadro sta nello schermo",
+  "ok": "OK",
+  "detail": "{\"l\":40,\"r\":360,\"t\":455.515625,\"b\":543.515625,\"iw\":390,\"ih\":844}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT6",
+  "area": "taptip",
+  "test": "phone lo scorrimento chiude la spiegazione",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT7",
+  "area": "taptip",
+  "test": "phone intestazioni degli episodi",
+  "ok": "OK",
+  "detail": "nessuna intestazione con spiegazione",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT8",
+  "area": "taptip",
+  "test": "phone RRG: tocco su un punto lo fissa e mostra i numeri",
+  "ok": "OK",
+  "detail": "{\"tip\":true,\"txt\":\"XLK Technology Quadrante Weakening RS-Ratio 101,19 RS-Momentum 99,10 Direzione 219° Nel quadrante da 2 sett.\",\"pin\":\"XLK\"}",
+  "shot": "shots/tt-phone-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "TT9",
+  "area": "taptip",
+  "test": "phone RRG: tocco sul vuoto libera il punto",
+  "ok": "OK",
+  "detail": "{\"tip\":false,\"pin\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT10",
+  "area": "taptip",
+  "test": "phone Indici a schede: tocco sulla cella «Cali forti» mostra la spiegazione",
+  "ok": "BUG",
+  "detail": "«Cali forti al 19/10/2026: 62 cali nelle ultime 5 sedute (calo di almeno il 7%), 98° percentile della» hash=#idx",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT11",
+  "area": "taptip",
+  "test": "phone Indici a schede: tocco su «con limiti»/storia mostra la spiegazione",
+  "ok": "BUG",
+  "detail": "Storia dal 2006 · Prezzo: KOSPI (tutto il listino), perché il KOSPI 200 non ha storico su Yahoo. Storia con i membri di ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT12",
+  "area": "taptip",
+  "test": "phone Titoli: tocco su una bolla mostra il titolo",
+  "ok": "OK",
+  "detail": "{\"tip\":true,\"txt\":\"NEE 78,17 $ NextEra Energy · Multi-Utilities rendimento 3M −11,1% periodo precedente −4,4% dal massimo 52s −20,1% dalla \"}",
+  "shot": "shots/tt-phone-bubble.png",
+  "sev": ""
+ },
+ {
+  "id": "TT13",
+  "area": "taptip",
+  "test": "phone Titoli: tocco sulla riga del dumbbell",
+  "ok": "OK",
+  "detail": "{\"tip\":true,\"txt\":\"XLI Industrials ultimi 3 mesi cap · equal · diff. oggi −6,7% · −6,0% · +0,7 pp 1 settimana fa −6,3% · −6,3% · 0,0 pp 1 mese fa −6,2% · −5,6%\",\"sel\":\"XLI\"}",
+  "shot": "shots/tt-phone-spread.png",
+  "sev": ""
+ },
+ {
+  "id": "TT14",
+  "area": "taptip",
+  "test": "phone Bottom Map: primo tocco i numeri, secondo apre il settore",
+  "ok": "OK",
+  "detail": "{\"tip\":true,\"sec\":false} #XLK",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT21",
+  "area": "coerenza",
+  "test": "phone Monitor: k/n, valore del titolo e % coincidono",
+  "ok": "OK",
+  "detail": "16,1% 5/31 true | 10,0% 3/30 true | 36,2% 17/47 true | 37,3% 31/83 true | 45,5% 10/22 true | 58,3% 14/24 true | 61,8% 21/34 true | 57,9% 44/76 true | 60,0% 45/75 true | 66,7% 14/21 true | 81,7% 49/60 true",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT22",
+  "area": "coerenza",
+  "test": "phone Monitor: riquadro SPY = riga SPY (ultimo, drawdown, solo prezzo)",
+  "ok": "BUG",
+  "detail": "SPY · S&P 500 766,48 −1,6% dal massimo a 52 settimane · solo prezzo −1,6% || SPYS&P 500 benchmark 50,3% −1,6% +0,4% +0,6%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "phone nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

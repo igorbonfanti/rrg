@@ -1,0 +1,704 @@
+[
+ {
+  "id": "R1",
+  "area": "rotazione",
+  "test": "desktop elenco universi",
+  "ok": "OK",
+  "detail": "Settori S&P 500 | MAG7 | 1 · Asset class | 2 · Fattori | 3 · Regioni | 4 · Paesi | 6 · Indici | 5 · Asset reali",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop Settori S&P 500 vs SPY",
+  "ok": "OK",
+  "detail": "Rotazione relativa · Settori S&P 500 vs SPY heads=11 rows=11 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop Settori S&P 500 vs QQQ",
+  "ok": "OK",
+  "detail": "Rotazione relativa · Settori S&P 500 vs QQQ heads=11 rows=11 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop Settori S&P 500 vs RSP",
+  "ok": "OK",
+  "detail": "Rotazione relativa · Settori S&P 500 vs RSP heads=11 rows=11 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop Settori S&P 500 vs ACWI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · Settori S&P 500 vs ACWI heads=11 rows=11 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop MAG7 vs SPY",
+  "ok": "OK",
+  "detail": "Rotazione relativa · MAG7 vs SPY heads=7 rows=7 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop MAG7 vs QQQ",
+  "ok": "OK",
+  "detail": "Rotazione relativa · MAG7 vs QQQ heads=7 rows=7 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop MAG7 vs RSP",
+  "ok": "OK",
+  "detail": "Rotazione relativa · MAG7 vs RSP heads=7 rows=7 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop MAG7 vs ACWI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · MAG7 vs ACWI heads=7 rows=7 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 1 · Asset class vs PTF",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 1 · Asset class vs Portafoglio heads=10 rows=10 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 1 · Asset class vs XEON.MI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 1 · Asset class vs Liquidità heads=10 rows=10 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 1 · Asset class vs SWDA.MI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 1 · Asset class vs World heads=9 rows=9 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 2 · Fattori vs SWDA.MI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 2 · Fattori vs World heads=8 rows=8 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 2 · Fattori vs IUSQ.DE",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 2 · Fattori vs ACWI heads=8 rows=8 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 3 · Regioni vs IUSQ.DE",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 3 · Regioni vs ACWI heads=5 rows=5 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 3 · Regioni vs SWDA.MI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 3 · Regioni vs World heads=5 rows=5 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 4 · Paesi vs IUSQ.DE",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 4 · Paesi vs ACWI heads=15 rows=15 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 4 · Paesi vs SWDA.MI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 4 · Paesi vs World heads=15 rows=15 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 6 · Indici vs IUSQ.DE",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 6 · Indici vs ACWI heads=9 rows=9 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 6 · Indici vs SWDA.MI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 6 · Indici vs World heads=9 rows=9 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 5 · Asset reali vs BIL",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 5 · Asset reali vs Liquidità in dollari heads=9 rows=9 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 5 · Asset reali vs CPI",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 5 · Asset reali vs Inflazione USA (CPI) heads=9 rows=9 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 5 · Asset reali vs DXY_INV",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 5 · Asset reali vs Senza dollaro (1/DXY) heads=9 rows=9 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 5 · Asset reali vs IEF",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 5 · Asset reali vs Treasury 7-10 heads=8 rows=8 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 5 · Asset reali vs SPY",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 5 · Asset reali vs S&P 500 heads=8 rows=8 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2",
+  "area": "rotazione",
+  "test": "desktop 5 · Asset reali vs GLD",
+  "ok": "OK",
+  "detail": "Rotazione relativa · 5 · Asset reali vs Oro heads=8 rows=8 bench in rows=false ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R2b",
+  "area": "rotazione",
+  "test": "desktop benchmark salvato per universo",
+  "ok": "OK",
+  "detail": "sm.bench.5 · Asset reali=\"GLD\", sm.bench.1 · Asset class=\"SWDA.MI\", sm.bench.MAG7=\"ACWI\", sm.bench.3 · Regioni=\"SWDA.MI\", sm.bench.4 · Paesi=\"SWDA.MI\", sm.bench.6 · Indici=\"SWDA.MI\", sm.bench.2 · Fattori=\"IUSQ.DE\", sm.bench.Settori S&P 500=\"ACWI\"",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R3",
+  "area": "rotazione",
+  "test": "desktop universo salvato in localStorage",
+  "ok": "OK",
+  "detail": "\"Settori S&P 500\"",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R4",
+  "area": "rotazione",
+  "test": "desktop timeframe giornaliero",
+  "ok": "OK",
+  "detail": "{\"fr0\":{\"max\":261,\"d\":\"19/10/2026 *\"},\"fr1\":{\"max\":1253,\"d\":\"19/10/2026\",\"meta\":\"giornaliero · formula nuova\",\"p\":\"false,true\",\"unit\":\"sedute\"}}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R5",
+  "area": "rotazione",
+  "test": "desktop formula Medie semplici (stessa data, nota aggiornata)",
+  "ok": "OK",
+  "detail": "{\"dBefore\":\"18/09/2026\",\"d\":\"18/09/2026\",\"meta\":\"settimanale · medie semplici\",\"sum\":\"Medie semplici · come StockCharts, distanza da 100 in punti percentuali · come si calcola e cosa cambia con la nuova\",\"ls\":\"\\\"semplice\\\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R6",
+  "area": "rotazione",
+  "test": "desktop coda 4",
+  "ok": "OK",
+  "detail": "punti coda=3 pressed=true,false,false,false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R6",
+  "area": "rotazione",
+  "test": "desktop coda 16",
+  "ok": "OK",
+  "detail": "punti coda=15 pressed=false,false,true,false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R6",
+  "area": "rotazione",
+  "test": "desktop coda 26",
+  "ok": "OK",
+  "detail": "punti coda=25 pressed=false,false,false,true",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R6",
+  "area": "rotazione",
+  "test": "desktop coda 10",
+  "ok": "OK",
+  "detail": "punti coda=9 pressed=false,true,false,false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R7",
+  "area": "rotazione",
+  "test": "desktop scala Massima cambia gli assi",
+  "ok": "OK",
+  "detail": "fit=97,97,98,98,99,99,101,101,102,102,103,103,100,100 max=96,96,97,97,98,98,99,99,101,101,102,102,103,103,104,104,100,100",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R8",
+  "area": "rotazione",
+  "test": "desktop PLAY parte da un anno fa e STOP ferma",
+  "ok": "OK",
+  "detail": "{\"d0\":\"19/10/2026 *\",\"pl\":{\"t\":\"❚❚ STOP\",\"d\":\"14/11/2025\"},\"pl2\":{\"t\":\"▶ PLAY\",\"d\":\"14/11/2025\"},\"pl3\":\"14/11/2025\"}",
+  "shot": "shots/r-desktop-play.png",
+  "sev": ""
+ },
+ {
+  "id": "R9",
+  "area": "rotazione",
+  "test": "desktop frecce ← → spostano il periodo",
+  "ok": "OK",
+  "detail": "14/11/2025 → 07/11/2025 → 14/11/2025",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R10",
+  "area": "rotazione",
+  "test": "desktop Spazio avvia e ferma l'animazione",
+  "ok": "OK",
+  "detail": "❚❚ STOP",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R11",
+  "area": "rotazione",
+  "test": "desktop ultimo periodo: data e nota provvisorio coerenti",
+  "ok": "OK",
+  "detail": "{\"d\":\"19/10/2026 *\",\"note\":true,\"aria\":\"19/10/2026, provvisorio\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R12",
+  "area": "tooltip",
+  "test": "desktop tooltip RRG = tabella di rotazione (RS-Ratio, RS-Mom, quadrante)",
+  "ok": "OK",
+  "detail": "ok=11 ",
+  "shot": "shots/r-desktop-tip.png",
+  "sev": ""
+ },
+ {
+  "id": "R13",
+  "area": "rotazione",
+  "test": "desktop clic su riga fissa il titolo, Esc lo libera",
+  "ok": "OK",
+  "detail": "{\"pinned\":{\"sel\":true,\"dim\":10,\"focus\":1},\"unp\":{\"sel\":0,\"dim\":0}}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R14",
+  "area": "rotazione",
+  "test": "desktop spunta nasconde e rimostra il titolo",
+  "ok": "OK",
+  "detail": "11→10→11 off=true",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R15",
+  "area": "rotazione",
+  "test": "desktop interruttore Prezzi",
+  "ok": "OK",
+  "detail": "{\"px\":true,\"rot\":true,\"title\":\"Prezzi · Settori S&P 500\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per sym (clic 2)",
+  "ok": "OK",
+  "detail": "descending XLYConsumer Discretionary XLVHealth Care XLUUtilities XLREReal Estate XLPConsumer Staples XLKTechnology XLIIndustrials XLFFinancials XLEEnergy XLCCommunication Services XLBMaterials",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per last (clic 2)",
+  "ok": "OK",
+  "detail": "ascending 41,36 41,67 50,95 55,06 67,80 87,21 110,09 114,46 166,68 175,65 185,96",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per d1 (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −2,0% −1,2% −0,8% −0,6% −0,6% −0,6% −0,5% −0,2% +0,1% +1,4% +1,8%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per w1 (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −5,3% −1,5% −1,2% −0,6% −0,6% 0,0% +2,0% +2,1% +2,7% +3,1% +3,3%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per m1 (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −1,8% −1,5% −1,2% −1,1% −0,3% +1,4% +2,4% +3,3% +4,7% +6,0% +6,1%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per m3 (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −7,2% −7,0% −6,5% −1,5% −0,1% +0,4% +2,2% +3,0% +4,4% +10,0% +16,6%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per ytd (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −5,6% −3,5% −1,1% +1,8% +5,8% +8,3% +13,8% +14,4% +14,9% +29,6% +54,6%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per dd (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −11,5% −10,4% −8,7% −7,9% −7,5% −7,5% −5,6% −4,6% −1,2% −0,9% −0,6%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per ddp (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −13,3% −10,6% −9,4% −8,3% −8,1% −7,9% −6,0% −5,1% −3,1% −0,9% −0,6%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per vs200 (clic 2)",
+  "ok": "OK",
+  "detail": "ascending −5,5% −3,2% −2,5% −2,3% −0,9% +0,9% +3,2% +4,9% +11,1% +12,2% +18,7%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per rot (clic 2)",
+  "ok": "OK",
+  "detail": "descending LAGGING LAGGING LAGGING WEAKENING LEADING LEADING IMPROVING IMPROVING IMPROVING IMPROVING IMPROVING",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R16",
+  "area": "ordinamento",
+  "test": "desktop ordina per weeks (clic 2)",
+  "ok": "OK",
+  "detail": "ascending 1 sett. 1 sett. 2 sett. 2 sett. 2 sett. 5 sett. 9 sett. 10 sett. 10 sett. 11 sett. 11 sett.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R17",
+  "area": "performance",
+  "test": "desktop periodo 63",
+  "ok": "OK",
+  "detail": "{\"p\":[\"63\"],\"n\":12}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R17",
+  "area": "performance",
+  "test": "desktop periodo 252",
+  "ok": "OK",
+  "detail": "{\"p\":[\"252\"],\"n\":12}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R17",
+  "area": "performance",
+  "test": "desktop periodo 504",
+  "ok": "OK",
+  "detail": "{\"p\":[\"504\"],\"n\":12}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R17",
+  "area": "performance",
+  "test": "desktop periodo 126",
+  "ok": "OK",
+  "detail": "{\"p\":[\"126\"],\"n\":12}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R18",
+  "area": "rotazione",
+  "test": "desktop nota «come si calcola» si apre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P1",
+  "area": "portafoglio",
+  "test": "desktop pannello in Asset class, benchmark PTF, totale 100",
+  "ok": "OK",
+  "detail": "{\"vis\":true,\"bench\":\"PTF\",\"tot\":\"100\",\"line\":true,\"reset\":true,\"n\":10}",
+  "shot": "shots/p-desktop-ptf0.png",
+  "sev": ""
+ },
+ {
+  "id": "P2",
+  "area": "portafoglio",
+  "test": "desktop cursore cambia peso, totale, nota, salva e ricalcola",
+  "ok": "OK",
+  "detail": "{\"tot\":\"120\",\"note\":\"Il totale è 120%: i pesi valgono in proporzione (per esempio 60% vale 50%).\",\"norm\":true,\"reset\":false,\"num\":\"60\",\"ls\":\"{\\\"SWDA.MI\\\":60,\\\"EIMI.MI\\\":10,\\\"EM13.MI\\\":10,\\\"EM710.MI\\\":10,\\\"EM15.MI\\\":10,\\\"SGLD.MI\\\":10,\\\"IWDP.MI\\\":5,\\\"CMOD.MI\\\":3,\\\"BTC-EUR\\\":2,\\\"DBMFE.PA\\\":0}\",\"line\":\"Contro il tuo portafoglio: Azioni 58,3% · Obbligazioni governative euro 25% · Oro e materie prime 10,8% · Immobiliare 4,2% · Cripto 1,7%. Composizione e cursori sotto il grafico.\"}",
+  "shot": "shots/p-desktop-ptf1.png",
+  "sev": ""
+ },
+ {
+  "id": "P3",
+  "area": "portafoglio",
+  "test": "desktop pesi e universo restano dopo la ricarica",
+  "ok": "OK",
+  "detail": "{\"g\":\"1 · Asset class\",\"num\":\"60\",\"tot\":\"120\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P4",
+  "area": "portafoglio",
+  "test": "desktop «Porta a 100%»",
+  "ok": "OK",
+  "detail": "{\"tot\":\"100\",\"norm\":true,\"vals\":\"50,9,8,8,8,8,3,4,2,0\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P5",
+  "area": "portafoglio",
+  "test": "desktop casella numero 150 limitata a 100",
+  "ok": "OK",
+  "detail": "{\"num\":\"100\",\"sl\":\"100\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P5b",
+  "area": "portafoglio",
+  "test": "desktop casella svuotata torna al valore",
+  "ok": "OK",
+  "detail": "100",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P6",
+  "area": "portafoglio",
+  "test": "desktop tutti i pesi a zero: avviso, niente NaN",
+  "ok": "OK",
+  "detail": "{\"note\":\"Serve almeno un peso sopra zero: il grafico resta sull'ultimo portafoglio valido.\",\"hid\":false,\"tot\":\"0\",\"norm\":true,\"line\":\"Contro il tuo portafoglio: tutti i pesi sono a 0, quindi il portafoglio è vuoto. Sposta un cursore sotto il grafico.\"}",
+  "shot": "shots/p-desktop-ptf-zero.png",
+  "sev": ""
+ },
+ {
+  "id": "P7",
+  "area": "portafoglio",
+  "test": "desktop «Ripristina l'esempio»",
+  "ok": "OK",
+  "detail": "{\"tot\":\"100\",\"dis\":true,\"ls\":\"null\"} rot uguale a prima=true",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P8",
+  "area": "portafoglio",
+  "test": "desktop «Confronta con il portafoglio» torna a PTF",
+  "ok": "OK",
+  "detail": "XEON.MI → PTF",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "P9",
+  "area": "portafoglio",
+  "test": "desktop passaggio su riga evidenzia la componente",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X1",
+  "area": "asset reali",
+  "test": "desktop pannello benchmark",
+  "ok": "OK",
+  "detail": "{\"vis\":true,\"rows\":[\"BIL\",\"CPI\",\"DXY_INV\",\"IEF\",\"SPY\",\"GLD\"],\"sel\":\"GLD\",\"bench\":\"GLD\",\"now\":\"Ora il benchmark è Oro: tutto misurato in oro: a destra chi batte il bene rifugio.\",\"ptf\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "asset reali",
+  "test": "desktop clic su riga BIL cambia benchmark",
+  "ok": "OK",
+  "detail": "BIL",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "asset reali",
+  "test": "desktop clic su riga CPI cambia benchmark",
+  "ok": "OK",
+  "detail": "CPI",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "asset reali",
+  "test": "desktop clic su riga DXY_INV cambia benchmark",
+  "ok": "OK",
+  "detail": "DXY_INV",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "asset reali",
+  "test": "desktop clic su riga IEF cambia benchmark",
+  "ok": "OK",
+  "detail": "IEF",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "asset reali",
+  "test": "desktop clic su riga SPY cambia benchmark",
+  "ok": "OK",
+  "detail": "SPY",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "X2",
+  "area": "asset reali",
+  "test": "desktop clic su riga GLD cambia benchmark",
+  "ok": "OK",
+  "detail": "GLD",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "R99",
+  "area": "console",
+  "test": "desktop nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]
