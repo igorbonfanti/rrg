@@ -635,7 +635,7 @@ async function fetchFred(id, since) {
   let lastErr;
   for (let attempt = 0; attempt < 4; attempt++) {
     try {
-      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' } });
+      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' }, signal: AbortSignal.timeout(30000) });
       if (!r.ok) throw new Error(`HTTP ${r.status}`); // FRED risponde a volte 503: si riprova
       const months = parseFredCsv(await r.text());
       if (!Object.keys(months).length) throw new Error('nessun dato');

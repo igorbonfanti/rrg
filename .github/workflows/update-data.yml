@@ -26,6 +26,8 @@ concurrency:
 jobs:
   gate:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     timeout-minutes: 5
     outputs:
       run: ${{ steps.need.outputs.run }}
@@ -107,6 +109,8 @@ jobs:
             git pull --rebase
             git push
           fi
+          # il token non resta nella configurazione di git per i passi dopo (Telegram)
+          git remote set-url origin "https://github.com/${{ github.repository }}"
 
       # Telegram dopo la pubblicazione dei dati: se il push fallisce, la corsa dopo non rimanda gli stessi messaggi
       - name: Alert (zona blu, trigger, segnali falliti)
@@ -121,7 +125,10 @@ jobs:
       # anche quando un invio Telegram è fallito: il registro segna i messaggi arrivati e quelli da riprovare
       - name: Commit registro degli alert
         if: steps.alerts.outcome == 'success' || steps.alerts.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}"
           git add data/alerts.json
           if git diff --staged --quiet; then
             echo "Registro degli alert invariato."

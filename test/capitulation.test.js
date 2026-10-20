@@ -92,3 +92,11 @@ test('sera: cali forti per settore e S&P 500 dalle chiusure dei membri', async (
   assert.deepEqual(rows.SPX['2026-01-05'], { n: 3, x5: 2, x7: 2, x10: 1 });
   assert.equal(rows.XLU['2026-01-05'].n, 0);
 });
+
+test('esiti degli episodi: senza il prezzo quel giorno i valori mancano, non sono NaN', async () => {
+  const { capOutcomes } = await import('../js/capitulation.js');
+  const pDates = Array.from({ length: 300 }, (_, i) => `d${String(i).padStart(3, '0')}`);
+  const close = pDates.map((_, i) => (i < 50 ? null : 100 + i));
+  const { rows } = capOutcomes([{ start: 10, end: 12, days: 3, peak: 9 }], pDates, pDates, close);
+  for (const k of ['dd52', 'fall63', 'r63', 'r252']) assert.equal(rows[0][k], null, k);
+});

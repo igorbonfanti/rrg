@@ -75,7 +75,8 @@ export function createIndices(ctx) {
   function loadMore() {
     if (more || !ctx.loadMore) return;
     more = ctx.loadMore().then((data) => {
-      if (!data || !data.series) return;
+      // file non arrivato o senza serie (getJSON dei file opzionali restituisce null): si dice, non si aspetta per sempre
+      if (!data || !data.series) throw new Error(data ? 'file senza serie' : 'file non arrivato');
       addSeries(data);
       st.blue = { ...defaults(), ...validBlue(store.get('ixBlue', {})) };
       if (!$('v-idx').hidden) render();

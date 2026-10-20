@@ -92,7 +92,7 @@ Strumento di studio: non è consulenza finanziaria né una raccomandazione di in
 - un altro ticker (es. `NVDA`, anche senza borsa: `SWDA`), un nome breve (es. `ORO`, `INDIA`) o una parola del nome (es. `TESLA`) lo evidenzia nella rotazione, anche cambiando universo; se è il benchmark attuale si passa a un altro benchmark;
 - un benchmark (`SPY`, `QQQ`, `ACWI`, `PTF`) apre la rotazione contro di lui;
 - `MON`, `ROT` (o `RRG`), `BTM`, `SEC`, `ALRT`, `IDX`, `TIT`, `HELP` aprono le viste e la guida;
-- un indice della pagina Indici (`NDX`, `N225`, `CAC`…) apre il suo dettaglio; vale più di un ticker scritto senza borsa (`CAC` apre il CAC 40, `CAC.PA` l'ETF nella rotazione);
+- un indice della pagina Indici (`NDX`, `N225`, `CAC`…) apre il suo dettaglio; vale più di un ticker scritto senza borsa (`CAC` apre il CAC 40, `CAC.PA` l'ETF nella rotazione); funzionano anche `KOSPI`, `NIKKEI`, `NASDAQ`, `DOW`, `RUSSELL`, `IBOVESPA`, `NIFTY` e `HANGSENG`;
 - `CHIARO` o `SCURO` scelgono il tema, `TEMA` lo inverte;
 - l'indirizzo `#XLU` apre direttamente un settore, `#mon` `#rrg` `#btm` `#sec` `#alr` `#idx` `#tit` una vista; funziona anche il tasto Indietro.
 
@@ -209,7 +209,7 @@ Stesso metodo, stessi parametri e stessa macchina a stati dei settori; cambiano 
 | KOSPI 200 | ^KS11 (KOSPI) | 15% (3° percentile) | dal 2006 | Wikipedia |
 | Taiwan (MSCI) | ^TWII | 8% (3° percentile) | dal 2003 | holdings iShares EWT |
 | Nifty 50 | ^NSEI | 10% (3° percentile) | dal 2007 | Wikipedia |
-| S&P/ASX 200 | ^AXJO | 14% (3° percentile) | dal 2008 | Wikipedia |
+| S&P/ASX 200 | ^AXJO | 14% (3° percentile) | dal 2008 | Wikipedia (può restare indietro sui ribilanciamenti: al 20/10/2026 ha ancora CTD, uscita a dicembre 2025, e non ha i cambi di settembre 2026) |
 | MSCI Emerging Markets | ETF EEM | 15% (Rea) | dal 2011 | holdings iShares EEM (circa 1.180; Malesia, Filippine e Abu Dhabi senza prezzi su Yahoo) |
 | Ibovespa | ^BVSP | 11% (3° percentile) | dal 2008 | B3 |
 

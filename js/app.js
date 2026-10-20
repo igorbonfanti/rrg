@@ -70,11 +70,22 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) chec
 // fresh: chiede sempre al server se il file è cambiato (risposta breve se non lo è). Serve per i file scaricati dopo
 // l'avvio: GitHub Pages li fa tenere al browser 10 minuti e dopo un aggiornamento si vedrebbero quelli vecchi. I file
 // dell'avvio no, perché sono già in arrivo con i preload della pagina (stessa richiesta, stessa copia)
-const getJSON = (url, optional, fresh) => fetch(url, fresh ? { cache: 'no-cache' } : undefined).then((r) => {
-  if (r.ok) return r.json();
-  if (optional) return null;
-  throw new Error(`${url}: HTTP ${r.status}`);
-}).catch((e) => { if (optional) return null; throw e; });
+// keys: campi che il file deve avere; un file opzionale che non arriva, illeggibile o incompleto vale null, uno
+// obbligatorio ferma l'avvio con un messaggio comprensibile (non l'errore di JavaScript)
+const SHAPE = {
+  'data/prices.json': ['dates', 'tickers', 'groups'], 'data/sectors.json': ['dates', 'adjclose'], 'data/breadth.json': ['dates', 'series'],
+  'config/thresholds.json': ['blue', 'params'], 'data/breadth_latest.json': ['members'], 'data/alerts.json': ['log'],
+  'config/indices.json': ['indices'], 'data/indices.json': ['series'], 'data/indices_more.json': ['series'], 'data/capitulation.json': ['series'],
+  'data/sector_members.json': ['sectors', 'dates'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
+};
+const getJSON = (url, optional, fresh) => fetch(url, fresh ? { cache: 'no-cache' } : undefined).catch(() => { throw new Error(`${url}: non raggiungibile`); }).then((r) => {
+  if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+  return r.json().catch(() => { throw new Error(`${url}: file illeggibile`); });
+}).then((j) => {
+  const miss = (SHAPE[url] || []).filter((k) => !j || typeof j !== 'object' || j[k] == null);
+  if (miss.length) throw new Error(`${url}: file incompleto (manca ${miss.join(', ')})`);
+  return j;
+}).catch((e) => { if (optional) { console.warn(e.message); return null; } throw e; });
 
 // Avvio in due tempi: prima i dati del Monitor (e dei settori USA), poi in sottofondo i prezzi degli universi globali
 // e degli asset reali, che servono solo alla rotazione. Aprendo direttamente la rotazione si aspettano anche quelli,
@@ -91,6 +102,7 @@ Promise.all([
   return (direct ? loadExtras() : Promise.resolve(null)).then((ex) => {
     if (ex) setExtras(ex);
     init();
+    if (ex) extrasWarn();
     // dopo il primo disegno
     if (!ex) setTimeout(() => loadExtras().then((x) => { setExtras(x); afterExtras(); }), 0);
   });
@@ -102,6 +114,13 @@ function setExtras([global, macro]) {
   state.global = global ? addPortfolios(global) : null;
   state.macro = macro;
 }
+// avviso dei prezzi globali o degli asset reali non arrivati (anche aprendo direttamente la rotazione)
+function extrasWarn(saved = store.get('group')) {
+  const lost = [[state.global, 'ETF in euro'], [state.macro, 'asset reali in dollari']].filter(([set]) => !set).map(([, l]) => l);
+  const w = $('grpWarn');
+  w.hidden = !lost.length;
+  w.textContent = lost.length ? `prezzi non arrivati: ${lost.join(' e ')}${saved && !state.groups[saved] ? ` · l'universo salvato «${saved}» non è disponibile` : ''}` : '';
+}
 // prezzi arrivati dopo l'avvio: metriche, elenco degli universi e, se era quello salvato, l'universo globale
 function afterExtras() {
   for (const set of [state.global, state.macro]) if (set) addMetrics(set);
@@ -109,10 +128,7 @@ function afterExtras() {
   fillSelects();
   const saved = store.get('group');
   // universo salvato i cui prezzi non sono arrivati: si resta sui settori, ma lo si dice
-  const lost = [[state.global, 'ETF in euro'], [state.macro, 'asset reali in dollari']].filter(([set]) => !set).map(([, l]) => l);
-  const w = $('grpWarn');
-  w.hidden = !lost.length;
-  w.textContent = lost.length ? `prezzi non arrivati: ${lost.join(' e ')}${saved && !state.groups[saved] ? ` · l'universo salvato «${saved}» non è disponibile` : ''}` : '';
+  extrasWarn(saved);
   if (saved && saved !== state.group && state.groups[saved]) {
     state.group = saved;
     state.benchmark = pickBenchmark(saved);
@@ -983,6 +999,9 @@ function bind() {
     }
     // un indice della pagina Indici (DAX, SMI, NDX, CAC…) prima delle etichette, dei ticker senza la borsa e dei nomi degli
     // ETF della rotazione, ma non di un ticker scritto per intero
+    // nomi comuni degli indici: KOSPI apre il KOSPI 200, NIKKEI il Nikkei 225…
+    const IX_ALIAS = { KOSPI: 'KOSPI200', NIKKEI: 'N225', NASDAQ: 'NDX', DOW: 'DJI', RUSSELL: 'RUT', IBOVESPA: 'IBOV', NIFTY: 'NIFTY50', HANGSENG: 'HSI' };
+    if (state.indices && IX_ALIAS[v] && state.indices.isIndex(IX_ALIAS[v])) { state.indices.open(IX_ALIAS[v]); setView('idx'); return; }
     if (state.indices && state.indices.isIndex(v) && !findSymbol(v, true)) { state.indices.open(v); setView('idx'); return; }
     const hit = findSymbol(v);
     // cambia universo e benchmark (e li ricorda) solo se serve
@@ -1005,7 +1024,8 @@ function bind() {
     }
     // un indice della pagina Indici (NDX, N225, SMI…), se non è già un ticker della rotazione
     if (state.indices && state.indices.isIndex(v)) { state.indices.open(v); setView('idx'); return; }
-    $('cmd').placeholder = narrow() ? `"${v}" non trovato · prova HELP` : `"${v}" non trovato. Prova un ticker (XLU${state.global ? ', SWDA' : ''}), un nome (${state.macro || state.global ? 'ORO, ' : ''}TESLA), MON, ROT o HELP`;
+    const gone = !state.global || !state.macro ? ` (prezzi ${!state.global ? 'degli ETF in euro' : 'degli asset reali'} non arrivati)` : '';
+    $('cmd').placeholder = narrow() ? `"${v}" non trovato${gone} · prova HELP` : `"${v}" non trovato${gone}. Prova un ticker (XLU${state.global ? ', SWDA' : ''}), un nome (${state.macro || state.global ? 'ORO, ' : ''}TESLA), MON, ROT o HELP`;
     $('cmdForm').classList.add('err');
     clearTimeout(cmdErrTimer);
     cmdErrTimer = setTimeout(() => { $('cmdForm').classList.remove('err'); setPlaceholder(); }, 4000);

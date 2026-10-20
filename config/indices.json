@@ -31,7 +31,7 @@
     "NIFTY50":{ "name": "Nifty 50 (India)", "area": "Asia-Pacifico", "price": "^NSEI",     "composition": "oggi", "limits": true, "from": "2007-10-01", "blue": 10, "blueSource": "p3", "source": "en.wikipedia NIFTY 50",
               "note": "Il prezzo dell'indice su Yahoo parte da settembre 2007. Storia con i membri di oggi." },
     "ASX200":{ "name": "S&P/ASX 200",       "area": "Asia-Pacifico", "price": "^AXJO",     "composition": "oggi", "limits": true, "from": "2008-05-01", "blue": 14, "blueSource": "p3", "source": "en.wikipedia S&P/ASX 200",
-              "note": "Storia con i membri di oggi: molte società piccole dell'indice sono quotate da pochi anni." },
+              "note": "Storia con i membri di oggi: molte società piccole dell'indice sono quotate da pochi anni. La lista di Wikipedia può restare indietro rispetto ai ribilanciamenti: al 20/10/2026 ha ancora Corporate Travel Management, uscita a dicembre 2025, e non ha i cambi di settembre 2026 (ci sono ancora EVT, GQG Partners e Tuas)." },
     "EEM":  { "name": "MSCI Emerging Markets", "main": true, "area": "Emergenti",  "price": "EEM",       "composition": "oggi", "limits": true, "from": "2011-03-01", "blue": 15, "blueSource": "Rea", "source": "holdings iShares EEM",
               "note": "Prezzo: ETF EEM in dollari, solo prezzo. La composizione è cambiata molto (azioni cinesi A dal 2018, Arabia Saudita dal 2019, Russia esclusa nel 2022) e alcuni mercati non hanno prezzi su Yahoo (Malesia, Filippine, Abu Dhabi)." },
     "IBOV": { "name": "Ibovespa (Brasile)", "area": "Emergenti",     "price": "^BVSP",     "composition": "oggi", "limits": true, "from": "2008-11-03", "blue": 11, "blueSource": "p3", "source": "B3 (portafoglio del giorno)",

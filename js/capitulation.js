@@ -170,8 +170,9 @@ export function capOutcomes(episodes, dates, pDates, close, from = 0) {
     for (let k = Math.max(0, j - 251); k <= j; k++) if (close[k] > hi) hi = close[k];
     for (let k = j + 1; k <= Math.min(close.length - 1, j + 63); k++) if (close[k] < lo) lo = close[k];
     return { date: dates[e.start], end: dates[e.end], days: e.days, peak: e.peak,
-      dd52: j >= 0 && hi ? close[j] / hi - 1 : null,
-      fall63: j >= 0 && lo < Infinity && j + 63 < close.length ? Math.min(0, lo / close[j] - 1) : null,
+      // senza il prezzo quel giorno (settori prima della quotazione dell'ETF, come XLC e XLRE nel 2008): «—»
+      dd52: j >= 0 && close[j] && hi ? close[j] / hi - 1 : null,
+      fall63: j >= 0 && close[j] && lo < Infinity && j + 63 < close.length ? Math.min(0, lo / close[j] - 1) : null,
       r63: fwd(j, 63), r252: fwd(j, 252) };
   });
   const base = {};
