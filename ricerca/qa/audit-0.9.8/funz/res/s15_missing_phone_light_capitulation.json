@@ -22,7 +22,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/capitulation.json (404): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (data/capitulation.json: HTTP 404) PIÙ VICINO AL LIVELLO B»",
+  "detail": "sec: «Peggior calo sono nascoste. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (data/capitulation.jso» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (data/capitulation.json: HTTP 404) PIÙ VICINO AL LIVELLO B»",
   "shot": "",
   "sev": ""
  },
@@ -49,7 +49,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/capitulation.json (troncato): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
+  "detail": "sec: «Peggior calo sono nascoste. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (Unterminated string i» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
   "shot": "",
   "sev": ""
  },
@@ -76,7 +76,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/capitulation.json (vuoto): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "detail": "sec: «Peggior calo sono nascoste. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (Failed to execute 'js» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
   "shot": "",
   "sev": ""
  },

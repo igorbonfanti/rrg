@@ -1,7 +1,7 @@
 {
  "verifiche": 2002,
- "fallite": 55,
- "quando": "2026-10-20T06:52:46.803Z",
+ "fallite": 49,
+ "quando": "2026-10-20T07:11:46.945Z",
  "fallite_elenco": [
   {
    "file": "s10_a11y_desktop_dark",
@@ -219,7 +219,7 @@
    "area": "dati mancanti",
    "test": "desktop/dark data/indices_more.json (404): l'app dice che il dato manca",
    "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+   "detail": "nessun messaggio",
    "shot": "",
    "sev": ""
   },
@@ -229,7 +229,7 @@
    "area": "dati mancanti",
    "test": "desktop/dark data/indices_more.json (troncato): l'app dice che il dato manca",
    "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+   "detail": "nessun messaggio",
    "shot": "",
    "sev": ""
   },
@@ -239,37 +239,7 @@
    "area": "dati mancanti",
    "test": "desktop/dark data/indices_more.json (vuoto): l'app dice che il dato manca",
    "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
-   "shot": "",
-   "sev": ""
-  },
-  {
-   "file": "s15_missing_desktop_dark",
-   "id": "D4",
-   "area": "dati mancanti",
-   "test": "desktop/dark data/prices_global.json (404): l'app dice che il dato manca",
-   "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
-   "shot": "",
-   "sev": ""
-  },
-  {
-   "file": "s15_missing_desktop_dark",
-   "id": "D4",
-   "area": "dati mancanti",
-   "test": "desktop/dark data/prices_global.json (troncato): l'app dice che il dato manca",
-   "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
-   "shot": "",
-   "sev": ""
-  },
-  {
-   "file": "s15_missing_desktop_dark",
-   "id": "D4",
-   "area": "dati mancanti",
-   "test": "desktop/dark data/prices_global.json (vuoto): l'app dice che il dato manca",
-   "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+   "detail": "nessun messaggio",
    "shot": "",
    "sev": ""
   },
@@ -280,36 +250,6 @@
    "test": "desktop/dark data/prices_global.json ({}): nessun errore JavaScript non gestito",
    "ok": "BUG",
    "detail": "[error] UNHANDLED_REJECTION TypeError: Cannot convert undefined or null to object\n    at Object.entries (<anonymous>)\n    at addPortfolios (http://127.0.0.1:8805/js/app.js:130:36)\n    at setExtras (http://127.0.0.1:8805/js/app.js:102:27)\n    at http://127.0.0.1:8805/js/app.js:95:58 | [pageerror] Cannot convert undefined or null to object",
-   "shot": "",
-   "sev": ""
-  },
-  {
-   "file": "s15_missing_desktop_dark",
-   "id": "D4",
-   "area": "dati mancanti",
-   "test": "desktop/dark data/prices_macro.json (404): l'app dice che il dato manca",
-   "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
-   "shot": "",
-   "sev": ""
-  },
-  {
-   "file": "s15_missing_desktop_dark",
-   "id": "D4",
-   "area": "dati mancanti",
-   "test": "desktop/dark data/prices_macro.json (troncato): l'app dice che il dato manca",
-   "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
-   "shot": "",
-   "sev": ""
-  },
-  {
-   "file": "s15_missing_desktop_dark",
-   "id": "D4",
-   "area": "dati mancanti",
-   "test": "desktop/dark data/prices_macro.json (vuoto): l'app dice che il dato manca",
-   "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
    "shot": "",
    "sev": ""
   },
@@ -349,7 +289,7 @@
    "area": "dati mancanti",
    "test": "phone/light data/indices_more.json (404): l'app dice che il dato manca",
    "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+   "detail": "nessun messaggio",
    "shot": "",
    "sev": ""
   },
@@ -359,7 +299,7 @@
    "area": "dati mancanti",
    "test": "phone/light data/indices_more.json (troncato): l'app dice che il dato manca",
    "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+   "detail": "nessun messaggio",
    "shot": "",
    "sev": ""
   },
@@ -369,7 +309,7 @@
    "area": "dati mancanti",
    "test": "phone/light data/indices_more.json (vuoto): l'app dice che il dato manca",
    "ok": "BUG",
-   "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+   "detail": "nessun messaggio",
    "shot": "",
    "sev": ""
   },

@@ -22,7 +22,7 @@
   "area": "dati mancanti",
   "test": "phone/light config/indices.json (404): scheda Indici nascosta e #idx non porta a una pagina vuota",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "detail": "idx: scheda nascosta",
   "shot": "",
   "sev": ""
  },
@@ -49,7 +49,7 @@
   "area": "dati mancanti",
   "test": "phone/light config/indices.json (troncato): scheda Indici nascosta e #idx non porta a una pagina vuota",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "detail": "idx: scheda nascosta",
   "shot": "",
   "sev": ""
  },
@@ -76,7 +76,7 @@
   "area": "dati mancanti",
   "test": "phone/light config/indices.json (vuoto): scheda Indici nascosta e #idx non porta a una pagina vuota",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "detail": "idx: scheda nascosta",
   "shot": "",
   "sev": ""
  },
@@ -121,7 +121,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/indices.json (404): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (data/indices.json: HTTP 404).»",
+  "detail": "idx: «Dati degli indici non disponibili (data/indices.json: HTTP 404).»",
   "shot": "",
   "sev": ""
  },
@@ -148,7 +148,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/indices.json (troncato): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
+  "detail": "idx: «Dati degli indici non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
   "shot": "",
   "sev": ""
  },
@@ -175,7 +175,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/indices.json (vuoto): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "detail": "idx: «Dati degli indici non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
   "shot": "",
   "sev": ""
  },
@@ -220,7 +220,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/indices_more.json (404): l'app dice che il dato manca",
   "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "nessun messaggio",
   "shot": "",
   "sev": ""
  },
@@ -247,7 +247,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/indices_more.json (troncato): l'app dice che il dato manca",
   "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "nessun messaggio",
   "shot": "",
   "sev": ""
  },
@@ -274,7 +274,7 @@
   "area": "dati mancanti",
   "test": "phone/light data/indices_more.json (vuoto): l'app dice che il dato manca",
   "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "nessun messaggio",
   "shot": "",
   "sev": ""
  },

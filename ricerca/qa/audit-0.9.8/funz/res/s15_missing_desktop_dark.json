@@ -166,7 +166,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/breadth_latest.json (404): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "sec: «gView ↗ TITOLI DEL SETTORE 7 Titoli → Fotografia per titolo non disponibile.»",
   "shot": "",
   "sev": ""
  },
@@ -193,7 +193,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/breadth_latest.json (troncato): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "sec: «gView ↗ TITOLI DEL SETTORE 7 Titoli → Fotografia per titolo non disponibile.»",
   "shot": "",
   "sev": ""
  },
@@ -220,7 +220,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/breadth_latest.json (vuoto): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "sec: «gView ↗ TITOLI DEL SETTORE 7 Titoli → Fotografia per titolo non disponibile.»",
   "shot": "",
   "sev": ""
  },
@@ -265,7 +265,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/alerts.json (404): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
+  "detail": "alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
   "shot": "",
   "sev": ""
  },
@@ -292,7 +292,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/alerts.json (troncato): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
+  "detail": "alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
   "shot": "",
   "sev": ""
  },
@@ -319,7 +319,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/alerts.json (vuoto): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
+  "detail": "alr: «backtest validato. NOTIFICHE TELEGRAM Registro degli invii non disponibile: il file data/alerts.json non è arrivato. Le notifiche arr»",
   "shot": "",
   "sev": ""
  },
@@ -364,7 +364,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark config/indices.json (404): scheda Indici nascosta e #idx non porta a una pagina vuota",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "detail": "idx: scheda nascosta",
   "shot": "",
   "sev": ""
  },
@@ -391,7 +391,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark config/indices.json (troncato): scheda Indici nascosta e #idx non porta a una pagina vuota",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "detail": "idx: scheda nascosta",
   "shot": "",
   "sev": ""
  },
@@ -418,7 +418,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark config/indices.json (vuoto): scheda Indici nascosta e #idx non porta a una pagina vuota",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: scheda nascosta",
+  "detail": "idx: scheda nascosta",
   "shot": "",
   "sev": ""
  },
@@ -463,7 +463,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/capitulation.json (404): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (data/capitulation.json: HTTP 404) PIÙ VICINO AL LIVELLO B»",
+  "detail": "sec: «empi, non come probabilità. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (data/capitulation.jso» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (data/capitulation.json: HTTP 404) PIÙ VICINO AL LIVELLO B»",
   "shot": "",
   "sev": ""
  },
@@ -490,7 +490,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/capitulation.json (troncato): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
+  "detail": "sec: «empi, non come probabilità. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (Unterminated string i» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
   "shot": "",
   "sev": ""
  },
@@ -517,7 +517,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/capitulation.json (vuoto): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "detail": "sec: «empi, non come probabilità. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (Failed to execute 'js» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
   "shot": "",
   "sev": ""
  },
@@ -562,7 +562,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/indices.json (404): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (data/indices.json: HTTP 404).»",
+  "detail": "idx: «Dati degli indici non disponibili (data/indices.json: HTTP 404).»",
   "shot": "",
   "sev": ""
  },
@@ -589,7 +589,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/indices.json (troncato): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
+  "detail": "idx: «Dati degli indici non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
   "shot": "",
   "sev": ""
  },
@@ -616,7 +616,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/indices.json (vuoto): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | idx: «Dati degli indici non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "detail": "idx: «Dati degli indici non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
   "shot": "",
   "sev": ""
  },
@@ -661,7 +661,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/indices_more.json (404): l'app dice che il dato manca",
   "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "nessun messaggio",
   "shot": "",
   "sev": ""
  },
@@ -688,7 +688,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/indices_more.json (troncato): l'app dice che il dato manca",
   "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "nessun messaggio",
   "shot": "",
   "sev": ""
  },
@@ -715,7 +715,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/indices_more.json (vuoto): l'app dice che il dato manca",
   "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "detail": "nessun messaggio",
   "shot": "",
   "sev": ""
  },
@@ -760,7 +760,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/sector_members.json (404): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | tit: «Dati dei titoli non disponibili (data/sector_members.json: HTTP 404).»",
+  "detail": "tit: «Dati dei titoli non disponibili (data/sector_members.json: HTTP 404).»",
   "shot": "",
   "sev": ""
  },
@@ -787,7 +787,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/sector_members.json (troncato): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | tit: «Dati dei titoli non disponibili (Unexpected end of JSON input).»",
+  "detail": "tit: «Dati dei titoli non disponibili (Unexpected end of JSON input).»",
   "shot": "",
   "sev": ""
  },
@@ -814,7 +814,7 @@
   "area": "dati mancanti",
   "test": "desktop/dark data/sector_members.json (vuoto): l'app dice che il dato manca",
   "ok": "OK",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n» | tit: «Dati dei titoli non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "detail": "tit: «Dati dei titoli non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
   "shot": "",
   "sev": ""
  },
@@ -858,8 +858,8 @@
   "id": "D4",
   "area": "dati mancanti",
   "test": "desktop/dark data/prices_global.json (404): l'app dice che il dato manca",
-  "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "ok": "OK",
+  "detail": "rrg: «120 130 SPY (benchmark) altri titoli dal 20/04/2026 prezzi non arrivati: ETF in euro»",
   "shot": "",
   "sev": ""
  },
@@ -885,8 +885,8 @@
   "id": "D4",
   "area": "dati mancanti",
   "test": "desktop/dark data/prices_global.json (troncato): l'app dice che il dato manca",
-  "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "ok": "OK",
+  "detail": "rrg: «120 130 SPY (benchmark) altri titoli dal 20/04/2026 prezzi non arrivati: ETF in euro»",
   "shot": "",
   "sev": ""
  },
@@ -912,8 +912,8 @@
   "id": "D4",
   "area": "dati mancanti",
   "test": "desktop/dark data/prices_global.json (vuoto): l'app dice che il dato manca",
-  "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "ok": "OK",
+  "detail": "rrg: «120 130 SPY (benchmark) altri titoli dal 20/04/2026 prezzi non arrivati: ETF in euro»",
   "shot": "",
   "sev": ""
  },
@@ -957,8 +957,8 @@
   "id": "D4",
   "area": "dati mancanti",
   "test": "desktop/dark data/prices_macro.json (404): l'app dice che il dato manca",
-  "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "ok": "OK",
+  "detail": "rrg: «120 130 SPY (benchmark) altri titoli dal 20/04/2026 prezzi non arrivati: asset reali in dollari»",
   "shot": "",
   "sev": ""
  },
@@ -984,8 +984,8 @@
   "id": "D4",
   "area": "dati mancanti",
   "test": "desktop/dark data/prices_macro.json (troncato): l'app dice che il dato manca",
-  "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "ok": "OK",
+  "detail": "rrg: «120 130 SPY (benchmark) altri titoli dal 20/04/2026 prezzi non arrivati: asset reali in dollari»",
   "shot": "",
   "sev": ""
  },
@@ -1011,8 +1011,8 @@
   "id": "D4",
   "area": "dati mancanti",
   "test": "desktop/dark data/prices_macro.json (vuoto): l'app dice che il dato manca",
-  "ok": "BUG",
-  "detail": "sec: «nti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore n»",
+  "ok": "OK",
+  "detail": "rrg: «120 130 SPY (benchmark) altri titoli dal 20/04/2026 prezzi non arrivati: asset reali in dollari»",
   "shot": "",
   "sev": ""
  },

@@ -28,7 +28,8 @@ const MSG = /non disponibil|non arrivat|mancan|Impossibile caricare|non è dispo
       const tag = `${prof}/${theme} ${file} (${mode})`;
       await L.goto(page, 'mon', 1800);
       const problems = [], msgs = [];
-      const visText = () => page.evaluate(() => { const v = [...document.querySelectorAll('section.view')].find((s) => !s.hidden); return v ? [v.id, v.innerText.replace(/\s+/g, ' ')] : ['', '']; });
+      // l'avviso dei prezzi non arrivati (#grpWarn) sta nella barra dei controlli della rotazione, fuori dalla sezione
+      const visText = () => page.evaluate(() => { const v = [...document.querySelectorAll('section.view')].find((s) => !s.hidden); const w = document.getElementById('grpWarn'); const extra = v && v.id === 'v-rrg' && w && !w.hidden ? ' ' + w.textContent : ''; return v ? [v.id, (v.innerText + extra).replace(/\s+/g, ' ')] : ['', '']; });
       if (REQUIRED.has(file)) {
         const [, t] = await visText();
         R.add('D1', 'dati mancanti', `${tag}: messaggio «Impossibile caricare i dati» al posto del Monitor`, /Impossibile caricare i dati/.test(t) && !/NaN|undefined/.test(t), t.slice(0, 200));
@@ -46,8 +47,7 @@ const MSG = /non disponibil|non arrivat|mancan|Impossibile caricare|non è dispo
           if (bad.length) problems.push(`${v}: ${bad.join(' / ')}`);
           if (t.length < 40) problems.push(`${v}: vista vuota («${t}»)`);
           if (/…\s*$|caricamento…/.test(t) && !MSG.test(t)) problems.push(`${v}: resta «caricamento…»`);
-          const m = t.match(new RegExp('.{0,60}(' + MSG.source + ').{0,60}', 'i'));
-          if (m) msgs.push(`${v}: «${m[0].trim()}»`);
+          for (const m of t.matchAll(new RegExp('.{0,60}(' + MSG.source + ').{0,60}', 'gi'))) if (!/mancano i titoli usciti/.test(m[0])) { msgs.push(`${v}: «${m[0].trim()}»`); break; }
         }
         const uncaught = o.log.filter((l) => /pageerror|UNHANDLED/.test(l));
         R.add('D2', 'dati mancanti', `${tag}: nessun errore JavaScript non gestito`, !uncaught.length, uncaught.slice(0, 3).join(' | '));
