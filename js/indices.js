@@ -173,7 +173,7 @@ export function createIndices(ctx) {
       ? `<span class="muted" title="${esc(epocaTip(k, r))}">d'epoca</span>`
       : CFG[k].limits
         ? `<span class="loc" title="${esc(`Storia dal ${S[k].dates[S[k].pct200.findIndex((v) => v != null)].slice(0, 4)} · ${CFG[k].note || ''}`)}">con limiti</span>`
-        : `<span class="muted" title="Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 4 punti più alta (da −7 a +18 nelle singole date); vicino ai minimi lo scarto è piccolo">membri di oggi</span>`;
+        : `<span class="muted" title="Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 4,5 punti più alta (da −6 a +19 nelle singole date); vicino ai minimi lo scarto è piccolo (+1,3 in media con la breadth sotto il 20%)">membri di oggi</span>`;
     $('ixTable').innerHTML = `<thead><tr><th>Indice</th><th>Stato</th><th class="wrap-l">% titoli sopra media 200</th><th class="r">Blu</th><th class="wrap-l">Drawdown da max 52s</th><th>Storia</th><th class="r" title="Cali forti dei titoli (scheda «Cali forti» nel dettaglio): allerta oggi, sedute in allerta negli ultimi 3 mesi o percentile di oggi">Cali forti</th><th class="r">Ultimo</th><th class="r">1G</th><th class="r">1M</th></tr></thead><tbody>` +
       rows.map((r) => {
         const ddw = Math.min(100, (Math.abs(r.dd) / DDMAX) * 100), worst = Math.min(100, (Math.abs(r.worst) / DDMAX) * 100);
