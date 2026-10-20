@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       recompute:
-        description: "Sedute della breadth degli indici da ricalcolare (5 di solito; fino a 50 dopo una correzione)"
+        description: "Sedute della breadth degli indici da ricalcolare (5 di solito; fino a 40 dopo una correzione)"
         required: false
         default: "5"
 

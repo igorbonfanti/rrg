@@ -126,7 +126,12 @@ test('conteggi di una seduta e aggiornamento del file', () => {
   const stale = { dates: dates.slice(0, 200), close: dates.slice(0, 200).map(() => 1) };
   const d = dates.at(-1);
   const r = countDay(['UP', 'DOWN', 'STALE', 'MISSING'], { UP: up, DOWN: down, STALE: stale }, d);
-  assert.deepEqual(r, { members: 4, n: 2, fresh: 2, a20: 1, a50: 1, a200: 1 });
+  assert.deepEqual(r, { members: 4, n: 2, fresh: 2, short: 0, a20: 1, a50: 1, a200: 1 });
+  // una seduta con meno di 200 chiusure prima, per titoli che hanno un anno intero di prezzi: da non ricalcolare
+  const long = Array.from({ length: 250 }, (_, i) => new Date(Date.UTC(2025, 0, 1) + i * 86400000).toISOString().slice(0, 10));
+  const full = { dates: long, close: long.map((_, i) => 100 + i) };
+  assert.equal(countDay(['A'], { A: full }, long[150]).short, 1);
+  assert.equal(countDay(['A'], { A: full }, long[220]).short, 0);
 
   const x = { symbol: '^X', ...encodeDates(['2026-10-12', '2026-10-13', '2026-10-14']), close: [1, 2, 3], b0: 1, members: [[0, 10]], n: [[0, 10]], a20: [5], a50: [5], a200: [5] };
   const e = expand(x);

@@ -29,9 +29,11 @@ import { countsOn, mergeCap } from '../js/capitulation.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
-// RECOMPUTE: sedute ricalcolate a ogni corsa; a mano fino a 50 dopo una correzione (input del workflow): con un anno
-// di prezzi la media a 200 sedute c'è per le ultime 50 circa
-const RECOMPUTE = Math.max(5, Math.min(50, +process.env.RECOMPUTE || 5)), STALE_DAYS = 5, MIN_FRESH = 0.75, MIN_OVERLAP = 0.8;
+// RECOMPUTE: sedute ricalcolate a ogni corsa; a mano fino a 40 dopo una correzione (input del workflow). Con un anno
+// di prezzi la media a 200 sedute c'è per circa 45 sedute, meno nelle borse con più feste: le sedute più vecchie si
+// saltano comunque se troppi titoli non hanno ancora 200 chiusure (countDay, short); il 20/10/2026 un ricalcolo di 50
+// sedute senza questo controllo aveva abbassato di decine di punti le sedute di inizio agosto
+const RECOMPUTE = Math.max(5, Math.min(40, +process.env.RECOMPUTE || 5)), STALE_DAYS = 5, MIN_FRESH = 0.75, MIN_OVERLAP = 0.8;
 const UA = 'Mozilla/5.0 (sector-monitor data fetch)';
 const DAY = 86400000;
 const readJSON = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf-8')) : d);
@@ -183,9 +185,10 @@ function sma(c, i, w) {
   return s / w;
 }
 // Conteggi di una seduta: members = membri della lista, n = quotati (ultima seduta entro 5 giorni),
-// fresh = con la chiusura proprio di quel giorno
+// fresh = con la chiusura proprio di quel giorno, short = titoli con un anno di prezzi scaricati che a quella data non
+// hanno ancora 200 chiusure: la seduta è troppo vicina all'inizio dei prezzi scaricati e non si può ricalcolare
 export function countDay(members, px, d) {
-  const r = { members: members.length, n: 0, fresh: 0, a20: 0, a50: 0, a200: 0 };
+  const r = { members: members.length, n: 0, fresh: 0, short: 0, a20: 0, a50: 0, a200: 0 };
   for (const s of members) {
     const p = px[s];
     if (!p) continue;
@@ -194,6 +197,7 @@ export function countDay(members, px, d) {
     if (j < 0 || days(p.dates[j], d) > STALE_DAYS) continue;
     r.n++;
     if (p.dates[j] === d) r.fresh++;
+    if (j < 199 && p.dates.length >= 230) r.short++;
     for (const w of [20, 50, 200]) { const v = sma(p.close, j, w); if (v != null && p.close[j] > v) r['a' + w]++; }
   }
   return r;
@@ -301,7 +305,8 @@ async function main() {
       const first = e.b0 + Math.max(0, e.a200.length - RECOMPUTE);
       for (const d of e.dates.slice(first)) {
         const r = countDay(lists[k], px, d);
-        if (r.n && r.fresh >= r.n * MIN_FRESH) { setCounts(e, d, r); done.push(d); }
+        if (r.short > r.n * 0.02) console.log(`${k} ${d}: troppo vicina all'inizio dei prezzi scaricati (${r.short} titoli senza 200 chiusure): tengo i valori pubblicati`);
+        else if (r.n && r.fresh >= r.n * MIN_FRESH) { setCounts(e, d, r); done.push(d); }
         else console.log(`${k} ${d}: non ancora pubblicabile (chiusure del giorno per ${r.fresh}/${r.n} titoli)`);
       }
       if (cap && !cfg[k].noCap && done.length) cap.series[k] = mergeCap(cap.series[k] || null, Object.fromEntries(done.map((d) => [d, countsOn(lists[k], px, d)])));
