@@ -49,7 +49,7 @@
   "area": "indici",
   "test": "desktop colonna «Cali forti» valorizzata (nessun «…»)",
   "ok": "OK",
-  "detail": "KOSPI200KOSPI 200 (Corea):5 SED. [Cali forti al 19/10/2026: 62 cali nelle ultime 5 sedute (cal] | EEMMSCI Emerging Markets:93° [Cali forti al 16/10/2026: 127 cali nelle ultime 5 sedute (ca] | RUTRussell 2000:96° [Cali forti al 19/10/2026: 456 cali nelle ultime 5 sedute (ca] | SPXS&P 500:91° [Cali forti al 19/10/2026: 30 cali nelle ultime 5 sedute (cal] | NDXNasdaq-100:97° [Cali forti al 19/10/2026: 17 cali nelle ultime 5 sedute (cal] | FTSEMIBFTSE MIB:0° [Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo] | N225Nikkei 225:97° [Cali forti al 19/10/2026: 38 cali nelle ultime 5 sedute ",
+  "detail": "KOSPI200KOSPI 200 (Corea):5 SED. [Cali forti al 19/10/2026: 62 cali nelle ultime 5 sedute (cal] | EEMMSCI Emerging Markets:93° [Cali forti al 16/10/2026: 127 cali nelle ultime 5 sedute (ca] | RUTRussell 2000:96° [Cali forti al 19/10/2026: 455 cali nelle ultime 5 sedute (ca] | SPXS&P 500:91° [Cali forti al 19/10/2026: 30 cali nelle ultime 5 sedute (cal] | NDXNasdaq-100:97° [Cali forti al 19/10/2026: 17 cali nelle ultime 5 sedute (cal] | FTSEMIBFTSE MIB:0° [Cali forti al 16/10/2026: 0 cali nelle ultime 5 sedute (calo] | N225Nikkei 225:97° [Cali forti al 19/10/2026: 38 cali nelle ultime 5 sedute ",
   "shot": "",
   "sev": ""
  },
@@ -263,63 +263,63 @@
  {
   "id": "I14",
   "area": "mappa indici",
-  "test": "desktop crisi «nov 2008»",
+  "test": "desktop crisi «nov 2008»: settimana che contiene il minimo, chip premuto",
   "ok": "OK",
-  "detail": "{\"v\":\"settimana al 21/11/2008\",\"pressed\":[\"2008-11-20\"]}",
+  "detail": "{\"v\":\"settimana al 21/11/2008\",\"pressed\":[\"2008-11-20\"]} diff=1",
   "shot": "",
   "sev": ""
  },
  {
   "id": "I14",
   "area": "mappa indici",
-  "test": "desktop crisi «ott 2011»",
+  "test": "desktop crisi «ott 2011»: settimana che contiene il minimo, chip premuto",
   "ok": "OK",
-  "detail": "{\"v\":\"settimana al 07/10/2011\",\"pressed\":[\"2011-10-03\"]}",
+  "detail": "{\"v\":\"settimana al 07/10/2011\",\"pressed\":[\"2011-10-03\"]} diff=4",
   "shot": "",
   "sev": ""
  },
  {
   "id": "I14",
   "area": "mappa indici",
-  "test": "desktop crisi «feb 2016»",
+  "test": "desktop crisi «feb 2016»: settimana che contiene il minimo, chip premuto",
   "ok": "OK",
-  "detail": "{\"v\":\"settimana al 12/02/2016\",\"pressed\":[\"2016-02-11\"]}",
+  "detail": "{\"v\":\"settimana al 12/02/2016\",\"pressed\":[\"2016-02-11\"]} diff=1",
   "shot": "",
   "sev": ""
  },
  {
   "id": "I14",
   "area": "mappa indici",
-  "test": "desktop crisi «dic 2018»",
+  "test": "desktop crisi «dic 2018»: settimana che contiene il minimo, chip premuto",
   "ok": "OK",
-  "detail": "{\"v\":\"settimana al 28/12/2018\",\"pressed\":[\"2018-12-24\"]}",
+  "detail": "{\"v\":\"settimana al 28/12/2018\",\"pressed\":[\"2018-12-24\"]} diff=4",
   "shot": "",
   "sev": ""
  },
  {
   "id": "I14",
   "area": "mappa indici",
-  "test": "desktop crisi «mar 2020»",
+  "test": "desktop crisi «mar 2020»: settimana che contiene il minimo, chip premuto",
   "ok": "OK",
-  "detail": "{\"v\":\"settimana al 27/03/2020\",\"pressed\":[\"2020-03-23\"]}",
+  "detail": "{\"v\":\"settimana al 27/03/2020\",\"pressed\":[\"2020-03-23\"]} diff=4",
   "shot": "",
   "sev": ""
  },
  {
   "id": "I14",
   "area": "mappa indici",
-  "test": "desktop crisi «ott 2022»",
+  "test": "desktop crisi «ott 2022»: settimana che contiene il minimo, chip premuto",
   "ok": "OK",
-  "detail": "{\"v\":\"settimana al 14/10/2022\",\"pressed\":[\"2022-10-12\"]}",
+  "detail": "{\"v\":\"settimana al 14/10/2022\",\"pressed\":[\"2022-10-12\"]} diff=2",
   "shot": "",
   "sev": ""
  },
  {
   "id": "I14",
   "area": "mappa indici",
-  "test": "desktop crisi «apr 2025»",
+  "test": "desktop crisi «apr 2025»: settimana che contiene il minimo, chip premuto",
   "ok": "OK",
-  "detail": "{\"v\":\"settimana al 11/04/2025\",\"pressed\":[\"2025-04-08\"]}",
+  "detail": "{\"v\":\"settimana al 11/04/2025\",\"pressed\":[\"2025-04-08\"]} diff=3",
   "shot": "",
   "sev": ""
  },

@@ -4,7 +4,7 @@
   "area": "avvio",
   "test": "desktop-dark caricamento Monitor",
   "ok": "OK",
-  "detail": "t=1807ms",
+  "detail": "t=1979ms",
   "shot": "",
   "sev": ""
  },
@@ -220,7 +220,7 @@
   "area": "avvio",
   "test": "desktop-light caricamento Monitor",
   "ok": "OK",
-  "detail": "t=1513ms",
+  "detail": "t=1526ms",
   "shot": "",
   "sev": ""
  },
@@ -652,7 +652,7 @@
   "area": "avvio",
   "test": "laptop-light caricamento Monitor",
   "ok": "OK",
-  "detail": "t=1493ms",
+  "detail": "t=1625ms",
   "shot": "",
   "sev": ""
  },
@@ -868,7 +868,7 @@
   "area": "avvio",
   "test": "tablet-dark caricamento Monitor",
   "ok": "OK",
-  "detail": "t=1475ms",
+  "detail": "t=1483ms",
   "shot": "",
   "sev": ""
  },
@@ -1084,7 +1084,7 @@
   "area": "avvio",
   "test": "tablet-light caricamento Monitor",
   "ok": "OK",
-  "detail": "t=1582ms",
+  "detail": "t=1521ms",
   "shot": "",
   "sev": ""
  },
@@ -1300,7 +1300,7 @@
   "area": "avvio",
   "test": "phone-dark caricamento Monitor",
   "ok": "OK",
-  "detail": "t=1478ms",
+  "detail": "t=1513ms",
   "shot": "",
   "sev": ""
  },
@@ -1516,7 +1516,7 @@
   "area": "avvio",
   "test": "phone-light caricamento Monitor",
   "ok": "OK",
-  "detail": "t=1476ms",
+  "detail": "t=1756ms",
   "shot": "",
   "sev": ""
  },
