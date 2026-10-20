@@ -39,3 +39,22 @@ test('dati fermi: file dei prezzi e ogni indice o serie dei cali forti, con le f
   assert.equal(p.length, 4, p.join(' | '));
   assert.ok(p.some((x) => /indici: HSI/.test(x)) && p.some((x) => /cali forti: KOSPI200/.test(x)));
 });
+
+test('corse di recupero: si fermano solo se la seduta USA attesa c\'è già ovunque', async () => {
+  const { needUpdate, RECOVERY } = await import('../scripts/need_update.js');
+  const all = { SPX: '2026-10-19', NDX: '2026-10-19', DJI: '2026-10-19', RUT: '2026-10-19' };
+  const done = { schedule: RECOVERY, expected: '2026-10-19', prices: '2026-10-19', breadth: '2026-10-19', indexLast: all };
+  assert.equal(needUpdate(done).run, false);
+  assert.equal(needUpdate({ ...done, prices: '2026-10-16' }).run, true);
+  assert.equal(needUpdate({ ...done, indexLast: { ...all, RUT: '2026-10-16' } }).run, true);
+  assert.equal(needUpdate({ ...done, indexLast: { SPX: '2026-10-19' } }).run, true); // indice mancante nel file
+  assert.equal(needUpdate({ ...done, breadth: undefined }).run, true);
+  assert.equal(needUpdate({ ...done, schedule: '40 22 * * 1-5' }).run, true); // corsa principale: sempre
+  assert.equal(needUpdate({ ...done, schedule: '' }).run, true); // lanciata a mano: sempre
+});
+
+test('corse di recupero: lo stesso cron nel workflow e nello script', async () => {
+  const fs = await import('node:fs');
+  const { RECOVERY } = await import('../scripts/need_update.js');
+  assert.ok(fs.readFileSync(new URL('../.github/workflows/update-data.yml', import.meta.url), 'utf8').includes(`cron: "${RECOVERY}"`));
+});

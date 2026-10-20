@@ -50,7 +50,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
 
 ## 3. Dati e aggiornamento notturno
 
-Workflow `.github/workflows/update-data.yml`, dopo la chiusura USA e due volte in recupero:
+Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:10 alle 06:10 UTC (si ferma se la seduta USA c'è già: `scripts/need_update.js`) e alle 11:40 UTC. Nelle due settimane fino al 20/10/2026 GitHub ha fatto partire la corsa delle 22:40 tra 2 h 04 e 4 h 30 dopo, quella delle 03:20 (tolta) tra 4 h 34 e 7 h 25 dopo; la prima corsa ha trovato la seduta USA completa su Yahoo in 4 notti su 9 (dai commit `chore: dati al …` di `main`).
 
 | Passo | Script | Scrive |
 |---|---|---|
