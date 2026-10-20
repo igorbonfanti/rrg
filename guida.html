@@ -122,7 +122,7 @@
       <li><b>6 Indici</b>: la stessa lettura sui principali indici del mondo; <b>5 Alert</b>: il registro dei segnali.</li>
     </ol>
     <p>In alto a sinistra c'è la versione in uso (passa il mouse per le novità). Se compare il pulsante giallo <b>«Nuova versione: ricarica»</b> il browser sta usando file vecchi: un clic riscarica app e dati.</p>
-    <p class="tip">Ogni intestazione di colonna e ogni voce con la sottolineatura a puntini ha una spiegazione: passa il mouse, oppure sul telefono toccala.</p>
+    <p class="tip">Ogni voce con la sottolineatura a puntini ha una spiegazione: passa il mouse, oppure sul telefono toccala.</p>
   </section>
 
   <section id="concetti">
@@ -207,7 +207,7 @@
         <tr><td>3 · Regioni</td><td>USA, Europa, Giappone, Pacifico ex-Giappone, Emergenti</td><td>MSCI ACWI o World</td></tr>
         <tr><td>4 · Paesi</td><td>15 paesi sviluppati ed emergenti</td><td>MSCI ACWI o World</td></tr>
         <tr><td>6 · Indici</td><td>ETF in euro su 9 indici della vista 6 (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40; la Svizzera con l'MSCI Switzerland)</td><td>MSCI ACWI o World</td></tr>
-        <tr><td>5 · Asset reali</td><td>Oro, Argento, Rame, Petrolio, Commodity, Bitcoin, TIPS, in dollari</td><td>liquidità in dollari, inflazione USA, «senza dollaro», Treasury, azioni USA, oro</td></tr>
+        <tr><td>5 · Asset reali</td><td>Oro, Argento, Rame, Petrolio, Commodity, Bitcoin, TIPS, in dollari; sul grafico anche Treasury (IEF) e azioni USA (SPY) quando non sono il benchmark</td><td>liquidità in dollari, inflazione USA, «senza dollaro», Treasury, azioni USA, oro</td></tr>
       </tbody>
     </table></div>
     <p>Gli universi globali usano ETF UCITS in euro, sul calendario di Borsa Italiana: un ETF quotato altrove (Xetra, Parigi, Madrid, Amsterdam) che quel giorno è chiuso per festa conta con il suo ultimo prezzo, e il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC, cioè ore dopo Milano (per l'ultima seduta, il prezzo al momento dell'aggiornamento). Sul grafico hanno un nome breve (World, Gov 1-3, Oro…); ticker e nome completo sono in tabella e al passaggio del mouse. Nell'universo <b>5 · Asset reali</b> il pannello sotto il grafico spiega cosa mostra ogni benchmark: contro la liquidità e l'inflazione si legge soprattutto il trend assoluto, contro gli altri il confronto tra asset (clic su una riga per cambiarlo).</p>
@@ -223,8 +223,8 @@
     </ul>
 
     <h3 id="rrg-tabelle">Tabelle e performance</h3>
-    <p>La <b>tabella di rotazione</b> riporta per ogni titolo: quadrante, RS-Ratio e RS-Momentum con la variazione dall'ultimo periodo, <b>direzione</b> dell'ultimo movimento in gradi bussola (0° su, 90° a destra, in grassetto tra 0° e 90° cioè verso Leading), <b>velocità</b>, <b>distanza</b> dal centro, da quante <b>settimane</b> è nel quadrante e il quadrante <b>precedente</b>. Clic sulle intestazioni per ordinare.</p>
-    <p>L'interruttore <b>Prezzi</b> mostra invece variazioni, drawdown (con i dividendi e sul solo prezzo) e distanza dalla media 200 di tutto l'universo. Il grafico <b>Performance relativa</b> mette a base 100 l'ultimo periodo scelto (3M, 6M, 1A, 2A), con il benchmark e il titolo in evidenza.</p>
+    <p>La <b>tabella di rotazione</b> riporta per ogni titolo: quadrante, RS-Ratio e RS-Momentum con la variazione dall'ultimo periodo, <b>direzione</b> dell'ultimo movimento in gradi bussola (0° su, 90° a destra, in grassetto tra 0° e 90° cioè verso Leading), <b>velocità</b>, <b>distanza</b> dal centro, da quante <b>settimane</b> è nel quadrante e il quadrante <b>precedente</b>.</p>
+    <p>L'interruttore <b>Prezzi</b> mostra invece variazioni, drawdown (con i dividendi e sul solo prezzo) e distanza dalla media 200 di tutto l'universo; un clic sulle intestazioni ordina la tabella. Il grafico <b>Performance relativa</b> mette a base 100 l'ultimo periodo scelto (3M, 6M, 1A, 2A), con il benchmark e il titolo in evidenza.</p>
 
     <h3 id="portafoglio">Portafoglio di riferimento (1 · Asset class)</h3>
     <p>Nell'universo Asset class il benchmark predefinito è un <b>portafoglio di esempio</b>: Azioni 50% (World 40, Emergenti 10), governativi euro 30%, Oro e materie prime 13%, Immobiliare 5%, Bitcoin 2%, ribilanciato a fine mese. Ogni punto del grafico confronta una componente con il portafoglio intero.</p>
@@ -317,7 +317,7 @@
     <ul>
       <li><b>Allerta</b>: la somma supera la linea tratteggiata, cioè il 99° percentile di tutte le sedute precedenti di quell'indice o settore (dopo almeno 3 anni di storia), con almeno 5 cali nella somma. Ogni indice ha la sua soglia: un −7% è frequente in Corea e raro in Svizzera.</li>
       <li><b>Percentile</b>: la quota delle sedute precedenti con una somma più bassa di quella di oggi. Con 0 cali vale 0°, anche dove lo zero è la norma.</li>
-      <li><b>Sedute in allerta</b>: conta soprattutto se l'allerta si ripete. Con il preset, nei 12 mesi dal primo episodio le serie dell'app sono state in allerta 31,5 sedute di mediana nel 2007-2009, di solito in più episodi separati (S&amp;P 500: 5 episodi, 60 sedute); 12 nel 2020, in un solo episodio; 5 nell'aprile 2025. Per questo la scheda dice quante sedute è stata in allerta negli ultimi 3 mesi e quanti episodi negli ultimi 12, e la tabella quante sedute per ogni episodio: un'allerta che si ripete dice che qualcosa di grosso si muove sotto la superficie.</li>
+      <li><b>Sedute in allerta</b>: conta soprattutto se l'allerta si ripete. Con il preset, nei 12 mesi dal primo episodio le serie dell'app sono state in allerta 31,5 sedute di mediana nel 2007-2009, di solito in più episodi separati (S&amp;P 500: 5 episodi, 60 sedute); 12 nel 2020, di solito in un solo episodio; 5 nell'aprile 2025. Per questo la scheda dice quante sedute è stata in allerta negli ultimi 3 mesi e quanti episodi negli ultimi 12, e la tabella quante sedute per ogni episodio: un'allerta che si ripete dice che qualcosa di grosso si muove sotto la superficie.</li>
       <li><b>Grafico</b>: stesse sedute e stessa larghezza del grafico principale sopra, quindi le date cadono negli stessi punti; passando il cursore (o toccando) la linea verticale compare in tutti e due i grafici. Se un evento eccezionale (ottobre 2008, marzo 2020) supera di molto la soglia, la scala si ferma a 1,3 volte la soglia più alta del periodo e il valore del picco è scritto in alto (▲, con il mese): così si leggono anche gli episodi minori, come il 2022. Il valore di ogni seduta è nel tooltip.</li>
       <li><b>Scelte</b>: calo del 5, 7 o 10%, somma su 3, 5 o 10 sedute, titoli o percentuale dei titoli (utile nei settori e negli indici con pochi membri). Le scelte restano nel browser; «Preset di Rea» torna a −7% su 5 sedute.</li>
       <li><b>Episodi</b>: per ogni allerta il primo e l'ultimo giorno, le sedute in allerta, il picco, quanto l'indice era sotto il massimo a 52 settimane quel giorno (solo come informazione), quanto è sceso ancora nei 3 mesi dopo e i rendimenti a 3 e 12 mesi, accanto a quelli di una seduta qualsiasi.</li>
@@ -368,7 +368,7 @@
       </tbody>
     </table></div>
     <p><b>Tasti</b>: <kbd>1</kbd>–<kbd>7</kbd> viste · <kbd>/</kbd> barra dei comandi · <kbd>←</kbd> <kbd>→</kbd> periodo nella rotazione · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida rapida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida rapida (utile con lettori di schermo o dettatura).</p>
-    <p><b>Indirizzi</b>: <code>#mon</code> <code>#rrg</code> <code>#btm</code> <code>#alr</code> <code>#idx</code> <code>#tit</code> aprono una vista, <code>#XLU</code> un settore, <code>#tit-XLK</code> i titoli di un settore. Puoi salvarli tra i preferiti; il tasto Indietro del browser torna alla vista o al settore precedente.</p>
+    <p><b>Indirizzi</b>: <code>#mon</code> <code>#rrg</code> <code>#btm</code> <code>#sec</code> <code>#alr</code> <code>#idx</code> <code>#tit</code> aprono una vista, <code>#XLU</code> un settore, <code>#tit-XLK</code> i titoli di un settore. Puoi salvarli tra i preferiti; il tasto Indietro del browser torna alla vista o al settore precedente.</p>
   </section>
 
   <section id="schermo">
@@ -384,7 +384,7 @@
   <section id="dati">
     <h2>Dati e aggiornamenti</h2>
     <ul>
-      <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate da un processo automatico su GitHub: parte dopo la chiusura USA (alle 00:40 ora italiana con l'ora legale, alle 23:40 con l'ora solare), riprova ogni ora nelle prime ore del mattino finché non trova la seduta e passa di nuovo a metà giornata. GitHub fa partire queste corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. Finché la seduta non arriva, il badge in alto dice «1 seduta indietro». In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
+      <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate da un processo automatico su GitHub: parte dopo la chiusura USA (alle 00:40 ora italiana con l'ora legale, alle 23:40 con l'ora solare), riprova ogni ora nelle prime ore del mattino finché non trova la seduta e passa di nuovo a metà giornata. GitHub fa partire queste corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. Dopo le 2:30 circa (ora italiana), finché la seduta non arriva, il badge in alto dice «1 seduta indietro». In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
       <li>La <b>breadth dei settori</b> è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 7 vengono dalle holdings dell'ETF iShares IVV.</li>
       <li>La <b>breadth degli indici</b> è calcolata a ogni aggiornamento sui loro membri (circa 4.600 titoli).</li>
       <li>Le scelte personali (livelli blu provati, pesi del portafoglio, universo, indici mostrati, tema) restano solo nel tuo browser.</li>
