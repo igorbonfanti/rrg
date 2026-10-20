@@ -4,11 +4,10 @@
  * e l'app lo dice in alto. Schema 0.vista.correzione: 0 finché è in prova, la cifra di mezzo sale con una funzione
  * nuova, l'ultima con le correzioni.
  */
-export const VERSION = '0.9.9';
+export const VERSION = '0.9.10';
 export const RELEASE = '2026-10-20';
 export const NOTES = [
-  'Aggiornamento notturno più robusto: una corsa partita in coda usa i dati appena pubblicati; il registro degli alert si salva anche se un invio Telegram fallisce, e un evento annullato non viene più rimandato',
-  'Dati USA più presto la mattina: corse di recupero ogni ora nelle prime ore, che si fermano se la seduta c\'è già; testi con gli orari reali dell\'aggiornamento',
-  'Settore e Indici: «Episodi in zona blu» richiudibile; grafico dei cali forti sulle stesse date del grafico principale, linea del cursore in tutti i grafici, scala tagliata sui picchi (▲ con il valore)',
-  'Indici: link a TradingView per tutti i 22; CAC nella barra dei comandi apre l\'indice',
+  'Correzioni dal controllo prima della 1.0: frasi sbagliate o rimaste indietro (6 casi su 12, minimo di nov 2008, orari, regola del trigger), statistiche ricalcolabili con uno script, valori di Rea tolti',
+  'Dati: una riapertura dopo una lunga sospensione resta un calo vero; le chiusure di una borsa appena chiusa si aspettano un\'ora; asterisco anche negli asset reali; lista dell\'ASX 200 in ritardo detta',
+  'File mancanti o incompleti detti in chiaro; comandi KOSPI, NIKKEI, NASDAQ, DOW e altri; etichette dei cali forti dentro il grafico; tocco sull\'ultima seduta; testo più grande sul tablet; tabelle del telefono più strette',
 ];
