@@ -27,6 +27,9 @@ jobs:
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
+          # l'ultimo main, non il commit di quando la corsa è stata messa in coda: una corsa partita dietro un'altra
+          # deve vedere i dati appena pubblicati (il gate per decidere, l'aggiornamento per non andare in conflitto)
+          ref: main
           persist-credentials: false
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
         with:
@@ -47,6 +50,9 @@ jobs:
       # azioni fissate per SHA (v5.1.0 e v5.0.0); le credenziali servono solo ai passi che fanno push
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
+          # l'ultimo main, non il commit di quando la corsa è stata messa in coda: una corsa partita dietro un'altra
+          # deve vedere i dati appena pubblicati (il gate per decidere, l'aggiornamento per non andare in conflitto)
+          ref: main
           persist-credentials: false
 
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
@@ -105,8 +111,9 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node scripts/send_alerts.js
 
+      # anche quando un invio Telegram è fallito: il registro segna i messaggi arrivati e quelli da riprovare
       - name: Commit registro degli alert
-        if: steps.alerts.outcome == 'success'
+        if: steps.alerts.outcome == 'success' || steps.alerts.outcome == 'failure'
         run: |
           git add data/alerts.json
           if git diff --staged --quiet; then
