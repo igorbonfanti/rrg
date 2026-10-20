@@ -22,7 +22,26 @@ def clean(dates, close):
             if (b > 3 * a and b > 3 * n) or (3 * b < a and 3 * b < n):
                 continue
         d.append(dates[i]); c.append(close[i])
+    # salto di scala (rapporto ≥ 4 o ≤ 0,25): se rientra entro 60 sedute si tolgono le sedute in mezzo, altrimenti si
+    # riscala tutta la storia precedente (come la seconda parte di clean() nella pipeline)
+    big = lambda r: r >= 4 or r <= 0.25
+    i = 1
+    while i < len(c):
+        r = c[i] / c[i - 1]
+        if not big(r):
+            i += 1; continue
+        back = next((j for j in range(i + 1, min(len(c), i + 61)) if big(c[j] / c[j - 1]) and 0.5 < r * c[j] / c[j - 1] < 2), -1)
+        if back >= 0:
+            del d[i:back]; del c[i:back]
+        else:
+            RESCALED.append((dates[0] if False else None, d[i], round(r, 3)))
+            for j in range(i):
+                c[j] *= r
+            i += 1
     return d, c
+
+
+RESCALED = []
 
 
 def px_of(s, upto):
@@ -84,6 +103,8 @@ for k in SEL:
     mem = load(f'index_members/{k}.json')['tickers']
     PX = {s: px_of(s, bd[-1]) for s in mem}
     PX = {s: p for s, p in PX.items() if p}
+    if RESCALED:
+        print(k, 'storia riscalata (salto di scala senza rientro):', RESCALED, flush=True); RESCALED.clear()
     capS = None
     if not CFG[k].get('noCap'):
         capS = app_cap(k); cpos = {d: i for i, d in enumerate(capS['dates'])}

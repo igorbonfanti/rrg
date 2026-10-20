@@ -23,7 +23,7 @@ def yfetch(sym, rng='5y', force=False):
     else:
         q = f'range={rng}'
     last = None
-    for a in range(5):
+    for a in range(7):
         host = ('query1', 'query2')[a % 2]
         url = f'https://{host}.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(sym)}?{q}&interval=1d&includeAdjustedClose=true&events=div,split'
         try:
@@ -36,7 +36,7 @@ def yfetch(sym, rng='5y', force=False):
             if e.code == 404:
                 json.dump({'error': 404}, open(p, 'w'))
                 return {'error': 404}
-            time.sleep(2 * (a + 1))
+            time.sleep((20 if e.code == 429 else 2) * (a + 1))  # 429: Yahoo chiede di rallentare
         except Exception as e:
             last = e; time.sleep(2 * (a + 1))
     raise RuntimeError(f'{sym}: {last}')
