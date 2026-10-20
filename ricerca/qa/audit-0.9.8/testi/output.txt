@@ -1,0 +1,263 @@
+# Output degli script dell'audit dei testi 0.9.8 — 2026-10-20T06:03Z, commit 9a81dd8, dati al 2026-10-19
+
+===== avvicinamento.mjs
+settori: prima breadth 2005-01-03 ultima 2026-10-19
+SETTORI (11, dal 2005) fisso+10: allarmi 168, arrivano 100 (59.5%), anticipo mediano allarmi arrivati 7 sedute (mediana dell'app 7.5), tocchi avvisati 50/73, anticipo mediano dei tocchi avvisati (ultimo allarme) 16
+SETTORI (11, dal 2005) velocita: allarmi 224, arrivano 91 (40.6%), anticipo mediano allarmi arrivati 23 sedute (mediana dell'app 23), tocchi avvisati 59/73, anticipo mediano dei tocchi avvisati (ultimo allarme) 23
+INDICI (22) fisso+10: allarmi 295, arrivano 169 (57.3%), anticipo mediano allarmi arrivati 9 sedute (mediana dell'app 9), tocchi avvisati 83/134, anticipo mediano dei tocchi avvisati (ultimo allarme) 19
+INDICI (22) velocita: allarmi 348, arrivano 164 (47.1%), anticipo mediano allarmi arrivati 20 sedute (mediana dell'app 20), tocchi avvisati 96/134, anticipo mediano dei tocchi avvisati (ultimo allarme) 22
+INDICI solo main (data/indices.json, 10) fisso+10: allarmi 135, arrivano 83 (61.5%), anticipo mediano allarmi arrivati 11 sedute (mediana dell'app 11), tocchi avvisati 41/62, anticipo mediano dei tocchi avvisati (ultimo allarme) 19
+INDICI solo main (data/indices.json, 10) velocita: allarmi 152, arrivano 80 (52.6%), anticipo mediano allarmi arrivati 22 sedute (mediana dell'app 22), tocchi avvisati 46/62, anticipo mediano dei tocchi avvisati (ultimo allarme) 22
+prima breadth degli indici: SPX 2005-01-03 · NDX 2008-01-02 · DJI 2000-01-03 · N225 2001-01-04 · SXXP 2006-01-02 · UKX 2001-01-02 · DAX 2001-01-02 · CAC 2001-01-02 · SMI 2001-01-03 · RUT 2017-09-01 · TSX60 2000-02-01 · SX5E 2007-04-02 · FTSEMIB 2005-04-01 · IBEX 2007-03-01 · HSI 2008-09-01 · CSI300 2012-06-01 · KOSPI200 2006-12-01 · TWN 2003-01-02 · NIFTY50 2007-10-01 · ASX200 2008-05-01 · EEM 2011-03-01 · IBOV 2008-11-03
+min prima data indici 2000-01-03
+
+===== livelli.mjs
+SETTORI: livello, % sedute <= livello, p3, membri ultimi
+XLK 6 3.36 < 3.36 p3 4.76 n 75 1 titolo = 1.33
+XLC 5 3.19 < 3.19 p3 4.17 n 22 1 titolo = 4.55
+XLY 8 3.14 < 3.14 p3 7.32 n 47 1 titolo = 2.13
+XLP 11 2.43 < 2.43 p3 15.79 n 34 1 titolo = 2.94
+XLE 1 3.32 < 3.32 p3 0.00 n 21 1 titolo = 4.76
+XLF 6 2.90 < 2.90 p3 6.56 n 76 1 titolo = 1.32
+XLV 11 2.64 < 2.64 p3 14.29 n 60 1 titolo = 1.67
+XLI 5 3.45 < 3.45 p3 3.77 n 83 1 titolo = 1.20
+XLB 10 3.99 < 3.99 p3 8.00 n 24 1 titolo = 4.17
+XLRE 8 5.76 < 5.76 p3 0.00 n 30 1 titolo = 3.33
+XLU 5 3.70 < 3.70 p3 4.00 n 31 1 titolo = 3.23
+SPX (breadth.json) 13: 2.97
+
+INDICI: livello, fonte, % sedute <= livello, p3, n ultimo, membri ultimo
+SPX       13 Rea    2.97 p3  13.28 round 13 n 503 members 503 last 2026-10-19
+NDX       18 Rea    5.50 p3  11.46 round 11 n 101 members 101 last 2026-10-19
+DJI       15 Rea    5.70 p3  10.00 round 10 n 30 members 30 last 2026-10-19
+N225      8 Rea    2.44 p3   9.47 round 9 n 225 members 225 last 2026-10-19
+SXXP      9 p3     2.95 p3   9.05 round 9 n 600 members 602 last 2026-10-19
+UKX       12 p3     3.70 p3  11.63 round 12 n 100 members 100 last 2026-10-19
+DAX       7 Rea    4.93 p3   3.33 round 3 n 40 members 40 last 2026-10-19
+CAC       4 Rea    2.77 p3   5.13 round 5 n 40 members 40 last 2026-10-19
+SMI       3 Rea    3.47 p3   0.00 round 0 n 20 members 20 last 2026-10-19
+RUT       15 Rea    2.88 p3  15.26 round 15 n 1966 members 1975 last 2026-10-19
+TSX60     23 p3     3.00 p3  23.33 round 23 n 60 members 60 last 2026-10-19
+SX5E      7 p3     4.45 p3   6.67 round 7 n 50 members 50 last 2026-10-19
+FTSEMIB   3 Rea    0.95 p3   3.57 round 4 n 40 members 40 last 2026-10-19
+IBEX      6 Rea    3.27 p3   3.85 round 4 n 35 members 35 last 2026-10-19
+HSI       8 Rea    3.45 p3   6.90 round 7 n 85 members 85 last 2026-10-16
+CSI300    14 p3     2.87 p3  14.17 round 14 n 298 members 300 last 2026-10-16
+KOSPI200  15 p3     2.88 p3  15.25 round 15 n 200 members 200 last 2026-10-19
+TWN       8 p3     2.81 p3   8.20 round 8 n 74 members 76 last 2026-10-20
+NIFTY50   10 p3     3.06 p3   9.52 round 10 n 50 members 50 last 2026-10-19
+ASX200    14 p3     2.91 p3  14.17 round 14 n 195 members 200 last 2026-10-20
+EEM       15 Rea    0.25 p3  21.55 round 22 n 1123 members 1182 last 2026-10-19
+IBOV      11 p3     2.97 p3  11.48 round 11 n 76 members 76 last 2026-10-19
+totale n 5911 totale members 5990
+somma membri settori 503
+
+===== copertura.mjs
+SPX copertura per anno (min-media %): 2005:64-65 2006:67-69 2007:70-72 2008:75-77 2009:79-80 2010:81-83 2011:83-84 2012:86-87 2013:88-89 2014:90-91 2015:91-91 2016:92-94 2017:95-96 2018:97-97 2019:97-98 2020:98-98 2021:98-99 2022:99-99 2023:99-99 2024:99-100 2025:99-100 2026:99-100
+XLRE 2005:60-64 2006:71-77 2007:73-76 2008:79-79 2009:79-82 2010:82-82 2011:82-83 2012:83-84 2013:84-85 2014:86-86 2015:86-88 2016:88-92 2017:93-94 2018:94-94 2019:94-94 2020:93-94 2021:93-93 2022:93-93 2023:94-94 2024:94-94 2025:94-94 2026:94-95
+XLC 2005:73-74 2006:74-80 2007:74-74 2008:74-74 2009:75-76 2010:71-74 2011:71-71 2012:71-71 2013:70-72 2014:75-76 2015:78-81 2016:81-84 2017:85-88 2018:87-87 2019:88-94 2020:96-96 2021:96-96 2022:96-99 2023:96-100 2024:100-100 2025:100-100 2026:96-100
+XLE 2005:89-90 2006:90-91 2007:84-84 2008:83-84 2009:82-83 2010:84-86 2011:82-82 2012:81-82 2013:81-81 2014:81-82 2015:80-82 2016:83-86 2017:89-94 2018:90-92 2019:90-94 2020:92-96 2021:92-98 2022:100-100 2023:100-100 2024:95-100 2025:96-100 2026:100-100
+SPX       epoca inizio 2005-01-03 copertura iniziale 64% oggi 100.0% prezzo dal 2000-01-03
+NDX       epoca inizio 2008-01-02 copertura iniziale 59% oggi 100.0% prezzo dal 2000-01-03
+DJI       epoca inizio 2000-01-03 copertura iniziale 87% oggi 100.0% prezzo dal 2000-01-03
+N225      oggi inizio 2001-01-04 copertura iniziale 84% oggi 100.0% prezzo dal 2000-01-04
+SXXP      oggi inizio 2006-01-02 copertura iniziale 74% oggi NaN% prezzo dal 2004-04-26
+UKX       oggi inizio 2001-01-02 copertura iniziale 72% oggi NaN% prezzo dal 2000-01-04
+DAX       oggi inizio 2001-01-02 copertura iniziale 70% oggi NaN% prezzo dal 2000-01-03
+CAC       oggi inizio 2001-01-02 copertura iniziale 78% oggi NaN% prezzo dal 2000-01-03
+SMI       oggi inizio 2001-01-03 copertura iniziale 70% oggi NaN% prezzo dal 2000-01-04
+RUT       oggi inizio 2017-09-01 copertura iniziale 63% oggi 99.5% prezzo dal 2000-01-03
+TSX60     oggi inizio 2000-02-01 copertura iniziale 62% oggi 100.0% prezzo dal 2000-01-04
+SX5E      oggi inizio 2007-04-02 copertura iniziale 88% oggi NaN% prezzo dal 2007-03-30
+FTSEMIB   oggi inizio 2005-04-01 copertura iniziale 63% oggi NaN% prezzo dal 2000-01-03
+IBEX      oggi inizio 2007-03-01 copertura iniziale 63% oggi NaN% prezzo dal 2000-01-03
+HSI       oggi inizio 2008-09-01 copertura iniziale 61% oggi 100.0% prezzo dal 2000-01-03
+CSI300    oggi inizio 2012-06-01 copertura iniziale 65% oggi 99.3% prezzo dal 2012-05-04
+KOSPI200  oggi inizio 2006-12-01 copertura iniziale 61% oggi 100.0% prezzo dal 2000-01-04
+TWN       oggi inizio 2003-01-02 copertura iniziale 66% oggi 97.4% prezzo dal 2000-01-04
+NIFTY50   oggi inizio 2007-10-01 copertura iniziale 80% oggi 100.0% prezzo dal 2007-09-17
+ASX200    oggi inizio 2008-05-01 copertura iniziale 63% oggi 97.5% prezzo dal 2000-01-04
+EEM       oggi inizio 2011-03-01 copertura iniziale 63% oggi NaN% prezzo dal 2003-04-14
+IBOV      oggi inizio 2008-11-03 copertura iniziale 64% oggi 100.0% prezzo dal 2000-01-03
+
+===== suth.mjs
+[ 'generated', 'asOf', 'method', 'source', 'dates', 'series' ] [
+  'XLK',  'XLC', 'XLY',
+  'XLP',  'XLE', 'XLF',
+  'XLV',  'XLI', 'XLB',
+  'XLRE', 'XLU', 'SPX'
+] [ 'generated', 'asOf', 'dates', 'adjclose', 'max52At', 'max52' ]
+2018-04-27 42.86 12 28
+2018-07-27 82.76 24 29
+2020-05-22 3.57 1 28
+[ 'members', 'n', 'a20', 'a50', 'a200' ]
+
+===== rotazione.mjs
+gruppi [ 'Settori S&P 500', 'MAG7' ] benchmarks {
+  SPY: 'S&P 500',
+  QQQ: 'Nasdaq 100',
+  RSP: 'S&P 500 Equal Weight',
+  ACWI: 'MSCI All Country World'
+}
+weekly stesso quadrante 1796/2475 = 72.6% nuova |RS-Ratio-100|<=3: 99.8% (entrambi gli assi 99.6%) semplice |RS-Ratio-100|<=10: 99.1% (entrambi 99.1%)
+daily stesso quadrante 9523/13233 = 72.0% nuova |RS-Ratio-100|<=3: 98.8% (entrambi gli assi 98.7%) semplice |RS-Ratio-100|<=10: 99.9% (entrambi 99.9%)
+
+===== cali.mjs
+manca TWN
+
+count: episodi 102, con 12M 99; eccesso medio 12M 10.9 pt; senza mar2020/apr2025 2.4 (64); solo crolli rapidi 26.4 (35)
+  ago2007-set2008: 14 episodi, r252<0: 13, eccesso medio -31.8; SPX 2008-01-10 -37%, SPX 2008-03-17 -39%, SPX 2008-07-02 -29%, SPX 2008-09-09 -16%, DJI 2008-07-28 -18%, DJI 2008-09-15 -11%, N225 2007-08-17 -17%, N225 2008-01-22 -36%, UKX 2008-09-16 0%, DAX 2008-01-21 -36%, CAC 2008-01-23 -36%, TSX60 2008-08-08 -20%, TSX60 2008-09-04 -13%, FTSEMIB 2008-09-29 -9%
+manca TWN
+
+pct: episodi 90, con 12M 87; eccesso medio 12M 12.0 pt; senza mar2020/apr2025 2.0 (55); solo crolli rapidi 29.2 (32)
+  ago2007-set2008: 13 episodi, r252<0: 12, eccesso medio -30.8; SPX 2008-01-10 -37%, SPX 2008-03-17 -39%, SPX 2008-07-02 -29%, SPX 2008-09-09 -16%, DJI 2008-07-28 -18%, DJI 2008-09-15 -11%, N225 2007-08-17 -17%, N225 2008-01-22 -36%, UKX 2008-09-17 4%, DAX 2008-01-21 -36%, TSX60 2008-08-08 -20%, TSX60 2008-09-08 -13%, FTSEMIB 2008-09-29 -9%
+
+===== risultati_indici.mjs
+9 indici F1, tutti i trigger dal 2001: 75, mediana 14.8 (media dei due centrali 14.8), positivi 49
+9 indici F1, ultimo trigger di ogni episodio dal 2005: 39, mediana 20.6 (media dei due centrali 20.6), positivi 34
+9 indici F1, ultimo trigger di ogni episodio dal 2001: 50, mediana 18.0 (media dei due centrali 18.3), positivi 40
+13 indici con limiti, ultimo trigger per episodio: 54, mediana 22.8 (media dei due centrali 23.4), positivi 46 | tutti i trigger: 70, mediana 18.9 (media dei due centrali 19.7), positivi 56
+
+===== zonablu.mjs
+zone blu con 6 mesi dopo: 48; prezzo più basso nei 6 mesi dopo l'ingresso: 46/48; minimo dei ±6 mesi entro 3 mesi dall'ingresso: 29/48; trigger positivi a 3M 45/60
+
+===== extra.mjs
+2005-01-03 membri S&P 500 somma membri settori 331 con prezzi 292
+2009-03-09 membri S&P 500 somma membri settori 432 con prezzi 378
+2012-12-03 membri S&P 500 somma membri settori 493 con prezzi 434
+2016-06-01 membri S&P 507 somma membri settori 504 con prezzi 471
+2026-10-16 membri S&P 503 somma membri settori 503 con prezzi 503
+cali forti 2008 sedute in allerta per serie in 3 mesi: mediana 19 max 43
+cali forti 2020 sedute in allerta per serie in 3 mesi: mediana 12 max 27
+cali forti 2025 sedute in allerta per serie in 3 mesi: mediana 4 max 6
+XLC prezzo dal 2018-06-19 percentile dal 2019-06-20 breadth dal 2005-01-03 prima zona blu 2020-03-17
+XLRE prezzo dal 2015-10-08 percentile dal 2016-10-07 breadth dal 2005-01-03 prima zona blu 2016-11-11
+
+===== verifica_098.mjs
+[T1] indici con livello di Rea: 12; con il 3° percentile: 10
+[T1] SPX Rea 13 p3 13 (scarto 0) · NDX Rea 18 p3 11 (scarto 7) · DJI Rea 15 p3 10 (scarto 5) · N225 Rea 8 p3 9 (scarto 1) · DAX Rea 7 p3 3 (scarto 4) · CAC Rea 4 p3 5 (scarto 1) · SMI Rea 3 p3 0 (scarto 3) · RUT Rea 15 p3 15 (scarto 0) · FTSEMIB Rea 3 p3 4 (scarto 1) · IBEX Rea 6 p3 4 (scarto 2) · HSI Rea 8 p3 7 (scarto 1) · EEM Rea 15 p3 22 (scarto 7)
+[T1] entro 1 punto: 6 su 12; uguali: 2
+[T2] liste 21, titoli con ripetizioni 5487, titoli unici 4640
+[T2] STOXX 600: suffissi di borsa diversi 17 (AS AT BR CO DE HE IR L LS MC MI OL PA ST SW VI WA)
+[T2] data/indices.json: 840 KB, gzip 290 KB
+[T2] data/indices_more.json: 934 KB, gzip 293 KB
+[T3] SPX vista 6 MAX dal 2005-01-03: soglia più alta 357.5400000000002, somma massima 1082, taglio 464.80, cima della scala 501.99 (senza taglio 1168.56)
+[T3] picco 2022: 106 titoli = 0.211 del pannello con il taglio, 0.091 senza
+[T3] etichette: ▲557 (ott 2008), ▲1082 (mar 2020)
+[T3] serie con l'etichetta ▲557 in MAX: SPX: ▲557 (ott 2008), ▲1082 (mar 2020)
+[T4] SPX 10/10/2008: cali di almeno il 7% = 46 (README: 46)
+[T4] UKX 16/10/2026: campi dates,close,pct200,pct50,pct20,n,members,above200
+[T4] UKX 16/10/2026: titoli sopra la media a 20 = 67 su 100 (README: 67)
+[T4] CSI 300 16/10/2026: chiusura 4.236 contro 4.242 del 2026-10-15: 1G -0.14% (README: −0,14%)
+[T5] sedute di Milano 13-20/09/2022 assenti dal calendario: 6 su 6; la seduta prima del 21/09 è il 2022-09-12
+[T5] 04-06/12/2023 (indici 538,539,540): ricopiati per 13 ETF (IUSQ.DE ZPRS.DE EXS1.DE XCS6.DE QDV5.DE IQQT.DE IQQK.DE SXR8.DE SXRU.DE EXSA.DE XUKX.DE DBXD.DE XSMI.DE); ETF di Xetra nell'universo 13; seduta prima 2023-12-01
+[T5] CSNDX.MI 30/12/2025 (indice 1059) ricopiato: true; prezzo preso dal 2025-12-23
+[T5] MWEQ.MI primo prezzo 2024-10-07 (README: «dal 2024»); primo giorno del calendario 2021-10-19
+[T5] DBMFE.PA nome: Managed futures (trend following) · iMGP DBi Managed Futures R EUR UCITS ETF (Acc), Euronext Parigi, non coperto dal cambio. Prima del 28/04/2025 la storia è quella del DBMF americano (stessa strategia) convertito in euro. Periodi piatti di anni e cali del 20% sono normali per la strategia
+[T6] GLD 29/09/2026 drawdown -22.79% · max52 {"hi":495.9,"d":"2026-01-29","c":379.69,"dv":0,"da":0,"ih":509.7,"id":"2026-01-29"}
+[T6] XLU 29/09/2026 drawdown con i dividendi -15.06% (il solo prezzo a quella data non è nei dati: max52 vale solo per 2026-10-19)
+[T7] prices.json parte dal 2021-10-20: per le crisi prima uso sectors.json (SPY rettificato)
+[T7] 2008-09: minimo di chiusura di SPY 2009-03-09
+[T7] 2011: minimo di chiusura di SPY 2011-10-03
+[T7] 2016: minimo di chiusura di SPY 2016-02-11
+[T7] 2018: minimo di chiusura di SPY 2018-12-24
+[T7] 2020: minimo di chiusura di SPY 2020-03-23
+[T7] 2022: minimo di chiusura di SPY 2022-10-12
+[T7] 2025: minimo di chiusura di SPY 2025-04-08
+[T7] breadth S&P 500 minima 2008-09: 0.7556675062972292% il 2009-03-02 (sedute con lo stesso valore: 2009-03-02, 2009-03-06)
+[T7] breadth S&P 500 il 20/11/2008: 1.0204081632653061%
+[T8] XLY eventi 2008-2009: 2008-01-22 setup, 2008-01-29 trig, 2008-03-17 fail, 2008-04-03 trig, 2008-10-07 setup, 2009-01-02 trig
+[T8] SPX eventi 2011-08-01..2011-12-31: 2011-08-22 setup, 2011-08-29 trig, 2011-10-03 fail, 2011-10-10 trig
+[T8] UKX eventi 2008-01-01..2008-06-30: 2008-01-22 setup, 2008-02-01 trig, 2008-03-17 fail, 2008-04-04 trig
+[T9] cali −7% ogni 10.000 titoli-seduta: KOSPI200 97.1, SMI 42.3
+[T9] serie dei cali forti degli indici: 21 (manca: TWN)
+[T9] episodi ago 2007 – set 2008 (rendimento a 12 mesi): 14: SPX 2008-01-10 -37.31% · SPX 2008-03-17 -39.05% · SPX 2008-07-02 -28.94% · SPX 2008-09-09 -15.61% · DJI 2008-07-28 -18.28% · DJI 2008-09-15 -11.30% · N225 2007-08-17 -16.50% · N225 2008-01-22 -36.42% · UKX 2008-09-16 0.33% · DAX 2008-01-21 -36.44% · CAC 2008-01-23 -35.52% · TSX60 2008-08-08 -19.66% · TSX60 2008-09-04 -13.32% · FTSEMIB 2008-09-29 -9.01%
+[T10] 2020: serie con un solo episodio nei 12 mesi 25, con più episodi 5
+[T11] pesi: {"SWDA.MI":40,"EIMI.MI":10,"EM13.MI":10,"EM710.MI":10,"EM15.MI":10,"SGLD.MI":10,"IWDP.MI":5,"CMOD.MI":3,"BTC-EUR":2,"DBMFE.PA":0}
+[T11] classi: [["Azioni",50],["Obbligazioni governative euro",30],["Oro e materie prime",13],["Immobiliare",5],["Cripto",2],["Alternativi (trend following)",0]]
+[T11] storia ricostruita (history.proxy): "DBMF"
+[T11] ISIN LU2951555403 in universe.json: false
+[T12] config/cpi_releases.json: da 2019-01 a 2026-08 (91 mesi); 2025-10 presente: false; in prices_macro: false
+[T12] prices_macro.cpi: ultimo mese 2026-09, uscito il 2026-10-14
+[T13] XLE 21 (4.76) · XLC 22 (4.55) · XLB 24 (4.17) · XLRE 30 (3.33) · XLU 31 (3.23) · XLP 34 (2.94) · XLY 47 (2.13) · XLV 60 (1.67) · XLK 75 (1.33) · XLF 76 (1.32) · XLI 83 (1.20)
+[T14] RUT 2017-09-01 63% · TSX60 2000-02-01 62% · SX5E 2007-04-02 88% · FTSEMIB 2005-04-01 63% · IBEX 2007-03-01 63% · HSI 2008-09-01 61% · CSI300 2012-06-01 65% · KOSPI200 2006-12-01 61% · TWN 2003-01-02 66% · NIFTY50 2007-10-01 80% · ASX200 2008-05-01 63% · EEM 2011-03-01 63% · IBOV 2008-11-03 64%
+[T14] prima seduta del prezzo (percentile del drawdown): SPX 2000-01-03 · NDX 2000-01-03 · DJI 2000-01-03 · N225 2000-01-04 · SXXP 2004-04-26 · UKX 2000-01-04 · DAX 2000-01-03 · CAC 2000-01-03 · SMI 2000-01-04 · RUT 2000-01-03 · TSX60 2000-01-04 · SX5E 2007-03-30 · FTSEMIB 2000-01-03 · IBEX 2000-01-03 · HSI 2000-01-03 · CSI300 2012-05-04 · KOSPI200 2000-01-04 · TWN 2000-01-04 · NIFTY50 2007-09-17 · ASX200 2000-01-04 · EEM 2003-04-14 · IBOV 2000-01-03
+[T15] SPX min 0.8% il 2009-03-02 (nov 2008: 1.0% il 2008-11-20) · XLK min 0.0% il 2008-10-03 (nov 2008: 0.0% il 2008-11-03) · XLC min 0.0% il 2008-09-24 (nov 2008: 0.0% il 2008-11-03) · XLY min 2.4% il 2008-11-14 (nov 2008: 2.4% il 2008-11-14) · XLP min 0.0% il 2008-10-09 (nov 2008: 5.9% il 2008-11-19) · XLE min 0.0% il 2008-09-03 (nov 2008: 0.0% il 2008-11-03) · XLF min 0.0% il 2008-10-09 (nov 2008: 0.0% il 2008-11-11) · XLV min 0.0% il 2008-10-10 (nov 2008: 0.0% il 2008-11-20) · XLI min 0.0% il 2008-10-02 (nov 2008: 0.0% il 2008-11-03) · XLB min 0.0% il 2008-10-03 (nov 2008: 0.0% il 2008-11-03) · XLRE min 0.0% il 2008-10-07 (nov 2008: 0.0% il 2008-11-03) · XLU min 0.0% il 2008-10-07 (nov 2008: 0.0% il 2008-11-10)
+[T15] media delle breadth degli 11 settori: minimo 0.4% il 2008-10-09
+[T15] media il 20/11/2008: 0.8%; il 09/03/2009: 1.0%
+[T16] settori con il segno della divergenza 3M diverso da Rea al 16/10/2026: XLK, XLI
+[T17] 1 · Asset class contro XEON.MI: |RS-Ratio − 100| ≤ 3 nel 98.3% dei punti settimanali (2320)
+[T17] 2 · Fattori contro SWDA.MI: |RS-Ratio − 100| ≤ 3 nel 98.3% dei punti settimanali (1701)
+[T17] 3 · Regioni contro IUSQ.DE: |RS-Ratio − 100| ≤ 3 nel 100.0% dei punti settimanali (1160)
+[T17] 4 · Paesi contro IUSQ.DE: |RS-Ratio − 100| ≤ 3 nel 98.3% dei punti settimanali (3480)
+[T17] 6 · Indici contro IUSQ.DE: |RS-Ratio − 100| ≤ 3 nel 99.9% dei punti settimanali (2088)
+[T17] 5 · Asset reali contro BIL: |RS-Ratio − 100| ≤ 3 nel 98.8% dei punti settimanali (2088)
+
+===== ricerca/quant-rea/script/capitolazione_persistenza.mjs (script citato dai testi)
+dati al 2026-10-19
+
+serie     2020                  2022                  2007-2009             apr 2025              
+SPX       1 ep., 12 sed.        0                     5 ep., 60 sed. (dal 2008-01-10)1 ep., 4 sed.         
+XLK       1 ep., 12 sed.        0                     3 ep., 27 sed. (dal 2008-01-10)1 ep., 10 sed.        
+XLC       1 ep., 13 sed.        0                     2 ep., 27 sed. (dal 2008-01-10)0                     
+XLY       2 ep., 24 sed.        1 ep., 1 sed.         5 ep., 45 sed. (dal 2008-01-10)0                     
+XLP       1 ep., 15 sed.        1 ep., 5 sed.         2 ep., 19 sed. (dal 2008-01-10)0                     
+XLE       2 ep., 14 sed.        0                     4 ep., 47 sed. (dal 2008-01-10)1 ep., 5 sed.         
+XLF       1 ep., 11 sed.        0                     7 ep., 55 sed. (dal 2008-01-10)1 ep., 4 sed.         
+XLV       1 ep., 14 sed.        0                     3 ep., 27 sed. (dal 2008-01-10)0                     
+XLI       2 ep., 21 sed.        0                     3 ep., 36 sed. (dal 2008-01-10)1 ep., 5 sed.         
+XLB       1 ep., 12 sed.        0                     2 ep., 37 sed. (dal 2008-01-10)1 ep., 2 sed.         
+XLRE      1 ep., 12 sed.        0                     3 ep., 46 sed. (dal 2008-01-10)0                     
+XLU       1 ep., 19 sed.        0                     2 ep., 13 sed. (dal 2008-01-10)1 ep., 5 sed.         
+NDX       1 ep., 12 sed.        2 ep., 4 sed.         —                     1 ep., 6 sed.         
+DJI       2 ep., 17 sed.        0                     3 ep., 36 sed.        1 ep., 4 sed.         
+N225      1 ep., 1 sed.         0                     3 ep., 10 sed.        1 ep., 5 sed.         
+SXXP      1 ep., 12 sed.        0                     0 (dal 2009-01-12)    1 ep., 5 sed.         
+UKX       1 ep., 19 sed.        0                     3 ep., 37 sed.        1 ep., 3 sed.         
+DAX       1 ep., 12 sed.        0                     2 ep., 21 sed.        0                     
+CAC       1 ep., 12 sed.        1 ep., 2 sed.         2 ep., 20 sed.        0                     
+SMI       1 ep., 7 sed.         0                     1 ep., 14 sed.        1 ep., 5 sed.         
+RUT       0 (dal 2020-09-10)    0                     —                     1 ep., 5 sed.         
+TSX60     1 ep., 17 sed.        0                     2 ep., 50 sed.        1 ep., 5 sed.         
+SX5E      1 ep., 10 sed.        0                     —                     1 ep., 3 sed.         
+FTSEMIB   1 ep., 10 sed.        1 ep., 7 sed.         2 ep., 19 sed. (dal 2008-03-26)1 ep., 5 sed.         
+IBEX      1 ep., 12 sed.        0                     —                     1 ep., 5 sed.         
+HSI       1 ep., 5 sed.         2 ep., 11 sed.        —                     1 ep., 5 sed.         
+CSI300    0                     0                     —                     1 ep., 3 sed.         
+KOSPI200  1 ep., 11 sed.        0                     —                     0                     
+NIFTY50   1 ep., 12 sed.        0                     —                     0                     
+ASX200    1 ep., 16 sed.        0                     —                     1 ep., 4 sed.         
+EEM       1 ep., 11 sed.        0                     —                     1 ep., 5 sed.         
+IBOV      2 ep., 27 sed.        0                     —                     0                     
+
+sedute in allerta nei 12 mesi dal primo episodio, tra le serie con almeno un episodio:
+  2020       30 serie · mediana 12 · da 1 a 27
+  2022        6 serie · mediana 4.5 · da 1 a 11
+  2007-2009  20 serie · mediana 31.5 · da 10 a 60
+  apr 2025   22 serie · mediana 5 · da 2 a 10
+
+===== ricerca/attenzione/script/indici.mjs (script citato dai testi)
+fisso +10            allarmi 295 arrivano 57% anticipo 9 sedute tocchi avvisati 83/134
+velocità 10 sedute   allarmi 348 arrivano 47% anticipo 20 sedute tocchi avvisati 96/134
+SPX      blu 13 · soglia 28 · oggi 50
+NDX      blu 18 · soglia 34 · oggi 56
+DJI      blu 15 · soglia 36 · oggi 67
+N225     blu  8 · soglia 26 · oggi 56
+SXXP     blu  9 · soglia 24 · oggi 61
+UKX      blu 12 · soglia 29 · oggi 68
+DAX      blu  7 · soglia 28 · oggi 65
+CAC      blu  4 · soglia 25 · oggi 40
+SMI      blu  3 · soglia 28 · oggi 70
+RUT      blu 15 · soglia 27 · oggi 42
+TSX60    blu 23 · soglia 38 · oggi 67
+SX5E     blu  7 · soglia 29 · oggi 52
+FTSEMIB  blu  3 · soglia 23 · oggi 50
+IBEX     blu  6 · soglia 26 · oggi 63
+HSI      blu  8 · soglia 25 · oggi 32
+CSI300   blu 14 · soglia 28 · oggi 20  ← attenzione
+KOSPI200 blu 15 · soglia 28 · oggi 26  ← avvicinamento
+TWN      blu  8 · soglia 25 · oggi 85
+NIFTY50  blu 10 · soglia 28 · oggi 18  ← attenzione
+ASX200   blu 14 · soglia 26 · oggi 36
+EEM      blu 15 · soglia 25 · oggi 34
+IBOV     blu 11 · soglia 27 · oggi 76
