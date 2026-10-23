@@ -1,0 +1,497 @@
+{
+ "verifiche": 2002,
+ "fallite": 49,
+ "quando": "2026-10-20T07:11:46.945Z",
+ "fallite_elenco": [
+  {
+   "file": "s10_a11y_desktop_dark",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "desktop #mon: focus visibile sui primi 20 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-mon 1 Monitor → tr[XLU] XLUUtilities\n  → tr[XLRE] XLREReal Estat → tr[XLY] XLYConsumer Di → tr[XLI] XLIIndustrials → tr[XLC] XLCCommunicati → tr[XLB] XLBMaterials\n  → tr[XLP] XLPConsumer St → tr[XLF] XLFFinancials\n → tr[XLK] XLKTechnology\n → tr[XLE] XLEEnergy\n     → tr[XLV] XLVHealth Care → div[XLU] XLUUtilitiesTr ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_desktop_dark",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "desktop #rrg: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-rrg 2 Rotazione → #groupSel Settori S&P 50 → #benchSel SPY · S&P 500Q → button Settimanale → button Giornaliero → button Nuova → button Medie semplici → button 4 → button 10 → button 16 → button 26 → button Adatta → button Massima ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_desktop_dark",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "desktop #btm: focus visibile sui primi 28 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-btm 3 Bottom Map → #bmPlay ▶ PLAY → #bmDate  → #bmZoom Zoom sulla zon → button nov 2008 → button ott 2011 → button feb 2016 → button dic 2018 → button mar 2020 → button ott 2022 → button apr 2025 → div[XLRE] XLRE\n        \n → div[XLU] XLU\n        \n  ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_desktop_dark",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "desktop #XLU: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-sec 4 Settore → button[XLK] XLK → button[XLC] XLC → button[XLY] XLY → button[XLP] XLP → button[XLE] XLE → button[XLF] XLF → button[XLV] XLV → button[XLI] XLI → button[XLB] XLB → button[XLRE] XLRE → button[XLU] XLU → button 3A ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_desktop_dark",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "desktop #alr: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-alr 5 Alert → button[XLU] XLU → button[XLU] XLU → button[XLB] XLB → button[XLB] XLB → button[XLP] XLP → button[XLP] XLP → button[XLE] XLE → button[XLE] XLE → button[XLRE] XLRE → button[XLRE] XLRE → button[XLRE] XLRE → button[XLU] XLU ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_desktop_dark",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "desktop #idx: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-idx 6 Indici → button SPX → button NDX → button DJI → button RUT → button TSX60 → button SXXP → button UKX → button DAX → button CAC → button SMI → button SX5E → button FTSEMIB ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_desktop_dark",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "desktop #tit: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-tit 7 Titoli → button[XLK] XLK → button[XLC] XLC → button[XLY] XLY → button[XLP] XLP → button[XLE] XLE → button[XLF] XLF → button[XLV] XLV → button[XLI] XLI → button[XLB] XLB → button[XLRE] XLRE → button[XLU] XLU → button 1M ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_phone_light",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "phone #mon: focus visibile sui primi 20 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-mon 1 Monitor → tr[XLU] XLUUtilities\n  → tr[XLRE] XLREReal Estat → tr[XLY] XLYConsumer Di → tr[XLI] XLIIndustrials → tr[XLC] XLCCommunicati → tr[XLB] XLBMaterials\n  → tr[XLP] XLPConsumer St → tr[XLF] XLFFinancials\n → tr[XLK] XLKTechnology\n → tr[XLE] XLEEnergy\n     → tr[XLV] XLVHealth Care → div[XLU] XLUUtilitiesTr ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_phone_light",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "phone #rrg: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-rrg 2 Rotazione → #groupSel Settori S&P 50 → #benchSel SPY · S&P 500Q → button Settimanale → button Giornaliero → button Nuova → button Medie semplici → button 4 → button 10 → button 16 → button 26 → button Adatta → button Massima ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_phone_light",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "phone #btm: focus visibile sui primi 28 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-btm 3 Bottom Map → #bmPlay ▶ PLAY → #bmDate  → #bmZoom Zoom sulla zon → button nov 2008 → button ott 2011 → button feb 2016 → button dic 2018 → button mar 2020 → button ott 2022 → button apr 2025 → div[XLRE] XLRE\n        \n → div[XLU] XLU\n        \n  ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_phone_light",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "phone #XLU: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-sec 4 Settore → button[XLK] XLK → button[XLC] XLC → button[XLY] XLY → button[XLP] XLP → button[XLE] XLE → button[XLF] XLF → button[XLV] XLV → button[XLI] XLI → button[XLB] XLB → button[XLRE] XLRE → button[XLU] XLU → button 3A ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_phone_light",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "phone #alr: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-alr 5 Alert → button[XLU] XLU → button[XLU] XLU → button[XLB] XLB → button[XLB] XLB → button[XLP] XLP → button[XLP] XLP → button[XLE] XLE → button[XLE] XLE → button[XLRE] XLRE → button[XLRE] XLRE → button[XLRE] XLRE → button[XLU] XLU ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_phone_light",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "phone #idx: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-idx 6 Indici → button SPX → button NDX → button DJI → button RUT → button TSX60 → button SXXP → button UKX → button DAX → button CAC → button SMI → button SX5E → button FTSEMIB ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s10_a11y_phone_light",
+   "id": "A6",
+   "area": "accessibilità",
+   "test": "phone #tit: focus visibile sui primi 40 elementi",
+   "ok": "BUG",
+   "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-tit 7 Titoli → button[XLK] XLK → button[XLC] XLC → button[XLY] XLY → button[XLP] XLP → button[XLE] XLE → button[XLF] XLF → button[XLV] XLV → button[XLI] XLI → button[XLB] XLB → button[XLRE] XLRE → button[XLU] XLU → button 1M ·· senza anello: #cmd  (senza anello)",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D1",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/prices.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+   "ok": "BUG",
+   "detail": "Impossibile caricare i dati (Cannot convert undefined or null to object). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D1",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/sectors.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+   "ok": "BUG",
+   "detail": "Impossibile caricare i dati (Cannot convert undefined or null to object). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D1",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/breadth.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+   "ok": "BUG",
+   "detail": "Impossibile caricare i dati (Cannot read properties of undefined (reading 'XLK')). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D1",
+   "area": "dati mancanti",
+   "test": "desktop/dark config/thresholds.json ({}): messaggio «Impossibile caricare i dati» al posto del Monitor",
+   "ok": "BUG",
+   "detail": "Impossibile caricare i dati (Cannot read properties of undefined (reading 'XLU')). In locale esegui gli script in scripts/ e servi la cartella con un server statico.",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D2",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/breadth_latest.json ({}): nessun errore JavaScript non gestito",
+   "ok": "BUG",
+   "detail": "[pageerror] Cannot read properties of undefined (reading 'filter')",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D3",
+   "area": "dati mancanti",
+   "test": "desktop/dark config/indices.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+   "ok": "BUG",
+   "detail": "mon: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | rrg: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | btm: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | sec: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | alr: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | idx: ssibile caricare i dati (Cannot convert undefined or null to",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D3",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/indices.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+   "ok": "BUG",
+   "detail": "idx:  disponibili (Cannot read properties of undefined (reading 'SPX')).",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D4",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/indices_more.json (404): l'app dice che il dato manca",
+   "ok": "BUG",
+   "detail": "nessun messaggio",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D4",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/indices_more.json (troncato): l'app dice che il dato manca",
+   "ok": "BUG",
+   "detail": "nessun messaggio",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D4",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/indices_more.json (vuoto): l'app dice che il dato manca",
+   "ok": "BUG",
+   "detail": "nessun messaggio",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D2",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/prices_global.json ({}): nessun errore JavaScript non gestito",
+   "ok": "BUG",
+   "detail": "[error] UNHANDLED_REJECTION TypeError: Cannot convert undefined or null to object\n    at Object.entries (<anonymous>)\n    at addPortfolios (http://127.0.0.1:8805/js/app.js:130:36)\n    at setExtras (http://127.0.0.1:8805/js/app.js:102:27)\n    at http://127.0.0.1:8805/js/app.js:95:58 | [pageerror] Cannot convert undefined or null to object",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_desktop_dark",
+   "id": "D2",
+   "area": "dati mancanti",
+   "test": "desktop/dark data/prices_macro.json ({}): nessun errore JavaScript non gestito",
+   "ok": "BUG",
+   "detail": "[error] UNHANDLED_REJECTION TypeError: Cannot convert undefined or null to object\n    at Object.entries (<anonymous>)\n    at addMetrics (http://127.0.0.1:8805/js/app.js:212:31)\n    at afterExtras (http://127.0.0.1:8805/js/app.js:107:59)\n    at http://127.0.0.1:8805/js/app.js:95:72 | [pageerror] Cannot convert undefined or null to object",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_phone_light_indices",
+   "id": "D3",
+   "area": "dati mancanti",
+   "test": "phone/light config/indices.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+   "ok": "BUG",
+   "detail": "mon: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | rrg: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | btm: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | sec: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | alr: ssibile caricare i dati (Cannot convert undefined or null to object). In locale | idx: ssibile caricare i dati (Cannot convert undefined or null to",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_phone_light_indices",
+   "id": "D3",
+   "area": "dati mancanti",
+   "test": "phone/light data/indices.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+   "ok": "BUG",
+   "detail": "idx:  disponibili (Cannot read properties of undefined (reading 'SPX')).",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_phone_light_indices",
+   "id": "D4",
+   "area": "dati mancanti",
+   "test": "phone/light data/indices_more.json (404): l'app dice che il dato manca",
+   "ok": "BUG",
+   "detail": "nessun messaggio",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_phone_light_indices",
+   "id": "D4",
+   "area": "dati mancanti",
+   "test": "phone/light data/indices_more.json (troncato): l'app dice che il dato manca",
+   "ok": "BUG",
+   "detail": "nessun messaggio",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s15_missing_phone_light_indices",
+   "id": "D4",
+   "area": "dati mancanti",
+   "test": "phone/light data/indices_more.json (vuoto): l'app dice che il dato manca",
+   "ok": "BUG",
+   "detail": "nessun messaggio",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s7_help_desktop_dark",
+   "id": "H1",
+   "area": "guida rapida",
+   "test": "desktop/dark pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+   "ok": "BUG",
+   "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+   "shot": "shots/h-desktop-dark-modal.png",
+   "sev": ""
+  },
+  {
+   "file": "s7_help_desktop_dark",
+   "id": "H1",
+   "area": "guida rapida",
+   "test": "desktop/light pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+   "ok": "BUG",
+   "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+   "shot": "shots/h-desktop-light-modal.png",
+   "sev": ""
+  },
+  {
+   "file": "s7_help_phone_dark",
+   "id": "H1",
+   "area": "guida rapida",
+   "test": "phone/dark pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+   "ok": "BUG",
+   "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+   "shot": "shots/h-phone-dark-modal.png",
+   "sev": ""
+  },
+  {
+   "file": "s7_help_phone_dark",
+   "id": "H1",
+   "area": "guida rapida",
+   "test": "phone/light pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+   "ok": "BUG",
+   "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+   "shot": "shots/h-phone-light-modal.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_desktop_dark",
+   "id": "E3",
+   "area": "errori",
+   "test": "desktop indices_more.json (abort): avviso che 12 indici non sono arrivati (non «in arrivo» per sempre)",
+   "ok": "BUG",
+   "detail": "righe=SPX,NDX chip=10 meta=\"2 su 10 mostrati · altri 12 in arrivo\" scelto=SPX (salvato SMI)",
+   "shot": "shots/e-desktop-more-abort.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_desktop_dark",
+   "id": "E3",
+   "area": "errori",
+   "test": "desktop indices_more.json (404): avviso che 12 indici non sono arrivati (non «in arrivo» per sempre)",
+   "ok": "BUG",
+   "detail": "righe=SPX,NDX chip=10 meta=\"2 su 10 mostrati · altri 12 in arrivo\" scelto=SPX (salvato SMI)",
+   "shot": "shots/e-desktop-more-404.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_desktop_dark",
+   "id": "E3",
+   "area": "errori",
+   "test": "desktop indices_more.json (troncato): avviso che 12 indici non sono arrivati (non «in arrivo» per sempre)",
+   "ok": "BUG",
+   "detail": "righe=SPX,NDX chip=10 meta=\"2 su 10 mostrati · altri 12 in arrivo\" scelto=SPX (salvato SMI)",
+   "shot": "shots/e-desktop-more-troncato.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_desktop_dark",
+   "id": "E6",
+   "area": "errori",
+   "test": "desktop prices_global.json assente: il comando SWDA dice perché non lo trova (e non suggerisce SWDA)",
+   "ok": "BUG",
+   "detail": "\"SWDA\" non trovato. Prova un ticker (XLU), un nome (ORO, TESLA), MON, ROT o HELP",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_desktop_dark",
+   "id": "E5",
+   "area": "errori",
+   "test": "desktop data/prices_global.json (abort) con universo salvato «1 · Asset class», apertura da #rrg: avviso che i prezzi non sono arrivati",
+   "ok": "BUG",
+   "detail": "{\"g\":\"Settori S&P 500\",\"warn\":\"\",\"title\":\"Rotazione relativa · Settori S&P 500 vs SPY\"}",
+   "shot": "shots/e-desktop-data_prices_global_json-abort-rrg.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_desktop_dark",
+   "id": "E5",
+   "area": "errori",
+   "test": "desktop data/prices_global.json (troncato) con universo salvato «1 · Asset class», apertura da #rrg: avviso che i prezzi non sono arrivati",
+   "ok": "BUG",
+   "detail": "{\"g\":\"Settori S&P 500\",\"warn\":\"\",\"title\":\"Rotazione relativa · Settori S&P 500 vs SPY\"}",
+   "shot": "shots/e-desktop-data_prices_global_json-troncato-rrg.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_desktop_dark",
+   "id": "E5",
+   "area": "errori",
+   "test": "desktop data/prices_macro.json (404) con universo salvato «5 · Asset reali», apertura da #rrg: avviso che i prezzi non sono arrivati",
+   "ok": "BUG",
+   "detail": "{\"g\":\"Settori S&P 500\",\"warn\":\"\",\"title\":\"Rotazione relativa · Settori S&P 500 vs SPY\"}",
+   "shot": "shots/e-desktop-data_prices_macro_json-404-rrg.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_phone_light",
+   "id": "E3",
+   "area": "errori",
+   "test": "phone indices_more.json (abort): avviso che 12 indici non sono arrivati (non «in arrivo» per sempre)",
+   "ok": "BUG",
+   "detail": "righe=SPX,NDX chip=10 meta=\"2 su 10 mostrati · altri 12 in arrivo\" scelto=SPX (salvato SMI)",
+   "shot": "shots/e-phone-more-abort.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_phone_light",
+   "id": "E3",
+   "area": "errori",
+   "test": "phone indices_more.json (404): avviso che 12 indici non sono arrivati (non «in arrivo» per sempre)",
+   "ok": "BUG",
+   "detail": "righe=SPX,NDX chip=10 meta=\"2 su 10 mostrati · altri 12 in arrivo\" scelto=SPX (salvato SMI)",
+   "shot": "shots/e-phone-more-404.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_phone_light",
+   "id": "E3",
+   "area": "errori",
+   "test": "phone indices_more.json (troncato): avviso che 12 indici non sono arrivati (non «in arrivo» per sempre)",
+   "ok": "BUG",
+   "detail": "righe=SPX,NDX chip=10 meta=\"2 su 10 mostrati · altri 12 in arrivo\" scelto=SPX (salvato SMI)",
+   "shot": "shots/e-phone-more-troncato.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_phone_light",
+   "id": "E6",
+   "area": "errori",
+   "test": "phone prices_global.json assente: il comando SWDA dice perché non lo trova (e non suggerisce SWDA)",
+   "ok": "BUG",
+   "detail": "\"SWDA\" non trovato · prova HELP",
+   "shot": "",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_phone_light",
+   "id": "E5",
+   "area": "errori",
+   "test": "phone data/prices_global.json (abort) con universo salvato «1 · Asset class», apertura da #rrg: avviso che i prezzi non sono arrivati",
+   "ok": "BUG",
+   "detail": "{\"g\":\"Settori S&P 500\",\"warn\":\"\",\"title\":\"Rotazione relativa · Settori S&P 500 vs SPY\"}",
+   "shot": "shots/e-phone-data_prices_global_json-abort-rrg.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_phone_light",
+   "id": "E5",
+   "area": "errori",
+   "test": "phone data/prices_global.json (troncato) con universo salvato «1 · Asset class», apertura da #rrg: avviso che i prezzi non sono arrivati",
+   "ok": "BUG",
+   "detail": "{\"g\":\"Settori S&P 500\",\"warn\":\"\",\"title\":\"Rotazione relativa · Settori S&P 500 vs SPY\"}",
+   "shot": "shots/e-phone-data_prices_global_json-troncato-rrg.png",
+   "sev": ""
+  },
+  {
+   "file": "s9_errors_phone_light",
+   "id": "E5",
+   "area": "errori",
+   "test": "phone data/prices_macro.json (404) con universo salvato «5 · Asset reali», apertura da #rrg: avviso che i prezzi non sono arrivati",
+   "ok": "BUG",
+   "detail": "{\"g\":\"Settori S&P 500\",\"warn\":\"\",\"title\":\"Rotazione relativa · Settori S&P 500 vs SPY\"}",
+   "shot": "shots/e-phone-data_prices_macro_json-404-rrg.png",
+   "sev": ""
+  }
+ ]
+}

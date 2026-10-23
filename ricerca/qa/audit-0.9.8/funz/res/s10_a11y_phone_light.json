@@ -1,0 +1,416 @@
+[
+ {
+  "id": "A1",
+  "area": "accessibilità",
+  "test": "phone #mon: id unici",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "accessibilità",
+  "test": "phone #mon: controlli con nome accessibile",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "accessibilità",
+  "test": "phone #mon: bottoni a scelta con aria-pressed",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A4",
+  "area": "accessibilità",
+  "test": "phone #mon: grafici con aria-label",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A5",
+  "area": "accessibilità",
+  "test": "phone #mon: righe cliccabili raggiungibili e attivabili da tastiera",
+  "ok": "OK",
+  "detail": "{\"rowsNoKey\":0,\"clickNoFocus\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A6",
+  "area": "accessibilità",
+  "test": "phone #mon: focus visibile sui primi 20 elementi",
+  "ok": "BUG",
+  "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-mon 1 Monitor → tr[XLU] XLUUtilities\n  → tr[XLRE] XLREReal Estat → tr[XLY] XLYConsumer Di → tr[XLI] XLIIndustrials → tr[XLC] XLCCommunicati → tr[XLB] XLBMaterials\n  → tr[XLP] XLPConsumer St → tr[XLF] XLFFinancials\n → tr[XLK] XLKTechnology\n → tr[XLE] XLEEnergy\n     → tr[XLV] XLVHealth Care → div[XLU] XLUUtilitiesTr ·· senza anello: #cmd  (senza anello)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A1",
+  "area": "accessibilità",
+  "test": "phone #rrg: id unici",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "accessibilità",
+  "test": "phone #rrg: controlli con nome accessibile",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "accessibilità",
+  "test": "phone #rrg: bottoni a scelta con aria-pressed",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A4",
+  "area": "accessibilità",
+  "test": "phone #rrg: grafici con aria-label",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A5",
+  "area": "accessibilità",
+  "test": "phone #rrg: righe cliccabili raggiungibili e attivabili da tastiera",
+  "ok": "OK",
+  "detail": "{\"rowsNoKey\":0,\"clickNoFocus\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A6",
+  "area": "accessibilità",
+  "test": "phone #rrg: focus visibile sui primi 40 elementi",
+  "ok": "BUG",
+  "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-rrg 2 Rotazione → #groupSel Settori S&P 50 → #benchSel SPY · S&P 500Q → button Settimanale → button Giornaliero → button Nuova → button Medie semplici → button 4 → button 10 → button 16 → button 26 → button Adatta → button Massima ·· senza anello: #cmd  (senza anello)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A1",
+  "area": "accessibilità",
+  "test": "phone #btm: id unici",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "accessibilità",
+  "test": "phone #btm: controlli con nome accessibile",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "accessibilità",
+  "test": "phone #btm: bottoni a scelta con aria-pressed",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A4",
+  "area": "accessibilità",
+  "test": "phone #btm: grafici con aria-label",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A5",
+  "area": "accessibilità",
+  "test": "phone #btm: righe cliccabili raggiungibili e attivabili da tastiera",
+  "ok": "OK",
+  "detail": "{\"rowsNoKey\":0,\"clickNoFocus\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A6",
+  "area": "accessibilità",
+  "test": "phone #btm: focus visibile sui primi 28 elementi",
+  "ok": "BUG",
+  "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-btm 3 Bottom Map → #bmPlay ▶ PLAY → #bmDate  → #bmZoom Zoom sulla zon → button nov 2008 → button ott 2011 → button feb 2016 → button dic 2018 → button mar 2020 → button ott 2022 → button apr 2025 → div[XLRE] XLRE\n        \n → div[XLU] XLU\n        \n  ·· senza anello: #cmd  (senza anello)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A1",
+  "area": "accessibilità",
+  "test": "phone #XLU: id unici",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "accessibilità",
+  "test": "phone #XLU: controlli con nome accessibile",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "accessibilità",
+  "test": "phone #XLU: bottoni a scelta con aria-pressed",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A4",
+  "area": "accessibilità",
+  "test": "phone #XLU: grafici con aria-label",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A5",
+  "area": "accessibilità",
+  "test": "phone #XLU: righe cliccabili raggiungibili e attivabili da tastiera",
+  "ok": "OK",
+  "detail": "{\"rowsNoKey\":0,\"clickNoFocus\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A6",
+  "area": "accessibilità",
+  "test": "phone #XLU: focus visibile sui primi 40 elementi",
+  "ok": "BUG",
+  "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-sec 4 Settore → button[XLK] XLK → button[XLC] XLC → button[XLY] XLY → button[XLP] XLP → button[XLE] XLE → button[XLF] XLF → button[XLV] XLV → button[XLI] XLI → button[XLB] XLB → button[XLRE] XLRE → button[XLU] XLU → button 3A ·· senza anello: #cmd  (senza anello)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A1",
+  "area": "accessibilità",
+  "test": "phone #alr: id unici",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "accessibilità",
+  "test": "phone #alr: controlli con nome accessibile",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "accessibilità",
+  "test": "phone #alr: bottoni a scelta con aria-pressed",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A4",
+  "area": "accessibilità",
+  "test": "phone #alr: grafici con aria-label",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A5",
+  "area": "accessibilità",
+  "test": "phone #alr: righe cliccabili raggiungibili e attivabili da tastiera",
+  "ok": "OK",
+  "detail": "{\"rowsNoKey\":0,\"clickNoFocus\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A6",
+  "area": "accessibilità",
+  "test": "phone #alr: focus visibile sui primi 40 elementi",
+  "ok": "BUG",
+  "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-alr 5 Alert → button[XLU] XLU → button[XLU] XLU → button[XLB] XLB → button[XLB] XLB → button[XLP] XLP → button[XLP] XLP → button[XLE] XLE → button[XLE] XLE → button[XLRE] XLRE → button[XLRE] XLRE → button[XLRE] XLRE → button[XLU] XLU ·· senza anello: #cmd  (senza anello)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A1",
+  "area": "accessibilità",
+  "test": "phone #idx: id unici",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "accessibilità",
+  "test": "phone #idx: controlli con nome accessibile",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "accessibilità",
+  "test": "phone #idx: bottoni a scelta con aria-pressed",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A4",
+  "area": "accessibilità",
+  "test": "phone #idx: grafici con aria-label",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A5",
+  "area": "accessibilità",
+  "test": "phone #idx: righe cliccabili raggiungibili e attivabili da tastiera",
+  "ok": "OK",
+  "detail": "{\"rowsNoKey\":0,\"clickNoFocus\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A6",
+  "area": "accessibilità",
+  "test": "phone #idx: focus visibile sui primi 40 elementi",
+  "ok": "BUG",
+  "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-idx 6 Indici → button SPX → button NDX → button DJI → button RUT → button TSX60 → button SXXP → button UKX → button DAX → button CAC → button SMI → button SX5E → button FTSEMIB ·· senza anello: #cmd  (senza anello)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A1",
+  "area": "accessibilità",
+  "test": "phone #tit: id unici",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A2",
+  "area": "accessibilità",
+  "test": "phone #tit: controlli con nome accessibile",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A3",
+  "area": "accessibilità",
+  "test": "phone #tit: bottoni a scelta con aria-pressed",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A4",
+  "area": "accessibilità",
+  "test": "phone #tit: grafici con aria-label",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A5",
+  "area": "accessibilità",
+  "test": "phone #tit: righe cliccabili raggiungibili e attivabili da tastiera",
+  "ok": "OK",
+  "detail": "{\"rowsNoKey\":0,\"clickNoFocus\":0}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A6",
+  "area": "accessibilità",
+  "test": "phone #tit: focus visibile sui primi 40 elementi",
+  "ok": "BUG",
+  "detail": "ordine: #cmd  → button GO → #helpBtn ? Guida → #cvdBtn CVD → #themeBtn Chiaro → #tab-tit 7 Titoli → button[XLK] XLK → button[XLC] XLC → button[XLY] XLY → button[XLP] XLP → button[XLE] XLE → button[XLF] XLF → button[XLV] XLV → button[XLI] XLI → button[XLB] XLB → button[XLRE] XLRE → button[XLU] XLU → button 1M ·· senza anello: #cmd  (senza anello)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A7",
+  "area": "accessibilità",
+  "test": "phone guida: <dialog> con aria-labelledby",
+  "ok": "OK",
+  "detail": "{\"lab\":\"helpTitle\",\"role\":\"DIALOG\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A8",
+  "area": "accessibilità",
+  "test": "phone lang=\"it\", titolo, un h1",
+  "ok": "OK",
+  "detail": "{\"lang\":\"it\",\"title\":\"Sector Monitor\",\"h1\":1}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "A9",
+  "area": "accessibilità",
+  "test": "phone intestazioni dentro <summary> (perdono il ruolo di heading in alcuni lettori)",
+  "ok": "OK",
+  "detail": "0 h2/h3 dentro summary (#secCap, #ixCap)",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "phone nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

@@ -1,0 +1,47 @@
+[
+ {
+  "id": "TT1",
+  "area": "spiegazioni",
+  "test": "desktop Monitor: elementi con spiegazione visibili",
+  "ok": "OK",
+  "detail": "visibili=59",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT20",
+  "area": "spiegazioni",
+  "test": "desktop title su intestazioni e conteggi del Monitor",
+  "ok": "OK",
+  "detail": "{\"dd\":true,\"cnt\":11}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT21",
+  "area": "coerenza",
+  "test": "desktop Monitor: k/n, valore del titolo e % coincidono",
+  "ok": "OK",
+  "detail": "16,1% 5/31 true | 10,0% 3/30 true | 36,2% 17/47 true | 37,3% 31/83 true | 45,5% 10/22 true | 58,3% 14/24 true | 61,8% 21/34 true | 57,9% 44/76 true | 60,0% 45/75 true | 66,7% 14/21 true | 81,7% 49/60 true",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "TT22",
+  "area": "coerenza",
+  "test": "desktop Monitor: riquadro SPY = riga SPY (ultimo, drawdown, solo prezzo; sul telefono la scheda ha solo il drawdown)",
+  "ok": "OK",
+  "detail": "SPY · S&P 500 766,48 −1,6% dal massimo a 52 settimane · solo prezzo −1,6% || SPYS&P 500 benchmark 50,3% −1,6% −1,6% 766,48 +0,4% +0,6%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "desktop nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]
