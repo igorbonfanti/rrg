@@ -42,7 +42,7 @@ function build() {
   const out = [];
   for (const s of SECTOR_KEYS) {
     const m = runMachine(priceSeries(sec.adjclose[s]), breadthSeries(br, s, sec.dates), thr.blue[s], P);
-    out.push({ key: s, tickers: [s], blue: thr.blue[s], ...zones(sec.dates, m) });
+    out.push({ key: s, tickers: [s], blue: thr.blue[s], src: 'Rea', ...zones(sec.dates, m) });
   }
   const cfg = read('config/indices.json').indices;
   const ix = { ...read('data/indices_more.json').series, ...read('data/indices.json').series };
@@ -50,7 +50,7 @@ function build() {
     if (!ix[k] || !cfg[k]) continue;
     const S = indexSeries(ix[k]);
     const m = runMachine(priceSeries(S.close), S, cfg[k].blue, P);
-    out.push({ key: k, tickers: TICKERS[k], blue: cfg[k].blue, name: cfg[k].name, ...zones(S.dates, m) });
+    out.push({ key: k, tickers: TICKERS[k], blue: cfg[k].blue, src: cfg[k].blueSource === 'Rea' ? 'Rea' : 'p3', name: cfg[k].name, ...zones(S.dates, m) });
   }
   return { asOf: br.asOf, series: out };
 }
@@ -65,6 +65,10 @@ function pine({ asOf, series }) {
 // Generato da scripts/pine_zone_blu.mjs con i dati al ${da}/${mo}/${y}: zone blu, trigger e segnali falliti dell'app, con i livelli
 // blu di default. L'indicatore non ricalcola niente: per le zone nuove si rigenera il file e lo si reincolla in TradingView.
 // Funziona sui grafici degli ETF settoriali (XLK … XLU) e degli indici della vista 6 (SPX o SPY, NDX, DJI, NI225, DAX …).
+// Livelli blu: per i settori dalla tabella «200 LEVEL SETTORI» di Massimo Rea (quant-rea); per gli indici dai grafici di Rea
+// dove ci sono, altrimenti il 3° percentile della breadth dell'indice. Regole di zona blu, trigger e fallimento di Sector
+// Monitor (guida: https://igorbonfanti.github.io/rrg/guida.html). Storia ricostruita: non è un backtest validato né un
+// consiglio di investimento.
 indicator("Sector Monitor · zone blu", "SM zone blu", overlay = true)
 
 string key = switch syminfo.ticker
@@ -83,6 +87,9 @@ ${series.map((x) => `    ${q(x.key)} => ${q(d(x.fail))}`).join('\n')}
 int blue = switch key
 ${series.map((x) => `    ${q(x.key)} => ${x.blue}`).join('\n')}
     => 0
+string blueSrc = switch key
+${series.map((x) => `    ${q(x.key)} => ${q(x.src === 'Rea' ? 'Massimo Rea, quant-rea' : '3° percentile della breadth')}`).join('\n')}
+    => ""
 
 // date AAAAMMGG del primo e dell'ultimo giorno della barra, nel fuso della borsa (funziona anche su settimanale e mensile)
 ymd(int t) => year(t, syminfo.timezone) * 10000 + month(t, syminfo.timezone) * 100 + dayofmonth(t, syminfo.timezone)
@@ -126,7 +133,7 @@ plotshape(isFail, "Segnale fallito", shape.xcross, location.abovebar, #ef4444, t
 
 var table info = table.new(position.top_right, 1, 1)
 if barstate.islast
-    string msg = key == "" ? "Sector Monitor: simbolo non coperto (usa XLK … XLU o un indice della vista 6)" : "Sector Monitor · " + key + " · livello blu " + str.tostring(blue) + "% · zone dell'app al ${da}/${mo}/${y}"
+    string msg = key == "" ? "Sector Monitor: simbolo non coperto (usa XLK … XLU o un indice della vista 6)" : "Sector Monitor · " + key + " · livello blu " + str.tostring(blue) + "% (" + blueSrc + ") · zone dell'app al ${da}/${mo}/${y}"
     table.cell(info, 0, 0, msg, text_color = color.white, bgcolor = color.new(color.gray, 30), text_size = size.small)
 `;
 }
