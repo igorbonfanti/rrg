@@ -161,3 +161,10 @@ test('«Perché questo stato» riporta il vero minimo del prezzo della zona blu'
   const e = explainState(px, br, 10, {}, m, dates, t);
   assert.match(e.why, /minimo del prezzo 85,0/, e.why);
 });
+
+test('indicatore Pine: zone blu, trigger e falliti dalle sedute della macchina a stati', async () => {
+  const { zones } = await import('../scripts/pine_zone_blu.mjs');
+  const dates = ['d0', 'd1', 'd2', 'd3', 'd4', 'd5', 'd6'];
+  const m = { days: [null, 'setup', 'setup', 'trig', 'fail', 'setup', 'trig'], events: [{ t: 3, code: 'trig' }, { t: 4, code: 'fail' }, { t: 6, code: 'trig' }] };
+  assert.deepEqual(zones(dates, m), { zones: [['d1', 'd2'], ['d4', 'd5']], trig: ['d3', 'd6'], fail: ['d4'] });
+});
