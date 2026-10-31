@@ -92,6 +92,16 @@ test('soglia di avvicinamento: livello + calo forte in 10 sedute', async () => {
   assert.equal(approachLevel([null, ...b, null], 5), 15);
 });
 
+test('soglia di avvicinamento seduta per seduta: uguale a quella calcolata con la storia tagliata a quel giorno', async () => {
+  const { approachLevel, approachSeries } = await import('../js/signals.js');
+  for (const s of ['XLV', 'XLE', 'XLRE']) {
+    const b = breadthSeries(B, s, S.dates).pct200, L = T.blue[s], A = approachSeries(b, L);
+    assert.equal(A.length, b.length);
+    // tutte le sedute dell'ultimo anno e una ogni 97 prima: stesso numero esatto
+    for (let t = 0; t < b.length; t += t < b.length - 260 ? 97 : 1) assert.equal(A[t], approachLevel(b.slice(0, t + 1), L), `${s} ${S.dates[t]}`);
+  }
+});
+
 test('perché questo stato: la lista non contraddice mai la macchina', () => {
   // seduta per seduta (dati tagliati a quel giorno): se tutte le condizioni della zona blu fossero vere la macchina
   // sarebbe già in zona blu; se breadth e conferme fossero vere in zona blu, sarebbe già scattato il trigger

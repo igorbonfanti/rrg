@@ -94,6 +94,24 @@ export function approachLevel(b, L, h = 10, q = 0.9) {
   return L + d[Math.floor(q * (d.length - 1))];
 }
 
+/**
+ * Soglia di avvicinamento seduta per seduta, ognuna con la sola storia fino a quella seduta (nessun dato del futuro):
+ * out[t] === approachLevel(b.slice(0, t + 1), L, h, q). Tiene i cali ordinati man mano, così la serie intera costa poco.
+ */
+export function approachSeries(b, L, h = 10, q = 0.9) {
+  const out = new Array(b.length).fill(null), d = [];
+  for (let t = 0; t < b.length; t++) {
+    if (t >= h && b[t] != null && b[t - h] != null && b[t] < b[t - h]) {
+      const v = b[t - h] - b[t];
+      let lo = 0, hi = d.length;
+      while (lo < hi) { const mid = (lo + hi) >> 1; if (d[mid] <= v) lo = mid + 1; else hi = mid; }
+      d.splice(lo, 0, v);
+    }
+    if (d.length) out[t] = L + d[Math.floor(q * (d.length - 1))];
+  }
+  return out;
+}
+
 // Serie di prezzo derivate: drawdown dal massimo a 52 settimane e sua profondità storica
 export function priceSeries(close) {
   const dd = drawdown(close);

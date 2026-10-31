@@ -4,7 +4,7 @@
  * breadth.json (titoli sopra le medie), breadth_latest.json (fotografia per titolo),
  * config/thresholds.json (livelli blu e parametri), alerts.json (invii Telegram).
  */
-import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachLevel, explainState, signalContext, median, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
+import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachSeries, explainState, signalContext, median, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
@@ -129,12 +129,25 @@ export function createBottom(ctx) {
   }
   const changed = (s) => st.blue[s] !== config.blue[s];
   // Avvicinamento: settore in stato normale con la breadth sotto la sua soglia di avvicinamento (signals.js)
+  // soglia di ogni seduta calcolata sulla sola storia fino a lì (approachSeries); a oggi è approachLevel su tutta la storia
   const apprCache = new Map();
-  function approach(s) {
+  function apprSeries(s) {
     const L = st.blue[s], key = s + ':' + L;
-    if (!apprCache.has(key)) apprCache.set(key, approachLevel(BR[s].pct200.slice(0, NOW + 1), L));
-    const A = apprCache.get(key), b = BR[s].pct200[NOW];
+    if (!apprCache.has(key)) apprCache.set(key, approachSeries(BR[s].pct200.slice(0, NOW + 1), L));
+    return apprCache.get(key);
+  }
+  function approach(s) {
+    const A = apprSeries(s)[NOW], b = BR[s].pct200[NOW];
     return { A, on: A != null && b != null && stateOf(s).code === 'normal' && b <= A };
+  }
+  // sedute in avvicinamento per il grafico del settore: stato normale quel giorno (l'ultimo calcolato) e breadth sotto la soglia di allora
+  function apprDays(s) {
+    const A = apprSeries(s), m = machine(s), b = BR[s].pct200;
+    let code = null;
+    return A.map((a, t) => {
+      if (m.days[t] != null || t === 0) code = m.days[t] || 'normal';
+      return a != null && b[t] != null && code === 'normal' && b[t] <= a;
+    });
   }
   const apprWhy = (s) => {
     const { A } = approach(s), b = BR[s].pct200[NOW], L = st.blue[s];
@@ -262,13 +275,10 @@ export function createBottom(ctx) {
     return m.days[t] || 'normal';
   }
   // avvicinamento alla seduta T, con la soglia calcolata sulla storia fino a T (nessun dato del futuro)
-  // soglia alla data T: nel replay ogni fotogramma la chiede per tutti i settori, quindi si tiene in cache
-  const apprAt = new Map();
+  // la soglia è quella della serie seduta per seduta, calcolata una volta per settore e livello
   function approachAt(s, T) {
     if (T === NOW) return approach(s);
-    const key = `${s}:${st.blue[s]}:${T}`;
-    if (!apprAt.has(key)) apprAt.set(key, approachLevel(BR[s].pct200.slice(0, T + 1), st.blue[s]));
-    const b = BR[s].pct200[T], A = apprAt.get(key);
+    const b = BR[s].pct200[T], A = apprSeries(s)[T];
     return { A, on: A != null && b != null && stateAt(s, T) === 'normal' && b <= A };
   }
   const mapStates = (T) => Object.fromEntries(SECTOR_KEYS.map((s) => [s, stateAt(s, T)]));
@@ -403,7 +413,7 @@ export function createBottom(ctx) {
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940),
-      off: m.off, offText: offReasons(P), sync: 'sec', watchBand: P.watchBand, approach: approach(s).A,
+      off: m.off, offText: offReasons(P), sync: 'sec', watchBand: P.watchBand, appr: apprDays(s), apprA: apprSeries(s),
     });
     // livello blu
     $('blueVal').textContent = L + '%';
