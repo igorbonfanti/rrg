@@ -74,4 +74,20 @@ La prova sopra usa una soglia unica calcolata su tutta la storia, cioè anche co
 - Limiti: la regola (q90 a 10 sedute) è stata scelta tra nove su questa stessa storia; i livelli blu sono quelli di oggi; i tocchi si concentrano in poche crisi (2008, 2011, 2020, 2022), quindi non sono 73 casi indipendenti.
 - I testi dell'app citavano «59 tocchi su 73» della prova A: corretti nella 1.3.1 con l'ok dell'utente (con l'Attenzione 59, da sola 42).
 
+**Superato dalla sezione qui sotto (1.3.3).** La tabella sopra conta anche XLC prima del 2019 e XLRE prima del 2016, quando l'app non ha uno stato, e l'«anticipo mediano» è quello degli allarmi che arrivano al livello, non dei tocchi avvisati: la frase «raddoppia circa l'anticipo» non regge.
+
+## Rifatta ancora il 31/10/2026: solo il periodo che l'app mostra (1.3.3)
+
+Gli script `avvicinamento_pit.mjs` e `avvicinamento_pit_indici.mjs` contano ora dalla prima seduta con uno stato (XLC dal 20/06/2019, XLRE dal 07/10/2016, gli indici dal 2001 o un anno dopo l'inizio della loro breadth). Ricalcolo separato: `verifica_pit.mjs`; anticipo sui tocchi: `anticipo_tocchi.mjs`; controllo indipendente della 1.3.3: `ricerca/qa/1.3.3/testi/`.
+
+| Settori | Tocchi avvisati | Arrivano al livello | Primo avviso prima del tocco (mediana) |
+|---|---|---|---|
+| C. avvicinamento come nell'app | 33/63 | 32% (50/158) | 49 sedute |
+| D. avvicinamento oppure Attenzione | 50/63 | 28% | 39–40 sedute |
+| E. solo Attenzione | 43/63 | 31% | 31 sedute |
+
+Indici: C 83/132, D 89/132 (primo avviso 63 sedute prima), E 83/132 (56 sedute); arriva al livello il 40% degli avvicinamenti.
+
+L'avvicinamento aggiunge all'Attenzione 7 tocchi su 63 nei settori (6 su 132 negli indici) e anticipa il primo avviso di circa 9 sedute (7 negli indici). Uso pratico: `ricerca/avvicinamento-uso/sintesi.md`.
+
 Indici (`script/avvicinamento_pit_indici.mjs`), 22 indici, storia di ciascuno dal 2000: A 96/135 tocchi avvisati (il testo diceva 96/134, prima dell'ultimo tocco nei dati), anticipo 20 sedute; B 94/135, 18; C (come l'app) 86/135, 28 sedute, 41% arriva al blu; D (C oppure Attenzione) 92/135, 24 sedute; E (solo Attenzione) 84/135, 12 sedute. Ricalcolo separato dei casi C, D, E per settori e indici: `script/verifica_pit.mjs`, stessi numeri.

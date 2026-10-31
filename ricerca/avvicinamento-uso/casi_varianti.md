@@ -114,7 +114,7 @@ La tabella conta due cose:
   - un livello blu basso (8%);
   - lunghi periodi con la breadth bassa ma lontana dal livello: mediana del 34,5% nel 2025 e del 44,8% negli ultimi 5 anni.
 - **È un difetto parziale della regola.** La regola misura la distanza dal livello, non la direzione. Il 56,5% delle sedute in avvicinamento di XLRE cade entro 126 sedute da un tocco del livello blu: è la risalita dopo un bottom, non l'avvicinamento a un bottom. Negli altri settori la quota va dallo 0 al 20%.
-- **Il giallo dopo un bottom serve poco.** Gli episodi che iniziano entro 126 sedute da un tocco arrivano di nuovo al livello 5 volte su 24 (21%), quelli senza un tocco recente 45 su 128 (35%). Nel 2016–2026 il divario è più netto: 3/19 contro 31/74. Nel 2005–2015 gli episodi in risalita sono solo 5.
+- **Il giallo dopo un bottom serve poco.** Gli episodi che iniziano entro 126 sedute da un tocco arrivano di nuovo al livello 5 volte su 24 (21%), quelli senza un tocco recente 45 su 128 (35%). (Il ricalcolo separato di `script/verifica_regole_uso.mjs`, che esclude gli episodi senza 126 sedute dopo, dà 43 su 126, 34%: è il numero citato nella guida.) Nel 2016–2026 il divario è più netto: 3/19 contro 31/74. Nel 2005–2015 gli episodi in risalita sono solo 5.
 
 ## 4. Varianti
 Stessi indicatori e stesso periodo per tutte (63 tocchi). D ed E sono solo riferimenti.
