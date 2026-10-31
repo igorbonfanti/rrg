@@ -9,6 +9,8 @@
 // livello blu entro 126 sedute; tocco = breadth al livello blu dopo almeno 60 sedute sopra; tocco avvisato = allarme
 // iniziato da 5 a 126 sedute prima. In più: rendimento dell'ETF a 3 mesi (63 sedute) dopo l'allarme, confrontato con
 // quello di tutte le sedute, e i tocchi persi.
+// Dal 31/10/2026 conta solo dalla prima seduta con uno stato della macchina, cioè il periodo che l'app mostra (prima
+// contava anche XLC prima del 2019 e XLRE prima del 2016, quando l'app non ha uno stato).
 // Uso: node ricerca/attenzione/script/avvicinamento_pit.mjs   → scrive ricerca/attenzione/avvicinamento_pit.json
 import fs from 'node:fs';
 import { breadthSeries, priceSeries, forward, runMachine, approachLevel, approachSeries, DEFAULT_PARAMS } from '../../../js/signals.js';
@@ -20,6 +22,7 @@ const tot = {}, perSector = {};
 for (const k of SECT) {
   const B = breadthSeries(br, k, sec.dates), b = B.pct200, L = th.blue[k], px = sec.adjclose[k];
   const m = runMachine(priceSeries(px), B, L, P);
+  const start = m.days.findIndex((d) => d != null); // prima seduta con uno stato (XLC 2019, XLRE 2016; indici: un anno dopo la breadth)
   const Aall = approachLevel(b, L), Apit = approachSeries(b, L);
   let code = null;
   const state = b.map((_, t) => { if (m.days[t] != null || t === 0) code = m.days[t] || 'normal'; return code; });
@@ -33,10 +36,10 @@ for (const k of SECT) {
     'E. solo Attenzione': (v, t) => state[t] === 'watch',
   };
   const touches = []; let above = 0;
-  b.forEach((v, t) => { if (v == null) return; if (v <= L) { if (above >= 60) touches.push(t); above = 0; } else above++; });
+  b.forEach((v, t) => { if (v == null || t < start) return; if (v <= L) { if (above >= 60) touches.push(t); above = 0; } else above++; });
   for (const [name, on] of Object.entries(rules)) {
     const eps = []; let up = 0;
-    b.forEach((v, t) => { if (v == null) return; if (on(v, t)) { if (up >= 20) eps.push(t); up = 0; } else up++; });
+    b.forEach((v, t) => { if (v == null || t < start) return; if (on(v, t)) { if (up >= 20) eps.push(t); up = 0; } else up++; });
     let hit = 0; const leads = [], ret = [];
     for (const t of eps) {
       let u = -1; for (let j = t; j < Math.min(b.length, t + H); j++) if (b[j] != null && b[j] <= L) { u = j; break; }
@@ -51,7 +54,7 @@ for (const k of SECT) {
   }
   // base: rendimento a 3 mesi di tutte le sedute con la breadth
   const all = (tot.base = tot.base || { ret: [] });
-  b.forEach((v, t) => { if (v != null) { const r = forward(px, t, 63); if (r != null) all.ret.push(r); } });
+  b.forEach((v, t) => { if (v != null && t >= start) { const r = forward(px, t, 63); if (r != null) all.ret.push(r); } });
 }
 const out = {};
 for (const [name, T] of Object.entries(tot)) {

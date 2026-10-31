@@ -2,11 +2,11 @@
  "asOf": "2026-10-30",
  "regole": {
   "A. soglia su tutta la storia": {
-   "allarmi": 224,
-   "arrivanoAlBlu": 91,
-   "quotaArrivano": 41,
-   "anticipoMediano": 23,
-   "tocchiAvvisati": "59/73",
+   "allarmi": 204,
+   "arrivanoAlBlu": 77,
+   "quotaArrivano": 38,
+   "anticipoMediano": 24,
+   "tocchiAvvisati": "50/63",
    "etf3mMediano": 4.6,
    "positivi3m": 68,
    "tocchiPersi": [
@@ -22,16 +22,15 @@
     "XLV 2020-03-16 (5 sedute prima: watch, breadth 28, soglia 29)",
     "XLI 2020-03-12 (5 sedute prima: watch, breadth 30, soglia 27)",
     "XLB 2011-08-04 (5 sedute prima: normal, breadth 52, soglia 35)",
-    "XLRE 2011-08-08 (5 sedute prima: normal, breadth 60, soglia 48)",
     "XLU 2011-08-08 (5 sedute prima: normal, breadth 74, soglia 32)"
    ]
   },
   "B. soglia fino a quel giorno": {
-   "allarmi": 228,
-   "arrivanoAlBlu": 93,
-   "quotaArrivano": 41,
+   "allarmi": 206,
+   "arrivanoAlBlu": 79,
+   "quotaArrivano": 38,
    "anticipoMediano": 25,
-   "tocchiAvvisati": "62/73",
+   "tocchiAvvisati": "53/63",
    "etf3mMediano": 4.6,
    "positivi3m": 69,
    "tocchiPersi": [
@@ -44,16 +43,15 @@
     "XLV 2018-12-21 (5 sedute prima: normal, breadth 51, soglia 29)",
     "XLI 2020-03-12 (5 sedute prima: watch, breadth 30, soglia 27)",
     "XLB 2011-08-04 (5 sedute prima: normal, breadth 52, soglia 35)",
-    "XLRE 2011-08-08 (5 sedute prima: normal, breadth 60, soglia 48)",
     "XLU 2011-08-08 (5 sedute prima: normal, breadth 74, soglia 32)"
    ]
   },
   "C. B + stato Normale (app)": {
-   "allarmi": 180,
-   "arrivanoAlBlu": 64,
-   "quotaArrivano": 36,
-   "anticipoMediano": 27,
-   "tocchiAvvisati": "42/73",
+   "allarmi": 158,
+   "arrivanoAlBlu": 50,
+   "quotaArrivano": 32,
+   "anticipoMediano": 30,
+   "tocchiAvvisati": "33/63",
    "etf3mMediano": 4.6,
    "positivi3m": 71,
    "tocchiPersi": [
@@ -83,7 +81,6 @@
     "XLI 2008-10-02 (5 sedute prima: watch, breadth 19, soglia 26)",
     "XLI 2020-03-12 (5 sedute prima: watch, breadth 30, soglia 27)",
     "XLB 2011-08-04 (5 sedute prima: normal, breadth 52, soglia 35)",
-    "XLRE 2011-08-08 (5 sedute prima: normal, breadth 60, soglia 48)",
     "XLRE 2023-03-17 (5 sedute prima: watch, breadth 14, soglia 41)",
     "XLU 2008-02-29 (5 sedute prima: watch, breadth 17, soglia 35)",
     "XLU 2011-08-08 (5 sedute prima: normal, breadth 74, soglia 32)",
@@ -91,11 +88,11 @@
    ]
   },
   "D. C oppure Attenzione": {
-   "allarmi": 278,
-   "arrivanoAlBlu": 85,
-   "quotaArrivano": 31,
-   "anticipoMediano": 23,
-   "tocchiAvvisati": "59/73",
+   "allarmi": 256,
+   "arrivanoAlBlu": 71,
+   "quotaArrivano": 28,
+   "anticipoMediano": 24,
+   "tocchiAvvisati": "50/63",
    "etf3mMediano": 5.2,
    "positivi3m": 74,
    "tocchiPersi": [
@@ -111,24 +108,18 @@
     "XLV 2018-12-21 (5 sedute prima: normal, breadth 51, soglia 29)",
     "XLI 2008-10-02 (5 sedute prima: watch, breadth 19, soglia 26)",
     "XLB 2011-08-04 (5 sedute prima: normal, breadth 52, soglia 35)",
-    "XLRE 2011-08-08 (5 sedute prima: normal, breadth 60, soglia 48)",
     "XLU 2011-08-08 (5 sedute prima: normal, breadth 74, soglia 32)"
    ]
   },
   "E. solo Attenzione": {
-   "allarmi": 213,
-   "arrivanoAlBlu": 66,
+   "allarmi": 212,
+   "arrivanoAlBlu": 65,
    "quotaArrivano": 31,
    "anticipoMediano": 12,
-   "tocchiAvvisati": "44/73",
+   "tocchiAvvisati": "43/63",
    "etf3mMediano": 5.8,
    "positivi3m": 78,
    "tocchiPersi": [
-    "XLC 2005-10-12 (5 sedute prima: normal, breadth 9, soglia 23)",
-    "XLC 2008-01-23 (5 sedute prima: normal, breadth 7, soglia 26)",
-    "XLC 2008-06-20 (5 sedute prima: normal, breadth 21, soglia 26)",
-    "XLC 2011-08-18 (5 sedute prima: normal, breadth 18, soglia 29)",
-    "XLC 2018-12-20 (5 sedute prima: normal, breadth 38, soglia 26)",
     "XLC 2022-06-16 (5 sedute prima: watch, breadth 16, soglia 26)",
     "XLY 2008-06-26 (5 sedute prima: cool, breadth 29, soglia 26)",
     "XLE 2016-01-21 (5 sedute prima: watch, breadth 3, soglia 30)",
@@ -145,10 +136,6 @@
     "XLI 2008-10-02 (5 sedute prima: watch, breadth 19, soglia 26)",
     "XLI 2011-08-05 (5 sedute prima: normal, breadth 25, soglia 28)",
     "XLB 2011-08-04 (5 sedute prima: normal, breadth 52, soglia 35)",
-    "XLRE 2007-07-27 (5 sedute prima: normal, breadth 20, soglia 52)",
-    "XLRE 2008-06-26 (5 sedute prima: normal, breadth 42, soglia 50)",
-    "XLRE 2011-08-08 (5 sedute prima: normal, breadth 60, soglia 48)",
-    "XLRE 2013-06-20 (5 sedute prima: normal, breadth 76, soglia 48)",
     "XLRE 2018-02-08 (5 sedute prima: normal, breadth 35, soglia 41)",
     "XLRE 2025-04-08 (5 sedute prima: normal, breadth 48, soglia 41)",
     "XLU 2011-08-08 (5 sedute prima: normal, breadth 74, soglia 32)",
@@ -156,7 +143,7 @@
    ]
   },
   "base": {
-   "sedute": 53621,
+   "sedute": 53117,
    "etf3mMediano": 3.3,
    "positivi3m": 68
   }
@@ -169,9 +156,9 @@
     "tocchiAvvisati": "7/7"
    },
    "XLC": {
-    "allarmi": 19,
-    "arrivano": 10,
-    "tocchiAvvisati": "6/7"
+    "allarmi": 7,
+    "arrivano": 2,
+    "tocchiAvvisati": "1/2"
    },
    "XLY": {
     "allarmi": 16,
@@ -209,9 +196,9 @@
     "tocchiAvvisati": "7/8"
    },
    "XLRE": {
-    "allarmi": 24,
-    "arrivano": 13,
-    "tocchiAvvisati": "9/10"
+    "allarmi": 16,
+    "arrivano": 7,
+    "tocchiAvvisati": "5/5"
    },
    "XLU": {
     "allarmi": 29,
@@ -226,9 +213,9 @@
     "tocchiAvvisati": "7/7"
    },
    "XLC": {
-    "allarmi": 20,
-    "arrivano": 10,
-    "tocchiAvvisati": "6/7"
+    "allarmi": 7,
+    "arrivano": 2,
+    "tocchiAvvisati": "1/2"
    },
    "XLY": {
     "allarmi": 17,
@@ -266,9 +253,9 @@
     "tocchiAvvisati": "7/8"
    },
    "XLRE": {
-    "allarmi": 26,
-    "arrivano": 14,
-    "tocchiAvvisati": "9/10"
+    "allarmi": 17,
+    "arrivano": 8,
+    "tocchiAvvisati": "5/5"
    },
    "XLU": {
     "allarmi": 26,
@@ -283,9 +270,9 @@
     "tocchiAvvisati": "2/7"
    },
    "XLC": {
-    "allarmi": 18,
-    "arrivano": 8,
-    "tocchiAvvisati": "5/7"
+    "allarmi": 5,
+    "arrivano": 0,
+    "tocchiAvvisati": "0/2"
    },
    "XLY": {
     "allarmi": 9,
@@ -323,9 +310,9 @@
     "tocchiAvvisati": "7/8"
    },
    "XLRE": {
-    "allarmi": 24,
-    "arrivano": 11,
-    "tocchiAvvisati": "8/10"
+    "allarmi": 15,
+    "arrivano": 5,
+    "tocchiAvvisati": "4/5"
    },
    "XLU": {
     "allarmi": 24,
@@ -340,9 +327,9 @@
     "tocchiAvvisati": "7/7"
    },
    "XLC": {
-    "allarmi": 19,
-    "arrivano": 9,
-    "tocchiAvvisati": "6/7"
+    "allarmi": 6,
+    "arrivano": 1,
+    "tocchiAvvisati": "1/2"
    },
    "XLY": {
     "allarmi": 20,
@@ -380,9 +367,9 @@
     "tocchiAvvisati": "7/8"
    },
    "XLRE": {
-    "allarmi": 27,
-    "arrivano": 14,
-    "tocchiAvvisati": "9/10"
+    "allarmi": 18,
+    "arrivano": 8,
+    "tocchiAvvisati": "5/5"
    },
    "XLU": {
     "allarmi": 29,
@@ -399,7 +386,7 @@
    "XLC": {
     "allarmi": 2,
     "arrivano": 1,
-    "tocchiAvvisati": "1/7"
+    "tocchiAvvisati": "1/2"
    },
    "XLY": {
     "allarmi": 16,
@@ -437,9 +424,9 @@
     "tocchiAvvisati": "7/8"
    },
    "XLRE": {
-    "allarmi": 13,
-    "arrivano": 7,
-    "tocchiAvvisati": "4/10"
+    "allarmi": 12,
+    "arrivano": 6,
+    "tocchiAvvisati": "3/5"
    },
    "XLU": {
     "allarmi": 23,
