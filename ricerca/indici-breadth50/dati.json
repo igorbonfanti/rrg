@@ -17,6 +17,7 @@
     "ultimo": 503
    },
    "nMediana": 462,
+   "puntiPerTitolo": 0.2,
    "nMin": 320,
    "copertura": {
     "inizio": 0.64,
@@ -28,7 +29,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.3
    },
    "ricopiate": {
     "conteggiUguali": 1,
@@ -99,6 +102,7 @@
     "ultimo": 101
    },
    "nMediana": 83,
+   "puntiPerTitolo": 1.2,
    "nMin": 57,
    "copertura": {
     "inizio": 0.59,
@@ -110,7 +114,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.8
    },
    "ricopiate": {
     "conteggiUguali": 24,
@@ -204,6 +210,7 @@
     "ultimo": 30
    },
    "nMediana": 29,
+   "puntiPerTitolo": 3.4,
    "nMin": 26,
    "copertura": {
     "inizio": 0.87,
@@ -215,7 +222,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.5
    },
    "ricopiate": {
     "conteggiUguali": 221,
@@ -337,6 +346,7 @@
     "ultimo": 225
    },
    "nMediana": 214,
+   "puntiPerTitolo": 0.5,
    "nMin": 188,
    "copertura": {
     "inizio": 0.84,
@@ -348,7 +358,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.8
    },
    "ricopiate": {
     "conteggiUguali": 1,
@@ -452,6 +464,7 @@
     "ultimo": 603
    },
    "nMediana": 536,
+   "puntiPerTitolo": 0.2,
    "nMin": 447,
    "copertura": {
     "inizio": 0.74,
@@ -463,7 +476,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.9
    },
    "ricopiate": {
     "conteggiUguali": 0,
@@ -549,6 +564,7 @@
     "ultimo": 100
    },
    "nMediana": 89,
+   "puntiPerTitolo": 1.1,
    "nMin": 72,
    "copertura": {
     "inizio": 0.72,
@@ -560,7 +576,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.6
    },
    "ricopiate": {
     "conteggiUguali": 16,
@@ -671,6 +689,7 @@
     "ultimo": 40
    },
    "nMediana": 35,
+   "puntiPerTitolo": 2.9,
    "nMin": 28,
    "copertura": {
     "inizio": 0.7,
@@ -682,7 +701,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.3
    },
    "ricopiate": {
     "conteggiUguali": 186,
@@ -786,6 +807,7 @@
     "ultimo": 40
    },
    "nMediana": 38,
+   "puntiPerTitolo": 2.6,
    "nMin": 31,
    "copertura": {
     "inizio": 0.78,
@@ -797,7 +819,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.6
    },
    "ricopiate": {
     "conteggiUguali": 146,
@@ -928,6 +952,7 @@
     "ultimo": 20
    },
    "nMediana": 16,
+   "puntiPerTitolo": 6.3,
    "nMin": 14,
    "copertura": {
     "inizio": 0.7,
@@ -939,7 +964,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.8
    },
    "ricopiate": {
     "conteggiUguali": 669,
@@ -1072,6 +1099,7 @@
     "ultimo": 1969
    },
    "nMediana": 1738,
+   "puntiPerTitolo": 0.1,
    "nMin": 1242,
    "copertura": {
     "inizio": 0.63,
@@ -1083,7 +1111,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.6
    },
    "ricopiate": {
     "conteggiUguali": 0,
@@ -1169,6 +1199,7 @@
     "ultimo": 60
    },
    "nMediana": 53,
+   "puntiPerTitolo": 1.9,
    "nMin": 37,
    "copertura": {
     "inizio": 0.62,
@@ -1180,7 +1211,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.4
    },
    "ricopiate": {
     "conteggiUguali": 57,
@@ -1317,6 +1350,7 @@
     "ultimo": 50
    },
    "nMediana": 47,
+   "puntiPerTitolo": 2.1,
    "nMin": 44,
    "copertura": {
     "inizio": 0.88,
@@ -1328,7 +1362,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.6
    },
    "ricopiate": {
     "conteggiUguali": 69,
@@ -1437,6 +1473,7 @@
     "ultimo": 40
    },
    "nMediana": 36,
+   "puntiPerTitolo": 2.8,
    "nMin": 25,
    "copertura": {
     "inizio": 0.63,
@@ -1448,7 +1485,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.4
    },
    "ricopiate": {
     "conteggiUguali": 175,
@@ -1553,6 +1592,7 @@
     "ultimo": 35
    },
    "nMediana": 32,
+   "puntiPerTitolo": 3.1,
    "nMin": 22,
    "copertura": {
     "inizio": 0.63,
@@ -1564,7 +1604,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.3
    },
    "ricopiate": {
     "conteggiUguali": 173,
@@ -1677,6 +1719,7 @@
     "ultimo": 85
    },
    "nMediana": 63,
+   "puntiPerTitolo": 1.6,
    "nMin": 52,
    "copertura": {
     "inizio": 0.61,
@@ -1688,7 +1731,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.6
    },
    "ricopiate": {
     "conteggiUguali": 30,
@@ -1830,6 +1875,7 @@
     "ultimo": 300
    },
    "nMediana": 259,
+   "puntiPerTitolo": 0.4,
    "nMin": 194,
    "copertura": {
     "inizio": 0.65,
@@ -1841,7 +1887,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.8
    },
    "ricopiate": {
     "conteggiUguali": 3,
@@ -1951,6 +1999,7 @@
     "ultimo": 200
    },
    "nMediana": 159,
+   "puntiPerTitolo": 0.6,
    "nMin": 121,
    "copertura": {
     "inizio": 0.61,
@@ -1962,7 +2011,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.7
    },
    "ricopiate": {
     "conteggiUguali": 5,
@@ -2083,6 +2134,7 @@
     "ultimo": 76
    },
    "nMediana": 71,
+   "puntiPerTitolo": 1.4,
    "nMin": 50,
    "copertura": {
     "inizio": 0.66,
@@ -2094,7 +2146,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.7
    },
    "ricopiate": {
     "conteggiUguali": 39,
@@ -2205,6 +2259,7 @@
     "ultimo": 50
    },
    "nMediana": 45,
+   "puntiPerTitolo": 2.2,
    "nMin": 40,
    "copertura": {
     "inizio": 0.8,
@@ -2216,7 +2271,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.5
    },
    "ricopiate": {
     "conteggiUguali": 51,
@@ -2327,6 +2384,7 @@
     "ultimo": 200
    },
    "nMediana": 165,
+   "puntiPerTitolo": 0.6,
    "nMin": 126,
    "copertura": {
     "inizio": 0.63,
@@ -2338,7 +2396,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.5
    },
    "ricopiate": {
     "conteggiUguali": 1,
@@ -2426,6 +2486,7 @@
     "ultimo": 1180
    },
    "nMediana": 937.5,
+   "puntiPerTitolo": 0.1,
    "nMin": 466,
    "copertura": {
     "inizio": 0.63,
@@ -2498,7 +2559,9 @@
       "n": 553,
       "mediana": 814
      }
-    ]
+    ],
+    "saltoMedioEntrataUscita": 7,
+    "saltoMedioTutte": 2.6
    },
    "ricopiate": {
     "conteggiUguali": 0,
@@ -2684,6 +2747,7 @@
     "ultimo": 76
    },
    "nMediana": 62,
+   "puntiPerTitolo": 1.6,
    "nMin": 49,
    "copertura": {
     "inizio": 0.64,
@@ -2695,7 +2759,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.7
    },
    "ricopiate": {
     "conteggiUguali": 32,
@@ -2784,7 +2850,9 @@
  "aggiornato": {
   "copertura": "2026-10-31",
   "settori": "2026-10-31",
-  "fonteEsterna": "2026-10-31"
+  "fonteEsterna": "2026-10-31",
+  "ricalcolo": "2026-10-31",
+  "bias": "2026-10-31"
  },
  "settori": {
   "XLK": {
@@ -2801,6 +2869,7 @@
     "ultimo": 75
    },
    "nMediana": 46,
+   "puntiPerTitolo": 2.2,
    "nMin": 31,
    "copertura": {
     "inizio": 0.78,
@@ -2812,7 +2881,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.4
    },
    "ricopiate": {
     "conteggiUguali": 93,
@@ -2894,6 +2965,7 @@
     "ultimo": 22
    },
    "nMediana": 21,
+   "puntiPerTitolo": 4.8,
    "nMin": 11,
    "copertura": {
     "inizio": 0.73,
@@ -2905,7 +2977,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.7
    },
    "ricopiate": {
     "conteggiUguali": 430,
@@ -3000,6 +3074,7 @@
     "ultimo": 47
    },
    "nMediana": 53,
+   "puntiPerTitolo": 1.9,
    "nMin": 33,
    "copertura": {
     "inizio": 0.77,
@@ -3011,7 +3086,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.2
    },
    "ricopiate": {
     "conteggiUguali": 77,
@@ -3093,6 +3170,7 @@
     "ultimo": 34
    },
    "nMediana": 36,
+   "puntiPerTitolo": 2.8,
    "nMin": 25,
    "copertura": {
     "inizio": 0.93,
@@ -3104,7 +3182,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.4
    },
    "ricopiate": {
     "conteggiUguali": 125,
@@ -3186,6 +3266,7 @@
     "ultimo": 21
    },
    "nMediana": 27,
+   "puntiPerTitolo": 3.7,
    "nMin": 17,
    "copertura": {
     "inizio": 0.89,
@@ -3197,7 +3278,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6.4
    },
    "ricopiate": {
     "conteggiUguali": 405,
@@ -3292,6 +3375,7 @@
     "ultimo": 76
    },
    "nMediana": 67,
+   "puntiPerTitolo": 1.5,
    "nMin": 49,
    "copertura": {
     "inizio": 0.96,
@@ -3303,7 +3387,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6
    },
    "ricopiate": {
     "conteggiUguali": 38,
@@ -3385,6 +3471,7 @@
     "ultimo": 60
    },
    "nMediana": 56,
+   "puntiPerTitolo": 1.8,
    "nMin": 39,
    "copertura": {
     "inizio": 0.98,
@@ -3396,7 +3483,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.1
    },
    "ricopiate": {
     "conteggiUguali": 45,
@@ -3491,6 +3580,7 @@
     "ultimo": 83
    },
    "nMediana": 63,
+   "puntiPerTitolo": 1.6,
    "nMin": 42,
    "copertura": {
     "inizio": 0.93,
@@ -3502,7 +3592,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.5
    },
    "ricopiate": {
     "conteggiUguali": 81,
@@ -3584,6 +3676,7 @@
     "ultimo": 24
    },
    "nMediana": 25,
+   "puntiPerTitolo": 4,
    "nMin": 20,
    "copertura": {
     "inizio": 0.87,
@@ -3595,7 +3688,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6
    },
    "ricopiate": {
     "conteggiUguali": 301,
@@ -3691,6 +3786,7 @@
     "ultimo": 30
    },
    "nMediana": 22,
+   "puntiPerTitolo": 4.5,
    "nMin": 3,
    "copertura": {
     "inizio": 0.6,
@@ -3702,7 +3798,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6.8
    },
    "ricopiate": {
     "conteggiUguali": 701,
@@ -3803,6 +3901,7 @@
     "ultimo": 31
    },
    "nMediana": 28,
+   "puntiPerTitolo": 3.6,
    "nMin": 22,
    "copertura": {
     "inizio": 0.96,
@@ -3814,7 +3913,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6.7
    },
    "ricopiate": {
     "conteggiUguali": 402,
@@ -3896,6 +3997,7 @@
     "ultimo": 503
    },
    "nMediana": 462,
+   "puntiPerTitolo": 0.2,
    "nMin": 320,
    "copertura": {
     "inizio": 0.64,
@@ -3907,7 +4009,9 @@
    },
    "caliCopertura": {
     "sedute": 0,
-    "esempi": []
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.3
    },
    "ricopiate": {
     "conteggiUguali": 1,
@@ -4221,5 +4325,3349 @@
    }
   ],
   "nota": "Bloomberg può usare chiusure diverse (dividendi, eventi straordinari) e arrotonda all'intero: scarti di 1-2 punti sono attesi."
+ },
+ "ricalcolo": {
+  "DAX": {
+   "membri": 40,
+   "senzaPrezzi": [],
+   "sedute": 6559,
+   "dal": "2001-01-02",
+   "al": "2026-10-29",
+   "nUguale": 6559,
+   "a50Uguale": 6559,
+   "a20Uguale": 6559,
+   "a200Uguale": 6559,
+   "tuttoUguale": 6559,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 553,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 553
+   },
+   "pct50MediaAssPerAnno": {
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2001-01-02",
+     "app": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-03",
+     "app": {
+      "n": 28,
+      "a20": 19,
+      "a50": 11,
+      "a200": 13
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 19,
+      "a50": 11,
+      "a200": 13
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-04",
+     "app": {
+      "n": 28,
+      "a20": 16,
+      "a50": 12,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 16,
+      "a50": 12,
+      "a200": 11
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-05",
+     "app": {
+      "n": 28,
+      "a20": 17,
+      "a50": 11,
+      "a200": 12
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 17,
+      "a50": 11,
+      "a200": 12
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-08",
+     "app": {
+      "n": 28,
+      "a20": 15,
+      "a50": 12,
+      "a200": 13
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 15,
+      "a50": 12,
+      "a200": 13
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-09",
+     "app": {
+      "n": 28,
+      "a20": 14,
+      "a50": 11,
+      "a200": 12
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 14,
+      "a50": 11,
+      "a200": 12
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-10",
+     "app": {
+      "n": 28,
+      "a20": 12,
+      "a50": 9,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 12,
+      "a50": 9,
+      "a200": 11
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-11",
+     "app": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "CAC": {
+   "membri": 40,
+   "senzaPrezzi": [],
+   "sedute": 6604,
+   "dal": "2001-01-02",
+   "al": "2026-10-29",
+   "nUguale": 6604,
+   "a50Uguale": 6604,
+   "a20Uguale": 6604,
+   "a200Uguale": 6604,
+   "tuttoUguale": 6604,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 586,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 586
+   },
+   "pct50MediaAssPerAnno": {
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2001-01-02",
+     "app": {
+      "n": 31,
+      "a20": 20,
+      "a50": 17,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 20,
+      "a50": 17,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-03",
+     "app": {
+      "n": 31,
+      "a20": 15,
+      "a50": 14,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 15,
+      "a50": 14,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-04",
+     "app": {
+      "n": 31,
+      "a20": 16,
+      "a50": 15,
+      "a200": 18
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 16,
+      "a50": 15,
+      "a200": 18
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-05",
+     "app": {
+      "n": 31,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-08",
+     "app": {
+      "n": 31,
+      "a20": 14,
+      "a50": 11,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 14,
+      "a50": 11,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-09",
+     "app": {
+      "n": 31,
+      "a20": 9,
+      "a50": 12,
+      "a200": 16
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 9,
+      "a50": 12,
+      "a200": 16
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-10",
+     "app": {
+      "n": 31,
+      "a20": 10,
+      "a50": 12,
+      "a200": 16
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 10,
+      "a50": 12,
+      "a200": 16
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-11",
+     "app": {
+      "n": 31,
+      "a20": 11,
+      "a50": 10,
+      "a200": 15
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 11,
+      "a50": 10,
+      "a200": 15
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "SMI": {
+   "membri": 20,
+   "senzaPrezzi": [],
+   "sedute": 6484,
+   "dal": "2001-01-03",
+   "al": "2026-10-29",
+   "nUguale": 6484,
+   "a50Uguale": 6484,
+   "a20Uguale": 6484,
+   "a200Uguale": 6484,
+   "tuttoUguale": 6484,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-03"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-03"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-03"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 679,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 679
+   },
+   "pct50MediaAssPerAnno": {
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2001-01-03",
+     "app": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 8
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 8
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-04",
+     "app": {
+      "n": 14,
+      "a20": 8,
+      "a50": 8,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 8,
+      "a50": 8,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-05",
+     "app": {
+      "n": 14,
+      "a20": 8,
+      "a50": 7,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 8,
+      "a50": 7,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-08",
+     "app": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-09",
+     "app": {
+      "n": 14,
+      "a20": 6,
+      "a50": 6,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 6,
+      "a50": 6,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-10",
+     "app": {
+      "n": 14,
+      "a20": 5,
+      "a50": 6,
+      "a200": 6
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 5,
+      "a50": 6,
+      "a200": 6
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-11",
+     "app": {
+      "n": 14,
+      "a20": 4,
+      "a50": 6,
+      "a200": 6
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 4,
+      "a50": 6,
+      "a200": 6
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-12",
+     "app": {
+      "n": 14,
+      "a20": 5,
+      "a50": 5,
+      "a200": 6
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 5,
+      "a50": 5,
+      "a200": 6
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "DJI": {
+   "simboli": 48,
+   "senzaPrezzi": [],
+   "scartati": [],
+   "sedute": 6748,
+   "dal": "2000-01-03",
+   "al": "2026-10-30",
+   "nUguale": 6748,
+   "a50Uguale": 6748,
+   "a20Uguale": 6748,
+   "a200Uguale": 6748,
+   "tuttoUguale": 6748,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2000-01-03"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2000-01-03"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2000-01-03"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 455,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 455
+   },
+   "pct50MediaAssPerAnno": {
+    "2000": 0,
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2000-01-03",
+     "app": {
+      "n": 26,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-04",
+     "app": {
+      "n": 26,
+      "a20": 9,
+      "a50": 12,
+      "a200": 13
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 9,
+      "a50": 12,
+      "a200": 13
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-05",
+     "app": {
+      "n": 26,
+      "a20": 9,
+      "a50": 14,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 9,
+      "a50": 14,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-06",
+     "app": {
+      "n": 26,
+      "a20": 10,
+      "a50": 15,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 10,
+      "a50": 15,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-07",
+     "app": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 19
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 19
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-10",
+     "app": {
+      "n": 26,
+      "a20": 18,
+      "a50": 18,
+      "a200": 19
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 18,
+      "a50": 18,
+      "a200": 19
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-11",
+     "app": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 18
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 18
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-12",
+     "app": {
+      "n": 26,
+      "a20": 19,
+      "a50": 22,
+      "a200": 21
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 19,
+      "a50": 22,
+      "a200": 21
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "SPX": {
+   "simboli": 551,
+   "senzaPrezzi": [
+    "ANSS",
+    "CMA",
+    "CTLT",
+    "CTRA",
+    "DAY",
+    "DFS",
+    "HES",
+    "HOLX",
+    "IPG",
+    "JNPR",
+    "K",
+    "MRO",
+    "WBA"
+   ],
+   "nota": "composizione da data/sp500_history.json (Wikipedia, date di efficacia); i titoli usciti senza prezzi su Yahoo mancano nel ricalcolo",
+   "sedute": 606,
+   "dal": "2024-06-03",
+   "al": "2026-10-30",
+   "nUguale": 79,
+   "a50Uguale": 57,
+   "a20Uguale": 104,
+   "a200Uguale": 50,
+   "tuttoUguale": 10,
+   "pct20": {
+    "mediaAss": 0.29,
+    "p95Ass": 0.7,
+    "maxAss": 1.7,
+    "media": -0.04,
+    "sedutaMax": "2024-09-11"
+   },
+   "pct50": {
+    "mediaAss": 0.33,
+    "p95Ass": 0.9,
+    "maxAss": 1.2,
+    "media": -0.02,
+    "sedutaMax": "2024-06-18"
+   },
+   "pct200": {
+    "mediaAss": 0.34,
+    "p95Ass": 0.8,
+    "maxAss": 1.2,
+    "media": 0.07,
+    "sedutaMax": "2024-09-13"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 5,
+    "pct50MediaAss": 0.08,
+    "pct20MediaAss": 0.13,
+    "a50Uguale": 1
+   },
+   "pct50MediaAssPerAnno": {
+    "2024": 0.48,
+    "2025": 0.33,
+    "2026": 0.23
+   },
+   "peggiori": [
+    {
+     "data": "2024-06-18",
+     "app": {
+      "n": 499,
+      "a20": 231,
+      "a50": 237,
+      "a200": 324
+     },
+     "ricalcolo": {
+      "n": 487,
+      "a20": 227,
+      "a50": 237,
+      "a200": 320
+     },
+     "dPct50": 1.2
+    },
+    {
+     "data": "2024-09-12",
+     "app": {
+      "n": 499,
+      "a20": 267,
+      "a50": 339,
+      "a200": 346
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 268,
+      "a50": 337,
+      "a200": 344
+     },
+     "dPct50": 1.1
+    },
+    {
+     "data": "2024-09-25",
+     "app": {
+      "n": 499,
+      "a20": 320,
+      "a50": 369,
+      "a200": 368
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 316,
+      "a50": 366,
+      "a200": 365
+     },
+     "dPct50": 1.1
+    },
+    {
+     "data": "2024-09-27",
+     "app": {
+      "n": 499,
+      "a20": 363,
+      "a50": 412,
+      "a200": 396
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 354,
+      "a50": 408,
+      "a200": 392
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2024-06-20",
+     "app": {
+      "n": 499,
+      "a20": 261,
+      "a50": 252,
+      "a200": 333
+     },
+     "ricalcolo": {
+      "n": 487,
+      "a20": 257,
+      "a50": 251,
+      "a200": 328
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2024-06-14",
+     "app": {
+      "n": 499,
+      "a20": 159,
+      "a50": 210,
+      "a200": 316
+     },
+     "ricalcolo": {
+      "n": 487,
+      "a20": 158,
+      "a50": 210,
+      "a200": 312
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2024-09-09",
+     "app": {
+      "n": 499,
+      "a20": 264,
+      "a50": 319,
+      "a200": 344
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 261,
+      "a50": 317,
+      "a200": 341
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2025-11-20",
+     "app": {
+      "n": 499,
+      "a20": 138,
+      "a50": 156,
+      "a200": 237
+     },
+     "ricalcolo": {
+      "n": 496,
+      "a20": 133,
+      "a50": 150,
+      "a200": 232
+     },
+     "dPct50": -1
+    }
+   ]
+  }
+ },
+ "bias": {
+  "metodo": "scarto = breadth con i membri di oggi (regola dell'app per gli indici «oggi») − breadth d'epoca dell'app, in punti",
+  "NDX": {
+   "membriOggi": 101,
+   "senzaPrezzi": [],
+   "sedute": 4738,
+   "dal": "2008-01-02",
+   "al": "2026-10-30",
+   "coperturaOggiInizio": 0.69,
+   "scarto": {
+    "pct20": {
+     "media": 1.8,
+     "mediana": 1.7,
+     "p5": -6.2,
+     "p95": 10.1
+    },
+    "pct50": {
+     "media": 2.7,
+     "mediana": 2.6,
+     "p5": -5.5,
+     "p95": 10.5
+    },
+    "pct200": {
+     "media": 3.8,
+     "mediana": 3.8,
+     "p5": -4.3,
+     "p95": 11.7
+    }
+   },
+   "perLivello": {
+    "pct20": {
+     "sotto10": {
+      "sedute": 196,
+      "media": 2.2,
+      "mediana": 1.2
+     },
+     "10-20": {
+      "sedute": 322,
+      "media": 2.6,
+      "mediana": 2.2
+     },
+     "20-50": {
+      "sedute": 1235,
+      "media": 2.8,
+      "mediana": 2.4
+     },
+     "50-80": {
+      "sedute": 2247,
+      "media": 1.9,
+      "mediana": 2
+     },
+     "sopra80": {
+      "sedute": 738,
+      "media": -0.6,
+      "mediana": -0.5
+     }
+    },
+    "pct50": {
+     "sotto10": {
+      "sedute": 170,
+      "media": 2,
+      "mediana": 1.4
+     },
+     "10-20": {
+      "sedute": 224,
+      "media": 3.2,
+      "mediana": 2.4
+     },
+     "20-50": {
+      "sedute": 1203,
+      "media": 3.7,
+      "mediana": 3.5
+     },
+     "50-80": {
+      "sedute": 2321,
+      "media": 3.4,
+      "mediana": 3.6
+     },
+     "sopra80": {
+      "sedute": 820,
+      "media": -0.5,
+      "mediana": -0.3
+     }
+    },
+    "pct200": {
+     "sotto10": {
+      "sedute": 122,
+      "media": 0.1,
+      "mediana": -0.3
+     },
+     "10-20": {
+      "sedute": 173,
+      "media": 2.2,
+      "mediana": 1.7
+     },
+     "20-50": {
+      "sedute": 826,
+      "media": 3.7,
+      "mediana": 3.2
+     },
+     "50-80": {
+      "sedute": 2597,
+      "media": 5.6,
+      "mediana": 5.9
+     },
+     "sopra80": {
+      "sedute": 1020,
+      "media": 0,
+      "mediana": -0.2
+     }
+    }
+   },
+   "perAnno": {
+    "2008": {
+     "pct20": 2.3,
+     "pct50": 2.5,
+     "pct200": 2.6,
+     "coperturaOggi": 0.7
+    },
+    "2009": {
+     "pct20": 0.1,
+     "pct50": -0.1,
+     "pct200": -2.7,
+     "coperturaOggi": 0.71
+    },
+    "2010": {
+     "pct20": -0.1,
+     "pct50": -0.9,
+     "pct200": -0.8,
+     "coperturaOggi": 0.73
+    },
+    "2011": {
+     "pct20": 2.9,
+     "pct50": 3.8,
+     "pct200": 3.1,
+     "coperturaOggi": 0.74
+    },
+    "2012": {
+     "pct20": -0.1,
+     "pct50": -0.4,
+     "pct200": 6,
+     "coperturaOggi": 0.76
+    },
+    "2013": {
+     "pct20": 0.7,
+     "pct50": 1.4,
+     "pct200": -0.2,
+     "coperturaOggi": 0.79
+    },
+    "2014": {
+     "pct20": 2.5,
+     "pct50": 4,
+     "pct200": 4.8,
+     "coperturaOggi": 0.79
+    },
+    "2015": {
+     "pct20": 1.5,
+     "pct50": 2.4,
+     "pct200": 1.7,
+     "coperturaOggi": 0.81
+    },
+    "2016": {
+     "pct20": 3.6,
+     "pct50": 5.5,
+     "pct200": 10.3,
+     "coperturaOggi": 0.82
+    },
+    "2017": {
+     "pct20": 3,
+     "pct50": 4.6,
+     "pct200": 5.4,
+     "coperturaOggi": 0.82
+    },
+    "2018": {
+     "pct20": 3.1,
+     "pct50": 4.9,
+     "pct200": 7.3,
+     "coperturaOggi": 0.83
+    },
+    "2019": {
+     "pct20": 2.1,
+     "pct50": 4.3,
+     "pct200": 7.8,
+     "coperturaOggi": 0.85
+    },
+    "2020": {
+     "pct20": 1.3,
+     "pct50": 1.6,
+     "pct200": 2.5,
+     "coperturaOggi": 0.87
+    },
+    "2021": {
+     "pct20": 2.3,
+     "pct50": 3.2,
+     "pct200": 2.8,
+     "coperturaOggi": 0.91
+    },
+    "2022": {
+     "pct20": 0.5,
+     "pct50": 1.3,
+     "pct200": 1.2,
+     "coperturaOggi": 0.92
+    },
+    "2023": {
+     "pct20": 2.1,
+     "pct50": 4.1,
+     "pct200": 5.9,
+     "coperturaOggi": 0.93
+    },
+    "2024": {
+     "pct20": 2.6,
+     "pct50": 3.9,
+     "pct200": 6.6,
+     "coperturaOggi": 0.95
+    },
+    "2025": {
+     "pct20": 2.4,
+     "pct50": 3.5,
+     "pct200": 4.1,
+     "coperturaOggi": 0.98
+    },
+    "2026": {
+     "pct20": 1.5,
+     "pct50": 2.3,
+     "pct200": 3.2,
+     "coperturaOggi": 0.99
+    }
+   },
+   "minimi": {
+    "numero": 20,
+    "riassunto": {
+     "pct20": {
+      "scartoAlMinimo": {
+       "media": 1.8,
+       "mediana": 0.1,
+       "p5": -2.4,
+       "p95": 6.4
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 0.9,
+       "mediana": 0,
+       "p5": -1.1,
+       "p95": 4.8
+      },
+      "stessaSeduta": 12
+     },
+     "pct50": {
+      "scartoAlMinimo": {
+       "media": 1.7,
+       "mediana": 1.1,
+       "p5": -3.1,
+       "p95": 9.3
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.2,
+       "mediana": 0.8,
+       "p5": -3.6,
+       "p95": 6.2
+      },
+      "stessaSeduta": 12
+     },
+     "pct200": {
+      "scartoAlMinimo": {
+       "media": 3,
+       "mediana": 2.8,
+       "p5": -1.6,
+       "p95": 7.4
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 3.4,
+       "mediana": 2.8,
+       "p5": -1.6,
+       "p95": 10.3
+      },
+      "stessaSeduta": 17
+     }
+    },
+    "elenco": [
+     {
+      "data": "2009-03-09",
+      "calo": -49.2,
+      "epoca20": 12.9,
+      "oggi20": 12.7,
+      "scarto20": -0.2,
+      "minEpoca20": 3.2,
+      "minOggi20": 4.2,
+      "sfasamento20": 0,
+      "epoca50": 16.1,
+      "oggi50": 16.9,
+      "scarto50": 0.8,
+      "minEpoca50": 14.5,
+      "minOggi50": 11.3,
+      "sfasamento50": 1,
+      "epoca200": 3.2,
+      "oggi200": 4.2,
+      "scarto200": 1,
+      "minEpoca200": 3.2,
+      "minOggi200": 4.2,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2010-07-02",
+      "calo": -15.9,
+      "epoca20": 6.5,
+      "oggi20": 4.1,
+      "scarto20": -2.4,
+      "minEpoca20": 0,
+      "minOggi20": 4.1,
+      "sfasamento20": 2,
+      "epoca50": 6.5,
+      "oggi50": 5.4,
+      "scarto50": -1,
+      "minEpoca50": 4.8,
+      "minOggi50": 5.4,
+      "sfasamento50": 2,
+      "epoca200": 27.4,
+      "oggi200": 29.7,
+      "scarto200": 2.3,
+      "minEpoca200": 27.4,
+      "minOggi200": 29.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2011-08-19",
+      "calo": -16.1,
+      "epoca20": 4.5,
+      "oggi20": 9.3,
+      "scarto20": 4.8,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -2,
+      "epoca50": 0,
+      "oggi50": 1.3,
+      "scarto50": 1.3,
+      "minEpoca50": 0,
+      "minOggi50": 1.3,
+      "sfasamento50": 0,
+      "epoca200": 16.7,
+      "oggi200": 13.3,
+      "scarto200": -3.3,
+      "minEpoca200": 13.6,
+      "minOggi200": 9.3,
+      "sfasamento200": 10
+     },
+     {
+      "data": "2012-06-01",
+      "calo": -11.7,
+      "epoca20": 4.5,
+      "oggi20": 9.2,
+      "scarto20": 4.7,
+      "minEpoca20": 4.5,
+      "minOggi20": 9.2,
+      "sfasamento20": 9,
+      "epoca50": 10.6,
+      "oggi50": 14.5,
+      "scarto50": 3.9,
+      "minEpoca50": 10.6,
+      "minOggi50": 14.5,
+      "sfasamento50": 0,
+      "epoca200": 45.5,
+      "oggi200": 48.7,
+      "scarto200": 3.2,
+      "minEpoca200": 43.9,
+      "minOggi200": 47.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2012-11-15",
+      "calo": -11.9,
+      "epoca20": 22.7,
+      "oggi20": 20,
+      "scarto20": -2.7,
+      "minEpoca20": 19.7,
+      "minOggi20": 18.8,
+      "sfasamento20": -13,
+      "epoca50": 19.7,
+      "oggi50": 20,
+      "scarto50": 0.3,
+      "minEpoca50": 19.7,
+      "minOggi50": 20,
+      "sfasamento50": 0,
+      "epoca200": 36.4,
+      "oggi200": 37.5,
+      "scarto200": 1.1,
+      "minEpoca200": 27.3,
+      "minOggi200": 37.5,
+      "sfasamento200": 1
+     },
+     {
+      "data": "2015-08-25",
+      "calo": -14.2,
+      "epoca20": 0,
+      "oggi20": 1.2,
+      "scarto20": 1.2,
+      "minEpoca20": 0,
+      "minOggi20": 1.2,
+      "sfasamento20": 0,
+      "epoca50": 1.3,
+      "oggi50": 6,
+      "scarto50": 4.8,
+      "minEpoca50": 0,
+      "minOggi50": 6,
+      "sfasamento50": 1,
+      "epoca200": 20.3,
+      "oggi200": 22.9,
+      "scarto200": 2.6,
+      "minEpoca200": 20.3,
+      "minOggi200": 22.9,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2016-02-09",
+      "calo": -16.3,
+      "epoca20": 12.7,
+      "oggi20": 31.3,
+      "scarto20": 18.7,
+      "minEpoca20": 2.5,
+      "minOggi20": 2.4,
+      "sfasamento20": 1,
+      "epoca50": 6.3,
+      "oggi50": 15.7,
+      "scarto50": 9.3,
+      "minEpoca50": 3.8,
+      "minOggi50": 4.8,
+      "sfasamento50": 1,
+      "epoca200": 15.2,
+      "oggi200": 19.3,
+      "scarto200": 4.1,
+      "minEpoca200": 15.2,
+      "minOggi200": 18.1,
+      "sfasamento200": -1
+     },
+     {
+      "data": "2016-06-27",
+      "calo": -11,
+      "epoca20": 6.3,
+      "oggi20": 12,
+      "scarto20": 5.8,
+      "minEpoca20": 6.3,
+      "minOggi20": 12,
+      "sfasamento20": 0,
+      "epoca50": 18.8,
+      "oggi50": 22.9,
+      "scarto50": 4.1,
+      "minEpoca50": 18.8,
+      "minOggi50": 22.9,
+      "sfasamento50": 0,
+      "epoca200": 38.8,
+      "oggi200": 50.6,
+      "scarto200": 11.9,
+      "minEpoca200": 38.8,
+      "minOggi200": 50.6,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-02-08",
+      "calo": -10.2,
+      "epoca20": 3.5,
+      "oggi20": 2.4,
+      "scarto20": -1.1,
+      "minEpoca20": 3.5,
+      "minOggi20": 2.4,
+      "sfasamento20": 0,
+      "epoca50": 20.9,
+      "oggi50": 16.9,
+      "scarto50": -4.1,
+      "minEpoca50": 20.9,
+      "minOggi50": 16.9,
+      "sfasamento50": 0,
+      "epoca200": 55.8,
+      "oggi200": 59,
+      "scarto200": 3.2,
+      "minEpoca200": 55.8,
+      "minOggi200": 59,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-12-24",
+      "calo": -23,
+      "epoca20": 1.1,
+      "oggi20": 0,
+      "scarto20": -1.1,
+      "minEpoca20": 1.1,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 3.3,
+      "oggi50": 3.5,
+      "scarto50": 0.3,
+      "minEpoca50": 3.3,
+      "minOggi50": 3.5,
+      "sfasamento50": 0,
+      "epoca200": 6.5,
+      "oggi200": 10.6,
+      "scarto200": 4.1,
+      "minEpoca200": 6.5,
+      "minOggi200": 10.6,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2019-06-03",
+      "calo": -11.1,
+      "epoca20": 13.8,
+      "oggi20": 18.8,
+      "scarto20": 5,
+      "minEpoca20": 10.6,
+      "minOggi20": 15.3,
+      "sfasamento20": 2,
+      "epoca50": 18.1,
+      "oggi50": 28.2,
+      "scarto50": 10.2,
+      "minEpoca50": 18.1,
+      "minOggi50": 28.2,
+      "sfasamento50": 0,
+      "epoca200": 52.1,
+      "oggi200": 58.8,
+      "scarto200": 6.7,
+      "minEpoca200": 52.1,
+      "minOggi200": 58.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2020-03-20",
+      "calo": -28,
+      "epoca20": 0,
+      "oggi20": 1.1,
+      "scarto20": 1.1,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -6,
+      "epoca50": 2.2,
+      "oggi50": 3.4,
+      "scarto50": 1.3,
+      "minEpoca50": 2.2,
+      "minOggi50": 3.4,
+      "sfasamento50": 0,
+      "epoca200": 9.8,
+      "oggi200": 12.6,
+      "scarto200": 2.9,
+      "minEpoca200": 7.6,
+      "minOggi200": 10.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2021-03-08",
+      "calo": -10.9,
+      "epoca20": 25,
+      "oggi20": 29.7,
+      "scarto20": 4.7,
+      "minEpoca20": 9.8,
+      "minOggi20": 9.9,
+      "sfasamento20": 0,
+      "epoca50": 30.4,
+      "oggi50": 34.1,
+      "scarto50": 3.6,
+      "minEpoca50": 19.6,
+      "minOggi50": 23.1,
+      "sfasamento50": 0,
+      "epoca200": 64.1,
+      "oggi200": 62.6,
+      "scarto200": -1.5,
+      "minEpoca200": 64.1,
+      "minOggi200": 62.6,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-06-16",
+      "calo": -32.9,
+      "epoca20": 3.1,
+      "oggi20": 2.2,
+      "scarto20": -1,
+      "minEpoca20": 3.1,
+      "minOggi20": 2.2,
+      "sfasamento20": 0,
+      "epoca50": 5.2,
+      "oggi50": 2.2,
+      "scarto50": -3.1,
+      "minEpoca50": 4.2,
+      "minOggi50": 2.2,
+      "sfasamento50": 3,
+      "epoca200": 5.2,
+      "oggi200": 6.5,
+      "scarto200": 1.2,
+      "minEpoca200": 5.2,
+      "minOggi200": 6.5,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-12-28",
+      "calo": -35.3,
+      "epoca20": 5.3,
+      "oggi20": 5.3,
+      "scarto20": 0.1,
+      "minEpoca20": 5.3,
+      "minOggi20": 5.3,
+      "sfasamento20": 0,
+      "epoca50": 32.6,
+      "oggi50": 35.1,
+      "scarto50": 2.5,
+      "minEpoca50": 28.4,
+      "minOggi50": 29.8,
+      "sfasamento50": 0,
+      "epoca200": 37.9,
+      "oggi200": 38.3,
+      "scarto200": 0.4,
+      "minEpoca200": 37.9,
+      "minOggi200": 38.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2023-10-26",
+      "calo": -10.9,
+      "epoca20": 17.7,
+      "oggi20": 18.9,
+      "scarto20": 1.2,
+      "minEpoca20": 14.6,
+      "minOggi20": 17.9,
+      "sfasamento20": 0,
+      "epoca50": 13.5,
+      "oggi50": 15.8,
+      "scarto50": 2.2,
+      "minEpoca50": 12.5,
+      "minOggi50": 15.8,
+      "sfasamento50": -1,
+      "epoca200": 44.8,
+      "oggi200": 51.6,
+      "scarto200": 6.8,
+      "minEpoca200": 41.7,
+      "minOggi200": 48.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2024-08-07",
+      "calo": -13.6,
+      "epoca20": 21.4,
+      "oggi20": 20.8,
+      "scarto20": -0.6,
+      "minEpoca20": 17.3,
+      "minOggi20": 15.6,
+      "sfasamento20": 0,
+      "epoca50": 28.6,
+      "oggi50": 28.1,
+      "scarto50": -0.4,
+      "minEpoca50": 28.6,
+      "minOggi50": 25,
+      "sfasamento50": -2,
+      "epoca200": 44.9,
+      "oggi200": 52.1,
+      "scarto200": 7.2,
+      "minEpoca200": 40.8,
+      "minOggi200": 49,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2025-04-08",
+      "calo": -22.9,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 4.1,
+      "oggi50": 4,
+      "scarto50": 0,
+      "minEpoca50": 4.1,
+      "minOggi50": 4,
+      "sfasamento50": 0,
+      "epoca200": 16.3,
+      "oggi200": 17.2,
+      "scarto200": 0.8,
+      "minEpoca200": 16.3,
+      "minOggi200": 17.2,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2026-03-30",
+      "calo": -12.1,
+      "epoca20": 12.1,
+      "oggi20": 10.1,
+      "scarto20": -2,
+      "minEpoca20": 10.1,
+      "minOggi20": 10.1,
+      "sfasamento20": 1,
+      "epoca50": 15.2,
+      "oggi50": 14.1,
+      "scarto50": -1,
+      "minEpoca50": 14.1,
+      "minOggi50": 14.1,
+      "sfasamento50": 1,
+      "epoca200": 38.4,
+      "oggi200": 43.4,
+      "scarto200": 5.1,
+      "minEpoca200": 38.4,
+      "minOggi200": 43.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2026-07-29",
+      "calo": -11.3,
+      "epoca20": 47.5,
+      "oggi20": 46.5,
+      "scarto20": -1,
+      "minEpoca20": 30.7,
+      "minOggi20": 29.7,
+      "sfasamento20": 0,
+      "epoca50": 47.5,
+      "oggi50": 46.5,
+      "scarto50": -1,
+      "minEpoca50": 37.6,
+      "minOggi50": 36.6,
+      "sfasamento50": 0,
+      "epoca200": 62.4,
+      "oggi200": 62.4,
+      "scarto200": 0,
+      "minEpoca200": 56.4,
+      "minOggi200": 56.4,
+      "sfasamento200": 0
+     }
+    ]
+   },
+   "eventi": {
+    "pct50sotto10": {
+     "epoca": 20,
+     "oggi": 18,
+     "comuni": 16,
+     "ritardoMediano": 0
+    },
+    "pct50sotto20": {
+     "epoca": 38,
+     "oggi": 36,
+     "comuni": 28,
+     "ritardoMediano": 0
+    },
+    "pct20sotto10": {
+     "epoca": 45,
+     "oggi": 36,
+     "comuni": 29,
+     "ritardoMediano": 0
+    },
+    "pct200sotto15": {
+     "epoca": 13,
+     "oggi": 10,
+     "comuni": 9,
+     "ritardoMediano": 1
+    }
+   },
+   "correlazioneVariazioni": {
+    "pct20": 0.95,
+    "pct50": 0.92,
+    "pct200": 0.87
+   },
+   "provaTrimestrale": {
+    "readme": {
+     "date": 76,
+     "membriOggi": 101,
+     "listaAl": "2026-10-20",
+     "media": 4.5,
+     "mediana": 4.8,
+     "min": -6.1,
+     "max": 19,
+     "sotto20": {
+      "date": 5,
+      "media": 1.3
+     }
+    },
+    "stesseDate": {
+     "date": 76,
+     "mediaPct200": 3.6,
+     "mediaPct50": 1.8,
+     "mediaPct20": 0.5
+    },
+    "nota": "ricerca/indici/script/membri_oggi_ndx.mjs esclude dal denominatore i titoli con meno di 200 sedute; qui contano (regola dell'app)"
+   }
+  },
+  "SPX": {
+   "membriOggi": 503,
+   "senzaPrezzi": [],
+   "sedute": 5492,
+   "dal": "2005-01-03",
+   "al": "2026-10-30",
+   "coperturaOggiInizio": 0.76,
+   "scarto": {
+    "pct20": {
+     "media": 1.1,
+     "mediana": 1.1,
+     "p5": -2.7,
+     "p95": 5.3
+    },
+    "pct50": {
+     "media": 1.9,
+     "mediana": 1.8,
+     "p5": -1.9,
+     "p95": 5.8
+    },
+    "pct200": {
+     "media": 3.1,
+     "mediana": 2.9,
+     "p5": -0.7,
+     "p95": 7.5
+    }
+   },
+   "perLivello": {
+    "pct20": {
+     "sotto10": {
+      "sedute": 178,
+      "media": 0.7,
+      "mediana": 0.6
+     },
+     "10-20": {
+      "sedute": 331,
+      "media": 1.3,
+      "mediana": 1.2
+     },
+     "20-50": {
+      "sedute": 1512,
+      "media": 1.5,
+      "mediana": 1.4
+     },
+     "50-80": {
+      "sedute": 2760,
+      "media": 1.2,
+      "mediana": 1.2
+     },
+     "sopra80": {
+      "sedute": 711,
+      "media": 0.2,
+      "mediana": 0.2
+     }
+    },
+    "pct50": {
+     "sotto10": {
+      "sedute": 138,
+      "media": 0.9,
+      "mediana": 0.5
+     },
+     "10-20": {
+      "sedute": 226,
+      "media": 1.6,
+      "mediana": 1.6
+     },
+     "20-50": {
+      "sedute": 1482,
+      "media": 2.3,
+      "mediana": 2.3
+     },
+     "50-80": {
+      "sedute": 2958,
+      "media": 1.9,
+      "mediana": 1.9
+     },
+     "sopra80": {
+      "sedute": 688,
+      "media": 0.8,
+      "mediana": 0.8
+     }
+    },
+    "pct200": {
+     "sotto10": {
+      "sedute": 140,
+      "media": 1.1,
+      "mediana": 1
+     },
+     "10-20": {
+      "sedute": 134,
+      "media": 1.7,
+      "mediana": 1.7
+     },
+     "20-50": {
+      "sedute": 1105,
+      "media": 3.8,
+      "mediana": 3.5
+     },
+     "50-80": {
+      "sedute": 3207,
+      "media": 3.8,
+      "mediana": 3.7
+     },
+     "sopra80": {
+      "sedute": 906,
+      "media": 0.3,
+      "mediana": 0.1
+     }
+    }
+   },
+   "perAnno": {
+    "2005": {
+     "pct20": 1.5,
+     "pct50": 2.5,
+     "pct200": 4.6,
+     "coperturaOggi": 0.77
+    },
+    "2006": {
+     "pct20": 1.2,
+     "pct50": 2.1,
+     "pct200": 4.4,
+     "coperturaOggi": 0.78
+    },
+    "2007": {
+     "pct20": 1.9,
+     "pct50": 3.1,
+     "pct200": 4.3,
+     "coperturaOggi": 0.8
+    },
+    "2008": {
+     "pct20": 1.3,
+     "pct50": 1.6,
+     "pct200": 3.7,
+     "coperturaOggi": 0.82
+    },
+    "2009": {
+     "pct20": 0.3,
+     "pct50": 0.9,
+     "pct200": 1,
+     "coperturaOggi": 0.82
+    },
+    "2010": {
+     "pct20": 0.8,
+     "pct50": 2.1,
+     "pct200": 3.1,
+     "coperturaOggi": 0.84
+    },
+    "2011": {
+     "pct20": 0.9,
+     "pct50": 1.8,
+     "pct200": 1.3,
+     "coperturaOggi": 0.86
+    },
+    "2012": {
+     "pct20": 0.9,
+     "pct50": 1.7,
+     "pct200": 5.1,
+     "coperturaOggi": 0.87
+    },
+    "2013": {
+     "pct20": 0.6,
+     "pct50": 0.6,
+     "pct200": -0.1,
+     "coperturaOggi": 0.89
+    },
+    "2014": {
+     "pct20": 0.9,
+     "pct50": 1.6,
+     "pct200": 1.6,
+     "coperturaOggi": 0.9
+    },
+    "2015": {
+     "pct20": 1.9,
+     "pct50": 3,
+     "pct200": 5.3,
+     "coperturaOggi": 0.91
+    },
+    "2016": {
+     "pct20": 1.5,
+     "pct50": 2.2,
+     "pct200": 4.1,
+     "coperturaOggi": 0.93
+    },
+    "2017": {
+     "pct20": 2.3,
+     "pct50": 4.1,
+     "pct200": 6.5,
+     "coperturaOggi": 0.94
+    },
+    "2018": {
+     "pct20": 1.6,
+     "pct50": 2.3,
+     "pct200": 4.3,
+     "coperturaOggi": 0.94
+    },
+    "2019": {
+     "pct20": 1.4,
+     "pct50": 2.3,
+     "pct200": 5.2,
+     "coperturaOggi": 0.95
+    },
+    "2020": {
+     "pct20": 1.5,
+     "pct50": 1.8,
+     "pct200": 3.5,
+     "coperturaOggi": 0.96
+    },
+    "2021": {
+     "pct20": 0.7,
+     "pct50": 1,
+     "pct200": 0.3,
+     "coperturaOggi": 0.97
+    },
+    "2022": {
+     "pct20": 0.1,
+     "pct50": 0.4,
+     "pct200": 0.9,
+     "coperturaOggi": 0.98
+    },
+    "2023": {
+     "pct20": 1,
+     "pct50": 1.9,
+     "pct200": 3.7,
+     "coperturaOggi": 0.98
+    },
+    "2024": {
+     "pct20": 1.4,
+     "pct50": 1.9,
+     "pct200": 3,
+     "coperturaOggi": 0.99
+    },
+    "2025": {
+     "pct20": 0.7,
+     "pct50": 1.1,
+     "pct200": 2.1,
+     "coperturaOggi": 0.99
+    },
+    "2026": {
+     "pct20": 0.3,
+     "pct50": 0.5,
+     "pct200": 0.7,
+     "coperturaOggi": 1
+    }
+   },
+   "minimi": {
+    "numero": 17,
+    "riassunto": {
+     "pct20": {
+      "scartoAlMinimo": {
+       "media": 0.4,
+       "mediana": 0.1,
+       "p5": -0.7,
+       "p95": 1.9
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 0.3,
+       "mediana": 0.1,
+       "p5": -1.1,
+       "p95": 1.9
+      },
+      "stessaSeduta": 15
+     },
+     "pct50": {
+      "scartoAlMinimo": {
+       "media": 0.9,
+       "mediana": 0.6,
+       "p5": -0.6,
+       "p95": 2.8
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 0.7,
+       "mediana": 0.6,
+       "p5": -1.5,
+       "p95": 2.6
+      },
+      "stessaSeduta": 13
+     },
+     "pct200": {
+      "scartoAlMinimo": {
+       "media": 1.6,
+       "mediana": 0.7,
+       "p5": -0.4,
+       "p95": 5.5
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.8,
+       "mediana": 0.9,
+       "p5": -0.4,
+       "p95": 5.6
+      },
+      "stessaSeduta": 16
+     }
+    },
+    "elenco": [
+     {
+      "data": "2008-03-10",
+      "calo": -18.6,
+      "epoca20": 5,
+      "oggi20": 8.3,
+      "scarto20": 3.3,
+      "minEpoca20": 5,
+      "minOggi20": 8.3,
+      "sfasamento20": 0,
+      "epoca50": 12.5,
+      "oggi50": 14.5,
+      "scarto50": 2,
+      "minEpoca50": 12.5,
+      "minOggi50": 14.5,
+      "sfasamento50": 0,
+      "epoca200": 13,
+      "oggi200": 13.5,
+      "scarto200": 0.5,
+      "minEpoca200": 13,
+      "minOggi200": 13.5,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-07-15",
+      "calo": -22.4,
+      "epoca20": 14.6,
+      "oggi20": 14.5,
+      "scarto20": -0.1,
+      "minEpoca20": 8.4,
+      "minOggi20": 9,
+      "sfasamento20": 0,
+      "epoca50": 10.7,
+      "oggi50": 10.7,
+      "scarto50": -0.1,
+      "minEpoca50": 8.6,
+      "minOggi50": 8.5,
+      "sfasamento50": 0,
+      "epoca200": 18.5,
+      "oggi200": 21.3,
+      "scarto200": 2.8,
+      "minEpoca200": 18.5,
+      "minOggi200": 21.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-11-20",
+      "calo": -50.4,
+      "epoca20": 1,
+      "oggi20": 0.5,
+      "scarto20": -0.5,
+      "minEpoca20": 1,
+      "minOggi20": 0.5,
+      "sfasamento20": 0,
+      "epoca50": 0.5,
+      "oggi50": 0.5,
+      "scarto50": 0,
+      "minEpoca50": 0.5,
+      "minOggi50": 0.5,
+      "sfasamento50": 0,
+      "epoca200": 1,
+      "oggi200": 0.7,
+      "scarto200": -0.3,
+      "minEpoca200": 1,
+      "minOggi200": 0.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2009-03-09",
+      "calo": -52.6,
+      "epoca20": 5,
+      "oggi20": 6.5,
+      "scarto20": 1.5,
+      "minEpoca20": 2.8,
+      "minOggi20": 3.4,
+      "sfasamento20": 1,
+      "epoca50": 5,
+      "oggi50": 7.3,
+      "scarto50": 2.2,
+      "minEpoca50": 4.5,
+      "minOggi50": 6.5,
+      "sfasamento50": 0,
+      "epoca200": 1.3,
+      "oggi200": 1.5,
+      "scarto200": 0.2,
+      "minEpoca200": 0.8,
+      "minOggi200": 1.5,
+      "sfasamento200": 5
+     },
+     {
+      "data": "2009-07-10",
+      "calo": -32.7,
+      "epoca20": 18.8,
+      "oggi20": 19.6,
+      "scarto20": 0.9,
+      "minEpoca20": 16.6,
+      "minOggi20": 17.7,
+      "sfasamento20": 11,
+      "epoca50": 24.5,
+      "oggi50": 29.8,
+      "scarto50": 5.3,
+      "minEpoca50": 24.5,
+      "minOggi50": 29.3,
+      "sfasamento50": -2,
+      "epoca200": 54,
+      "oggi200": 53.5,
+      "scarto200": -0.5,
+      "minEpoca200": 49.5,
+      "minOggi200": 51.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2010-07-02",
+      "calo": -16,
+      "epoca20": 6.5,
+      "oggi20": 7.3,
+      "scarto20": 0.8,
+      "minEpoca20": 5.6,
+      "minOggi20": 6.4,
+      "sfasamento20": 0,
+      "epoca50": 5.6,
+      "oggi50": 6.6,
+      "scarto50": 1.1,
+      "minEpoca50": 5.3,
+      "minOggi50": 6.1,
+      "sfasamento50": 0,
+      "epoca200": 23.2,
+      "oggi200": 29.8,
+      "scarto200": 6.6,
+      "minEpoca200": 23.2,
+      "minOggi200": 29.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2011-10-03",
+      "calo": -19.4,
+      "epoca20": 4,
+      "oggi20": 3,
+      "scarto20": -1,
+      "minEpoca20": 4,
+      "minOggi20": 3,
+      "sfasamento20": 0,
+      "epoca50": 10.4,
+      "oggi50": 8.8,
+      "scarto50": -1.6,
+      "minEpoca50": 10.4,
+      "minOggi50": 8.8,
+      "sfasamento50": 0,
+      "epoca200": 12.5,
+      "oggi200": 12.9,
+      "scarto200": 0.5,
+      "minEpoca200": 12.5,
+      "minOggi200": 12.9,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2015-08-25",
+      "calo": -12.4,
+      "epoca20": 0.9,
+      "oggi20": 0.4,
+      "scarto20": -0.4,
+      "minEpoca20": 0.9,
+      "minOggi20": 0.4,
+      "sfasamento20": 0,
+      "epoca50": 3.5,
+      "oggi50": 4.1,
+      "scarto50": 0.6,
+      "minEpoca50": 3.5,
+      "minOggi50": 4.1,
+      "sfasamento50": 0,
+      "epoca200": 16.3,
+      "oggi200": 19.1,
+      "scarto200": 2.7,
+      "minEpoca200": 16.3,
+      "minOggi200": 19.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2016-02-11",
+      "calo": -14.2,
+      "epoca20": 28.9,
+      "oggi20": 30,
+      "scarto20": 1,
+      "minEpoca20": 7.5,
+      "minOggi20": 6,
+      "sfasamento20": 0,
+      "epoca50": 19.9,
+      "oggi50": 20.5,
+      "scarto50": 0.6,
+      "minEpoca50": 10.8,
+      "minOggi50": 9.3,
+      "sfasamento50": 0,
+      "epoca200": 18.2,
+      "oggi200": 19.6,
+      "scarto200": 1.4,
+      "minEpoca200": 16.6,
+      "minOggi200": 18.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-02-08",
+      "calo": -10.2,
+      "epoca20": 3,
+      "oggi20": 3.8,
+      "scarto20": 0.8,
+      "minEpoca20": 3,
+      "minOggi20": 3.8,
+      "sfasamento20": 0,
+      "epoca50": 13.2,
+      "oggi50": 15.2,
+      "scarto50": 2,
+      "minEpoca50": 13.2,
+      "minOggi50": 15.2,
+      "sfasamento50": 0,
+      "epoca200": 52.2,
+      "oggi200": 56.9,
+      "scarto200": 4.6,
+      "minEpoca200": 52.2,
+      "minOggi200": 56.9,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-12-24",
+      "calo": -19.8,
+      "epoca20": 0.2,
+      "oggi20": 0.2,
+      "scarto20": 0,
+      "minEpoca20": 0.2,
+      "minOggi20": 0.2,
+      "sfasamento20": 0,
+      "epoca50": 1,
+      "oggi50": 1.3,
+      "scarto50": 0.2,
+      "minEpoca50": 1,
+      "minOggi50": 1.3,
+      "sfasamento50": 0,
+      "epoca200": 9.4,
+      "oggi200": 10.1,
+      "scarto200": 0.7,
+      "minEpoca200": 9.4,
+      "minOggi200": 10.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2020-03-23",
+      "calo": -33.9,
+      "epoca20": 0.8,
+      "oggi20": 1.2,
+      "scarto20": 0.4,
+      "minEpoca20": 0.2,
+      "minOggi20": 0.2,
+      "sfasamento20": 0,
+      "epoca50": 1.2,
+      "oggi50": 1.4,
+      "scarto50": 0.2,
+      "minEpoca50": 1,
+      "minOggi50": 1.4,
+      "sfasamento50": 7,
+      "epoca200": 3,
+      "oggi200": 3.5,
+      "scarto200": 0.5,
+      "minEpoca200": 3,
+      "minOggi200": 3.5,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-06-16",
+      "calo": -23.6,
+      "epoca20": 1.6,
+      "oggi20": 1.8,
+      "scarto20": 0.2,
+      "minEpoca20": 1.6,
+      "minOggi20": 1.8,
+      "sfasamento20": 0,
+      "epoca50": 2,
+      "oggi50": 2,
+      "scarto50": 0,
+      "minEpoca50": 2,
+      "minOggi50": 2,
+      "sfasamento50": 0,
+      "epoca200": 11.8,
+      "oggi200": 11.8,
+      "scarto200": -0.1,
+      "minEpoca200": 11,
+      "minOggi200": 10.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-10-12",
+      "calo": -25.4,
+      "epoca20": 20.7,
+      "oggi20": 20.1,
+      "scarto20": -0.6,
+      "minEpoca20": 2,
+      "minOggi20": 1.6,
+      "sfasamento20": 0,
+      "epoca50": 10.7,
+      "oggi50": 10.4,
+      "scarto50": -0.3,
+      "minEpoca50": 2.8,
+      "minOggi50": 3.5,
+      "sfasamento50": -4,
+      "epoca200": 15.7,
+      "oggi200": 16.7,
+      "scarto200": 1,
+      "minEpoca200": 10.3,
+      "minOggi200": 11.2,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2023-03-13",
+      "calo": -16.8,
+      "epoca20": 9.7,
+      "oggi20": 9.5,
+      "scarto20": -0.1,
+      "minEpoca20": 6,
+      "minOggi20": 7.5,
+      "sfasamento20": 0,
+      "epoca50": 15.9,
+      "oggi50": 18.1,
+      "scarto50": 2.2,
+      "minEpoca50": 15.9,
+      "minOggi50": 17.4,
+      "sfasamento50": -1,
+      "epoca200": 38.8,
+      "oggi200": 41,
+      "scarto200": 2.1,
+      "minEpoca200": 37.1,
+      "minOggi200": 39.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2023-10-27",
+      "calo": -10.3,
+      "epoca20": 14.6,
+      "oggi20": 14.7,
+      "scarto20": 0.1,
+      "minEpoca20": 14.6,
+      "minOggi20": 14.7,
+      "sfasamento20": 0,
+      "epoca50": 10,
+      "oggi50": 10.7,
+      "scarto50": 0.7,
+      "minEpoca50": 10,
+      "minOggi50": 10.7,
+      "sfasamento50": 0,
+      "epoca200": 23.4,
+      "oggi200": 28.7,
+      "scarto200": 5.2,
+      "minEpoca200": 23.4,
+      "minOggi200": 28.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2025-04-08",
+      "calo": -18.9,
+      "epoca20": 2.2,
+      "oggi20": 2.2,
+      "scarto20": 0,
+      "minEpoca20": 2.2,
+      "minOggi20": 2.2,
+      "sfasamento20": 0,
+      "epoca50": 5.2,
+      "oggi50": 5.2,
+      "scarto50": 0,
+      "minEpoca50": 5.2,
+      "minOggi50": 5.2,
+      "sfasamento50": 0,
+      "epoca200": 17.6,
+      "oggi200": 17.2,
+      "scarto200": -0.4,
+      "minEpoca200": 17.6,
+      "minOggi200": 17.2,
+      "sfasamento200": 0
+     }
+    ]
+   },
+   "eventi": {
+    "pct50sotto10": {
+     "epoca": 18,
+     "oggi": 18,
+     "comuni": 16,
+     "ritardoMediano": 0
+    },
+    "pct50sotto20": {
+     "epoca": 39,
+     "oggi": 36,
+     "comuni": 31,
+     "ritardoMediano": 0
+    },
+    "pct20sotto10": {
+     "epoca": 38,
+     "oggi": 36,
+     "comuni": 34,
+     "ritardoMediano": 0
+    },
+    "pct200sotto15": {
+     "epoca": 10,
+     "oggi": 9,
+     "comuni": 9,
+     "ritardoMediano": 0
+    }
+   },
+   "correlazioneVariazioni": {
+    "pct20": 0.99,
+    "pct50": 0.99,
+    "pct200": 0.98
+   }
+  },
+  "DJI": {
+   "membriOggi": 30,
+   "senzaPrezzi": [],
+   "sedute": 6748,
+   "dal": "2000-01-03",
+   "al": "2026-10-30",
+   "coperturaOggiInizio": 0.9,
+   "scarto": {
+    "pct20": {
+     "media": 1.5,
+     "mediana": 0.5,
+     "p5": -10,
+     "p95": 13.3
+    },
+    "pct50": {
+     "media": 2.5,
+     "mediana": 3.3,
+     "p5": -8.2,
+     "p95": 13.3
+    },
+    "pct200": {
+     "media": 4,
+     "mediana": 3.3,
+     "p5": -5.8,
+     "p95": 14.8
+    }
+   },
+   "perLivello": {
+    "pct20": {
+     "sotto10": {
+      "sedute": 344,
+      "media": 3.8,
+      "mediana": 3.2
+     },
+     "10-20": {
+      "sedute": 417,
+      "media": 3.8,
+      "mediana": 3.3
+     },
+     "20-50": {
+      "sedute": 1809,
+      "media": 3,
+      "mediana": 3.3
+     },
+     "50-80": {
+      "sedute": 2871,
+      "media": 1.3,
+      "mediana": 1.1
+     },
+     "sopra80": {
+      "sedute": 1307,
+      "media": -1.3,
+      "mediana": 0
+     }
+    },
+    "pct50": {
+     "sotto10": {
+      "sedute": 261,
+      "media": 5,
+      "mediana": 3.3
+     },
+     "10-20": {
+      "sedute": 321,
+      "media": 5.2,
+      "mediana": 3.7
+     },
+     "20-50": {
+      "sedute": 1766,
+      "media": 3.9,
+      "mediana": 3.3
+     },
+     "50-80": {
+      "sedute": 3137,
+      "media": 2.1,
+      "mediana": 3.3
+     },
+     "sopra80": {
+      "sedute": 1263,
+      "media": 0.1,
+      "mediana": 0
+     }
+    },
+    "pct200": {
+     "sotto10": {
+      "sedute": 198,
+      "media": 5.9,
+      "mediana": 6.6
+     },
+     "10-20": {
+      "sedute": 281,
+      "media": 7.8,
+      "mediana": 7.4
+     },
+     "20-50": {
+      "sedute": 1345,
+      "media": 6.4,
+      "mediana": 6
+     },
+     "50-80": {
+      "sedute": 3332,
+      "media": 3.7,
+      "mediana": 3.4
+     },
+     "sopra80": {
+      "sedute": 1592,
+      "media": 1.8,
+      "mediana": 0.4
+     }
+    }
+   },
+   "perAnno": {
+    "2000": {
+     "pct20": 0.3,
+     "pct50": 1,
+     "pct200": 0.3,
+     "coperturaOggi": 0.9
+    },
+    "2001": {
+     "pct20": 1.4,
+     "pct50": 3.3,
+     "pct200": 0.4,
+     "coperturaOggi": 0.9
+    },
+    "2002": {
+     "pct20": 0.2,
+     "pct50": 1.7,
+     "pct200": 7,
+     "coperturaOggi": 0.9
+    },
+    "2003": {
+     "pct20": 0.9,
+     "pct50": 1.8,
+     "pct200": 3.2,
+     "coperturaOggi": 0.9
+    },
+    "2004": {
+     "pct20": 1.8,
+     "pct50": 3.5,
+     "pct200": -0.2,
+     "coperturaOggi": 0.93
+    },
+    "2005": {
+     "pct20": 3,
+     "pct50": 6,
+     "pct200": 10.1,
+     "coperturaOggi": 0.97
+    },
+    "2006": {
+     "pct20": -0.5,
+     "pct50": -1.1,
+     "pct200": -1.3,
+     "coperturaOggi": 0.97
+    },
+    "2007": {
+     "pct20": 1.1,
+     "pct50": 1.3,
+     "pct200": 3.2,
+     "coperturaOggi": 0.97
+    },
+    "2008": {
+     "pct20": 1.6,
+     "pct50": 1.6,
+     "pct200": 5.6,
+     "coperturaOggi": 0.99
+    },
+    "2009": {
+     "pct20": 3.5,
+     "pct50": 4.2,
+     "pct200": 9.7,
+     "coperturaOggi": 1
+    },
+    "2010": {
+     "pct20": 1.1,
+     "pct50": 3,
+     "pct200": 6.8,
+     "coperturaOggi": 1
+    },
+    "2011": {
+     "pct20": 1.2,
+     "pct50": 1.9,
+     "pct200": 3.5,
+     "coperturaOggi": 1
+    },
+    "2012": {
+     "pct20": 2.6,
+     "pct50": 3.5,
+     "pct200": 3.6,
+     "coperturaOggi": 1
+    },
+    "2013": {
+     "pct20": 1.1,
+     "pct50": 2.2,
+     "pct200": 3.9,
+     "coperturaOggi": 1
+    },
+    "2014": {
+     "pct20": 1.4,
+     "pct50": 3.3,
+     "pct200": 4.1,
+     "coperturaOggi": 1
+    },
+    "2015": {
+     "pct20": 3.1,
+     "pct50": 4.1,
+     "pct200": 9.5,
+     "coperturaOggi": 1
+    },
+    "2016": {
+     "pct20": 0,
+     "pct50": 0.6,
+     "pct200": -0.3,
+     "coperturaOggi": 1
+    },
+    "2017": {
+     "pct20": 5,
+     "pct50": 6.6,
+     "pct200": 9.1,
+     "coperturaOggi": 1
+    },
+    "2018": {
+     "pct20": 1.9,
+     "pct50": 1.4,
+     "pct200": 4.8,
+     "coperturaOggi": 1
+    },
+    "2019": {
+     "pct20": 1.3,
+     "pct50": 3.4,
+     "pct200": 4.1,
+     "coperturaOggi": 1
+    },
+    "2020": {
+     "pct20": 2.9,
+     "pct50": 4,
+     "pct200": 8.4,
+     "coperturaOggi": 1
+    },
+    "2021": {
+     "pct20": 2,
+     "pct50": 3.9,
+     "pct200": 5.8,
+     "coperturaOggi": 1
+    },
+    "2022": {
+     "pct20": -1.2,
+     "pct50": -1.8,
+     "pct200": -0.8,
+     "coperturaOggi": 1
+    },
+    "2023": {
+     "pct20": 1.8,
+     "pct50": 2.6,
+     "pct200": 3.6,
+     "coperturaOggi": 1
+    },
+    "2024": {
+     "pct20": 2.1,
+     "pct50": 2.5,
+     "pct200": 3.4,
+     "coperturaOggi": 1
+    },
+    "2025": {
+     "pct20": 0.5,
+     "pct50": 0.9,
+     "pct200": 0.5,
+     "coperturaOggi": 1
+    },
+    "2026": {
+     "pct20": 0,
+     "pct50": 0.3,
+     "pct200": 0.3,
+     "coperturaOggi": 1
+    }
+   },
+   "minimi": {
+    "numero": 24,
+    "riassunto": {
+     "pct20": {
+      "scartoAlMinimo": {
+       "media": 2.3,
+       "mediana": 0,
+       "p5": -3.6,
+       "p95": 10.9
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.4,
+       "mediana": 0,
+       "p5": -3.7,
+       "p95": 10.4
+      },
+      "stessaSeduta": 18
+     },
+     "pct50": {
+      "scartoAlMinimo": {
+       "media": 1.9,
+       "mediana": 0,
+       "p5": -3.4,
+       "p95": 11.1
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.2,
+       "mediana": 0,
+       "p5": -3.8,
+       "p95": 10.9
+      },
+      "stessaSeduta": 20
+     },
+     "pct200": {
+      "scartoAlMinimo": {
+       "media": 5.1,
+       "mediana": 6.7,
+       "p5": -3.6,
+       "p95": 14.6
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 4.3,
+       "mediana": 3.6,
+       "p5": -3.7,
+       "p95": 13
+      },
+      "stessaSeduta": 18
+     }
+    },
+    "elenco": [
+     {
+      "data": "2001-03-22",
+      "calo": -17,
+      "epoca20": 3.7,
+      "oggi20": 11.1,
+      "scarto20": 7.4,
+      "minEpoca20": 0,
+      "minOggi20": 11.1,
+      "sfasamento20": 1,
+      "epoca50": 0,
+      "oggi50": 11.1,
+      "scarto50": 11.1,
+      "minEpoca50": 0,
+      "minOggi50": 11.1,
+      "sfasamento50": 0,
+      "epoca200": 14.8,
+      "oggi200": 22.2,
+      "scarto200": 7.4,
+      "minEpoca200": 14.8,
+      "minOggi200": 18.5,
+      "sfasamento200": -5
+     },
+     {
+      "data": "2001-09-21",
+      "calo": -27.4,
+      "epoca20": 3.7,
+      "oggi20": 0,
+      "scarto20": -3.7,
+      "minEpoca20": 3.7,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 7.4,
+      "oggi50": 0,
+      "scarto50": -7.4,
+      "minEpoca50": 7.4,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 7.4,
+      "oggi200": 3.7,
+      "scarto200": -3.7,
+      "minEpoca200": 7.4,
+      "minOggi200": 3.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2002-01-29",
+      "calo": -15.2,
+      "epoca20": 22.2,
+      "oggi20": 29.6,
+      "scarto20": 7.4,
+      "minEpoca20": 18.5,
+      "minOggi20": 18.5,
+      "sfasamento20": 0,
+      "epoca50": 22.2,
+      "oggi50": 29.6,
+      "scarto50": 7.4,
+      "minEpoca50": 22.2,
+      "minOggi50": 29.6,
+      "sfasamento50": 0,
+      "epoca200": 25.9,
+      "oggi200": 40.7,
+      "scarto200": 14.8,
+      "minEpoca200": 25.9,
+      "minOggi200": 37,
+      "sfasamento200": 5
+     },
+     {
+      "data": "2002-07-23",
+      "calo": -27.6,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 0,
+      "oggi200": 7.4,
+      "scarto200": 7.4,
+      "minEpoca200": 0,
+      "minOggi200": 7.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2002-10-09",
+      "calo": -31.5,
+      "epoca20": 7.4,
+      "oggi20": 18.5,
+      "scarto20": 11.1,
+      "minEpoca20": 0,
+      "minOggi20": 3.7,
+      "sfasamento20": 0,
+      "epoca50": 7.4,
+      "oggi50": 18.5,
+      "scarto50": 11.1,
+      "minEpoca50": 3.7,
+      "minOggi50": 7.4,
+      "sfasamento50": 0,
+      "epoca200": 7.4,
+      "oggi200": 14.8,
+      "scarto200": 7.4,
+      "minEpoca200": 3.7,
+      "minOggi200": 11.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2003-03-11",
+      "calo": -29.3,
+      "epoca20": 7.4,
+      "oggi20": 22.2,
+      "scarto20": 14.8,
+      "minEpoca20": 7.4,
+      "minOggi20": 22.2,
+      "sfasamento20": 0,
+      "epoca50": 7.4,
+      "oggi50": 22.2,
+      "scarto50": 14.8,
+      "minEpoca50": 3.7,
+      "minOggi50": 18.5,
+      "sfasamento50": 0,
+      "epoca200": 3.7,
+      "oggi200": 14.8,
+      "scarto200": 11.1,
+      "minEpoca200": 0,
+      "minOggi200": 11.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-03-10",
+      "calo": -17.1,
+      "epoca20": 10.3,
+      "oggi20": 13.8,
+      "scarto20": 3.4,
+      "minEpoca20": 6.9,
+      "minOggi20": 10.3,
+      "sfasamento20": 0,
+      "epoca50": 10.3,
+      "oggi50": 6.9,
+      "scarto50": -3.4,
+      "minEpoca50": 10.3,
+      "minOggi50": 6.9,
+      "sfasamento50": 0,
+      "epoca200": 10.3,
+      "oggi200": 13.8,
+      "scarto200": 3.4,
+      "minEpoca200": 10.3,
+      "minOggi200": 13.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-07-15",
+      "calo": -22.6,
+      "epoca20": 13.8,
+      "oggi20": 16.7,
+      "scarto20": 2.9,
+      "minEpoca20": 0,
+      "minOggi20": 6.7,
+      "sfasamento20": 0,
+      "epoca50": 3.4,
+      "oggi50": 6.7,
+      "scarto50": 3.2,
+      "minEpoca50": 0,
+      "minOggi50": 3.3,
+      "sfasamento50": 0,
+      "epoca200": 13.8,
+      "oggi200": 23.3,
+      "scarto200": 9.5,
+      "minEpoca200": 10.3,
+      "minOggi200": 16.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-11-20",
+      "calo": -45,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 0,
+      "oggi200": 0,
+      "scarto200": 0,
+      "minEpoca200": 0,
+      "minOggi200": 0,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2009-03-09",
+      "calo": -49.9,
+      "epoca20": 0,
+      "oggi20": 6.7,
+      "scarto20": 6.7,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -5,
+      "epoca50": 0,
+      "oggi50": 10,
+      "scarto50": 10,
+      "minEpoca50": 0,
+      "minOggi50": 6.7,
+      "sfasamento50": -4,
+      "epoca200": 0,
+      "oggi200": 0,
+      "scarto200": 0,
+      "minEpoca200": 0,
+      "minOggi200": 0,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2009-07-10",
+      "calo": -30.9,
+      "epoca20": 16.7,
+      "oggi20": 26.7,
+      "scarto20": 10,
+      "minEpoca20": 13.3,
+      "minOggi20": 6.7,
+      "sfasamento20": 0,
+      "epoca50": 33.3,
+      "oggi50": 36.7,
+      "scarto50": 3.3,
+      "minEpoca50": 33.3,
+      "minOggi50": 30,
+      "sfasamento50": -12,
+      "epoca200": 46.7,
+      "oggi200": 66.7,
+      "scarto200": 20,
+      "minEpoca200": 36.7,
+      "minOggi200": 53.3,
+      "sfasamento200": -2
+     },
+     {
+      "data": "2010-07-02",
+      "calo": -13.6,
+      "epoca20": 6.7,
+      "oggi20": 3.3,
+      "scarto20": -3.3,
+      "minEpoca20": 3.3,
+      "minOggi20": 3.3,
+      "sfasamento20": -1,
+      "epoca50": 3.3,
+      "oggi50": 0,
+      "scarto50": -3.3,
+      "minEpoca50": 3.3,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 6.7,
+      "oggi200": 20,
+      "scarto200": 13.3,
+      "minEpoca200": 6.7,
+      "minOggi200": 20,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2011-10-03",
+      "calo": -16.8,
+      "epoca20": 13.3,
+      "oggi20": 10,
+      "scarto20": -3.3,
+      "minEpoca20": 3.3,
+      "minOggi20": 10,
+      "sfasamento20": 7,
+      "epoca50": 13.3,
+      "oggi50": 16.7,
+      "scarto50": 3.3,
+      "minEpoca50": 3.3,
+      "minOggi50": 13.3,
+      "sfasamento50": 0,
+      "epoca200": 10,
+      "oggi200": 16.7,
+      "scarto200": 6.7,
+      "minEpoca200": 10,
+      "minOggi200": 16.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2015-08-25",
+      "calo": -14.4,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 6.7,
+      "oggi200": 13.3,
+      "scarto200": 6.7,
+      "minEpoca200": 6.7,
+      "minOggi200": 13.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2016-02-11",
+      "calo": -14.5,
+      "epoca20": 30,
+      "oggi20": 23.3,
+      "scarto20": -6.7,
+      "minEpoca20": 6.7,
+      "minOggi20": 3.3,
+      "sfasamento20": 0,
+      "epoca50": 20,
+      "oggi50": 16.7,
+      "scarto50": -3.3,
+      "minEpoca50": 10,
+      "minOggi50": 6.7,
+      "sfasamento50": 0,
+      "epoca200": 20,
+      "oggi200": 23.3,
+      "scarto200": 3.3,
+      "minEpoca200": 20,
+      "minOggi200": 23.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-03-23",
+      "calo": -11.6,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 3.3,
+      "oggi50": 3.3,
+      "scarto50": 0,
+      "minEpoca50": 3.3,
+      "minOggi50": 0,
+      "sfasamento50": 3,
+      "epoca200": 43.3,
+      "oggi200": 56.7,
+      "scarto200": 13.3,
+      "minEpoca200": 43.3,
+      "minOggi200": 53.3,
+      "sfasamento200": 2
+     },
+     {
+      "data": "2018-12-24",
+      "calo": -18.8,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 20.7,
+      "oggi200": 13.3,
+      "scarto200": -7.4,
+      "minEpoca200": 20.7,
+      "minOggi200": 13.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2020-03-23",
+      "calo": -37.1,
+      "epoca20": 0,
+      "oggi20": 3.3,
+      "scarto20": 3.3,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -14,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 0,
+      "oggi200": 6.7,
+      "scarto200": 6.7,
+      "minEpoca200": 0,
+      "minOggi200": 0,
+      "sfasamento200": -5
+     },
+     {
+      "data": "2020-10-30",
+      "calo": -10.3,
+      "epoca20": 3.4,
+      "oggi20": 10,
+      "scarto20": 6.6,
+      "minEpoca20": 3.4,
+      "minOggi20": 3.3,
+      "sfasamento20": -2,
+      "epoca50": 6.9,
+      "oggi50": 10,
+      "scarto50": 3.1,
+      "minEpoca50": 6.9,
+      "minOggi50": 10,
+      "sfasamento50": 0,
+      "epoca200": 51.7,
+      "oggi200": 60,
+      "scarto200": 8.3,
+      "minEpoca200": 48.3,
+      "minOggi200": 56.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-03-08",
+      "calo": -11.3,
+      "epoca20": 20.7,
+      "oggi20": 20,
+      "scarto20": -0.7,
+      "minEpoca20": 3.4,
+      "minOggi20": 3.3,
+      "sfasamento20": 0,
+      "epoca50": 17.2,
+      "oggi50": 16.7,
+      "scarto50": -0.6,
+      "minEpoca50": 17.2,
+      "minOggi50": 13.3,
+      "sfasamento50": -9,
+      "epoca200": 31,
+      "oggi200": 30,
+      "scarto200": -1,
+      "minEpoca200": 24.1,
+      "minOggi200": 26.7,
+      "sfasamento200": -1
+     },
+     {
+      "data": "2022-06-17",
+      "calo": -18.8,
+      "epoca20": 3.4,
+      "oggi20": 3.3,
+      "scarto20": -0.1,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 3.4,
+      "oggi50": 3.3,
+      "scarto50": -0.1,
+      "minEpoca50": 3.4,
+      "minOggi50": 3.3,
+      "sfasamento50": 0,
+      "epoca200": 17.2,
+      "oggi200": 16.7,
+      "scarto200": -0.6,
+      "minEpoca200": 17.2,
+      "minOggi200": 16.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-09-30",
+      "calo": -21.9,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 6.9,
+      "oggi200": 6.7,
+      "scarto200": -0.2,
+      "minEpoca200": 6.9,
+      "minOggi200": 6.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2025-04-08",
+      "calo": -16.4,
+      "epoca20": 3.3,
+      "oggi20": 3.3,
+      "scarto20": 0,
+      "minEpoca20": 3.3,
+      "minOggi20": 3.3,
+      "sfasamento20": 0,
+      "epoca50": 3.3,
+      "oggi50": 3.3,
+      "scarto50": 0,
+      "minEpoca50": 3.3,
+      "minOggi50": 3.3,
+      "sfasamento50": 0,
+      "epoca200": 20,
+      "oggi200": 16.7,
+      "scarto200": -3.3,
+      "minEpoca200": 16.7,
+      "minOggi200": 13.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2026-03-27",
+      "calo": -10,
+      "epoca20": 10,
+      "oggi20": 10,
+      "scarto20": 0,
+      "minEpoca20": 6.7,
+      "minOggi20": 6.7,
+      "sfasamento20": 0,
+      "epoca50": 16.7,
+      "oggi50": 13.3,
+      "scarto50": -3.3,
+      "minEpoca50": 13.3,
+      "minOggi50": 10,
+      "sfasamento50": 0,
+      "epoca200": 40,
+      "oggi200": 40,
+      "scarto200": 0,
+      "minEpoca200": 40,
+      "minOggi200": 40,
+      "sfasamento200": 0
+     }
+    ]
+   },
+   "eventi": {
+    "pct50sotto10": {
+     "epoca": 33,
+     "oggi": 33,
+     "comuni": 23,
+     "ritardoMediano": 0
+    },
+    "pct50sotto20": {
+     "epoca": 68,
+     "oggi": 65,
+     "comuni": 53,
+     "ritardoMediano": 0
+    },
+    "pct20sotto10": {
+     "epoca": 76,
+     "oggi": 62,
+     "comuni": 52,
+     "ritardoMediano": 0
+    },
+    "pct200sotto15": {
+     "epoca": 22,
+     "oggi": 17,
+     "comuni": 7,
+     "ritardoMediano": 1
+    }
+   },
+   "correlazioneVariazioni": {
+    "pct20": 0.92,
+    "pct50": 0.88,
+    "pct200": 0.84
+   }
+  }
  }
 }

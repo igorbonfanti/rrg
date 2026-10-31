@@ -112,12 +112,15 @@ function analyse(s, { oggi = false, close = null } = {}) {
   return {
     breadthDal: s.dates[i0], breadthAl: s.dates[iL], prezzoAl: s.dates[L - 1], sedute: idx.length, senzaBreadthDentro: nullInside,
     intervalliLunghi: longGaps, anniConPocheSedute: fewSessions, sedutePerAnnoMediana: medSed,
-    membri: { primo: s.members[i0], ultimo: s.members[iL] }, nMediana: nMed, nMin: Math.min(...idx.map((i) => s.n[i])),
+    membri: { primo: s.members[i0], ultimo: s.members[iL] }, nMediana: nMed, puntiPerTitolo: r1(100 / nMed), nMin: Math.min(...idx.map((i) => s.n[i])),
     copertura: { inizio: r2(s.n[i0] / s.members[i0]), fine: r2(s.n[iL] / s.members[iL]),
       sedutaSotto60: idx.filter((i) => s.n[i] / s.members[i] < 0.6).length, sedutaSotto80: idx.filter((i) => s.n[i] / s.members[i] < 0.8).length,
       primaSopra80: (() => { const i = idx.find((i) => s.n[i] / s.members[i] >= 0.8); return i == null ? null : s.dates[i]; })(),
       primaSopra90: (() => { const i = idx.find((i) => s.n[i] / s.members[i] >= 0.9); return i == null ? null : s.dates[i]; })() },
-    caliCopertura: { sedute: dips.length, esempi: dips.slice(0, 12) },
+    caliCopertura: { sedute: dips.length, esempi: dips.slice(0, 12),
+      // |Δ pct50| nelle sedute di entrata e di uscita dal calo, contro tutte le sedute
+      saltoMedioEntrataUscita: (() => { const set = new Set(dips.map((x) => x.date)); const v = jumps.filter((x) => set.has(s.dates[x.i]) !== set.has(s.dates[x.i - 1])).map((x) => Math.abs(x.d)); return v.length ? r1(v.reduce((a, b) => a + b, 0) / v.length) : null; })(),
+      saltoMedioTutte: r1(absd.reduce((a, b) => a + b, 0) / absd.length) },
     ricopiate: { conteggiUguali: same.length, conPrezzoUguale: sameClose.length, prezzoUguale: closeEq.length,
       festeTipiche: same.filter((d) => holidayLike(d)).length, esempi: same.slice(-15) },
     giovani: young, valoriImpossibili: bad.length, allineamento: align,
