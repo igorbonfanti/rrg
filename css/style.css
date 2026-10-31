@@ -449,7 +449,6 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 [data-theme="light"] .ts .watchband { fill: #ffc400; fill-opacity: .28; }
 [data-theme="light"] .kb-watch { background: #ffc400; opacity: .5; }
 .kb-watch { background: var(--watch-line); opacity: .35; }
-/* soglia di avvicinamento nel grafico della breadth dei settori: tratteggio giallo come l'anello della Bottom Map */
 /* avvicinamento: tratti gialli della linea della breadth e pallino all'ingresso */
 .ts .brappr { fill: none; stroke: var(--watch-line); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
 .ts .apprin { fill: var(--watch-line); stroke: var(--bg); stroke-width: 1; }

@@ -152,13 +152,13 @@ export function drawSector(svg, p) {
   }
   el('line', { x1: L, x2: L + PW, y1: P2.sy(blue), y2: P2.sy(blue), class: 'blue' }, svg);
   // avvicinamento (solo settori): la linea della breadth in giallo nelle sedute in avvicinamento, con la soglia di quel
-  // giorno; un pallino all'ingresso di ogni tratto
+  // giorno; un pallino all'ingresso di ogni tratto (non sul bordo sinistro se il tratto era già iniziato prima del periodo)
   for (let i = 0; i < n; i++) {
     if (!appr[i] || appr[i - 1]) continue;
     let e = i;
     while (e + 1 < n && appr[e + 1]) e++;
     if (e > i) el('path', { d: path(b.map((v, k) => (k >= i && k <= e ? v : null)), P2.sy), class: 'brappr' }, svg);
-    el('circle', { cx: sx(i), cy: P2.sy(b[i]), r: e > i ? 2.6 : 2.2, class: 'apprin' }, svg);
+    if (!(i === 0 && p.appr && p.appr[i0 - 1])) el('circle', { cx: sx(i), cy: P2.sy(b[i]), r: e > i ? 2.6 : 2.2, class: 'apprin' }, svg);
   }
   for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], pxDec(c[n - 1]))], [P1, dd[n - 1], fmt(dd[n - 1]) + '%'], [P2, b[n - 1], fmt(b[n - 1]) + '%']]) {
     if (v == null) continue;
