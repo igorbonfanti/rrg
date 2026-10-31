@@ -15,6 +15,7 @@ App statica in italiano (GitHub Pages) per i possibili bottom di settori e indic
 - **Regole e formule** (stati, livelli, soglie, formule della rotazione): prima di cambiarle se ne parla con l'utente.
 - **Fasi di ricerca**: non modificano l'app.
 - **Piani**: prima di implementare si propone un piano. Prima di cambiare qualcosa si salva il lavoro.
+- **Metodo**: ogni idea o modifica segue la skill `.claude/skills/sviluppo-app-finanziarie` (verifica e backtest prima del codice, controlli indipendenti prima di pubblicare).
 - **Ramo di sviluppo**: `claude/great-noether-2f1ude`, che contiene anche `ricerca/`.
 - **Pubblicazione**:
   1. commit sul ramo di sviluppo;
