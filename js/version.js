@@ -5,8 +5,9 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.1.0';
+export const VERSION = '1.2.0';
 export const RELEASE = '2026-10-31';
 export const NOTES = [
+  'Settore: nel grafico della breadth la soglia di avvicinamento di oggi, tratteggiata con il suo valore',
   'Settore: nel grafico della breadth una fascia gialla dal livello blu a 10 punti sopra, la parte di breadth dello stato Attenzione',
 ];
