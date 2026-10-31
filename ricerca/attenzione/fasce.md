@@ -68,7 +68,7 @@ La prova sopra usa una soglia unica calcolata su tutta la storia, cioè anche co
 | Tutte le sedute (base) | 53.621 | | | | +3,3% (68%) |
 
 - La soglia senza dati futuri non peggiora la regola (B contro A).
-- Da sola, come la mostra l'app (C), l'avvicinamento avvisa 42 tocchi su 73: gli altri arrivano quando il settore è già in Attenzione (spesso per il drawdown) o con crolli da breadth alta (agosto 2011, marzo 2020, dicembre 2018), che nessuna fascia anticipa.
+- Da sola, come la mostra l'app (C), l'avvicinamento avvisa 42 tocchi su 73: gli altri arrivano quando il settore è già in Attenzione o con crolli da breadth alta (agosto 2011, marzo 2020, dicembre 2018), che nessuna fascia anticipa.
 - Insieme all'Attenzione (D) i tocchi avvisati sono 59 su 73 con un anticipo mediano di 23 sedute, contro 44 e 12 sedute della sola Attenzione: l'avvicinamento raddoppia circa l'anticipo e aggiunge 15 tocchi, al prezzo di più allarmi (278, il 31% arriva al blu).
 - Il rendimento dopo l'allarme è poco sopra quello di tutte le sedute: non è un segnale operativo.
 - Limiti: la regola (q90 a 10 sedute) è stata scelta tra nove su questa stessa storia; i livelli blu sono quelli di oggi; i tocchi si concentrano in poche crisi (2008, 2011, 2020, 2022), quindi non sono 73 casi indipendenti.
