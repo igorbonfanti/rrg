@@ -9,8 +9,8 @@ let fail = 0, n = 0;
 const ok = (c, msg) => { n++; console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) fail++; };
 // testi attesi nella 1.3.3
 // aggiornate dopo la correzione dei testi (rapporto dei testi della 1.3.3): anticipo sui tocchi, «da solo»
-const SEC_NUM = /50 tocchi del livello su 63 \(43 con la sola Attenzione\)[\s\S]*40 sedute prima del tocco invece di 31[\s\S]*da solo ne ha avvisati 33[\s\S]*promemoria/;
-const IX_NUM = /89 tocchi del livello su 132 \(83 con la sola Attenzione\)[\s\S]*63 sedute prima del tocco invece di 56[\s\S]*da solo 83[\s\S]*40%/;
+const SEC_NUM = /50 tocchi del livello su 63, 7 più della sola Attenzione[\s\S]*promemoria/;
+const IX_NUM = /89 tocchi del livello su 132, 6 più della sola Attenzione \(83\)[\s\S]*da solo 83[\s\S]*40%/;
 const inView = (r, W, H) => r && r.x >= -0.5 && r.y >= -0.5 && r.x + r.width <= W + 0.5 && r.y + r.height <= H + 0.5;
 
 async function noHScroll(page, name) {
@@ -139,7 +139,7 @@ async function tip(page, loc, re, touch, name, shot) {
       if (OUT) await li.screenshot({ path: `${OUT}/note-${tag}.png` });
     }
     const ixli = page.locator('#helpModal li', { hasText: '6 Indici: la stessa analisi' });
-    ok(/89 tocchi del livello su 132 avvisati, contro 83 della sola Attenzione[\s\S]*63 sedute prima del tocco invece di 56[\s\S]*da solo 83/.test(await ixli.innerText()), `${tag} note: indici 89/132, 23 e 13 sedute, 83`);
+    ok(/89 tocchi del livello su 132 avvisati, contro 83 della sola Attenzione; l'avvicinamento da solo 83/.test(await ixli.innerText()), `${tag} note: indici 89/132, 23 e 13 sedute, 83`);
     await page.keyboard.press('Escape');
 
     // guida.html#avvicinamento

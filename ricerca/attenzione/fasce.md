@@ -88,6 +88,6 @@ Gli script `avvicinamento_pit.mjs` e `avvicinamento_pit_indici.mjs` contano ora 
 
 Indici: C 83/132, D 89/132 (primo avviso 63 sedute prima), E 83/132 (56 sedute); arriva al livello il 40% degli avvicinamenti.
 
-L'avvicinamento aggiunge all'Attenzione 7 tocchi su 63 nei settori (6 su 132 negli indici) e anticipa il primo avviso di circa 9 sedute (7 negli indici). Uso pratico: `ricerca/avvicinamento-uso/sintesi.md`.
+L'avvicinamento aggiunge all'Attenzione 7 tocchi su 63 nei settori (6 su 132 negli indici), con poco preavviso (19 sedute in mediana nei settori). Le mediane del primo avviso (39–40 contro 31) sono su gruppi diversi di tocchi: sui 43 tocchi avvisati da tutte e due le regole il primo avviso è lo stesso in 26 casi e arriva prima con l'avvicinamento in 17 (7 sedute in mediana); negli indici 50 su 79, 6,5 sedute (`anticipo_appaiato.mjs`, trovato dal secondo controllo dei testi della 1.3.3). Uso pratico: `ricerca/avvicinamento-uso/sintesi.md`.
 
 Indici (`script/avvicinamento_pit_indici.mjs`), 22 indici, storia di ciascuno dal 2000: A 96/135 tocchi avvisati (il testo diceva 96/134, prima dell'ultimo tocco nei dati), anticipo 20 sedute; B 94/135, 18; C (come l'app) 86/135, 28 sedute, 41% arriva al blu; D (C oppure Attenzione) 92/135, 24 sedute; E (solo Attenzione) 84/135, 12 sedute. Ricalcolo separato dei casi C, D, E per settori e indici: `script/verifica_pit.mjs`, stessi numeri.

@@ -83,8 +83,8 @@ export function breadthSeries(breadth, key, dates) {
  * Soglia di avvicinamento al livello blu: livello + il calo forte della breadth in `h` sedute (quantile `q` dei
  * cali di tutta la storia del settore). Da qui, in un calo deciso, il livello blu è a circa due settimane.
  * Calibrata nel campione sui settori dal 2005 (ricerca/attenzione/fasce.md, script/avvicinamento_pit.mjs): insieme allo stato
- * Attenzione avvisa 50 tocchi del livello su 63 (43 la sola Attenzione, primo avviso circa 40 sedute prima del tocco invece di 31), da
- * sola 33; circa un avvicinamento su tre arriva al livello. Conteggi dalla prima seduta con uno stato (XLC 2019, XLRE 2016). Serve per la watchlist,
+ * Attenzione avvisa 50 tocchi del livello su 63 (43 la sola Attenzione; sui tocchi avvisati da tutte e due il primo avviso è
+ * lo stesso o, in 17 su 43, 7 sedute prima in mediana), da sola 33; circa un avvicinamento su tre arriva al livello. Conteggi dalla prima seduta con uno stato (XLC 2019, XLRE 2016). Serve per la watchlist,
  * non cambia gli stati né gli alert.
  */
 export function approachLevel(b, L, h = 10, q = 0.9) {
