@@ -181,13 +181,15 @@ for (const k of SECTOR_KEYS) {
     let at3 = null;
     if (t2 <= NOW) at3 = on[e.t0 + 1] && on[t2] ? 'ancora in avvicinamento' : [e.t0 + 1, t2].some((j) => st[j] !== 'normal') ? 'già in Attenzione o oltre' : 'tornato sopra la soglia';
     const others = SECTOR_KEYS.filter((x) => x !== k && hot(x, e.t0)).length;
+    let lastTouch = -1; for (let j = e.t0 - 1; j >= Math.max(0, e.t0 - H); j--) if (b[j] != null && b[j] <= L) { lastTouch = j; break; }
     const row = {
       ingresso: D[e.t0], ultimo: D[e.tLast], durata: e.tLast - e.t0 + 1, seduteAvv: e.days.length, tratti: e.segs.length, trattoPiuLungo: Math.max(...e.segs),
       esito: worst, seduteAllEsito: tWorst >= 0 ? tWorst - e.t0 : null,
       toccaBlu126: u >= 0 ? u - e.t0 : full ? 'no' : 'dati non sufficienti',
       etf63: r1(forward(px, e.t0, RET)),
       ingressoBreadth: r1(b[e.t0]), ingressoSoglia: r1(A[e.t0]), titoli: n[e.t0], calo10: r1(drop10[e.t0]), calo10Veloce: drop10[e.t0] != null && fallQ[e.t0] != null && drop10[e.t0] >= fallQ[e.t0],
-      ddPercentile: pxs.dp[e.t0], altriSettoriCaldi: others, allaTerzaSeduta: at3,
+      ddPercentile: pxs.dp[e.t0], altriSettoriCaldi: others, allaTerzaSeduta: at3, inCorso: open,
+      seduteDalTocco: lastTouch >= 0 ? e.t0 - lastTouch : null, // livello blu toccato nelle 126 sedute prima: avvicinamento «in risalita»
     };
     rows.push(row);
     flatEps.push({ k, ...row, t0: e.t0, hit: u >= 0, full, short: e.days.length <= 2 });
@@ -197,13 +199,14 @@ for (const k of SECTOR_KEYS) {
   const segs = eps.flatMap((e) => e.segs);
   const ret = rows.map((r) => r.etf63).filter((x) => x != null);
   const base = []; for (let t = 0; t <= NOW; t++) if (valid[t]) { const x = forward(px, t, RET); if (x != null) base.push(x); }
+  let ris = 0; for (let t = 0; t <= NOW; t++) if (on[t]) { for (let j = t - 1; j >= Math.max(0, t - H); j--) if (b[j] != null && b[j] <= L) { ris++; break; } }
   const esiti = {};
   rows.forEach((r) => (esiti[r.esito] = (esiti[r.esito] || 0) + 1));
   const full = rows.filter((r) => r.toccaBlu126 !== 'dati non sufficienti');
   riepilogo[k] = {
     dal: D[S[k].t0], titoliOggi: n[NOW], livelloBlu: L, sogliaOggi: r1(A[NOW]), breadthOggi: r1(b[NOW]), inAvvicinamentoOggi: on[NOW],
     episodi: rows.length, durataMediana: median(rows.map((r) => r.durata)), seduteAvvMediane: median(rows.map((r) => r.seduteAvv)),
-    quotaSeduteAvv: pct(nOn, nValid), episodi1_2: rows.filter((r) => r.seduteAvv <= 2).length, quotaEpisodi1_2: pct(rows.filter((r) => r.seduteAvv <= 2).length, rows.length),
+    quotaSeduteAvv: pct(nOn, nValid), quotaSeduteAvvInRisalita: pct(ris, nOn), episodiInRisalita: rows.filter((r) => r.seduteDalTocco != null).length, episodi1_2: rows.filter((r) => r.seduteAvv <= 2).length, quotaEpisodi1_2: pct(rows.filter((r) => r.seduteAvv <= 2).length, rows.length),
     tratti: segs.length, quotaTratti1_2: pct(segs.filter((x) => x <= 2).length, segs.length), esiti,
     arrivanoAlBlu: `${full.filter((r) => typeof r.toccaBlu126 === 'number').length}/${full.length}`,
     etf63Mediano: r1(median(ret)), etf63Positivi: `${ret.filter((x) => x > 0).length}/${ret.length}`, baseEtf63Mediano: r1(median(base)), basePositivi: pct(base.filter((x) => x > 0).length, base.length),
@@ -219,7 +222,7 @@ for (const k of SECTOR_KEYS) {
     episodi: flatEps.length, durataMediana: median(flatEps.map((r) => r.durata)), seduteAvvMediane: median(flatEps.map((r) => r.seduteAvv)), quotaSeduteAvv: pct(totOn, totValid),
     episodi1_2: flatEps.filter((r) => r.short).length, quotaEpisodi1_2: pct(flatEps.filter((r) => r.short).length, flatEps.length),
     tratti: all.reduce((s, r) => s + r.tratti, 0), esiti,
-    arrivanoAlBlu: `${flatEps.filter((e) => e.full && e.hit).length}/${flatEps.filter((e) => e.full).length}`,
+    arrivanoAlBlu: `${flatEps.filter((e) => e.hit).length}/${flatEps.filter((e) => e.full || e.hit).length}`,
     etf63Mediano: r1(median(ret)), etf63Positivi: `${ret.filter((x) => x > 0).length}/${ret.length}`, baseEtf63Mediano: r1(median(base)), basePositivi: pct(base.filter((x) => x > 0).length, base.length),
   };
   const segAll = []; for (const k of SECTOR_KEYS) segAll.push(...episodesOf(onAll[k], S[k].valid).flatMap((e) => e.segs));
@@ -348,13 +351,22 @@ function variantOn(k, name) {
     for (let t = 0; t < N; t++) out[t] = valid[t] && A[t] != null && b[t] <= A[t] && (normal(t) || (st[t] === 'watch' && b[t] > L + P.watchBand));
     return out;
   }
+  if (name === 'f. solo senza tocco nelle 126 sedute prima') {
+    let last = -Infinity; for (let t = 0; t < N; t++) { out[t] = base[t] && t - last > H; if (b[t] != null && b[t] <= L) last = t; }
+    return out;
+  }
+  if (name === 'e+f') {
+    const e = variantOn(k, 'e. anche Attenzione per drawdown'); let last = -Infinity;
+    for (let t = 0; t < N; t++) { out[t] = e[t] && t - last > H; if (b[t] != null && b[t] <= L) last = t; }
+    return out;
+  }
   if (name === 'D. attuale oppure Attenzione') { for (let t = 0; t < N; t++) out[t] = base[t] || (valid[t] && st[t] === 'watch'); return out; }
   if (name === 'E. solo Attenzione') { for (let t = 0; t < N; t++) out[t] = valid[t] && st[t] === 'watch'; return out; }
   throw new Error(name);
 }
 const VARIANTS = ['attuale (q90)', 'a. q85', 'a. q95', 'b. livello + 10 titoli', 'b. livello + 15 titoli', 'b. livello + 20 titoli',
   'c. 2 chiusure di fila', 'd1. in caduta (ogni giorno)', 'd2. in caduta all\'ingresso', 'e. anche Attenzione per drawdown',
-  'D. attuale oppure Attenzione', 'E. solo Attenzione'];
+  'f. solo senza tocco nelle 126 sedute prima', 'e+f', 'D. attuale oppure Attenzione', 'E. solo Attenzione'];
 const PERIODS = [['2005–2015', '0000', '2015-12-31'], ['2016–2026', '2016-01-01', '9999']];
 function evaluate(name, keys = SECTOR_KEYS) {
   const T = { eps: 0, hitEl: 0, full: 0, leads: [], touches: 0, warned: 0, days: 0, valid: 0, short: 0, segs: 0, seg12: 0, ret: [], missed: [], per: {} };
@@ -399,6 +411,7 @@ for (const v of VARIANTS) {
   const a = varianti['attuale (q90)'];
   for (const [v, x] of Object.entries(varianti)) {
     if (v === 'attuale (q90)' || v.startsWith('D.') || v.startsWith('E.')) continue;
+    // f ed e+f sono state aggiunte dopo aver visto i risultati: si valutano con lo stesso criterio, ma restano a posteriori
     const c1 = x.tocchiAvvisatiN >= a.tocchiAvvisatiN - 2, c2 = x.quotaArrivano >= a.quotaArrivano, c3 = x.anticipoMediano != null && x.anticipoMediano >= 15;
     const c4 = x.quotaSeduteInAllarme <= 0.8 * a.quotaSeduteInAllarme || x.quotaEpisodi1_2 <= (2 / 3) * a.quotaEpisodi1_2;
     x.criterio = { tocchiNonPeggio: c1, arrivanoNonPeggio: c2, anticipoAlmeno15: c3, menoAllarmeOMenoBrevi: c4, migliore: c1 && c2 && c3 && c4 };
@@ -411,7 +424,9 @@ for (const v of VARIANTS) {
     const { b, L, apprApp } = S[k];
     const any = b.map((v) => v != null);
     const eps = episodesOf(apprApp, any), touches = touchesOf(b, L, any);
-    tt += touches.length; w += touches.filter((u) => eps.some((e) => e.t0 <= u - LEAD && u - e.t0 <= H)).length;
+    const wk = touches.filter((u) => eps.some((e) => e.t0 <= u - LEAD && u - e.t0 <= H));
+    tt += touches.length; w += wk.length;
+    if (k === 'XLC' || k === 'XLRE') checks['regolaC_' + k] = { storiaIntera: `${wk.length}/${touches.length}`, avvisatiPrimaDelloStato: wk.filter((u) => u < S[k].t0).length, tocchiPrimaDelloStato: touches.filter((u) => u < S[k].t0).length };
   }
   checks.regolaC_storiaIntera = `${w}/${tt}`;
 }
@@ -428,12 +443,23 @@ const uso = {
   },
   calo10AllIngresso: { 'veloce (≥ 75° percentile)': rate((e) => e.calo10Veloce), 'lento': rate((e) => !e.calo10Veloce) },
   altriSettoriCaldiAllIngresso: { '0–1': rate((e) => e.altriSettoriCaldi <= 1), '2–4': rate((e) => e.altriSettoriCaldi >= 2 && e.altriSettoriCaldi <= 4), '5 o più': rate((e) => e.altriSettoriCaldi >= 5) },
-  drawdownAllIngresso: { 'sotto il 50° percentile': rate((e) => e.ddPercentile < 50), '50°–84°': rate((e) => e.ddPercentile >= 50) },
+  drawdownAllIngresso: { 'sotto il 70° percentile': rate((e) => e.ddPercentile < 70), '70°–84°': rate((e) => e.ddPercentile >= 70) },
+  dopoUnTocco: { 'livello toccato nelle 126 sedute prima (in risalita)': rate((e) => e.seduteDalTocco != null), 'nessun tocco (in discesa)': rate((e) => e.seduteDalTocco == null) },
+  // descrittivi (la lunghezza dell'episodio e l'esito si sanno solo dopo)
+  perEsito: Object.fromEntries(['normale', 'Attenzione (drawdown)', 'Attenzione (breadth)', 'zona blu'].map((x) => [x, rate((e) => e.esito === x)])),
+  perLunghezza: { '1–2 sedute in avvicinamento': rate((e) => e.short), '3 o più': rate((e) => !e.short) },
+  seduteAllAttenzioneBreadthMediane: median(flatEps.filter((e) => e.esito === 'Attenzione (breadth)').map((e) => e.seduteAllEsito)),
+  seduteAllaZonaBluMediane: median(flatEps.filter((e) => e.esito === 'zona blu').map((e) => e.seduteAllEsito)),
   gruppo: { 'XLRE e XLU': rate((e) => e.k === 'XLRE' || e.k === 'XLU'), 'altri 9': rate((e) => e.k !== 'XLRE' && e.k !== 'XLU') },
   per2periodi: Object.fromEntries(PERIODS.map(([p, a, z]) => [p, {
     tutti: rate((e) => e.ingresso >= a && e.ingresso <= z),
     terzaSedutaAncora: rate((e) => e.ingresso >= a && e.ingresso <= z && e.allaTerzaSeduta === 'ancora in avvicinamento'),
     terzaSedutaTornato: rate((e) => e.ingresso >= a && e.ingresso <= z && e.allaTerzaSeduta === 'tornato sopra la soglia'),
+    terzaSedutaGiaAttenzione: rate((e) => e.ingresso >= a && e.ingresso <= z && e.allaTerzaSeduta === 'già in Attenzione o oltre'),
+    caloVeloce: rate((e) => e.ingresso >= a && e.ingresso <= z && e.calo10Veloce),
+    caloLento: rate((e) => e.ingresso >= a && e.ingresso <= z && !e.calo10Veloce),
+    inRisalita: rate((e) => e.ingresso >= a && e.ingresso <= z && e.seduteDalTocco != null),
+    inDiscesa: rate((e) => e.ingresso >= a && e.ingresso <= z && e.seduteDalTocco == null),
     altri5: rate((e) => e.ingresso >= a && e.ingresso <= z && e.altriSettoriCaldi >= 5),
     altri0_1: rate((e) => e.ingresso >= a && e.ingresso <= z && e.altriSettoriCaldi <= 1),
   }])),
@@ -457,4 +483,9 @@ for (const [k, r] of Object.entries(confronto)) console.log(k.padEnd(7), JSON.st
 console.log(JSON.stringify(titoliVsQuota), JSON.stringify({ ...xlre2025, episodi: xlre2025.episodi.map((e) => `${e.ingresso}→${e.ultimo} ${e.seduteAvv}/${e.durata} ${e.esito}`) }));
 console.log('\n4. varianti');
 for (const [k, r] of Object.entries(varianti)) console.log(k.padEnd(34), JSON.stringify({ ...r, tocchiPersi: r.tocchiPersi.length }));
+console.log('\n4b. per settore (allarmi · arrivano · tocchi avvisati · % sedute · % episodi 1–2)');
+for (const v of ['attuale (q90)', "d2. in caduta all'ingresso", 'e. anche Attenzione per drawdown', 'f. solo senza tocco nelle 126 sedute prima', 'e+f']) {
+  console.log(v);
+  for (const k of SECTOR_KEYS) { const x = variantiPerSettore[v][k]; console.log('  ', k.padEnd(5), x.allarmi, x.arrivano, x.tocchiAvvisati, x.quotaSeduteInAllarme, x.quotaEpisodi1_2, x.anticipoMediano); }
+}
 console.log('\n5. uso', JSON.stringify(uso, null, 1));
