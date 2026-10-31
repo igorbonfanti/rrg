@@ -72,4 +72,6 @@ La prova sopra usa una soglia unica calcolata su tutta la storia, cioè anche co
 - Insieme all'Attenzione (D) i tocchi avvisati sono 59 su 73 con un anticipo mediano di 23 sedute, contro 44 e 12 sedute della sola Attenzione: l'avvicinamento raddoppia circa l'anticipo e aggiunge 15 tocchi, al prezzo di più allarmi (278, il 31% arriva al blu).
 - Il rendimento dopo l'allarme è poco sopra quello di tutte le sedute: non è un segnale operativo.
 - Limiti: la regola (q90 a 10 sedute) è stata scelta tra nove su questa stessa storia; i livelli blu sono quelli di oggi; i tocchi si concentrano in poche crisi (2008, 2011, 2020, 2022), quindi non sono 73 casi indipendenti.
-- I testi dell'app che citano «59 tocchi su 73» riportano la prova A, non la regola che l'app mostra: correzione proposta all'utente.
+- I testi dell'app citavano «59 tocchi su 73» della prova A: corretti nella 1.3.1 con l'ok dell'utente (con l'Attenzione 59, da sola 42).
+
+Indici (`script/avvicinamento_pit_indici.mjs`), 22 indici, storia di ciascuno dal 2000: A 96/135 tocchi avvisati (il testo diceva 96/134, prima dell'ultimo tocco nei dati), anticipo 20 sedute; B 94/135, 18; C (come l'app) 86/135, 28 sedute, 41% arriva al blu; D (C oppure Attenzione) 92/135, 24 sedute; E (solo Attenzione) 84/135, 12 sedute. Ricalcolo separato dei casi C, D, E per settori e indici: `script/verifica_pit.mjs`, stessi numeri.
