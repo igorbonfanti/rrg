@@ -6,7 +6,7 @@ let fail = 0;
 const ok = (c, msg) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) fail++; };
 (async () => {
   const b = await chromium.launch();
-  for (const [name, w, h, light, touch, sym, range] of [['d-XLV-3A', 1280, 900, false, false, 'XLV', '3Y'], ['l-XLF-max', 1280, 900, true, false, 'XLF', 'MAX'], ['d-390-XLE', 390, 844, false, true, 'XLE', '3Y'], ['l-390-XLV', 390, 844, true, true, 'XLV', '3Y']]) {
+  for (const [name, w, h, light, touch, sym, range] of [['d-XLV-3A', 1280, 900, false, false, 'XLV', '3A'], ['l-XLF-max', 1280, 900, true, false, 'XLF', 'MAX'], ['d-390-XLE', 390, 844, false, true, 'XLE', '3A'], ['l-390-XLV', 390, 844, true, true, 'XLV', '3A']]) {
     const ctx = await b.newContext({ viewport: { width: w, height: h }, isMobile: touch, hasTouch: touch });
     await ctx.addInitScript(({ light, range }) => { try { if (!sessionStorage.getItem('i')) { sessionStorage.setItem('i', 1); localStorage.clear(); localStorage.setItem('antigravity-theme', light ? 'light' : 'dark'); localStorage.setItem('sm.introSeen', 'true'); localStorage.setItem('sm.range', JSON.stringify(range)); } } catch {} }, { light, range });
     const page = await ctx.newPage(), errs = [];
@@ -14,6 +14,9 @@ const ok = (c, msg) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) f
     await page.goto(BASE + '#' + sym); await page.waitForTimeout(2500);
     const i = await page.evaluate(() => ({ segs: document.querySelectorAll('#ts .brappr').length, dots: document.querySelectorAll('#ts .apprin').length, old: document.querySelectorAll('#ts .apprline, #ts .apprline-t').length, legend: [...document.querySelectorAll('.legend span')].map((s) => s.textContent).join('|') }));
     ok(i.old === 0, `${name} niente linea tratteggiata`);
+    // 1.3.2: nessun pallino d'ingresso sul bordo sinistro quando il tratto è iniziato prima del periodo mostrato
+    // (un ingresso vero proprio nella prima seduta del periodo è possibile ma raro: se capita, controllare a mano)
+    ok(await page.evaluate(() => ![...document.querySelectorAll('#ts .apprin')].some((c) => +c.getAttribute('cx') <= 8.5)), `${name} nessun pallino sul bordo sinistro`);
     ok(i.dots > 0, `${name} pallini d'ingresso ${i.dots}, tratti ${i.segs}`);
     ok(i.legend.includes('breadth in avvicinamento') && !i.legend.includes('soglia di avvicinamento di oggi'), `${name} legenda`);
     const d = page.locator('#ts .apprin').last();
