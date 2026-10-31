@@ -54,3 +54,22 @@ Stessa prova sui 22 indici (`script/indici.mjs`):
 Ricalcolato il 18/10/2026 dopo la correzione dello script (prima leggeva solo `data/indices.json`, cioè i 10 principali, e dava 46/62): stessi valori. La statistica usa la storia di ogni indice, la più lunga dal 2000 (Dow e S&P/TSX 60).
 
 La regola tiene anche sugli indici. È applicata come per i settori: anello e voce «Avvicinamento», senza stati né alert.
+
+## Rifatta il 31/10/2026: soglia del giorno e stato Normale (`script/avvicinamento_pit.mjs`)
+La prova sopra usa una soglia unica calcolata su tutta la storia, cioè anche con dati futuri, e conta ogni discesa sotto la soglia in qualsiasi stato. Dalla 1.3.0 l'app calcola la soglia di ogni seduta con la sola storia fino a lì e mostra l'avvicinamento solo in stato Normale. Stesse definizioni di sopra, settori dal 2005 (`avvicinamento_pit.json`):
+
+| Regola | Allarmi | Arrivano al blu | Anticipo mediano | Tocchi avvisati | ETF a 3 mesi (positivi) |
+|---|---|---|---|---|---|
+| A. soglia su tutta la storia (la prova di sopra) | 224 | 41% | 23 sedute | 59/73 | +4,6% (68%) |
+| B. soglia fino a quel giorno | 228 | 41% | 25 | 62/73 | +4,6% (69%) |
+| C. B solo in stato Normale (quello che l'app colora) | 180 | 36% | 27 | 42/73 | +4,6% (71%) |
+| D. C oppure stato Attenzione | 278 | 31% | 23 | 59/73 | +5,2% (74%) |
+| E. solo stato Attenzione | 213 | 31% | 12 | 44/73 | +5,8% (78%) |
+| Tutte le sedute (base) | 53.621 | | | | +3,3% (68%) |
+
+- La soglia senza dati futuri non peggiora la regola (B contro A).
+- Da sola, come la mostra l'app (C), l'avvicinamento avvisa 42 tocchi su 73: gli altri arrivano quando il settore è già in Attenzione (spesso per il drawdown) o con crolli da breadth alta (agosto 2011, marzo 2020, dicembre 2018), che nessuna fascia anticipa.
+- Insieme all'Attenzione (D) i tocchi avvisati sono 59 su 73 con un anticipo mediano di 23 sedute, contro 44 e 12 sedute della sola Attenzione: l'avvicinamento raddoppia circa l'anticipo e aggiunge 15 tocchi, al prezzo di più allarmi (278, il 31% arriva al blu).
+- Il rendimento dopo l'allarme è poco sopra quello di tutte le sedute: non è un segnale operativo.
+- Limiti: la regola (q90 a 10 sedute) è stata scelta tra nove su questa stessa storia; i livelli blu sono quelli di oggi; i tocchi si concentrano in poche crisi (2008, 2011, 2020, 2022), quindi non sono 73 casi indipendenti.
+- I testi dell'app che citano «59 tocchi su 73» riportano la prova A, non la regola che l'app mostra: correzione proposta all'utente.
