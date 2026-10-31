@@ -24,7 +24,7 @@ della base). Corretto un errore dello script del backtest sulla quota di sedute 
    (15/55). Lo script dell'agente dava 45/23/31%: la distinzione tra «ancora giallo» e «tornato sopra» non regge al
    ricalcolo, il passaggio in Attenzione sì.
 2. Se il settore ha toccato il livello blu nelle 126 sedute prima, l'avvicinamento è una risalita dopo un bottom: 5/24
-   (21%) contro 43/126 (34%). Pochi casi e nel 2005–2015 solo 5: indicativo (caso tipico: XLRE nel 2025 e oggi).
+   (21%) contro 43/126 (34%). Pochi casi e nel 2005–2015 solo 5: indicativo (caso tipico: XLRE da aprile a ottobre 2025. Correzione del 31/10/2026: XLRE oggi non rientra, perché a ottobre 2026 la breadth è scesa al 10% il 19/10 senza toccare il livello 8%; l'ultimo tocco è del 10/04/2025).
 
 ## Testi dell'app da correggere
 
