@@ -149,6 +149,11 @@ export function drawSector(svg, p) {
     el('path', { d: path(b, P2.sy), class: 'br' }, svg);
   }
   el('line', { x1: L, x2: L + PW, y1: P2.sy(blue), y2: P2.sy(blue), class: 'blue' }, svg);
+  // soglia di avvicinamento di oggi (solo settori): linea tratteggiata con il suo valore a sinistra
+  if (p.approach != null && p.approach > blue && p.approach < P2.hi) {
+    el('line', { x1: L, x2: L + PW, y1: P2.sy(p.approach), y2: P2.sy(p.approach), class: 'apprline' }, svg);
+    el('text', { x: L + 6, y: P2.sy(p.approach) - 4, class: 'axt apprline-t' }, svg).textContent = `${narrow ? 'avvicin.' : 'avvicinamento'} ${fmt(p.approach, 0)}%`;
+  }
   for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], pxDec(c[n - 1]))], [P1, dd[n - 1], fmt(dd[n - 1]) + '%'], [P2, b[n - 1], fmt(b[n - 1]) + '%']]) {
     if (v == null) continue;
     const yy = q.sy(v);
