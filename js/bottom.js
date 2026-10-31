@@ -403,7 +403,7 @@ export function createBottom(ctx) {
     drawSector($('ts'), {
       dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
       triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940),
-      off: m.off, offText: offReasons(P), sync: 'sec',
+      off: m.off, offText: offReasons(P), sync: 'sec', watchBand: P.watchBand,
     });
     // livello blu
     $('blueVal').textContent = L + '%';

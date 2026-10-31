@@ -138,6 +138,8 @@ export function drawSector(svg, p) {
   el('line', { x1: L, x2: L + PW, y1: P1.sy(0), y2: P1.sy(0), class: 'zero' }, svg);
   const first = dd.findIndex((v) => v != null);
   if (first >= 0) el('path', { d: path(dd, P1.sy) + `L${sx(n - 1)} ${P1.sy(0)} L${sx(first)} ${P1.sy(0)} Z`, class: 'ddl' }, svg);
+  // fascia di attenzione (solo settori): breadth entro watchBand punti sopra il livello blu, come la zona gialla della Bottom Map
+  if (p.watchBand) el('rect', { x: L, y: P2.sy(Math.min(P2.hi, blue + p.watchBand)), width: PW, height: Math.max(0, P2.sy(blue) - P2.sy(Math.min(P2.hi, blue + p.watchBand))), class: 'watchband' }, svg);
   const clipId = 'bclip-' + sym;
   el('rect', { x: L, y: P2.sy(blue), width: PW, height: Math.max(0, P2.y1 - P2.sy(blue)) }, el('clipPath', { id: clipId }, el('defs', {}, svg)));
   const fb = b.findIndex((v) => v != null);

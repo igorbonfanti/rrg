@@ -444,6 +444,11 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 .ts .band { fill: var(--blue); opacity: 0.22; }
 /* sotto il livello ma fuori dalla zona blu: a righe, per distinguerla dalla zona blu */
 .ts .band-off { fill: url(#hatchOff); }
+/* fascia di attenzione sul grafico della breadth dei settori: stesso giallo della zona di attenzione della Bottom Map, più carico perché è stretta */
+.ts .watchband { fill: var(--watch-line); fill-opacity: .16; }
+[data-theme="light"] .ts .watchband { fill: #ffc400; fill-opacity: .28; }
+[data-theme="light"] .kb-watch { background: #ffc400; opacity: .5; }
+.kb-watch { background: var(--watch-line); opacity: .35; }
 .kb-hatch { background: repeating-linear-gradient(135deg, var(--blue) 0 1.5px, transparent 1.5px 4px); opacity: .8; }
 .tip .note-row { display: block; max-width: 230px; white-space: normal; color: var(--ink-2); margin-top: 4px; font-size: 11px; line-height: 1.35; }
 .ts .zero { stroke: var(--chart-base); }
