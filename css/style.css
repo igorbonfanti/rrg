@@ -450,9 +450,10 @@ svg.ts { display: block; width: 100%; height: auto; background: var(--bg); touch
 [data-theme="light"] .kb-watch { background: #ffc400; opacity: .5; }
 .kb-watch { background: var(--watch-line); opacity: .35; }
 /* soglia di avvicinamento nel grafico della breadth dei settori: tratteggio giallo come l'anello della Bottom Map */
-.ts .apprline { stroke: var(--watch-line); stroke-width: 1.4; stroke-dasharray: 5 4; }
-.ts .apprline-t { fill: var(--watch-line); font-weight: 600; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
-.legend .kl.appr { height: 0; border-top: 2px dashed var(--watch-line); background: none !important; }
+/* avvicinamento: tratti gialli della linea della breadth e pallino all'ingresso */
+.ts .brappr { fill: none; stroke: var(--watch-line); stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.ts .apprin { fill: var(--watch-line); stroke: var(--bg); stroke-width: 1; }
+.legend .kl.appr { height: 3px; background: var(--watch-line) !important; border-radius: 2px; }
 .kb-hatch { background: repeating-linear-gradient(135deg, var(--blue) 0 1.5px, transparent 1.5px 4px); opacity: .8; }
 .tip .note-row { display: block; max-width: 230px; white-space: normal; color: var(--ink-2); margin-top: 4px; font-size: 11px; line-height: 1.35; }
 .ts .zero { stroke: var(--chart-base); }

@@ -42,6 +42,7 @@ function sma200(c) {
  *          i0: number, sym: string, blue: number, tipEl: HTMLElement, wrapEl: HTMLElement, width?: number, ddNote?: string,
  *          off?: (string|null)[], offText?: Record<string, string>}} p
  *   off: motivo per le sedute sotto il livello blu fuori dalla zona blu (runMachine().off), offText: testo di ogni motivo
+ *   appr: sedute in avvicinamento (solo settori), apprA: soglia di avvicinamento di ogni seduta, calcolata fino a quel giorno
  *   ddNote: nota del pannello del drawdown sugli schermi larghi (default «CON DIVIDENDI»; per gli indici «SOLO PREZZO»)
  */
 export function drawSector(svg, p) {
@@ -50,6 +51,7 @@ export function drawSector(svg, p) {
   const dates = p.dates.slice(i0), n = dates.length;
   const c = p.close.slice(i0), m = ma.slice(i0), dd = p.dd.slice(i0), b = p.b200.slice(i0), b50 = p.b50.slice(i0), days = p.days.slice(i0);
   const off = p.off ? p.off.slice(i0) : [];
+  const appr = p.appr ? p.appr.slice(i0) : [], apprA = p.apprA ? p.apprA.slice(i0) : [];
   const W = p.width || 940, L = 8, R = 60, GAP = 26, PW = W - L - R;
   const narrow = PW < 440; // telefono: titoli e note più corti per non sovrapporsi
   const panes = [
@@ -149,10 +151,14 @@ export function drawSector(svg, p) {
     el('path', { d: path(b, P2.sy), class: 'br' }, svg);
   }
   el('line', { x1: L, x2: L + PW, y1: P2.sy(blue), y2: P2.sy(blue), class: 'blue' }, svg);
-  // soglia di avvicinamento di oggi (solo settori): linea tratteggiata con il suo valore a sinistra
-  if (p.approach != null && p.approach > blue && p.approach < P2.hi) {
-    el('line', { x1: L, x2: L + PW, y1: P2.sy(p.approach), y2: P2.sy(p.approach), class: 'apprline' }, svg);
-    el('text', { x: L + 6, y: P2.sy(p.approach) - 4, class: 'axt apprline-t' }, svg).textContent = `${narrow ? 'avvicin.' : 'avvicinamento'} ${fmt(p.approach, 0)}%`;
+  // avvicinamento (solo settori): la linea della breadth in giallo nelle sedute in avvicinamento, con la soglia di quel
+  // giorno; un pallino all'ingresso di ogni tratto
+  for (let i = 0; i < n; i++) {
+    if (!appr[i] || appr[i - 1]) continue;
+    let e = i;
+    while (e + 1 < n && appr[e + 1]) e++;
+    if (e > i) el('path', { d: path(b.map((v, k) => (k >= i && k <= e ? v : null)), P2.sy), class: 'brappr' }, svg);
+    el('circle', { cx: sx(i), cy: P2.sy(b[i]), r: e > i ? 2.6 : 2.2, class: 'apprin' }, svg);
   }
   for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], pxDec(c[n - 1]))], [P1, dd[n - 1], fmt(dd[n - 1]) + '%'], [P2, b[n - 1], fmt(b[n - 1]) + '%']]) {
     if (v == null) continue;
@@ -181,10 +187,11 @@ export function drawSector(svg, p) {
       if (v == null) { dots[k].setAttribute('visibility', 'hidden'); return; }
       dots[k].setAttribute('cx', sx(i)); dots[k].setAttribute('cy', qq.sy(v)); dots[k].setAttribute('visibility', 'visible');
     });
-    tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${sym}${days[i] ? ' · ' + STATE[days[i]] : ''}</span></div>
+    tipEl.innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${sym}${appr[i] ? ' · avvicinamento' : days[i] ? ' · ' + STATE[days[i]] : ''}</span></div>
       <div class="row"><span>Prezzo</span><b>${fmt(c[i], pxDec(c[i]))}</b></div><div class="row"><span>Media 200</span><b>${fmt(m[i], pxDec(m[i]))}</b></div>
       <div class="row"><span>Drawdown 52s</span><b>${sgnP(dd[i])}</b></div>
       <div class="row"><span>Sopra media 200</span><b>${b[i] == null ? '—' : fmt(b[i]) + '%'}</b></div><div class="row"><span>Sopra media 50</span><b>${b50[i] == null ? '—' : fmt(b50[i]) + '%'}</b></div>` +
+      (apprA[i] != null ? `<div class="row"><span>Soglia avvicinamento</span><b>${fmt(apprA[i], 0)}%</b></div>` : '') +
       (off[i] && p.offText ? `<div class="row note-row">${p.offText[off[i]]}</div>` : '');
     placeTip(tipEl, wrapEl, e, 12);
   };
