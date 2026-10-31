@@ -4,13 +4,15 @@
 // Stessa regola dell'app: chiusura rettificata per gli split sopra la media delle ultime 200 chiusure, con almeno 200
 // chiusure e l'ultima entro 7 giorni.
 // Variante del 31/10/2026 con la regola dell'app per il denominatore (scripts/fetch_indices.js countDay): un titolo con un prezzo
-// recente conta anche se ha meno di 200 chiusure, come «sotto la media». Lo script originale lo escludeva.
+// recente conta anche se ha meno di 200 chiusure, come «sotto la media» (lo script originale lo escludeva); prezzi passati per
+// clean() come nell'app; ultimo prezzo entro 5 giorni (STALE_DAYS).
 // Uso: node ricerca/indici/script/membri_oggi_ndx_regola_app.mjs [cartella cache]   (scarica i prezzi da Yahoo la prima volta)
 // Scrive ricerca/indici/membri_oggi_ndx.json con la tabella delle date e il riassunto citato nel README e nell'app.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from '../../../scripts/lib/yahoo.js';
+import { clean } from '../../../scripts/fetch_indices.js';
 import { indexSeries } from '../../../js/indexdata.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
@@ -32,14 +34,15 @@ const px = {};
 await mapLimit(today.tickers, 4, async (s) => {
   const f = path.join(CACHE, s + '.json');
   if (!fs.existsSync(f)) fs.writeFileSync(f, JSON.stringify(await fetchDaily(s, { period1: 1104537600 }).catch(() => null)));
-  px[s] = JSON.parse(fs.readFileSync(f, 'utf8'));
+  const raw = JSON.parse(fs.readFileSync(f, 'utf8'));
+  px[s] = raw && raw.dates && raw.dates.length ? clean(raw.dates, raw.close) : raw; // stessa pulizia dei prezzi dell'app
 });
 const DAY = 864e5;
 function above(s, date) {
   const p = px[s];
   if (!p || !p.dates.length) return null;
   const i = p.dates.findLastIndex((d) => d <= date);
-  if (i < 0 || (Date.parse(date) - Date.parse(p.dates[i])) / DAY > 7) return null;
+  if (i < 0 || (Date.parse(date) - Date.parse(p.dates[i])) / DAY > 5) return null; // STALE_DAYS dell'app
   if (i < 199) return false; // regola dell'app: senza 200 chiusure conta «sotto»
   let sum = 0;
   for (let k = i - 199; k <= i; k++) sum += p.close[k];
@@ -63,4 +66,4 @@ const low = rows.filter((r) => r.epoca < 20);
 summary.sotto20 = { date: low.length, media: low.length ? +(low.reduce((a, r) => a + r.scarto, 0) / low.length).toFixed(1) : null };
 for (const r of rows) console.log(r.date, String(r.epoca).padStart(5), String(r.oggi).padStart(5), String(r.coperti).padStart(4), (r.scarto >= 0 ? '+' : '') + r.scarto);
 console.log(summary);
-fs.writeFileSync(path.join(ROOT, 'ricerca/indici/membri_oggi_ndx_regola_app.json'), JSON.stringify({ metodo: 'vedi script/membri_oggi_ndx.mjs', summary, rows }, null, 1) + '\n');
+fs.writeFileSync(path.join(ROOT, 'ricerca/indici/membri_oggi_ndx_regola_app.json'), JSON.stringify({ metodo: 'vedi script/membri_oggi_ndx_regola_app.mjs', summary, rows }, null, 1) + '\n');

@@ -22,5 +22,5 @@ metà di quello sulla 200).
 
 La cifra «+4,5 punti» del bias dei membri di oggi (tooltip della vista Indici, README) viene da una prova che escludeva dal
 denominatore i titoli con meno di 200 chiusure, mentre l'app li conta «sotto». Con la regola dell'app (stessi prezzi,
-`ricerca/indici/script/membri_oggi_ndx_regola_app.mjs`): +3,5 in media, mediana 3,6, da −6,4 a +17,2; +1,1 nelle 5 date
+`ricerca/indici/script/membri_oggi_ndx_regola_app.mjs`): +3,6 in media (3,56; 3,5 senza la pulizia dei prezzi `clean()` che l'app applica), mediana 3,6, da −6,4 a +17,2; +1,1 nelle 5 date
 con la breadth sotto il 20%. Ricalcolo separato dell'agente dei dati: +3,6 (`script/bias.mjs`).

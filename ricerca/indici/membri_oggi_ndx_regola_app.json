@@ -1,10 +1,10 @@
 {
- "metodo": "vedi script/membri_oggi_ndx.mjs",
+ "metodo": "vedi script/membri_oggi_ndx_regola_app.mjs",
  "summary": {
   "date": 76,
   "membriOggi": 101,
   "listaAl": "2026-10-31",
-  "media": 3.5,
+  "media": 3.6,
   "mediana": 3.6,
   "min": -6.4,
   "max": 17.2,
@@ -311,30 +311,30 @@
   {
    "date": "2018-07-13",
    "epoca": 67.4,
-   "oggi": 77.1,
+   "oggi": 78.3,
    "coperti": 83,
-   "scarto": 9.7
+   "scarto": 10.9
   },
   {
    "date": "2018-10-15",
    "epoca": 37.9,
-   "oggi": 42.9,
+   "oggi": 44,
    "coperti": 84,
-   "scarto": 4.9
+   "scarto": 6.1
   },
   {
    "date": "2019-01-15",
    "epoca": 38,
-   "oggi": 37.6,
+   "oggi": 38.8,
    "coperti": 85,
-   "scarto": -0.4
+   "scarto": 0.8
   },
   {
    "date": "2019-04-15",
    "epoca": 74.5,
-   "oggi": 80,
+   "oggi": 81.2,
    "coperti": 85,
-   "scarto": 5.5
+   "scarto": 6.7
   },
   {
    "date": "2019-07-15",

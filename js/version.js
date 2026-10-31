@@ -8,7 +8,7 @@
 export const VERSION = '1.3.4';
 export const RELEASE = '2026-10-31';
 export const NOTES = [
-  'Indici: bias dei membri di oggi ricalcolato con la regola dell\'app (in media +3,5 punti nella prova sul Nasdaq-100, non +4,5)',
+  'Indici: bias dei membri di oggi ricalcolato con la regola dell\'app (in media +3,6 punti nella prova sul Nasdaq-100, non +4,5)',
   'Avvicinamento: statistiche sul periodo che l\'app mostra (settori: con l\'Attenzione 50 tocchi del livello su 63, 7 più della sola Attenzione; da solo 33) e, nella guida, come usarlo',
   'Settore: nessun pallino d\'ingresso sul bordo sinistro quando l\'avvicinamento era già iniziato prima del periodo mostrato',
   'Settore: la linea della breadth diventa gialla nelle sedute in avvicinamento, con un pallino all\'ingresso e la soglia di quel giorno nel riquadro dei valori',
