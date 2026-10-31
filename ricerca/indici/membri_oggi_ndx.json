@@ -1,0 +1,550 @@
+{
+ "metodo": "vedi script/membri_oggi_ndx.mjs",
+ "summary": {
+  "date": 76,
+  "membriOggi": 101,
+  "listaAl": "2026-10-20",
+  "media": 4.5,
+  "mediana": 4.8,
+  "min": -6.1,
+  "max": 19,
+  "sotto20": {
+   "date": 5,
+   "media": 1.3
+  }
+ },
+ "rows": [
+  {
+   "date": "2008-01-15",
+   "epoca": 29.3,
+   "oggi": 35.3,
+   "coperti": 68,
+   "scarto": 6
+  },
+  {
+   "date": "2008-04-15",
+   "epoca": 20.7,
+   "oggi": 24.6,
+   "coperti": 69,
+   "scarto": 3.9
+  },
+  {
+   "date": "2008-07-15",
+   "epoca": 19,
+   "oggi": 27.1,
+   "coperti": 70,
+   "scarto": 8.2
+  },
+  {
+   "date": "2008-10-15",
+   "epoca": 0,
+   "oggi": 0,
+   "coperti": 70,
+   "scarto": 0
+  },
+  {
+   "date": "2009-01-15",
+   "epoca": 8.1,
+   "oggi": 7.1,
+   "coperti": 70,
+   "scarto": -0.9
+  },
+  {
+   "date": "2009-04-15",
+   "epoca": 32.3,
+   "oggi": 33.8,
+   "coperti": 71,
+   "scarto": 1.5
+  },
+  {
+   "date": "2009-07-15",
+   "epoca": 79,
+   "oggi": 81.7,
+   "coperti": 71,
+   "scarto": 2.7
+  },
+  {
+   "date": "2009-10-15",
+   "epoca": 100,
+   "oggi": 97.2,
+   "coperti": 71,
+   "scarto": -2.8
+  },
+  {
+   "date": "2010-01-15",
+   "epoca": 93.5,
+   "oggi": 91.5,
+   "coperti": 71,
+   "scarto": -2
+  },
+  {
+   "date": "2010-04-15",
+   "epoca": 96.8,
+   "oggi": 93,
+   "coperti": 71,
+   "scarto": -3.8
+  },
+  {
+   "date": "2010-07-15",
+   "epoca": 48.4,
+   "oggi": 51.4,
+   "coperti": 72,
+   "scarto": 3
+  },
+  {
+   "date": "2010-10-15",
+   "epoca": 69.4,
+   "oggi": 72.6,
+   "coperti": 73,
+   "scarto": 3.2
+  },
+  {
+   "date": "2011-01-14",
+   "epoca": 92.3,
+   "oggi": 90.4,
+   "coperti": 73,
+   "scarto": -1.9
+  },
+  {
+   "date": "2011-04-15",
+   "epoca": 78.5,
+   "oggi": 83.8,
+   "coperti": 74,
+   "scarto": 5.3
+  },
+  {
+   "date": "2011-07-15",
+   "epoca": 59.1,
+   "oggi": 65.3,
+   "coperti": 75,
+   "scarto": 6.2
+  },
+  {
+   "date": "2011-10-14",
+   "epoca": 45.5,
+   "oggi": 52,
+   "coperti": 75,
+   "scarto": 6.5
+  },
+  {
+   "date": "2012-01-13",
+   "epoca": 53.7,
+   "oggi": 62.7,
+   "coperti": 75,
+   "scarto": 8.9
+  },
+  {
+   "date": "2012-04-13",
+   "epoca": 79.1,
+   "oggi": 85.3,
+   "coperti": 75,
+   "scarto": 6.2
+  },
+  {
+   "date": "2012-07-13",
+   "epoca": 48.5,
+   "oggi": 58.7,
+   "coperti": 75,
+   "scarto": 10.2
+  },
+  {
+   "date": "2012-10-15",
+   "epoca": 45.5,
+   "oggi": 52,
+   "coperti": 75,
+   "scarto": 6.5
+  },
+  {
+   "date": "2013-01-15",
+   "epoca": 68.7,
+   "oggi": 69.3,
+   "coperti": 75,
+   "scarto": 0.7
+  },
+  {
+   "date": "2013-04-15",
+   "epoca": 79.1,
+   "oggi": 80.3,
+   "coperti": 76,
+   "scarto": 1.2
+  },
+  {
+   "date": "2013-07-15",
+   "epoca": 88.2,
+   "oggi": 89.7,
+   "coperti": 78,
+   "scarto": 1.5
+  },
+  {
+   "date": "2013-10-15",
+   "epoca": 89.9,
+   "oggi": 83.8,
+   "coperti": 80,
+   "scarto": -6.1
+  },
+  {
+   "date": "2014-01-15",
+   "epoca": 90.3,
+   "oggi": 92.5,
+   "coperti": 80,
+   "scarto": 2.2
+  },
+  {
+   "date": "2014-04-15",
+   "epoca": 65.8,
+   "oggi": 77.5,
+   "coperti": 80,
+   "scarto": 11.7
+  },
+  {
+   "date": "2014-07-15",
+   "epoca": 83.6,
+   "oggi": 88.8,
+   "coperti": 80,
+   "scarto": 5.2
+  },
+  {
+   "date": "2014-10-15",
+   "epoca": 35.6,
+   "oggi": 46.3,
+   "coperti": 80,
+   "scarto": 10.6
+  },
+  {
+   "date": "2015-01-15",
+   "epoca": 74.3,
+   "oggi": 73.8,
+   "coperti": 80,
+   "scarto": -0.6
+  },
+  {
+   "date": "2015-04-15",
+   "epoca": 69.9,
+   "oggi": 72.5,
+   "coperti": 80,
+   "scarto": 2.6
+  },
+  {
+   "date": "2015-07-15",
+   "epoca": 63.2,
+   "oggi": 62.5,
+   "coperti": 80,
+   "scarto": -0.7
+  },
+  {
+   "date": "2015-10-15",
+   "epoca": 41.3,
+   "oggi": 52.5,
+   "coperti": 80,
+   "scarto": 11.3
+  },
+  {
+   "date": "2016-01-15",
+   "epoca": 25.3,
+   "oggi": 23.8,
+   "coperti": 80,
+   "scarto": -1.6
+  },
+  {
+   "date": "2016-04-15",
+   "epoca": 58.8,
+   "oggi": 77.8,
+   "coperti": 81,
+   "scarto": 19
+  },
+  {
+   "date": "2016-07-15",
+   "epoca": 67.5,
+   "oggi": 81.9,
+   "coperti": 83,
+   "scarto": 14.4
+  },
+  {
+   "date": "2016-10-14",
+   "epoca": 67.9,
+   "oggi": 73.5,
+   "coperti": 83,
+   "scarto": 5.6
+  },
+  {
+   "date": "2017-01-13",
+   "epoca": 78.3,
+   "oggi": 81.9,
+   "coperti": 83,
+   "scarto": 3.6
+  },
+  {
+   "date": "2017-04-13",
+   "epoca": 75.9,
+   "oggi": 80.7,
+   "coperti": 83,
+   "scarto": 4.8
+  },
+  {
+   "date": "2017-07-14",
+   "epoca": 77.4,
+   "oggi": 81.9,
+   "coperti": 83,
+   "scarto": 4.5
+  },
+  {
+   "date": "2017-10-13",
+   "epoca": 76.2,
+   "oggi": 85.5,
+   "coperti": 83,
+   "scarto": 9.4
+  },
+  {
+   "date": "2018-01-12",
+   "epoca": 84.9,
+   "oggi": 85.5,
+   "coperti": 83,
+   "scarto": 0.7
+  },
+  {
+   "date": "2018-04-13",
+   "epoca": 57,
+   "oggi": 65.1,
+   "coperti": 83,
+   "scarto": 8.1
+  },
+  {
+   "date": "2018-07-13",
+   "epoca": 67.4,
+   "oggi": 77.1,
+   "coperti": 83,
+   "scarto": 9.7
+  },
+  {
+   "date": "2018-10-15",
+   "epoca": 37.9,
+   "oggi": 43.4,
+   "coperti": 83,
+   "scarto": 5.4
+  },
+  {
+   "date": "2019-01-15",
+   "epoca": 38,
+   "oggi": 38.6,
+   "coperti": 83,
+   "scarto": 0.5
+  },
+  {
+   "date": "2019-04-15",
+   "epoca": 74.5,
+   "oggi": 81.9,
+   "coperti": 83,
+   "scarto": 7.5
+  },
+  {
+   "date": "2019-07-15",
+   "epoca": 81.9,
+   "oggi": 88.1,
+   "coperti": 84,
+   "scarto": 6.2
+  },
+  {
+   "date": "2019-10-15",
+   "epoca": 66,
+   "oggi": 75.3,
+   "coperti": 85,
+   "scarto": 9.3
+  },
+  {
+   "date": "2020-01-15",
+   "epoca": 85.9,
+   "oggi": 90.6,
+   "coperti": 85,
+   "scarto": 4.7
+  },
+  {
+   "date": "2020-04-15",
+   "epoca": 39.1,
+   "oggi": 47.7,
+   "coperti": 86,
+   "scarto": 8.5
+  },
+  {
+   "date": "2020-07-15",
+   "epoca": 79.3,
+   "oggi": 80.5,
+   "coperti": 87,
+   "scarto": 1.1
+  },
+  {
+   "date": "2020-10-15",
+   "epoca": 84.8,
+   "oggi": 87.4,
+   "coperti": 87,
+   "scarto": 2.6
+  },
+  {
+   "date": "2021-01-15",
+   "epoca": 88,
+   "oggi": 92,
+   "coperti": 87,
+   "scarto": 3.9
+  },
+  {
+   "date": "2021-04-15",
+   "epoca": 91.3,
+   "oggi": 95.4,
+   "coperti": 87,
+   "scarto": 4.1
+  },
+  {
+   "date": "2021-07-15",
+   "epoca": 81.5,
+   "oggi": 90.8,
+   "coperti": 87,
+   "scarto": 9.3
+  },
+  {
+   "date": "2021-10-15",
+   "epoca": 64.9,
+   "oggi": 70.3,
+   "coperti": 91,
+   "scarto": 5.4
+  },
+  {
+   "date": "2022-01-14",
+   "epoca": 56.4,
+   "oggi": 62.6,
+   "coperti": 91,
+   "scarto": 6.3
+  },
+  {
+   "date": "2022-04-14",
+   "epoca": 32.3,
+   "oggi": 30.4,
+   "coperti": 92,
+   "scarto": -1.9
+  },
+  {
+   "date": "2022-07-15",
+   "epoca": 15.6,
+   "oggi": 12,
+   "coperti": 92,
+   "scarto": -3.7
+  },
+  {
+   "date": "2022-10-14",
+   "epoca": 13.5,
+   "oggi": 16.3,
+   "coperti": 92,
+   "scarto": 2.8
+  },
+  {
+   "date": "2023-01-13",
+   "epoca": 58.9,
+   "oggi": 60.2,
+   "coperti": 93,
+   "scarto": 1.3
+  },
+  {
+   "date": "2023-04-14",
+   "epoca": 67.4,
+   "oggi": 75.3,
+   "coperti": 93,
+   "scarto": 7.9
+  },
+  {
+   "date": "2023-07-14",
+   "epoca": 78.9,
+   "oggi": 87.1,
+   "coperti": 93,
+   "scarto": 8.1
+  },
+  {
+   "date": "2023-10-13",
+   "epoca": 62.5,
+   "oggi": 66,
+   "coperti": 94,
+   "scarto": 3.5
+  },
+  {
+   "date": "2024-01-12",
+   "epoca": 80.2,
+   "oggi": 86.2,
+   "coperti": 94,
+   "scarto": 6
+  },
+  {
+   "date": "2024-04-15",
+   "epoca": 64.9,
+   "oggi": 74.5,
+   "coperti": 94,
+   "scarto": 9.5
+  },
+  {
+   "date": "2024-07-15",
+   "epoca": 73.2,
+   "oggi": 81.1,
+   "coperti": 95,
+   "scarto": 7.9
+  },
+  {
+   "date": "2024-10-15",
+   "epoca": 68.4,
+   "oggi": 76.8,
+   "coperti": 95,
+   "scarto": 8.5
+  },
+  {
+   "date": "2025-01-15",
+   "epoca": 60.2,
+   "oggi": 62.5,
+   "coperti": 96,
+   "scarto": 2.3
+  },
+  {
+   "date": "2025-04-15",
+   "epoca": 33.7,
+   "oggi": 35.4,
+   "coperti": 96,
+   "scarto": 1.7
+  },
+  {
+   "date": "2025-07-15",
+   "epoca": 65.3,
+   "oggi": 70.8,
+   "coperti": 96,
+   "scarto": 5.5
+  },
+  {
+   "date": "2025-10-15",
+   "epoca": 55.6,
+   "oggi": 63.9,
+   "coperti": 97,
+   "scarto": 8.4
+  },
+  {
+   "date": "2026-01-15",
+   "epoca": 58.6,
+   "oggi": 63.6,
+   "coperti": 99,
+   "scarto": 5.1
+  },
+  {
+   "date": "2026-04-15",
+   "epoca": 47.5,
+   "oggi": 55.6,
+   "coperti": 99,
+   "scarto": 8.1
+  },
+  {
+   "date": "2026-07-15",
+   "epoca": 62.4,
+   "oggi": 63.6,
+   "coperti": 99,
+   "scarto": 1.3
+  },
+  {
+   "date": "2026-10-15",
+   "epoca": 57.4,
+   "oggi": 58.6,
+   "coperti": 99,
+   "scarto": 1.2
+  }
+ ]
+}
