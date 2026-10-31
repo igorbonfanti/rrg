@@ -8,7 +8,7 @@ import { indexSeries } from '../../../js/indexdata.js';
 const R = (f) => JSON.parse(fs.readFileSync(new URL('../../../' + f, import.meta.url)));
 const th = R('config/thresholds.json'), P = { ...DEFAULT_PARAMS, ...th.params };
 function count(list, runFromStart) {
-  const tot = { C: [0, 0], D: [0, 0], E: [0, 0] }, ar = { C: [0, 0, []], D: [0, 0, []], E: [0, 0, []] };
+  const tot = { C: [0, 0], D: [0, 0], E: [0, 0] }, ar = { C: [0, 0, []], D: [0, 0, []], E: [0, 0, []] }, pr = { C: [], D: [], E: [] };
   for (const { b, L, days } of list) {
     const start = days.findIndex((d) => d != null);
     const A = b.map((_, t) => (t < start ? null : approachLevel(b.slice(0, t + 1), L)));
@@ -20,11 +20,13 @@ function count(list, runFromStart) {
       const s0 = []; let off = 0;
       for (let t = start; t < b.length; t++) { if (b[t] == null) continue; if (f[r](t)) { if (off >= 20) s0.push(t); off = 0; } else off++; }
       for (const s of s0) { const j = b.findIndex((v, k) => k >= s && k < s + 126 && v != null && v <= L); ar[r][1]++; if (j >= 0) { ar[r][0]++; ar[r][2].push(j - s); } }
+      for (const u of touch) { const w = s0.filter((s) => u - s >= 5 && u - s <= 126); if (w.length) pr[r].push(u - w[0]); }
       tot[r][0] += touch.filter((u) => s0.some((s) => u - s >= 5 && u - s <= 126)).length; tot[r][1] += touch.length;
     }
   }
   const med = (a) => a.sort((x, y) => x - y)[Math.floor((a.length - 1) / 2)];
-  return Object.entries(tot).map(([r, [a, n]]) => `${r} tocchi ${a}/${n}, arrivano ${ar[r][0]}/${ar[r][1]} = ${Math.round(100 * ar[r][0] / ar[r][1])}%, anticipo ${med(ar[r][2])}`).join('\n  ');
+  const med2 = (a) => { const v = [...a].sort((x, y) => x - y), n = v.length; return n % 2 ? v[(n - 1) / 2] : (v[n / 2 - 1] + v[n / 2]) / 2; };
+  return Object.entries(tot).map(([r, [a, n]]) => `${r} tocchi ${a}/${n}, arrivano ${ar[r][0]}/${ar[r][1]} = ${Math.round(100 * ar[r][0] / ar[r][1])}%, anticipo ${med(ar[r][2])}, primo avviso prima del tocco ${med2(pr[r])}`).join('\n  ');
 }
 const sec = R('data/sectors.json'), br = R('data/breadth.json');
 const S = Object.keys(th.blue).map((k) => { const B = breadthSeries(br, k, sec.dates); return { b: B.pct200, L: th.blue[k], days: runMachine(priceSeries(sec.adjclose[k]), B, th.blue[k], P).days }; });
