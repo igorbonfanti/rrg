@@ -145,8 +145,8 @@ function run(gap) {
     const e = agg(eS[k] || []), bb = agg(bS[k] || []);
     const valid = S[k].b.slice(S[k].start).filter((v) => v != null).length;
     res.perSettore[k] = {
-      livello: th.blue[k], dal: D[S[k].start], sedute: valid, seduteAvvicinamento: S[k].appr.filter((x) => x).length,
-      quotaSedute: pct(S[k].appr.filter((x) => x).length, valid), sogliaOggi: r1(S[k].A[N - 1]),
+      livello: th.blue[k], dal: D[S[k].start], sedute: valid, seduteAvvicinamento: S[k].appr.slice(S[k].start).filter((x) => x).length,
+      quotaSedute: pct(S[k].appr.slice(S[k].start).filter((x) => x).length, valid), sogliaOggi: r1(S[k].A[N - 1]),
       ingressi: e, base: bb, attenzione: agg(wS[k] || []), trigger: agg(tS[k] || []),
       R63: ratio(e.pBlu63, bb.pBlu63), R126: ratio(e.pBlu126, bb.pBlu126),
       diffMdd63: e.mdd63 == null || bb.mdd63 == null ? null : r1(e.mdd63 - bb.mdd63),

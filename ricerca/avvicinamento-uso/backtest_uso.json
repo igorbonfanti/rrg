@@ -1364,8 +1364,8 @@
     "livello": 5,
     "dal": "2019-06-20",
     "sedute": 1852,
-    "seduteAvvicinamento": 521,
-    "quotaSedute": 28.1,
+    "seduteAvvicinamento": 10,
+    "quotaSedute": 0.5,
     "sogliaOggi": 25.8,
     "ingressi": {
      "n": 5,
@@ -2764,8 +2764,8 @@
     "livello": 8,
     "dal": "2016-10-07",
     "sedute": 2530,
-    "seduteAvvicinamento": 1173,
-    "quotaSedute": 46.4,
+    "seduteAvvicinamento": 306,
+    "quotaSedute": 12.1,
     "sogliaOggi": 39.8,
     "ingressi": {
      "n": 15,

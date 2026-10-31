@@ -58,7 +58,7 @@ Le 19 zone blu non avvisate dall'avvicinamento sono 8 nel 2008, 6 nel 2020 e 5 i
 | Settore | Livello | Soglia oggi | Sedute in avvicinamento | Ingressi | Zona blu ≤ 63 | Zona blu ≤ 126 | Base ≤ 126 | R63 | R126 | Trigger ≤ 252 |
 |---|---|---|---|---|---|---|---|---|---|---|
 | XLK | 6 | 26,0 | 1,1% | 9 | 1/9 | 1/9 | 6,5% | 4,63 | 1,71 | 1/9 |
-| XLC | 5 | 25,8 | 28,1% | 5 | 0/4 | 0/3 | 8,4% | 0 | 0 | 0/2 |
+| XLC | 5 | 25,8 | 0,5% | 5 | 0/4 | 0/3 | 8,4% | 0 | 0 | 0/2 |
 | XLY | 8 | 25,8 | 0,8% | 9 | 1/8 | 1/8 | 4,3% | 9,62 | 2,91 | 1/8 |
 | XLP | 11 | 30,4 | 1,2% | 11 | 1/10 | 2/10 | 6,2% | 3,70 | 3,23 | 2/8 |
 | XLE | 1 | 29,6 | 8,6% | 19 | 4/19 | 6/19 | 9,4% | 5,70 | 3,36 | 7/19 |
@@ -66,7 +66,7 @@ Le 19 zone blu non avvisate dall'avvicinamento sono 8 nel 2008, 6 nel 2020 e 5 i
 | XLV | 11 | 28,1 | 1,3% | 9 | 2/9 | 2/9 | 11,4% | 4,11 | 1,95 | 2/9 |
 | XLI | 5 | 26,3 | 1,1% | 12 | 2/12 | 2/12 | 8,1% | 5,06 | 2,06 | 2/12 |
 | XLB | 10 | 33,1 | 4,1% | 27 | 5/26 | 9/26 | 12,7% | 4,36 | 2,72 | 10/25 |
-| XLRE | 8 | 39,8 | **46,4%** | 15 | 1/14 | 2/14 | 12,9% | 1,29 | 1,11 | 2/13 |
+| XLRE | 8 | 39,8 | **12,1%** | 15 | 1/14 | 2/14 | 12,9% | 1,29 | 1,11 | 2/13 |
 | XLU | 5 | 36,0 | 4,0% | 24 | 5/23 | 5/22 | 14,0% | 3,50 | 1,62 | 8/22 |
 
 Su 10 settori idonei, 6 superano il criterio (R ≥ 2 a entrambi gli orizzonti): XLY, XLP, XLE, XLF, XLI, XLB. Non lo superano XLK, XLV, XLRE e XLU, tutti a 126 sedute. Con pochi casi per settore (1–9 arrivi), ogni rapporto è molto incerto.
@@ -168,7 +168,7 @@ Lettura:
 
 - **Più di metà degli ingressi (90 su 158) cade fuori dalle crisi.** Lì arriva in zona blu 1 ingresso su 10 (8/82), contro il 5,1% della base fuori crisi.
 - **Nelle crisi vere l'avvicinamento si vede poco.** Nel 2008 ci sono 5 ingressi e nel 2020 solo 2, perché i settori passano in Attenzione per il drawdown o per la breadth prima di scendere sotto la soglia.
-- **XLRE**: soglia 39,8 contro un livello di 8. È in avvicinamento nel **46,4%** delle sedute dal 2016, con R126 = 1,1 e 2 zone blu su 14 ingressi: qui il segnale non distingue niente. Per XLC (28,1% delle sedute, 0 su 3) vale lo stesso, con pochissima storia.
+- **XLRE**: soglia 39,8 contro un livello di 8. È in avvicinamento nel **12,1%** delle sedute dal 2016 (la quota più alta; la prima versione di questa nota diceva 46,4% per un errore dello script, che contava anche le sedute prima del 2016, corretto il 31/10/2026), con R126 = 1,1 e 2 zone blu su 14 ingressi: qui il segnale non distingue niente. XLC (0,5% delle sedute, 0 zone blu su 3) ha troppo poca storia per dire qualcosa.
 - **XLU**: 24 ingressi, 5/22 in zona blu entro 126 sedute (R126 = 1,6 contro una base alta del 14%), 8/22 trigger entro 252. Rendimenti dopo l'ingresso +11,7% a 126 e +17,0% a 252, contro +5,9% e +10,4% della base. Utile come preavviso a 3 mesi (R63 = 3,5), meno a 6.
 - **XLK**: è raro (1,1% delle sedute) e arriva quasi mai (1/9 in zona blu). Dopo l'ingresso il rendimento è alto (+13,1% a 126 contro +9,0%), ma su 9 casi.
 - **XLF**: 18 ingressi, 5/18 in zona blu, R126 = 2,75, calo massimo a 63 −2,8% contro −3,6%. È il settore dove il preavviso regge meglio, insieme a XLE e XLB.
