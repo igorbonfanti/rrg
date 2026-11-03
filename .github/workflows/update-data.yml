@@ -2,10 +2,6 @@ name: Update data
 
 on:
   schedule:
-    # Cron in UTC. Una corsa dopo la chiusura USA, una a metà giornata (chiusure asiatiche) e le corse di recupero
-    # ogni ora dalle 01:10 alle 06:10: Yahoo pubblica le chiusure USA a ore diverse della notte e GitHub fa partire
-    # le corse programmate anche con ore di ritardo. Le corse di recupero si fermano subito se la seduta USA c'è già
-    # (scripts/need_update.js, che ha lo stesso testo del cron in RECOVERY).
     - cron: "40 22 * * 1-5"
     - cron: "10 1-6 * * 2-6"
     - cron: "40 11 * * 2-6"
@@ -34,8 +30,6 @@ jobs:
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
-          # l'ultimo main, non il commit di quando la corsa è stata messa in coda: una corsa partita dietro un'altra
-          # deve vedere i dati appena pubblicati (il gate per decidere, l'aggiornamento per non andare in conflitto)
           ref: main
           persist-credentials: false
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444
@@ -51,14 +45,10 @@ jobs:
     needs: gate
     if: needs.gate.outputs.run == 'true'
     runs-on: ubuntu-latest
-    # una connessione appesa non deve tenere occupato il gruppo di concorrenza per ore
     timeout-minutes: 45
     steps:
-      # azioni fissate per SHA (v5.1.0 e v5.0.0); le credenziali servono solo ai passi che fanno push
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
-          # l'ultimo main, non il commit di quando la corsa è stata messa in coda: una corsa partita dietro un'altra
-          # deve vedere i dati appena pubblicati (il gate per decidere, l'aggiornamento per non andare in conflitto)
           ref: main
           persist-credentials: false
 
@@ -92,11 +82,14 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}"
           node scripts/keep_unchanged.js
-          # un file troncato (script interrotto durante la scrittura) non si pubblica: resta quello di ieri
+
           for f in data/*.json data/index_members/*.json; do
             node -e "JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'))" "$f" || { echo "::error::$f non è JSON valido: tengo la versione pubblicata"; git checkout -- "$f" 2>/dev/null || rm -f "$f"; }
           done
-          git add data/ ':!data/alerts.json'
+
+          # `data/` è intenzionalmente ignorata localmente, ma in CI dobbiamo comunque pubblicare i file generati.
+          git add -f data/ ':!data/alerts.json'
+
           if git diff --staged --quiet; then
             echo "Nessuna variazione nei dati."
           else
@@ -109,10 +102,9 @@ jobs:
             git pull --rebase
             git push
           fi
-          # il token non resta nella configurazione di git per i passi dopo (Telegram)
+
           git remote set-url origin "https://github.com/${{ github.repository }}"
 
-      # Telegram dopo la pubblicazione dei dati: se il push fallisce, la corsa dopo non rimanda gli stessi messaggi
       - name: Alert (zona blu, trigger, segnali falliti)
         id: alerts
         if: steps.breadth.outcome == 'success' && steps.commit.outcome == 'success'
@@ -122,14 +114,13 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node scripts/send_alerts.js
 
-      # anche quando un invio Telegram è fallito: il registro segna i messaggi arrivati e quelli da riprovare
       - name: Commit registro degli alert
         if: steps.alerts.outcome == 'success' || steps.alerts.outcome == 'failure'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}"
-          git add data/alerts.json
+          git add -f data/alerts.json
           if git diff --staged --quiet; then
             echo "Registro degli alert invariato."
           else
@@ -146,5 +137,5 @@ jobs:
       - name: Esito
         if: steps.prices.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.indices.outcome == 'failure' || steps.alerts.outcome == 'failure' || steps.fresh.outcome == 'failure'
         run: |
-          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
+          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, fresh: ${{ steps.fresh.outcome }})"
           exit 1
