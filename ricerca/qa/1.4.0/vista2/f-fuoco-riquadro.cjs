@@ -19,7 +19,7 @@ const out = {};
   // riquadro dei valori: pannello del dollaro con il grafico in fondo alla finestra
   await page.focus('#emOpenIx');
   const box0 = await page.locator('#emChart').boundingBox();
-  await page.evaluate((y) => window.scrollTo(0, y), box0.y + window.scrollY + box0.height - 880 + 0);
+  await page.evaluate((d) => window.scrollTo(0, window.scrollY + d), box0.y + box0.height - 880);
   await page.waitForTimeout(200);
   const bx = await page.locator('#emChart').boundingBox();
   const res = [];
