@@ -29,6 +29,9 @@ test('emergenti: pulizia di un errore di stampa isolato, non di un salto vero', 
   assert.deepEqual(cleanFx('TWD=X', { dates, val: [30.02, 29.254, 1.8015, 30.11, 30.09] }).removed.map((x) => x.date), ['2026-01-07']);
   // movimento vero della settimana di Lehman confermato dalla Fed (BRL=X 8/10/2008: 2,179 → 2,400 → 2,148): resta
   assert.equal(cleanFx('BRL=X', { dates, val: [2.16, 2.179, 2.4, 2.148, 2.25] }).removed.length, 0);
+  // storia della Fed: si pulisce solo la coda di Yahoo, dopo l'ultima data della Fed
+  assert.equal(cleanFx('TWD=X', { dates, val: [30, 30.1, 1.8, 30.2, 30.1], fred: '2026-01-07' }).removed.length, 0);
+  assert.equal(cleanFx('TWD=X', { dates, val: [30, 30.1, 1.8, 30.2, 30.1], fred: '2026-01-06' }).removed.length, 1);
 });
 
 test('emergenti: stato della valuta in parole', () => {
@@ -73,7 +76,7 @@ test('emergenti: nessun dato futuro (il valore a t sulla serie intera è uguale 
     for (let t = raw.dates.length - 1; t > raw.dates.length - 1500; t -= 137) {
       const d = raw.dates[t], i = at.get(d);
       if (i == null) continue; // seduta tolta dalla pulizia (errore di stampa riconosciuto il giorno dopo)
-      const cut = cleanFx(sym, { dates: raw.dates.slice(0, t + 1), val: raw.val.slice(0, t + 1) }), s2 = fxSignals(cut), j = cut.dates.length - 1;
+      const cut = cleanFx(sym, { dates: raw.dates.slice(0, t + 1), val: raw.val.slice(0, t + 1), fred: raw.fred }), s2 = fxSignals(cut), j = cut.dates.length - 1;
       assert.equal(cut.dates[j], d);
       assert.equal(s2.F[j], sig.F[i], `${sym} F al ${d}`);
       assert.equal(s2.z[j], sig.z[i], `${sym} z al ${d}`);
@@ -98,6 +101,7 @@ test('emergenti: file dei dati completo e ordinato', { skip: !EM && 'data/emergi
     assert.ok(x.val.every((v) => v > 0), `${s}: valori non positivi`);
     for (let i = 1; i < x.dates.length; i++) assert.ok(x.dates[i] > x.dates[i - 1], `${s}: date non in ordine`);
     assert.equal(EM.series[s].last, x.dates.at(-1));
+    if (CFG.indices && Object.values(CFG.indices).some((c) => c.fx === s)) assert.ok(EM.series[s].fred && EM.series[s].fred <= EM.series[s].last && x.dates.includes(EM.series[s].fred), `${s}: data della Fed`);
   }
   assert.ok(EM.asOf.fx && EM.asOf.etf && EM.asOf.fred);
   assert.ok(!('checkedAt' in EM), 'nessun campo che cambia a ogni corsa oltre a generated');
@@ -114,4 +118,22 @@ test('emergenti: forza relativa con la formula della rotazione, quadrante coeren
     assert.equal(r.quad, q);
   }
   assert.equal(relStrength(null, acwi), null);
+});
+
+test('emergenti: valori «d\'oro» delle definizioni (cambi della Fed 2012-2020, ricalcolo indipendente in Python)', () => {
+  // valori di ricerca/qa/1.4.0/codice/ricalcolo_indipendente.py (fx_signals, dollar) sul file test/fixtures/emerging_fed.json:
+  // un cambio di soglie, finestre, media o condizioni sposta i conteggi
+  const fx = read('test/fixtures/emerging_fed.json');
+  const ser = (rows) => ({ dates: rows.map((r) => r[0]), val: rows.map((r) => r[1]) });
+  const K = plain('KRW', ser(fx.KRW)), s = fxSignals(K), cnt = (a, v) => a.filter((x) => x === v).length;
+  assert.deepEqual([cnt(s.F, 1), cnt(s.F, 0), cnt(s.F, null), s.z.filter((x) => x != null && x >= 1).length], [606, 789, 856, 305]);
+  const at = (d) => K.dates.indexOf(d);
+  for (const [d, z] of [['2016-02-25', 1.746634], ['2018-10-31', 0.551434], ['2020-03-19', 2.419068], ['2020-12-30', -2.172433]]) assert.ok(Math.abs(s.z[at(d)] - z) < 1e-6, `z al ${d}`);
+  const Dl = plain('DTW', ser(fx.DTW)), D = dollarSignals(Dl);
+  assert.deepEqual([cnt(D.D, 1), cnt(D.D, 0)], [605, 1432]);
+  for (const [d, m, v] of [['2016-02-25', 112.602026, 0], ['2020-03-23', 124.033238, 0], ['2020-12-30', 129.610694, 1]]) {
+    const i = Dl.dates.indexOf(d);
+    assert.ok(Math.abs(D.sma[i] - m) < 1e-6, `media 200 al ${d}`);
+    assert.equal(D.D[i], v, `D al ${d}`);
+  }
 });

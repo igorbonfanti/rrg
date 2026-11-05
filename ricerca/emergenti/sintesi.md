@@ -22,8 +22,8 @@ Per rifare tutto: `node dati/script/scarica.mjs`, `node dati/script/analisi.mjs`
 
 ## 3. Risultato del backtest
 
-> **Correzione del 05/11/2026 (controlli della 1.4.0).** (1) La pulizia dei cambi toglie anche un salto enorme, oltre 5 volte la soglia, che il giorno dopo rientra per almeno tre quarti: TWD=X a 1,80 il 25/10/2011 e a 3,67 il 31/12/2014, CNY=X a 5,86 il 18/07/2011. Prima non si toglievano perché intanto il cambio si era mosso di circa il 3%, e gonfiavano per tre anni la deviazione standard di Taiwan (e un po' quella dello yuan). I movimenti veri del real nella settimana di Lehman (8 e 10/10/2008, confermati dalla Fed) restano. (2) In H5 il denominatore di F conta anche l'episodio in cui F non si accende mai (TWN 2020): **13 su 15**, non 13 su 14 (campo `F.mai` di `risultati.json`). Uno dei 13 è il KOSPI 2026, con il minimo del 26/10/2026 ancora provvisorio.
-> Numeri cambiati dalla correzione (`risultati.json` è aggiornato; le tabelle sotto sono della corsa precedente dove non dette): H1 parziale 11 trigger, +21,3% a 126 sedute, 0/11 falliti (prima 10, +21,7%, 0/10); H2 parziale 5 ingressi, +3,3% contro +20,0% dello zero (prima 4, +3,9% contro +19,0%); H3 dal 2016 pieno − base +2,1 punti (prima +2,0); H4 intermedia (TWD) sulle sedute −0,5 punti, sui segnali −9,2 (prima −0,1 e +18,8); esplorazione F acceso/spento sui trigger +21,3% (0/11 falliti) contro +10,1% (4/9), scarto 11,2 punti (prima 13,7); Yahoo e FRED danno un F diverso in 8 trigger su 20 (prima 7). **I verdetti non cambiano.** H5 (statistiche citate nell'app) non cambia. Ricalcolo indipendente: `script/verifica.py` dà «tutto coincide».
+> **Correzioni del 05/11/2026 (controlli della 1.4.0).** I controlli hanno trovato nella storia dei cambi di Yahoo errori di stampa che la pulizia non riconosceva (TWD=X a 1,80 il 25/10/2011, CNY=X a 5,86 il 18/07/2011, INR=X a 85,19 il 02/11/2023, BRL=X a 4,96 il 26/10/2026). Per scelta dell'utente, **dal 05/11/2026 la fonte principale dei cambi è la Federal Reserve** (FRED H.10 dal 2000, alla stessa data, senza pulizia: `fsrc: 'fedx'` in `script/backtest.mjs`); Yahoo resta come sensibilità («cambi Yahoo»), la Fed pubblicata con il ritardo reale come seconda sensibilità. Inoltre in H5 il denominatore conta anche l'episodio in cui F non si accende mai (campo `F.mai`).
+> Numeri attuali (`risultati.json`, ricalcolati e confermati da `script/verifica.py`; le tabelle qui sotto sono della prima corsa con Yahoo dove non dette): **H5**: F già acceso nei sei mesi prima del minimo in **15 cali su 17** (in 1 si accende dopo, KOSPI 2011; in 1 mai, IBOV 2004; uno dei 15 è il KOSPI 2026, minimo provvisorio); F si accende dopo il minimo in mediana dopo 3 sedute (15 episodi); D in mediana 110 sedute dopo il minimo (19 cali, invariato). **H1** punteggio pieno in 0 trigger su 31; **H2** in 0 ingressi su 27; **H3** dal 2016 pieno − base +2,7 punti (soglia 5); **H4** sulle sedute libere +4,5 contro gestite +5,0, sui segnali +13,6 contro −5,2 con 5-11 casi per cella. Esplorazione: trigger con F acceso +24,7% a 126 sedute (0/11 falliti) contro +10,1% (5/13). Yahoo e Fed danno un F diverso in 3 trigger su 19. **I verdetti non cambiano.**
 
 Definizioni (fissate prima di guardare i risultati):
 - **F, «la valuta ha smesso di scendere»**: il cambio USD/locale si è deprezzato con forza (variazione a 63 sedute in unità di volatilità propria, z ≥ 1) negli ultimi 126 giorni ed è ora sotto il suo massimo a 63 sedute di almeno 0,5 deviazioni standard.
@@ -32,14 +32,14 @@ Definizioni (fissate prima di guardare i risultati):
 | Ipotesi | Criterio deciso prima | Risultato | Verdetto |
 |---|---|---|---|
 | H1 trigger | punteggio pieno almeno +5 punti a 126 sedute, meno falliti, in 2 crisi | punteggio pieno in 0 trigger su 31 (D acceso solo in 1) | scartare |
-| H2 zona blu | come H1 | pieno in 0 ingressi su 27; punteggio 1 peggio di 0 (+3,3% contro +20,0%) | scartare |
-| H3 punteggio su tutte le sedute | monotono e pieno almeno +5 punti sulla base anche dal 2016 | fino al 2015 non monotono; dal 2016 monotono ma solo +2,1 punti | scartare |
-| H4 valute libere contro gestite | F informa di più per BRL e KRW | il contrario: +1,1 punti libere, +5,4 gestite | scartare |
-| H5 anticipo sui minimi > 25% | F prima del minimo | F in mediana 4 sedute **dopo** il minimo, ma in 13 episodi su 15 era già acceso nei 6 mesi prima (falsi stop); D in mediana 110 sedute dopo | solo contesto |
+| H2 zona blu | come H1 | pieno in 0 ingressi su 27; punteggio 1 peggio di 0 (+3,9% contro +20,0%) | scartare |
+| H3 punteggio su tutte le sedute | monotono e pieno almeno +5 punti sulla base anche dal 2016 | fino al 2015 non monotono; dal 2016 monotono ma solo +2,7 punti | scartare |
+| H4 valute libere contro gestite | F informa di più per BRL e KRW | sulle sedute nessuna differenza (+4,5 punti libere, +5,0 gestite); sui segnali +13,6 contro −5,2, con 5-11 casi per cella | scartare |
+| H5 anticipo sui minimi > 25% | F prima del minimo | F in mediana 3 sedute **dopo** il minimo, ma in 15 episodi su 17 era già acceso nei 6 mesi prima (falsi stop); D in mediana 110 sedute dopo | solo contesto |
 
 Perché D non funziona: nelle crisi degli emergenti il dollaro è forte. Il dollaro debole arriva mesi dopo il minimo: è una conferma, non un anticipo.
 
-Osservazione trovata **dopo** i risultati, non un criterio: i trigger con F acceso hanno fatto +21,3% a 126 sedute con 0 falliti su 11, contro +10,1% e 4 falliti su 9 con F spento (dopo la correzione del 05/11/2026; prima +21,7% e +8,0%). È fragile: con i cambi FRED lo scarto scende a +3,2 punti, con la variazione a 126 sedute diventa −4,0, e Yahoo e FRED danno un F diverso in 8 trigger su 20 (prima 7). **Non va scritta nell'app come statistica.**
+Osservazione trovata **dopo** i risultati, non un criterio: i trigger con F acceso hanno fatto +24,7% a 126 sedute con 0 falliti su 11, contro +10,1% e 5 falliti su 13 con F spento (cambi della Fed, dal 05/11/2026; con Yahoo +21,3% contro +10,1%). È fragile: con i cambi della Fed presi solo quando erano già pubblicati (ritardo di una settimana) lo scarto scende a +3,2 punti, e Yahoo e Fed danno un F diverso in 3 trigger su 19. **Non va scritta nell'app come statistica.**
 
 Limiti: 7 crisi distinte (percentuali indicative); breadth degli emergenti con i membri di oggi; su Yahoo mancano tutti i cambi dal 31/07 al 26/08/2008 (F manca sui trigger del 2009); TWD su Yahoo differisce da FRED oltre il 3% in 194 date.
 
@@ -72,7 +72,7 @@ Vista nuova «8 Emergenti» (`#emg`), come da `inserimento.md`, che per ciascun 
 4. facoltativo: l'indice in dollari accanto a quello in valuta locale, e la forza relativa dell'ETF paese contro ACWI con la formula della rotazione già presente.
 
 Note obbligatorie nell'app (testi da far rivedere all'utente):
-- la valuta «ferma» compare spesso nei rimbalzi falliti prima del vero minimo (13 episodi su 15 nel campione): non è un segnale d'ingresso;
+- la valuta «ferma» compare spesso nei rimbalzi falliti prima del vero minimo (15 episodi su 17 nel campione): non è un segnale d'ingresso;
 - il dollaro emergente debole arriva in genere mesi dopo il minimo (mediana 110 sedute nel campione): conferma, non anticipa;
 - per Cina e India il cambio è gestito dalla banca centrale e si muove poco; per Hong Kong è agganciato;
 - i dati FRED escono una volta a settimana.

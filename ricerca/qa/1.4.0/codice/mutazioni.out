@@ -19,12 +19,6 @@
 18	forza relativa: ETF e ACWI scambiati	NON COLTA	
 19	forza relativa: date al contrario	NON COLTA	
 20	pickSeries: confronto invertito	COLTA	emergenti: pacchetto delle serie, andata e ritorno; FRED giornaliero con i «.»
-21	pack: 2 decimali già sopra 100 (INR)	NON COLTA	
-22	lastLongGap 35 → 10 giorni	NON COLTA	
-23	freschezza FRED 14 → 7 giorni	COLTA	dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni
-24	freschezza cambi 4 → 40 giorni	COLTA	dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni
-25	parseFredDaily accetta «.»	TESTO NON TROVATO (2)
-colte 8 su 26
 21	pack: 2 decimali già sopra 50 (INR a circa 90)	NON COLTA	
 22	lastLongGap 35 → 10 giorni	NON COLTA	
 23	freschezza FRED 14 → 7 giorni	COLTA	dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni

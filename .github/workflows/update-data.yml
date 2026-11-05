@@ -76,6 +76,7 @@ jobs:
       - name: Cambi e dollaro emergente (vista Emergenti)
         id: emerging
         continue-on-error: true
+        timeout-minutes: 5
         run: node scripts/fetch_emerging.js
 
       - name: Breadth settoriale S&P 500 e storia ETF

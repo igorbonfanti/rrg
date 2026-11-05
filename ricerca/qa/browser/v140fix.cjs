@@ -34,7 +34,9 @@ const init = (range) => () => { try { if (!sessionStorage.getItem('i')) { sessio
     await range(p, 'MAX');
     const meta = await p.locator('#emChartMeta').innerText();
     const same = await p.evaluate(() => { const a = document.querySelector('#emChart .emloc').getAttribute('d'), u = document.querySelector('#emChart .emusd').getAttribute('d'); const m = u.match(/^M([\d.]+) ([\d.]+)/); const re = new RegExp('[ML]' + m[1].replace('.', '\\.') + ' ([\\d.]+)'); const l = a.match(re); return l ? Math.abs(+l[1] - +m[2]) : null; });
-    ok(/base 100 al/.test(meta), `KOSPI200 MAX: nota della base (${meta})`);
+    // dalla 1.4.0 (cambi della Fed dal 2000) il cambio parte con l'indice e la nota della base di solito non serve: conta che le
+    // due linee partano dallo stesso punto, sulla stessa data
+    ok(!/base 100 al/.test(meta) || /stessa base/.test(meta), `KOSPI200 MAX: nota della base coerente (${meta})`);
     ok(same != null && same < 0.2, `KOSPI200 MAX: le due linee partono dallo stesso punto (scarto ${same})`);
     await range(p, '3A');
     ok(!/base 100 al/.test(await p.locator('#emChartMeta').innerText()), 'KOSPI200 3A: nessuna nota della base (le basi coincidono)');

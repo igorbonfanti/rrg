@@ -3,7 +3,8 @@
  * lo usano l'app, i test e gli script di ricerca.
  *
  * Definizioni (le stesse di ricerca/emergenti/backtest/script/backtest.mjs, fissate prima del backtest):
- * - pulizia dei cambi: un errore di stampa isolato (salto oltre il 3% che si annulla il giorno dopo entro l'1%, oppure oltre 5 volte
+ * - cambi: storia della Federal Reserve (FRED H.10), poi la coda di Yahoo per i giorni non ancora pubblicati dalla Fed;
+ * - pulizia della coda di Yahoo: un errore di stampa isolato (salto oltre il 3% che si annulla il giorno dopo entro l'1%, oppure oltre 5 volte
  *   la soglia e rientrato per almeno tre quarti; 1% e 0,3%
  *   per CNY e HKD) diventa un giorno mancante; una finestra che scavalca un buco di oltre 10 giorni di calendario è nulla;
  * - z della valuta: variazione logaritmica del cambio a 63 sedute (13 settimane) divisa per la deviazione standard delle
@@ -20,11 +21,11 @@ import { rrgNew, weeklyIndices, quadrant } from './engine.js';
 
 const DAY = 86400000;
 
-/** Serie del file data/emerging.json: { d0, gaps, cd, ps } → { dates, val } */
+/** Serie del file data/emerging.json: { d0, gaps, cd, ps, fred? } → { dates, val, fred } (fred = ultima data della Fed) */
 export function emSeries(x) {
   if (!x || !x.cd) return null;
   const dates = decodeDates(x.d0, x.gaps), val = deltaDecode(x.cd, x.ps || 1);
-  return { dates, val };
+  return { dates, val, fred: x.fred || null };
 }
 
 /** brk[i] = numero di buchi oltre 10 giorni di calendario fino alla riga i (una finestra che scavalca un buco è nulla) */
@@ -35,18 +36,22 @@ export function breaks(dates) {
 }
 const okWin = (S, i, k) => i - k >= 0 && S.brk[i] === S.brk[i - k];
 
-/** Pulizia degli errori di stampa isolati di Yahoo (come loadFx del backtest): il giorno sbagliato diventa mancante. */
+/**
+ * Pulizia degli errori di stampa isolati di Yahoo (come loadFx del backtest): il giorno sbagliato diventa mancante.
+ * Dalla 1.4.0 la storia dei cambi è della Fed: si pulisce solo la coda di Yahoo, cioè le date dopo s.fred (se c'è).
+ */
 export function cleanFx(sym, s) {
   const tight = /CNY|HKD/.test(sym), thr = tight ? 0.01 : 0.03, back = tight ? 0.003 : 0.01;
   const v = s.val, bad = new Set();
   for (let i = 1; i + 1 < v.length; i++) {
+    if (s.fred && s.dates[i] <= s.fred) continue;
     const r1 = Math.log(v[i] / v[i - 1]), r2 = Math.log(v[i + 1] / v[i]);
     const m = Math.min(Math.abs(r1), Math.abs(r2)); // 1.4.0: anche un salto enorme (oltre 5 volte la soglia) che rientra per almeno 3/4
     if (Math.abs(r1) > thr && Math.abs(r2) > thr && Math.sign(r1) !== Math.sign(r2) && (Math.abs(r1 + r2) < back || (m > 5 * thr && Math.abs(r1 + r2) < 0.25 * m))) bad.add(i);
   }
   const dates = [], val = [], removed = [];
   s.dates.forEach((d, i) => { if (bad.has(i)) removed.push({ date: d, value: v[i] }); else { dates.push(d); val.push(v[i]); } });
-  return { sym, dates, val, brk: breaks(dates), removed };
+  return { sym, dates, val, brk: breaks(dates), removed, fred: s.fred || null };
 }
 
 /** Serie senza pulizia (DTWEXEMEGS, ETF), con i buchi segnati */

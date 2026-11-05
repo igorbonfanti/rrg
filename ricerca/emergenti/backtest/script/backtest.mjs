@@ -49,7 +49,7 @@ const cache = (s) => R('ricerca/emergenti/cache/' + s.replace(/[^A-Za-z0-9]/g, '
 export const INDICES = ['CSI300', 'NIFTY50', 'IBOV', 'KOSPI200', 'TWN', 'HSI', 'EEM'];
 export const CCY = { CSI300: 'CNY=X', NIFTY50: 'INR=X', IBOV: 'BRL=X', KOSPI200: 'KRW=X', TWN: 'TWD=X' };
 export const USD = { ...CCY, HSI: 'HKD=X' }; // per i rendimenti in dollari
-export const FRED_CCY = { 'CNY=X': 'DEXCHUS', 'INR=X': 'DEXINUS', 'BRL=X': 'DEXBZUS', 'KRW=X': 'DEXKOUS', 'TWD=X': 'DEXTAUS' };
+export const FRED_CCY = { 'CNY=X': 'DEXCHUS', 'INR=X': 'DEXINUS', 'BRL=X': 'DEXBZUS', 'KRW=X': 'DEXKOUS', 'TWD=X': 'DEXTAUS', 'HKD=X': 'DEXHKUS' };
 export const GROUP = { 'BRL=X': 'libere', 'KRW=X': 'libere', 'TWD=X': 'intermedia', 'CNY=X': 'gestite', 'INR=X': 'gestite' };
 export const CRISES = [
   ['2008', '2007-10-01', '2009-06-30'], ['2011', '2011-05-01', '2012-06-30'], ['2015-16', '2015-06-01', '2016-06-30'],
@@ -62,11 +62,13 @@ const DAY = 86400000;
 
 // ---------- serie dei cambi: pulizia degli errori isolati e buchi ----------
 function loadFx(sym, src = 'yahoo') {
-  const rows = cache(src === 'fred' ? FRED_CCY[sym] || sym : sym).rows;
+  // dalla 1.4.0 la fonte principale dei cambi è la Fed (FRED H.10) dal 2000, come nell'app: nessun errore di stampa da togliere
+  const fed = src === 'fred' && FRED_CCY[sym];
+  const rows = fed ? cache(FRED_CCY[sym]).rows.filter((r) => r[0] >= '2000-01-01' && r[1] > 0) : cache(sym).rows;
   const thr = /CNY|HKD|DEXCH/.test(sym) ? 0.01 : 0.03, back = /CNY|HKD|DEXCH/.test(sym) ? 0.003 : 0.01;
   const bad = [];
   const v = rows.map((r) => r[1]);
-  for (let i = 1; i + 1 < rows.length; i++) {
+  for (let i = 1; i + 1 < rows.length && !fed; i++) {
     const r1 = Math.log(v[i] / v[i - 1]), r2 = Math.log(v[i + 1] / v[i]);
     const m = Math.min(Math.abs(r1), Math.abs(r2)); // 1.4.0: anche un salto enorme (oltre 5 volte la soglia) che rientra per almeno 3/4
     if (Math.abs(r1) > thr && Math.abs(r2) > thr && Math.sign(r1) !== Math.sign(r2) && (Math.abs(r1 + r2) < back || (m > 5 * thr && Math.abs(r1 + r2) < 0.25 * m))) bad.push(i);
@@ -161,14 +163,14 @@ for (const k of INDICES) {
   BASE[k] = { X, m, start, trig, setups, setupFail };
 }
 const FX = {}; for (const s of new Set(Object.values(USD))) FX[s] = loadFx(s);
-const FXF = {}; for (const s of Object.values(CCY)) FXF[s] = loadFx(s, 'fred');
+const FXF = {}; for (const s of new Set(Object.values(USD))) FXF[s] = loadFx(s, 'fred');
 const DTW = loadFx('DTWEXEMEGS'), DXY = loadFx('DX-Y.NYB');
 
 const fwd = (a, t, h) => (t + 1 + h < a.length && a[t + 1] != null && a[t + 1 + h] != null ? (a[t + 1 + h] / a[t + 1] - 1) * 100 : null);
 
 // Costruisce, per una variante, le serie F, D, punteggio e rendimenti sul calendario di ogni indice
 export function build(v = {}) {
-  const o = { w: 63, z: 1, ma: 200, dsrc: 'pub', fsrc: 'yahoo', ftype: 'z', ...v };
+  const o = { w: 63, z: 1, ma: 200, dsrc: 'pub', fsrc: 'fedx', ftype: 'z', ...v }; // fsrc: fedx = Fed alla stessa data (come l'app), fred = Fed pubblicata, yahoo
   const Dsrc = o.dsrc === 'dxy' ? DXY : DTW;
   const Darr = computeD(Dsrc, { ma: o.ma, w: o.w });
   const out = {};
@@ -177,13 +179,14 @@ export function build(v = {}) {
     const D = o.dsrc === 'pub' ? publishedMap(Dsrc, Darr)(dates) : dates.map(exactMap(Dsrc, Darr));
     let F = null;
     if (CCY[k]) {
-      const S = o.fsrc === 'fred' ? FXF[CCY[k]] : FX[CCY[k]];
+      const S = o.fsrc === 'yahoo' ? FX[CCY[k]] : FXF[CCY[k]];
       const Fa = o.ftype === 'sma' ? computeFsma(S) : computeF(S, { w: o.w, z: o.z });
       F = o.fsrc === 'fred' ? publishedMap(S, Fa)(dates) : dates.map(exactMap(S, Fa));
     }
     const max = CCY[k] ? 2 : 1;
     const score = dates.map((_, t) => (D[t] == null || (F && F[t] == null) ? null : D[t] + (F ? F[t] : 0)));
-    const fxu = USD[k] ? dates.map(exactMap(FX[USD[k]], FX[USD[k]].val)) : null;
+    const FU = o.fsrc === 'yahoo' ? FX : FXF;
+    const fxu = USD[k] ? dates.map(exactMap(FU[USD[k]], FU[USD[k]].val)) : null;
     const usd = fxu ? X.close.map((c, t) => (c != null && fxu[t] != null ? c / fxu[t] : null)) : X.close;
     out[k] = { dates, D, F, score, max, close: X.close, usd };
   }
@@ -388,11 +391,12 @@ if (isMain) {
     'w 26': { w: 26 }, 'w 126': { w: 126 }, 'z 0,75': { z: 0.75 }, 'z 1,5': { z: 1.5 }, 'media 100 per D': { ma: 100 },
     'D stesso giorno (guarda avanti)': { dsrc: 'same' }, 'D con DX-Y.NYB': { dsrc: 'dxy' }, "F' = cambio sotto media 50": { ftype: 'sma' },
     'cambi FRED H.10 (pubblicati)': { fsrc: 'fred' },
+    'cambi Yahoo (fonte fino alla 1.4.0 in prova)': { fsrc: 'yahoo' },
   };
   const sens = Object.fromEntries(Object.entries(variants).map(([n, v]) => [n, headline(build(v))]));
   // F ai trigger: Yahoo contro cambi FRED H.10 (pubblicati), sui trigger dei cinque indici con il cambio
-  const BF = build({ fsrc: 'fred' });
-  const fcmp = trigI.filter((x) => CCY[x.k]).map((x) => ({ k: x.k, date: x.date, yahoo: x.F, fred: BF.by[x.k].F[x.t] }));
+  const BF = build({ fsrc: 'yahoo' });
+  const fcmp = trigI.filter((x) => CCY[x.k]).map((x) => ({ k: x.k, date: x.date, yahoo: BF.by[x.k].F[x.t], fred: x.F }));
   const both = fcmp.filter((x) => x.yahoo != null && x.fred != null);
   const Fyahoo_fred = { triggerConCambio: fcmp.length, conEntrambi: both.length, diversi: both.filter((x) => x.yahoo !== x.fred).length, soloFred: fcmp.filter((x) => x.yahoo == null && x.fred != null).length, elenco: fcmp };
   const res = {

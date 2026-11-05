@@ -21,7 +21,7 @@ const DAY = 86400000;
 const FXL = { calo: 'In calo forte', ferma: 'Ha smesso di scendere', normale: 'Normale', agganciato: 'Agganciato', dollari: 'In dollari' };
 const FXT = {
   calo: 'La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni).',
-  ferma: 'Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione si era accesa prima del vero minimo in 13 cali di borsa su 15: non è un segnale d\'ingresso.',
+  ferma: 'Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione si era accesa prima del vero minimo in 15 cali di borsa su 17: non è un segnale d\'ingresso.',
   normale: 'La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte.',
   agganciato: 'Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.',
   dollari: 'EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.',
@@ -70,7 +70,9 @@ export function createEmerging(ctx) {
     const snap = indices.snapshot(k);
     if (!snap) return { k, missing: true };
     // «3 mesi in $» alla stessa seduta di «3 mesi locale»: se quel giorno manca il cambio, «—» (non il giorno prima in silenzio)
-    const chUsd = (cl, u) => { let t = cl.length - 1; while (t >= 0 && cl[t] == null) t--; return t >= 0 && u[t] != null ? change(u, 63, t) : null; };
+    // (la sera le borse asiatiche hanno già la seduta di oggi e il cambio di oggi non c'è ancora): allora si usa l'ultima seduta
+    // con il cambio, e la colonna lo dice con l'asterisco e la data
+    const chUsd = (cl, u) => { let t = cl.length - 1; while (t >= 0 && cl[t] == null) t--; const tl = t; while (t >= 0 && u[t] == null) t--; return t < 0 ? null : { v: change(u, 63, t), t, lag: t < tl }; };
     const c = CFG[k], f = model.fx[k], last = snap.close.length - 1;
     const fxOn = f ? onDates(f.S.dates, f.S.val, snap.dates) : null;
     const usd = c.fx === null ? snap.close : fxOn ? inUsd(snap.close, fxOn) : null;
@@ -139,7 +141,7 @@ export function createEmerging(ctx) {
         <td class="num r c-dd" data-l="drawdown">${pct(r.dd)}</td>
         <td class="c-fx" data-l="valuta">${fxCell(r.fx)}</td>
         <td class="num r c-m3" data-l="3 mesi" title="${esc(CFG[r.k].fx ? 'variazione in 63 sedute dell\'indice in valuta locale' : 'variazione in 63 sedute (EEM è in dollari)')}">${pct(r.ch63)}</td>
-        <td class="num r c-m3u" data-l="in $" title="${esc(CFG[r.k].fx === null ? 'EEM è già in dollari' : CFG[r.k].fx ? `indice diviso per il cambio ${CFG[r.k].fx} dello stesso giorno` : '')}">${pct(r.ch63u)}</td>
+        <td class="num r c-m3u" data-l="in $" title="${esc((CFG[r.k].fx === null ? 'EEM è già in dollari' : `indice diviso per il cambio ${CFG[r.k].fx} dello stesso giorno`) + (r.ch63u && r.ch63u.lag ? `; al ${dIT(r.snap.dates[r.ch63u.t])}, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)` : ''))}">${r.ch63u ? pct(r.ch63u.v) : pct(null)}${r.ch63u && r.ch63u.lag ? `<span class="loc">*</span>` : ''}</td>
         <td class="c-rs" data-l="forza rel. vs ACWI" title="${esc(r.rs ? `${CFG[r.k].etf} contro ACWI, settimanale, al ${dIT(r.rs.last)}` : 'storia non disponibile')}">${r.rs && r.rs.quad ? qPill(r.rs.quad) : '<span class="muted">—</span>'}</td></tr>`).join('') + '</tbody>';
     keepFocus($('emTable'), 'data-em', html);
     $('emTable').querySelectorAll('tbody tr[data-em]').forEach((tr) => {
@@ -170,7 +172,7 @@ export function createEmerging(ctx) {
     if (c.peg) notes.push(FXT.agganciato);
     if (!c.fx) notes.push(FXT.dollari);
     const f = model.fx[k];
-    if (f && f.S.removed.length) notes.push(`${f.S.removed.length} ${f.S.removed.length === 1 ? 'seduta del cambio tolta' : 'sedute del cambio tolte'} come probabili errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì ${c.peg ? 'l\'indice in dollari' : 'il cambio'} è «—». In qualche caso era un movimento vero (per esempio il won il 16 e 17/09/2008).`);
+    if (f && f.S.removed.length) notes.push(`${f.S.removed.length} ${f.S.removed.length === 1 ? 'seduta del cambio tolta' : 'sedute del cambio tolte'} negli ultimi giorni di Yahoo come probabili errori di stampa (salto che si annulla il giorno dopo): lì ${c.peg ? 'l\'indice in dollari' : 'il cambio'} è «—».`);
     notes.push(`Forza relativa con ${c.etf} (ETF in dollari, dividendi inclusi) contro ACWI.`);
     $('emNotes').innerHTML = notes.map((x) => `<li>${esc(x)}</li>`).join('');
   }
@@ -288,7 +290,7 @@ export function createEmerging(ctx) {
       const d = dates[i];
       line(d); emitX('emg', svg.id, d);
       const fi = fxAt ? fxAt.get(d) : undefined, di = dlAt ? dlAt.get(d) : undefined;
-      const fxTxt = fi == null ? '—' : fmt(f.S.val[fi], f.S.val[fi] < 10 ? 4 : 2);
+      const fxTxt = fi == null ? '—' : fmt(f.S.val[fi], f.S.val[fi] < 10 ? 4 : 2) + (f.S.fred && f.S.dates[fi] > f.S.fred ? ' <span class="muted">Yahoo, provvisorio</span>' : '');
       const fxSt = fi == null ? null : fxState(f.F[fi], f.z[fi]);
       $('emTip').innerHTML = `<div class="row"><b>${dIT(d)}</b><span>${k}${snap.m.days[i] ? ' · ' + esc(STATES[snap.m.days[i]].toLowerCase()) : ''}</span></div>
         <div class="row"><span>Prezzo</span><b>${fmt(snap.close[i], snap.close[i] >= 1000 ? 0 : snap.close[i] < 10 ? 3 : 2)}</b></div>
@@ -309,7 +311,7 @@ export function createEmerging(ctx) {
       hasFx ? '<span><span class="kb em-calo"></span>valuta in calo forte</span><span><span class="kb em-ferma"></span>valuta che ha smesso di scendere</span>' : '',
       '<span><span class="kl" style="background:var(--ink-2)"></span>dollaro contro emergenti</span><span><span class="kl" style="background:var(--amber)"></span>sua media 200</span><span><span class="kb em-fav"></span>dollaro favorevole (sotto la media e in calo in 3 mesi)</span>',
     ].join('');
-    $('emChartMeta').textContent = `cambio al ${f ? dIT(f.S.dates.at(-1)) : '—'} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}${baseNote}${baseNote && usd ? ' (primo giorno con il cambio: le due linee hanno la stessa base)' : ''}`;
+    $('emChartMeta').textContent = `cambio al ${f ? dIT(f.S.dates.at(-1)) : '—'}${f && f.S.fred && f.S.fred < f.S.dates.at(-1) ? ` (Fed fino al ${dIT(f.S.fred)}, poi Yahoo provvisorio)` : ''} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}${baseNote}${baseNote && usd ? ' (primo giorno con il cambio: le due linee hanno la stessa base)' : ''}`;
   }
 
   // ---------- forza relativa contro ACWI ----------

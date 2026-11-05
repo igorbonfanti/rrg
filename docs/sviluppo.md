@@ -60,7 +60,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Prezzi | `scripts/fetch_data.js` | `data/prices.json` (USA), `prices_global.json` (UCITS in euro), `prices_macro.json` (asset reali, CPI da FRED) |
 | Breadth settori | `scripts/fetch_breadth.js` | `breadth.json`, `breadth_latest.json`, `sectors.json`, `sp500_members.json`, `sp500_history.json`, `sector_members.json`, `capitulation.json` (SPX e settori) |
 | Indici | `scripts/fetch_indices.js` | `indices.json`, `indices_more.json`, `index_members/*.json`, `capitulation.json` (indici) |
-| Emergenti | `scripts/fetch_emerging.js` | `emerging.json` (cambi e ETF da Yahoo, `DTWEXEMEGS` da FRED); passo che può fallire senza fermare gli altri |
+| Emergenti | `scripts/fetch_emerging.js` | `emerging.json` (cambi della Fed da FRED con gli ultimi giorni da Yahoo, ETF da Yahoo, `DTWEXEMEGS` da FRED); passo che può fallire senza fermare gli altri |
 | Alert | `scripts/send_alerts.js` | Telegram e `alerts.json`; un invio fallito si riprova per 5 sedute |
 | Commit | `scripts/keep_unchanged.js` | non pubblica i file che cambiano solo per l'ora |
 | Controllo | `scripts/check_fresh.js` | fa fallire l'esito se una fonte è ferma oltre il suo limite |
@@ -76,7 +76,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - holdings iShares (IVV, EXSA, IWM, EEM, EWT);
 - API Nasdaq, Nikkei e B3;
 - FRED per il CPI e per il dollaro contro le valute emergenti (`DTWEXEMEGS`, settimanale);
-- Yahoo per i cambi della vista 8 (valuta locale per un dollaro, chiusura di Londra).
+- FRED H.10 per i cambi della vista 8 (valuta locale per un dollaro, mezzogiorno di New York), Yahoo per gli ultimi giorni non ancora pubblicati dalla Fed (provvisori).
 
 **Approssimazioni dichiarate** (devono restare scritte nell'app):
 - **Composizione**: storia con i membri di oggi per gli indici senza composizione storica gratuita.
@@ -86,7 +86,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **CPI**: a gradini, dal giorno di pubblicazione.
 - **Drawdown**: con i dividendi oppure sul solo prezzo.
 - **Cali forti**: esclusi gli errori di stampa; Taiwan escluso (`noCap`).
-- **Emergenti**: indice in dollari = chiusura locale / cambio di Londra dello stesso giorno (orari diversi); errori di stampa isolati dei cambi tolti (`cleanFx`); storia dei cambi di Yahoo dopo l'ultimo buco oltre 35 giorni (2003 o 2006).
+- **Emergenti**: indice in dollari = chiusura locale / cambio della Fed dello stesso giorno (mezzogiorno di New York: orari diversi dalla chiusura della borsa); ultimi giorni con il cambio provvisorio di Yahoo, con gli errori di stampa isolati tolti (`cleanFx`); «3 mesi in $» con l'asterisco quando il cambio di oggi non c'è ancora.
 
 ## 4. Metodi (sintesi; i dettagli sono nel README)
 
@@ -124,7 +124,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
   - solo contesto, conta se l'allerta si ripete: mediana di 31,5 sedute in allerta nei 12 mesi dal primo episodio nel 2007-2009, 12 nel 2020, 5 nell'aprile 2025 (script `ricerca/quant-rea/script/capitolazione_persistenza.mjs`);
   - prova sui 22 indici in `ricerca/quant-rea/risultati/capitolazione/`.
 
-- **Emergenti** (1.4.0, solo contesto): definizioni di F (valuta che ha smesso di scendere), «in calo forte» e D (dollaro emergente favorevole) in testa a `js/emerging.js`, identiche a `ricerca/emergenti/backtest/script/backtest.mjs` (porting verificato: `ricerca/emergenti/verifica_porting.mjs`, 0 differenze su 29.155 valori di F e 5.222 di D). Forza relativa: ETF in dollari contro ACWI con la formula «Nuova».
+- **Emergenti** (1.4.0, solo contesto): definizioni di F (valuta che ha smesso di scendere), «in calo forte» e D (dollaro emergente favorevole) in testa a `js/emerging.js`, identiche a `ricerca/emergenti/backtest/script/backtest.mjs` (porting verificato: `ricerca/emergenti/verifica_porting.mjs`, 0 differenze su 33.632 valori di F (cambi della Fed) e 5.222 di D). Forza relativa: ETF in dollari contro ACWI con la formula «Nuova».
 
 ## 5. Decisioni prese con l'utente
 

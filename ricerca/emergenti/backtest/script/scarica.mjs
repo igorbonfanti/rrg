@@ -22,10 +22,10 @@ for (const s of YH) {
   fs.writeFileSync(new URL(s.replace(/[^A-Za-z0-9]/g, '_') + '.json', CACHE), JSON.stringify({ symbol: s, source: 'Yahoo chart v8', fetched: new Date().toISOString(), rows: out }));
   console.log(s, out.length, out[0][0], out.at(-1));
 }
-// FRED: DTWEXEMEGS (scelto prima) e, solo per un confronto di sensibilità, i cambi H.10 (mezzogiorno di New York):
-// DEXCHUS (CNY), DEXINUS (INR), DEXBZUS (BRL), DEXKOUS (KRW), DEXTAUS (TWD), unità di valuta locale per dollaro.
+// FRED: DTWEXEMEGS e i cambi H.10 della Federal Reserve (mezzogiorno di New York; fonte principale dei cambi dalla 1.4.0):
+// DEXCHUS (CNY), DEXINUS (INR), DEXBZUS (BRL), DEXKOUS (KRW), DEXTAUS (TWD), DEXHKUS (HKD), unità di valuta locale per dollaro.
 const { execFileSync } = await import('node:child_process');
-for (const id of ['DTWEXEMEGS', 'DEXCHUS', 'DEXINUS', 'DEXBZUS', 'DEXKOUS', 'DEXTAUS']) {
+for (const id of ['DTWEXEMEGS', 'DEXCHUS', 'DEXINUS', 'DEXBZUS', 'DEXKOUS', 'DEXTAUS', 'DEXHKUS']) {
   const url = `https://fred.stlouisfed.org/graph/fredgraph.csv?id=${id}`;
   let txt = null;
   const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0', Accept: 'text/csv' } }).catch(() => null);

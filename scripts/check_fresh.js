@@ -49,6 +49,10 @@ export function staleData(d, today) {
   for (const [k, at] of Object.entries(d.indexLast || {})) checks.push([`indici: ${k}`, at, B, 12]);
   for (const [k, at] of Object.entries(d.capLast || {})) checks.push([`cali forti: ${k}`, at, B, 12]);
   for (const [k, at] of Object.entries(d.emergingLast || {})) checks.push([`emerging.json: ${k}`, at, B, 6]);
+  // cambi: la parte della Fed (H.10, settimanale) non deve fermarsi, altrimenti la coda provvisoria di Yahoo si allunga
+  for (const [k, at] of Object.entries(d.emergingFed || {})) checks.push([`emerging.json: ${k} (Fed)`, at, today, 14]);
+  // serie che non sono mai arrivate (prima corsa con qualche fonte giù): senza data, quindi segnalate
+  for (const k of (d.emerging && d.emerging.missing) || []) checks.push([`emerging.json: ${k} (mancante)`, null, B, 6]);
   for (const [k, m] of Object.entries(d.indexMembers || {})) checks.push([`index_members/${k}.json`, m && m.asOf, today, 14]);
   for (const [name, at, ref, max] of checks) {
     if (at === undefined) continue; // campo non ancora scritto (prima sera con questo controllo)
@@ -76,7 +80,8 @@ async function main() {
     breadth: read('breadth.json'), sectors: read('sectors.json'), members: read('sp500_members.json'), history: read('sp500_history.json'),
     sectorMembers: read('sector_members.json'), indices: read('indices.json'), capitulation: cap, indexMembers,
     prices: read('prices.json'), pricesGlobal: read('prices_global.json'), pricesMacro: read('prices_macro.json'), indexLast, capLast,
-    emerging: em, emergingLast,
+    emerging: em || undefined, emergingLast,
+    emergingFed: em && em.series ? Object.fromEntries(Object.entries(em.series).filter(([, x]) => x.fred).map(([k, x]) => [k, x.fred])) : {},
   }, new Date().toISOString().slice(0, 10));
   for (const p of problems) console.log(`::error::Dati non aggiornati: ${p}`);
   if (problems.length) process.exit(1);

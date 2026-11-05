@@ -22,8 +22,9 @@ TH = J('config/thresholds.json')['params']; CFG = J('config/indices.json')['indi
 SER = {**J('data/indices_more.json')['series'], **J('data/indices.json')['series']}
 RES = J('ricerca/emergenti/backtest/risultati.json')
 IDX = ['CSI300', 'NIFTY50', 'IBOV', 'KOSPI200', 'TWN', 'HSI', 'EEM']
-CCY = {'CSI300': 'CNY_X', 'NIFTY50': 'INR_X', 'IBOV': 'BRL_X', 'KOSPI200': 'KRW_X', 'TWN': 'TWD_X'}
-USDS = dict(CCY, HSI='HKD_X')
+# dalla 1.4.0 i cambi sono quelli della Federal Reserve (FRED H.10, dal 2000), senza pulizia
+CCY = {'CSI300': 'DEXCHUS', 'NIFTY50': 'DEXINUS', 'IBOV': 'DEXBZUS', 'KOSPI200': 'DEXKOUS', 'TWN': 'DEXTAUS'}
+USDS = dict(CCY, HSI='DEXHKUS')
 
 # ---------- 1. decodifica ----------
 def undelta(a, scale):
@@ -124,9 +125,12 @@ def machine(c, p200, p50, p20, nn, L):
 # ---------- 4. cambi, F, D ----------
 def fx(name):
     rows = J(f'ricerca/emergenti/cache/{name}.json')['rows']
+    if name.startswith('DEX'):
+        rows = [r for r in rows if r[0] >= '2000-01-01' and r[1] > 0]
     tight = name in ('CNY_X', 'HKD_X'); thr, back = (0.01, 0.003) if tight else (0.03, 0.01)
     bad = set()
     for i in range(1, len(rows) - 1):
+        if name.startswith('DEX'): break
         a = math.log(rows[i][1] / rows[i - 1][1]); b = math.log(rows[i + 1][1] / rows[i][1])
         if abs(a) > thr and abs(b) > thr and (a > 0) != (b > 0) and (abs(a + b) < back or (min(abs(a), abs(b)) > 5 * thr and abs(a + b) < 0.25 * min(abs(a), abs(b)))): bad.add(i)  # 1.4.0: anche i salti enormi che rientrano per 3/4
     rows = [r for i, r in enumerate(rows) if i not in bad]

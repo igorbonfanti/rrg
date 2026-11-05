@@ -1,8 +1,8 @@
 {
  "Fyahoo_fred": {
   "triggerConCambio": 25,
-  "conEntrambi": 20,
-  "diversi": 8,
+  "conEntrambi": 19,
+  "diversi": 3,
   "soloFred": 5,
   "elenco": [
    {
@@ -33,7 +33,7 @@
     "k": "CSI300",
     "date": "2022-05-26",
     "yahoo": 1,
-    "fred": 1
+    "fred": 0
    },
    {
     "k": "CSI300",
@@ -75,7 +75,7 @@
     "k": "IBOV",
     "date": "2020-05-05",
     "yahoo": 0,
-    "fred": 1
+    "fred": 0
    },
    {
     "k": "KOSPI200",
@@ -93,7 +93,7 @@
     "k": "KOSPI200",
     "date": "2022-03-28",
     "yahoo": 0,
-    "fred": 1
+    "fred": 0
    },
    {
     "k": "KOSPI200",
@@ -123,19 +123,19 @@
     "k": "TWN",
     "date": "2011-12-15",
     "yahoo": 0,
-    "fred": 1
+    "fred": 0
    },
    {
     "k": "TWN",
     "date": "2011-12-26",
     "yahoo": 1,
-    "fred": 0
+    "fred": null
    },
    {
     "k": "TWN",
     "date": "2015-09-22",
     "yahoo": 0,
-    "fred": 1
+    "fred": 0
    },
    {
     "k": "TWN",
@@ -147,7 +147,7 @@
     "k": "TWN",
     "date": "2022-11-09",
     "yahoo": 1,
-    "fred": 0
+    "fred": 1
    },
    {
     "k": "TWN",
@@ -157,7 +157,7 @@
    }
   ]
  },
- "generato": "2026-11-05T16:14:06.227Z",
+ "generato": "2026-11-05T16:44:50.235Z",
  "asOfIndici": "2026-11-04",
  "fonti": {
   "CNY=X": {
@@ -309,47 +309,47 @@
   "CSI300": {
    "daStato": "2013-06-05",
    "sedute": 3256,
-   "conPunteggio": 3240,
+   "conPunteggio": 3124,
    "quotaPieno": 11,
    "quotaZero": 53,
-   "Fmancante": 16,
+   "Fmancante": 132,
    "primoPunteggio": "2012-05-04"
   },
   "NIFTY50": {
    "daStato": "2008-09-22",
    "sedute": 4442,
-   "conPunteggio": 4291,
-   "quotaPieno": 16,
-   "quotaZero": 41,
-   "Fmancante": 151,
+   "conPunteggio": 4275,
+   "quotaPieno": 14,
+   "quotaZero": 43,
+   "Fmancante": 167,
    "primoPunteggio": "2007-09-17"
   },
   "IBOV": {
    "daStato": "2008-11-03",
    "sedute": 4460,
-   "conPunteggio": 4186,
-   "quotaPieno": 11,
+   "conPunteggio": 4313,
+   "quotaPieno": 9,
    "quotaZero": 36,
-   "Fmancante": 274,
-   "primoPunteggio": "2009-11-18"
+   "Fmancante": 147,
+   "primoPunteggio": "2006-10-10"
   },
   "KOSPI200": {
    "daStato": "2006-12-01",
    "sedute": 4904,
-   "conPunteggio": 4621,
+   "conPunteggio": 4736,
    "quotaPieno": 17,
    "quotaZero": 33,
-   "Fmancante": 283,
-   "primoPunteggio": "2007-03-29"
+   "Fmancante": 168,
+   "primoPunteggio": "2006-10-10"
   },
   "TWN": {
    "daStato": "2003-01-02",
    "sedute": 5841,
-   "conPunteggio": 4078,
-   "quotaPieno": 14,
-   "quotaZero": 37,
-   "Fmancante": 1763,
-   "primoPunteggio": "2009-12-24"
+   "conPunteggio": 4725,
+   "quotaPieno": 10,
+   "quotaZero": 40,
+   "Fmancante": 306,
+   "primoPunteggio": "2006-10-11"
   },
   "HSI": {
    "daStato": "2008-09-01",
@@ -380,7 +380,7 @@
    "D": 0,
    "failed": false,
    "r126": -6.9,
-   "r126usd": -8.8
+   "r126usd": -8.7
   },
   {
    "k": "CSI300",
@@ -391,7 +391,7 @@
    "D": 0,
    "failed": false,
    "r126": 4.7,
-   "r126usd": 1.2
+   "r126usd": null
   },
   {
    "k": "CSI300",
@@ -402,7 +402,7 @@
    "D": 0,
    "failed": true,
    "r126": 17,
-   "r126usd": 19.7
+   "r126usd": 19.6
   },
   {
    "k": "CSI300",
@@ -413,18 +413,18 @@
    "D": 0,
    "failed": false,
    "r126": 21.3,
-   "r126usd": 19.4
+   "r126usd": null
   },
   {
    "k": "CSI300",
    "date": "2022-05-26",
    "crisis": "2022",
-   "score": 1,
-   "F": 1,
+   "score": 0,
+   "F": 0,
    "D": 0,
    "failed": false,
    "r126": -2.3,
-   "r126usd": -8
+   "r126usd": -7.6
   },
   {
    "k": "CSI300",
@@ -435,40 +435,40 @@
    "D": 0,
    "failed": false,
    "r126": 3,
-   "r126usd": 2.1
+   "r126usd": 3.4
   },
   {
    "k": "NIFTY50",
    "date": "2009-04-15",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": false,
    "r126": 51.8,
-   "r126usd": 63.3
+   "r126usd": 62.9
   },
   {
    "k": "NIFTY50",
    "date": "2020-04-13",
    "crisis": "2020",
-   "score": 1,
-   "F": 1,
+   "score": 0,
+   "F": 0,
    "D": 0,
    "failed": false,
    "r126": 33.7,
-   "r126usd": 38.4
+   "r126usd": 39.4
   },
   {
    "k": "IBOV",
    "date": "2009-03-25",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": false,
    "r126": 44,
-   "r126usd": 84.8
+   "r126usd": 80.1
   },
   {
    "k": "IBOV",
@@ -479,18 +479,18 @@
    "D": 0,
    "failed": false,
    "r126": 19.2,
-   "r126usd": 8
+   "r126usd": 7.3
   },
   {
    "k": "IBOV",
    "date": "2016-02-01",
    "crisis": "2015-16",
-   "score": 1,
-   "F": 1,
+   "score": 0,
+   "F": 0,
    "D": 0,
    "failed": false,
    "r126": 47.9,
-   "r126usd": 80
+   "r126usd": 81
   },
   {
    "k": "IBOV",
@@ -501,18 +501,18 @@
    "D": 0,
    "failed": false,
    "r126": 23.7,
-   "r126usd": 19.9
+   "r126usd": 24.3
   },
   {
    "k": "KOSPI200",
    "date": "2009-03-19",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": false,
    "r126": 43.8,
-   "r126usd": 67
+   "r126usd": 66.5
   },
   {
    "k": "KOSPI200",
@@ -523,7 +523,7 @@
    "D": 0,
    "failed": false,
    "r126": 24.7,
-   "r126usd": 34.7
+   "r126usd": 35.9
   },
   {
    "k": "KOSPI200",
@@ -534,7 +534,7 @@
    "D": 0,
    "failed": true,
    "r126": -21.4,
-   "r126usd": -32.7
+   "r126usd": -33
   },
   {
    "k": "KOSPI200",
@@ -556,29 +556,29 @@
    "D": 0,
    "failed": false,
    "r126": 10.1,
-   "r126usd": 16.5
+   "r126usd": 16.9
   },
   {
    "k": "TWN",
    "date": "2008-08-12",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 1,
+   "F": 0,
    "D": 1,
    "failed": true,
    "r126": -39.2,
-   "r126usd": null
+   "r126usd": -45.4
   },
   {
    "k": "TWN",
    "date": "2009-04-06",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": false,
    "r126": 35.1,
-   "r126usd": 41.6
+   "r126usd": 41.4
   },
   {
    "k": "TWN",
@@ -589,18 +589,18 @@
    "D": 0,
    "failed": true,
    "r126": 5.9,
-   "r126usd": 7.2
+   "r126usd": 7.4
   },
   {
    "k": "TWN",
    "date": "2011-12-26",
    "crisis": "2011",
-   "score": 1,
-   "F": 1,
+   "score": null,
+   "F": null,
    "D": 0,
    "failed": false,
    "r126": 4,
-   "r126usd": 5.4
+   "r126usd": 5.3
   },
   {
    "k": "TWN",
@@ -622,7 +622,7 @@
    "D": 0,
    "failed": false,
    "r126": 27.1,
-   "r126usd": 33.7
+   "r126usd": 33.6
   },
   {
    "k": "TWN",
@@ -633,7 +633,7 @@
    "D": 0,
    "failed": false,
    "r126": 22.2,
-   "r126usd": 26.8
+   "r126usd": 25.4
   },
   {
    "k": "TWN",
@@ -644,7 +644,7 @@
    "D": 0,
    "failed": false,
    "r126": 39.8,
-   "r126usd": 47.8
+   "r126usd": 46.5
   },
   {
    "k": "HSI",
@@ -677,7 +677,7 @@
    "D": 0,
    "failed": false,
    "r126": 1.6,
-   "r126usd": 1.7
+   "r126usd": null
   },
   {
    "k": "HSI",
@@ -734,7 +734,7 @@
    "D": 0,
    "failed": false,
    "r126": 1.2,
-   "r126usd": -1
+   "r126usd": -0.7
   },
   {
    "k": "CSI300",
@@ -745,7 +745,7 @@
    "D": 0,
    "failed": true,
    "r126": 19,
-   "r126usd": 21.6
+   "r126usd": 21.7
   },
   {
    "k": "CSI300",
@@ -767,14 +767,14 @@
    "D": 0,
    "failed": false,
    "r126": 3.9,
-   "r126usd": 2.8
+   "r126usd": 4.3
   },
   {
    "k": "NIFTY50",
    "date": "2008-10-06",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 0,
+   "F": 0,
    "D": 0,
    "failed": false,
    "r126": -3.5,
@@ -789,18 +789,18 @@
    "D": 0,
    "failed": false,
    "r126": 27.5,
-   "r126usd": 30.3
+   "r126usd": 30.7
   },
   {
    "k": "IBOV",
    "date": "2008-11-04",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": false,
    "r126": 30.9,
-   "r126usd": 31.7
+   "r126usd": 32.6
   },
   {
    "k": "IBOV",
@@ -811,7 +811,7 @@
    "D": 0,
    "failed": false,
    "r126": 34.6,
-   "r126usd": 24.8
+   "r126usd": 25.2
   },
   {
    "k": "IBOV",
@@ -822,7 +822,7 @@
    "D": 0,
    "failed": false,
    "r126": 49.3,
-   "r126usd": 88.9
+   "r126usd": 87.1
   },
   {
    "k": "IBOV",
@@ -833,7 +833,7 @@
    "D": 0,
    "failed": false,
    "r126": 49.6,
-   "r126usd": 43.2
+   "r126usd": 45.5
   },
   {
    "k": "KOSPI200",
@@ -844,18 +844,18 @@
    "D": 0,
    "failed": false,
    "r126": -2.5,
-   "r126usd": -11.2
+   "r126usd": -11.7
   },
   {
    "k": "KOSPI200",
    "date": "2020-03-12",
    "crisis": "2020",
-   "score": 1,
-   "F": 1,
+   "score": 0,
+   "F": 0,
    "D": 0,
    "failed": false,
    "r126": 37.1,
-   "r126usd": 39.7
+   "r126usd": 40.6
   },
   {
    "k": "KOSPI200",
@@ -866,7 +866,7 @@
    "D": 0,
    "failed": true,
    "r126": -6.5,
-   "r126usd": -13.6
+   "r126usd": -12.9
   },
   {
    "k": "KOSPI200",
@@ -883,34 +883,34 @@
    "k": "TWN",
    "date": "2008-07-09",
    "crisis": "2008",
-   "score": null,
-   "F": null,
+   "score": 1,
+   "F": 0,
    "D": 1,
    "failed": true,
    "r126": -36.4,
-   "r126usd": -41.7
+   "r126usd": -41.6
   },
   {
    "k": "TWN",
    "date": "2011-11-25",
    "crisis": "2011",
-   "score": 1,
-   "F": 1,
+   "score": 0,
+   "F": 0,
    "D": 0,
    "failed": true,
    "r126": 2.6,
-   "r126usd": 2.1
+   "r126usd": 4.7
   },
   {
    "k": "TWN",
    "date": "2015-08-25",
    "crisis": "2015-16",
-   "score": 0,
-   "F": 0,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": false,
    "r126": 12.2,
-   "r126usd": 16.1
+   "r126usd": 12
   },
   {
    "k": "TWN",
@@ -921,7 +921,7 @@
    "D": 0,
    "failed": false,
    "r126": 48.3,
-   "r126usd": 53.4
+   "r126usd": 55.4
   },
   {
    "k": "TWN",
@@ -932,7 +932,7 @@
    "D": 0,
    "failed": false,
    "r126": 22.3,
-   "r126usd": 28.7
+   "r126usd": 28.9
   },
   {
    "k": "TWN",
@@ -943,7 +943,7 @@
    "D": 0,
    "failed": false,
    "r126": 55.6,
-   "r126usd": 68.6
+   "r126usd": 67.3
   },
   {
    "k": "HSI",
@@ -965,7 +965,7 @@
    "D": 0,
    "failed": false,
    "r126": 14.7,
-   "r126usd": 15.6
+   "r126usd": 15.2
   },
   {
    "k": "HSI",
@@ -976,7 +976,7 @@
    "D": 0,
    "failed": false,
    "r126": 4,
-   "r126usd": 4.2
+   "r126usd": 4.1
   },
   {
    "k": "HSI",
@@ -987,7 +987,7 @@
    "D": 0,
    "failed": false,
    "r126": 21,
-   "r126usd": 21
+   "r126usd": 21.1
   },
   {
    "k": "EEM",
@@ -1016,7 +1016,7 @@
   "tutti": {
    "n": 31,
    "med126": 18,
-   "med126usd": 18.8,
+   "med126usd": 18.9,
    "med63": 11.3,
    "med252": 20.6,
    "pos126": "27/31",
@@ -1034,26 +1034,26 @@
    "quotaFalliti": null
   },
   "parziale": {
-   "n": 11,
-   "med126": 21.3,
-   "med126usd": 19.4,
-   "med63": 14.7,
-   "med252": 24.8,
-   "pos126": "9/11",
-   "falliti": "0/11",
-   "quotaFalliti": 0
+   "n": 12,
+   "med126": 23.5,
+   "med126usd": 38.7,
+   "med63": 16.7,
+   "med252": 36.2,
+   "pos126": "10/12",
+   "falliti": "1/12",
+   "quotaFalliti": 8
   },
   "zero": {
-   "n": 15,
-   "med126": 10.1,
-   "med126usd": 8.3,
-   "med63": 6,
-   "med252": 12.5,
-   "pos126": "14/15",
-   "falliti": "4/15",
-   "quotaFalliti": 27
+   "n": 18,
+   "med126": 13.5,
+   "med126usd": 16.9,
+   "med63": 6.1,
+   "med252": 14.1,
+   "pos126": "16/18",
+   "falliti": "4/18",
+   "quotaFalliti": 22
   },
-  "mancante": 5,
+  "mancante": 1,
   "diffLocale": null,
   "diffDollari": null,
   "menoFalliti": null,
@@ -1099,7 +1099,7 @@
     "zero": {
      "n": 3,
      "med126": 6.7,
-     "med126usd": 7.2,
+     "med126usd": 7.3,
      "med63": 6.5,
      "med252": 3.8,
      "pos126": "3/3",
@@ -1125,7 +1125,7 @@
     "zero": {
      "n": 1,
      "med126": 17,
-     "med126usd": 19.7,
+     "med126usd": 19.6,
      "med63": -11.3,
      "med252": 15.7,
      "pos126": "1/1",
@@ -1149,13 +1149,13 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 3,
-     "med126": 23.7,
-     "med126usd": 19.9,
-     "med63": 20.3,
-     "med252": 52.7,
-     "pos126": "3/3",
-     "falliti": "0/3",
+     "n": 4,
+     "med126": 25.4,
+     "med126usd": 33.6,
+     "med63": 19.6,
+     "med252": 56.8,
+     "pos126": "4/4",
+     "falliti": "0/4",
      "quotaFalliti": 0
     },
     "diffLocale": null,
@@ -1175,14 +1175,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 4,
-     "med126": 2.9,
-     "med126usd": 6.2,
-     "med63": -0.1,
-     "med252": 1,
-     "pos126": "3/4",
-     "falliti": "2/4",
-     "quotaFalliti": 50
+     "n": 5,
+     "med126": 1.6,
+     "med126usd": 4.2,
+     "med63": 4.5,
+     "med252": -4.3,
+     "pos126": "3/5",
+     "falliti": "2/5",
+     "quotaFalliti": 40
     },
     "diffLocale": null,
     "diffDollari": null,
@@ -1201,13 +1201,13 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 3,
-     "med126": 18,
-     "med126usd": 18.2,
-     "med63": 5.1,
-     "med252": 22.2,
-     "pos126": "3/3",
-     "falliti": "0/3",
+     "n": 4,
+     "med126": 20.7,
+     "med126usd": 20.8,
+     "med63": 5.5,
+     "med252": 24.6,
+     "pos126": "4/4",
+     "falliti": "0/4",
      "quotaFalliti": 0
     },
     "diffLocale": null,
@@ -1284,14 +1284,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 1,
-     "med126": 17,
-     "med126usd": 19.7,
-     "med63": -11.3,
-     "med252": 15.7,
-     "pos126": "1/1",
-     "falliti": "1/1",
-     "quotaFalliti": 100
+     "n": 2,
+     "med126": 7.4,
+     "med126usd": 6,
+     "med63": -3.4,
+     "med252": 5.7,
+     "pos126": "1/2",
+     "falliti": "1/2",
+     "quotaFalliti": 50
     },
     "mancante": 0
    },
@@ -1308,16 +1308,16 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 0,
-     "med126": null,
-     "med126usd": null,
-     "med63": null,
-     "med252": null,
-     "pos126": "0/0",
-     "falliti": "0/0",
-     "quotaFalliti": null
+     "n": 1,
+     "med126": 33.7,
+     "med126usd": 39.4,
+     "med63": 19,
+     "med252": 60.9,
+     "pos126": "1/1",
+     "falliti": "0/1",
+     "quotaFalliti": 0
     },
-    "mancante": 1
+    "mancante": 0
    },
    "IBOV": {
     "n": 4,
@@ -1332,16 +1332,16 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 2,
-     "med126": 21.5,
-     "med126usd": 14,
-     "med63": 16.5,
-     "med252": 27.7,
-     "pos126": "2/2",
-     "falliti": "0/2",
+     "n": 3,
+     "med126": 23.7,
+     "med126usd": 24.3,
+     "med63": 28,
+     "med252": 52.7,
+     "pos126": "3/3",
+     "falliti": "0/3",
      "quotaFalliti": 0
     },
-    "mancante": 1
+    "mancante": 0
    },
    "KOSPI200": {
     "n": 5,
@@ -1365,7 +1365,7 @@
      "falliti": "2/3",
      "quotaFalliti": 67
     },
-    "mancante": 1
+    "mancante": 0
    },
    "TWN": {
     "n": 8,
@@ -1382,14 +1382,14 @@
     "zero": {
      "n": 3,
      "med126": 5.9,
-     "med126usd": 7.2,
+     "med126usd": 7.4,
      "med63": 18.5,
      "med252": 12.5,
      "pos126": "3/3",
      "falliti": "1/3",
      "quotaFalliti": 33
     },
-    "mancante": 2
+    "mancante": 1
    },
    "HSI": {
     "n": 4,
@@ -1406,7 +1406,7 @@
     "zero": {
      "n": 4,
      "med126": 11.1,
-     "med126usd": 11.2,
+     "med126usd": 18.2,
      "med63": 10.1,
      "med252": 21.1,
      "pos126": "4/4",
@@ -1445,7 +1445,7 @@
   "tutti": {
    "n": 27,
    "med126": 14.5,
-   "med126usd": 15.8,
+   "med126usd": 14.7,
    "med63": 11.8,
    "med252": 20.3,
    "pos126": "19/26",
@@ -1463,26 +1463,26 @@
    "quotaFalliti": null
   },
   "parziale": {
-   "n": 5,
-   "med126": 3.3,
-   "med126usd": 2.5,
-   "med63": 16.5,
-   "med252": 16.7,
-   "pos126": "3/4",
-   "falliti": "1/5",
-   "quotaFalliti": 20
+   "n": 6,
+   "med126": 3.9,
+   "med126usd": 4.3,
+   "med63": 11.3,
+   "med252": 19,
+   "pos126": "3/5",
+   "falliti": "1/6",
+   "quotaFalliti": 17
   },
   "zero": {
-   "n": 18,
+   "n": 20,
    "med126": 20,
-   "med126usd": 21.3,
-   "med63": 14.9,
-   "med252": 20.3,
-   "pos126": "15/18",
-   "falliti": "2/18",
-   "quotaFalliti": 11
+   "med126usd": 21.4,
+   "med63": 16.7,
+   "med252": 22.7,
+   "pos126": "16/20",
+   "falliti": "3/20",
+   "quotaFalliti": 15
   },
-  "mancante": 4,
+  "mancante": 1,
   "diffLocale": null,
   "diffDollari": null,
   "menoFalliti": null,
@@ -1500,13 +1500,13 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 1,
-     "med126": -37.2,
-     "med126usd": -36.8,
+     "n": 2,
+     "med126": -20.3,
+     "med126usd": -22,
      "med63": -24,
-     "med252": 4.4,
-     "pos126": "0/1",
-     "falliti": "0/1",
+     "med252": 19.1,
+     "pos126": "0/2",
+     "falliti": "0/2",
      "quotaFalliti": 0
     },
     "diffLocale": null,
@@ -1526,14 +1526,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 2,
-     "med126": 24.4,
-     "med126usd": 19.5,
-     "med63": 12.5,
-     "med252": 16.5,
-     "pos126": "2/2",
-     "falliti": "0/2",
-     "quotaFalliti": 0
+     "n": 3,
+     "med126": 14.2,
+     "med126usd": 14.2,
+     "med63": 15.7,
+     "med252": 13.7,
+     "pos126": "3/3",
+     "falliti": "1/3",
+     "quotaFalliti": 33
     },
     "diffLocale": null,
     "diffDollari": null,
@@ -1554,7 +1554,7 @@
     "zero": {
      "n": 1,
      "med126": 19,
-     "med126usd": 21.6,
+     "med126usd": 21.7,
      "med63": -7.2,
      "med252": 19.4,
      "pos126": "1/1",
@@ -1578,13 +1578,13 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 4,
-     "med126": 37.9,
-     "med126usd": 36.7,
-     "med63": 25.3,
-     "med252": 67.7,
-     "pos126": "4/4",
-     "falliti": "0/4",
+     "n": 5,
+     "med126": 37.1,
+     "med126usd": 40.6,
+     "med63": 20.7,
+     "med252": 69.6,
+     "pos126": "5/5",
+     "falliti": "0/5",
      "quotaFalliti": 0
     },
     "diffLocale": null,
@@ -1606,7 +1606,7 @@
     "zero": {
      "n": 4,
      "med126": 8.2,
-     "med126usd": 3.7,
+     "med126usd": 4.1,
      "med63": 14.2,
      "med252": 1.9,
      "pos126": "2/4",
@@ -1630,13 +1630,13 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 5,
-     "med126": 14.7,
-     "med126usd": 16.1,
-     "med63": 12.1,
-     "med252": 21.2,
-     "pos126": "5/5",
-     "falliti": "0/5",
+     "n": 4,
+     "med126": 18.7,
+     "med126usd": 18.9,
+     "med63": 14.9,
+     "med252": 23.6,
+     "pos126": "4/4",
+     "falliti": "0/4",
      "quotaFalliti": 0
     },
     "diffLocale": null,
@@ -1658,7 +1658,7 @@
     "zero": {
      "n": 1,
      "med126": 55.6,
-     "med126usd": 68.6,
+     "med126usd": 67.3,
      "med63": 29.5,
      "med252": 117.8,
      "pos126": "1/1",
@@ -1715,7 +1715,7 @@
     "zero": {
      "n": 3,
      "med126": 1.2,
-     "med126usd": -1,
+     "med126usd": -0.7,
      "med63": -1.2,
      "med252": 3.2,
      "pos126": "2/3",
@@ -1737,16 +1737,16 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 1,
-     "med126": 27.5,
-     "med126usd": 30.3,
-     "med63": 17.6,
-     "med252": 63.8,
-     "pos126": "1/1",
-     "falliti": "0/1",
+     "n": 2,
+     "med126": 12,
+     "med126usd": 11.7,
+     "med63": -3.2,
+     "med252": 48.8,
+     "pos126": "1/2",
+     "falliti": "0/2",
      "quotaFalliti": 0
     },
-    "mancante": 1
+    "mancante": 0
    },
    "IBOV": {
     "n": 4,
@@ -1763,14 +1763,14 @@
     "zero": {
      "n": 3,
      "med126": 49.3,
-     "med126usd": 43.2,
+     "med126usd": 45.5,
      "med63": 43.2,
      "med252": 71.6,
      "pos126": "3/3",
      "falliti": "0/3",
      "quotaFalliti": 0
     },
-    "mancante": 1
+    "mancante": 0
    },
    "KOSPI200": {
     "n": 4,
@@ -1785,14 +1785,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 1,
-     "med126": -6.5,
-     "med126usd": -13.6,
-     "med63": 0.5,
-     "med252": -6.8,
-     "pos126": "0/1",
-     "falliti": "1/1",
-     "quotaFalliti": 100
+     "n": 2,
+     "med126": 15.3,
+     "med126usd": 13.8,
+     "med63": 10.6,
+     "med252": 31.4,
+     "pos126": "1/2",
+     "falliti": "1/2",
+     "quotaFalliti": 50
     },
     "mancante": 1
    },
@@ -1811,14 +1811,14 @@
     "zero": {
      "n": 4,
      "med126": 35.3,
-     "med126usd": 41.1,
+     "med126usd": 42.1,
      "med63": 24.7,
      "med252": 59.8,
      "pos126": "4/4",
-     "falliti": "0/4",
-     "quotaFalliti": 0
+     "falliti": "1/4",
+     "quotaFalliti": 25
     },
-    "mancante": 1
+    "mancante": 0
    },
    "HSI": {
     "n": 4,
@@ -1835,7 +1835,7 @@
     "zero": {
      "n": 4,
      "med126": 9.4,
-     "med126usd": 9.9,
+     "med126usd": 9.6,
      "med63": 10.7,
      "med252": 12.8,
      "pos126": "3/4",
@@ -1874,32 +1874,32 @@
   "tutto": {
    "cinqueIndici": {
     "0": {
-     "n": 8081,
-     "r63": 2.2,
-     "r126": 3.9,
-     "r252": 8.4,
-     "r126usd": 3.2
+     "n": 8635,
+     "r63": 2.4,
+     "r126": 4.3,
+     "r252": 8.7,
+     "r126usd": 3.8
     },
     "1": {
-     "n": 9858,
+     "n": 10686,
      "r63": 2.1,
      "r126": 2.9,
-     "r252": 6,
-     "r126usd": 2.1
+     "r252": 6.4,
+     "r126usd": 2.6
     },
     "2": {
-     "n": 2942,
-     "r63": 2.3,
-     "r126": 4.9,
-     "r252": 5.5,
-     "r126usd": 5.1
+     "n": 2873,
+     "r63": 3.4,
+     "r126": 7.1,
+     "r252": 8.1,
+     "r126usd": 7.9
     },
     "base": {
-     "n": 20881,
-     "r63": 2.2,
-     "r126": 3.6,
-     "r252": 7.1,
-     "r126usd": 2.9
+     "n": 22194,
+     "r63": 2.4,
+     "r126": 4,
+     "r252": 7.7,
+     "r126usd": 3.7
     }
    },
    "hsiEem": {
@@ -1915,49 +1915,49 @@
      "r63": -0.1,
      "r126": -0.8,
      "r252": -1.8,
-     "r126usd": -0.7
+     "r126usd": -0.8
     },
     "base": {
      "n": 9990,
      "r63": 1.4,
      "r126": 2.4,
      "r252": 3,
-     "r126usd": 2.5
+     "r126usd": 2.4
     }
    },
    "monotono126": false,
-   "pienoMenoBase126": 1.3,
-   "pienoMenoBase126usd": 2.2,
+   "pienoMenoBase126": 3.1,
+   "pienoMenoBase126usd": 4.2,
    "scartoPerIndice126": {
     "CSI300": {
      "base": 1.2,
-     "pieno": 7.6,
-     "scarto": 6.4,
+     "pieno": 7.3,
+     "scarto": 6.1,
      "quotaPieno": 13
     },
     "NIFTY50": {
-     "base": 4.7,
-     "pieno": 4.8,
-     "scarto": 0.1,
-     "quotaPieno": 15
+     "base": 5,
+     "pieno": 4.1,
+     "scarto": -0.9,
+     "quotaPieno": 14
     },
     "IBOV": {
-     "base": 4.2,
-     "pieno": 0.7,
-     "scarto": -3.5,
+     "base": 5.3,
+     "pieno": 6.2,
+     "scarto": 0.9,
      "quotaPieno": 11
     },
     "KOSPI200": {
-     "base": 1.7,
-     "pieno": 4.4,
-     "scarto": 2.7,
+     "base": 2.3,
+     "pieno": 9.6,
+     "scarto": 7.3,
      "quotaPieno": 17
     },
     "TWN": {
      "base": 5.2,
-     "pieno": 6.2,
-     "scarto": 1,
-     "quotaPieno": 14
+     "pieno": 9.5,
+     "scarto": 4.3,
+     "quotaPieno": 10
     },
     "HSI": {
      "base": 2.1,
@@ -1976,32 +1976,32 @@
   "fino2015": {
    "cinqueIndici": {
     "0": {
-     "n": 2567,
-     "r63": 2.5,
-     "r126": 3.7,
-     "r252": 4.2,
-     "r126usd": 2
+     "n": 3026,
+     "r63": 2.9,
+     "r126": 4.8,
+     "r252": 5.6,
+     "r126usd": 4
     },
     "1": {
-     "n": 3965,
-     "r63": 0,
-     "r126": -1.3,
-     "r252": -0.7,
-     "r126usd": -2.9
+     "n": 5141,
+     "r63": 0.4,
+     "r126": -0.9,
+     "r252": 0.5,
+     "r126usd": -1.3
     },
     "2": {
-     "n": 1122,
-     "r63": 1.4,
-     "r126": 1.1,
-     "r252": 0.8,
-     "r126usd": 2
+     "n": 1267,
+     "r63": 3.2,
+     "r126": 4.9,
+     "r252": 5.6,
+     "r126usd": 8.4
     },
     "base": {
-     "n": 7654,
-     "r63": 1.1,
-     "r126": 0.5,
-     "r252": 1.2,
-     "r126usd": -0.3
+     "n": 9434,
+     "r63": 1.8,
+     "r126": 1.9,
+     "r252": 3.3,
+     "r126usd": 1.7
     }
    },
    "hsiEem": {
@@ -2010,26 +2010,26 @@
      "r63": 3.6,
      "r126": 3.4,
      "r252": 5.2,
-     "r126usd": 3.5
+     "r126usd": 3.4
     },
     "1": {
      "n": 2318,
      "r63": -0.6,
      "r126": -1.4,
      "r252": -2.3,
-     "r126usd": -1.2
+     "r126usd": -1.4
     },
     "base": {
      "n": 4598,
      "r63": 1.3,
      "r126": 1,
      "r252": 2,
-     "r126usd": 1.2
+     "r126usd": 1
     }
    },
    "monotono126": false,
-   "pienoMenoBase126": 0.6,
-   "pienoMenoBase126usd": 2.3,
+   "pienoMenoBase126": 3,
+   "pienoMenoBase126usd": 6.7,
    "scartoPerIndice126": {
     "CSI300": {
      "base": -1.7,
@@ -2038,28 +2038,28 @@
      "quotaPieno": 14
     },
     "NIFTY50": {
-     "base": 2.6,
-     "pieno": -1,
-     "scarto": -3.5,
-     "quotaPieno": 13
+     "base": 3.2,
+     "pieno": -1.2,
+     "scarto": -4.4,
+     "quotaPieno": 12
     },
     "IBOV": {
-     "base": -3.3,
-     "pieno": -4.1,
-     "scarto": -0.9,
-     "quotaPieno": 8
+     "base": 0,
+     "pieno": 5.7,
+     "scarto": 5.7,
+     "quotaPieno": 12
     },
     "KOSPI200": {
-     "base": 0.3,
-     "pieno": 0.9,
-     "scarto": 0.6,
+     "base": 1.6,
+     "pieno": 5.8,
+     "scarto": 4.2,
      "quotaPieno": 19
     },
     "TWN": {
-     "base": 2.9,
-     "pieno": 2.9,
-     "scarto": 0,
-     "quotaPieno": 18
+     "base": 3.4,
+     "pieno": 8,
+     "scarto": 4.7,
+     "quotaPieno": 11
     },
     "HSI": {
      "base": 1.6,
@@ -2078,31 +2078,31 @@
   "dal2016": {
    "cinqueIndici": {
     "0": {
-     "n": 5514,
-     "r63": 1.9,
-     "r126": 4.1,
-     "r252": 10.8,
+     "n": 5609,
+     "r63": 2.1,
+     "r126": 4,
+     "r252": 10.4,
      "r126usd": 3.7
     },
     "1": {
-     "n": 5893,
-     "r63": 3.5,
+     "n": 5545,
+     "r63": 3.4,
      "r126": 5.7,
      "r252": 12.2,
      "r126usd": 5.8
     },
     "2": {
-     "n": 1820,
-     "r63": 3.1,
-     "r126": 7.3,
-     "r252": 9.5,
-     "r126usd": 7.1
+     "n": 1606,
+     "r63": 3.4,
+     "r126": 8,
+     "r252": 10.8,
+     "r126usd": 7.7
     },
     "base": {
-     "n": 13227,
+     "n": 12760,
      "r63": 2.9,
-     "r126": 5.2,
-     "r252": 11.3,
+     "r126": 5.3,
+     "r252": 11.2,
      "r126usd": 5.1
     }
    },
@@ -2126,42 +2126,42 @@
      "r63": 1.5,
      "r126": 3.8,
      "r252": 4.6,
-     "r126usd": 3.8
+     "r126usd": 3.9
     }
    },
    "monotono126": true,
-   "pienoMenoBase126": 2.1,
-   "pienoMenoBase126usd": 2,
+   "pienoMenoBase126": 2.7,
+   "pienoMenoBase126usd": 2.6,
    "scartoPerIndice126": {
     "CSI300": {
      "base": 1.8,
-     "pieno": 6.4,
-     "scarto": 4.6,
-     "quotaPieno": 12
+     "pieno": 6.2,
+     "scarto": 4.4,
+     "quotaPieno": 13
     },
     "NIFTY50": {
      "base": 6,
-     "pieno": 7.2,
-     "scarto": 1.1,
-     "quotaPieno": 17
+     "pieno": 6.4,
+     "scarto": 0.4,
+     "quotaPieno": 16
     },
     "IBOV": {
-     "base": 8,
-     "pieno": 3.8,
-     "scarto": -4.2,
-     "quotaPieno": 13
+     "base": 8.1,
+     "pieno": 6.2,
+     "scarto": -1.9,
+     "quotaPieno": 10
     },
     "KOSPI200": {
      "base": 2.8,
-     "pieno": 10.9,
-     "scarto": 8.1,
+     "pieno": 11,
+     "scarto": 8.2,
      "quotaPieno": 16
     },
     "TWN": {
      "base": 6.8,
-     "pieno": 9,
-     "scarto": 2.2,
-     "quotaPieno": 11
+     "pieno": 10.5,
+     "scarto": 3.7,
+     "quotaPieno": 8
     },
     "HSI": {
      "base": 2.8,
@@ -2183,120 +2183,120 @@
    "indici": "IBOV, KOSPI200",
    "sedute": {
     "F1": {
-     "n": 3471,
-     "r126": 3.1,
-     "r126usd": 3.1
+     "n": 3618,
+     "r126": 6.6,
+     "r126usd": 7.5
     },
     "F0": {
-     "n": 5336,
+     "n": 5965,
      "r126": 2.1,
-     "r126usd": 1.4
+     "r126usd": 1.7
     },
-    "diff": 1,
-    "diffUsd": 1.7
+    "diff": 4.5,
+    "diffUsd": 5.8
    },
    "segnali": {
     "F1": {
-     "n": 4,
-     "med126": 37.1,
-     "med126usd": 39.7,
-     "med63": 20.7,
-     "med252": 69.3,
-     "pos126": "3/3",
-     "falliti": "0/4",
+     "n": 5,
+     "med126": 37.3,
+     "med126usd": 51.2,
+     "med63": 18.4,
+     "med252": 67.8,
+     "pos126": "4/4",
+     "falliti": "0/5",
      "quotaFalliti": 0
     },
     "F0": {
-     "n": 9,
-     "med126": 19.2,
-     "med126usd": 16.5,
-     "med63": 5.7,
-     "med252": 10.5,
-     "pos126": "7/9",
-     "falliti": "3/9",
-     "quotaFalliti": 33
+     "n": 11,
+     "med126": 23.7,
+     "med126usd": 24.3,
+     "med63": 20.7,
+     "med252": 19.3,
+     "pos126": "9/11",
+     "falliti": "3/11",
+     "quotaFalliti": 27
     },
-    "diff": 17.9
+    "diff": 13.6
    }
   },
   "intermedia": {
    "indici": "TWN",
    "sedute": {
     "F1": {
-     "n": 1591,
-     "r126": 4.9,
-     "r126usd": 4.2
+     "n": 1271,
+     "r126": 6.2,
+     "r126usd": 6.3
     },
     "F0": {
-     "n": 2487,
-     "r126": 5.4,
-     "r126usd": 6.7
+     "n": 3454,
+     "r126": 4.9,
+     "r126usd": 6
     },
-    "diff": -0.5,
-    "diffUsd": -2.5
+    "diff": 1.3,
+    "diffUsd": 0.3
    },
    "segnali": {
     "F1": {
      "n": 4,
-     "med126": 13.1,
-     "med126usd": 16.1,
+     "med126": 28.7,
+     "med126usd": 33.4,
      "med63": 14.9,
-     "med252": 19.3,
+     "med252": 36.2,
      "pos126": "4/4",
-     "falliti": "1/4",
-     "quotaFalliti": 25
+     "falliti": "0/4",
+     "quotaFalliti": 0
     },
     "F0": {
-     "n": 7,
-     "med126": 22.3,
-     "med126usd": 28.7,
-     "med63": 19.9,
-     "med252": 30.2,
-     "pos126": "7/7",
-     "falliti": "1/7",
-     "quotaFalliti": 14
+     "n": 9,
+     "med126": 5.9,
+     "med126usd": 7.4,
+     "med63": 18.5,
+     "med252": 12.5,
+     "pos126": "7/9",
+     "falliti": "4/9",
+     "quotaFalliti": 44
     },
-    "diff": -9.2
+    "diff": 22.8
    }
   },
   "gestite": {
    "indici": "CSI300, NIFTY50",
    "sedute": {
     "F1": {
-     "n": 2525,
-     "r126": 7.4,
-     "r126usd": 6.6
+     "n": 2395,
+     "r126": 7.2,
+     "r126usd": 6.4
     },
     "F0": {
-     "n": 5471,
-     "r126": 1.9,
-     "r126usd": 0.8
+     "n": 5491,
+     "r126": 2.2,
+     "r126usd": 0.9
     },
-    "diff": 5.5,
-    "diffUsd": 5.8
+    "diff": 5,
+    "diffUsd": 5.5
    },
    "segnali": {
     "F1": {
-     "n": 8,
-     "med126": 3.5,
-     "med126usd": 1.6,
+     "n": 7,
+     "med126": 3.9,
+     "med126usd": 3.4,
      "med63": 11.3,
-     "med252": 14.6,
-     "pos126": "5/8",
-     "falliti": "0/8",
+     "med252": 20.6,
+     "pos126": "5/7",
+     "falliti": "0/7",
      "quotaFalliti": 0
     },
     "F0": {
-     "n": 5,
-     "med126": 17,
-     "med126usd": 19.7,
-     "med63": -1.2,
-     "med252": 15.7,
-     "pos126": "4/5",
-     "falliti": "2/5",
-     "quotaFalliti": 40
+     "n": 8,
+     "med126": 9.1,
+     "med126usd": 9.4,
+     "med63": 1.7,
+     "med252": 17.5,
+     "pos126": "5/8",
+     "falliti": "2/8",
+     "quotaFalliti": 25
     },
-    "diff": -13.6
+    "diff": -5.2
    }
   }
  },
@@ -2310,7 +2310,7 @@
      "drawdown": -46.3,
      "crisi": "2015-16",
      "FalMinimo": 0,
-     "anticipoF": -98,
+     "anticipoF": -99,
      "FdopoMinimo": 8,
      "DalMinimo": 0,
      "DdopoMinimo": 61,
@@ -2325,12 +2325,12 @@
      "drawdown": -45.1,
      "crisi": "2024-25",
      "FalMinimo": 1,
-     "anticipoF": -122,
+     "anticipoF": -54,
      "FdopoMinimo": 0,
      "DalMinimo": 0,
      "DdopoMinimo": 26,
      "anticipoD": -106,
-     "anticipoPieno": -122,
+     "anticipoPieno": -27,
      "trigger": 1
     },
     {
@@ -2339,13 +2339,13 @@
      "massimo": "2008-01-08",
      "drawdown": -59.9,
      "crisi": "2008",
-     "FalMinimo": null,
-     "anticipoF": -101,
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 3,
      "DalMinimo": 0,
      "DdopoMinimo": 133,
      "anticipoD": null,
-     "anticipoPieno": -101,
+     "anticipoPieno": -102,
      "trigger": 106
     },
     {
@@ -2355,8 +2355,8 @@
      "drawdown": -27.9,
      "crisi": "2011",
      "FalMinimo": 0,
-     "anticipoF": -32,
-     "FdopoMinimo": 2,
+     "anticipoF": -33,
+     "FdopoMinimo": 1,
      "DalMinimo": 0,
      "DdopoMinimo": 32,
      "anticipoD": 32,
@@ -2370,12 +2370,12 @@
      "drawdown": -38.4,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": -122,
+     "anticipoF": -123,
      "FdopoMinimo": 3,
      "DalMinimo": 0,
      "DdopoMinimo": 110,
      "anticipoD": -61,
-     "anticipoPieno": -55,
+     "anticipoPieno": -49,
      "trigger": 12
     },
     {
@@ -2399,9 +2399,9 @@
      "massimo": "2004-01-26",
      "drawdown": -27.7,
      "crisi": "altro",
-     "FalMinimo": null,
-     "anticipoF": "dati F assenti",
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 0,
+     "anticipoF": null,
+     "FdopoMinimo": null,
      "DalMinimo": null,
      "DdopoMinimo": "assente al minimo",
      "anticipoD": "dati D assenti",
@@ -2414,13 +2414,13 @@
      "massimo": "2008-05-20",
      "drawdown": -60,
      "crisi": "2008",
-     "FalMinimo": null,
-     "anticipoF": "dati F assenti",
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 1,
+     "anticipoF": -26,
+     "FdopoMinimo": 0,
      "DalMinimo": 0,
      "DdopoMinimo": 141,
      "anticipoD": null,
-     "anticipoPieno": "dati assenti",
+     "anticipoPieno": null,
      "trigger": 100
     },
     {
@@ -2430,8 +2430,8 @@
      "drawdown": -46.8,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": -112,
-     "FdopoMinimo": 13,
+     "anticipoF": -113,
+     "FdopoMinimo": 3,
      "DalMinimo": 0,
      "DdopoMinimo": 112,
      "anticipoD": -58,
@@ -2445,7 +2445,7 @@
      "drawdown": -26.5,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": -122,
+     "anticipoF": -125,
      "FdopoMinimo": 10,
      "DalMinimo": 0,
      "DdopoMinimo": 118,
@@ -2474,13 +2474,13 @@
      "massimo": "2007-10-31",
      "drawdown": -54.5,
      "crisi": "2008",
-     "FalMinimo": null,
-     "anticipoF": -120,
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 4,
      "DalMinimo": 0,
      "DdopoMinimo": 145,
      "anticipoD": null,
-     "anticipoPieno": -120,
+     "anticipoPieno": -102,
      "trigger": 99
     },
     {
@@ -2490,8 +2490,8 @@
      "drawdown": -25.9,
      "crisi": "2011",
      "FalMinimo": 0,
-     "anticipoF": 16,
-     "FdopoMinimo": 16,
+     "anticipoF": 15,
+     "FdopoMinimo": 15,
      "DalMinimo": 0,
      "DdopoMinimo": 91,
      "anticipoD": 91,
@@ -2505,7 +2505,7 @@
      "drawdown": -43.9,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": -115,
+     "anticipoF": -117,
      "FdopoMinimo": 4,
      "DalMinimo": 0,
      "DdopoMinimo": 113,
@@ -2520,12 +2520,12 @@
      "drawdown": -34.8,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": -125,
-     "FdopoMinimo": 4,
+     "anticipoF": -126,
+     "FdopoMinimo": 2,
      "DalMinimo": 0,
      "DdopoMinimo": 64,
      "anticipoD": -126,
-     "anticipoPieno": -125,
+     "anticipoPieno": -126,
      "trigger": -46
     },
     {
@@ -2535,7 +2535,7 @@
      "drawdown": -40,
      "crisi": "altro",
      "FalMinimo": 1,
-     "anticipoF": -109,
+     "anticipoF": -107,
      "FdopoMinimo": 0,
      "DalMinimo": 0,
      "DdopoMinimo": null,
@@ -2565,7 +2565,7 @@
      "drawdown": -28.7,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": null,
+     "anticipoF": -103,
      "FdopoMinimo": null,
      "DalMinimo": 0,
      "DdopoMinimo": 113,
@@ -2580,8 +2580,8 @@
      "drawdown": -31.6,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": -107,
-     "FdopoMinimo": 10,
+     "anticipoF": -106,
+     "FdopoMinimo": 11,
      "DalMinimo": 0,
      "DdopoMinimo": 49,
      "anticipoD": 49,
@@ -2595,8 +2595,8 @@
      "drawdown": -28.7,
      "crisi": "2024-25",
      "FalMinimo": 0,
-     "anticipoF": -46,
-     "FdopoMinimo": 1,
+     "anticipoF": -114,
+     "FdopoMinimo": 2,
      "DalMinimo": 0,
      "DdopoMinimo": 14,
      "anticipoD": 14,
@@ -2694,15 +2694,15 @@
      "trigger": null
     }
    ],
-   "FalMinimoAcceso": "2/13",
+   "FalMinimoAcceso": "3/17",
    "DalMinimoAcceso": "0/20",
    "FprimoDopo": {
-    "conDato": 12,
-    "mediana": 4,
+    "conDato": 15,
+    "mediana": 3,
     "prima": 0,
-    "stessoGiorno": 2,
-    "dopo": 10,
-    "mai": 1
+    "stessoGiorno": 3,
+    "dopo": 12,
+    "mai": 2
    },
    "DprimoDopo": {
     "conDato": 19,
@@ -2713,9 +2713,9 @@
     "mai": 1
    },
    "F": {
-    "conDato": 14,
-    "mediana": -110.5,
-    "prima": 13,
+    "conDato": 16,
+    "mediana": -104.5,
+    "prima": 15,
     "stessoGiorno": 0,
     "dopo": 1,
     "mai": 1
@@ -2730,11 +2730,11 @@
    },
    "pieno": {
     "conDato": 19,
-    "mediana": -53,
+    "mediana": -27,
     "prima": 10,
     "stessoGiorno": 0,
     "dopo": 9,
-    "mai": 1
+    "mai": 2
    },
    "trigger": {
     "conDato": 14,
@@ -2754,7 +2754,7 @@
      "drawdown": -46.3,
      "crisi": "2015-16",
      "FalMinimo": 0,
-     "anticipoF": -98,
+     "anticipoF": -99,
      "FdopoMinimo": 8,
      "DalMinimo": 0,
      "DdopoMinimo": 61,
@@ -2768,9 +2768,9 @@
      "massimo": null,
      "drawdown": -31.3,
      "crisi": "2018",
-     "FalMinimo": 0,
-     "anticipoF": -84,
-     "FdopoMinimo": 1,
+     "FalMinimo": 1,
+     "anticipoF": -85,
+     "FdopoMinimo": 0,
      "DalMinimo": 0,
      "DdopoMinimo": 19,
      "anticipoD": 19,
@@ -2784,8 +2784,8 @@
      "drawdown": -29.3,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": 16,
-     "FdopoMinimo": 16,
+     "anticipoF": 15,
+     "FdopoMinimo": 15,
      "DalMinimo": 0,
      "DdopoMinimo": 169,
      "anticipoD": -43,
@@ -2799,8 +2799,8 @@
      "drawdown": -30.9,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": -108,
-     "FdopoMinimo": 5,
+     "anticipoF": -109,
+     "FdopoMinimo": 8,
      "DalMinimo": 0,
      "DdopoMinimo": 45,
      "anticipoD": 45,
@@ -2813,13 +2813,13 @@
      "massimo": null,
      "drawdown": -59.9,
      "crisi": "2008",
-     "FalMinimo": null,
-     "anticipoF": -101,
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 3,
      "DalMinimo": 0,
      "DdopoMinimo": 133,
      "anticipoD": null,
-     "anticipoPieno": -101,
+     "anticipoPieno": -102,
      "trigger": 106
     },
     {
@@ -2829,8 +2829,8 @@
      "drawdown": -26.2,
      "crisi": "2011",
      "FalMinimo": 0,
-     "anticipoF": -32,
-     "FdopoMinimo": 2,
+     "anticipoF": -33,
+     "FdopoMinimo": 1,
      "DalMinimo": 0,
      "DdopoMinimo": 32,
      "anticipoD": 32,
@@ -2844,12 +2844,12 @@
      "drawdown": -38.4,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": -122,
+     "anticipoF": -123,
      "FdopoMinimo": 3,
      "DalMinimo": 0,
      "DdopoMinimo": 110,
      "anticipoD": -61,
-     "anticipoPieno": -55,
+     "anticipoPieno": -49,
      "trigger": 12
     },
     {
@@ -2933,9 +2933,9 @@
      "massimo": null,
      "drawdown": -27.7,
      "crisi": "altro",
-     "FalMinimo": null,
-     "anticipoF": "dati F assenti",
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 0,
+     "anticipoF": null,
+     "FdopoMinimo": null,
      "DalMinimo": null,
      "DdopoMinimo": "assente al minimo",
      "anticipoD": "dati D assenti",
@@ -2948,13 +2948,13 @@
      "massimo": null,
      "drawdown": -60,
      "crisi": "2008",
-     "FalMinimo": null,
-     "anticipoF": "dati F assenti",
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 1,
+     "anticipoF": -26,
+     "FdopoMinimo": 0,
      "DalMinimo": 0,
      "DdopoMinimo": 141,
      "anticipoD": null,
-     "anticipoPieno": "dati assenti",
+     "anticipoPieno": null,
      "trigger": 100
     },
     {
@@ -2979,12 +2979,12 @@
      "drawdown": -28.9,
      "crisi": "altro",
      "FalMinimo": 0,
-     "anticipoF": -126,
-     "FdopoMinimo": 37,
+     "anticipoF": -110,
+     "FdopoMinimo": 36,
      "DalMinimo": 0,
      "DdopoMinimo": 217,
      "anticipoD": null,
-     "anticipoPieno": -126,
+     "anticipoPieno": -110,
      "trigger": null
     },
     {
@@ -2994,7 +2994,7 @@
      "drawdown": -28.4,
      "crisi": "2015-16",
      "FalMinimo": 0,
-     "anticipoF": -104,
+     "anticipoF": -105,
      "FdopoMinimo": 23,
      "DalMinimo": 0,
      "DdopoMinimo": 168,
@@ -3010,7 +3010,7 @@
      "crisi": "2015-16",
      "FalMinimo": 0,
      "anticipoF": -79,
-     "FdopoMinimo": 4,
+     "FdopoMinimo": 6,
      "DalMinimo": 0,
      "DdopoMinimo": 66,
      "anticipoD": 66,
@@ -3024,8 +3024,8 @@
      "drawdown": -46.8,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": -112,
-     "FdopoMinimo": 13,
+     "anticipoF": -113,
+     "FdopoMinimo": 3,
      "DalMinimo": 0,
      "DdopoMinimo": 112,
      "anticipoD": -58,
@@ -3039,7 +3039,7 @@
      "drawdown": -25.1,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": -122,
+     "anticipoF": -125,
      "FdopoMinimo": 10,
      "DalMinimo": 0,
      "DdopoMinimo": 118,
@@ -3069,7 +3069,7 @@
      "drawdown": -45,
      "crisi": "altro",
      "FalMinimo": null,
-     "anticipoF": "dati F assenti",
+     "anticipoF": 51,
      "FdopoMinimo": "assente al minimo",
      "DalMinimo": null,
      "DdopoMinimo": "assente al minimo",
@@ -3083,13 +3083,13 @@
      "massimo": null,
      "drawdown": -54.5,
      "crisi": "2008",
-     "FalMinimo": null,
-     "anticipoF": -120,
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 4,
      "DalMinimo": 0,
      "DdopoMinimo": 145,
      "anticipoD": null,
-     "anticipoPieno": -120,
+     "anticipoPieno": -102,
      "trigger": 99
     },
     {
@@ -3099,8 +3099,8 @@
      "drawdown": -25.9,
      "crisi": "2011",
      "FalMinimo": 0,
-     "anticipoF": 16,
-     "FdopoMinimo": 16,
+     "anticipoF": 15,
+     "FdopoMinimo": 15,
      "DalMinimo": 0,
      "DdopoMinimo": 91,
      "anticipoD": 91,
@@ -3114,7 +3114,7 @@
      "drawdown": -35.7,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": -115,
+     "anticipoF": -117,
      "FdopoMinimo": 4,
      "DalMinimo": 0,
      "DdopoMinimo": 113,
@@ -3129,12 +3129,12 @@
      "drawdown": -31.4,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": -125,
-     "FdopoMinimo": 4,
+     "anticipoF": -126,
+     "FdopoMinimo": 2,
      "DalMinimo": 0,
      "DdopoMinimo": 64,
      "anticipoD": -126,
-     "anticipoPieno": -125,
+     "anticipoPieno": -126,
      "trigger": -46
     },
     {
@@ -3144,7 +3144,7 @@
      "drawdown": -40,
      "crisi": "altro",
      "FalMinimo": 1,
-     "anticipoF": -109,
+     "anticipoF": -107,
      "FdopoMinimo": 0,
      "DalMinimo": 0,
      "DdopoMinimo": null,
@@ -3188,13 +3188,13 @@
      "massimo": null,
      "drawdown": -56,
      "crisi": "2008",
-     "FalMinimo": null,
-     "anticipoF": "dati F assenti",
-     "FdopoMinimo": "assente al minimo",
+     "FalMinimo": 0,
+     "anticipoF": -15,
+     "FdopoMinimo": 18,
      "DalMinimo": 0,
      "DdopoMinimo": 122,
      "anticipoD": 122,
-     "anticipoPieno": "dati assenti",
+     "anticipoPieno": 122,
      "trigger": -70
     },
     {
@@ -3203,9 +3203,9 @@
      "massimo": null,
      "drawdown": -27.5,
      "crisi": "2011",
-     "FalMinimo": 1,
-     "anticipoF": -49,
-     "FdopoMinimo": 0,
+     "FalMinimo": 0,
+     "anticipoF": -45,
+     "FdopoMinimo": 14,
      "DalMinimo": 0,
      "DdopoMinimo": 28,
      "anticipoD": 28,
@@ -3219,8 +3219,8 @@
      "drawdown": -25.7,
      "crisi": "2015-16",
      "FalMinimo": 0,
-     "anticipoF": -121,
-     "FdopoMinimo": 9,
+     "anticipoF": -112,
+     "FdopoMinimo": 1,
      "DalMinimo": 0,
      "DdopoMinimo": 166,
      "anticipoD": null,
@@ -3234,7 +3234,7 @@
      "drawdown": -28.7,
      "crisi": "2020",
      "FalMinimo": 0,
-     "anticipoF": null,
+     "anticipoF": -103,
      "FdopoMinimo": null,
      "DalMinimo": 0,
      "DdopoMinimo": 113,
@@ -3249,8 +3249,8 @@
      "drawdown": -31.6,
      "crisi": "2022",
      "FalMinimo": 0,
-     "anticipoF": -107,
-     "FdopoMinimo": 10,
+     "anticipoF": -106,
+     "FdopoMinimo": 11,
      "DalMinimo": 0,
      "DdopoMinimo": 49,
      "anticipoD": 49,
@@ -3264,8 +3264,8 @@
      "drawdown": -28.7,
      "crisi": "2024-25",
      "FalMinimo": 0,
-     "anticipoF": -46,
-     "FdopoMinimo": 1,
+     "anticipoF": -114,
+     "FdopoMinimo": 2,
      "DalMinimo": 0,
      "DdopoMinimo": 14,
      "anticipoD": 14,
@@ -3543,15 +3543,15 @@
      "trigger": null
     }
    ],
-   "FalMinimoAcceso": "2/21",
+   "FalMinimoAcceso": "3/26",
    "DalMinimoAcceso": "1/38",
    "FprimoDopo": {
-    "conDato": 20,
-    "mediana": 6.5,
+    "conDato": 24,
+    "mediana": 5,
     "prima": 0,
-    "stessoGiorno": 2,
-    "dopo": 18,
-    "mai": 1
+    "stessoGiorno": 3,
+    "dopo": 21,
+    "mai": 2
    },
    "DprimoDopo": {
     "conDato": 37,
@@ -3562,11 +3562,11 @@
     "mai": 1
    },
    "F": {
-    "conDato": 22,
-    "mediana": -105.5,
-    "prima": 19,
+    "conDato": 26,
+    "mediana": -102.5,
+    "prima": 22,
     "stessoGiorno": 0,
-    "dopo": 3,
+    "dopo": 4,
     "mai": 1
    },
    "D": {
@@ -3578,12 +3578,12 @@
     "mai": 7
    },
    "pieno": {
-    "conDato": 33,
-    "mediana": 32,
+    "conDato": 34,
+    "mediana": 37.5,
     "prima": 13,
     "stessoGiorno": 0,
-    "dopo": 20,
-    "mai": 4
+    "dopo": 21,
+    "mai": 5
    },
    "trigger": {
     "conDato": 26,
@@ -3599,66 +3599,67 @@
   "trigger": {
    "punteggio ≥ 1 contro 0": {
     "si": {
-     "n": 11,
-     "med126": 21.3,
-     "med126usd": 19.4,
-     "med63": 14.7,
-     "med252": 24.8,
-     "pos126": "9/11",
-     "falliti": "0/11",
-     "quotaFalliti": 0
+     "n": 12,
+     "med126": 23.5,
+     "med126usd": 38.7,
+     "med63": 16.7,
+     "med252": 36.2,
+     "pos126": "10/12",
+     "falliti": "1/12",
+     "quotaFalliti": 8
     },
     "no": {
-     "n": 15,
-     "med126": 10.1,
-     "med126usd": 8.3,
-     "med63": 6,
-     "med252": 12.5,
-     "pos126": "14/15",
-     "falliti": "4/15",
-     "quotaFalliti": 27
+     "n": 18,
+     "med126": 13.5,
+     "med126usd": 16.9,
+     "med63": 6.1,
+     "med252": 14.1,
+     "pos126": "16/18",
+     "falliti": "4/18",
+     "quotaFalliti": 22
     },
-    "diffLocale": 11.2,
-    "diffDollari": 11.1,
+    "diffLocale": 10,
+    "diffDollari": 21.8,
     "perCrisi": {
-     "2008": "0: — (fall 0/0) | 1: 44 (fall 0/1)",
-     "2011": "1: 4 (fall 0/1) | 3: 6.7 (fall 1/3)",
+     "2008": "5: 43.8 (fall 1/5) | 1: 44 (fall 0/1)",
+     "2011": "0: — (fall 0/0) | 3: 6.7 (fall 1/3)",
      "2018": "1: 21.3 (fall 0/1) | 1: 17 (fall 1/1)",
-     "2020": "2: 29.2 (fall 0/2) | 3: 23.7 (fall 0/3)",
-     "2022": "2: 10 (fall 0/2) | 4: 2.9 (fall 2/4)",
-     "2015-16": "3: 4.7 (fall 0/3) | 3: 18 (fall 0/3)",
+     "2020": "1: 24.7 (fall 0/1) | 4: 25.4 (fall 0/4)",
+     "2022": "1: 22.2 (fall 0/1) | 5: 1.6 (fall 2/5)",
+     "2015-16": "2: -1.1 (fall 0/2) | 4: 20.7 (fall 0/4)",
      "2024-25": "2: 21.4 (fall 0/2) | 0: — (fall 0/0)"
     }
    },
    "F = 1 contro F = 0 (5 indici)": {
     "si": {
      "n": 11,
-     "med126": 21.3,
-     "med126usd": 19.4,
-     "med63": 14.7,
-     "med252": 24.8,
-     "pos126": "9/11",
+     "med126": 24.7,
+     "med126usd": 41.4,
+     "med63": 18.1,
+     "med252": 44,
+     "pos126": "10/11",
      "falliti": "0/11",
      "quotaFalliti": 0
     },
     "no": {
-     "n": 9,
+     "n": 13,
      "med126": 10.1,
      "med126usd": 8.3,
      "med63": 5,
      "med252": 11.1,
-     "pos126": "8/9",
-     "falliti": "4/9",
-     "quotaFalliti": 44
+     "pos126": "10/13",
+     "falliti": "5/13",
+     "quotaFalliti": 38
     },
-    "diffLocale": 11.2,
-    "diffDollari": 11.1,
+    "diffLocale": 14.6,
+    "diffDollari": 33.1,
     "perCrisi": {
-     "2011": "1: 4 (fall 0/1) | 2: 12.5 (fall 1/2)",
+     "2008": "4: 43.9 (fall 0/4) | 1: -39.2 (fall 1/1)",
+     "2011": "0: — (fall 0/0) | 2: 12.5 (fall 1/2)",
      "2018": "1: 21.3 (fall 0/1) | 1: 17 (fall 1/1)",
-     "2020": "2: 29.2 (fall 0/2) | 2: 25.4 (fall 0/2)",
-     "2022": "2: 10 (fall 0/2) | 3: 1.6 (fall 2/3)",
-     "2015-16": "3: 4.7 (fall 0/3) | 1: 3.9 (fall 0/1)",
+     "2020": "1: 24.7 (fall 0/1) | 3: 27.1 (fall 0/3)",
+     "2022": "1: 22.2 (fall 0/1) | 4: -0.4 (fall 2/4)",
+     "2015-16": "2: -1.1 (fall 0/2) | 2: 25.9 (fall 0/2)",
      "2024-25": "2: 21.4 (fall 0/2) | 0: — (fall 0/0)"
     }
    },
@@ -3666,7 +3667,7 @@
     "si": {
      "n": 1,
      "med126": -39.2,
-     "med126usd": null,
+     "med126usd": -45.4,
      "med63": -36.7,
      "med252": -6.2,
      "pos126": "0/1",
@@ -3676,7 +3677,7 @@
     "no": {
      "n": 30,
      "med126": 18.6,
-     "med126usd": 18.8,
+     "med126usd": 19.6,
      "med63": 12.6,
      "med252": 21.4,
      "pos126": "27/30",
@@ -3684,7 +3685,7 @@
      "quotaFalliti": 13
     },
     "diffLocale": -57.8,
-    "diffDollari": null,
+    "diffDollari": -65,
     "perCrisi": {
      "2008": "1: -39.2 (fall 1/1) | 5: 44 (fall 0/5)",
      "2011": "0: — (fall 0/0) | 4: 6.3 (fall 1/4)",
@@ -3699,34 +3700,34 @@
   "zonaBlu": {
    "punteggio ≥ 1 contro 0": {
     "si": {
-     "n": 5,
-     "med126": 3.3,
-     "med126usd": 2.5,
-     "med63": 16.5,
-     "med252": 16.7,
-     "pos126": "3/4",
-     "falliti": "1/5",
-     "quotaFalliti": 20
+     "n": 6,
+     "med126": 3.9,
+     "med126usd": 4.3,
+     "med63": 11.3,
+     "med252": 19,
+     "pos126": "3/5",
+     "falliti": "1/6",
+     "quotaFalliti": 17
     },
     "no": {
-     "n": 18,
+     "n": 20,
      "med126": 20,
-     "med126usd": 21.3,
-     "med63": 14.9,
-     "med252": 20.3,
-     "pos126": "15/18",
-     "falliti": "2/18",
-     "quotaFalliti": 11
+     "med126usd": 21.4,
+     "med63": 16.7,
+     "med252": 22.7,
+     "pos126": "16/20",
+     "falliti": "3/20",
+     "quotaFalliti": 15
     },
-    "diffLocale": -16.7,
-    "diffDollari": -18.8,
+    "diffLocale": -16.1,
+    "diffDollari": -17.1,
     "perCrisi": {
-     "2008": "0: — (fall 0/0) | 1: -37.2 (fall 0/1)",
-     "2011": "1: 2.6 (fall 1/1) | 2: 24.4 (fall 0/2)",
+     "2008": "2: -2.8 (fall 1/2) | 2: -20.3 (fall 0/2)",
+     "2011": "0: — (fall 0/0) | 3: 14.2 (fall 1/3)",
      "2018": "0: — (fall 0/0) | 1: 19 (fall 1/1)",
-     "2020": "1: 37.1 (fall 0/1) | 4: 37.9 (fall 0/4)",
+     "2020": "0: — (fall 0/0) | 5: 37.1 (fall 0/5)",
      "2022": "0: — (fall 0/0) | 4: 8.2 (fall 1/4)",
-     "2015-16": "1: -4.8 (fall 0/1) | 5: 14.7 (fall 0/5)",
+     "2015-16": "2: 3.7 (fall 0/2) | 4: 18.7 (fall 0/4)",
      "2024-25": "1: 3.9 (fall 0/1) | 1: 55.6 (fall 0/1)",
      "altro": "1: — (fall 0/1) | 0: — (fall 0/0)"
     }
@@ -3734,32 +3735,33 @@
    "F = 1 contro F = 0 (5 indici)": {
     "si": {
      "n": 5,
-     "med126": 3.3,
-     "med126usd": 2.5,
-     "med63": 16.5,
-     "med252": 16.7,
+     "med126": 8.1,
+     "med126usd": 8.2,
+     "med63": 11.4,
+     "med252": 21.1,
      "pos126": "3/4",
-     "falliti": "1/5",
-     "quotaFalliti": 20
+     "falliti": "0/5",
+     "quotaFalliti": 0
     },
     "no": {
-     "n": 12,
-     "med126": 24.9,
-     "med126usd": 26.8,
-     "med63": 18.8,
-     "med252": 24.8,
-     "pos126": "10/12",
-     "falliti": "2/12",
-     "quotaFalliti": 17
+     "n": 15,
+     "med126": 22.3,
+     "med126usd": 25.2,
+     "med63": 17.6,
+     "med252": 30.2,
+     "pos126": "11/15",
+     "falliti": "4/15",
+     "quotaFalliti": 27
     },
-    "diffLocale": -21.6,
-    "diffDollari": -24.3,
+    "diffLocale": -14.2,
+    "diffDollari": -17,
     "perCrisi": {
-     "2011": "1: 2.6 (fall 1/1) | 1: 34.6 (fall 0/1)",
+     "2008": "1: 30.9 (fall 0/1) | 2: -19.9 (fall 1/2)",
+     "2011": "0: — (fall 0/0) | 2: 18.6 (fall 1/2)",
      "2018": "0: — (fall 0/0) | 1: 19 (fall 1/1)",
-     "2020": "1: 37.1 (fall 0/1) | 3: 48.3 (fall 0/3)",
+     "2020": "0: — (fall 0/0) | 4: 42.7 (fall 0/4)",
      "2022": "0: — (fall 0/0) | 3: -4.7 (fall 1/3)",
-     "2015-16": "1: -4.8 (fall 0/1) | 3: 12.2 (fall 0/3)",
+     "2015-16": "2: 3.7 (fall 0/2) | 2: 25.2 (fall 0/2)",
      "2024-25": "1: 3.9 (fall 0/1) | 1: 55.6 (fall 0/1)",
      "altro": "1: — (fall 0/1) | 0: — (fall 0/0)"
     }
@@ -3768,7 +3770,7 @@
     "si": {
      "n": 1,
      "med126": -36.4,
-     "med126usd": -41.7,
+     "med126usd": -41.6,
      "med63": -27.5,
      "med252": -1.7,
      "pos126": "0/1",
@@ -3778,7 +3780,7 @@
     "no": {
      "n": 26,
      "med126": 14.7,
-     "med126usd": 16.1,
+     "med126usd": 15.2,
      "med63": 12.1,
      "med252": 21.2,
      "pos126": "19/25",
@@ -3786,7 +3788,7 @@
      "quotaFalliti": 12
     },
     "diffLocale": -51.1,
-    "diffDollari": -57.8,
+    "diffDollari": -56.8,
     "perCrisi": {
      "2008": "1: -36.4 (fall 1/1) | 4: -3 (fall 0/4)",
      "2011": "0: — (fall 0/0) | 3: 14.2 (fall 1/3)",
@@ -3803,7 +3805,9 @@
  "episodiH1": {
   "persi": [
    "CSI300 2018-09-21 (+17.0% a 126, fallito)",
+   "NIFTY50 2020-04-13 (+33.7% a 126, tenuto)",
    "IBOV 2011-08-29 (+19.2% a 126, tenuto)",
+   "IBOV 2016-02-01 (+47.9% a 126, tenuto)",
    "IBOV 2020-05-05 (+23.7% a 126, tenuto)",
    "KOSPI200 2022-10-28 (+10.1% a 126, tenuto)",
    "TWN 2020-04-07 (+27.1% a 126, tenuto)",
@@ -3820,7 +3824,7 @@
    "IBOV 2011-08-05 (+34.6% a 126, tenuto)",
    "IBOV 2016-01-21 (+49.3% a 126, tenuto)",
    "IBOV 2020-03-17 (+49.6% a 126, tenuto)",
-   "TWN 2015-08-25 (+12.2% a 126, tenuto)",
+   "KOSPI200 2020-03-12 (+37.1% a 126, tenuto)",
    "TWN 2020-03-18 (+48.3% a 126, tenuto)",
    "TWN 2022-10-21 (+22.3% a 126, tenuto)",
    "TWN 2025-04-08 (+55.6% a 126, tenuto)",
@@ -3836,130 +3840,10 @@
    "H1": {
     "n": 31,
     "pieno": 0,
-    "zero": 15,
-    "diffLocale": null,
-    "diffDollari": null,
-    "falliti": "0/0 vs 4/15",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "H2": {
-    "n": 27,
-    "pieno": 0,
     "zero": 18,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 2/18",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
-   "H3": {
-    "monotonoFino2015": false,
-    "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 0.6,
-    "pienoMenoBaseDal2016": 2.1,
-    "pienoMenoBaseDal2016usd": 2
-   }
-  },
-  "w 26": {
-   "H1": {
-    "n": 31,
-    "pieno": 0,
-    "zero": 12,
-    "diffLocale": null,
-    "diffDollari": null,
-    "falliti": "0/0 vs 3/12",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "H2": {
-    "n": 27,
-    "pieno": 0,
-    "zero": 15,
-    "diffLocale": null,
-    "diffDollari": null,
-    "falliti": "0/0 vs 1/15",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "esplorazioneTriggerF": "F=1 16 med 21.7 fall 1/16 | F=0 6 med 11.4 fall 3/6 | diff 10.3",
-   "H3": {
-    "monotonoFino2015": false,
-    "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -2.2,
-    "pienoMenoBaseDal2016": 0.5,
-    "pienoMenoBaseDal2016usd": -0.9
-   }
-  },
-  "w 126": {
-   "H1": {
-    "n": 31,
-    "pieno": 0,
-    "zero": 17,
-    "diffLocale": null,
-    "diffDollari": null,
-    "falliti": "0/0 vs 3/17",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "H2": {
-    "n": 27,
-    "pieno": 1,
-    "zero": 18,
-    "diffLocale": -54.1,
-    "diffDollari": -55.4,
-    "falliti": "0/1 vs 2/18",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "esplorazioneTriggerF": "F=1 6 med 13 fall 0/6 | F=0 11 med 17 fall 3/11 | diff -4",
-   "H3": {
-    "monotonoFino2015": false,
-    "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -2.4,
-    "pienoMenoBaseDal2016": 4.1,
-    "pienoMenoBaseDal2016usd": 5.6
-   }
-  },
-  "z 0,75": {
-   "H1": {
-    "n": 31,
-    "pieno": 0,
-    "zero": 15,
-    "diffLocale": null,
-    "diffDollari": null,
-    "falliti": "0/0 vs 4/15",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "H2": {
-    "n": 27,
-    "pieno": 0,
-    "zero": 18,
-    "diffLocale": null,
-    "diffDollari": null,
-    "falliti": "0/0 vs 2/18",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
-   "H3": {
-    "monotonoFino2015": false,
-    "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -0.5,
-    "pienoMenoBaseDal2016": 2.3,
-    "pienoMenoBaseDal2016usd": 2.3
-   }
-  },
-  "z 1,5": {
-   "H1": {
-    "n": 31,
-    "pieno": 0,
-    "zero": 17,
-    "diffLocale": null,
-    "diffDollari": null,
-    "falliti": "0/0 vs 4/17",
+    "falliti": "0/0 vs 4/18",
     "crisiOk": "—",
     "superato": false
    },
@@ -3969,57 +3853,27 @@
     "zero": 20,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 2/20",
+    "falliti": "0/0 vs 3/20",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 9 med 21.3 fall 0/9 | F=0 11 med 10.1 fall 4/11 | diff 11.2",
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -0.6,
-    "pienoMenoBaseDal2016": 1.6,
-    "pienoMenoBaseDal2016usd": -0.5
+    "pienoMenoBaseFino2015": 3,
+    "pienoMenoBaseDal2016": 2.7,
+    "pienoMenoBaseDal2016usd": 2.6
    }
   },
-  "media 100 per D": {
+  "w 26": {
    "H1": {
     "n": 31,
-    "pieno": 3,
-    "zero": 14,
-    "diffLocale": 7.8,
-    "diffDollari": 7,
-    "falliti": "0/3 vs 3/14",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "H2": {
-    "n": 27,
-    "pieno": 1,
-    "zero": 18,
-    "diffLocale": -16.1,
-    "diffDollari": -18.5,
-    "falliti": "0/1 vs 2/18",
-    "crisiOk": "—",
-    "superato": false
-   },
-   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
-   "H3": {
-    "monotonoFino2015": false,
-    "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 0.3,
-    "pienoMenoBaseDal2016": 3.1,
-    "pienoMenoBaseDal2016usd": 3.1
-   }
-  },
-  "D stesso giorno (guarda avanti)": {
-   "H1": {
-    "n": 31,
-    "pieno": 1,
-    "zero": 14,
-    "diffLocale": 26.3,
-    "diffDollari": 35.4,
-    "falliti": "0/1 vs 3/14",
+    "pieno": 0,
+    "zero": 15,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/15",
     "crisiOk": "—",
     "superato": false
    },
@@ -4033,43 +3887,193 @@
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
+   "esplorazioneTriggerF": "F=1 14 med 25.9 fall 1/14 | F=0 10 med 4.9 fall 4/10 | diff 21",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 0.6,
-    "pienoMenoBaseDal2016": 1.4,
-    "pienoMenoBaseDal2016usd": 1.5
+    "pienoMenoBaseFino2015": -2.1,
+    "pienoMenoBaseDal2016": 1,
+    "pienoMenoBaseDal2016usd": 0
    }
   },
-  "D con DX-Y.NYB": {
+  "w 126": {
    "H1": {
     "n": 31,
-    "pieno": 4,
-    "zero": 13,
-    "diffLocale": 7.3,
-    "diffDollari": 4,
-    "falliti": "0/4 vs 4/13",
+    "pieno": 0,
+    "zero": 19,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/19",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 1,
+    "zero": 19,
+    "diffLocale": -56.2,
+    "diffDollari": -57.9,
+    "falliti": "0/1 vs 3/19",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 9 med 35.1 fall 0/9 | F=0 15 med 10.1 fall 5/15 | diff 25",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 6.7,
+    "pienoMenoBaseDal2016": 4,
+    "pienoMenoBaseDal2016usd": 5.7
+   }
+  },
+  "z 0,75": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 18,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/18",
     "crisiOk": "—",
     "superato": false
    },
    "H2": {
     "n": 27,
     "pieno": 0,
-    "zero": 15,
+    "zero": 20,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 2/15",
+    "falliti": "0/0 vs 3/20",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 2.7,
-    "pienoMenoBaseDal2016": 3.9,
-    "pienoMenoBaseDal2016usd": 4.4
+    "pienoMenoBaseFino2015": 2.3,
+    "pienoMenoBaseDal2016": 2.1,
+    "pienoMenoBaseDal2016usd": 2.3
+   }
+  },
+  "z 1,5": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 20,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 21,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/21",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 9 med 24.7 fall 0/9 | F=0 15 med 10.1 fall 5/15 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 3,
+    "pienoMenoBaseDal2016": 1.4,
+    "pienoMenoBaseDal2016usd": -1.1
+   }
+  },
+  "media 100 per D": {
+   "H1": {
+    "n": 31,
+    "pieno": 3,
+    "zero": 17,
+    "diffLocale": 4.3,
+    "diffDollari": 7.4,
+    "falliti": "0/3 vs 3/17",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 1,
+    "zero": 20,
+    "diffLocale": -16.1,
+    "diffDollari": -17.1,
+    "falliti": "0/1 vs 3/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 2.5,
+    "pienoMenoBaseDal2016": 3.5,
+    "pienoMenoBaseDal2016usd": 3.7
+   }
+  },
+  "D stesso giorno (guarda avanti)": {
+   "H1": {
+    "n": 31,
+    "pieno": 1,
+    "zero": 17,
+    "diffLocale": 22.8,
+    "diffDollari": 28.9,
+    "falliti": "0/1 vs 3/17",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 20,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 3.2,
+    "pienoMenoBaseDal2016": 2.1,
+    "pienoMenoBaseDal2016usd": 2
+   }
+  },
+  "D con DX-Y.NYB": {
+   "H1": {
+    "n": 31,
+    "pieno": 4,
+    "zero": 17,
+    "diffLocale": 7.3,
+    "diffDollari": 10.7,
+    "falliti": "0/4 vs 5/17",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 1,
+    "zero": 19,
+    "diffLocale": -2.5,
+    "diffDollari": -3.2,
+    "falliti": "0/1 vs 4/19",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 4.5,
+    "pienoMenoBaseDal2016": 4.2,
+    "pienoMenoBaseDal2016usd": 4.6
    }
   },
   "F' = cambio sotto media 50": {
@@ -4086,18 +4090,18 @@
    "H2": {
     "n": 27,
     "pieno": 1,
-    "zero": 21,
-    "diffLocale": -55.4,
-    "diffDollari": -62.7,
-    "falliti": "1/1 vs 2/21",
+    "zero": 24,
+    "diffLocale": -53.3,
+    "diffDollari": -59.7,
+    "falliti": "1/1 vs 3/24",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 10 med 31.1 fall 0/10 | F=0 14 med 13.5 fall 4/14 | diff 17.6",
+   "esplorazioneTriggerF": "F=1 9 med 35.1 fall 0/9 | F=0 15 med 10.1 fall 5/15 | diff 25",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -2.5,
+    "pienoMenoBaseFino2015": -2.3,
     "pienoMenoBaseDal2016": 1.9,
     "pienoMenoBaseDal2016usd": 2.6
    }
@@ -4129,7 +4133,37 @@
     "monotonoDal2016": true,
     "pienoMenoBaseFino2015": 3,
     "pienoMenoBaseDal2016": 2.5,
-    "pienoMenoBaseDal2016usd": 2.5
+    "pienoMenoBaseDal2016usd": 2.6
+   }
+  },
+  "cambi Yahoo (fonte fino alla 1.4.0 in prova)": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 15,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/15",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 18,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 2/18",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 0.6,
+    "pienoMenoBaseDal2016": 2.1,
+    "pienoMenoBaseDal2016usd": 2
    }
   }
  }
