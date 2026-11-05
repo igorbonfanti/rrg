@@ -15,8 +15,9 @@ const ok = (c, msg) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) f
     const i = await page.evaluate(() => ({ segs: document.querySelectorAll('#ts .brappr').length, dots: document.querySelectorAll('#ts .apprin').length, old: document.querySelectorAll('#ts .apprline, #ts .apprline-t').length, legend: [...document.querySelectorAll('.legend span')].map((s) => s.textContent).join('|') }));
     ok(i.old === 0, `${name} niente linea tratteggiata`);
     // 1.3.2: nessun pallino d'ingresso sul bordo sinistro quando il tratto è iniziato prima del periodo mostrato
-    // (un ingresso vero proprio nella prima seduta del periodo è possibile ma raro: se capita, controllare a mano)
-    ok(await page.evaluate(() => ![...document.querySelectorAll('#ts .apprin')].some((c) => +c.getAttribute('cx') <= 8.5)), `${name} nessun pallino sul bordo sinistro`);
+    // (la prima seduta del periodo è a x = L, l'inizio della linea blu; dalla 1.4.0 si confronta con L e non con 8,5 px:
+    // a 390 px una seduta vale meno di mezzo pixel e un ingresso vero alla seconda seduta, XLV il 31/10/2023, finiva sotto 8,5)
+    ok(await page.evaluate(() => { const L = +document.querySelector('#ts line.blue').getAttribute('x1'); return ![...document.querySelectorAll('#ts .apprin')].some((c) => +c.getAttribute('cx') <= L + 0.01); }), `${name} nessun pallino sul bordo sinistro`);
     ok(i.dots > 0, `${name} pallini d'ingresso ${i.dots}, tratti ${i.segs}`);
     ok(i.legend.includes('breadth in avvicinamento') && !i.legend.includes('soglia di avvicinamento di oggi'), `${name} legenda`);
     const d = page.locator('#ts .apprin').last();
@@ -30,6 +31,21 @@ const ok = (c, msg) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) f
     ok(!errs.length, `${name} errori console ${errs.join(' | ')}`);
     await ctx.close();
   }
+  // Bordo sinistro su tutti i settori (3A e 10A): dove il tratto giallo parte dalla prima seduta (avvicinamento già in corso
+  // prima del periodo) non ci deve essere il pallino. Se nessun caso ha il tratto sul bordo il controllo è a vuoto e lo dice.
+  let edge = 0;
+  for (const range of ['3A', '10A']) for (const sym of ['XLB', 'XLC', 'XLE', 'XLF', 'XLI', 'XLK', 'XLP', 'XLRE', 'XLU', 'XLV', 'XLY']) {
+    const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } });
+    await ctx.addInitScript((range) => { try { if (!sessionStorage.getItem('i')) { sessionStorage.setItem('i', 1); localStorage.clear(); localStorage.setItem('sm.introSeen', 'true'); localStorage.setItem('sm.range', JSON.stringify(range)); } } catch {} }, range);
+    const page = await ctx.newPage(); await page.goto(BASE + '#' + sym); await page.waitForTimeout(2000);
+    const r = await page.evaluate(() => {
+      const L = +document.querySelector('#ts line.blue').getAttribute('x1'), at = (x) => Math.abs(x - L) < 0.01;
+      return { seg: [...document.querySelectorAll('#ts .brappr')].some((e) => at(parseFloat(e.getAttribute('d').slice(1)))), dot: [...document.querySelectorAll('#ts .apprin')].some((c) => at(+c.getAttribute('cx'))) };
+    });
+    if (r.seg) { edge++; ok(!r.dot, `bordo ${sym} ${range}: tratto già in corso alla prima seduta, nessun pallino`); }
+    await ctx.close();
+  }
+  if (!edge) console.log('ATTENZIONE: nessun settore con l\'avvicinamento in corso alla prima seduta; il controllo del bordo è a vuoto');
   await b.close();
   console.log(`${fail} FAIL`);
   process.exit(fail ? 1 : 0);
