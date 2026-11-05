@@ -4,7 +4,7 @@ import { parse } from '../scripts/lib/yahoo.js';
 
 // Barre di Yahoo datate nel fuso della borsa con l'ora legale di quel giorno, non con il gmtoffset di oggi.
 // Errore riprodotto in ricerca/qa/date-barre/: lanciato d'inverno, EURUSD=X datava le barre estive al giorno prima
-// (760 barre su 1305 in 5 anni, 152 finite di domenica) e DX-Y.NYB 997 barre (6 date doppie, una barra persa per ognuna).
+// (760 barre su 1305 in 5 anni, 152 finite di domenica) e DX-Y.NYB 824 barre con chiusura su 1257 (rapporto in ricerca/qa/1.3.5/codice/).
 const T = (iso) => Date.parse(iso) / 1000;
 const bars = (meta, iso) => ({
   meta: { instrumentType: 'CURRENCY', ...meta },
@@ -37,4 +37,19 @@ test('Yahoo: DX-Y.NYB (America/New_York, barre a mezzanotte) senza date doppie n
 test('Yahoo: senza exchangeTimezoneName si usa ancora il gmtoffset', () => {
   const p = parse(bars({ gmtoffset: 3600 }, ['2025-07-01T07:00:00Z', '2025-07-01T23:30:00Z']), { nowSec: WINTER });
   assert.deepEqual(p.dates, ['2025-07-01', '2025-07-02']);
+});
+
+test('Yahoo: un fuso sconosciuto non perde il simbolo (ripiego sul gmtoffset), anche alla seconda serie', () => {
+  for (let k = 0; k < 2; k++) {
+    const p = parse(bars({ gmtoffset: 3600, exchangeTimezoneName: 'Mars/Olympus' }, ['2025-07-01T07:00:00Z', '2025-07-01T23:30:00Z']), { nowSec: WINTER });
+    assert.deepEqual(p.dates, ['2025-07-01', '2025-07-02']);
+  }
+});
+
+test('Yahoo: lo stesso istante vicino alla mezzanotte ha date diverse in fusi diversi (una cache per fuso)', () => {
+  const iso = ['2025-07-01T23:30:00Z', '2025-07-02T23:30:00Z'];
+  const ny = parse(bars({ gmtoffset: -14400, exchangeTimezoneName: 'America/New_York' }, iso), { nowSec: WINTER });
+  const tk = parse(bars({ gmtoffset: 32400, exchangeTimezoneName: 'Asia/Tokyo' }, iso), { nowSec: WINTER });
+  assert.deepEqual(ny.dates, ['2025-07-01', '2025-07-02']);
+  assert.deepEqual(tk.dates, ['2025-07-02', '2025-07-03']);
 });
