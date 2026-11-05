@@ -11,7 +11,9 @@
  * - F «ha smesso di scendere»: z ≥ 1 in almeno una delle ultime 126 sedute E il cambio sotto il massimo delle ultime 63
  *   sedute di almeno 0,5 deviazioni standard; «in calo forte»: z ≥ 1 e F spento;
  * - D «dollaro emergente favorevole»: DTWEXEMEGS (FRED) sotto la media a 200 sedute e in calo a 63 sedute.
- * Ogni valore alla seduta t usa solo dati fino a t. Un dato mancante resta null («—»), mai riempito.
+ * Ogni valore alla seduta t usa solo dati fino a t, tranne la pulizia dei cambi, che per riconoscere un errore di stampa guarda
+ * il giorno dopo (in 6 date su 4.650 provate lo stato di un giorno passato visto oggi differisce da quello visto allora:
+ * ricerca/qa/1.4.0/numeri/causale.mjs). Un dato mancante resta null («—»), mai riempito.
  */
 import { decodeDates, deltaDecode } from './indexdata.js';
 import { rrgNew, weeklyIndices, quadrant } from './engine.js';

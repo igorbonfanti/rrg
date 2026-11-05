@@ -69,6 +69,8 @@ export function createEmerging(ctx) {
   function row(k) {
     const snap = indices.snapshot(k);
     if (!snap) return { k, missing: true };
+    // «3 mesi in $» alla stessa seduta di «3 mesi locale»: se quel giorno manca il cambio, «—» (non il giorno prima in silenzio)
+    const chUsd = (cl, u) => { let t = cl.length - 1; while (t >= 0 && cl[t] == null) t--; return t >= 0 && u[t] != null ? change(u, 63, t) : null; };
     const c = CFG[k], f = model.fx[k], last = snap.close.length - 1;
     const fxOn = f ? onDates(f.S.dates, f.S.val, snap.dates) : null;
     const usd = c.fx === null ? snap.close : fxOn ? inUsd(snap.close, fxOn) : null;
@@ -78,7 +80,7 @@ export function createEmerging(ctx) {
     else if (!f) fxs = { state: null };
     else { const j = f.S.dates.length - 1; fxs = { state: fxState(f.F[j], f.z[j]), z: f.z[j], date: f.S.dates[j], value: f.S.val[j] }; }
     return { k, snap, name: snap.name, state: snap.state, appr: snap.appr, b: snap.pct200[snap.now], L: snap.blue, changed: snap.changed, blueSource: snap.blueSource, dd: snap.dd[last],
-      ch63: change(snap.close, 63), ch63u: usd ? change(usd, 63) : null, fx: fxs, rs: model.rs[k], usd, last, date: snap.dates[last] };
+      ch63: change(snap.close, 63), ch63u: usd ? chUsd(snap.close, usd) : null, fx: fxs, rs: model.rs[k], usd, last, date: snap.dates[last] };
   }
 
   async function render() {
@@ -110,7 +112,7 @@ export function createEmerging(ctx) {
       ['Emergenti in zona blu', `${by((r) => r.state === 'setup').length}<small> / ${ok.length}</small>`, names(by((r) => r.state === 'setup')), 'Stato della vista 6 (breadth contro il livello blu).'],
       ['In attenzione', `${by((r) => r.state === 'watch').length}<small> / ${ok.length}</small>`, names(by((r) => r.state === 'watch')), 'Stato della vista 6.'],
       ['Valute in calo forte', `${fxWith.filter((r) => r.fx.state === 'calo').length}<small> / ${fxWith.length} con dati</small>`, names(fxWith.filter((r) => r.fx.state === 'calo')), FXT.calo],
-      ['Valute ferme dopo un calo', `${fxWith.filter((r) => r.fx.state === 'ferma').length}<small> / ${fxWith.length} con dati</small>`, names(fxWith.filter((r) => r.fx.state === 'ferma')), FXT.ferma],
+      ['Valute che hanno smesso di scendere', `${fxWith.filter((r) => r.fx.state === 'ferma').length}<small> / ${fxWith.length} con dati</small>`, names(fxWith.filter((r) => r.fx.state === 'ferma')), FXT.ferma],
     ].map(([k, v, s, t]) => `<div class="kpi" title="${esc(t)}"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
   }
 
@@ -141,15 +143,17 @@ export function createEmerging(ctx) {
         <td class="c-rs" data-l="forza rel. vs ACWI" title="${esc(r.rs ? `${CFG[r.k].etf} contro ACWI, settimanale, al ${dIT(r.rs.last)}` : 'storia non disponibile')}">${r.rs && r.rs.quad ? qPill(r.rs.quad) : '<span class="muted">—</span>'}</td></tr>`).join('') + '</tbody>';
     keepFocus($('emTable'), 'data-em', html);
     $('emTable').querySelectorAll('tbody tr[data-em]').forEach((tr) => {
-      tr.onclick = () => select(tr.dataset.em);
-      tr.onkeydown = (e) => { if (e.key === 'Enter') select(tr.dataset.em); };
+      tr.onclick = () => select(tr.dataset.em, true);
+      tr.onkeydown = (e) => { if (e.key === 'Enter') select(tr.dataset.em, true); };
     });
   }
-  function select(k) {
+  function select(k, scroll = false) {
     if (!KEYS.includes(k)) return;
     st.sel = k; store.set('emSel', k);
     if (ctx.onSelect) ctx.onSelect(k);
     render();
+    // a una colonna (sotto 1100 px) il dettaglio è sotto il tabellone: ci si porta lì, come nella vista 6
+    if (scroll && window.matchMedia('(max-width: 1100px)').matches) $('emTitle').closest('.panel').scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
 
   // ---------- dettaglio: quattro pannelli con lo stesso asse del tempo ----------
@@ -194,8 +198,14 @@ export function createEmerging(ctx) {
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
     // indice nel periodo
     let i0 = 0; while (i0 < n - 1 && !inWin(dates[i0])) i0++;
-    const rebase = (a) => { let b = null; for (let i = i0; i < n; i++) if (a[i] != null) { b = a[i]; break; } return a.map((v, i) => (i < i0 || v == null || b == null ? null : (v / b) * 100)); };
-    const loc = rebase(snap.close), usd = r.usd && c.fx ? rebase(r.usd) : null;
+    // base 100 comune: la prima seduta del periodo in cui ci sono entrambe le linee (in MAX il cambio parte dopo l'indice:
+    // con basi diverse il confronto tra valuta locale e dollari sarebbe falso)
+    const usdRaw = r.usd && c.fx ? r.usd : null;
+    let jb = -1;
+    for (let i = i0; i < n; i++) if (snap.close[i] != null && (!usdRaw || usdRaw[i] != null)) { jb = i; break; }
+    const rebase = (a) => a.map((v, i) => (i < i0 || v == null || jb < 0 ? null : (v / a[jb]) * 100));
+    const loc = rebase(snap.close), usd = usdRaw ? rebase(usdRaw) : null;
+    const baseNote = jb > i0 ? ` · base 100 al ${dIT(dates[jb])}` : '';
     const scale = (vals, pad = 0.06, fixed = null) => {
       let lo = Infinity, hi = -Infinity;
       for (const v of vals) if (v != null) { lo = Math.min(lo, v); hi = Math.max(hi, v); }
@@ -244,7 +254,7 @@ export function createEmerging(ctx) {
     const P2 = panes[2];
     if (hasFx) {
       const fd = f.S.dates, fv = f.S.val;
-      bands(P2, fd, f.z.map((z, i) => z != null && z >= 1 && !f.F[i]), 'fxcalo');
+      bands(P2, fd, f.z.map((z, i) => z != null && z >= 1 && f.F[i] === 0), 'fxcalo');
       bands(P2, fd, f.F.map((v) => v === 1), 'fxferma');
       const [a2, b2] = scale(fv.filter((_, i) => inWin(fd[i]))), f2 = sy(P2, a2, b2);
       axis(P2, a2, b2, (v) => fmt(v, v < 10 ? 2 : v < 100 ? 1 : 0));
@@ -281,7 +291,7 @@ export function createEmerging(ctx) {
       const fxTxt = fi == null ? '—' : fmt(f.S.val[fi], f.S.val[fi] < 10 ? 4 : 2);
       const fxSt = fi == null ? null : fxState(f.F[fi], f.z[fi]);
       $('emTip').innerHTML = `<div class="row"><b>${dIT(d)}</b><span>${k}${snap.m.days[i] ? ' · ' + esc(STATES[snap.m.days[i]].toLowerCase()) : ''}</span></div>
-        <div class="row"><span>Prezzo</span><b>${fmt(snap.close[i], snap.close[i] >= 1000 ? 0 : 2)}</b></div>
+        <div class="row"><span>Prezzo</span><b>${fmt(snap.close[i], snap.close[i] >= 1000 ? 0 : snap.close[i] < 10 ? 3 : 2)}</b></div>
         ${usd ? `<div class="row"><span>In dollari (base 100)</span><b>${fmt(usd[i], 1)}</b></div>` : ''}
         <div class="row"><span>Sopra media 200</span><b>${snap.pct200[i] == null ? '—' : fmt(snap.pct200[i]) + '%'}</b></div>
         ${hasFx ? `<div class="row"><span>${c.ccy} per dollaro</span><b>${fxTxt}</b></div><div class="row"><span>Valuta</span><b>${fxSt ? FXL[fxSt] : '—'}</b></div>` : ''}
@@ -299,7 +309,7 @@ export function createEmerging(ctx) {
       hasFx ? '<span><span class="kb em-calo"></span>valuta in calo forte</span><span><span class="kb em-ferma"></span>valuta che ha smesso di scendere</span>' : '',
       '<span><span class="kl" style="background:var(--ink-2)"></span>dollaro contro emergenti</span><span><span class="kl" style="background:var(--amber)"></span>sua media 200</span><span><span class="kb em-fav"></span>dollaro favorevole (sotto la media e in calo in 3 mesi)</span>',
     ].join('');
-    $('emChartMeta').textContent = `cambio al ${hasFx ? dIT(f.S.dates.at(-1)) : '—'} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}`;
+    $('emChartMeta').textContent = `cambio al ${f ? dIT(f.S.dates.at(-1)) : '—'} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}${baseNote}${baseNote && usd ? ' (primo giorno con il cambio: le due linee hanno la stessa base)' : ''}`;
   }
 
   // ---------- forza relativa contro ACWI ----------
@@ -312,16 +322,29 @@ export function createEmerging(ctx) {
     [['Leading', W - 4, 12, 'end', 'lead'], ['Improving', 4, 12, 'start', 'imp'], ['Lagging', 4, H - 4, 'start', 'lag'], ['Weakening', W - 4, H - 4, 'end', 'weak']]
       .forEach(([t, xx, yy, a, q]) => { el('text', { x: xx, y: yy, 'text-anchor': a, class: `qlab q-${q}-c` }, svg).textContent = t; });
     let last = null;
+    // etichette: a destra del punto, altrimenti a sinistra, sopra o sotto, la prima posizione che non tocca altri punti o etichette
+    const pts = rows.filter((r) => !r.missing && r.rs && r.rs.trail.length).map((r) => { const p = r.rs.trail.at(-1); return [sx(cl(p[0])), sy(cl(p[1]))]; });
+    const boxes = [], hit = (b) => boxes.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]) || pts.some(([px, py]) => px > b[0] - 4 && px < b[2] + 4 && py > b[1] - 4 && py < b[3] + 4);
+    const place = (px, py, t) => {
+      const w = t.length * 6.2 + 2, h = 10;
+      for (const [lx, ly, a] of [[px + 6, py + 3, 'start'], [px - 6, py + 3, 'end'], [px, py - 7, 'middle'], [px, py + 13, 'middle']]) {
+        const x0 = a === 'start' ? lx : a === 'end' ? lx - w : lx - w / 2, b = [x0, ly - h + 1, x0 + w, ly + 1];
+        if (!hit(b)) { boxes.push(b); return [lx, ly, a]; }
+      }
+      boxes.push([px + 6, py - 7, px + 6 + w, py + 4]);
+      return [px + 6, py + 3, 'start'];
+    };
     for (const r of rows) {
       if (r.missing || !r.rs || !r.rs.trail.length) continue;
       const on = r.k === st.sel, tr = r.rs.trail;
       if (on) el('path', { d: tr.map((p, i) => (i ? 'L' : 'M') + sx(cl(p[0])).toFixed(1) + ' ' + sy(cl(p[1])).toFixed(1)).join(''), class: 'emtrail' }, svg);
       const p = tr.at(-1), g = el('g', { class: on ? 'emdot on' : 'emdot', 'data-em': r.k, tabindex: 0, role: 'button', 'aria-label': `${CFG[r.k].etf}: ${r.rs.quad}` }, svg);
       el('circle', { cx: sx(cl(p[0])), cy: sy(cl(p[1])), r: on ? 4.5 : 3.2 }, g);
-      el('text', { x: sx(cl(p[0])) + 6, y: sy(cl(p[1])) + 3 }, g).textContent = CFG[r.k].etf;
-      el('title', {}, g).textContent = `${r.k} · ${CFG[r.k].etf} contro ACWI al ${dIT(r.rs.last)}: RS-Ratio ${fmt(r.rs.ratio, 1)}, RS-Momentum ${fmt(r.rs.mom, 1)} (${r.rs.quad})`;
-      g.addEventListener('click', () => select(r.k));
-      g.addEventListener('keydown', (e) => { if (e.key === 'Enter') select(r.k); });
+      const [lx, ly, la] = place(sx(cl(p[0])), sy(cl(p[1])), CFG[r.k].etf);
+      el('text', { x: lx, y: ly, 'text-anchor': la }, g).textContent = CFG[r.k].etf;
+      el('title', {}, g).textContent = `${r.k} · ${CFG[r.k].etf} contro ACWI al ${dIT(r.rs.last)}: RS-Ratio ${fmt(r.rs.ratio, Math.abs(r.rs.ratio - 100) < 0.05 ? 2 : 1)}, RS-Momentum ${fmt(r.rs.mom, Math.abs(r.rs.mom - 100) < 0.05 ? 2 : 1)} (${r.rs.quad})`;
+      g.addEventListener('click', () => select(r.k, true));
+      g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(r.k, true); const d = $('emRS').querySelector(`[data-em="${r.k}"]`); if (d) d.focus(); } });
       if (on) last = r.rs.last;
     }
     $('emRSMeta').textContent = last ? `al ${dIT(last)}` : '';

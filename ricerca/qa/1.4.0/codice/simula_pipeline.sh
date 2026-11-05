@@ -10,7 +10,7 @@ run() { # nome, variabili d'ambiente
   env "$@" node --import "$HERE/finto_fetch.mjs" scripts/fetch_emerging.js > /tmp/sim.out 2>&1; local ec=$?
   echo "== $name: uscita $ec in $(( $(date +%s) - t0 )) s"
   grep -E "Arrivate|Scritto|tenuta|mancante|Errori" /tmp/sim.out | head -8 | sed 's/^/   /'
-  [ -f data/emerging.json ] && node -e "const d=require('./data/emerging.json');const {emSeries,cleanFx,fxSignals}=await import('./js/emerging.js');const k=d.series['KRW=X'];let s='';if(k){const x=emSeries(k);const g=fxSignals(cleanFx('KRW=X',x));s=' KRW righe '+x.dates.length+' dal '+x.dates[0]+', F ultimo '+g.F.at(-1);}console.log('   file: asOf',JSON.stringify(d.asOf),'missing',JSON.stringify(d.missing)+s)" --input-type=module 2>&1 | sed 's/^/ /'
+  [ -f data/emerging.json ] && node "$HERE/info_file.mjs"
   [ -f data/emerging.json ] || echo "   file: assente"
   node scripts/check_fresh.js | sed 's/^/   check_fresh: /'; echo "   check_fresh uscita ${PIPESTATUS[0]}"
 }

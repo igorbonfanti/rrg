@@ -96,6 +96,12 @@ sup.cp { color: var(--amber); font-size: 0.8em; margin-left: 1px; }
 .tool { font: 600 11.5px var(--f-mono); letter-spacing: 0.03em; color: var(--ink-3); background: var(--panel-2); border: 0; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
 .tool:hover { color: var(--amber); }
 .tool[aria-pressed="true"] { color: #000; background: var(--q-lead); }
+/* tablet stretto (otto schede su una riga occupano circa 815 px): due righe di quattro, come sul telefono */
+@media (min-width: 601px) and (max-width: 860px) {
+  .fnkeys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .fnkeys::after { display: none; }
+  .fnkeys button { text-align: center; }
+}
 /* telefono: le otto schede vanno su due righe di quattro; guida e CVD salgono accanto al nome */
 @media (max-width: 600px) {
   .fnkeys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -821,7 +827,8 @@ svg.bub { touch-action: pan-y; }
 #emTable .nm { display: none; }
 @media (min-width: 1600px) { #emTable .nm { display: inline; } }
 @media (max-width: 1439px) { .emg-grid { grid-template-columns: minmax(0, 1fr) 300px; } }
-@media (max-width: 1100px) { .emg-grid { grid-template-columns: minmax(0, 1fr); } #emTable .nm { display: inline; } }
+@media (max-width: 1100px) { .emg-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { #emTable .nm { display: inline; } }
 .fxp { display: inline-flex; align-items: center; font: 600 10.5px var(--f-mono); letter-spacing: .04em; padding: 2px 7px; border: 1px solid currentColor; text-transform: uppercase; white-space: nowrap; }
 .fx-calo { color: var(--down); } .fx-ferma { color: var(--up); } .fx-normale, .fx-na { color: var(--ink-3); }
 .zbar { position: relative; display: inline-block; width: 56px; height: 8px; background: var(--panel-2); vertical-align: middle; margin-left: 6px; }

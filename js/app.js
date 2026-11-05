@@ -789,6 +789,7 @@ function step(k) {
 // ---------- navigazione e controlli ----------
 function setView(v, silent) {
   if (v === 'idx' && !state.indices) v = 'mon'; // senza config/indices.json la pagina Indici non c'è (la scheda è nascosta)
+  if (v === 'emg' && !state.emerging) v = 'mon'; // lo stesso per gli Emergenti senza config/emerging.json
   const from = state.view;
   state.view = v;
   if (v !== 'rrg') stop();
@@ -1004,8 +1005,10 @@ function bind() {
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
     // settore + vista: XLK TIT apre i titoli di XLK, XLU SEC il suo dettaglio
     const [w1, w2, ...rest] = v.split(/\s+/);
-    // indice emergente + EMG: KOSPI200 EMG apre la vista 8 su quell'indice
-    if (w2 && !rest.length && words[w2] === 'emg' && state.emerging && state.emerging.keys.includes(w1)) { state.emerging.open(w1); setView('emg'); return; }
+    // indice emergente + EMG: KOSPI200 EMG (o KOSPI EMG, EMG KOSPI200) apre la vista 8 su quell'indice
+    const EMG_ALIAS = { KOSPI: 'KOSPI200', IBOVESPA: 'IBOV', NIFTY: 'NIFTY50', HANGSENG: 'HSI', TAIWAN: 'TWN', CSI: 'CSI300' };
+    const emK = w2 && !rest.length && state.emerging && (words[w2] === 'emg' ? w1 : words[w1] === 'emg' ? w2 : null);
+    if (emK && state.emerging.keys.includes(EMG_ALIAS[emK] || emK)) { state.emerging.open(EMG_ALIAS[emK] || emK); setView('emg'); return; }
     if (w2 && !rest.length && words[w2] && state.bottom.isSector(w1)) {
       state.bottom.selectSector(w1);
       if (words[w2] === 'sec') state.bottom.openSector(w1); else setView(words[w2]);
