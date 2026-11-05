@@ -51,7 +51,15 @@ Limiti: 7 crisi distinte (percentuali indicative); breadth degli emergenti con i
 - **Pipeline**: FRED ha risposto 503 per alcuni minuti durante gli scarichi, quindi servono tentativi ripetuti e, se fallisce, si tengono i valori già pubblicati. Il controllo di freschezza deve tollerare almeno 10-14 giorni per FRED.
 - ETF in dollari (MCHI, INDA, EWZ, EWY, EWT, EWW, EZA, ACWI, EEM) senza buchi; MCHI dal 2011, INDA dal 2012.
 
-## 5. Proposta per la pagina (da confermare con l'utente)
+## 5. La pagina (decisa con l'utente il 05/11/2026)
+
+**Decisioni dell'utente** (05/11/2026), dopo la demo in `demo/` (prototipo con dati reali: `node demo/build.mjs`, poi `demo/index.html` dal server locale; screenshot a 1440 e 1280 px su computer e a 390 px su telefono, tema chiaro e scuro):
+- solo contesto, nessuna regola;
+- tutti e quattro gli elementi qui sotto, compreso il punto 4;
+- forza relativa: la scia di 10 settimane solo per l'indice selezionato, gli altri come punti;
+- grafico del dollaro emergente: si tengono le fasce «favorevole» anche dove si accendono e spengono spesso.
+
+La demo è il riferimento per layout e contenuti: riquadri in cima, tabella dei 7 indici (a schede sul telefono), dettaglio a 3 anni con quattro grafici sulla stessa scala dei tempi, forza relativa e note a destra. La barretta z e le etichette della valuta («In calo forte», «Ha smesso di scendere», «Normale», «Agganciato», «In dollari») non hanno avuto obiezioni. La demo non è codice dell'app: va riscritta con i moduli dell'app (`inserimento.md`).
 
 **Solo contesto, nessuna regola**: nessun punteggio, nessun alert, nessuna modifica a `runMachine` né a Telegram.
 Vista nuova «8 Emergenti» (`#emg`), come da `inserimento.md`, che per ciascun indice emergente mostri:
@@ -71,8 +79,8 @@ Il piano tecnico completo (file, pipeline `scripts/fetch_emerging.js` → `data/
 
 ## 6. Decisioni aperte per l'utente
 
-1. Fare la pagina come solo contesto (proposta) oppure non farla, visto che lo strato macro non migliora i segnali.
-2. Quali elementi del §5 tenere (il punto 4 è facoltativo).
+1. ~~Fare la pagina o no~~: decisa, solo contesto (§5).
+2. ~~Quali elementi tenere~~: tutti e quattro (§5).
 3. Ritardo di FRED: nel backtest il valore settimanale vale dal martedì dopo (eccezione dichiarata alla regola «niente riempimento»). Nell'app si mostra l'ultimo valore pubblicato con la sua data.
 4. Errori di stampa Yahoo: un salto isolato che si annulla il giorno dopo diventa un giorno mancante.
 

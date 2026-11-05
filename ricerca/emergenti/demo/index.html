@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Demo Emergenti</title>
+<link rel="stylesheet" href="../../../css/style.css" />
+<script>try { const t = new URLSearchParams(location.search).get('theme') || localStorage.getItem('antigravity-theme'); document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'dark'); } catch (e) {}</script>
+<style>
+  .demo-flag { font: 600 11px var(--f-mono); color: #000; background: var(--q-weak-fill); padding: 4px 10px; letter-spacing: .04em; }
+  .emg-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 12px; align-items: start; }
+  .emg-side { display: grid; gap: 12px; }
+  .fxp { display: inline-flex; align-items: center; gap: 6px; font: 600 10.5px var(--f-mono); letter-spacing: .04em; padding: 2px 7px; border: 1px solid currentColor; text-transform: uppercase; white-space: nowrap; }
+  .fx-calo { color: var(--down); } .fx-ferma { color: var(--up); } .fx-normale, .fx-na { color: var(--ink-3); }
+  .zbar { position: relative; display: inline-block; width: 56px; height: 8px; background: var(--panel-2); vertical-align: middle; margin-left: 6px; }
+  .zbar i { position: absolute; top: 0; bottom: 0; background: var(--ink-2); }
+  .zbar b { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--chart-axis); left: 50%; }
+  .zbar .thr { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--down); }
+  .muted { color: var(--ink-3); }
+  .num { font-family: var(--f-mono); }
+  .up { color: var(--up); } .dn { color: var(--down); }
+  .charts { padding: 8px 10px 4px; display: grid; gap: 2px; }
+  .chart-h { display: flex; justify-content: space-between; gap: 8px; font: 600 10.5px var(--f-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); margin-top: 8px; flex-wrap: wrap; }
+  .chart-h .lg { font-weight: 400; text-transform: none; letter-spacing: 0; display: inline-flex; gap: 12px; flex-wrap: wrap; }
+  .sw2 { display: inline-block; width: 10px; height: 10px; vertical-align: -1px; margin-right: 4px; }
+  svg.ch { width: 100%; display: block; overflow: visible; }
+  svg.ch text { font: 10px var(--f-mono); fill: var(--ink-3); }
+  .notes { padding: 8px 10px; font-size: 12.5px; color: var(--ink-2); display: grid; gap: 8px; }
+  .notes p { margin: 0; }
+  .notes b { color: var(--ink); }
+  .rrgbox { padding: 8px 10px; }
+  .cards { display: none; }
+  .card { border-bottom: 1px solid var(--grid); padding: 8px 10px; display: grid; gap: 6px; cursor: pointer; }
+  .card.sel { box-shadow: inset 2px 0 0 var(--amber); background: var(--row-hi); }
+  .card .row { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
+  .card .lbl { font: 600 10px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; }
+  @media (max-width: 1439px) { .emg-grid { grid-template-columns: minmax(0, 1fr) 300px; } #tbl .nm { display: none; } #tbl th, #tbl td { padding-left: 6px; padding-right: 6px; } }
+  @media (max-width: 1100px) { .emg-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .tbl-wrap { display: none; } .cards { display: block; } }
+</style>
+</head>
+<body>
+<header class="cmdbar">
+  <h1 class="brand">SECTOR·MON</h1>
+  <span class="ver">v1.4.0 · demo</span>
+  <span class="demo-flag">DEMO · prototipo con dati reali, non è l'app</span>
+</header>
+<nav aria-label="Viste"><div class="fnkeys" role="tablist">
+  <button type="button" role="tab" aria-selected="false">1 Monitor</button><button type="button" role="tab" aria-selected="false">2 Rotazione</button><button type="button" role="tab" aria-selected="false">3 Bottom Map</button><button type="button" role="tab" aria-selected="false">4 Settore</button><button type="button" role="tab" aria-selected="false">5 Alert</button><button type="button" role="tab" aria-selected="false">6 Indici</button><button type="button" role="tab" aria-selected="false">7 Titoli</button><button type="button" role="tab" aria-selected="true">8 Emergenti</button>
+</div></nav>
+<main>
+  <div class="kpis" id="kpis"></div>
+  <div class="emg-grid">
+    <div style="display:grid;gap:12px;min-width:0">
+      <section class="panel">
+        <div class="ph"><h2>Emergenti · stato e contesto</h2><span class="meta" id="metaTbl"></span></div>
+        <div class="tbl-wrap tscroll"><table class="t" id="tbl"><thead><tr>
+          <th>Indice</th><th>Stato</th><th class="r">% sopra media 200</th><th class="r">Blu</th><th class="r">Drawdown</th>
+          <th>Valuta contro dollaro</th><th class="r wrap">3 mesi<br>locale</th><th class="r wrap">3 mesi<br>in $</th><th class="wrap">Forza rel.<br>vs ACWI</th>
+        </tr></thead><tbody></tbody></table></div>
+        <div class="cards" id="cards"></div>
+      </section>
+      <section class="panel">
+        <div class="ph"><h2 id="dTitle"></h2><span class="meta" id="dMeta"></span></div>
+        <div class="charts" id="charts"></div>
+      </section>
+    </div>
+    <div class="emg-side">
+      <section class="panel">
+        <div class="ph"><h2>Forza relativa</h2><span class="meta" id="rsMeta"></span></div>
+        <div class="rrgbox" id="rrg"></div>
+      </section>
+      <section class="panel">
+        <div class="ph"><h2>Come leggere il contesto</h2></div>
+        <div class="notes">
+          <p><b>Solo contesto, non un segnale.</b> Gli stati della prima colonna sono quelli della vista 6 (breadth e livello blu). Valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert.</p>
+          <p><b>Valuta «ha smesso di scendere»</b>: dopo un calo forte (variazione a 13 settimane oltre 1 deviazione standard della sua storia), il cambio si è allontanato dal massimo recente. Nel campione compare spesso nei rimbalzi falliti prima del vero minimo (13 episodi su 14): non è un segnale d'ingresso.</p>
+          <p><b>Dollaro contro gli emergenti</b> (FRED, indice della Fed): il dollaro debole è arrivato in genere mesi dopo il minimo delle borse (mediana 110 sedute nel campione). Conferma, non anticipa. FRED pubblica una volta alla settimana: conta la data dell'ultimo valore.</p>
+          <p><b>Cina e India</b>: il cambio è gestito dalla banca centrale e si muove poco. <b>Hong Kong</b>: dollaro agganciato, il cambio non dice nulla. <b>EEM</b>: è già in dollari.</p>
+          <p class="muted">Numeri del campione: ricerca/emergenti/backtest (7 indici, membri di oggi, poche crisi indipendenti: indicativi).</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+<footer class="foot" style="padding:8px 12px;font:11px var(--f-mono);color:var(--ink-3)" id="foot"></footer>
+<script type="module">
+const D = await (await fetch('demo-data.json')).json();
+const $ = (id) => document.getElementById(id);
+const ORDER = ['CSI300', 'NIFTY50', 'IBOV', 'KOSPI200', 'TWN', 'HSI', 'EEM'];
+const STATES = { normal: 'Normale', watch: 'Attenzione', setup: 'Zona blu', trig: 'Trigger', fail: 'Fallito', cool: 'Cooldown' };
+const ICON = {
+  setup: '<svg viewBox="0 0 12 12"><path d="M6 11 L1 4 H11 Z" fill="currentColor"/></svg>', trig: '<svg viewBox="0 0 12 12"><path d="M6 1 L11 8 H1 Z" fill="currentColor"/></svg>',
+  fail: '<svg viewBox="0 0 12 12"><path d="M2 2 L10 10 M10 2 L2 10" stroke="currentColor" stroke-width="2"/></svg>', cool: '<svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>',
+  watch: '<svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/></svg>', normal: '<svg viewBox="0 0 12 12"><rect x="2" y="5" width="8" height="2" fill="currentColor"/></svg>' };
+const badge = (s) => s ? `<span class="st st-${s}">${ICON[s]}${STATES[s]}</span>` : '—';
+const f = (v, d = 1, sign = false) => v == null || !isFinite(v) ? '—' : (v < 0 ? '−' : sign && v > 0 ? '+' : '') + Math.abs(v).toFixed(d).replace('.', ',');
+const pc = (v) => `<span class="num ${v == null ? '' : v >= 0 ? 'up' : 'dn'}">${f(v, 1, true)}%</span>`;
+const dIt = (iso) => iso ? iso.slice(8, 10) + '/' + iso.slice(5, 7) + '/' + iso.slice(0, 4) : '—';
+const QK = { Leading: 'lead', Weakening: 'weak', Lagging: 'lag', Improving: 'imp' };
+const qpill = (q) => q ? `<span class="pill q-${QK[q]}-c"><span class="d"></span>${q}</span>` : '—';
+const FXL = { calo: 'In calo forte', ferma: 'Ha smesso di scendere', normale: 'Normale', agganciato: 'Agganciato', dollari: 'In dollari' };
+const CUR = { 'CNY=X': 'CNY', 'INR=X': 'INR', 'BRL=X': 'BRL', 'KRW=X': 'KRW', 'TWD=X': 'TWD' };
+function fxCell(o) {
+  const x = o.fx, s = x.state;
+  if (s === 'agganciato' || s === 'dollari') return `<span class="fxp fx-na">${FXL[s]}</span>`;
+  if (s == null) return '—';
+  const z = Math.max(-2.5, Math.min(2.5, x.z)), L = 50 + Math.min(0, z) * 20, W = Math.abs(z) * 20;
+  return `<span class="fxp fx-${s}">${FXL[s]}</span><span class="zbar" title="z a 13 settimane: ${f(x.z, 2)} (a destra = valuta più debole; tacca rossa = soglia 1)"><b></b><span class="thr" style="left:${50 + 20}%"></span><i style="left:${L}%;width:${W}%"></i></span>`;
+}
+function bullet(o) { const w = Math.min(100, o.breadth), blue = o.blue; return `<span class="bullet${o.breadth <= blue ? ' below' : ''}" style="width:90px"><span class="zone" style="width:${blue}%"></span><i style="width:${w}%"></i><span class="tick" style="left:${blue}%"></span></span>`; }
+
+let sel = new URLSearchParams(location.search).get('k') || 'CSI300';
+function renderKpis() {
+  const dl = D.dollar, list = ORDER.map((k) => D.indices[k]);
+  const fx = list.filter((o) => CUR[o.fx.sym]);
+  $('kpis').innerHTML = [
+    ['Dollaro contro emergenti', `${f(dl.value, 1)}`, `${dl.value > dl.sma200 ? 'sopra' : 'sotto'} la media 200 · ${f(dl.ch63, 1, true)}% in 3 mesi · ${dl.D ? '<span class="up">favorevole</span>' : 'non favorevole'} · FRED al ${dIt(dl.last)}`],
+    ['Emergenti in zona blu', `${list.filter((o) => o.state === 'setup').length} <small>/ 7</small>`, list.filter((o) => o.state === 'setup').map((o) => o.name.split(' (')[0]).join(', ') || 'nessuno'],
+    ['In attenzione', `${list.filter((o) => o.state === 'watch').length} <small>/ 7</small>`, list.filter((o) => o.state === 'watch').map((o) => o.name.split(' (')[0]).join(', ') || 'nessuno'],
+    ['Valute in calo forte', `${fx.filter((o) => o.fx.state === 'calo').length} <small>/ ${fx.length}</small>`, fx.filter((o) => o.fx.state === 'calo').map((o) => CUR[o.fx.sym]).join(', ') || 'nessuna'],
+    ['Valute ferme dopo un calo', `${fx.filter((o) => o.fx.state === 'ferma').length} <small>/ ${fx.length}</small>`, fx.filter((o) => o.fx.state === 'ferma').map((o) => CUR[o.fx.sym]).join(', ') || 'nessuna'],
+  ].map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
+}
+function renderTable() {
+  $('metaTbl').textContent = `dati al ${dIt(D.asOf)} · clic su una riga per il dettaglio`;
+  $('tbl').tBodies[0].innerHTML = ORDER.map((k) => { const o = D.indices[k]; return `<tr data-k="${k}" class="${k === sel ? 'sel' : ''}">
+    <td><span class="sym">${k}</span><span class="nm">${o.name.replace(/ \(.*\)/, '')}</span></td><td>${badge(o.state)}</td>
+    <td class="r"><span class="num">${f(o.breadth, 1)}%</span> ${bullet(o)}</td><td class="r num">${o.blue}%</td><td class="r">${pc(o.dd)}</td>
+    <td>${fxCell(o)}</td><td class="r">${pc(o.ch63)}</td><td class="r">${pc(o.ch63usd)}</td><td title="${o.rs.etf} contro ACWI">${qpill(o.rs.quad)}</td></tr>`; }).join('');
+  $('cards').innerHTML = ORDER.map((k) => { const o = D.indices[k]; return `<div class="card ${k === sel ? 'sel' : ''}" data-k="${k}">
+    <div class="row"><span><span class="sym">${k}</span><span class="nm">${o.name.replace(/ \(.*\)/, '')}</span></span>${badge(o.state)}</div>
+    <div class="row"><span class="lbl">Breadth / blu</span><span><span class="num">${f(o.breadth, 1)}%</span> / <span class="num">${o.blue}%</span> ${bullet(o)}</span></div>
+    <div class="row"><span class="lbl">Valuta</span><span>${fxCell(o)}</span></div>
+    <div class="row"><span class="lbl">3 mesi loc. / $</span><span>${pc(o.ch63)} / ${pc(o.ch63usd)}</span></div>
+    <div class="row"><span class="lbl">Forza rel. vs ACWI</span><span>${qpill(o.rs.quad)} <span class="muted num">${o.rs.etf}</span></span></div></div>`; }).join('');
+  document.querySelectorAll('[data-k]').forEach((el) => el.addEventListener('click', () => { sel = el.dataset.k; renderTable(); renderDetail(); }));
+}
+// ---- grafici SVG: scala temporale comune ----
+function chart({ series, t0, t1, h = 120, bands = [], hline = null, fmt = (v) => f(v, 0), marks = [] }) {
+  const box = $('charts'), W = Math.max(280, box.clientWidth - 20), pad = { l: 4, r: 46, t: 6, b: 16 };
+  const x = (d) => pad.l + (Date.parse(d) - t0) / (t1 - t0) * (W - pad.l - pad.r);
+  let lo = Infinity, hi = -Infinity;
+  for (const s of series) s.v.forEach((v, i) => { if (v != null && Date.parse(s.d[i]) >= t0) { lo = Math.min(lo, v); hi = Math.max(hi, v); } });
+  if (hline != null) { lo = Math.min(lo, hline); hi = Math.max(hi, hline); }
+  const m = (hi - lo) * 0.06 || 1; lo -= m; hi += m;
+  const y = (v) => pad.t + (hi - v) / (hi - lo) * (h - pad.t - pad.b);
+  let g = '';
+  for (const b of bands) { // tratti di sedute con una condizione accesa
+    let start = null; const flush = (end) => { if (start != null) g += `<rect x="${x(start)}" y="${pad.t}" width="${Math.max(1, x(end) - x(start))}" height="${h - pad.t - pad.b}" fill="${b.color}"/>`; start = null; };
+    b.d.forEach((d, i) => { if (Date.parse(d) < t0) return; if (b.on[i]) { if (start == null) start = d; } else flush(b.d[i - 1] || d); });
+    flush(b.d.at(-1));
+  }
+  const ticks = 4; for (let i = 0; i <= ticks; i++) { const v = lo + (hi - lo) * i / ticks; g += `<line x1="${pad.l}" x2="${W - pad.r}" y1="${y(v)}" y2="${y(v)}" stroke="var(--grid)"/><text x="${W - pad.r + 4}" y="${y(v) + 3}">${fmt(v)}</text>`; }
+  for (let yr = new Date(t0).getUTCFullYear() + 1; yr <= new Date(t1).getUTCFullYear(); yr++) { const d = `${yr}-01-01`; g += `<line x1="${x(d)}" x2="${x(d)}" y1="${pad.t}" y2="${h - pad.b}" stroke="var(--grid)"/><text x="${x(d) + 3}" y="${h - 4}">${yr}</text>`; }
+  if (hline != null) g += `<line x1="${pad.l}" x2="${W - pad.r}" y1="${y(hline)}" y2="${y(hline)}" stroke="var(--blue)" stroke-width="1.5"/>`;
+  for (const s of series) { let p = '', pen = false; s.v.forEach((v, i) => { if (v == null || Date.parse(s.d[i]) < t0) { pen = false; return; } p += (pen ? 'L' : 'M') + x(s.d[i]).toFixed(1) + ' ' + y(v).toFixed(1); pen = true; }); g += `<path d="${p}" fill="none" stroke="${s.color}" stroke-width="${s.w || 1.4}"/>`; }
+  for (const mk of marks) { const xx = x(mk.d); g += mk.code === 'trig' ? `<path d="M${xx} ${h - pad.b - 9} l5 8 h-10 z" fill="var(--trig-line)"/>` : mk.code === 'setup' ? `<path d="M${xx} ${pad.t + 9} l5 -8 h-10 z" fill="var(--blue)"/>` : `<path d="M${xx - 4} ${pad.t + 1} l8 8 M${xx + 4} ${pad.t + 1} l-8 8" stroke="var(--down)" stroke-width="2"/>`; }
+  return `<svg class="ch" viewBox="0 0 ${W} ${h}" height="${h}" role="img">${g}</svg>`;
+}
+const rebase = (a) => { const b = a.find((v) => v != null); return a.map((v) => (v == null ? null : (v / b) * 100)); };
+function renderDetail() {
+  const o = D.indices[sel], t1 = Date.parse(o.dates.at(-1)), t0 = Date.parse(o.dates[0]);
+  $('dTitle').textContent = `${sel} · ${o.name} · contesto a 3 anni`;
+  $('dMeta').textContent = `breadth ${f(o.breadth, 1)}% · livello blu ${o.blue}% · dati al ${dIt(o.date)}`;
+  const inSetup = o.days.map((s) => s === 'setup');
+  let html = `<div class="chart-h"><span>Prezzo, base 100</span><span class="lg"><span><i class="sw2" style="background:var(--amber)"></i>in valuta locale</span>${o.fx.state === 'dollari' ? '' : '<span><i class="sw2" style="background:var(--blue-light)"></i>in dollari</span>'}</span></div>`;
+  html += chart({ t0, t1, series: [{ d: o.dates, v: rebase(o.closeSer), color: 'var(--amber)' }, ...(o.fx.state === 'dollari' ? [] : [{ d: o.dates, v: rebase(o.usdSer), color: 'var(--blue-light)' }])], h: 130 });
+  html += `<div class="chart-h"><span>% titoli sopra la media 200</span><span class="lg"><span><i class="sw2" style="background:var(--blue)"></i>livello blu ${o.blue}%</span><span><i class="sw2" style="background:var(--blue-zone)"></i>zona blu</span><span>▲ trigger</span></span></div>`;
+  html += chart({ t0, t1, series: [{ d: o.dates, v: o.breadthSer, color: 'var(--ink-2)' }], hline: o.blue, bands: [{ d: o.dates, on: inSetup, color: 'var(--blue-zone)' }], marks: o.events, h: 110 });
+  if (o.fx.dates) {
+    html += `<div class="chart-h"><span>Cambio ${CUR[o.fx.sym]} per dollaro (su = valuta più debole) · al ${dIt(o.fx.last)}</span><span class="lg"><span><i class="sw2" style="background:var(--dd-area)"></i>in calo forte</span><span><i class="sw2" style="background:rgba(34,197,94,.18)"></i>ha smesso di scendere</span></span></div>`;
+    html += chart({ t0, t1, series: [{ d: o.fx.dates, v: o.fx.val, color: 'var(--ink-2)' }], bands: [{ d: o.fx.dates, on: o.fx.zSer.map((z, i) => z != null && z >= 1 && !o.fx.Fser[i]), color: 'var(--dd-area)' }, { d: o.fx.dates, on: o.fx.Fser.map((v) => v === 1), color: 'rgba(34,197,94,.18)' }], fmt: (v) => f(v, v < 10 ? 2 : 0), h: 100 });
+  } else html += `<div class="chart-h"><span>Cambio</span></div><p class="muted" style="margin:4px 0;font-size:12.5px">${o.fx.state === 'agganciato' ? 'Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.' : 'EEM è quotato in dollari: lo strato valutario è il dollaro contro gli emergenti, qui sotto.'}</p>`;
+  const dl = D.dollar;
+  html += `<div class="chart-h"><span>Dollaro contro emergenti (FRED DTWEXEMEGS) · al ${dIt(dl.last)}</span><span class="lg"><span><i class="sw2" style="background:var(--ink-2)"></i>indice</span><span><i class="sw2" style="background:var(--amber)"></i>media 200</span><span><i class="sw2" style="background:rgba(34,197,94,.18)"></i>favorevole (sotto la media e in calo a 3 mesi)</span></span></div>`;
+  html += chart({ t0, t1, series: [{ d: dl.dates, v: dl.val, color: 'var(--ink-2)' }, { d: dl.dates, v: dl.sma, color: 'var(--amber)', w: 1.2 }], bands: [{ d: dl.dates, on: dl.Dser.map((v) => v === 1), color: 'rgba(34,197,94,.18)' }], h: 100 });
+  $('charts').innerHTML = html;
+  renderRrg();
+}
+function renderRrg() {
+  const W = Math.max(240, $('rrg').clientWidth - 4), H = W, c = 100, span = 4, sx = (v) => (v - c + span) / (2 * span) * W, sy = (v) => H - (v - c + span) / (2 * span) * H;
+  let g = `<rect x="${W / 2}" y="0" width="${W / 2}" height="${H / 2}" fill="var(--q-lead-tint)"/><rect x="0" y="0" width="${W / 2}" height="${H / 2}" fill="var(--q-imp-tint)"/><rect x="0" y="${H / 2}" width="${W / 2}" height="${H / 2}" fill="var(--q-lag-tint)"/><rect x="${W / 2}" y="${H / 2}" width="${W / 2}" height="${H / 2}" fill="var(--q-weak-tint)"/>`;
+  g += `<line x1="${W / 2}" x2="${W / 2}" y1="0" y2="${H}" stroke="var(--chart-axis)"/><line x1="0" x2="${W}" y1="${H / 2}" y2="${H / 2}" stroke="var(--chart-axis)"/>`;
+  g += `<text x="${W - 4}" y="12" text-anchor="end" class="q-lead-c" style="fill:var(--q-lead)">Leading</text><text x="4" y="12" style="fill:var(--q-imp)">Improving</text><text x="4" y="${H - 4}" style="fill:var(--q-lag)">Lagging</text><text x="${W - 4}" y="${H - 4}" text-anchor="end" style="fill:var(--q-weak)">Weakening</text>`;
+  const cl = (v) => Math.max(c - span, Math.min(c + span, v));
+  for (const k of ORDER) {
+    const o = D.indices[k], tr = o.rs.trail.filter((p) => p[0] != null && p[1] != null); if (!tr.length) continue;
+    const on = k === sel, col = on ? 'var(--amber)' : 'var(--chart-trail)';
+    if (on) g += `<path d="${tr.map((p, i) => (i ? 'L' : 'M') + sx(cl(p[0])).toFixed(1) + ' ' + sy(cl(p[1])).toFixed(1)).join('')}" fill="none" stroke="${col}" stroke-width="1.8"/>`; // scia solo per l'indice selezionato (scelta dell'utente)
+    const p = tr.at(-1); g += `<circle cx="${sx(cl(p[0]))}" cy="${sy(cl(p[1]))}" r="${on ? 4.5 : 3}" fill="${col}"/><text x="${sx(cl(p[0])) + 6}" y="${sy(cl(p[1])) + 3}" style="fill:${on ? 'var(--amber)' : 'var(--ink-3)'}">${o.rs.etf}</text>`;
+  }
+  $('rrg').innerHTML = `<svg class="ch" viewBox="0 0 ${W} ${H}" height="${H}">${g}</svg><p class="muted" style="font-size:12px;margin:6px 0 0">ETF in dollari contro ACWI, settimanale, formula «Nuova» della rotazione; scia di 10 settimane solo per l'indice selezionato. ASHR (CSI 300), INDA, EWZ, EWY, EWT, EWH (Hong Kong), EEM. RS-Ratio in orizzontale, RS-Momentum in verticale.</p>`;
+  $('rsMeta').textContent = `al ${dIt(D.indices[sel].rs.last)}`;
+}
+renderKpis(); renderTable(); renderDetail();
+$('foot').textContent = `Demo generata il ${dIt(D.generated.slice(0, 10))} da ricerca/emergenti/demo/build.mjs · indici: dati dell'app al ${dIt(D.asOf)} · cambi: Yahoo · dollaro contro emergenti: FRED (pubblicato una volta alla settimana) · ETF: Yahoo.`;
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(renderDetail, 150); });
+</script>
+</body>
+</html>
