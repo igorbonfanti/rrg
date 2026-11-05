@@ -402,7 +402,8 @@ export function createIndices(ctx) {
     $('ixQuality').textContent = CFG[k].composition === 'epoca'
       ? `Storia con la composizione dell'indice di ogni data, dal ${s.dates[f0].slice(0, 4)}. Fonte della composizione: ${CFG[k].source}.`
       : `${CFG[k].limits ? 'Indice con limiti. ' : ''}Storia ricostruita con i membri di oggi, dal ${s.dates[f0].slice(0, 4)}: nelle fasi intermedie la breadth risulta più alta del vero, vicino ai minimi lo scarto è piccolo.${CFG[k].note ? ' ' + CFG[k].note : ''} Fonte della lista: ${CFG[k].source}.`;
-    $('ixLinks').innerHTML = (TV[k] || []).map((x) => `<a href="${tvLink(x)}" target="_blank" rel="noopener">${esc(x.split(':')[1])} su TradingView ↗</a>`).join('');
+    $('ixLinks').innerHTML = (ctx.emgKeys && ctx.emgKeys.includes(k) ? `<a href="#emg-${k}">Cambio e dollaro: vista 8 Emergenti →</a>` : '') +
+      (TV[k] || []).map((x) => `<a href="${tvLink(x)}" target="_blank" rel="noopener">${esc(x.split(':')[1])} su TradingView ↗</a>`).join('');
     renderEpisodes(k, m);
     if (cap) cap.card('ix', k, { dates: s.dates, close: s.close, from: s.dates[rangeStart(k)], noCap: CFG[k].noCap, what: "l'indice" });
   }
@@ -429,6 +430,21 @@ export function createIndices(ctx) {
     st.blue[k] = Math.max(0, Math.min(60, v));
     store.set('ixBlue', Object.fromEntries(Object.entries(st.blue).filter(([x, y]) => y !== CFG[x].blue)));
     renderBoard(); renderMap(); renderDetail();
+    for (const fn of listeners) fn(k);
+  }
+  // per la vista 8 Emergenti: stato della macchina e breadth letti da qui (stessi livelli blu, anche se cambiati nel browser)
+  const listeners = [];
+  async function ensureAll() {
+    await ensure();
+    if (failed) throw failed;
+    loadMore();
+    if (more) await more;
+  }
+  function snapshot(k) {
+    if (!S[k]) return null;
+    const m = machine(k);
+    return { k, name: CFG[k].name, dates: S[k].dates, close: S[k].close, pct200: S[k].pct200, n: S[k].n, members: S[k].members,
+      dd: PX[k].dd, now: NOW[k], blue: st.blue[k], blueSource: CFG[k].blueSource, changed: changed(k), m, state: stateOf(k).code, appr: approach(k).on };
   }
 
   // arrivo dei dati dei cali forti o scelte cambiate nella scheda
@@ -485,5 +501,6 @@ export function createIndices(ctx) {
     // dalla barra comandi, prima di mostrare la pagina: la scelta la apre il render() successivo
     open: (k) => { if (ALL.includes(k)) { st.pending = k; store.set('ixSel', k); } },
     isIndex: (k) => ALL.includes(k), asOf: () => (D ? asOf() : null),
+    ensureAll, snapshot, onChange: (fn) => listeners.push(fn), moreFailed: () => moreFailed,
   };
 }

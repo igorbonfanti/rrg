@@ -96,11 +96,17 @@ sup.cp { color: var(--amber); font-size: 0.8em; margin-left: 1px; }
 .tool { font: 600 11.5px var(--f-mono); letter-spacing: 0.03em; color: var(--ink-3); background: var(--panel-2); border: 0; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
 .tool:hover { color: var(--amber); }
 .tool[aria-pressed="true"] { color: #000; background: var(--q-lead); }
-/* telefono: le cinque schede vanno su due righe; guida e CVD salgono accanto al nome */
-@media (max-width: 600px) {
-  .fnkeys { flex-wrap: wrap; }
+/* tablet stretto (otto schede su una riga occupano circa 815 px): due righe di quattro, come sul telefono */
+@media (min-width: 601px) and (max-width: 860px) {
+  .fnkeys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .fnkeys::after { display: none; }
-  .fnkeys button { flex: 1 1 auto; padding: 8px 10px; }
+  .fnkeys button { text-align: center; }
+}
+/* telefono: le otto schede vanno su due righe di quattro; guida e CVD salgono accanto al nome */
+@media (max-width: 600px) {
+  .fnkeys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .fnkeys::after { display: none; }
+  .fnkeys button { padding: 8px 3px; font-size: 11px; letter-spacing: 0; white-space: normal; text-align: center; }
   .tools { order: 1; margin-left: auto; }
   .cmd { order: 2; flex-basis: 100%; }
   .clock { order: 3; }
@@ -814,3 +820,52 @@ svg.bub { touch-action: pan-y; }
 .ts .capalert-t { fill: var(--amber-2); }
 /* tablet: i cinque riquadri in una riga, senza celle vuote */
 @media (min-width: 601px) and (max-width: 1100px) { .kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); } .kpis .kpi .s { overflow-wrap: anywhere; } }
+
+/* ---------- vista 8 Emergenti (solo contesto) ---------- */
+.emg-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 12px; align-items: start; }
+.emg-main, .emg-side { display: grid; gap: 12px; min-width: 0; }
+#emTable .nm { display: none; }
+@media (min-width: 1600px) { #emTable .nm { display: inline; } }
+@media (max-width: 1439px) { .emg-grid { grid-template-columns: minmax(0, 1fr) 300px; } }
+@media (max-width: 1279px) { .emg-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 600px) { #emTable .nm { display: inline; } }
+.fxp { display: inline-flex; align-items: center; font: 600 10.5px var(--f-mono); letter-spacing: .04em; padding: 2px 7px; border: 1px solid currentColor; text-transform: uppercase; white-space: nowrap; }
+.fx-calo { color: var(--down); } .fx-ferma { color: var(--up); } .fx-normale, .fx-na { color: var(--ink-3); }
+.zbar { position: relative; display: inline-block; width: 56px; height: 8px; background: var(--panel-2); vertical-align: middle; margin-left: 6px; }
+.zbar i { position: absolute; top: 0; bottom: 0; background: var(--ink-2); }
+.zbar b { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--chart-axis); left: 50%; }
+.zbar .thr { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--down); left: 70%; }
+#emTable tbody tr { cursor: pointer; }
+#emTable tbody tr.sel td { background: var(--row-hi); }
+#emTable tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--amber); }
+.ts .emloc { fill: none; stroke: var(--amber); stroke-width: 1.4; }
+.ts .emusd { fill: none; stroke: var(--blue-light); stroke-width: 1.4; }
+.ts .emfx { fill: none; stroke: var(--ink-2); stroke-width: 1.3; }
+.ts .emdl { fill: none; stroke: var(--ink-2); stroke-width: 1.3; }
+.ts .fxcalo { fill: var(--down); fill-opacity: .25; }
+:root[data-theme="light"] .ts .fxcalo { fill-opacity: .16; }
+.ts .fxferma, .ts .dlfav { fill: var(--up); fill-opacity: .16; }
+.kb.em-calo { background: var(--down); opacity: .35; } .kb.em-ferma, .kb.em-fav { background: var(--up); opacity: .35; }
+.emrs { width: 100%; display: block; }
+.emrs .qbg { opacity: 1; }
+.emrs .axis { stroke: var(--chart-axis); }
+.emrs .qlab { font: 600 10px var(--f-mono); letter-spacing: .04em; }
+.emrs .q-lead-c { fill: var(--q-lead); } .emrs .q-imp-c { fill: var(--q-imp); } .emrs .q-lag-c { fill: var(--q-lag); } .emrs .q-weak-c { fill: var(--q-weak); }
+.emrs .q-lead-tint { fill: var(--q-lead-tint); } .emrs .q-imp-tint { fill: var(--q-imp-tint); } .emrs .q-lag-tint { fill: var(--q-lag-tint); } .emrs .q-weak-tint { fill: var(--q-weak-tint); }
+.emrs .emtrail { fill: none; stroke: var(--amber); stroke-width: 1.8; stroke-linejoin: round; }
+.emrs .emdot { cursor: pointer; }
+.emrs .emdot circle { fill: var(--chart-trail); }
+.emrs .emdot text { fill: var(--ink-3); font: 10px var(--f-mono); }
+.emrs .emdot.on circle { fill: var(--amber); }
+.emrs .emdot.on text { fill: var(--amber-2); font-weight: 600; }
+.emnotes { margin: 0; padding: 8px 10px 8px 26px; font-size: 12.5px; color: var(--ink-2); display: grid; gap: 6px; }
+.emread { padding: 8px 10px; font-size: 12.5px; color: var(--ink-2); display: grid; gap: 8px; }
+.emread p { margin: 0; }
+.emread b { color: var(--ink); }
+@media (max-width: 899px) {
+  #emTable .c-fx { flex: 1 1 100%; }
+  #emTable .c-m3 { order: 6; } #emTable .c-m3u { order: 7; } #emTable .c-rs { order: 8; margin-left: auto; }
+  #emTable .c-dd { order: 4; }
+}
+#emTable .bullet { width: 70px; }
+@media (max-width: 1439px) { #emTable .zbar { width: 40px; } #emTable th, #emTable td { padding-left: 6px; padding-right: 6px; } }

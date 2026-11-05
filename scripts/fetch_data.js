@@ -630,16 +630,27 @@ export function parseFredCsv(text) {
   return out;
 }
 
-async function fetchFred(id, since) {
+// CSV di FRED con valori giornalieri (per esempio DTWEXEMEGS): { dates, val } in ordine, senza i giorni vuoti o «.»
+export function parseFredDaily(text) {
+  const dates = [], val = [];
+  for (const line of text.trim().split(/\r?\n/).slice(1)) {
+    const [d, v] = line.split(',');
+    const x = Number(v);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(d) && v !== '' && v !== '.' && Number.isFinite(x)) { dates.push(d); val.push(x); }
+  }
+  return { dates, val };
+}
+
+export async function fetchFred(id, since, parse = parseFredCsv) {
   const url = `https://fred.stlouisfed.org/graph/fredgraph.csv?id=${encodeURIComponent(id)}&cosd=${since}`;
   let lastErr;
   for (let attempt = 0; attempt < 4; attempt++) {
     try {
       const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' }, signal: AbortSignal.timeout(30000) });
       if (!r.ok) throw new Error(`HTTP ${r.status}`); // FRED risponde a volte 503: si riprova
-      const months = parseFredCsv(await r.text());
-      if (!Object.keys(months).length) throw new Error('nessun dato');
-      return months;
+      const out = parse(await r.text());
+      if (!Object.keys(out).length || (out.dates && !out.dates.length)) throw new Error('nessun dato');
+      return out;
     } catch (e) {
       lastErr = e;
       await sleep(1500 * 2 ** attempt);

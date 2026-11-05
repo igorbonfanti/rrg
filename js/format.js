@@ -90,6 +90,9 @@ export function placeTip(tip, wrap, e, dy = 14) {
   if (x + w > wr.width) x = e.clientX - wr.left - w - 10;
   tip.style.left = Math.max(4, Math.min(x, wr.width - w - 4)) + 'px';
   tip.style.top = Math.max(0, e.clientY - wr.top + dy) + 'px';
+  // vicino al fondo della finestra il riquadro va sopra il puntatore, così non esce dallo schermo
+  const h = tip.offsetHeight || 0;
+  if (h && e.clientY + dy + h > window.innerHeight - 4 && e.clientY - h - 10 >= 0) tip.style.top = Math.max(0, e.clientY - wr.top - h - 10) + 'px';
 }
 
 // freccia che punta nella direzione `deg` (gradi bussola, 0° = nord)

@@ -1,0 +1,61 @@
+{
+  "_note": "Vista 8 Emergenti, solo contesto (decisione dell'utente del 05/11/2026): nessuna regola, nessun alert. Indici della vista 6; cambio in valuta locale per un dollaro: storia dalla Federal Reserve (FRED H.10, fxFred), Yahoo solo per i giorni che la Fed non ha ancora pubblicato (decisione dell'utente del 05/11/2026); ETF in dollari per la forza relativa contro ACWI. Definizioni di F e D: ricerca/emergenti/backtest/script/backtest.mjs, portate in js/emerging.js.",
+  "order": [
+    "CSI300",
+    "NIFTY50",
+    "IBOV",
+    "KOSPI200",
+    "TWN",
+    "HSI",
+    "EEM"
+  ],
+  "indices": {
+    "CSI300": {
+      "fx": "CNY=X",
+      "ccy": "CNY",
+      "etf": "ASHR",
+      "managed": true,
+      "fxFred": "DEXCHUS"
+    },
+    "NIFTY50": {
+      "fx": "INR=X",
+      "ccy": "INR",
+      "etf": "INDA",
+      "managed": true,
+      "fxFred": "DEXINUS"
+    },
+    "IBOV": {
+      "fx": "BRL=X",
+      "ccy": "BRL",
+      "etf": "EWZ",
+      "fxFred": "DEXBZUS"
+    },
+    "KOSPI200": {
+      "fx": "KRW=X",
+      "ccy": "KRW",
+      "etf": "EWY",
+      "fxFred": "DEXKOUS"
+    },
+    "TWN": {
+      "fx": "TWD=X",
+      "ccy": "TWD",
+      "etf": "EWT",
+      "fxFred": "DEXTAUS"
+    },
+    "HSI": {
+      "fx": "HKD=X",
+      "ccy": "HKD",
+      "etf": "EWH",
+      "peg": true,
+      "fxFred": "DEXHKUS"
+    },
+    "EEM": {
+      "fx": null,
+      "ccy": "USD",
+      "etf": "EEM",
+      "fxFred": null
+    }
+  },
+  "benchmark": "ACWI",
+  "fred": "DTWEXEMEGS"
+}

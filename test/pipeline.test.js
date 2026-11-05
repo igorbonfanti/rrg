@@ -58,3 +58,15 @@ test('corse di recupero: lo stesso cron nel workflow e nello script', async () =
   const { RECOVERY } = await import('../scripts/need_update.js');
   assert.ok(fs.readFileSync(new URL('../.github/workflows/update-data.yml', import.meta.url), 'utf8').includes(`cron: "${RECOVERY}"`));
 });
+
+test('dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni', () => {
+  const base = { breadth: { asOf: '2026-11-04' } };
+  const em = (fx, etf, fred) => ({ ...base, emerging: { asOf: { fx, etf, fred } } });
+  assert.deepEqual(staleData(em('2026-11-03', '2026-11-04', '2026-10-30'), '2026-11-05'), []);
+  assert.deepEqual(staleData(em('2026-11-03', '2026-11-04', '2026-10-23'), '2026-11-05'), []); // 13 giorni: ancora nella settimana dopo
+  const p = staleData(em('2026-10-30', '2026-11-04', '2026-10-20'), '2026-11-05');
+  assert.equal(p.length, 2, p.join(' | '));
+  assert.ok(p.some((x) => /cambi.*2026-10-30/.test(x)) && p.some((x) => /FRED/.test(x)));
+  assert.equal(staleData({ ...base, emergingLast: { 'KRW=X': '2026-10-28', 'CNY=X': '2026-11-03' } }, '2026-11-05').length, 1);
+  assert.deepEqual(staleData(base, '2026-11-05'), []); // file non ancora creato: nessun controllo
+});
