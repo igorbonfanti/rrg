@@ -12,7 +12,7 @@ UTC (04:00 a New York) del giorno prima: lanciato d'inverno, lo script le datava
 | Simboli | Barre con data spostata | Note |
 |---|---|---|
 | 6 cambi EURxxx=X | 760 su 1.305 ciascuno | 152 barre finite di domenica |
-| DX-Y.NYB | 997 su 1.521 | 6 date doppie: una barra persa per ognuna |
+| DX-Y.NYB | 824 su 1.257 barre con chiusura (997 su 1.521 contando i timestamp con chiusura nulla) | nessuna data doppia fra le barre con chiusura; le 6 date doppie dei 1.521 timestamp cadono su barre nulle (rapporto in `ricerca/qa/1.3.5/codice/`) |
 | 47 ETF europei, DBMF, BTC, 9 ETF USA, 22 indici, SPY/XLK/AAPL | 0 | |
 
 ## Effetto sui file pubblicati (`effetto.mjs` → `effetto.json`)

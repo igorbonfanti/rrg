@@ -25,7 +25,7 @@ export const yahooSymbol = (sym) => sym.replace(/\./g, '-');
 const DAY_FMT = {};
 function barDate(ts, meta) {
   const tz = meta && meta.exchangeTimezoneName;
-  if (tz) {
+  if (tz && DAY_FMT[tz] !== null) {
     try {
       const c = DAY_FMT[tz] || (DAY_FMT[tz] = { f: new Intl.DateTimeFormat('en-US', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }), seen: new Map() });
       let d = c.seen.get(ts);
@@ -35,7 +35,7 @@ function barDate(ts, meta) {
         c.seen.set(ts, d);
       }
       return d;
-    } catch { /* fuso sconosciuto: si usa il gmtoffset */ }
+    } catch { DAY_FMT[tz] = null; /* fuso sconosciuto: si usa il gmtoffset, senza riprovare a ogni barra */ }
   }
   return new Date((ts + ((meta && meta.gmtoffset) || 0)) * 1000).toISOString().slice(0, 10);
 }
