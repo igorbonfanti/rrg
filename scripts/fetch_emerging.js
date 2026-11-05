@@ -39,6 +39,13 @@ export function pack(dates, val) {
 export function pickSeries(fresh, prev) {
   if (!fresh) return prev ? { s: prev, kept: true } : null;
   if (prev && prev.last && fresh.last < prev.last) return { s: prev, kept: true };
+  // stesse date e stessi valori entro un'unità dell'ultima cifra (Yahoo cambia le chiusure rettificate di 1e-6 a ogni
+  // richiesta): si tiene la pubblicata, così una corsa senza dati nuovi non riscrive il file (keep_unchanged.js)
+  if (prev && prev.cd && fresh.cd && prev.d0 === fresh.d0 && prev.gaps === fresh.gaps && prev.ps === fresh.ps && (prev.fred || null) === (fresh.fred || null) && prev.cd.length === fresh.cd.length) {
+    let a = 0, b = 0, same = true;
+    for (let i = 0; i < prev.cd.length && same; i++) { a += prev.cd[i]; b += fresh.cd[i]; if (Math.abs(a - b) > 1) same = false; }
+    if (same) return { s: prev, kept: false, same: true };
+  }
   // storia accorciata (inizio oltre 40 giorni dopo, o meno del 95% delle righe): si tiene la pubblicata e si segnala
   if (prev && prev.d0 && prev.cd && fresh.d0 && (Date.parse(fresh.d0) - Date.parse(prev.d0) > 40 * 86400000 || fresh.cd.length < 0.95 * prev.cd.length)) return { s: prev, kept: true, short: true };
   return { s: fresh, kept: false };
@@ -77,13 +84,18 @@ async function main() {
   const prevSer = (s) => { const x = prev && prev.series && prev.series[s]; if (!x || !x.cd) return null; return { x, dates: decodeDates(x.d0, x.gaps), val: deltaDecode(x.cd, x.ps || 1) }; };
   const P1_TAIL = Math.floor(Date.now() / 1000) - TAIL_DAYS * 86400;
   const notes = [];
+  let fredDown = null; // dopo il primo errore di FRED le altre serie non lo richiedono (con FRED appeso ogni serie costa 2-3 minuti)
+  const fred = async (id, since) => {
+    if (fredDown) throw new Error(`non richiesto, FRED già giù (${fredDown})`);
+    try { return await fetchFred(id, since, parseFredDaily); } catch (e) { fredDown = e.message; throw e; }
+  };
   const etf = [...new Set([...Object.values(cfg.indices).map((x) => x.etf), cfg.benchmark])];
   const fresh = {}, errors = [];
   // cambio: Fed (o la parte Fed pubblicata) + coda di Yahoo (o la coda pubblicata)
   async function fxSeries(sym) {
     const p = prevSer(sym);
     let fed = null, tail = null;
-    try { fed = await fetchFred(fedOf[sym], FX_SINCE, parseFredDaily); } catch (e) {
+    try { fed = await fred(fedOf[sym], FX_SINCE); } catch (e) {
       errors.push(`${fedOf[sym]} (Fed per ${sym}): ${e.message}`);
       if (p && p.x.fred) { const n = p.dates.filter((d) => d <= p.x.fred).length; fed = { dates: p.dates.slice(0, n), val: p.val.slice(0, n) }; notes.push(`${sym}: tenuta la parte Fed pubblicata`); }
     }
@@ -116,7 +128,7 @@ async function main() {
     } catch (e) { errors.push(`${sym}: ${e.message}`); }
   });
   try {
-    const f = await fetchFred(cfg.fred, FRED_SINCE, parseFredDaily);
+    const f = await fred(cfg.fred, FRED_SINCE);
     fresh[cfg.fred] = { ...pack(f.dates, f.val), last: f.dates[f.dates.length - 1] };
   } catch (e) { errors.push(`${cfg.fred}: ${e.message}`); }
 
@@ -146,6 +158,8 @@ async function main() {
   for (const s of all) console.log(s.padEnd(11), series[s] ? `fino al ${series[s].last}${series[s].fred ? ` (Fed fino al ${series[s].fred})` : ''}${kept.includes(s) ? ' (tenuta la serie pubblicata)' : ''}` : 'mancante');
   if (notes.length) console.warn(`Note:\n${notes.join('\n')}`);
   if (errors.length) console.warn(`Errori:\n${errors.join('\n')}`);
+  // nel riepilogo della corsa di GitHub (avvisi visibili senza aprire il log)
+  if (process.env.GITHUB_ACTIONS) for (const m of [...errors, ...notes]) console.log(`::warning title=Emergenti::${m.replace(/\n/g, ' ')}`);
   console.log(`Scritto data/emerging.json (${(fs.statSync(OUT).size / 1024).toFixed(0)} KB): cambi al ${out.asOf.fx}, ETF al ${out.asOf.etf}, FRED al ${out.asOf.fred}`);
 }
 

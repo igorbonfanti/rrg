@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { emSeries, cleanFx, plain, fxSignals, fxState, dollarSignals, onDates, inUsd, change, relStrength } from '../js/emerging.js';
 import { parseFredDaily, parseFredCsv } from '../scripts/fetch_data.js';
-import { pack, pickSeries, lastLongGap } from '../scripts/fetch_emerging.js';
+import { pack, pickSeries, lastLongGap, splice } from '../scripts/fetch_emerging.js';
 
 const read = (f) => JSON.parse(fs.readFileSync(new URL('../' + f, import.meta.url)));
 const CFG = read('config/emerging.json'), IXCFG = read('config/indices.json').indices;
@@ -136,4 +136,24 @@ test('emergenti: valori «d\'oro» delle definizioni (cambi della Fed 2012-2020,
     assert.ok(Math.abs(D.sma[i] - m) < 1e-6, `media 200 al ${d}`);
     assert.equal(D.D[i], v, `D al ${d}`);
   }
+});
+
+test('emergenti: giunzione Fed + Yahoo e serie invariate', () => {
+  const fed = { dates: ['2026-10-28', '2026-10-29', '2026-10-30'], val: [1, 2, 3] };
+  const tail = { dates: ['2026-10-29', '2026-10-30', '2026-11-02', '2026-11-03'], val: [9, 9, 4, 5] };
+  const j = splice(fed, tail);
+  assert.deepEqual(j.dates, ['2026-10-28', '2026-10-29', '2026-10-30', '2026-11-02', '2026-11-03']); // nessuna data doppia
+  assert.deepEqual(j.val, [1, 2, 3, 4, 5]); // Yahoo non sovrascrive la Fed
+  assert.equal(j.fredLast, '2026-10-30');
+  assert.deepEqual(splice(fed, null).dates, fed.dates);
+  // stesse date, valori diversi solo per il rumore dell'ultima cifra: resta la pubblicata (il file non cambia)
+  const a = { ...pack(['2026-01-05', '2026-01-06'], [10.12345, 10.2]), last: '2026-01-06' };
+  const b = { ...pack(['2026-01-05', '2026-01-06'], [10.12346, 10.2]), last: '2026-01-06' };
+  assert.equal(pickSeries(b, a).s, a);
+  const c = { ...pack(['2026-01-05', '2026-01-06'], [10.2, 10.2]), last: '2026-01-06' };
+  assert.equal(pickSeries(c, a).s, c); // valore cambiato davvero: la nuova
+  // storia accorciata: resta la pubblicata
+  const long = { ...pack(['2026-01-05', '2026-01-06', '2026-01-07'], [1, 1, 1]), last: '2026-01-07' };
+  const short = { ...pack(['2026-03-05', '2026-03-06', '2026-03-09'], [1, 1, 1]), last: '2026-03-09' };
+  assert.equal(pickSeries(short, long).s, long);
 });
