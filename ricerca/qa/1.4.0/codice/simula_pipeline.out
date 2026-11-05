@@ -1,0 +1,18 @@
+== S1 prima corsa, file assente, tutto arriva: uscita 0 in 2 s
+   Scritto data/emerging.json (458 KB): cambi al 2026-11-04, ETF al 2026-11-04, FRED al 2026-10-30
+ file:///tmp/claude-0/-home-user-rrg/d11a05ff-fe30-5458-88d7-bab1e13b8eb0/scratchpad/sim/[eval1]:1
+ const d=require('./data/emerging.json');const {emSeries,cleanFx,fxSignals}=await import('./js/emerging.js');const k=d.series['KRW=X'];let s='';if(k){const x=emSeries(k);const g=fxSignals(cleanFx('KRW=X',x));s=' KRW righe '+x.dates.length+' dal '+x.dates[0]+', F ultimo '+g.F.at(-1);}console.log('   file: asOf',JSON.stringify(d.asOf),'missing',JSON.stringify(d.missing)+s)
+         ^
+ 
+ ReferenceError: Cannot determine intended module format because both require() and top-level await are present. If the code is intended to be CommonJS, wrap await in an async function. If the code is intended to be an ES module, replace require() with import.
+     at file:///tmp/claude-0/-home-user-rrg/d11a05ff-fe30-5458-88d7-bab1e13b8eb0/scratchpad/sim/[eval1]:1:9
+     at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+     at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:272:26)
+     at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:268:20)
+     at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+   code: 'ERR_AMBIGUOUS_MODULE_SYNTAX'
+ }
+ 
+ Node.js v22.22.0
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0

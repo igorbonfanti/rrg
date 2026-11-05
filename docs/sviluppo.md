@@ -124,7 +124,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
   - solo contesto, conta se l'allerta si ripete: mediana di 31,5 sedute in allerta nei 12 mesi dal primo episodio nel 2007-2009, 12 nel 2020, 5 nell'aprile 2025 (script `ricerca/quant-rea/script/capitolazione_persistenza.mjs`);
   - prova sui 22 indici in `ricerca/quant-rea/risultati/capitolazione/`.
 
-- **Emergenti** (1.4.0, solo contesto): definizioni di F (valuta che ha smesso di scendere), «in calo forte» e D (dollaro emergente favorevole) in testa a `js/emerging.js`, identiche a `ricerca/emergenti/backtest/script/backtest.mjs` (porting verificato: `ricerca/emergenti/verifica_porting.mjs`, 0 differenze su 29.158 valori di F e 5.222 di D). Forza relativa: ETF in dollari contro ACWI con la formula «Nuova».
+- **Emergenti** (1.4.0, solo contesto): definizioni di F (valuta che ha smesso di scendere), «in calo forte» e D (dollaro emergente favorevole) in testa a `js/emerging.js`, identiche a `ricerca/emergenti/backtest/script/backtest.mjs` (porting verificato: `ricerca/emergenti/verifica_porting.mjs`, 0 differenze su 29.155 valori di F e 5.222 di D). Forza relativa: ETF in dollari contro ACWI con la formula «Nuova».
 
 ## 5. Decisioni prese con l'utente
 

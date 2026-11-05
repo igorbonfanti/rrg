@@ -68,7 +68,8 @@ function loadFx(sym, src = 'yahoo') {
   const v = rows.map((r) => r[1]);
   for (let i = 1; i + 1 < rows.length; i++) {
     const r1 = Math.log(v[i] / v[i - 1]), r2 = Math.log(v[i + 1] / v[i]);
-    if (Math.abs(r1) > thr && Math.abs(r2) > thr && Math.sign(r1) !== Math.sign(r2) && Math.abs(r1 + r2) < back) bad.push(i);
+    const m = Math.min(Math.abs(r1), Math.abs(r2)); // 1.4.0: anche un salto enorme (oltre 5 volte la soglia) che rientra per almeno 3/4
+    if (Math.abs(r1) > thr && Math.abs(r2) > thr && Math.sign(r1) !== Math.sign(r2) && (Math.abs(r1 + r2) < back || (m > 5 * thr && Math.abs(r1 + r2) < 0.25 * m))) bad.push(i);
   }
   const badSet = new Set(bad);
   const dates = [], val = [];
@@ -322,7 +323,8 @@ function h5(B, mode) {
     }
   }
   const num = (f) => list.map(f).filter((x) => typeof x === 'number');
-  const s = (f) => { const v = num(f); return { conDato: v.length, mediana: median(v), prima: v.filter((x) => x < 0).length, stessoGiorno: v.filter((x) => x === 0).length, dopo: v.filter((x) => x > 0).length }; };
+  // mai = dati presenti ma nessuna accensione nella finestra (null): conta nel denominatore (1.4.0, controllo dei testi)
+  const s = (f) => { const v = num(f); return { conDato: v.length, mediana: median(v), prima: v.filter((x) => x < 0).length, stessoGiorno: v.filter((x) => x === 0).length, dopo: v.filter((x) => x > 0).length, mai: list.filter((x) => f(x) === null).length }; };
   return { episodi: list, FalMinimoAcceso: `${list.filter((x) => x.FalMinimo === 1).length}/${list.filter((x) => x.FalMinimo === 0 || x.FalMinimo === 1).length}`, DalMinimoAcceso: `${list.filter((x) => x.DalMinimo === 1).length}/${list.filter((x) => x.DalMinimo === 0 || x.DalMinimo === 1).length}`,
     FprimoDopo: s((x) => x.FdopoMinimo), DprimoDopo: s((x) => x.DdopoMinimo), F: s((x) => x.anticipoF), D: s((x) => x.anticipoD), pieno: s((x) => x.anticipoPieno), trigger: s((x) => x.trigger) };
 }

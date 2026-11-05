@@ -20,10 +20,10 @@ function el(tag, attrs, parent) {
 const DAY = 86400000;
 const FXL = { calo: 'In calo forte', ferma: 'Ha smesso di scendere', normale: 'Normale', agganciato: 'Agganciato', dollari: 'In dollari' };
 const FXT = {
-  calo: 'La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).',
-  ferma: 'Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d\'ingresso.',
-  normale: 'Nessun calo forte della valuta nelle ultime 13 settimane.',
-  agganciato: 'Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.',
+  calo: 'La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni).',
+  ferma: 'Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione si era accesa prima del vero minimo in 13 cali di borsa su 15: non è un segnale d\'ingresso.',
+  normale: 'La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte.',
+  agganciato: 'Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.',
   dollari: 'EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.',
 };
 const short = (name) => name.replace(/ \(.*\)/, '');
@@ -77,7 +77,7 @@ export function createEmerging(ctx) {
     else if (!c.fx) fxs = { state: 'dollari' };
     else if (!f) fxs = { state: null };
     else { const j = f.S.dates.length - 1; fxs = { state: fxState(f.F[j], f.z[j]), z: f.z[j], date: f.S.dates[j], value: f.S.val[j] }; }
-    return { k, snap, name: snap.name, state: snap.state, appr: snap.appr, b: snap.pct200[snap.now], L: snap.blue, changed: snap.changed, dd: snap.dd[last],
+    return { k, snap, name: snap.name, state: snap.state, appr: snap.appr, b: snap.pct200[snap.now], L: snap.blue, changed: snap.changed, blueSource: snap.blueSource, dd: snap.dd[last],
       ch63: change(snap.close, 63), ch63u: usd ? change(usd, 63) : null, fx: fxs, rs: model.rs[k], usd, last, date: snap.dates[last] };
   }
 
@@ -133,12 +133,12 @@ export function createEmerging(ctx) {
         <td class="c-name"><span class="sym">${r.k}</span><span class="nm">${esc(short(r.name))}</span></td>
         <td class="c-state">${r.appr ? apprBadge() : badge(r.state)}</td>
         <td class="c-br" data-l="breadth"><span class="cellv num">${fmt(r.b)}%</span><span class="bullet${r.b <= r.L ? ' below' : ''}"><span class="zone" style="width:${r.L}%"></span><i style="width:${Math.max(1, r.b || 0)}%"></i><span class="tick" style="left:calc(${r.L}% - 1px)"></span></span></td>
-        <td class="num r c-blue" data-l="blu">${r.L}%${r.changed ? '<span class="loc" title="modificato in questo browser (vista 6)">*</span>' : ''}</td>
+        <td class="num r c-blue" data-l="blu" title="${esc(r.changed ? 'modificato in questo browser (vista 6)' : r.blueSource === 'Rea' ? 'livello di default dai grafici di Massimo Rea (quant-rea)' : 'livello di default: 3° percentile della storia della breadth dell\'indice')}">${r.L}%${r.changed ? '<span class="loc" title="modificato in questo browser (vista 6)">*</span>' : ''}</td>
         <td class="num r c-dd" data-l="drawdown">${pct(r.dd)}</td>
         <td class="c-fx" data-l="valuta">${fxCell(r.fx)}</td>
-        <td class="num r c-m3" data-l="3 mesi" title="variazione in 63 sedute dell'indice in valuta locale">${pct(r.ch63)}</td>
+        <td class="num r c-m3" data-l="3 mesi" title="${esc(CFG[r.k].fx ? 'variazione in 63 sedute dell\'indice in valuta locale' : 'variazione in 63 sedute (EEM è in dollari)')}">${pct(r.ch63)}</td>
         <td class="num r c-m3u" data-l="in $" title="${esc(CFG[r.k].fx === null ? 'EEM è già in dollari' : CFG[r.k].fx ? `indice diviso per il cambio ${CFG[r.k].fx} dello stesso giorno` : '')}">${pct(r.ch63u)}</td>
-        <td class="c-rs" data-l="vs ACWI" title="${esc(r.rs ? `${CFG[r.k].etf} contro ACWI, settimanale, al ${dIT(r.rs.last)}` : 'storia non disponibile')}">${r.rs && r.rs.quad ? qPill(r.rs.quad) : '<span class="muted">—</span>'}</td></tr>`).join('') + '</tbody>';
+        <td class="c-rs" data-l="forza rel. vs ACWI" title="${esc(r.rs ? `${CFG[r.k].etf} contro ACWI, settimanale, al ${dIT(r.rs.last)}` : 'storia non disponibile')}">${r.rs && r.rs.quad ? qPill(r.rs.quad) : '<span class="muted">—</span>'}</td></tr>`).join('') + '</tbody>';
     keepFocus($('emTable'), 'data-em', html);
     $('emTable').querySelectorAll('tbody tr[data-em]').forEach((tr) => {
       tr.onclick = () => select(tr.dataset.em);
@@ -162,11 +162,11 @@ export function createEmerging(ctx) {
     $('emOpenIx').textContent = `Apri ${k} nella vista 6 →`;
     drawChart(r);
     const notes = [];
-    if (c.managed) notes.push(`Il cambio ${c.ccy} è gestito dalla banca centrale e si muove poco: anche i movimenti piccoli contano.`);
+    if (c.managed) notes.push(`Il cambio ${c.ccy} è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».`);
     if (c.peg) notes.push(FXT.agganciato);
     if (!c.fx) notes.push(FXT.dollari);
     const f = model.fx[k];
-    if (f && f.S.removed.length) notes.push(`${f.S.removed.length} ${f.S.removed.length === 1 ? 'seduta del cambio tolta' : 'sedute del cambio tolte'} perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».`);
+    if (f && f.S.removed.length) notes.push(`${f.S.removed.length} ${f.S.removed.length === 1 ? 'seduta del cambio tolta' : 'sedute del cambio tolte'} come probabili errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì ${c.peg ? 'l\'indice in dollari' : 'il cambio'} è «—». In qualche caso era un movimento vero (per esempio il won il 16 e 17/09/2008).`);
     notes.push(`Forza relativa con ${c.etf} (ETF in dollari, dividendi inclusi) contro ACWI.`);
     $('emNotes').innerHTML = notes.map((x) => `<li>${esc(x)}</li>`).join('');
   }
@@ -286,13 +286,13 @@ export function createEmerging(ctx) {
         <div class="row"><span>Sopra media 200</span><b>${snap.pct200[i] == null ? '—' : fmt(snap.pct200[i]) + '%'}</b></div>
         ${hasFx ? `<div class="row"><span>${c.ccy} per dollaro</span><b>${fxTxt}</b></div><div class="row"><span>Valuta</span><b>${fxSt ? FXL[fxSt] : '—'}</b></div>` : ''}
         <div class="row"><span>Dollaro vs emergenti</span><b>${di == null ? '—' : fmt(dl.S.val[di], 2)}</b></div>` +
-        (di == null && dl ? '<div class="row note-row">FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)</div>' : '');
+        (di == null && dl ? '<div class="row note-row">FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)</div>' : '');
       placeTip($('emTip'), $('emWrap'), e, 12);
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('emTip').hidden = true; emitX('emg', svg.id, null); });
     // legenda
     $('emLegend').innerHTML = [
-      '<span><span class="kl" style="background:var(--amber)"></span>in valuta locale</span>',
+      `<span><span class="kl" style="background:var(--amber)"></span>${c.fx ? 'in valuta locale' : 'prezzo in dollari'}</span>`,
       c.fx ? '<span><span class="kl" style="background:var(--blue-light)"></span>in dollari</span>' : '',
       '<span><span class="kb" style="background:var(--blue);opacity:.45"></span>zona blu</span>',
       '<span><span class="kb" style="background:var(--st-trig)"></span>trigger</span>',

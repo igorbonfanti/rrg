@@ -25,6 +25,10 @@ test('emergenti: pulizia di un errore di stampa isolato, non di un salto vero', 
   assert.equal(shift.removed.length, 0);
   // CNY ha soglie più strette (1%)
   assert.equal(cleanFx('CNY=X', { dates, val: [7, 7.01, 7.2, 7.01, 7.0] }).removed.length, 1);
+  // salto enorme che rientra per più di 3/4 anche se il cambio intanto si è mosso del 3% (TWD=X 25/10/2011: 29,254 → 1,8015 → 30,11)
+  assert.deepEqual(cleanFx('TWD=X', { dates, val: [30.02, 29.254, 1.8015, 30.11, 30.09] }).removed.map((x) => x.date), ['2026-01-07']);
+  // movimento vero della settimana di Lehman confermato dalla Fed (BRL=X 8/10/2008: 2,179 → 2,400 → 2,148): resta
+  assert.equal(cleanFx('BRL=X', { dates, val: [2.16, 2.179, 2.4, 2.148, 2.25] }).removed.length, 0);
 });
 
 test('emergenti: stato della valuta in parole', () => {

@@ -2,7 +2,7 @@
  "Fyahoo_fred": {
   "triggerConCambio": 25,
   "conEntrambi": 20,
-  "diversi": 7,
+  "diversi": 8,
   "soloFred": 5,
   "elenco": [
    {
@@ -128,7 +128,7 @@
    {
     "k": "TWN",
     "date": "2011-12-26",
-    "yahoo": 0,
+    "yahoo": 1,
     "fred": 0
    },
    {
@@ -157,14 +157,15 @@
    }
   ]
  },
- "generato": "2026-11-05T13:44:09.594Z",
- "asOfIndici": "2026-10-30",
+ "generato": "2026-11-05T16:14:06.227Z",
+ "asOfIndici": "2026-11-04",
  "fonti": {
   "CNY=X": {
-   "righe": 6343,
+   "righe": 6342,
    "da": "2001-06-25",
    "a": "2026-11-05",
    "erroriTolti": [
+    "2011-07-18 5.8630",
     "2013-03-18 6.2875",
     "2016-11-17 6.7892",
     "2017-04-24 6.7921",
@@ -239,15 +240,17 @@
    "buchiOltre10gg": 1
   },
   "TWD=X": {
-   "righe": 5425,
+   "righe": 5423,
    "da": "2004-03-24",
    "a": "2026-11-05",
    "erroriTolti": [
     "2011-10-05 29.5460",
+    "2011-10-25 1.8015",
     "2011-11-14 29.2000",
     "2012-08-22 29.0220",
     "2013-04-05 28.9020",
     "2013-05-09 28.5220",
+    "2014-12-31 3.6700",
     "2015-04-27 29.7500",
     "2015-06-22 29.7290",
     "2015-07-03 29.9540",
@@ -305,8 +308,8 @@
  "copertura": {
   "CSI300": {
    "daStato": "2013-06-05",
-   "sedute": 3254,
-   "conPunteggio": 3238,
+   "sedute": 3256,
+   "conPunteggio": 3240,
    "quotaPieno": 11,
    "quotaZero": 53,
    "Fmancante": 16,
@@ -314,8 +317,8 @@
   },
   "NIFTY50": {
    "daStato": "2008-09-22",
-   "sedute": 4439,
-   "conPunteggio": 4288,
+   "sedute": 4442,
+   "conPunteggio": 4291,
    "quotaPieno": 16,
    "quotaZero": 41,
    "Fmancante": 151,
@@ -323,8 +326,8 @@
   },
   "IBOV": {
    "daStato": "2008-11-03",
-   "sedute": 4458,
-   "conPunteggio": 4184,
+   "sedute": 4460,
+   "conPunteggio": 4186,
    "quotaPieno": 11,
    "quotaZero": 36,
    "Fmancante": 274,
@@ -332,8 +335,8 @@
   },
   "KOSPI200": {
    "daStato": "2006-12-01",
-   "sedute": 4901,
-   "conPunteggio": 4618,
+   "sedute": 4904,
+   "conPunteggio": 4621,
    "quotaPieno": 17,
    "quotaZero": 33,
    "Fmancante": 283,
@@ -341,17 +344,17 @@
   },
   "TWN": {
    "daStato": "2003-01-02",
-   "sedute": 5838,
-   "conPunteggio": 4077,
-   "quotaPieno": 8,
-   "quotaZero": 51,
-   "Fmancante": 1761,
+   "sedute": 5841,
+   "conPunteggio": 4078,
+   "quotaPieno": 14,
+   "quotaZero": 37,
+   "Fmancante": 1763,
    "primoPunteggio": "2009-12-24"
   },
   "HSI": {
    "daStato": "2008-09-01",
-   "sedute": 4474,
-   "conPunteggio": 4474,
+   "sedute": 4477,
+   "conPunteggio": 4477,
    "quotaPieno": 38,
    "quotaZero": 62,
    "Fmancante": 0,
@@ -359,8 +362,8 @@
   },
   "EEM": {
    "daStato": "2011-03-01",
-   "sedute": 3942,
-   "conPunteggio": 3942,
+   "sedute": 3945,
+   "conPunteggio": 3945,
    "quotaPieno": 34,
    "quotaZero": 66,
    "Fmancante": 0,
@@ -592,8 +595,8 @@
    "k": "TWN",
    "date": "2011-12-26",
    "crisis": "2011",
-   "score": 0,
-   "F": 0,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": false,
    "r126": 4,
@@ -891,8 +894,8 @@
    "k": "TWN",
    "date": "2011-11-25",
    "crisis": "2011",
-   "score": 0,
-   "F": 0,
+   "score": 1,
+   "F": 1,
    "D": 0,
    "failed": true,
    "r126": 2.6,
@@ -1031,24 +1034,24 @@
    "quotaFalliti": null
   },
   "parziale": {
-   "n": 10,
-   "med126": 21.7,
-   "med126usd": 23.1,
-   "med63": 14.9,
-   "med252": 26.6,
-   "pos126": "8/10",
-   "falliti": "0/10",
+   "n": 11,
+   "med126": 21.3,
+   "med126usd": 19.4,
+   "med63": 14.7,
+   "med252": 24.8,
+   "pos126": "9/11",
+   "falliti": "0/11",
    "quotaFalliti": 0
   },
   "zero": {
-   "n": 16,
-   "med126": 8.4,
-   "med126usd": 8.2,
-   "med63": 6.1,
-   "med252": 11.8,
-   "pos126": "15/16",
-   "falliti": "4/16",
-   "quotaFalliti": 25
+   "n": 15,
+   "med126": 10.1,
+   "med126usd": 8.3,
+   "med63": 6,
+   "med252": 12.5,
+   "pos126": "14/15",
+   "falliti": "4/15",
+   "quotaFalliti": 27
   },
   "mancante": 5,
   "diffLocale": null,
@@ -1094,14 +1097,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 4,
-     "med126": 6.3,
-     "med126usd": 7,
-     "med63": 6.9,
-     "med252": 7,
-     "pos126": "4/4",
-     "falliti": "1/4",
-     "quotaFalliti": 25
+     "n": 3,
+     "med126": 6.7,
+     "med126usd": 7.2,
+     "med63": 6.5,
+     "med252": 3.8,
+     "pos126": "3/3",
+     "falliti": "1/3",
+     "quotaFalliti": 33
     },
     "diffLocale": null,
     "diffDollari": null,
@@ -1377,14 +1380,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 4,
-     "med126": 4.9,
-     "med126usd": 6.5,
-     "med63": 12.9,
-     "med252": 11.8,
-     "pos126": "4/4",
-     "falliti": "1/4",
-     "quotaFalliti": 25
+     "n": 3,
+     "med126": 5.9,
+     "med126usd": 7.2,
+     "med63": 18.5,
+     "med252": 12.5,
+     "pos126": "3/3",
+     "falliti": "1/3",
+     "quotaFalliti": 33
     },
     "mancante": 2
    },
@@ -1460,24 +1463,24 @@
    "quotaFalliti": null
   },
   "parziale": {
-   "n": 4,
-   "med126": 3.9,
-   "med126usd": 2.8,
-   "med63": 17.2,
-   "med252": 23.2,
-   "pos126": "2/3",
-   "falliti": "0/4",
-   "quotaFalliti": 0
+   "n": 5,
+   "med126": 3.3,
+   "med126usd": 2.5,
+   "med63": 16.5,
+   "med252": 16.7,
+   "pos126": "3/4",
+   "falliti": "1/5",
+   "quotaFalliti": 20
   },
   "zero": {
-   "n": 19,
-   "med126": 19,
-   "med126usd": 21,
-   "med63": 15.7,
-   "med252": 19.4,
-   "pos126": "16/19",
-   "falliti": "3/19",
-   "quotaFalliti": 16
+   "n": 18,
+   "med126": 20,
+   "med126usd": 21.3,
+   "med63": 14.9,
+   "med252": 20.3,
+   "pos126": "15/18",
+   "falliti": "2/18",
+   "quotaFalliti": 11
   },
   "mancante": 4,
   "diffLocale": null,
@@ -1523,14 +1526,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 3,
-     "med126": 14.2,
-     "med126usd": 14.2,
-     "med63": 15.7,
-     "med252": 13.7,
-     "pos126": "3/3",
-     "falliti": "1/3",
-     "quotaFalliti": 33
+     "n": 2,
+     "med126": 24.4,
+     "med126usd": 19.5,
+     "med63": 12.5,
+     "med252": 16.5,
+     "pos126": "2/2",
+     "falliti": "0/2",
+     "quotaFalliti": 0
     },
     "diffLocale": null,
     "diffDollari": null,
@@ -1806,14 +1809,14 @@
      "quotaFalliti": null
     },
     "zero": {
-     "n": 5,
-     "med126": 22.3,
-     "med126usd": 28.7,
-     "med63": 19.9,
-     "med252": 30.2,
-     "pos126": "5/5",
-     "falliti": "1/5",
-     "quotaFalliti": 20
+     "n": 4,
+     "med126": 35.3,
+     "med126usd": 41.1,
+     "med63": 24.7,
+     "med252": 59.8,
+     "pos126": "4/4",
+     "falliti": "0/4",
+     "quotaFalliti": 0
     },
     "mancante": 1
    },
@@ -1871,41 +1874,41 @@
   "tutto": {
    "cinqueIndici": {
     "0": {
-     "n": 8656,
+     "n": 8081,
      "r63": 2.2,
-     "r126": 4.1,
+     "r126": 3.9,
      "r252": 8.4,
      "r126usd": 3.2
     },
     "1": {
-     "n": 9520,
+     "n": 9858,
      "r63": 2.1,
-     "r126": 2.8,
+     "r126": 2.9,
      "r252": 6,
      "r126usd": 2.1
     },
     "2": {
-     "n": 2694,
+     "n": 2942,
      "r63": 2.3,
-     "r126": 5,
-     "r252": 4.2,
-     "r126usd": 5.3
+     "r126": 4.9,
+     "r252": 5.5,
+     "r126usd": 5.1
     },
     "base": {
-     "n": 20870,
+     "n": 20881,
      "r63": 2.2,
      "r126": 3.6,
      "r252": 7.1,
-     "r126usd": 3
+     "r126usd": 2.9
     }
    },
    "hsiEem": {
     "0": {
-     "n": 5711,
+     "n": 5717,
      "r63": 2.5,
      "r126": 4.4,
      "r252": 6.9,
-     "r126usd": 4.4
+     "r126usd": 4.3
     },
     "1": {
      "n": 4273,
@@ -1915,7 +1918,7 @@
      "r126usd": -0.7
     },
     "base": {
-     "n": 9984,
+     "n": 9990,
      "r63": 1.4,
      "r126": 2.4,
      "r252": 3,
@@ -1923,13 +1926,13 @@
     }
    },
    "monotono126": false,
-   "pienoMenoBase126": 1.4,
-   "pienoMenoBase126usd": 2.3,
+   "pienoMenoBase126": 1.3,
+   "pienoMenoBase126usd": 2.2,
    "scartoPerIndice126": {
     "CSI300": {
      "base": 1.2,
-     "pieno": 7.7,
-     "scarto": 6.5,
+     "pieno": 7.6,
+     "scarto": 6.4,
      "quotaPieno": 13
     },
     "NIFTY50": {
@@ -1945,19 +1948,19 @@
      "quotaPieno": 11
     },
     "KOSPI200": {
-     "base": 1.8,
-     "pieno": 4.6,
-     "scarto": 2.8,
+     "base": 1.7,
+     "pieno": 4.4,
+     "scarto": 2.7,
      "quotaPieno": 17
     },
     "TWN": {
      "base": 5.2,
-     "pieno": 7.7,
-     "scarto": 2.5,
-     "quotaPieno": 8
+     "pieno": 6.2,
+     "scarto": 1,
+     "quotaPieno": 14
     },
     "HSI": {
-     "base": 2.2,
+     "base": 2.1,
      "pieno": -3.4,
      "scarto": -5.5,
      "quotaPieno": 43
@@ -1973,28 +1976,28 @@
   "fino2015": {
    "cinqueIndici": {
     "0": {
-     "n": 2984,
-     "r63": 2.4,
-     "r126": 3.4,
+     "n": 2567,
+     "r63": 2.5,
+     "r126": 3.7,
      "r252": 4.2,
-     "r126usd": 1.5
+     "r126usd": 2
     },
     "1": {
-     "n": 3722,
-     "r63": -0.2,
-     "r126": -1.4,
+     "n": 3965,
+     "r63": 0,
+     "r126": -1.3,
      "r252": -0.7,
-     "r126usd": -3.3
+     "r126usd": -2.9
     },
     "2": {
-     "n": 950,
-     "r63": 1.7,
-     "r126": 1,
-     "r252": -0.4,
-     "r126usd": 2.3
+     "n": 1122,
+     "r63": 1.4,
+     "r126": 1.1,
+     "r252": 0.8,
+     "r126usd": 2
     },
     "base": {
-     "n": 7656,
+     "n": 7654,
      "r63": 1.1,
      "r126": 0.5,
      "r252": 1.2,
@@ -2025,13 +2028,13 @@
     }
    },
    "monotono126": false,
-   "pienoMenoBase126": 0.5,
-   "pienoMenoBase126usd": 2.6,
+   "pienoMenoBase126": 0.6,
+   "pienoMenoBase126usd": 2.3,
    "scartoPerIndice126": {
     "CSI300": {
      "base": -1.7,
-     "pieno": 9.3,
-     "scarto": 11,
+     "pieno": 9.2,
+     "scarto": 10.9,
      "quotaPieno": 14
     },
     "NIFTY50": {
@@ -2054,9 +2057,9 @@
     },
     "TWN": {
      "base": 2.9,
-     "pieno": 5.9,
-     "scarto": 3,
-     "quotaPieno": 7
+     "pieno": 2.9,
+     "scarto": 0,
+     "quotaPieno": 18
     },
     "HSI": {
      "base": 1.6,
@@ -2075,37 +2078,37 @@
   "dal2016": {
    "cinqueIndici": {
     "0": {
-     "n": 5672,
-     "r63": 2.1,
-     "r126": 4.5,
-     "r252": 11.3,
-     "r126usd": 4.4
+     "n": 5514,
+     "r63": 1.9,
+     "r126": 4.1,
+     "r252": 10.8,
+     "r126usd": 3.7
     },
     "1": {
-     "n": 5798,
+     "n": 5893,
      "r63": 3.5,
-     "r126": 5.5,
-     "r252": 11.7,
-     "r126usd": 5.4
+     "r126": 5.7,
+     "r252": 12.2,
+     "r126usd": 5.8
     },
     "2": {
-     "n": 1744,
-     "r63": 2.7,
+     "n": 1820,
+     "r63": 3.1,
      "r126": 7.3,
-     "r252": 9.1,
-     "r126usd": 6.8
+     "r252": 9.5,
+     "r126usd": 7.1
     },
     "base": {
-     "n": 13214,
+     "n": 13227,
      "r63": 2.9,
-     "r126": 5.3,
+     "r126": 5.2,
      "r252": 11.3,
      "r126usd": 5.1
     }
    },
    "hsiEem": {
     "0": {
-     "n": 3431,
+     "n": 3437,
      "r63": 2.1,
      "r126": 4.7,
      "r252": 8.8,
@@ -2119,7 +2122,7 @@
      "r126usd": 0.1
     },
     "base": {
-     "n": 5386,
+     "n": 5392,
      "r63": 1.5,
      "r126": 3.8,
      "r252": 4.6,
@@ -2127,8 +2130,8 @@
     }
    },
    "monotono126": true,
-   "pienoMenoBase126": 2,
-   "pienoMenoBase126usd": 1.7,
+   "pienoMenoBase126": 2.1,
+   "pienoMenoBase126usd": 2,
    "scartoPerIndice126": {
     "CSI300": {
      "base": 1.8,
@@ -2150,15 +2153,15 @@
     },
     "KOSPI200": {
      "base": 2.8,
-     "pieno": 11,
+     "pieno": 10.9,
      "scarto": 8.1,
      "quotaPieno": 16
     },
     "TWN": {
      "base": 6.8,
-     "pieno": 13.6,
-     "scarto": 6.9,
-     "quotaPieno": 8
+     "pieno": 9,
+     "scarto": 2.2,
+     "quotaPieno": 11
     },
     "HSI": {
      "base": 2.8,
@@ -2180,16 +2183,16 @@
    "indici": "IBOV, KOSPI200",
    "sedute": {
     "F1": {
-     "n": 3468,
-     "r126": 3.2,
+     "n": 3471,
+     "r126": 3.1,
      "r126usd": 3.1
     },
     "F0": {
-     "n": 5334,
+     "n": 5336,
      "r126": 2.1,
      "r126usd": 1.4
     },
-    "diff": 1.1,
+    "diff": 1,
     "diffUsd": 1.7
    },
    "segnali": {
@@ -2220,56 +2223,56 @@
    "indici": "TWN",
    "sedute": {
     "F1": {
-     "n": 777,
-     "r126": 5.1,
-     "r126usd": 4.5
+     "n": 1591,
+     "r126": 4.9,
+     "r126usd": 4.2
     },
     "F0": {
-     "n": 3300,
-     "r126": 5.2,
-     "r126usd": 5.7
+     "n": 2487,
+     "r126": 5.4,
+     "r126usd": 6.7
     },
-    "diff": -0.1,
-    "diffUsd": -1.2
+    "diff": -0.5,
+    "diffUsd": -2.5
    },
    "segnali": {
     "F1": {
-     "n": 2,
-     "med126": 31,
-     "med126usd": 37.3,
+     "n": 4,
+     "med126": 13.1,
+     "med126usd": 16.1,
      "med63": 14.9,
-     "med252": 66.5,
-     "pos126": "2/2",
-     "falliti": "0/2",
-     "quotaFalliti": 0
+     "med252": 19.3,
+     "pos126": "4/4",
+     "falliti": "1/4",
+     "quotaFalliti": 25
     },
     "F0": {
-     "n": 9,
-     "med126": 12.2,
-     "med126usd": 16.1,
-     "med63": 18.5,
-     "med252": 19,
-     "pos126": "9/9",
-     "falliti": "2/9",
-     "quotaFalliti": 22
+     "n": 7,
+     "med126": 22.3,
+     "med126usd": 28.7,
+     "med63": 19.9,
+     "med252": 30.2,
+     "pos126": "7/7",
+     "falliti": "1/7",
+     "quotaFalliti": 14
     },
-    "diff": 18.8
+    "diff": -9.2
    }
   },
   "gestite": {
    "indici": "CSI300, NIFTY50",
    "sedute": {
     "F1": {
-     "n": 2508,
+     "n": 2525,
      "r126": 7.4,
      "r126usd": 6.6
     },
     "F0": {
-     "n": 5483,
-     "r126": 2,
+     "n": 5471,
+     "r126": 1.9,
      "r126usd": 0.8
     },
-    "diff": 5.4,
+    "diff": 5.5,
     "diffUsd": 5.8
    },
    "segnali": {
@@ -2698,42 +2701,48 @@
     "mediana": 4,
     "prima": 0,
     "stessoGiorno": 2,
-    "dopo": 10
+    "dopo": 10,
+    "mai": 1
    },
    "DprimoDopo": {
     "conDato": 19,
     "mediana": 110,
     "prima": 0,
     "stessoGiorno": 0,
-    "dopo": 19
+    "dopo": 19,
+    "mai": 1
    },
    "F": {
     "conDato": 14,
     "mediana": -110.5,
     "prima": 13,
     "stessoGiorno": 0,
-    "dopo": 1
+    "dopo": 1,
+    "mai": 1
    },
    "D": {
     "conDato": 17,
     "mediana": 14,
     "prima": 8,
     "stessoGiorno": 0,
-    "dopo": 9
+    "dopo": 9,
+    "mai": 4
    },
    "pieno": {
     "conDato": 19,
     "mediana": -53,
     "prima": 10,
     "stessoGiorno": 0,
-    "dopo": 9
+    "dopo": 9,
+    "mai": 1
    },
    "trigger": {
     "conDato": 14,
     "mediana": 12.5,
     "prima": 2,
     "stessoGiorno": 0,
-    "dopo": 12
+    "dopo": 12,
+    "mai": 12
    }
   },
   "max252": {
@@ -3194,13 +3203,13 @@
      "massimo": null,
      "drawdown": -27.5,
      "crisi": "2011",
-     "FalMinimo": 0,
+     "FalMinimo": 1,
      "anticipoF": -49,
-     "FdopoMinimo": null,
+     "FdopoMinimo": 0,
      "DalMinimo": 0,
      "DdopoMinimo": 28,
      "anticipoD": 28,
-     "anticipoPieno": null,
+     "anticipoPieno": 28,
      "trigger": -2
     },
     {
@@ -3210,8 +3219,8 @@
      "drawdown": -25.7,
      "crisi": "2015-16",
      "FalMinimo": 0,
-     "anticipoF": null,
-     "FdopoMinimo": null,
+     "anticipoF": -121,
+     "FdopoMinimo": 9,
      "DalMinimo": 0,
      "DdopoMinimo": 166,
      "anticipoD": null,
@@ -3534,49 +3543,55 @@
      "trigger": null
     }
    ],
-   "FalMinimoAcceso": "1/21",
+   "FalMinimoAcceso": "2/21",
    "DalMinimoAcceso": "1/38",
    "FprimoDopo": {
-    "conDato": 18,
+    "conDato": 20,
     "mediana": 6.5,
     "prima": 0,
-    "stessoGiorno": 1,
-    "dopo": 17
+    "stessoGiorno": 2,
+    "dopo": 18,
+    "mai": 1
    },
    "DprimoDopo": {
     "conDato": 37,
     "mediana": 91,
     "prima": 0,
     "stessoGiorno": 1,
-    "dopo": 36
+    "dopo": 36,
+    "mai": 1
    },
    "F": {
-    "conDato": 21,
-    "mediana": -104,
-    "prima": 18,
+    "conDato": 22,
+    "mediana": -105.5,
+    "prima": 19,
     "stessoGiorno": 0,
-    "dopo": 3
+    "dopo": 3,
+    "mai": 1
    },
    "D": {
     "conDato": 32,
     "mediana": 44,
     "prima": 11,
     "stessoGiorno": 0,
-    "dopo": 21
+    "dopo": 21,
+    "mai": 7
    },
    "pieno": {
-    "conDato": 32,
-    "mediana": 37.5,
+    "conDato": 33,
+    "mediana": 32,
     "prima": 13,
     "stessoGiorno": 0,
-    "dopo": 19
+    "dopo": 20,
+    "mai": 4
    },
    "trigger": {
     "conDato": 26,
     "mediana": 12.5,
     "prima": 6,
     "stessoGiorno": 0,
-    "dopo": 20
+    "dopo": 20,
+    "mai": 27
    }
   }
  },
@@ -3584,30 +3599,30 @@
   "trigger": {
    "punteggio ≥ 1 contro 0": {
     "si": {
-     "n": 10,
-     "med126": 21.7,
-     "med126usd": 23.1,
-     "med63": 14.9,
-     "med252": 26.6,
-     "pos126": "8/10",
-     "falliti": "0/10",
+     "n": 11,
+     "med126": 21.3,
+     "med126usd": 19.4,
+     "med63": 14.7,
+     "med252": 24.8,
+     "pos126": "9/11",
+     "falliti": "0/11",
      "quotaFalliti": 0
     },
     "no": {
-     "n": 16,
-     "med126": 8.4,
-     "med126usd": 8.2,
-     "med63": 6.1,
-     "med252": 11.8,
-     "pos126": "15/16",
-     "falliti": "4/16",
-     "quotaFalliti": 25
+     "n": 15,
+     "med126": 10.1,
+     "med126usd": 8.3,
+     "med63": 6,
+     "med252": 12.5,
+     "pos126": "14/15",
+     "falliti": "4/15",
+     "quotaFalliti": 27
     },
-    "diffLocale": 13.3,
-    "diffDollari": 14.9,
+    "diffLocale": 11.2,
+    "diffDollari": 11.1,
     "perCrisi": {
      "2008": "0: — (fall 0/0) | 1: 44 (fall 0/1)",
-     "2011": "0: — (fall 0/0) | 4: 6.3 (fall 1/4)",
+     "2011": "1: 4 (fall 0/1) | 3: 6.7 (fall 1/3)",
      "2018": "1: 21.3 (fall 0/1) | 1: 17 (fall 1/1)",
      "2020": "2: 29.2 (fall 0/2) | 3: 23.7 (fall 0/3)",
      "2022": "2: 10 (fall 0/2) | 4: 2.9 (fall 2/4)",
@@ -3617,29 +3632,29 @@
    },
    "F = 1 contro F = 0 (5 indici)": {
     "si": {
-     "n": 10,
-     "med126": 21.7,
-     "med126usd": 23.1,
-     "med63": 14.9,
-     "med252": 26.6,
-     "pos126": "8/10",
-     "falliti": "0/10",
+     "n": 11,
+     "med126": 21.3,
+     "med126usd": 19.4,
+     "med63": 14.7,
+     "med252": 24.8,
+     "pos126": "9/11",
+     "falliti": "0/11",
      "quotaFalliti": 0
     },
     "no": {
-     "n": 10,
-     "med126": 8,
-     "med126usd": 8.2,
-     "med63": 5.4,
-     "med252": 10.8,
-     "pos126": "9/10",
-     "falliti": "4/10",
-     "quotaFalliti": 40
+     "n": 9,
+     "med126": 10.1,
+     "med126usd": 8.3,
+     "med63": 5,
+     "med252": 11.1,
+     "pos126": "8/9",
+     "falliti": "4/9",
+     "quotaFalliti": 44
     },
-    "diffLocale": 13.7,
-    "diffDollari": 14.9,
+    "diffLocale": 11.2,
+    "diffDollari": 11.1,
     "perCrisi": {
-     "2011": "0: — (fall 0/0) | 3: 5.9 (fall 1/3)",
+     "2011": "1: 4 (fall 0/1) | 2: 12.5 (fall 1/2)",
      "2018": "1: 21.3 (fall 0/1) | 1: 17 (fall 1/1)",
      "2020": "2: 29.2 (fall 0/2) | 2: 25.4 (fall 0/2)",
      "2022": "2: 10 (fall 0/2) | 3: 1.6 (fall 2/3)",
@@ -3684,30 +3699,30 @@
   "zonaBlu": {
    "punteggio ≥ 1 contro 0": {
     "si": {
-     "n": 4,
-     "med126": 3.9,
-     "med126usd": 2.8,
-     "med63": 17.2,
-     "med252": 23.2,
-     "pos126": "2/3",
-     "falliti": "0/4",
-     "quotaFalliti": 0
+     "n": 5,
+     "med126": 3.3,
+     "med126usd": 2.5,
+     "med63": 16.5,
+     "med252": 16.7,
+     "pos126": "3/4",
+     "falliti": "1/5",
+     "quotaFalliti": 20
     },
     "no": {
-     "n": 19,
-     "med126": 19,
-     "med126usd": 21,
-     "med63": 15.7,
-     "med252": 19.4,
-     "pos126": "16/19",
-     "falliti": "3/19",
-     "quotaFalliti": 16
+     "n": 18,
+     "med126": 20,
+     "med126usd": 21.3,
+     "med63": 14.9,
+     "med252": 20.3,
+     "pos126": "15/18",
+     "falliti": "2/18",
+     "quotaFalliti": 11
     },
-    "diffLocale": -15.1,
-    "diffDollari": -18.2,
+    "diffLocale": -16.7,
+    "diffDollari": -18.8,
     "perCrisi": {
      "2008": "0: — (fall 0/0) | 1: -37.2 (fall 0/1)",
-     "2011": "0: — (fall 0/0) | 3: 14.2 (fall 1/3)",
+     "2011": "1: 2.6 (fall 1/1) | 2: 24.4 (fall 0/2)",
      "2018": "0: — (fall 0/0) | 1: 19 (fall 1/1)",
      "2020": "1: 37.1 (fall 0/1) | 4: 37.9 (fall 0/4)",
      "2022": "0: — (fall 0/0) | 4: 8.2 (fall 1/4)",
@@ -3718,29 +3733,29 @@
    },
    "F = 1 contro F = 0 (5 indici)": {
     "si": {
-     "n": 4,
-     "med126": 3.9,
-     "med126usd": 2.8,
-     "med63": 17.2,
-     "med252": 23.2,
-     "pos126": "2/3",
-     "falliti": "0/4",
-     "quotaFalliti": 0
+     "n": 5,
+     "med126": 3.3,
+     "med126usd": 2.5,
+     "med63": 16.5,
+     "med252": 16.7,
+     "pos126": "3/4",
+     "falliti": "1/5",
+     "quotaFalliti": 20
     },
     "no": {
-     "n": 13,
-     "med126": 22.3,
-     "med126usd": 24.8,
-     "med63": 17.6,
-     "med252": 19.4,
-     "pos126": "11/13",
-     "falliti": "3/13",
-     "quotaFalliti": 23
+     "n": 12,
+     "med126": 24.9,
+     "med126usd": 26.8,
+     "med63": 18.8,
+     "med252": 24.8,
+     "pos126": "10/12",
+     "falliti": "2/12",
+     "quotaFalliti": 17
     },
-    "diffLocale": -18.4,
-    "diffDollari": -22,
+    "diffLocale": -21.6,
+    "diffDollari": -24.3,
     "perCrisi": {
-     "2011": "0: — (fall 0/0) | 2: 18.6 (fall 1/2)",
+     "2011": "1: 2.6 (fall 1/1) | 1: 34.6 (fall 0/1)",
      "2018": "0: — (fall 0/0) | 1: 19 (fall 1/1)",
      "2020": "1: 37.1 (fall 0/1) | 3: 48.3 (fall 0/3)",
      "2022": "0: — (fall 0/0) | 3: -4.7 (fall 1/3)",
@@ -3821,60 +3836,60 @@
    "H1": {
     "n": 31,
     "pieno": 0,
-    "zero": 16,
+    "zero": 15,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 4/16",
+    "falliti": "0/0 vs 4/15",
     "crisiOk": "—",
     "superato": false
    },
    "H2": {
     "n": 27,
     "pieno": 0,
-    "zero": 19,
+    "zero": 18,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 3/19",
+    "falliti": "0/0 vs 2/18",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 10 med 21.7 fall 0/10 | F=0 10 med 8 fall 4/10 | diff 13.7",
+   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 0.5,
-    "pienoMenoBaseDal2016": 2,
-    "pienoMenoBaseDal2016usd": 1.7
+    "pienoMenoBaseFino2015": 0.6,
+    "pienoMenoBaseDal2016": 2.1,
+    "pienoMenoBaseDal2016usd": 2
    }
   },
   "w 26": {
    "H1": {
     "n": 31,
     "pieno": 0,
-    "zero": 13,
+    "zero": 12,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 3/13",
+    "falliti": "0/0 vs 3/12",
     "crisiOk": "—",
     "superato": false
    },
    "H2": {
     "n": 27,
     "pieno": 0,
-    "zero": 16,
+    "zero": 15,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 2/16",
+    "falliti": "0/0 vs 1/15",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 15 med 22.2 fall 1/15 | F=0 7 med 5.9 fall 3/7 | diff 16.3",
+   "esplorazioneTriggerF": "F=1 16 med 21.7 fall 1/16 | F=0 6 med 11.4 fall 3/6 | diff 10.3",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -2.6,
-    "pienoMenoBaseDal2016": 0.4,
-    "pienoMenoBaseDal2016usd": -1.1
+    "pienoMenoBaseFino2015": -2.2,
+    "pienoMenoBaseDal2016": 0.5,
+    "pienoMenoBaseDal2016usd": -0.9
    }
   },
   "w 126": {
@@ -3902,8 +3917,8 @@
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -4.9,
-    "pienoMenoBaseDal2016": 4.3,
+    "pienoMenoBaseFino2015": -2.4,
+    "pienoMenoBaseDal2016": 4.1,
     "pienoMenoBaseDal2016usd": 5.6
    }
   },
@@ -3911,90 +3926,90 @@
    "H1": {
     "n": 31,
     "pieno": 0,
-    "zero": 16,
+    "zero": 15,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 4/16",
+    "falliti": "0/0 vs 4/15",
     "crisiOk": "—",
     "superato": false
    },
    "H2": {
     "n": 27,
     "pieno": 0,
-    "zero": 19,
+    "zero": 18,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 3/19",
+    "falliti": "0/0 vs 2/18",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 10 med 21.7 fall 0/10 | F=0 10 med 8 fall 4/10 | diff 13.7",
+   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": -0.9,
-    "pienoMenoBaseDal2016": 2.2,
-    "pienoMenoBaseDal2016usd": 2.2
+    "pienoMenoBaseFino2015": -0.5,
+    "pienoMenoBaseDal2016": 2.3,
+    "pienoMenoBaseDal2016usd": 2.3
    }
   },
   "z 1,5": {
    "H1": {
     "n": 31,
     "pieno": 0,
-    "zero": 18,
+    "zero": 17,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 4/18",
+    "falliti": "0/0 vs 4/17",
     "crisiOk": "—",
     "superato": false
    },
    "H2": {
     "n": 27,
     "pieno": 0,
-    "zero": 21,
+    "zero": 20,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 3/21",
+    "falliti": "0/0 vs 2/20",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 8 med 21.7 fall 0/8 | F=0 12 med 8 fall 4/12 | diff 13.7",
+   "esplorazioneTriggerF": "F=1 9 med 21.3 fall 0/9 | F=0 11 med 10.1 fall 4/11 | diff 11.2",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 0.1,
-    "pienoMenoBaseDal2016": 1.4,
-    "pienoMenoBaseDal2016usd": -1
+    "pienoMenoBaseFino2015": -0.6,
+    "pienoMenoBaseDal2016": 1.6,
+    "pienoMenoBaseDal2016usd": -0.5
    }
   },
   "media 100 per D": {
    "H1": {
     "n": 31,
     "pieno": 3,
-    "zero": 15,
-    "diffLocale": 11.2,
-    "diffDollari": 11.1,
-    "falliti": "0/3 vs 3/15",
+    "zero": 14,
+    "diffLocale": 7.8,
+    "diffDollari": 7,
+    "falliti": "0/3 vs 3/14",
     "crisiOk": "—",
     "superato": false
    },
    "H2": {
     "n": 27,
     "pieno": 1,
-    "zero": 19,
-    "diffLocale": -15.1,
-    "diffDollari": -18.2,
-    "falliti": "0/1 vs 3/19",
+    "zero": 18,
+    "diffLocale": -16.1,
+    "diffDollari": -18.5,
+    "falliti": "0/1 vs 2/18",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 10 med 21.7 fall 0/10 | F=0 10 med 8 fall 4/10 | diff 13.7",
+   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
     "pienoMenoBaseFino2015": 0.3,
     "pienoMenoBaseDal2016": 3.1,
-    "pienoMenoBaseDal2016usd": 2.8
+    "pienoMenoBaseDal2016usd": 3.1
    }
   },
   "D stesso giorno (guarda avanti)": {
@@ -4011,20 +4026,20 @@
    "H2": {
     "n": 27,
     "pieno": 0,
-    "zero": 19,
+    "zero": 18,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 3/19",
+    "falliti": "0/0 vs 2/18",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 10 med 21.7 fall 0/10 | F=0 10 med 8 fall 4/10 | diff 13.7",
+   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 0.4,
-    "pienoMenoBaseDal2016": 1.3,
-    "pienoMenoBaseDal2016usd": 1.2
+    "pienoMenoBaseFino2015": 0.6,
+    "pienoMenoBaseDal2016": 1.4,
+    "pienoMenoBaseDal2016usd": 1.5
    }
   },
   "D con DX-Y.NYB": {
@@ -4041,49 +4056,49 @@
    "H2": {
     "n": 27,
     "pieno": 0,
-    "zero": 16,
+    "zero": 15,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 3/16",
+    "falliti": "0/0 vs 2/15",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 10 med 21.7 fall 0/10 | F=0 10 med 8 fall 4/10 | diff 13.7",
+   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
-    "pienoMenoBaseFino2015": 2,
-    "pienoMenoBaseDal2016": 4.4,
-    "pienoMenoBaseDal2016usd": 4.3
+    "pienoMenoBaseFino2015": 2.7,
+    "pienoMenoBaseDal2016": 3.9,
+    "pienoMenoBaseDal2016usd": 4.4
    }
   },
   "F' = cambio sotto media 50": {
    "H1": {
     "n": 31,
     "pieno": 0,
-    "zero": 21,
+    "zero": 20,
     "diffLocale": null,
     "diffDollari": null,
-    "falliti": "0/0 vs 4/21",
+    "falliti": "0/0 vs 4/20",
     "crisiOk": "—",
     "superato": false
    },
    "H2": {
     "n": 27,
     "pieno": 1,
-    "zero": 22,
-    "diffLocale": -53.3,
-    "diffDollari": -60.3,
-    "falliti": "1/1 vs 3/22",
+    "zero": 21,
+    "diffLocale": -55.4,
+    "diffDollari": -62.7,
+    "falliti": "1/1 vs 2/21",
     "crisiOk": "—",
     "superato": false
    },
-   "esplorazioneTriggerF": "F=1 9 med 35.1 fall 0/9 | F=0 15 med 10.1 fall 4/15 | diff 25",
+   "esplorazioneTriggerF": "F=1 10 med 31.1 fall 0/10 | F=0 14 med 13.5 fall 4/14 | diff 17.6",
    "H3": {
     "monotonoFino2015": false,
     "monotonoDal2016": true,
     "pienoMenoBaseFino2015": -2.5,
-    "pienoMenoBaseDal2016": 1.8,
+    "pienoMenoBaseDal2016": 1.9,
     "pienoMenoBaseDal2016usd": 2.6
    }
   },

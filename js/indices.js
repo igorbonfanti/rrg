@@ -444,7 +444,7 @@ export function createIndices(ctx) {
     if (!S[k]) return null;
     const m = machine(k);
     return { k, name: CFG[k].name, dates: S[k].dates, close: S[k].close, pct200: S[k].pct200, n: S[k].n, members: S[k].members,
-      dd: PX[k].dd, now: NOW[k], blue: st.blue[k], changed: changed(k), m, state: stateOf(k).code, appr: approach(k).on };
+      dd: PX[k].dd, now: NOW[k], blue: st.blue[k], blueSource: CFG[k].blueSource, changed: changed(k), m, state: stateOf(k).code, appr: approach(k).on };
   }
 
   // arrivo dei dati dei cali forti o scelte cambiate nella scheda

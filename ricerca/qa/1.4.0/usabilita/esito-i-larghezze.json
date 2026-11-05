@@ -1,0 +1,648 @@
+[
+ {
+  "name": "[1920 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1920,
+   "cw": 1920,
+   "over": []
+  }
+ },
+ {
+  "name": "[1920 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 1100,
+   "cw": 1100
+  }
+ },
+ {
+  "name": "[1920 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1920 dark] [esplorativo] titolo del dettaglio nella prima schermata (563 px su 1080)",
+  "ok": true,
+  "detail": 563
+ },
+ {
+  "name": "[1920 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.17,
+   "px": 12.3
+  }
+ },
+ {
+  "name": "[1920 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1920 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1920,
+   "cw": 1920,
+   "over": []
+  }
+ },
+ {
+  "name": "[1920 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 1100,
+   "cw": 1100
+  }
+ },
+ {
+  "name": "[1920 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1920 light] [esplorativo] titolo del dettaglio nella prima schermata (563 px su 1080)",
+  "ok": true,
+  "detail": 563
+ },
+ {
+  "name": "[1920 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.17,
+   "px": 12.3
+  }
+ },
+ {
+  "name": "[1920 light] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1440,
+   "cw": 1440,
+   "over": []
+  }
+ },
+ {
+  "name": "[1440 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 1028,
+   "cw": 1028
+  }
+ },
+ {
+  "name": "[1440 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 dark] [esplorativo] titolo del dettaglio nella prima schermata (563 px su 900)",
+  "ok": true,
+  "detail": 563
+ },
+ {
+  "name": "[1440 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.09,
+   "px": 11.5
+  }
+ },
+ {
+  "name": "[1440 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1440,
+   "cw": 1440,
+   "over": []
+  }
+ },
+ {
+  "name": "[1440 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 1028,
+   "cw": 1028
+  }
+ },
+ {
+  "name": "[1440 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 light] [esplorativo] titolo del dettaglio nella prima schermata (563 px su 900)",
+  "ok": true,
+  "detail": 563
+ },
+ {
+  "name": "[1440 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.09,
+   "px": 11.5
+  }
+ },
+ {
+  "name": "[1440 light] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1366 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1366,
+   "cw": 1366,
+   "over": []
+  }
+ },
+ {
+  "name": "[1366 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 994,
+   "cw": 994
+  }
+ },
+ {
+  "name": "[1366 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1366 dark] [esplorativo] titolo del dettaglio nella prima schermata (577 px su 768)",
+  "ok": true,
+  "detail": 577
+ },
+ {
+  "name": "[1366 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.06,
+   "px": 11.1
+  }
+ },
+ {
+  "name": "[1366 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1366 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1366,
+   "cw": 1366,
+   "over": []
+  }
+ },
+ {
+  "name": "[1366 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 994,
+   "cw": 994
+  }
+ },
+ {
+  "name": "[1366 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1366 light] [esplorativo] titolo del dettaglio nella prima schermata (577 px su 768)",
+  "ok": true,
+  "detail": 577
+ },
+ {
+  "name": "[1366 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.06,
+   "px": 11.1
+  }
+ },
+ {
+  "name": "[1366 light] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1280 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1280,
+   "cw": 1280,
+   "over": []
+  }
+ },
+ {
+  "name": "[1280 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 908,
+   "cw": 908
+  }
+ },
+ {
+  "name": "[1280 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1280 dark] [esplorativo] titolo del dettaglio nella prima schermata (577 px su 800)",
+  "ok": true,
+  "detail": 577
+ },
+ {
+  "name": "[1280 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1,
+   "px": 10.5
+  }
+ },
+ {
+  "name": "[1280 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1280 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1280,
+   "cw": 1280,
+   "over": []
+  }
+ },
+ {
+  "name": "[1280 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 908,
+   "cw": 908
+  }
+ },
+ {
+  "name": "[1280 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1280 light] [esplorativo] titolo del dettaglio nella prima schermata (577 px su 800)",
+  "ok": true,
+  "detail": 577
+ },
+ {
+  "name": "[1280 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1,
+   "px": 10.5
+  }
+ },
+ {
+  "name": "[1280 light] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1100 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1100,
+   "cw": 1100,
+   "over": []
+  }
+ },
+ {
+  "name": "[1100 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 1040,
+   "cw": 1040
+  }
+ },
+ {
+  "name": "[1100 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1100 dark] [esplorativo] titolo del dettaglio nella prima schermata (577 px su 800)",
+  "ok": true,
+  "detail": 577
+ },
+ {
+  "name": "[1100 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.11,
+   "px": 11.6
+  }
+ },
+ {
+  "name": "[1100 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1100 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1100,
+   "cw": 1100,
+   "over": []
+  }
+ },
+ {
+  "name": "[1100 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 1040,
+   "cw": 1040
+  }
+ },
+ {
+  "name": "[1100 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1100 light] [esplorativo] titolo del dettaglio nella prima schermata (577 px su 800)",
+  "ok": true,
+  "detail": 577
+ },
+ {
+  "name": "[1100 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.11,
+   "px": 11.6
+  }
+ },
+ {
+  "name": "[1100 light] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1024 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1024,
+   "cw": 1024,
+   "over": []
+  }
+ },
+ {
+  "name": "[1024 dark] tabellone senza scroll orizzontale interno",
+  "ok": false,
+  "detail": {
+   "sw": 982,
+   "cw": 964
+  }
+ },
+ {
+  "name": "[1024 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1024 dark] [esplorativo] titolo del dettaglio nella prima schermata (591 px su 768)",
+  "ok": true,
+  "detail": 591
+ },
+ {
+  "name": "[1024 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.03,
+   "px": 10.8
+  }
+ },
+ {
+  "name": "[1024 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1024 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 1024,
+   "cw": 1024,
+   "over": []
+  }
+ },
+ {
+  "name": "[1024 light] tabellone senza scroll orizzontale interno",
+  "ok": false,
+  "detail": {
+   "sw": 982,
+   "cw": 964
+  }
+ },
+ {
+  "name": "[1024 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1024 light] [esplorativo] titolo del dettaglio nella prima schermata (591 px su 768)",
+  "ok": true,
+  "detail": 591
+ },
+ {
+  "name": "[1024 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1.03,
+   "px": 10.8
+  }
+ },
+ {
+  "name": "[1024 light] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[900 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 900,
+   "cw": 900,
+   "over": []
+  }
+ },
+ {
+  "name": "[900 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 840,
+   "cw": 840
+  }
+ },
+ {
+  "name": "[900 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[900 dark] [esplorativo] titolo del dettaglio nella prima schermata (1071 px su 1000)",
+  "ok": false,
+  "detail": 1071
+ },
+ {
+  "name": "[900 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1,
+   "px": 10.5
+  }
+ },
+ {
+  "name": "[900 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[900 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 900,
+   "cw": 900,
+   "over": []
+  }
+ },
+ {
+  "name": "[900 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 840,
+   "cw": 840
+  }
+ },
+ {
+  "name": "[900 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[900 light] [esplorativo] titolo del dettaglio nella prima schermata (1071 px su 1000)",
+  "ok": false,
+  "detail": 1071
+ },
+ {
+  "name": "[900 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1,
+   "px": 10.5
+  }
+ },
+ {
+  "name": "[900 light] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[820 dark] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 820,
+   "cw": 820,
+   "over": []
+  }
+ },
+ {
+  "name": "[820 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 760,
+   "cw": 760
+  }
+ },
+ {
+  "name": "[820 dark] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[820 dark] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1,
+   "px": 10.5
+  }
+ },
+ {
+  "name": "[820 dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[820 light] pagina senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 820,
+   "cw": 820,
+   "over": []
+  }
+ },
+ {
+  "name": "[820 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 760,
+   "cw": 760
+  }
+ },
+ {
+  "name": "[820 light] niente testo tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[820 light] testo del grafico almeno 9 px reali",
+  "ok": true,
+  "detail": {
+   "fs": 10.5,
+   "sx": 1,
+   "px": 10.5
+  }
+ },
+ {
+  "name": "[820 light] console pulita",
+  "ok": true,
+  "detail": []
+ }
+]

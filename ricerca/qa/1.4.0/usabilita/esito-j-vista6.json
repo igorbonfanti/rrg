@@ -1,0 +1,109 @@
+[
+ {
+  "name": "vista 6 CSI300: collegamento alla vista 8 presente e giusto",
+  "ok": true,
+  "detail": {
+   "title": "CSI300 · CSI 300 (Cina)",
+   "links": [
+    "#emg-CSI300"
+   ]
+  }
+ },
+ {
+  "name": "vista 6 NIFTY50: collegamento alla vista 8 presente e giusto",
+  "ok": true,
+  "detail": {
+   "title": "NIFTY50 · Nifty 50 (India)",
+   "links": [
+    "#emg-NIFTY50"
+   ]
+  }
+ },
+ {
+  "name": "vista 6 IBOV: collegamento alla vista 8 presente e giusto",
+  "ok": true,
+  "detail": {
+   "title": "IBOV · Ibovespa (Brasile)",
+   "links": [
+    "#emg-IBOV"
+   ]
+  }
+ },
+ {
+  "name": "vista 6 KOSPI200: collegamento alla vista 8 presente e giusto",
+  "ok": true,
+  "detail": {
+   "title": "KOSPI200 · KOSPI 200 (Corea)",
+   "links": [
+    "#emg-KOSPI200"
+   ]
+  }
+ },
+ {
+  "name": "vista 6 TWN: collegamento alla vista 8 presente e giusto",
+  "ok": true,
+  "detail": {
+   "title": "TWN · Taiwan (MSCI)",
+   "links": [
+    "#emg-TWN"
+   ]
+  }
+ },
+ {
+  "name": "vista 6 HSI: collegamento alla vista 8 presente e giusto",
+  "ok": true,
+  "detail": {
+   "title": "HSI · Hang Seng",
+   "links": [
+    "#emg-HSI"
+   ]
+  }
+ },
+ {
+  "name": "vista 6 EEM: collegamento alla vista 8 presente e giusto",
+  "ok": true,
+  "detail": {
+   "title": "EEM · MSCI Emerging Markets",
+   "links": [
+    "#emg-EEM"
+   ]
+  }
+ },
+ {
+  "name": "vista 6 DAX: collegamento alla vista 8 assente",
+  "ok": true,
+  "detail": {
+   "title": "DAX · DAX",
+   "links": []
+  }
+ },
+ {
+  "name": "vista 6 NDX: collegamento alla vista 8 assente",
+  "ok": true,
+  "detail": {
+   "title": "NDX · Nasdaq-100",
+   "links": []
+  }
+ },
+ {
+  "name": "vista 6 N225: collegamento alla vista 8 assente",
+  "ok": true,
+  "detail": {
+   "title": "N225 · Nikkei 225",
+   "links": []
+  }
+ },
+ {
+  "name": "il collegamento di TWN apre la vista 8 su TWN",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-TWN",
+   "TWN · Taiwan"
+  ]
+ },
+ {
+  "name": "console pulita",
+  "ok": true,
+  "detail": []
+ }
+]

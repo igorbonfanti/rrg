@@ -128,7 +128,7 @@ def fx(name):
     bad = set()
     for i in range(1, len(rows) - 1):
         a = math.log(rows[i][1] / rows[i - 1][1]); b = math.log(rows[i + 1][1] / rows[i][1])
-        if abs(a) > thr and abs(b) > thr and (a > 0) != (b > 0) and abs(a + b) < back: bad.add(i)
+        if abs(a) > thr and abs(b) > thr and (a > 0) != (b > 0) and (abs(a + b) < back or (min(abs(a), abs(b)) > 5 * thr and abs(a + b) < 0.25 * min(abs(a), abs(b)))): bad.add(i)  # 1.4.0: anche i salti enormi che rientrano per 3/4
     rows = [r for i, r in enumerate(rows) if i not in bad]
     d = [r[0] for r in rows]; v = [r[1] for r in rows]
     gap = [0] * len(d)

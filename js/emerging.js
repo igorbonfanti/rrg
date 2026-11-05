@@ -3,7 +3,8 @@
  * lo usano l'app, i test e gli script di ricerca.
  *
  * Definizioni (le stesse di ricerca/emergenti/backtest/script/backtest.mjs, fissate prima del backtest):
- * - pulizia dei cambi: un errore di stampa isolato (salto oltre il 3% che si annulla il giorno dopo entro l'1%; 1% e 0,3%
+ * - pulizia dei cambi: un errore di stampa isolato (salto oltre il 3% che si annulla il giorno dopo entro l'1%, oppure oltre 5 volte
+ *   la soglia e rientrato per almeno tre quarti; 1% e 0,3%
  *   per CNY e HKD) diventa un giorno mancante; una finestra che scavalca un buco di oltre 10 giorni di calendario è nulla;
  * - z della valuta: variazione logaritmica del cambio a 63 sedute (13 settimane) divisa per la deviazione standard delle
  *   variazioni delle ultime 756 sedute (almeno il 90% presenti, al massimo 3,5 anni di calendario);
@@ -38,7 +39,8 @@ export function cleanFx(sym, s) {
   const v = s.val, bad = new Set();
   for (let i = 1; i + 1 < v.length; i++) {
     const r1 = Math.log(v[i] / v[i - 1]), r2 = Math.log(v[i + 1] / v[i]);
-    if (Math.abs(r1) > thr && Math.abs(r2) > thr && Math.sign(r1) !== Math.sign(r2) && Math.abs(r1 + r2) < back) bad.add(i);
+    const m = Math.min(Math.abs(r1), Math.abs(r2)); // 1.4.0: anche un salto enorme (oltre 5 volte la soglia) che rientra per almeno 3/4
+    if (Math.abs(r1) > thr && Math.abs(r2) > thr && Math.sign(r1) !== Math.sign(r2) && (Math.abs(r1 + r2) < back || (m > 5 * thr && Math.abs(r1 + r2) < 0.25 * m))) bad.add(i);
   }
   const dates = [], val = [], removed = [];
   s.dates.forEach((d, i) => { if (bad.has(i)) removed.push({ date: d, value: v[i] }); else { dates.push(d); val.push(v[i]); } });

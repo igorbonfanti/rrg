@@ -711,7 +711,7 @@
           <div class="ph"><h2>Emergenti · stato e contesto</h2><span class="meta" id="emMeta"></span></div>
           <p class="note pb" id="emMiss" hidden></p>
           <div class="tscroll"><table class="t board-cards" id="emTable"></table></div>
-          <p class="note pb">Lo stato e la breadth sono quelli della vista <b>6 Indici</b>, con gli stessi livelli blu (anche se modificati in questo browser). Valuta, dollaro e forza relativa sono <b>solo contesto</b>: non cambiano lo stato e non mandano alert. Clic su una riga per il dettaglio.</p>
+          <p class="note pb">Lo stato e la breadth sono quelli della vista <b>6 Indici</b>, con gli stessi livelli blu (anche se modificati in questo browser). Valuta, dollaro e forza relativa sono <b>solo contesto</b>: non cambiano lo stato e non mandano alert. Clic (o tocco) su una riga per il dettaglio.</p>
         </div>
         <div class="panel">
           <div class="ph"><h2 id="emTitle"></h2><span class="meta"><span id="emState"></span> <span id="emDMeta"></span></span></div>
@@ -724,7 +724,7 @@
             <div class="tip" id="emTip" hidden></div>
           </div>
           <div class="legend" id="emLegend"></div>
-          <p class="note pb"><span id="emChartMeta"></span>. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).</p>
+          <p class="note pb"><span id="emChartMeta"></span>. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).</p>
           <ul class="emnotes" id="emNotes"></ul>
         </div>
       </div>
@@ -732,21 +732,21 @@
         <div class="panel">
           <div class="ph"><h2>Forza relativa</h2><span class="meta" id="emRSMeta"></span></div>
           <div class="pb" id="emRSWrap"><svg class="emrs" id="emRS" role="img" aria-label="Forza relativa degli ETF dei paesi contro ACWI"></svg>
-            <p class="note">ETF in dollari contro ACWI, settimanale, formula «Nuova» della rotazione (vista 2); scia di 10 settimane solo per l'indice selezionato. ASHR (CSI 300), INDA, EWZ, EWY, EWT, EWH (Hong Kong), EEM. RS-Ratio in orizzontale, RS-Momentum in verticale. Clic su un punto per sceglierlo.</p></div>
+            <p class="note">ETF in dollari contro ACWI, settimanale, formula «Nuova» della rotazione (vista 2); scia di 10 settimane solo per l'indice selezionato. ASHR (CSI 300), INDA, EWZ, EWY, EWT, EWH (Hong Kong), EEM. RS-Ratio in orizzontale, RS-Momentum in verticale. Clic (o tocco) su un punto per sceglierlo.</p></div>
         </div>
         <div class="panel">
           <div class="ph"><h2>Come leggere il contesto</h2></div>
           <div class="emread">
-            <p><b>Solo contesto, non un segnale.</b> Lo stato è quello della vista 6 (breadth e livello blu). Valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert: nella verifica sui dati non hanno migliorato i segnali della breadth.</p>
-            <p><b>La valuta «ha smesso di scendere»</b>: dopo un calo forte (variazione in 13 settimane oltre 1 deviazione standard della sua storia), il cambio si è allontanato dal massimo recente. Nel campione si era già accesa nei sei mesi prima del minimo in 13 cali di borsa oltre il 25% su 14, spesso in rimbalzi falliti: non è un segnale d'ingresso.</p>
-            <p><b>Dollaro contro gli emergenti</b> (FRED, indice della Federal Reserve): il dollaro debole è arrivato in genere mesi dopo il minimo delle borse (mediana 110 sedute in 19 cali oltre il 25%). Conferma, non anticipa. FRED lo pubblica una volta alla settimana: conta la data dell'ultimo valore.</p>
+            <p><b>Solo contesto, non un segnale.</b> Lo stato è quello della vista 6 (breadth e livello blu). Valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert. Valuta e dollaro, nella verifica sui dati, non hanno migliorato i segnali della breadth; la forza relativa non è stata provata.</p>
+            <p><b>La valuta «ha smesso di scendere»</b>: dopo un calo forte (variazione in 13 settimane oltre 1 deviazione standard delle sue variazioni negli ultimi 3 anni), il cambio si è allontanato dal massimo recente. Nel campione, su 15 cali di borsa oltre il 25% dal massimo storico (5 indici con il cambio), si era già accesa nei sei mesi prima del minimo in 13, e poi la borsa era scesa ancora (uno dei 13 è il calo del KOSPI in corso, con il minimo del 26/10/2026 ancora provvisorio): non è un segnale d'ingresso.</p>
+            <p><b>Dollaro contro gli emergenti</b> (FRED, indice della Federal Reserve): il dollaro debole è arrivato in genere mesi dopo il minimo delle borse (mediana 110 sedute in 19 cali oltre il 25% dal massimo storico; nel ventesimo, il KOSPI in corso, non ancora). Conferma, non anticipa. È una serie giornaliera che FRED pubblica una volta alla settimana: conta la data dell'ultimo valore.</p>
             <p><b>Cina e India</b>: cambio gestito dalla banca centrale, si muove poco. <b>Hong Kong</b>: dollaro agganciato, il cambio non dice nulla. <b>EEM</b>: è già in dollari.</p>
-            <p class="muted">Numeri del campione: 7 indici, breadth con i membri di oggi, poche crisi indipendenti (indicativi). Ricalcolo: <span class="mono">ricerca/emergenti/backtest/</span> (ramo di sviluppo del repository).</p>
+            <p class="muted">Numeri del campione: cali oltre il 25% dal massimo storico (non il drawdown a 52 settimane della tabella); 5 indici con il cambio per la valuta, 7 per il dollaro; breadth con i membri di oggi; poche crisi indipendenti (indicativi). Ricalcolo: <span class="mono">ricerca/emergenti/backtest/</span> (ramo di sviluppo del repository).</p>
           </div>
         </div>
       </div>
     </div>
-    <p class="note pb">Fonti: cambi Yahoo Finance in valuta locale per un dollaro (chiusura di Londra, non quella dell'ora di chiusura della borsa locale); dollaro contro le valute emergenti FRED DTWEXEMEGS (Federal Reserve H.10, settimanale, con qualche giorno di ritardo); ETF Yahoo Finance con i dividendi. L'indice in dollari è il prezzo della vista 6 diviso per il cambio dello stesso giorno: per il CSI 300 il prezzo è l'ETF 510300 in yuan, per il KOSPI 200 il KOSPI intero, per Taiwan il TAIEX. Gli ETF della forza relativa sono rettificati per i dividendi, gli indici no. Storie più corte: ASHR dal 2013, INDA dal 2012, ACWI dal 2008, FRED dal 2006; i cambi di Yahoo prima del 2006 hanno buchi di mesi e non si usano. Prima si mostra «—».</p>
+    <p class="note pb">Fonti: cambi Yahoo Finance in valuta locale per un dollaro (il cambio datato un giorno è in pratica il prezzo della sera prima, a mezzanotte di Londra, non quello dell'ora in cui chiude la borsa locale: per l'Asia è di qualche ora prima, per il Brasile di quasi un giorno prima); dollaro contro le valute emergenti FRED DTWEXEMEGS (Federal Reserve H.10, serie giornaliera pubblicata una volta alla settimana, con qualche giorno di ritardo); ETF Yahoo Finance con i dividendi. L'indice in dollari è il prezzo della vista 6 diviso per il cambio dello stesso giorno: per il CSI 300 il prezzo è l'ETF 510300 in yuan, per il KOSPI 200 il KOSPI intero, per Taiwan il TAIEX. Gli ETF della forza relativa sono rettificati per i dividendi, gli indici no. Storie più corte: ASHR dal 2013, INDA dal 2012, ACWI dal 2008, FRED dal 2006; cambi di Yahoo da dicembre 2003 (CNY, INR, KRW, HKD) o dal 2006 (BRL, TWD): prima la storia ha buchi di mesi e non si usa. Su Yahoo mancano anche tutti i cambi dal 31/07 al 26/08/2008, e il cambio di Taiwan si scosta da quello della Federal Reserve della stessa data di oltre il 3% in 49 sedute, quasi tutte tra il 2013 e il 2016: l'indice in dollari di Taiwan di quegli anni è meno preciso (Brasile 33 e Corea 25 sedute sparse, in parte per l'ora diversa del cambio; script <span class="mono">ricerca/emergenti/scarti_fed.mjs</span>). Dove manca un dato si mostra «—».</p>
     </div>
   </section>
 

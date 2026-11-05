@@ -10,6 +10,10 @@ node ricerca/emergenti/backtest/script/backtest.mjs    # → risultati.json e ta
 python3 -I ricerca/emergenti/backtest/script/verifica.py
 ```
 
+
+> **Correzione del 05/11/2026 (controlli della 1.4.0).** (1) La pulizia dei cambi toglie anche un salto enorme, oltre 5 volte la soglia, che il giorno dopo rientra per almeno tre quarti: TWD=X a 1,80 il 25/10/2011 e a 3,67 il 31/12/2014, CNY=X a 5,86 il 18/07/2011. Prima non si toglievano perché intanto il cambio si era mosso di circa il 3%, e gonfiavano per tre anni la deviazione standard di Taiwan (e un po' quella dello yuan). I movimenti veri del real nella settimana di Lehman (8 e 10/10/2008, confermati dalla Fed) restano. (2) In H5 il denominatore di F conta anche l'episodio in cui F non si accende mai (TWN 2020): **13 su 15**, non 13 su 14 (campo `F.mai` di `risultati.json`). Uno dei 13 è il KOSPI 2026, con il minimo del 26/10/2026 ancora provvisorio.
+> Numeri cambiati dalla correzione (`risultati.json` è aggiornato; le tabelle sotto sono della corsa precedente dove non dette): H1 parziale 11 trigger, +21,3% a 126 sedute, 0/11 falliti (prima 10, +21,7%, 0/10); H2 parziale 5 ingressi, +3,3% contro +20,0% dello zero (prima 4, +3,9% contro +19,0%); H3 dal 2016 pieno − base +2,1 punti (prima +2,0); H4 intermedia (TWD) sulle sedute −0,5 punti, sui segnali −9,2 (prima −0,1 e +18,8); esplorazione F acceso/spento sui trigger +21,3% (0/11 falliti) contro +10,1% (4/9), scarto 11,2 punti (prima 13,7); Yahoo e FRED danno un F diverso in 8 trigger su 20 (prima 7). **I verdetti non cambiano.** H5 (statistiche citate nell'app) non cambia. Ricalcolo indipendente: `script/verifica.py` dà «tutto coincide».
+
 ## La domanda
 
 L'app trova i possibili bottom degli indici emergenti con la breadth: ingresso in zona blu e trigger della macchina a
@@ -167,7 +171,7 @@ minimo in mediana dopo 6,5 sedute (18 episodi); D dopo 91 sedute.
 La tabella dice tre cose:
 - F è quasi sempre spento il giorno del minimo;
 - F si accende in genere pochi giorni dopo il minimo (mediana 4 sedute), prima del trigger dell'app (mediana 12,5);
-- F si era però già acceso, e poi spento, nei sei mesi prima del minimo in 13 episodi su 14. Da solo dà molti falsi
+- F si era però già acceso, e poi spento, nei sei mesi prima del minimo in 13 episodi su 15 (in 1 si accende dopo, in 1 mai). Da solo dà molti falsi
   «stop».
 
 D arriva in genere 4-5 mesi dopo il minimo: è una conferma tardiva, non un segnale di bottom.

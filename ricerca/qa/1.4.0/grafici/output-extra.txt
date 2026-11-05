@@ -1,0 +1,328 @@
+
+== 1440-scuro · cvd false
+{
+ "bg": "rgb(0, 0, 0)",
+ "path.emloc": {
+  "col": "rgb(255,160,40)",
+  "op": 1,
+  "contrasto": 10.31
+ },
+ "path.emusd": {
+  "col": "rgb(127,166,255)",
+  "op": 1,
+  "contrasto": 8.8
+ },
+ "path.br": {
+  "col": "rgb(180,180,180)",
+  "op": 1,
+  "contrasto": 10.13
+ },
+ "path.emfx": {
+  "col": "rgb(180,180,180)",
+  "op": 1,
+  "contrasto": 10.13
+ },
+ "path.emdl": {
+  "col": "rgb(180,180,180)",
+  "op": 1,
+  "contrasto": 10.13
+ },
+ "path.ma": {
+  "col": "rgb(255,160,40)",
+  "op": 0.85,
+  "contrasto": 7.49
+ },
+ "line.blue": {
+  "col": "rgb(59,123,255)",
+  "op": 1,
+  "contrasto": 5.46
+ },
+ "text.axt": {
+  "col": "rgb(138,138,138)",
+  "op": 1,
+  "contrasto": 6.08
+ },
+ "text.pane-t": {
+  "col": "rgb(255,160,40)",
+  "op": 1,
+  "contrasto": 10.31
+ },
+ "rect.fxcalo": {
+  "col": "rgb(239,68,68)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.14,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.fxferma": {
+  "col": "rgb(34,197,94)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.22,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.dlfav": {
+  "col": "rgb(34,197,94)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.22,
+  "linea_bianca_su_fascia": null
+ },
+ "legenda": [
+  "in valuta locale: rgb(255, 160, 40) op 1",
+  "in dollari: rgb(127, 166, 255) op 1",
+  "zona blu: rgb(59, 123, 255) op 0.45",
+  "trigger: rgb(34, 197, 94) op 1",
+  "valuta in calo forte: rgb(239, 68, 68) op 0.35",
+  "valuta che ha smesso di scendere: rgb(34, 197, 94) op 0.35",
+  "dollaro contro emergenti: rgb(180, 180, 180) op 1",
+  "sua media 200: rgb(255, 160, 40) op 1",
+  "dollaro favorevole (sotto la media e in calo in 3 mesi): rgb(34, 197, 94) op 0.35"
+ ],
+ "calo_vs_ferma": 1.07
+}
+riquadro col puntatore sul pannello del dollaro a 780 px: riquadro 792…913 su una finestra alta 900 → ESCE DI 13 px
+legenda EEM: in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi) · titolo pannello: PREZZO, BASE 100 · IN DOLLARI
+
+== 1440-chiaro · cvd false
+{
+ "bg": "rgb(255, 255, 255)",
+ "path.emloc": {
+  "col": "rgb(154,74,0)",
+  "op": 1,
+  "contrasto": 6.26
+ },
+ "path.emusd": {
+  "col": "rgb(31,90,214)",
+  "op": 1,
+  "contrasto": 6.01
+ },
+ "path.br": {
+  "col": "rgb(58,58,58)",
+  "op": 1,
+  "contrasto": 11.37
+ },
+ "path.emfx": {
+  "col": "rgb(58,58,58)",
+  "op": 1,
+  "contrasto": 11.37
+ },
+ "path.emdl": {
+  "col": "rgb(58,58,58)",
+  "op": 1,
+  "contrasto": 11.37
+ },
+ "path.ma": {
+  "col": "rgb(154,74,0)",
+  "op": 0.85,
+  "contrasto": 4.58
+ },
+ "line.blue": {
+  "col": "rgb(59,123,255)",
+  "op": 1,
+  "contrasto": 3.84
+ },
+ "text.axt": {
+  "col": "rgb(98,98,98)",
+  "op": 1,
+  "contrasto": 6.1
+ },
+ "text.pane-t": {
+  "col": "rgb(154,74,0)",
+  "op": 1,
+  "contrasto": 6.26
+ },
+ "rect.fxcalo": {
+  "col": "rgb(194,39,39)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.3,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.fxferma": {
+  "col": "rgb(18,115,55)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.26,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.dlfav": {
+  "col": "rgb(18,115,55)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.26,
+  "linea_bianca_su_fascia": null
+ },
+ "legenda": [
+  "in valuta locale: rgb(154, 74, 0) op 1",
+  "in dollari: rgb(31, 90, 214) op 1",
+  "zona blu: rgb(59, 123, 255) op 0.45",
+  "trigger: rgb(34, 197, 94) op 1",
+  "valuta in calo forte: rgb(194, 39, 39) op 0.35",
+  "valuta che ha smesso di scendere: rgb(18, 115, 55) op 0.35",
+  "dollaro contro emergenti: rgb(58, 58, 58) op 1",
+  "sua media 200: rgb(154, 74, 0) op 1",
+  "dollaro favorevole (sotto la media e in calo in 3 mesi): rgb(18, 115, 55) op 0.35"
+ ],
+ "calo_vs_ferma": 1.03
+}
+riquadro col puntatore sul pannello del dollaro a 780 px: riquadro 792…913 su una finestra alta 900 → ESCE DI 13 px
+legenda EEM: in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi) · titolo pannello: PREZZO, BASE 100 · IN DOLLARI
+
+== 1440-scuro-cvd · cvd true
+{
+ "bg": "rgb(0, 0, 0)",
+ "path.emloc": {
+  "col": "rgb(255,160,40)",
+  "op": 1,
+  "contrasto": 10.31
+ },
+ "path.emusd": {
+  "col": "rgb(127,166,255)",
+  "op": 1,
+  "contrasto": 8.8
+ },
+ "path.br": {
+  "col": "rgb(180,180,180)",
+  "op": 1,
+  "contrasto": 10.13
+ },
+ "path.emfx": {
+  "col": "rgb(180,180,180)",
+  "op": 1,
+  "contrasto": 10.13
+ },
+ "path.emdl": {
+  "col": "rgb(180,180,180)",
+  "op": 1,
+  "contrasto": 10.13
+ },
+ "path.ma": {
+  "col": "rgb(255,160,40)",
+  "op": 0.85,
+  "contrasto": 7.49
+ },
+ "line.blue": {
+  "col": "rgb(59,123,255)",
+  "op": 1,
+  "contrasto": 5.46
+ },
+ "text.axt": {
+  "col": "rgb(138,138,138)",
+  "op": 1,
+  "contrasto": 6.08
+ },
+ "text.pane-t": {
+  "col": "rgb(255,160,40)",
+  "op": 1,
+  "contrasto": 10.31
+ },
+ "rect.fxcalo": {
+  "col": "rgb(255,92,77)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.17,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.fxferma": {
+  "col": "rgb(59,158,255)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.19,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.dlfav": {
+  "col": "rgb(59,158,255)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.19,
+  "linea_bianca_su_fascia": null
+ },
+ "legenda": [
+  "in valuta locale: rgb(255, 160, 40) op 1",
+  "in dollari: rgb(127, 166, 255) op 1",
+  "zona blu: rgb(59, 123, 255) op 0.45",
+  "trigger: rgb(34, 197, 94) op 1",
+  "valuta in calo forte: rgb(255, 92, 77) op 0.35",
+  "valuta che ha smesso di scendere: rgb(59, 158, 255) op 0.35",
+  "dollaro contro emergenti: rgb(180, 180, 180) op 1",
+  "sua media 200: rgb(255, 160, 40) op 1",
+  "dollaro favorevole (sotto la media e in calo in 3 mesi): rgb(59, 158, 255) op 0.35"
+ ],
+ "calo_vs_ferma": 1.02
+}
+riquadro col puntatore sul pannello del dollaro a 780 px: riquadro 792…913 su una finestra alta 900 → ESCE DI 13 px
+legenda EEM: in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi) · titolo pannello: PREZZO, BASE 100 · IN DOLLARI
+
+== 1440-chiaro-cvd · cvd true
+{
+ "bg": "rgb(255, 255, 255)",
+ "path.emloc": {
+  "col": "rgb(154,74,0)",
+  "op": 1,
+  "contrasto": 6.26
+ },
+ "path.emusd": {
+  "col": "rgb(31,90,214)",
+  "op": 1,
+  "contrasto": 6.01
+ },
+ "path.br": {
+  "col": "rgb(58,58,58)",
+  "op": 1,
+  "contrasto": 11.37
+ },
+ "path.emfx": {
+  "col": "rgb(58,58,58)",
+  "op": 1,
+  "contrasto": 11.37
+ },
+ "path.emdl": {
+  "col": "rgb(58,58,58)",
+  "op": 1,
+  "contrasto": 11.37
+ },
+ "path.ma": {
+  "col": "rgb(154,74,0)",
+  "op": 0.85,
+  "contrasto": 4.58
+ },
+ "line.blue": {
+  "col": "rgb(59,123,255)",
+  "op": 1,
+  "contrasto": 3.84
+ },
+ "text.axt": {
+  "col": "rgb(98,98,98)",
+  "op": 1,
+  "contrasto": 6.1
+ },
+ "text.pane-t": {
+  "col": "rgb(154,74,0)",
+  "op": 1,
+  "contrasto": 6.26
+ },
+ "rect.fxcalo": {
+  "col": "rgb(187,52,30)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.28,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.fxferma": {
+  "col": "rgb(11,101,193)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.27,
+  "linea_bianca_su_fascia": null
+ },
+ "rect.dlfav": {
+  "col": "rgb(11,101,193)",
+  "alfa": 0.16,
+  "contrasto_fascia_sfondo": 1.27,
+  "linea_bianca_su_fascia": null
+ },
+ "legenda": [
+  "in valuta locale: rgb(154, 74, 0) op 1",
+  "in dollari: rgb(31, 90, 214) op 1",
+  "zona blu: rgb(59, 123, 255) op 0.45",
+  "trigger: rgb(34, 197, 94) op 1",
+  "valuta in calo forte: rgb(187, 52, 30) op 0.35",
+  "valuta che ha smesso di scendere: rgb(11, 101, 193) op 0.35",
+  "dollaro contro emergenti: rgb(58, 58, 58) op 1",
+  "sua media 200: rgb(154, 74, 0) op 1",
+  "dollaro favorevole (sotto la media e in calo in 3 mesi): rgb(11, 101, 193) op 0.35"
+ ],
+ "calo_vs_ferma": 1.01
+}
+riquadro col puntatore sul pannello del dollaro a 780 px: riquadro 792…913 su una finestra alta 900 → ESCE DI 13 px
+legenda EEM: in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi) · titolo pannello: PREZZO, BASE 100 · IN DOLLARI
