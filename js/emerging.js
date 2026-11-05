@@ -1,5 +1,5 @@
 /*
- * emerging.js — calcoli della vista 8 «Emergenti» (solo contesto: nessuna regola, nessun alert). Nessun accesso al DOM:
+ * emerging.js — calcoli della vista 7 «Emergenti» (solo contesto: nessuna regola, nessun alert). Nessun accesso al DOM:
  * lo usano l'app, i test e gli script di ricerca.
  *
  * Definizioni (le stesse di ricerca/emergenti/backtest/script/backtest.mjs, fissate prima del backtest):

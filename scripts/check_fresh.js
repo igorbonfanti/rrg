@@ -38,7 +38,7 @@ export function staleData(d, today) {
     ['prices.json (rotazione USA)', d.prices && d.prices.asOf, B, 4],
     ['prices_global.json (ETF in euro)', d.pricesGlobal && d.pricesGlobal.asOf, today, 6],
     ['prices_macro.json (asset reali)', d.pricesMacro && d.pricesMacro.asOf, B, 4],
-    // vista 8 Emergenti: cambi ed ETF come gli altri prezzi; FRED H.10 esce una volta alla settimana (con un lunedì festivo il
+    // vista 7 Emergenti: cambi ed ETF come gli altri prezzi; FRED H.10 esce una volta alla settimana (con un lunedì festivo il
     // martedì, a fine anno può saltare una settimana)
     ['emerging.json (cambi)', d.emerging && d.emerging.asOf && d.emerging.asOf.fx, B, 4],
     ['emerging.json (ETF in dollari)', d.emerging && d.emerging.asOf && d.emerging.asOf.etf, B, 4],

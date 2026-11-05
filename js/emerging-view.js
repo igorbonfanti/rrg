@@ -1,5 +1,5 @@
 /*
- * emerging-view.js — vista 8 «Emergenti»: solo contesto (decisione dell'utente del 05/11/2026). Per i 7 indici emergenti
+ * emerging-view.js — vista 7 «Emergenti»: solo contesto (decisione dell'utente del 05/11/2026). Per i 7 indici emergenti
  * della vista 6 mostra lo stato della macchina e la breadth letti dalla vista 6 (stessa fonte, stessi livelli blu), la
  * valuta locale contro il dollaro, il dollaro contro le valute emergenti (FRED) e la forza relativa dell'ETF del paese
  * contro ACWI. Nessuna regola, nessun alert. Calcoli in emerging.js; dati in data/emerging.json (scaricato alla prima

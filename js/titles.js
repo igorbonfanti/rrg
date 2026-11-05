@@ -1,5 +1,5 @@
 /*
- * titles.js — vista 7 Titoli: dentro i settori S&P 500.
+ * titles.js — vista 5 Titoli: dentro i settori S&P 500.
  *  - Grandi contro piccoli: per ogni settore il rendimento cap-weighted (pesano i grandi) ed equal-weight
  *    (ogni titolo conta uguale) nel periodo, con la scia di 1 settimana, 1 mese e 3 mesi fa e la divergenza;
  *  - Titoli del settore: una bolla per titolo (rendimento del periodo contro distanza dalla media 200, dal

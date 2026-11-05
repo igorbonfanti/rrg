@@ -16,7 +16,7 @@
  *  5. data/breadth_latest.json: fotografia titolo per titolo dell'ultima seduta.
  *  6. data/capitulation.json, serie SPX e settori: membri con un calo giornaliero di almeno il 5/7/10% nelle sedute
  *     pubblicate (metodo in js/capitulation.js; storico da scripts/backfill_capitulation.py).
- *  7. data/sector_members.json (vista 7 Titoli): settori cap-weighted contro equal-weight e numeri di ogni
+ *  7. data/sector_members.json (vista 5 Titoli): settori cap-weighted contro equal-weight e numeri di ogni
  *     titolo, calcolati in scripts/lib/capeq.js con la composizione dell'epoca di data/sp500_history.json
  *     (tabella dei cambi di Wikipedia, ricaricata ogni sera, più nome e settore di chi esce) e i pesi delle
  *     holdings dell'ETF iShares IVV.
@@ -251,7 +251,7 @@ function rememberFormer(list) {
 }
 const writeHistory = (file, h) => fs.writeFileSync(file, JSON.stringify(h).replace(/\},\{/g, '},\n{'));
 
-// Vista 7 Titoli: tabella dei cambi aggiornata, prezzi di chi è uscito nel periodo, pesi di IVV, poi capeq.js
+// Vista 5 Titoli: tabella dei cambi aggiornata, prezzi di chi è uscito nel periodo, pesi di IVV, poi capeq.js
 async function updateSectorMembers(members, prices, breadth) {
   const file = path.join(DATA, 'sp500_history.json');
   const h = readJSON(file, { changes: [], former: {} });
@@ -366,7 +366,7 @@ async function main() {
   console.log(`${members.length} membri S&P 500`);
 
   const results = await mapLimit(members, 3, async (m) => {
-    // 2 anni e un mese: la vista 7 Titoli confronta l'ultimo anno con quello prima (HISTORY in capeq.js)
+    // 2 anni e un mese: la vista 5 Titoli confronta l'ultimo anno con quello prima (HISTORY in capeq.js)
     try { return await fetchDaily(m.s, { period1: SINCE() }); } catch (e) { console.warn(`  ${m.s}: ${e.message}`); return null; }
   }, 150);
   const prices = {};

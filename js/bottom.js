@@ -547,7 +547,7 @@ export function createBottom(ctx) {
 
   return {
     NOW, bind, renderMonitor, renderMap, renderSector, renderAlerts, openSector, sector: () => st.sector,
-    // per la vista 7 Titoli: stesso settore scelto, senza cambiare vista, e colore del suo stato
+    // per la vista 5 Titoli: stesso settore scelto, senza cambiare vista, e colore del suo stato
     selectSector: (s) => { if (SECTOR_KEYS.includes(s)) { st.sector = s; store.set('sector', s); } },
     stateCode: (s) => stateOf(s).code,
     isSector: (s) => SECTOR_KEYS.includes(s),

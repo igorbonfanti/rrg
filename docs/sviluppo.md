@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 05/11/2026, versione 1.4.0.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 05/11/2026, versione 1.4.1.
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -28,7 +28,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/indexdata.js` | formato compatto degli indici |
   | `js/capitulation.js` | cali forti |
   | `js/calendar.js` | calendari |
-  | `js/emerging.js` | vista 8: pulizia dei cambi, z e F della valuta, D del dollaro, forza relativa contro ACWI |
+  | `js/emerging.js` | vista 7 (Emergenti): pulizia dei cambi, z e F della valuta, D del dollaro, forza relativa contro ACWI |
 
 - **Viste e grafici**:
 
@@ -37,8 +37,8 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/app.js` | avvio, comandi, viste, versione |
   | `js/bottom.js` | Monitor, Bottom Map, Settore, Alert |
   | `js/indices.js` | vista 6 |
-  | `js/titles.js` | vista 7 |
-  | `js/emerging-view.js` | vista 8 Emergenti (stato degli indici preso dalla vista 6 con `snapshot`) |
+  | `js/titles.js` | vista 5 |
+  | `js/emerging-view.js` | vista 7 Emergenti (stato degli indici preso dalla vista 6 con `snapshot`) |
   | `js/cap-view.js`, `js/cap-chart.js` | scheda Cali forti |
   | `js/rrg-chart.js`, `js/perf-chart.js`, `js/sector-chart.js`, `js/bottom-map.js` | grafici SVG |
   | `js/format.js` | numeri all'italiana, tooltip, checklist |
@@ -47,7 +47,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   - prima i file del Monitor (`prices`, `sectors`, `breadth`, `thresholds`, `breadth_latest`, `alerts`, `config/indices`);
   - dopo il primo disegno `prices_global` e `prices_macro`;
   - alla prima apertura della vista: `indices`, poi `indices_more`, `sector_members`, `capitulation`;
-  - alla prima apertura della vista 8: `emerging` e i due file degli indici (`ensureAll`).
+  - alla prima apertura della vista 7: `emerging` e i due file degli indici (`ensureAll`).
   - I file caricati dopo usano `cache: 'no-cache'`.
 - **Versione**: `js/version.js` e `version.json` devono coincidere. Se il browser usa file vecchi l'app lo dice e il pulsante «Nuova versione» riscarica tutto.
 
@@ -76,7 +76,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - holdings iShares (IVV, EXSA, IWM, EEM, EWT);
 - API Nasdaq, Nikkei e B3;
 - FRED per il CPI e per il dollaro contro le valute emergenti (`DTWEXEMEGS`, settimanale);
-- FRED H.10 per i cambi della vista 8 (valuta locale per un dollaro, mezzogiorno di New York), Yahoo per gli ultimi giorni non ancora pubblicati dalla Fed (provvisori).
+- FRED H.10 per i cambi della vista 7 (valuta locale per un dollaro, mezzogiorno di New York), Yahoo per gli ultimi giorni non ancora pubblicati dalla Fed (provvisori).
 
 **Approssimazioni dichiarate** (devono restare scritte nell'app):
 - **Composizione**: storia con i membri di oggi per gli indici senza composizione storica gratuita.
@@ -117,7 +117,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **Avvicinamento**: livello blu più il calo forte (90° percentile) della breadth in 10 sedute. Non è uno stato e non manda alert. Le statistiche nel testo sono «nel campione».
 - **Rotazione**: formula «Nuova» (predefinita) e «Medie semplici» a confronto. RS-Ratio e RS-Momentum mantengono questi nomi per scelta dell'utente.
 - **Portafoglio di riferimento** (Asset class): 50/30/13/5/2, ribilanciato a fine mese, pesi regolabili nel browser. Trend (DBMFE) ha peso 0.
-- **Cap contro equal per settore** (vista 7): indici simulati con i membri di ogni data. L'equal-weight si ribilancia ogni trimestre; il cap-weighted usa le azioni delle holdings IVV. I numeri differiscono da quelli di Rea per metodo (`ricerca/settori-titoli/confronto-rea.md`).
+- **Cap contro equal per settore** (vista 5): indici simulati con i membri di ogni data. L'equal-weight si ribilancia ogni trimestre; il cap-weighted usa le azioni delle holdings IVV. I numeri differiscono da quelli di Rea per metodo (`ricerca/settori-titoli/confronto-rea.md`).
 - **Cali forti** (0.9.0):
   - membri con un calo giornaliero di almeno il 5, 7 o 10%, sommati su N sedute (preset di Rea: −7% su 5);
   - allerta oltre il 99° percentile delle sedute precedenti, dopo 3 anni di storia, con almeno 5 cali;
@@ -148,18 +148,18 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `verifica-trigger/` | due protocolli congelati sulle regole d'ingresso dopo la zona blu: resta il trigger attuale |
 | `attenzione/` | fascia di attenzione sopra il livello blu, da cui l'Avvicinamento |
 | `indici/` | fonti dei membri, livelli di Rea letti dai suoi grafici, validazione F1 |
-| `settori-titoli/` | progetto della vista 7 e confronto con il grafico di Rea |
+| `settori-titoli/` | progetto della vista 5 e confronto con il grafico di Rea |
 | `managed-futures/` | quanto pesare il trend following e quale ETF |
 | `quant-rea/` | catalogo e verifica delle 34 analisi del fascicolo di un utente, classifica di utilità, prova della capitolazione su 22 indici, preset |
 | `avvicinamento-uso/` | uso pratico dell'avvicinamento: promemoria, non segnale |
 | `indici-breadth50/` | breadth a 50 sedute per gli alert degli indici: nessun pattern regge |
-| `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 8 |
+| `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (1.4.0)
+## 7. Stato attuale (1.4.1)
 
 - 8 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
-- Test automatici: `npm test`, 124 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) e `v140.cjs` (vista 8).
+- Test automatici: `npm test`, 128 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti).
 - Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
   - la tabella della rotazione sul telefono nasconde colonne invece di diventare a schede;
@@ -178,6 +178,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **1.3.1–1.3.4 (31/10/2026)**: statistiche dell'avvicinamento rifatte sulla regola e sul periodo che l'app mostra, metodo d'uso nella guida (1.3.3, tre controlli indipendenti); pallino sul bordo del periodo (1.3.2); bias dei membri di oggi +3,6 con le regole dell'app (1.3.4). Ricerche concluse senza modifiche all'app: uso pratico dell'avvicinamento (promemoria, non segnale: `ricerca/avvicinamento-uso/sintesi.md`), nota e regola sulla «risalita dopo l'Attenzione» (scartate: `risalita.md`), pattern della breadth a 50 sedute sugli indici (nessuno regge: `ricerca/indici-breadth50/sintesi.md`). Decisione dell'utente del 02/11/2026: si tiene così e si osservano i prossimi giorni. Aperti, minori: la scheda di un settore in avvicinamento in risalita dice ancora «in un calo deciso il livello blu è a circa due settimane»; EEM nelle feste cinesi (68 sedute con la breadth falsata).
 - **1.3.5 (05/11/2026)**: le date delle barre di Yahoo usano il fuso della borsa con l'ora legale di quel giorno (`barDate` in `scripts/lib/yahoo.js`); dall'arrivo dell'ora solare erano sbagliati il dollaro (DXY_INV) e la storia di DBMFE.PA prima del 28/04/2025. Controlli in `ricerca/qa/1.3.5/`.
 - **1.4.0 (05/11/2026)**: vista 8 Emergenti, solo contesto, dal piano `ricerca/emergenti/inserimento.md`. Il file `data/emerging.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Controllo nel browser `ricerca/qa/browser/v140.cjs`.
+- **1.4.1 (05/11/2026)**: schede riordinate su richiesta dell'utente: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 Alert (`VIEWS` in `js/app.js`); indirizzi e comandi invariati. Le note storiche usano i numeri di allora (Titoli era la 7, Alert la 5, Emergenti la 8).
 - Rilievi minori aperti della 1.3.5 (`ricerca/qa/1.3.5/codice/rapporto-codice.md`): la cache delle date di `barDate` non si svuota mai (nel caso reale 85.574 istanti diversi su 1,3 milioni, nessun problema); `scripts/backfill_indices.py` e i vecchi controlli in `ricerca/qa/audit-0.9.*` datano ancora con il `gmtoffset` (giusto per i titoli, sbagliato d'inverno per cambi e DX-Y.NYB).
 - Decisioni dell'utente del 18/10/2026: la scala Adatta/Massima della rotazione resta salvata nel browser.
 

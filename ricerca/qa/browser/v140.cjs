@@ -1,4 +1,4 @@
-// 1.4.0: vista 8 Emergenti (solo contesto). Deve fallire sulla 1.3.x (manca la scheda) e passare sulla 1.4.0.
+// 1.4.0: vista Emergenti (dalla 1.4.1 la 7; solo contesto). Deve fallire sulla 1.3.x (manca la scheda) e passare sulla 1.4.0.
 // Uso: BASE=http://127.0.0.1:8791/ OUT=cartella_screenshot NODE_PATH=$(npm root -g) node ricerca/qa/browser/v140.cjs
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/', OUT = process.env.OUT;
@@ -14,7 +14,10 @@ const STATES = ['Normale', 'Attenzione', 'Zona blu', 'Trigger', 'Fallito', 'Cool
     p.on('pageerror', (e) => errs.push(e.message)); p.on('console', (m) => m.type() === 'error' && errs.push(m.text()));
     // 1. scheda e caricamento pigro
     await p.goto(BASE + '#mon'); await p.waitForTimeout(2500);
-    ok(await p.locator('#tab-emg').count() === 1 && /8 Emergenti/i.test(await p.locator("#tab-emg").innerText()), `${name} scheda «8 Emergenti»`);
+    ok(await p.locator('#tab-emg').count() === 1 && /7 Emergenti/i.test(await p.locator("#tab-emg").innerText()), `${name} scheda «7 Emergenti»`);
+    // 1.4.1: ordine delle schede scelto dall'utente
+    const tabs = (await p.locator('.fnkeys button[data-view]').allInnerTexts()).map((t) => t.replace(/\s+/g, ' ').trim().toUpperCase());
+    ok(tabs.join('|') === ['1 MONITOR', '2 ROTAZIONE', '3 BOTTOM MAP', '4 SETTORE', '5 TITOLI', '6 INDICI', '7 EMERGENTI', '8 ALERT'].join('|'), `${name} ordine delle schede: ${tabs.join(' · ')}`);
     if (!(await p.locator('#tab-emg').count())) { ok(false, `${name} vista assente: interrompo`); await ctx.close(); continue; }
     const before = await p.evaluate(() => performance.getEntriesByType('resource').some((r) => /data\/emerging\.json/.test(r.name)));
     ok(!before, `${name} data/emerging.json non scaricato aprendo il Monitor`);
@@ -35,11 +38,11 @@ const STATES = ['Normale', 'Attenzione', 'Zona blu', 'Trigger', 'Fallito', 'Cool
     const ix = await p.evaluate(() => Object.fromEntries([...document.querySelectorAll('#ixTable tbody tr')].map((tr) => [tr.dataset.ix, tr.querySelector('.c-state').innerText.trim()])));
     const same = em.filter((r) => ix[r.k] != null).every((r) => ix[r.k] === r.st);
     ok(same, `${name} stati uguali alla vista 6 (${em.filter((r) => ix[r.k] != null).length} confrontati)`);
-    // 3. #emg-KOSPI200, tasto 8, comando, Indietro
+    // 3. #emg-KOSPI200, tasto 7, comando, Indietro
     await p.goto(BASE + '#emg-KOSPI200'); await p.waitForTimeout(2500);
     ok(/KOSPI200/.test(await p.locator('#emTitle').innerText()), `${name} #emg-KOSPI200 apre il dettaglio`);
     await p.goto(BASE + '#mon'); await p.waitForTimeout(1500);
-    if (!touch) { await p.keyboard.press('8'); await p.waitForTimeout(1500); ok(!(await p.locator('#v-emg').isHidden()), `${name} tasto 8`); }
+    if (!touch) { await p.keyboard.press('7'); await p.waitForTimeout(1500); ok(!(await p.locator('#v-emg').isHidden()), `${name} tasto 7`); }
     await p.locator('#cmd').fill('CSI300 EMG'); await p.locator('#cmd').press('Enter'); await p.waitForTimeout(1500);
     ok(/CSI300/.test(await p.locator('#emTitle').innerText()), `${name} comando CSI300 EMG`);
     await p.locator('#emTable tbody tr[data-em="IBOV"]').click(); await p.waitForTimeout(800);

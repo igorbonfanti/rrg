@@ -5,10 +5,11 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.4.0';
+export const VERSION = '1.4.1';
 export const RELEASE = '2026-11-05';
 export const NOTES = [
-  'Nuova vista 8 Emergenti, solo contesto: per CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM lo stato della vista 6 con la valuta (in calo forte o che ha smesso di scendere), il dollaro contro le valute emergenti e la forza relativa contro ACWI; cambi della Federal Reserve (gli ultimi giorni da Yahoo, provvisori); nessuna regola nuova e nessun alert',
+  'Schede in un nuovo ordine, dal settore ai suoi titoli e poi al resto del mondo: 5 Titoli subito dopo 4 Settore, 6 Indici, 7 Emergenti, 8 Alert per ultima; indirizzi e comandi invariati, cambiano solo i tasti 5, 7 e 8',
+  'Nuova vista Emergenti, solo contesto: per CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM lo stato della vista 6 con la valuta (in calo forte o che ha smesso di scendere), il dollaro contro le valute emergenti e la forza relativa contro ACWI; cambi della Federal Reserve (gli ultimi giorni da Yahoo, provvisori); nessuna regola nuova e nessun alert',
   'Dati: le chiusure di Yahoo sono datate nel fuso della borsa con l\'ora legale di quel giorno; dal 26/10 (cambi) e dal 2/11 (dollaro) erano sbagliati il dollaro (DXY_INV) e la storia di DBMFE.PA prima del 28/04/2025',
   'Indici: bias dei membri di oggi ricalcolato con la regola dell\'app (in media +3,6 punti nella prova sul Nasdaq-100, non +4,5)',
   'Avvicinamento: statistiche sul periodo che l\'app mostra (settori: con l\'Attenzione 50 tocchi del livello su 63, 7 più della sola Attenzione; da solo 33) e, nella guida, come usarlo',

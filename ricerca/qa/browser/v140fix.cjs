@@ -77,7 +77,7 @@ const init = (range) => () => { try { if (!sessionStorage.getItem('i')) { sessio
     ok(/IBOV/.test(await p.locator('#emTitle').innerText()), '390: dettaglio di IBOV');
     await ctx.close();
   }
-  // 7. comandi e tasto 8 senza config/emerging.json
+  // 7. comandi e tasto 7 senza config/emerging.json
   {
     const { ctx, p } = await open(1440, 900, '#mon');
     for (const [cmd, k] of [['KOSPI EMG', 'KOSPI200'], ['EMG IBOV', 'IBOV'], ['NIFTY EMG', 'NIFTY50']]) {
@@ -90,8 +90,8 @@ const init = (range) => () => { try { if (!sessionStorage.getItem('i')) { sessio
     await ctx2.addInitScript(init());
     await ctx2.route('**/config/emerging.json*', (r) => r.fulfill({ status: 404, body: '' }));
     const p2 = await ctx2.newPage(); await p2.goto(BASE + '#mon'); await p2.waitForTimeout(1500);
-    await p2.keyboard.press('8'); await p2.waitForTimeout(500);
-    ok(await p2.evaluate(() => document.getElementById('v-emg').hidden && !document.getElementById('v-mon').hidden), 'senza config/emerging.json il tasto 8 non apre una sezione vuota');
+    await p2.keyboard.press('7'); await p2.waitForTimeout(500);
+    ok(await p2.evaluate(() => document.getElementById('v-emg').hidden && !document.getElementById('v-mon').hidden), 'senza config/emerging.json il tasto 7 non apre una sezione vuota');
     await ctx2.close();
   }
   await b.close();

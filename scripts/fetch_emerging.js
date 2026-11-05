@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * fetch_emerging.js — dati della vista 8 «Emergenti» (solo contesto): cambi in valuta locale per un dollaro (storia dalla
+ * fetch_emerging.js — dati della vista 7 «Emergenti» (solo contesto): cambi in valuta locale per un dollaro (storia dalla
  * Federal Reserve, FRED H.10; Yahoo solo per i giorni dopo l'ultimo valore pubblicato dalla Fed, campo `fred` della serie),
  * ETF in dollari per la forza relativa contro ACWI (Yahoo, chiusure rettificate per i dividendi) e il dollaro contro le
  * valute emergenti (FRED DTWEXEMEGS, pubblicato una volta alla settimana). Scrive data/emerging.json.

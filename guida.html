@@ -89,14 +89,14 @@
         </ol></li>
       <li><a href="#btm">3 Bottom Map</a></li>
       <li><a href="#sec">4 Settore</a></li>
-      <li><a href="#alr">5 Alert</a></li>
+      <li><a href="#tit">5 Titoli</a></li>
       <li><a href="#idx">6 Indici</a>
         <ol>
           <li><a href="#cali">Cali forti (capitolazione)</a></li>
         </ol>
       </li>
-      <li><a href="#tit">7 Titoli</a></li>
-      <li><a href="#emg">8 Emergenti</a></li>
+      <li><a href="#emg">7 Emergenti</a></li>
+      <li><a href="#alr">8 Alert</a></li>
       <li><a href="#comandi">Comandi e tasti</a></li>
       <li><a href="#schermo">Telefono, temi, accessibilità</a></li>
       <li><a href="#dati">Dati e aggiornamenti</a></li>
@@ -120,8 +120,8 @@
       <li><b>1 Monitor</b>: come stanno i settori oggi, cosa è cambiato dall'ultima visita, quali sono da osservare e cosa manca al prossimo stato.</li>
       <li><b>2 Rotazione</b> e <b>3 Bottom Map</b>: chi sta prendendo forza rispetto al mercato, chi si sta avvicinando alla zona blu.</li>
       <li><b>4 Settore</b>: il dettaglio di un settore, perché è in quello stato, come sono andati gli episodi passati.</li>
-      <li><b>7 Titoli</b>: dentro il settore, se si muovono prima i grandi o i piccoli e quali titoli sono più in difficoltà.</li>
-      <li><b>6 Indici</b>: la stessa lettura sui principali indici del mondo; <b>5 Alert</b>: il registro dei segnali.</li>
+      <li><b>5 Titoli</b>: dentro il settore, se si muovono prima i grandi o i piccoli e quali titoli sono più in difficoltà.</li>
+      <li><b>6 Indici</b> e <b>7 Emergenti</b>: la stessa lettura sui principali indici del mondo, con valuta e dollaro per gli emergenti; <b>8 Alert</b>: il registro dei segnali.</li>
     </ol>
     <p>In alto a sinistra c'è la versione in uso (passa il mouse per le novità). Se compare il pulsante giallo <b>«Nuova versione: ricarica»</b> il browser sta usando file vecchi: un clic riscarica app e dati.</p>
     <p class="tip">Ogni voce con la sottolineatura a puntini ha una spiegazione: passa il mouse, oppure sul telefono toccala.</p>
@@ -292,21 +292,34 @@
     <h3>Livello blu</h3>
     <p>Con <b>−</b> e <b>+</b> provi un livello diverso: grafico, stato ed episodi si ricalcolano subito. La scelta vale solo nel tuo browser (un asterisco la segnala nel Monitor); «Ripristina» torna al default. Gli alert Telegram usano invece i livelli del repository: «Copia configurazione» serve a chi lo gestisce.</p>
     <h3>Situazione e titoli</h3>
-    <p><b>Situazione</b> riassume breadth, distanza dal livello, soglia di avvicinamento, drawdown e profondità storica, con i link ai grafici su TradingView. <b>Titoli del settore</b> elenca i membri dal più sopra al più sotto la media 200, con una linea tra chi è sopra e chi è sotto: vedi subito chi sta per attraversarla. Il pulsante <b>7 Titoli →</b> porta all'analisi grandi/piccoli dello stesso settore.</p>
+    <p><b>Situazione</b> riassume breadth, distanza dal livello, soglia di avvicinamento, drawdown e profondità storica, con i link ai grafici su TradingView. <b>Titoli del settore</b> elenca i membri dal più sopra al più sotto la media 200, con una linea tra chi è sopra e chi è sotto: vedi subito chi sta per attraversarla. Il pulsante <b>5 Titoli →</b> porta all'analisi grandi/piccoli dello stesso settore.</p>
     <h3>Episodi e confronto</h3>
     <p>La tabella degli episodi elenca ogni zona blu dal 2005: data di ingresso, breadth minima, drawdown, rendimento a 3 mesi dall'ingresso, trigger (con gli eventuali segnali falliti), conferma, rendimenti a 1, 3 e 6 mesi dal trigger e peggior calo nei 3 mesi. È chiusa di default: si apre con un clic sul titolo «Episodi in zona blu», che intanto mostra quante zone blu, trigger e segnali falliti ci sono; il browser ricorda se l'hai lasciata aperta.</p>
     <p>Sotto, <b>Per confronto</b> mette accanto le mediane dopo ogni trigger, dall'ingresso in zona blu, dopo una seduta qualsiasi della stessa storia, di SPY negli stessi giorni e del settore meno SPY. Quante volte è andata bene è scritto come «5 su 6», non in percentuale: i casi sono pochi e spesso cadono nella stessa crisi per più settori. Leggile come esempi, non come probabilità.</p>
     <p>Sotto gli episodi, la scheda richiudibile <b>Cali forti</b> conta i titoli del settore in forte calo: è spiegata <a href="#cali">qui</a>.</p>
   </section>
 
-  <section id="alr">
-    <h2>5 Alert</h2>
-    <a class="open" href="./#alr">Apri gli Alert →</a>
-    <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore.</p>
+  <section id="tit">
+    <h2>5 Titoli</h2>
+    <a class="open" href="./#tit">Apri i Titoli →</a>
+    <p>Dentro i settori. Il settore scelto è lo stesso della vista 4; il periodo (1M, 3M, 6M, YTD, 1A) vale per tutta la pagina.</p>
+    <h3>Grandi contro piccoli</h3>
+    <p>Per ogni settore e per l'S&amp;P 500, il rendimento del periodo:</p>
     <ul>
-      <li>I riquadri in alto riassumono quante zone blu, trigger e segnali falliti ci sono stati, con le mediane a 3 e 6 mesi e il confronto con una seduta qualsiasi e con SPY negli stessi giorni.</li>
-      <li><b>Notifiche Telegram</b>: dopo ogni aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Le ultime sedute si ricalcolano a ogni aggiornamento: se un evento già inviato cambia data arriva una rettifica con le due date, se non risulta più arriva un messaggio di annullamento. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati, con le rettifiche.</li>
-      <li>Gli alert usano i livelli blu del repository, non quelli provati nel browser.</li>
+      <li><b>pallino pieno</b>: cap-weighted, pesano i grandi;</li>
+      <li><b>pallino vuoto</b>: equal-weight, ogni titolo conta uguale;</li>
+      <li>la <b>barra</b> tra i due è la divergenza: verde acqua se è davanti l'equal-weight (movimento largo), viola se guidano i grandi. Le 3 divergenze più ampie hanno un anello;</li>
+      <li>la <b>scia</b> grigia segna, con pallini sempre più piccoli, dove erano i due valori 1 settimana, 1 mese e 3 mesi fa; la <b>freccia</b> sottile è l'ultima settimana (verde se sale, rossa se scende). Si mostra per tutti, solo per il settore scelto o per nessuno;</li>
+      <li>a destra la divergenza in punti e come è cambiata in un mese (▲ verso l'equal-weight, ▼ verso i grandi).</li>
+    </ul>
+    <p>Clic su una riga per scegliere il settore. I numeri sono il rendimento di indici simulati con i membri di ogni data: possono differire da quelli del grafico di Rea, che usa altre convenzioni (il riquadro «Come si legge» spiega perché).</p>
+    <h3>Storia della divergenza</h3>
+    <p>La stessa divergenza (equal − cap sul periodo scelto) alla fine di ognuna delle ultime 52 settimane, per il settore scelto, con l'S&amp;P 500 tratteggiato per confronto. Area verde acqua sopra lo zero, viola sotto. Sopra il grafico: <b>da quante settimane</b> dura il segno di oggi (per esempio «davanti l'equal-weight da 7 settimane»), con minimo e massimo dell'anno. Con YTD la divergenza riparte da zero a gennaio.</p>
+    <h3>Titoli del settore e i più in pena</h3>
+    <ul>
+      <li>Una <b>bolla</b> per titolo: in verticale il rendimento del periodo; in orizzontale, a scelta, la distanza dalla media 200, dal massimo a 52 settimane o il rendimento nel periodo precedente. Grandezza secondo il peso nell'S&amp;P 500, oppure tutte uguali.</li>
+      <li>Le linee tratteggiate sono il settore cap ed equal. In rosso e con l'etichetta gli 8 più in pena; i valori estremi sono fermati al bordo con una freccia.</li>
+      <li><b>I più in pena</b>: i 12 titoli con la media più bassa delle posizioni nel settore per rendimento del periodo e distanza dal massimo. Passando sopra una riga si evidenzia la bolla; il ticker apre il grafico su TradingView. Chi è in pena non è per forza a sconto.</li>
     </ul>
   </section>
 
@@ -337,32 +350,8 @@
     <p>È un'informazione di contesto da leggere insieme alla breadth: <b>non cambia stati, regole né alert Telegram</b>. Nella prova sugli indici con i cali forti (tutti tranne Taiwan), dopo le allerte gli indici sono andati in media meglio di una seduta qualsiasi, ma quasi tutto il vantaggio viene dai crolli rapidi (marzo 2020, aprile 2025). All'inizio dei mercati orso lunghi le allerte sono arrivate presto: tra agosto 2007 e settembre 2008, in 13 casi su 14 l'indice era più in basso un anno dopo. La storia usa la stessa composizione della breadth (di ogni data per S&amp;P 500, settori, Dow e Nasdaq-100; di oggi per gli altri). Non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli: sono errori di stampa della fonte. Dopo un giorno di panico il rimbalzo è di tutto il mercato, e quei cali contano. Non contano neppure i crolli oltre il 60% in una giornata normale (frazionamenti non registrati dalla fonte). Taiwan non ha la scheda: lì i dividendi in azioni sono frequenti e la chiusura di Yahoo non li rettifica, quindi molti cali sarebbero falsi.</p>
   </section>
 
-  <section id="tit">
-    <h2>7 Titoli</h2>
-    <a class="open" href="./#tit">Apri i Titoli →</a>
-    <p>Dentro i settori. Il settore scelto è lo stesso della vista 4; il periodo (1M, 3M, 6M, YTD, 1A) vale per tutta la pagina.</p>
-    <h3>Grandi contro piccoli</h3>
-    <p>Per ogni settore e per l'S&amp;P 500, il rendimento del periodo:</p>
-    <ul>
-      <li><b>pallino pieno</b>: cap-weighted, pesano i grandi;</li>
-      <li><b>pallino vuoto</b>: equal-weight, ogni titolo conta uguale;</li>
-      <li>la <b>barra</b> tra i due è la divergenza: verde acqua se è davanti l'equal-weight (movimento largo), viola se guidano i grandi. Le 3 divergenze più ampie hanno un anello;</li>
-      <li>la <b>scia</b> grigia segna, con pallini sempre più piccoli, dove erano i due valori 1 settimana, 1 mese e 3 mesi fa; la <b>freccia</b> sottile è l'ultima settimana (verde se sale, rossa se scende). Si mostra per tutti, solo per il settore scelto o per nessuno;</li>
-      <li>a destra la divergenza in punti e come è cambiata in un mese (▲ verso l'equal-weight, ▼ verso i grandi).</li>
-    </ul>
-    <p>Clic su una riga per scegliere il settore. I numeri sono il rendimento di indici simulati con i membri di ogni data: possono differire da quelli del grafico di Rea, che usa altre convenzioni (il riquadro «Come si legge» spiega perché).</p>
-    <h3>Storia della divergenza</h3>
-    <p>La stessa divergenza (equal − cap sul periodo scelto) alla fine di ognuna delle ultime 52 settimane, per il settore scelto, con l'S&amp;P 500 tratteggiato per confronto. Area verde acqua sopra lo zero, viola sotto. Sopra il grafico: <b>da quante settimane</b> dura il segno di oggi (per esempio «davanti l'equal-weight da 7 settimane»), con minimo e massimo dell'anno. Con YTD la divergenza riparte da zero a gennaio.</p>
-    <h3>Titoli del settore e i più in pena</h3>
-    <ul>
-      <li>Una <b>bolla</b> per titolo: in verticale il rendimento del periodo; in orizzontale, a scelta, la distanza dalla media 200, dal massimo a 52 settimane o il rendimento nel periodo precedente. Grandezza secondo il peso nell'S&amp;P 500, oppure tutte uguali.</li>
-      <li>Le linee tratteggiate sono il settore cap ed equal. In rosso e con l'etichetta gli 8 più in pena; i valori estremi sono fermati al bordo con una freccia.</li>
-      <li><b>I più in pena</b>: i 12 titoli con la media più bassa delle posizioni nel settore per rendimento del periodo e distanza dal massimo. Passando sopra una riga si evidenzia la bolla; il ticker apre il grafico su TradingView. Chi è in pena non è per forza a sconto.</li>
-    </ul>
-  </section>
-
   <section id="emg">
-    <h2>8 Emergenti</h2>
+    <h2>7 Emergenti</h2>
     <a class="open" href="./#emg">Apri gli Emergenti →</a>
     <p>Sette indici emergenti della vista 6 (CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng, MSCI Emerging Markets) con accanto la valuta e il dollaro. È <b>solo contesto</b>: lo stato e la breadth sono quelli della vista 6, con gli stessi livelli blu anche se li hai cambiati; valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert. Valuta e dollaro, nella verifica sui dati, non hanno migliorato i segnali della breadth (la forza relativa non è stata provata): per questo restano informazioni a margine.</p>
     <h3>Riquadri e tabellone</h3>
@@ -384,6 +373,17 @@
     <p>I cambi sono quelli della <b>Federal Reserve</b> (FRED H.10, dal 2000): il cambio della Fed è quello di mezzogiorno di New York dello stesso giorno: per l'Asia qualche ora dopo la chiusura della borsa, per il Brasile qualche ora prima. La Fed li pubblica una volta alla settimana, quindi per gli ultimi giorni si usa il cambio di Yahoo, segnato come provvisorio nel riquadro dei valori e sostituito da quello della Fed quando esce; il cambio di Yahoo datato un giorno è in pratica il prezzo della sera prima (mezzanotte di Londra). FRED a volte rivede il dollaro contro gli emergenti (fino allo 0,6% nelle versioni 2024-2026): le fasce passate usano i valori rivisti. Il prezzo del CSI 300 è l'ETF 510300 in yuan, quello del KOSPI 200 il KOSPI intero, quello di Taiwan il TAIEX. Gli ETF della forza relativa includono i dividendi, gli indici no. Un probabile errore di stampa nei giorni di Yahoo (un salto che si annulla il giorno dopo) diventa un giorno mancante, e la nota sotto il grafico lo dice. Storie più corte: ASHR dal 2013, INDA dal 2012, ACWI dal 2008, il dollaro contro gli emergenti dal 2006.</p>
   </section>
 
+  <section id="alr">
+    <h2>8 Alert</h2>
+    <a class="open" href="./#alr">Apri gli Alert →</a>
+    <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore.</p>
+    <ul>
+      <li>I riquadri in alto riassumono quante zone blu, trigger e segnali falliti ci sono stati, con le mediane a 3 e 6 mesi e il confronto con una seduta qualsiasi e con SPY negli stessi giorni.</li>
+      <li><b>Notifiche Telegram</b>: dopo ogni aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Le ultime sedute si ricalcolano a ogni aggiornamento: se un evento già inviato cambia data arriva una rettifica con le due date, se non risulta più arriva un messaggio di annullamento. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati, con le rettifiche.</li>
+      <li>Gli alert usano i livelli blu del repository, non quelli provati nel browser.</li>
+    </ul>
+  </section>
+
   <section id="comandi">
     <h2>Comandi e tasti</h2>
     <p>Nella <b>barra dei comandi</b> in alto (o premendo <kbd>/</kbd>) scrivi e premi Invio:</p>
@@ -396,7 +396,7 @@
         <tr><td><code>SPY</code>, <code>QQQ</code>, <code>PTF</code></td><td>un benchmark: la rotazione contro di lui</td></tr>
         <tr><td><code>NDX</code>, <code>DAX</code>, <code>CAC</code></td><td>un indice: il suo dettaglio nella vista 6. Vale più di un ticker scritto senza borsa: <code>CAC</code> apre il CAC 40, <code>CAC.PA</code> l'ETF nella rotazione. Funzionano anche i nomi comuni <code>KOSPI</code>, <code>NIKKEI</code>, <code>NASDAQ</code>, <code>DOW</code>, <code>RUSSELL</code>, <code>IBOVESPA</code>, <code>NIFTY</code>, <code>HANGSENG</code></td></tr>
         <tr><td><code>MON</code> <code>ROT</code> <code>BTM</code> <code>SEC</code> <code>ALRT</code> <code>IDX</code> <code>TIT</code> <code>EMG</code></td><td>apre la vista</td></tr>
-        <tr><td><code>KOSPI200 EMG</code></td><td>un indice emergente nella vista 8</td></tr>
+        <tr><td><code>KOSPI200 EMG</code></td><td>un indice emergente nella vista 7</td></tr>
         <tr><td><code>HELP</code></td><td>la guida rapida</td></tr>
         <tr><td><code>CHIARO</code>, <code>SCURO</code>, <code>TEMA</code></td><td>sceglie o inverte il tema</td></tr>
       </tbody>
@@ -419,7 +419,7 @@
     <h2>Dati e aggiornamenti</h2>
     <ul>
       <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate da un processo automatico su GitHub: parte dopo la chiusura USA (alle 00:40 ora italiana con l'ora legale, alle 23:40 con l'ora solare), riprova ogni ora nelle prime ore del mattino finché non trova la seduta e passa di nuovo a metà giornata. GitHub fa partire queste corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. Dopo le 2:30 circa (ora italiana), finché la seduta non arriva, il badge in alto dice «1 seduta indietro». In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
-      <li>La <b>breadth dei settori</b> è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 7 vengono dalle holdings dell'ETF iShares IVV.</li>
+      <li>La <b>breadth dei settori</b> è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 5 vengono dalle holdings dell'ETF iShares IVV.</li>
       <li>La <b>breadth degli indici</b> è calcolata a ogni aggiornamento sui loro membri (circa 4.600 titoli).</li>
       <li>Vista <b>Emergenti</b>: cambi della Federal Reserve da FRED (gli ultimi giorni, non ancora pubblicati, da Yahoo Finance, provvisori); ETF in dollari da Yahoo Finance; il dollaro contro le valute emergenti da FRED, che lo pubblica una volta alla settimana con qualche giorno di ritardo.</li>
       <li>Le scelte personali (livelli blu provati, pesi del portafoglio, universo, indici mostrati, tema) restano solo nel tuo browser.</li>
@@ -445,8 +445,8 @@
     <p>GitHub fa tenere i file al browser per 10 minuti. Se in alto compare «Nuova versione», cliccalo; altrimenti ricarica con Ctrl+F5 (su Mac Cmd+Maiusc+R).</p>
     <h3>La breadth è sotto il livello blu ma il settore non è in zona blu.</h3>
     <p>Mancano altre condizioni: una seconda chiusura sotto il livello, un drawdown oltre il 70° percentile, oppure il riarmo dopo l'ultimo trigger. Il riquadro «Perché questo stato» della vista 4 dice quale.</p>
-    <h3>I numeri della vista 7 non coincidono con il grafico di Rea.</h3>
-    <p>Sono vicini ma calcolati in modo diverso: periodi in sedute invece che di calendario, pesi di inizio periodo invece che di oggi, membri di ogni data con il ribilanciamento trimestrale. Il riquadro «Come si legge» della vista 7 spiega le differenze.</p>
+    <h3>I numeri della vista 5 non coincidono con il grafico di Rea.</h3>
+    <p>Sono vicini ma calcolati in modo diverso: periodi in sedute invece che di calendario, pesi di inizio periodo invece che di oggi, membri di ogni data con il ribilanciamento trimestrale. Il riquadro «Come si legge» della vista 5 spiega le differenze.</p>
     <h3>Il drawdown è diverso da quello di TradingView.</h3>
     <p>Il drawdown dell'app conta i dividendi reinvestiti; quello di TradingView è sul solo prezzo e parte dal massimo intraday. La colonna «Solo prezzo» e la nota al passaggio del mouse fanno il confronto.</p>
     <h3>Le modifiche ai livelli blu cambiano gli alert?</h3>
