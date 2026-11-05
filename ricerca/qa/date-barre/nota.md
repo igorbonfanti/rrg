@@ -46,3 +46,10 @@ DXY (New York). Prima di quelle date gli stessi file erano corretti (con l'offse
 per timestamp: 500 letture di 1.305 barre in 64 ms); senza il nome del fuso resta il `gmtoffset`. Test:
 `test/yahoo_dates.test.js` (cambi e DX-Y.NYB scaricati d'estate e d'inverno, più il caso senza fuso); i primi due falliscono
 con `yahoo_prima.js` (copia del codice di prima). `npm test`: 115 su 115 (112 di prima più i 3 nuovi).
+
+## Resto dell'app (`membri.mjs` → `membri.txt`)
+
+Campione di 95 simboli: 4 titoli per ognuno dei 21 indici della breadth (21 fusi, Sydney e San Paolo compresi) e gli
+11 ETF settoriali USA. Sono 116.766 barre in 5 anni e nessuna cambia data. Con `misura.mjs` (ETF europei, ETF USA,
+22 indici, bitcoin) restano toccati solo i cambi e DX-Y.NYB, quindi solo DBMFE.PA (prima del 28/04/2025) e DXY_INV
+(benchmark selezionabile nella vista degli asset reali, non predefinito). Avvisi e stati dei settori e degli indici non cambiano.
