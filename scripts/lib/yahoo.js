@@ -19,9 +19,25 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 // Il formato ticker di Yahoo usa il trattino per le classi di azioni (BRK.B → BRK-B)
 export const yahooSymbol = (sym) => sym.replace(/\./g, '-');
 
-// Data di una barra nel fuso della borsa (evita che una barra finisca sul giorno sbagliato)
-function barDate(ts, gmtoffset) {
-  return new Date((ts + (gmtoffset || 0)) * 1000).toISOString().slice(0, 10);
+// Data di una barra nel fuso della borsa, con l'ora legale di quel giorno (meta.exchangeTimezoneName). Il gmtoffset di
+// Yahoo è quello di oggi: lanciato d'inverno, datava al giorno prima le barre estive dei cambi (mezzanotte di Londra =
+// 23:00 UTC) e di DX-Y.NYB (mezzanotte di New York). Senza il nome del fuso resta il gmtoffset.
+const DAY_FMT = {};
+function barDate(ts, meta) {
+  const tz = meta && meta.exchangeTimezoneName;
+  if (tz && DAY_FMT[tz] !== null) {
+    try {
+      const c = DAY_FMT[tz] || (DAY_FMT[tz] = { f: new Intl.DateTimeFormat('en-US', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }), seen: new Map() });
+      let d = c.seen.get(ts);
+      if (d === undefined) {
+        const p = Object.fromEntries(c.f.formatToParts(ts * 1000).map((x) => [x.type, x.value]));
+        d = `${p.year}-${p.month}-${p.day}`;
+        c.seen.set(ts, d);
+      }
+      return d;
+    } catch { DAY_FMT[tz] = null; /* fuso sconosciuto: si usa il gmtoffset, senza riprovare a ogni barra */ }
+  }
+  return new Date((ts + ((meta && meta.gmtoffset) || 0)) * 1000).toISOString().slice(0, 10);
 }
 
 /**
@@ -75,11 +91,11 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale
     // barra della seduta in corso: cade dentro l'orario regolare attuale e non è passata un'ora dalla chiusura (SETTLE:
     // subito dopo la chiusura Yahoo può avere ancora un prezzo provvisorio, come Taiwan il 20/10/2026, 46.280 contro
     // 46.293). Senza l'orario (meta ridotto) è aperta la barra di oggi nel fuso della borsa fino a 9,5 ore dall'apertura
-    const open = reg ? ts[i] >= reg.start && nowSec < reg.end + SETTLE : barDate(ts[i], meta.gmtoffset) === barDate(nowSec, meta.gmtoffset) && nowSec < ts[i] + 8.5 * 3600 + SETTLE;
+    const open = reg ? ts[i] >= reg.start && nowSec < reg.end + SETTLE : barDate(ts[i], meta) === barDate(nowSec, meta) && nowSec < ts[i] + 8.5 * 3600 + SETTLE;
     if (open && !keepOpen) continue;
-    const d = barDate(ts[i], meta.gmtoffset);
+    const d = barDate(ts[i], meta);
     if (c == null && fillLast && (!open || keepOpen) && i === ts.length - 1 && meta.regularMarketPrice != null &&
-        meta.regularMarketTime >= ts[i] && barDate(meta.regularMarketTime, meta.gmtoffset) === d) {
+        meta.regularMarketTime >= ts[i] && barDate(meta.regularMarketTime, meta) === d) {
       c = a = meta.regularMarketPrice;
       if (h == null) h = meta.regularMarketDayHigh;
     }
