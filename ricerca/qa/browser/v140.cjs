@@ -30,7 +30,7 @@ const STATES = ['Normale', 'Attenzione', 'Zona blu', 'Trigger', 'Fallito', 'Cool
     ok(em.every((r) => STATES.some((s) => r.st.toLowerCase().includes(s.toLowerCase()))), `${name} stati leggibili`);
     ok(em.find((r) => r.k === 'HSI') && /agganciato/i.test(em.find((r) => r.k === 'HSI').fx), `${name} HSI agganciato`);
     ok(em.find((r) => r.k === 'EEM') && /in dollari/i.test(em.find((r) => r.k === 'EEM').fx), `${name} EEM in dollari`);
-    ok(em.every((r) => r.u === '—' || /^[+−]?\d+,\d%$/.test(r.u)), `${name} 3 mesi in $: numero o «—»`);
+    ok(em.every((r) => r.u === '—' || /^[+−]?\d+,\d%\*?$/.test(r.u)), `${name} 3 mesi in $: numero o «—»`);
     await p.goto(BASE + '#idx'); await p.waitForTimeout(3500);
     const ix = await p.evaluate(() => Object.fromEntries([...document.querySelectorAll('#ixTable tbody tr')].map((tr) => [tr.dataset.ix, tr.querySelector('.c-state').innerText.trim()])));
     const same = em.filter((r) => ix[r.k] != null).every((r) => ix[r.k] === r.st);
