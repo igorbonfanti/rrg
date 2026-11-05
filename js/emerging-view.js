@@ -76,13 +76,15 @@ export function createEmerging(ctx) {
     const c = CFG[k], f = model.fx[k], last = snap.close.length - 1;
     const fxOn = f ? onDates(f.S.dates, f.S.val, snap.dates) : null;
     const usd = c.fx === null ? snap.close : fxOn ? inUsd(snap.close, fxOn) : null;
+    const cu = usd ? chUsd(snap.close, usd) : null;
     let fxs;
     if (c.peg) fxs = { state: 'agganciato' };
     else if (!c.fx) fxs = { state: 'dollari' };
     else if (!f) fxs = { state: null };
-    else { const j = f.S.dates.length - 1; fxs = { state: fxState(f.F[j], f.z[j]), z: f.z[j], date: f.S.dates[j], value: f.S.val[j] }; }
+    else { const j = f.S.dates.length - 1; fxs = { state: fxState(f.F[j], f.z[j]), z: f.z[j], date: f.S.dates[j], value: f.S.val[j], fred: f.S.fred }; }
     return { k, snap, name: snap.name, state: snap.state, appr: snap.appr, b: snap.pct200[snap.now], L: snap.blue, changed: snap.changed, blueSource: snap.blueSource, dd: snap.dd[last],
-      ch63: change(snap.close, 63), ch63u: usd ? chUsd(snap.close, usd) : null, fx: fxs, rs: model.rs[k], usd, last, date: snap.dates[last] };
+      // le due colonne alla stessa seduta: senza il cambio di oggi anche «locale» si ferma all'ultima seduta con il cambio
+      ch63: cu && cu.lag ? change(snap.close, 63, cu.t) : change(snap.close, 63), ch63u: cu, fx: fxs, rs: model.rs[k], usd, last, date: snap.dates[last] };
   }
 
   async function render() {
@@ -111,7 +113,7 @@ export function createEmerging(ctx) {
       : ['—', 'FRED non disponibile'];
     $('emKpis').innerHTML = [
       ['Dollaro contro emergenti', ...dollarK, 'Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data.'],
-      ['Emergenti in zona blu', `${by((r) => r.state === 'setup').length}<small> / ${ok.length}</small>`, names(by((r) => r.state === 'setup')), 'Stato della vista 6 (breadth contro il livello blu).'],
+      ['Emergenti in zona blu', `${by((r) => r.state === 'setup' || r.state === 'fail').length}<small> / ${ok.length}</small>`, names(by((r) => r.state === 'setup' || r.state === 'fail')), 'Stato della vista 6 (breadth contro il livello blu): Zona blu e Fallito, come nella vista 6.'],
       ['In attenzione', `${by((r) => r.state === 'watch').length}<small> / ${ok.length}</small>`, names(by((r) => r.state === 'watch')), 'Stato della vista 6.'],
       ['Valute in calo forte', `${fxWith.filter((r) => r.fx.state === 'calo').length}<small> / ${fxWith.length} con dati</small>`, names(fxWith.filter((r) => r.fx.state === 'calo')), FXT.calo],
       ['Valute che hanno smesso di scendere', `${fxWith.filter((r) => r.fx.state === 'ferma').length}<small> / ${fxWith.length} con dati</small>`, names(fxWith.filter((r) => r.fx.state === 'ferma')), FXT.ferma],
@@ -123,7 +125,7 @@ export function createEmerging(ctx) {
     if (f.state === 'agganciato' || f.state === 'dollari') return `<span class="fxp fx-na" title="${esc(FXT[f.state])}">${FXL[f.state]}</span>`;
     if (f.state == null) return '<span class="muted" title="cambio non disponibile o storia troppo corta">—</span>';
     const z = Math.max(-2.5, Math.min(2.5, f.z)), left = 50 + Math.min(0, z) * 20, w = Math.abs(z) * 20;
-    return `<span class="fxp fx-${f.state}" title="${esc(FXT[f.state])}">${FXL[f.state]}</span><span class="zbar" title="${esc(`variazione del cambio in 13 settimane in deviazioni standard: ${fmt(f.z, 2)} (a destra = valuta più debole; tacca = soglia 1) · cambio ${fmt(f.value, f.value < 10 ? 4 : 2)} al ${dIT(f.date)}`)}"><b></b><span class="thr"></span><i style="left:${left}%;width:${w}%"></i></span>`;
+    return `<span class="fxp fx-${f.state}" title="${esc(FXT[f.state])}">${FXL[f.state]}</span><span class="zbar" title="${esc(`variazione del cambio in 13 settimane in deviazioni standard: ${fmt(f.z, 2)} (a destra = valuta più debole; tacca = soglia 1) · cambio ${fmt(f.value, f.value < 10 ? 4 : 2)} al ${dIT(f.date)}${f.fred && f.date > f.fred ? ' (Yahoo, provvisorio)' : ''}`)}"><b></b><span class="thr"></span><i style="left:${left}%;width:${w}%"></i></span>`;
   }
   function renderTable(rows) {
     const ok = rows.filter((r) => !r.missing);
@@ -140,7 +142,7 @@ export function createEmerging(ctx) {
         <td class="num r c-blue" data-l="blu" title="${esc(r.changed ? 'modificato in questo browser (vista 6)' : r.blueSource === 'Rea' ? 'livello di default dai grafici di Massimo Rea (quant-rea)' : 'livello di default: 3° percentile della storia della breadth dell\'indice')}">${r.L}%${r.changed ? '<span class="loc" title="modificato in questo browser (vista 6)">*</span>' : ''}</td>
         <td class="num r c-dd" data-l="drawdown">${pct(r.dd)}</td>
         <td class="c-fx" data-l="valuta">${fxCell(r.fx)}</td>
-        <td class="num r c-m3" data-l="3 mesi" title="${esc(CFG[r.k].fx ? 'variazione in 63 sedute dell\'indice in valuta locale' : 'variazione in 63 sedute (EEM è in dollari)')}">${pct(r.ch63)}</td>
+        <td class="num r c-m3" data-l="3 mesi" title="${esc((CFG[r.k].fx ? 'variazione in 63 sedute dell\'indice in valuta locale' : 'variazione in 63 sedute (EEM è in dollari)') + (r.ch63u && r.ch63u.lag ? `; al ${dIT(r.snap.dates[r.ch63u.t])}, come la colonna in $ (il cambio di oggi non è ancora arrivato)` : ''))}">${pct(r.ch63)}${r.ch63u && r.ch63u.lag ? '<span class="loc">*</span>' : ''}</td>
         <td class="num r c-m3u" data-l="in $" title="${esc((CFG[r.k].fx === null ? 'EEM è già in dollari' : `indice diviso per il cambio ${CFG[r.k].fx} dello stesso giorno`) + (r.ch63u && r.ch63u.lag ? `; al ${dIT(r.snap.dates[r.ch63u.t])}, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)` : ''))}">${r.ch63u ? pct(r.ch63u.v) : pct(null)}${r.ch63u && r.ch63u.lag ? `<span class="loc">*</span>` : ''}</td>
         <td class="c-rs" data-l="forza rel. vs ACWI" title="${esc(r.rs ? `${CFG[r.k].etf} contro ACWI, settimanale, al ${dIT(r.rs.last)}` : 'storia non disponibile')}">${r.rs && r.rs.quad ? qPill(r.rs.quad) : '<span class="muted">—</span>'}</td></tr>`).join('') + '</tbody>';
     keepFocus($('emTable'), 'data-em', html);
