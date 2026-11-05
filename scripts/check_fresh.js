@@ -38,11 +38,17 @@ export function staleData(d, today) {
     ['prices.json (rotazione USA)', d.prices && d.prices.asOf, B, 4],
     ['prices_global.json (ETF in euro)', d.pricesGlobal && d.pricesGlobal.asOf, today, 6],
     ['prices_macro.json (asset reali)', d.pricesMacro && d.pricesMacro.asOf, B, 4],
+    // vista 8 Emergenti: cambi ed ETF come gli altri prezzi; FRED H.10 esce una volta alla settimana (con un lunedì festivo il
+    // martedì, a fine anno può saltare una settimana)
+    ['emerging.json (cambi)', d.emerging && d.emerging.asOf && d.emerging.asOf.fx, B, 4],
+    ['emerging.json (ETF in dollari)', d.emerging && d.emerging.asOf && d.emerging.asOf.etf, B, 4],
+    ['emerging.json (FRED DTWEXEMEGS)', d.emerging && d.emerging.asOf && d.emerging.asOf.fred, today, 14],
   ];
   // ogni indice e ogni serie dei cali forti con la sua ultima seduta: le borse hanno feste diverse, e le più lunghe
   // (Capodanno cinese, Golden Week) tengono chiuse Shanghai e Hong Kong fino a 11 giorni di calendario
   for (const [k, at] of Object.entries(d.indexLast || {})) checks.push([`indici: ${k}`, at, B, 12]);
   for (const [k, at] of Object.entries(d.capLast || {})) checks.push([`cali forti: ${k}`, at, B, 12]);
+  for (const [k, at] of Object.entries(d.emergingLast || {})) checks.push([`emerging.json: ${k}`, at, B, 6]);
   for (const [k, m] of Object.entries(d.indexMembers || {})) checks.push([`index_members/${k}.json`, m && m.asOf, today, 14]);
   for (const [name, at, ref, max] of checks) {
     if (at === undefined) continue; // campo non ancora scritto (prima sera con questo controllo)
@@ -63,10 +69,14 @@ async function main() {
   const indexLast = Object.fromEntries(Object.entries(ix).map(([k, x]) => { const s = indexSeries(x); return [k, last(s.dates, s.pct200)]; }));
   const cap = read('capitulation.json');
   const capLast = cap && cap.series ? Object.fromEntries(Object.entries(cap.series).map(([k, x]) => { const s = capSeries(x); return [k, last(s.dates, s.n)]; })) : {};
+  const em = read('emerging.json');
+  // ultima seduta di ogni serie degli emergenti (tranne FRED, controllato sopra)
+  const emergingLast = em && em.series ? Object.fromEntries(Object.entries(em.series).filter(([k]) => !/^DTW/.test(k)).map(([k, x]) => [k, x.last || null])) : {};
   const problems = staleData({
     breadth: read('breadth.json'), sectors: read('sectors.json'), members: read('sp500_members.json'), history: read('sp500_history.json'),
     sectorMembers: read('sector_members.json'), indices: read('indices.json'), capitulation: cap, indexMembers,
     prices: read('prices.json'), pricesGlobal: read('prices_global.json'), pricesMacro: read('prices_macro.json'), indexLast, capLast,
+    emerging: em, emergingLast,
   }, new Date().toISOString().slice(0, 10));
   for (const p of problems) console.log(`::error::Dati non aggiornati: ${p}`);
   if (problems.length) process.exit(1);

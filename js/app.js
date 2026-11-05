@@ -1,9 +1,10 @@
-/* app.js — stato, viste (Monitor, RRG, Bottom Map, Settore, Alert, Indici), barra comandi e scorciatoie. */
+/* app.js — stato, viste (Monitor, Rotazione, Bottom Map, Settore, Alert, Indici, Titoli, Emergenti), barra comandi e scorciatoie. */
 import { build, stats, CENTER } from './engine.js';
 import { createBottom, NAMES as SECTOR_NAMES } from './bottom.js';
 import { createIndices } from './indices.js';
 import { createCap } from './cap-view.js';
 import { createTitles } from './titles.js';
+import { createEmerging } from './emerging-view.js';
 import { VERSION, RELEASE, NOTES } from './version.js';
 import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
@@ -13,7 +14,7 @@ import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
-const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx', 'tit'];
+const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx', 'tit', 'emg'];
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // La GitHub Action parte alle 22:40 UTC, riprova ogni ora dalle 01:10 alle 06:10 UTC e di nuovo alle 11:40; GitHub fa partire
 // le corse programmate anche con ore di ritardo. Prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
@@ -76,7 +77,7 @@ const SHAPE = {
   'data/prices.json': ['dates', 'tickers', 'groups'], 'data/sectors.json': ['dates', 'adjclose'], 'data/breadth.json': ['dates', 'series'],
   'config/thresholds.json': ['blue', 'params'], 'data/breadth_latest.json': ['members'], 'data/alerts.json': ['log'],
   'config/indices.json': ['indices'], 'data/indices.json': ['series'], 'data/indices_more.json': ['series'], 'data/capitulation.json': ['series'],
-  'data/sector_members.json': ['sectors', 'dates'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
+  'data/sector_members.json': ['sectors', 'dates'], 'data/emerging.json': ['series', 'asOf'], 'config/emerging.json': ['indices', 'order'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
 };
 const getJSON = (url, optional, fresh) => fetch(url, fresh ? { cache: 'no-cache' } : undefined).catch(() => { throw new Error(`${url}: non raggiungibile`); }).then((r) => {
   if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
@@ -94,10 +95,10 @@ let extras = null;
 const loadExtras = () => extras || (extras = Promise.all([getJSON('data/prices_global.json', true, true), getJSON('data/prices_macro.json', true, true)]));
 Promise.all([
   getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
-  getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('config/indices.json', true),
-]).then(([prices, sectors, breadth, config, latest, alertLog, indices]) => {
+  getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('config/indices.json', true), getJSON('config/emerging.json', true),
+]).then(([prices, sectors, breadth, config, latest, alertLog, indices, emerging]) => {
   state.data = prices;
-  state.extra = { sectors, breadth, config, latest, alertLog, indices };
+  state.extra = { sectors, breadth, config, latest, alertLog, indices, emerging };
   const direct = /^#rrg/i.test(location.hash);
   return (direct ? loadExtras() : Promise.resolve(null)).then((ex) => {
     if (ex) setExtras(ex);
@@ -257,8 +258,15 @@ function init() {
     setView: (v, silent) => setView(v, silent), openRRG: focusSymbol,
   });
   // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
-  state.indices = x.indices ? createIndices({ $, store, cap, params: x.config.params, config: x.indices, load: () => getJSON('data/indices.json', false, true), loadMore: () => getJSON('data/indices_more.json', true, true) }) : null;
+  state.indices = x.indices ? createIndices({ $, store, cap, params: x.config.params, config: x.indices, emgKeys: x.emerging ? x.emerging.order : [], load: () => getJSON('data/indices.json', false, true), loadMore: () => getJSON('data/indices_more.json', true, true) }) : null;
   if (!state.indices) $('tab-idx').hidden = true;
+  // vista 8 Emergenti: stati dalla vista 6, cambi e dollaro alla prima apertura (solo contesto)
+  state.emerging = state.indices && x.emerging ? createEmerging({
+    $, store, indices: state.indices, config: x.emerging, load: () => getJSON('data/emerging.json', false, true),
+    openIndex: (k) => { state.indices.open(k); setView('idx'); },
+    onSelect: () => syncHash('emg', false, 'emg'),
+  }) : null;
+  if (!state.emerging) $('tab-emg').hidden = true;
   // vista 7 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
     $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json', false, true),
@@ -272,6 +280,7 @@ function init() {
   bind();
   state.bottom.bind();
   if (state.indices) state.indices.bind();
+  if (state.emerging) state.emerging.bind();
   state.titles.bind();
   $('toTit').onclick = () => setView('tit');
   syncControls();
@@ -293,8 +302,10 @@ function routeHash(silent) {
   if (state.bottom.isSector(h)) { state.bottom.openSector(h, silent); return; }
   const t = /^TIT-(\w+)$/.exec(h);
   if (t && state.bottom.isSector(t[1])) { state.bottom.selectSector(t[1]); setView('tit', silent); return; }
+  const em = /^EMG-(\w+)$/.exec(h);
+  if (em && state.emerging) { state.emerging.open(em[1]); setView('emg', silent); return; }
   const v = h.toLowerCase();
-  setView(VIEWS.includes(v) ? v : 'mon', silent);
+  setView(VIEWS.includes(v) && (v !== 'emg' || state.emerging) ? v : 'mon', silent);
 }
 
 const formulaText = () => (state.formula === 'semplice' ? 'medie semplici' : 'formula nuova');
@@ -368,6 +379,7 @@ function renderAll() {
   else if (state.view === 'alr') b.renderAlerts();
   else if (state.view === 'idx' && state.indices) state.indices.render();
   else if (state.view === 'tit') state.titles.render();
+  else if (state.view === 'emg' && state.emerging) state.emerging.render();
 }
 
 // ---------- tabella prezzi dell'universo (vista RRG, modalità "Prezzi") ----------
@@ -794,9 +806,9 @@ function setView(v, silent) {
 // aggiunge una voce alla cronologia, così il tasto Indietro torna alla vista di prima; all'avvio e quando l'indirizzo
 // arriva già dal tasto Indietro si sostituisce solo la voce attuale
 function syncHash(v, silent, from) {
-  const hash = v === 'sec' ? '#' + state.bottom.sector() : v === 'tit' ? '#tit-' + state.bottom.sector() : '#' + v;
+  const hash = v === 'sec' ? '#' + state.bottom.sector() : v === 'tit' ? '#tit-' + state.bottom.sector() : v === 'emg' && state.emerging ? '#emg-' + state.emerging.selected() : '#' + v;
   if (location.hash === hash) return;
-  try { if (!silent && from && (from !== v || v === 'sec' || v === 'tit')) history.pushState(null, '', hash); else history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ }
+  try { if (!silent && from && (from !== v || v === 'sec' || v === 'tit' || v === 'emg')) history.pushState(null, '', hash); else history.replaceState(null, '', hash); } catch { /* cornice che non lo consente */ }
 }
 function segPress(id, attr, value) {
   document.querySelectorAll(`#${id} button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset[attr] === String(value))));
@@ -984,7 +996,7 @@ function bind() {
     $('cmd').value = '';
     // un nuovo comando toglie l'avviso di quello non trovato
     clearTimeout(cmdErrTimer); $('cmdForm').classList.remove('err'); setPlaceholder();
-    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx', TIT: 'tit', TITOLI: 'tit' };
+    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx', TIT: 'tit', TITOLI: 'tit', EMG: 'emg', EMERGENTI: 'emg' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }
@@ -992,6 +1004,8 @@ function bind() {
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
     // settore + vista: XLK TIT apre i titoli di XLK, XLU SEC il suo dettaglio
     const [w1, w2, ...rest] = v.split(/\s+/);
+    // indice emergente + EMG: KOSPI200 EMG apre la vista 8 su quell'indice
+    if (w2 && !rest.length && words[w2] === 'emg' && state.emerging && state.emerging.keys.includes(w1)) { state.emerging.open(w1); setView('emg'); return; }
     if (w2 && !rest.length && words[w2] && state.bottom.isSector(w1)) {
       state.bottom.selectSector(w1);
       if (words[w2] === 'sec') state.bottom.openSector(w1); else setView(words[w2]);

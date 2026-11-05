@@ -96,6 +96,7 @@
         </ol>
       </li>
       <li><a href="#tit">7 Titoli</a></li>
+      <li><a href="#emg">8 Emergenti</a></li>
       <li><a href="#comandi">Comandi e tasti</a></li>
       <li><a href="#schermo">Telefono, temi, accessibilità</a></li>
       <li><a href="#dati">Dati e aggiornamenti</a></li>
@@ -360,6 +361,29 @@
     </ul>
   </section>
 
+  <section id="emg">
+    <h2>8 Emergenti</h2>
+    <a class="open" href="./#emg">Apri gli Emergenti →</a>
+    <p>Sette indici emergenti della vista 6 (CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng, MSCI Emerging Markets) con accanto la valuta e il dollaro. È <b>solo contesto</b>: lo stato e la breadth sono quelli della vista 6, con gli stessi livelli blu anche se li hai cambiati; valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert. Nella verifica sui dati non hanno migliorato i segnali della breadth, per questo restano informazioni a margine.</p>
+    <h3>Riquadri e tabellone</h3>
+    <ul>
+      <li><b>Dollaro contro emergenti</b>: l'indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS), sopra o sotto la sua media a 200 sedute e la variazione in 3 mesi. «Favorevole» se è sotto la media e in calo in 3 mesi. FRED lo pubblica una volta alla settimana: conta la data scritta accanto.</li>
+      <li><b>Valuta contro dollaro</b>: <b>In calo forte</b> se il cambio è salito (valuta più debole) di oltre 1 deviazione standard della sua storia in 13 settimane; <b>Ha smesso di scendere</b> se dopo un calo forte negli ultimi 6 mesi il cambio si è allontanato dal massimo delle ultime 13 settimane; altrimenti <b>Normale</b>. La barretta accanto è quella variazione in deviazioni standard (a destra la valuta più debole; la tacca è la soglia 1). Hong Kong: <b>Agganciato</b> (il cambio è fisso tra 7,75 e 7,85). EEM: <b>In dollari</b>.</li>
+      <li><b>3 mesi locale e in $</b>: la variazione dell'indice in 63 sedute nella sua valuta e divisa per il cambio dello stesso giorno.</li>
+      <li><b>Forza rel. vs ACWI</b>: il quadrante dell'ETF del paese in dollari contro l'ETF mondiale ACWI, con la formula «Nuova» della rotazione (vista 2), settimanale.</li>
+    </ul>
+    <h3>Dettaglio</h3>
+    <p>Quattro grafici sullo stesso asse del tempo (3 anni, 10 anni o tutta la storia): il prezzo in base 100 in valuta locale e in dollari, con le zone blu e i trigger; la breadth con il livello blu; il cambio (su = valuta più debole) con i tratti «in calo forte» e «ha smesso di scendere»; il dollaro contro gli emergenti con la sua media a 200 sedute e i tratti «favorevole». Passando sopra un grafico vedi i valori di quella data; ogni serie ha il suo calendario, e dove quel giorno manca un dato compare «—». A destra la <b>forza relativa</b> dei sette ETF contro ACWI, con la scia di 10 settimane per l'indice scelto (clic su un punto per sceglierlo).</p>
+    <h3>Come leggerlo</h3>
+    <ul>
+      <li>La valuta che <b>ha smesso di scendere</b> non è un segnale d'ingresso: nel campione si era già accesa nei sei mesi prima del minimo in 13 cali di borsa oltre il 25% su 14, spesso nei rimbalzi falliti.</li>
+      <li>Il <b>dollaro debole</b> arriva in genere mesi dopo il minimo delle borse (mediana 110 sedute in 19 cali oltre il 25%): conferma, non anticipa.</li>
+      <li>Per <b>Cina e India</b> il cambio è gestito dalla banca centrale e si muove poco; per <b>Hong Kong</b> è agganciato; <b>EEM</b> è già in dollari.</li>
+      <li>Numeri del campione: 7 indici con la breadth ricostruita con i membri di oggi e poche crisi indipendenti, quindi indicativi.</li>
+    </ul>
+    <p>Il cambio di Yahoo è la chiusura di Londra, non quella dell'ora in cui chiude la borsa locale. Il prezzo del CSI 300 è l'ETF 510300 in yuan, quello del KOSPI 200 il KOSPI intero, quello di Taiwan il TAIEX. Gli ETF della forza relativa includono i dividendi, gli indici no. Un errore di stampa isolato di Yahoo sul cambio (un salto che si annulla il giorno dopo) diventa un giorno mancante, e la nota sotto il grafico dice quanti sono. Storie più corte: ASHR dal 2013, INDA dal 2012, ACWI dal 2008, FRED dal 2006, i cambi dal 2006 al più tardi.</p>
+  </section>
+
   <section id="comandi">
     <h2>Comandi e tasti</h2>
     <p>Nella <b>barra dei comandi</b> in alto (o premendo <kbd>/</kbd>) scrivi e premi Invio:</p>
@@ -371,13 +395,14 @@
         <tr><td><code>NVDA</code>, <code>SWDA</code>, <code>ORO</code>, <code>TESLA</code></td><td>un ticker (anche senza borsa), un nome breve o una parola del nome: lo evidenzia nella rotazione, cambiando universo se serve</td></tr>
         <tr><td><code>SPY</code>, <code>QQQ</code>, <code>PTF</code></td><td>un benchmark: la rotazione contro di lui</td></tr>
         <tr><td><code>NDX</code>, <code>DAX</code>, <code>CAC</code></td><td>un indice: il suo dettaglio nella vista 6. Vale più di un ticker scritto senza borsa: <code>CAC</code> apre il CAC 40, <code>CAC.PA</code> l'ETF nella rotazione. Funzionano anche i nomi comuni <code>KOSPI</code>, <code>NIKKEI</code>, <code>NASDAQ</code>, <code>DOW</code>, <code>RUSSELL</code>, <code>IBOVESPA</code>, <code>NIFTY</code>, <code>HANGSENG</code></td></tr>
-        <tr><td><code>MON</code> <code>ROT</code> <code>BTM</code> <code>SEC</code> <code>ALRT</code> <code>IDX</code> <code>TIT</code></td><td>apre la vista</td></tr>
+        <tr><td><code>MON</code> <code>ROT</code> <code>BTM</code> <code>SEC</code> <code>ALRT</code> <code>IDX</code> <code>TIT</code> <code>EMG</code></td><td>apre la vista</td></tr>
+        <tr><td><code>KOSPI200 EMG</code></td><td>un indice emergente nella vista 8</td></tr>
         <tr><td><code>HELP</code></td><td>la guida rapida</td></tr>
         <tr><td><code>CHIARO</code>, <code>SCURO</code>, <code>TEMA</code></td><td>sceglie o inverte il tema</td></tr>
       </tbody>
     </table></div>
-    <p><b>Tasti</b>: <kbd>1</kbd>–<kbd>7</kbd> viste · <kbd>/</kbd> barra dei comandi · <kbd>←</kbd> <kbd>→</kbd> periodo nella rotazione · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida rapida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida rapida (utile con lettori di schermo o dettatura).</p>
-    <p><b>Indirizzi</b>: <code>#mon</code> <code>#rrg</code> <code>#btm</code> <code>#sec</code> <code>#alr</code> <code>#idx</code> <code>#tit</code> aprono una vista, <code>#XLU</code> un settore, <code>#tit-XLK</code> i titoli di un settore. Puoi salvarli tra i preferiti; il tasto Indietro del browser torna alla vista o al settore precedente.</p>
+    <p><b>Tasti</b>: <kbd>1</kbd>–<kbd>8</kbd> viste · <kbd>/</kbd> barra dei comandi · <kbd>←</kbd> <kbd>→</kbd> periodo nella rotazione · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida rapida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Le scorciatoie da un tasto si spengono dalla guida rapida (utile con lettori di schermo o dettatura).</p>
+    <p><b>Indirizzi</b>: <code>#mon</code> <code>#rrg</code> <code>#btm</code> <code>#sec</code> <code>#alr</code> <code>#idx</code> <code>#tit</code> <code>#emg</code> aprono una vista, <code>#XLU</code> un settore, <code>#tit-XLK</code> i titoli di un settore, <code>#emg-KOSPI200</code> un indice emergente. Puoi salvarli tra i preferiti; il tasto Indietro del browser torna alla vista o al settore precedente.</p>
   </section>
 
   <section id="schermo">
@@ -396,6 +421,7 @@
       <li>Chiusure di fine giornata da <b>Yahoo Finance</b>, aggiornate da un processo automatico su GitHub: parte dopo la chiusura USA (alle 00:40 ora italiana con l'ora legale, alle 23:40 con l'ora solare), riprova ogni ora nelle prime ore del mattino finché non trova la seduta e passa di nuovo a metà giornata. GitHub fa partire queste corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. Dopo le 2:30 circa (ora italiana), finché la seduta non arriva, il badge in alto dice «1 seduta indietro». In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.</li>
       <li>La <b>breadth dei settori</b> è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 7 vengono dalle holdings dell'ETF iShares IVV.</li>
       <li>La <b>breadth degli indici</b> è calcolata a ogni aggiornamento sui loro membri (circa 4.600 titoli).</li>
+      <li>Vista <b>Emergenti</b>: cambi ed ETF in dollari da Yahoo Finance; il dollaro contro le valute emergenti da FRED (Federal Reserve), che lo pubblica una volta alla settimana con qualche giorno di ritardo.</li>
       <li>Le scelte personali (livelli blu provati, pesi del portafoglio, universo, indici mostrati, tema) restano solo nel tuo browser.</li>
     </ul>
   </section>

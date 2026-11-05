@@ -1,0 +1,15 @@
+{
+  "_note": "Vista 8 Emergenti, solo contesto (decisione dell'utente del 05/11/2026): nessuna regola, nessun alert. Indici della vista 6; cambio Yahoo in valuta locale per un dollaro; ETF in dollari per la forza relativa contro ACWI. Definizioni di F e D: ricerca/emergenti/backtest/script/backtest.mjs, portate in js/emerging.js.",
+  "order": ["CSI300", "NIFTY50", "IBOV", "KOSPI200", "TWN", "HSI", "EEM"],
+  "indices": {
+    "CSI300": { "fx": "CNY=X", "ccy": "CNY", "etf": "ASHR", "managed": true },
+    "NIFTY50": { "fx": "INR=X", "ccy": "INR", "etf": "INDA", "managed": true },
+    "IBOV": { "fx": "BRL=X", "ccy": "BRL", "etf": "EWZ" },
+    "KOSPI200": { "fx": "KRW=X", "ccy": "KRW", "etf": "EWY" },
+    "TWN": { "fx": "TWD=X", "ccy": "TWD", "etf": "EWT" },
+    "HSI": { "fx": "HKD=X", "ccy": "HKD", "etf": "EWH", "peg": true },
+    "EEM": { "fx": null, "ccy": "USD", "etf": "EEM" }
+  },
+  "benchmark": "ACWI",
+  "fred": "DTWEXEMEGS"
+}
