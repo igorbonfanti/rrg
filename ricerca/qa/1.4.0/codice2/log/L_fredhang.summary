@@ -1,0 +1,28 @@
+== L_fredhang (prev=prev_new.json, MOCK=replay,fredhang): uscita 0, 572 s
+   asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} missing []
+   CNY=X       2000-01-03..2026-11-04 fed 2026-10-30 n=6731  = prima
+   INR=X       2000-01-03..2026-11-04 fed 2026-10-30 n=6729  = prima
+   BRL=X       2000-01-03..2026-11-04 fed 2026-10-30 n=6730  = prima
+   KRW=X       2000-01-03..2026-11-04 fed 2026-10-30 n=6730  = prima
+   TWD=X       2000-01-03..2026-11-04 fed 2026-10-30 n=6727  = prima
+   HKD=X       2000-01-03..2026-11-04 fed 2026-10-30 n=6730  = prima
+   ASHR        2013-11-06..2026-11-04 n=3268  = prima
+   INDA        2012-02-03..2026-11-04 n=3685  = prima
+   EWZ         2003-01-02..2026-11-04 n=5999  = prima
+   EWY         2003-01-02..2026-11-04 n=5999  = prima
+   EWT         2003-01-02..2026-11-04 n=5999  = prima
+   EWH         2003-01-02..2026-11-04 n=5999  = prima
+   EEM         2003-04-14..2026-11-04 n=5929  = prima
+   ACWI        2008-03-28..2026-11-04 n=4682  = prima
+   DTWEXEMEGS  2006-01-02..2026-10-30 n=5222  = prima
+   uguale al file di prima a parte generated: true
+DTWEXEMEGS  fino al 2026-10-30 (tenuta la serie pubblicata)
+Note:
+CNY=X: tenuta la parte Fed pubblicata
+INR=X: tenuta la parte Fed pubblicata
+BRL=X: tenuta la parte Fed pubblicata
+KRW=X: tenuta la parte Fed pubblicata
+TWD=X: tenuta la parte Fed pubblicata
+HKD=X: tenuta la parte Fed pubblicata
+Errori:
+Scritto data/emerging.json (483 KB): cambi al 2026-11-04, ETF al 2026-11-04, FRED al 2026-10-30

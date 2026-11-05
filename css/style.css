@@ -827,7 +827,7 @@ svg.bub { touch-action: pan-y; }
 #emTable .nm { display: none; }
 @media (min-width: 1600px) { #emTable .nm { display: inline; } }
 @media (max-width: 1439px) { .emg-grid { grid-template-columns: minmax(0, 1fr) 300px; } }
-@media (max-width: 1100px) { .emg-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1279px) { .emg-grid { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 600px) { #emTable .nm { display: inline; } }
 .fxp { display: inline-flex; align-items: center; font: 600 10.5px var(--f-mono); letter-spacing: .04em; padding: 2px 7px; border: 1px solid currentColor; text-transform: uppercase; white-space: nowrap; }
 .fx-calo { color: var(--down); } .fx-ferma { color: var(--up); } .fx-normale, .fx-na { color: var(--ink-3); }
@@ -842,7 +842,8 @@ svg.bub { touch-action: pan-y; }
 .ts .emusd { fill: none; stroke: var(--blue-light); stroke-width: 1.4; }
 .ts .emfx { fill: none; stroke: var(--ink-2); stroke-width: 1.3; }
 .ts .emdl { fill: none; stroke: var(--ink-2); stroke-width: 1.3; }
-.ts .fxcalo { fill: var(--down); fill-opacity: .16; }
+.ts .fxcalo { fill: var(--down); fill-opacity: .25; }
+:root[data-theme="light"] .ts .fxcalo { fill-opacity: .16; }
 .ts .fxferma, .ts .dlfav { fill: var(--up); fill-opacity: .16; }
 .kb.em-calo { background: var(--down); opacity: .35; } .kb.em-ferma, .kb.em-fav { background: var(--up); opacity: .35; }
 .emrs { width: 100%; display: block; }

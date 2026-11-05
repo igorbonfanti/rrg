@@ -21,7 +21,7 @@ const DAY = 86400000;
 const FXL = { calo: 'In calo forte', ferma: 'Ha smesso di scendere', normale: 'Normale', agganciato: 'Agganciato', dollari: 'In dollari' };
 const FXT = {
   calo: 'La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni).',
-  ferma: 'Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione si era accesa prima del vero minimo in 15 cali di borsa su 17: non è un segnale d\'ingresso.',
+  ferma: 'Dopo un calo forte negli ultimi 6 mesi, il cambio è sceso di almeno mezza deviazione standard dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione (cali oltre il 25% dal massimo storico) si era già accesa nei sei mesi prima del minimo in 15 cali su 17, e poi la borsa era scesa ancora: non è un segnale d\'ingresso.',
   normale: 'La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte.',
   agganciato: 'Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.',
   dollari: 'EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.',
@@ -151,13 +151,14 @@ export function createEmerging(ctx) {
       tr.onkeydown = (e) => { if (e.key === 'Enter') select(tr.dataset.em, true); };
     });
   }
-  function select(k, scroll = false) {
+  function select(k, scroll = false, focusDot = false) {
     if (!KEYS.includes(k)) return;
     st.sel = k; store.set('emSel', k);
     if (ctx.onSelect) ctx.onSelect(k);
-    render();
+    // dalla tastiera sul quadrante il focus torna sul punto ridisegnato
+    render().then(() => { if (focusDot) { const d = $('emRS').querySelector(`[data-em="${k}"]`); if (d) d.focus(); } });
     // a una colonna (sotto 1100 px) il dettaglio è sotto il tabellone: ci si porta lì, come nella vista 6
-    if (scroll && window.matchMedia('(max-width: 1100px)').matches) $('emTitle').closest('.panel').scrollIntoView({ block: 'start', behavior: 'smooth' });
+    if (scroll && window.matchMedia('(max-width: 1279px)').matches) $('emTitle').closest('.panel').scrollIntoView({ block: 'start', behavior: 'smooth' });
   }
 
   // ---------- dettaglio: quattro pannelli con lo stesso asse del tempo ----------
@@ -300,7 +301,7 @@ export function createEmerging(ctx) {
         <div class="row"><span>Sopra media 200</span><b>${snap.pct200[i] == null ? '—' : fmt(snap.pct200[i]) + '%'}</b></div>
         ${hasFx ? `<div class="row"><span>${c.ccy} per dollaro</span><b>${fxTxt}</b></div><div class="row"><span>Valuta</span><b>${fxSt ? FXL[fxSt] : '—'}</b></div>` : ''}
         <div class="row"><span>Dollaro vs emergenti</span><b>${di == null ? '—' : fmt(dl.S.val[di], 2)}</b></div>` +
-        (di == null && dl ? '<div class="row note-row">FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)</div>' : '');
+        (di == null && dl ? `<div class="row note-row">${d < dl.S.dates[0] ? `FRED: la serie del dollaro contro gli emergenti inizia il ${dIT(dl.S.dates[0])}` : 'FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)'}</div>` : '');
       placeTip($('emTip'), $('emWrap'), e, 12);
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('emTip').hidden = true; emitX('emg', svg.id, null); });
@@ -313,7 +314,7 @@ export function createEmerging(ctx) {
       hasFx ? '<span><span class="kb em-calo"></span>valuta in calo forte</span><span><span class="kb em-ferma"></span>valuta che ha smesso di scendere</span>' : '',
       '<span><span class="kl" style="background:var(--ink-2)"></span>dollaro contro emergenti</span><span><span class="kl" style="background:var(--amber)"></span>sua media 200</span><span><span class="kb em-fav"></span>dollaro favorevole (sotto la media e in calo in 3 mesi)</span>',
     ].join('');
-    $('emChartMeta').textContent = `cambio al ${f ? dIT(f.S.dates.at(-1)) : '—'}${f && f.S.fred && f.S.fred < f.S.dates.at(-1) ? ` (Fed fino al ${dIT(f.S.fred)}, poi Yahoo provvisorio)` : ''} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}${baseNote}${baseNote && usd ? ' (primo giorno con il cambio: le due linee hanno la stessa base)' : ''}`;
+    $('emChartMeta').textContent = `${c.fx === null ? 'EEM è in dollari, senza cambio' : `cambio al ${f ? dIT(f.S.dates.at(-1)) : '—'}`}${f && f.S.fred && f.S.fred < f.S.dates.at(-1) ? ` (Fed fino al ${dIT(f.S.fred)}, poi Yahoo provvisorio)` : ''} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}${baseNote}${baseNote && usd ? ' (primo giorno con il cambio: le due linee hanno la stessa base)' : ''}`;
   }
 
   // ---------- forza relativa contro ACWI ----------
@@ -348,10 +349,11 @@ export function createEmerging(ctx) {
       el('text', { x: lx, y: ly, 'text-anchor': la }, g).textContent = CFG[r.k].etf;
       el('title', {}, g).textContent = `${r.k} · ${CFG[r.k].etf} contro ACWI al ${dIT(r.rs.last)}: RS-Ratio ${fmt(r.rs.ratio, Math.abs(r.rs.ratio - 100) < 0.05 ? 2 : 1)}, RS-Momentum ${fmt(r.rs.mom, Math.abs(r.rs.mom - 100) < 0.05 ? 2 : 1)} (${r.rs.quad})`;
       g.addEventListener('click', () => select(r.k, true));
-      g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(r.k, true); const d = $('emRS').querySelector(`[data-em="${r.k}"]`); if (d) d.focus(); } });
+      g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(r.k, true, true); } });
       if (on) last = r.rs.last;
     }
     $('emRSMeta').textContent = last ? `al ${dIT(last)}` : '';
+    if (!pts.length) el('text', { x: W / 2, y: H / 2 - 8, 'text-anchor': 'middle', class: 'qlab' }, svg).textContent = 'Forza relativa non disponibile';
   }
 
   function bind() {
