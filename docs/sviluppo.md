@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 18/10/2026, versione 0.9.0.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 05/11/2026, versione 1.4.0.
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -28,6 +28,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/indexdata.js` | formato compatto degli indici |
   | `js/capitulation.js` | cali forti |
   | `js/calendar.js` | calendari |
+  | `js/emerging.js` | vista 8: pulizia dei cambi, z e F della valuta, D del dollaro, forza relativa contro ACWI |
 
 - **Viste e grafici**:
 
@@ -37,6 +38,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/bottom.js` | Monitor, Bottom Map, Settore, Alert |
   | `js/indices.js` | vista 6 |
   | `js/titles.js` | vista 7 |
+  | `js/emerging-view.js` | vista 8 Emergenti (stato degli indici preso dalla vista 6 con `snapshot`) |
   | `js/cap-view.js`, `js/cap-chart.js` | scheda Cali forti |
   | `js/rrg-chart.js`, `js/perf-chart.js`, `js/sector-chart.js`, `js/bottom-map.js` | grafici SVG |
   | `js/format.js` | numeri all'italiana, tooltip, checklist |
@@ -44,7 +46,8 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
 - **Avvio in due tempi**:
   - prima i file del Monitor (`prices`, `sectors`, `breadth`, `thresholds`, `breadth_latest`, `alerts`, `config/indices`);
   - dopo il primo disegno `prices_global` e `prices_macro`;
-  - alla prima apertura della vista: `indices`, poi `indices_more`, `sector_members`, `capitulation`.
+  - alla prima apertura della vista: `indices`, poi `indices_more`, `sector_members`, `capitulation`;
+  - alla prima apertura della vista 8: `emerging` e i due file degli indici (`ensureAll`).
   - I file caricati dopo usano `cache: 'no-cache'`.
 - **Versione**: `js/version.js` e `version.json` devono coincidere. Se il browser usa file vecchi l'app lo dice e il pulsante «Nuova versione» riscarica tutto.
 
@@ -57,6 +60,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Prezzi | `scripts/fetch_data.js` | `data/prices.json` (USA), `prices_global.json` (UCITS in euro), `prices_macro.json` (asset reali, CPI da FRED) |
 | Breadth settori | `scripts/fetch_breadth.js` | `breadth.json`, `breadth_latest.json`, `sectors.json`, `sp500_members.json`, `sp500_history.json`, `sector_members.json`, `capitulation.json` (SPX e settori) |
 | Indici | `scripts/fetch_indices.js` | `indices.json`, `indices_more.json`, `index_members/*.json`, `capitulation.json` (indici) |
+| Emergenti | `scripts/fetch_emerging.js` | `emerging.json` (cambi e ETF da Yahoo, `DTWEXEMEGS` da FRED); passo che può fallire senza fermare gli altri |
 | Alert | `scripts/send_alerts.js` | Telegram e `alerts.json`; un invio fallito si riprova per 5 sedute |
 | Commit | `scripts/keep_unchanged.js` | non pubblica i file che cambiano solo per l'ora |
 | Controllo | `scripts/check_fresh.js` | fa fallire l'esito se una fonte è ferma oltre il suo limite |
@@ -71,7 +75,8 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - Wikipedia per membri e cambi dell'S&P 500 e liste di molti indici;
 - holdings iShares (IVV, EXSA, IWM, EEM, EWT);
 - API Nasdaq, Nikkei e B3;
-- FRED per il CPI.
+- FRED per il CPI e per il dollaro contro le valute emergenti (`DTWEXEMEGS`, settimanale);
+- Yahoo per i cambi della vista 8 (valuta locale per un dollaro, chiusura di Londra).
 
 **Approssimazioni dichiarate** (devono restare scritte nell'app):
 - **Composizione**: storia con i membri di oggi per gli indici senza composizione storica gratuita.
@@ -81,6 +86,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **CPI**: a gradini, dal giorno di pubblicazione.
 - **Drawdown**: con i dividendi oppure sul solo prezzo.
 - **Cali forti**: esclusi gli errori di stampa; Taiwan escluso (`noCap`).
+- **Emergenti**: indice in dollari = chiusura locale / cambio di Londra dello stesso giorno (orari diversi); errori di stampa isolati dei cambi tolti (`cleanFx`); storia dei cambi di Yahoo dopo l'ultimo buco oltre 35 giorni (2003 o 2006).
 
 ## 4. Metodi (sintesi; i dettagli sono nel README)
 
@@ -118,6 +124,8 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
   - solo contesto, conta se l'allerta si ripete: mediana di 31,5 sedute in allerta nei 12 mesi dal primo episodio nel 2007-2009, 12 nel 2020, 5 nell'aprile 2025 (script `ricerca/quant-rea/script/capitolazione_persistenza.mjs`);
   - prova sui 22 indici in `ricerca/quant-rea/risultati/capitolazione/`.
 
+- **Emergenti** (1.4.0, solo contesto): definizioni di F (valuta che ha smesso di scendere), «in calo forte» e D (dollaro emergente favorevole) in testa a `js/emerging.js`, identiche a `ricerca/emergenti/backtest/script/backtest.mjs` (porting verificato: `ricerca/emergenti/verifica_porting.mjs`, 0 differenze su 29.158 valori di F e 5.222 di D). Forza relativa: ETF in dollari contro ACWI con la formula «Nuova».
+
 ## 5. Decisioni prese con l'utente
 
 | Tema | Decisione |
@@ -130,6 +138,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Cali forti | addon di contesto con il preset di Rea; il filtro «indice già oltre −20% dal massimo» è solo informativo (colonna «Dal max 52s»), non una regola |
 | Telegram per gli indici | rinviato fino alla fine del mese in cui gli indici sono solo registrati |
 | Discord | permesso di Massimo Rea (email del 18/10/2026) a condividere tutto nella stanza «Codice della Truppa»; il post con le novità è preparato, lo pubblica l'utente |
+| Vista 8 Emergenti (05/11/2026) | solo contesto: nessuna regola e nessun alert; i quattro elementi (stato, valuta, dollaro, forza relativa) tutti mostrati; scia della forza relativa solo per l'indice scelto; fasce «favorevole» sul grafico del dollaro |
 | Rendimenti degli episodi | indecisa: calcolarli dalla chiusura della seduta dopo il segnale invece che dal giorno stesso (cambio di regola, da decidere con l'utente) |
 
 ## 6. Ricerca svolta (`ricerca/`, ramo di sviluppo)
@@ -142,19 +151,21 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `settori-titoli/` | progetto della vista 7 e confronto con il grafico di Rea |
 | `managed-futures/` | quanto pesare il trend following e quale ETF |
 | `quant-rea/` | catalogo e verifica delle 34 analisi del fascicolo di un utente, classifica di utilità, prova della capitolazione su 22 indici, preset |
+| `avvicinamento-uso/` | uso pratico dell'avvicinamento: promemoria, non segnale |
+| `indici-breadth50/` | breadth a 50 sedute per gli alert degli indici: nessun pattern regge |
+| `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 8 |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (1.0.0)
+## 7. Stato attuale (1.4.0)
 
-- 7 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
-- Test automatici: `npm test`, 104 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro) e `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati).
+- 8 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
+- Test automatici: `npm test`, 124 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) e `v140.cjs` (vista 8).
 - Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
   - la tabella della rotazione sul telefono nasconde colonne invece di diventare a schede;
   - etichette che si toccano in casi stretti (bolle dei Titoli a 360 px, «RUT/NDX» sulla mappa degli indici del telefono): il posizionamento è migliorato ma non garantito;
   - sul tablet a 820 px Guida/CVD/Chiaro vanno ancora a capo.
 - **Passo 3 (0.9.3), fatto**: controllo dei dati fermi su tutti i file e su ogni indice e serie dei cali forti, avviso per il prezzo di un indice mancante, barra in corso senza orario, timeout (richieste 30 s, workflow 45 min), JSON validati prima del commit, Telegram dopo il push con un secondo commit per `alerts.json`, azioni per SHA e credenziali solo nei passi che pubblicano, breadth solo su sedute NYSE, avvisi per ticker esclusi, buchi degli ETF e prezzi USA sospetti, `—` per i valori mancanti, ordinamenti, escape di `e.sector`, cache di `decodeDates` e della soglia nel replay. Restano: la CSP dell'app; il cambio del giorno prima per l'ultima seduta del proxy DBMF (latente).
-- **Passo 4**: di nuovo i 5 controlli, poi 1.0.0 se puliti.
 - **Decisioni dell'utente del 19/10/2026**: il giorno del segnale fallito conta come nuovo minimo della zona blu (0.9.4; confronto prima/dopo in `ricerca/qa/audit-0.9.0/a1/`); Telegram manda una rettifica quando il ricalcolo sposta o annulla un evento già inviato.
 - **Da verificare**: Taiwan, la chiusura di Yahoo non rettificata per i dividendi in azioni sposta forse anche la breadth (medie a 200 sedute); la statistica dell'Avvicinamento conta ogni discesa sotto la soglia, l'app mostra l'anello solo in stato Normale: rifatta il 31/10/2026 (`ricerca/attenzione/fasce.md`, ultime sezioni): testi corretti nella 1.3.1 e di nuovo nella 1.3.3, contando solo il periodo che l'app mostra (settori 33 tocchi su 63 da solo, 50 con l'Attenzione; indici 83 e 89 su 132; l'avvicinamento aggiunge 7 tocchi con poco preavviso e anticipa il primo avviso solo in 17 tocchi su 43, di 7 sedute in mediana); uso pratico in `ricerca/avvicinamento-uso/sintesi.md`; scorciatoia «mar 2009» per il minimo del prezzo nella crisi del 2008.
 - **Richiesta dell'utente del 19/10/2026 (0.9.5)**: «Episodi in zona blu» richiudibile e chiuso di default (viste 4 e 6, stato in `sm.opened`); grafico dei cali forti sulle sedute e sulla larghezza del grafico principale, linea verticale condivisa tra i grafici della vista; scala dei cali forti tagliata a 1,3 volte la soglia più alta del periodo, con il valore dei picchi scritto (scelta dell'utente).
@@ -165,6 +176,8 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **Passo 4, audit della 0.9.8 (20/10/2026)**: `ricerca/qa/audit-0.9.8/`, nessun bloccante per la 1.0; pipeline corretta nella 0.9.9, il resto nella 0.9.10. Decisioni dell'utente: (1) via i valori di Rea letti dagli screenshot (nota della vista 7 e script `confronto_rea.mjs`); (2) un salto che arriva dopo una sospensione lunga (sedute ferme a volume 0) è un crollo vero e non si riscala, da verificare con una seconda fonte (CTD.AX); (3) tabelle sul telefono con la prima colonna fissa.
 - **1.1.0–1.3.0 (31/10/2026)**: livello di osservazione: si tiene il nostro (livello blu + 10 punti, non il 20% di Rea), ma nel grafico della breadth dei settori la fascia è gialla (1.1.0). La linea tratteggiata della soglia di avvicinamento di oggi (1.2.0) non è piaciuta all'utente ed è stata tolta: dalla 1.3.0 la linea della breadth è gialla nelle sedute in avvicinamento, con un pallino all'ingresso, con la soglia di ogni seduta calcolata sulla sola storia fino a lì (`approachSeries`, test di uguaglianza con `approachLevel`; controllo nel browser `ricerca/qa/browser/v130.cjs`).
 - **1.3.1–1.3.4 (31/10/2026)**: statistiche dell'avvicinamento rifatte sulla regola e sul periodo che l'app mostra, metodo d'uso nella guida (1.3.3, tre controlli indipendenti); pallino sul bordo del periodo (1.3.2); bias dei membri di oggi +3,6 con le regole dell'app (1.3.4). Ricerche concluse senza modifiche all'app: uso pratico dell'avvicinamento (promemoria, non segnale: `ricerca/avvicinamento-uso/sintesi.md`), nota e regola sulla «risalita dopo l'Attenzione» (scartate: `risalita.md`), pattern della breadth a 50 sedute sugli indici (nessuno regge: `ricerca/indici-breadth50/sintesi.md`). Decisione dell'utente del 02/11/2026: si tiene così e si osservano i prossimi giorni. Aperti, minori: la scheda di un settore in avvicinamento in risalita dice ancora «in un calo deciso il livello blu è a circa due settimane»; EEM nelle feste cinesi (68 sedute con la breadth falsata).
+- **1.3.5 (05/11/2026)**: le date delle barre di Yahoo usano il fuso della borsa con l'ora legale di quel giorno (`barDate` in `scripts/lib/yahoo.js`); dall'arrivo dell'ora solare erano sbagliati il dollaro (DXY_INV) e la storia di DBMFE.PA prima del 28/04/2025. Controlli in `ricerca/qa/1.3.5/`.
+- **1.4.0 (05/11/2026)**: vista 8 Emergenti, solo contesto, dal piano `ricerca/emergenti/inserimento.md`. Il file `data/emerging.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Controllo nel browser `ricerca/qa/browser/v140.cjs`.
 - Decisioni dell'utente del 18/10/2026: la scala Adatta/Massima della rotazione resta salvata nel browser.
 
 ## 8. Prossimi passi proposti (in ordine)
