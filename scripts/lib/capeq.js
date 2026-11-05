@@ -1,5 +1,5 @@
 /*
- * capeq.js — grandi contro piccoli e titoli dei settori (vista 7 Titoli).
+ * capeq.js — grandi contro piccoli e titoli dei settori (vista 5 Titoli).
  *
  * Per ogni settore S&P 500 (e per l'indice intero) due indici simulati giorno per giorno sui costituenti:
  *  - cap-weighted: rendimento del giorno pesato per la capitalizzazione della sera prima. Le azioni sono

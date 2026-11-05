@@ -1,4 +1,4 @@
-/* app.js — stato, viste (Monitor, Rotazione, Bottom Map, Settore, Alert, Indici, Titoli, Emergenti), barra comandi e scorciatoie. */
+/* app.js — stato, viste (Monitor, Rotazione, Bottom Map, Settore, Titoli, Indici, Emergenti, Alert), barra comandi e scorciatoie. */
 import { build, stats, CENTER } from './engine.js';
 import { createBottom, NAMES as SECTOR_NAMES } from './bottom.js';
 import { createIndices } from './indices.js';
@@ -14,7 +14,7 @@ import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
-const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'alr', 'idx', 'tit', 'emg'];
+const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'tit', 'idx', 'emg', 'alr']; // ordine delle schede e dei tasti 1-8 (1.4.1)
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // La GitHub Action parte alle 22:40 UTC, riprova ogni ora dalle 01:10 alle 06:10 UTC e di nuovo alle 11:40; GitHub fa partire
 // le corse programmate anche con ore di ritardo. Prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
@@ -260,18 +260,18 @@ function init() {
   // pagina Indici: la configurazione c'è già, i dati si scaricano alla prima apertura
   state.indices = x.indices ? createIndices({ $, store, cap, params: x.config.params, config: x.indices, emgKeys: x.emerging ? x.emerging.order : [], load: () => getJSON('data/indices.json', false, true), loadMore: () => getJSON('data/indices_more.json', true, true) }) : null;
   if (!state.indices) $('tab-idx').hidden = true;
-  // vista 8 Emergenti: stati dalla vista 6, cambi e dollaro alla prima apertura (solo contesto)
+  // vista 7 Emergenti: stati dalla vista 6, cambi e dollaro alla prima apertura (solo contesto)
   state.emerging = state.indices && x.emerging ? createEmerging({
     $, store, indices: state.indices, config: x.emerging, load: () => getJSON('data/emerging.json', false, true),
     openIndex: (k) => { state.indices.open(k); setView('idx'); },
     onSelect: () => syncHash('emg', false, 'emg'),
   }) : null;
   if (!state.emerging) $('tab-emg').hidden = true;
-  // vista 7 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
+  // vista 5 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
     $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json', false, true),
     getSector: () => state.bottom.sector(), stateCode: (s) => state.bottom.stateCode(s),
-    // scelta di un settore nella vista 7: nuova voce nella cronologia (#tit-XLK), come i settori della vista 4
+    // scelta di un settore nella vista 5: nuova voce nella cronologia (#tit-XLK), come i settori della vista 4
     setSector: (s) => { state.bottom.selectSector(s); syncHash('tit', false, 'tit'); },
   });
   renderHeader();
@@ -803,7 +803,7 @@ function setView(v, silent) {
   syncHash(v, silent, from);
   renderAll();
 }
-// indirizzo della vista: #mon, #XLU (vista 4), #tit-XLU (vista 7 con il settore). Un cambio di vista o di settore
+// indirizzo della vista: #mon, #XLU (vista 4), #tit-XLU (vista 5 con il settore). Un cambio di vista o di settore
 // aggiunge una voce alla cronologia, così il tasto Indietro torna alla vista di prima; all'avvio e quando l'indirizzo
 // arriva già dal tasto Indietro si sostituisce solo la voce attuale
 function syncHash(v, silent, from) {
@@ -1005,7 +1005,7 @@ function bind() {
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
     // settore + vista: XLK TIT apre i titoli di XLK, XLU SEC il suo dettaglio
     const [w1, w2, ...rest] = v.split(/\s+/);
-    // indice emergente + EMG: KOSPI200 EMG (o KOSPI EMG, EMG KOSPI200) apre la vista 8 su quell'indice
+    // indice emergente + EMG: KOSPI200 EMG (o KOSPI EMG, EMG KOSPI200) apre la vista 7 su quell'indice
     const EMG_ALIAS = { KOSPI: 'KOSPI200', IBOVESPA: 'IBOV', NIFTY: 'NIFTY50', HANGSENG: 'HSI', TAIWAN: 'TWN', CSI: 'CSI300' };
     const emK = w2 && !rest.length && state.emerging && (words[w2] === 'emg' ? w1 : words[w1] === 'emg' ? w2 : null);
     if (emK && state.emerging.keys.includes(EMG_ALIAS[emK] || emK)) { state.emerging.open(EMG_ALIAS[emK] || emK); setView('emg'); return; }

@@ -402,7 +402,7 @@ export function createIndices(ctx) {
     $('ixQuality').textContent = CFG[k].composition === 'epoca'
       ? `Storia con la composizione dell'indice di ogni data, dal ${s.dates[f0].slice(0, 4)}. Fonte della composizione: ${CFG[k].source}.`
       : `${CFG[k].limits ? 'Indice con limiti. ' : ''}Storia ricostruita con i membri di oggi, dal ${s.dates[f0].slice(0, 4)}: nelle fasi intermedie la breadth risulta più alta del vero, vicino ai minimi lo scarto è piccolo.${CFG[k].note ? ' ' + CFG[k].note : ''} Fonte della lista: ${CFG[k].source}.`;
-    $('ixLinks').innerHTML = (ctx.emgKeys && ctx.emgKeys.includes(k) ? `<a href="#emg-${k}">Cambio e dollaro: vista 8 Emergenti →</a>` : '') +
+    $('ixLinks').innerHTML = (ctx.emgKeys && ctx.emgKeys.includes(k) ? `<a href="#emg-${k}">Cambio e dollaro: vista 7 Emergenti →</a>` : '') +
       (TV[k] || []).map((x) => `<a href="${tvLink(x)}" target="_blank" rel="noopener">${esc(x.split(':')[1])} su TradingView ↗</a>`).join('');
     renderEpisodes(k, m);
     if (cap) cap.card('ix', k, { dates: s.dates, close: s.close, from: s.dates[rangeStart(k)], noCap: CFG[k].noCap, what: "l'indice" });
@@ -432,7 +432,7 @@ export function createIndices(ctx) {
     renderBoard(); renderMap(); renderDetail();
     for (const fn of listeners) fn(k);
   }
-  // per la vista 8 Emergenti: stato della macchina e breadth letti da qui (stessi livelli blu, anche se cambiati nel browser)
+  // per la vista 7 Emergenti: stato della macchina e breadth letti da qui (stessi livelli blu, anche se cambiati nel browser)
   const listeners = [];
   async function ensureAll() {
     await ensure();
