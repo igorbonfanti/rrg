@@ -91,3 +91,22 @@ test('vix: file dei dati completo e ordinato', { skip: !VX && 'data/vix.json ass
   assert.ok(VX.series.VIX.fred && VX.series.VIX.fred <= VX.series.VIX.last);
   assert.ok(VX.asOf.vix && VX.asOf.spx && VX.asOf.ndx);
 });
+
+test('vix: dettagli degli episodi, nessun riempimento e seduta provvisoria', () => {
+  const dates = Array.from({ length: 400 }, (_, i) => `2020-${String(i).padStart(4, '0')}`);
+  const vix = dates.map((_, i) => (i === 100 ? 45 : i === 101 ? null : i === 102 ? 52 : 15));
+  const close = dates.map((_, i) => (i === 150 ? 80 : 100 + (i > 150 ? 1 : 0)));
+  const A = { dates, close, vix, fred: dates[398] };
+  const [e] = V.episodes(A, 40);
+  assert.equal(e.vixMax, 52); // il massimo dell'episodio, saltando la seduta senza VIX
+  assert.equal(e.toMin, 49); // ingresso alla seduta 101, minimo alla 150
+  near(e.dd, -20);
+  assert.equal(e.crisis, null);
+  const R = V.regimes(A);
+  near(R.thr[40].stats.dd.worst, -20);
+  assert.equal(A.vix[101], null); // il VIX mancante resta mancante
+  assert.equal(V.realized([100, null, 101, 102], 2)[3], null); // la realizzata non scavalca una chiusura mancante
+  assert.equal(V.today({ ...A, fred: dates[399] }).provisional, false); // ultima seduta = ultima di FRED: non provvisoria
+  assert.equal(V.today(A).provisional, true);
+  assert.equal(V.crisisOf('2020-03-16'), '2020 Covid');
+});

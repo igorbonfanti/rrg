@@ -36,8 +36,14 @@ export function onSessions(s, sessions) {
   return { dates, val };
 }
 
+let yahooDown = null; // dopo il primo errore di Yahoo gli altri simboli non lo richiedono (con Yahoo appeso ognuno costa 2 minuti)
+async function yahoo(sym, opt) {
+  if (yahooDown) throw new Error(`non richiesto, Yahoo già giù (${yahooDown})`);
+  try { return await fetchDaily(sym, opt); } catch (e) { yahooDown = e.message; throw e; }
+}
+
 async function index(sym) {
-  const d = await fetchDaily(sym, { period1: P1, raw: true });
+  const d = await yahoo(sym, { period1: P1, raw: true });
   const dates = [], val = [];
   d.dates.forEach((x, i) => { if (d.close[i] != null && d.close[i] > 0) { dates.push(x); val.push(d.close[i]); } });
   if (dates.length < 5000) throw new Error(`solo ${dates.length} sedute`);
@@ -65,13 +71,15 @@ async function main() {
     if (!fed || !fed.dates.length) throw new Error('nessun VIX di FRED');
     fed = onSessions(fed, spx.dates);
     try {
-      const d = await fetchDaily('^VIX', { period1: Math.floor(Date.now() / 1000) - TAIL_DAYS * 86400, raw: true });
+      const d = await yahoo('^VIX', { period1: Math.floor(Date.now() / 1000) - TAIL_DAYS * 86400, raw: true });
       tail = { dates: [], val: [] };
       d.dates.forEach((x, i) => { if (d.close[i] != null && d.close[i] > 0) { tail.dates.push(x); tail.val.push(d.close[i]); } });
       tail = onSessions(tail, spx.dates);
     } catch (e) { errors.push(`^VIX (Yahoo): ${e.message}`); if (p) tail = { dates: p.dates, val: p.val }; }
     const s = splice(fed, tail);
     if (s.devMed != null && s.devMed > 0.02) notes.push(`VIX: Yahoo si scosta da FRED in mediana del ${(100 * s.devMed).toFixed(2)}% negli ultimi 60 giorni`);
+    // FRED non torna indietro: se risponde con dati più vecchi di quelli pubblicati si tiene la serie pubblicata
+    if (p && p.x.fred && s.fredLast < p.x.fred) throw new Error(`FRED arriva al ${s.fredLast}, prima del ${p.x.fred} pubblicato`);
     fresh.VIX = { ...pack(s.dates, s.val), last: s.dates.at(-1), fred: s.fredLast };
   } catch (e) { errors.push(`VIX: ${e.message}`); }
 
