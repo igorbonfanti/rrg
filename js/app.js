@@ -1,10 +1,11 @@
-/* app.js — stato, viste (Monitor, Rotazione, Bottom Map, Settore, Titoli, Indici, Emergenti, Alert), barra comandi e scorciatoie. */
+/* app.js — stato, viste (Monitor, Rotazione, Bottom Map, Settore, Titoli, Indici, Emergenti, VIX, Alert), barra comandi e scorciatoie. */
 import { build, stats, CENTER } from './engine.js';
 import { createBottom, NAMES as SECTOR_NAMES } from './bottom.js';
 import { createIndices } from './indices.js';
 import { createCap } from './cap-view.js';
 import { createTitles } from './titles.js';
 import { createEmerging } from './emerging-view.js';
+import { createVix } from './vix-view.js';
 import { VERSION, RELEASE, NOTES } from './version.js';
 import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
@@ -14,7 +15,7 @@ import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
-const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'tit', 'idx', 'emg', 'alr']; // ordine delle schede e dei tasti 1-8 (1.4.1)
+const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'tit', 'idx', 'emg', 'vix', 'alr']; // ordine delle schede e dei tasti 1-9 (1.5.0)
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // La GitHub Action parte alle 22:40 UTC, riprova ogni ora dalle 01:10 alle 06:10 UTC e di nuovo alle 11:40; GitHub fa partire
 // le corse programmate anche con ore di ritardo. Prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
@@ -77,7 +78,7 @@ const SHAPE = {
   'data/prices.json': ['dates', 'tickers', 'groups'], 'data/sectors.json': ['dates', 'adjclose'], 'data/breadth.json': ['dates', 'series'],
   'config/thresholds.json': ['blue', 'params'], 'data/breadth_latest.json': ['members'], 'data/alerts.json': ['log'],
   'config/indices.json': ['indices'], 'data/indices.json': ['series'], 'data/indices_more.json': ['series'], 'data/capitulation.json': ['series'],
-  'data/sector_members.json': ['sectors', 'dates'], 'data/emerging.json': ['series', 'asOf'], 'config/emerging.json': ['indices', 'order'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
+  'data/sector_members.json': ['sectors', 'dates'], 'data/emerging.json': ['series', 'asOf'], 'data/vix.json': ['series', 'asOf'], 'config/emerging.json': ['indices', 'order'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
 };
 const getJSON = (url, optional, fresh) => fetch(url, fresh ? { cache: 'no-cache' } : undefined).catch(() => { throw new Error(`${url}: non raggiungibile`); }).then((r) => {
   if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
@@ -267,6 +268,8 @@ function init() {
     onSelect: () => syncHash('emg', false, 'emg'),
   }) : null;
   if (!state.emerging) $('tab-emg').hidden = true;
+  // vista 8 VIX: dati alla prima apertura (solo contesto)
+  state.vix = createVix({ $, store, load: () => getJSON('data/vix.json', false, true) });
   // vista 5 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
     $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json', false, true),
@@ -281,6 +284,7 @@ function init() {
   state.bottom.bind();
   if (state.indices) state.indices.bind();
   if (state.emerging) state.emerging.bind();
+  state.vix.bind();
   state.titles.bind();
   $('toTit').onclick = () => setView('tit');
   syncControls();
@@ -380,6 +384,7 @@ function renderAll() {
   else if (state.view === 'idx' && state.indices) state.indices.render();
   else if (state.view === 'tit') state.titles.render();
   else if (state.view === 'emg' && state.emerging) state.emerging.render();
+  else if (state.view === 'vix') state.vix.render();
 }
 
 // ---------- tabella prezzi dell'universo (vista RRG, modalità "Prezzi") ----------
@@ -997,7 +1002,7 @@ function bind() {
     $('cmd').value = '';
     // un nuovo comando toglie l'avviso di quello non trovato
     clearTimeout(cmdErrTimer); $('cmdForm').classList.remove('err'); setPlaceholder();
-    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx', TIT: 'tit', TITOLI: 'tit', EMG: 'emg', EMERGENTI: 'emg' };
+    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx', TIT: 'tit', TITOLI: 'tit', EMG: 'emg', EMERGENTI: 'emg', VIX: 'vix', VOLATILITA: 'vix', VOLATILITÀ: 'vix' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }

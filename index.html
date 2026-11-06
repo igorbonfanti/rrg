@@ -47,6 +47,8 @@
   <link rel="modulepreload" href="js/titles.js" />
   <link rel="modulepreload" href="js/emerging.js" />
   <link rel="modulepreload" href="js/emerging-view.js" />
+  <link rel="modulepreload" href="js/vix.js" />
+  <link rel="modulepreload" href="js/vix-view.js" />
   <link rel="modulepreload" href="js/version.js" />
   <link rel="preload" href="config/thresholds.json" as="fetch" crossorigin />
   <link rel="preload" href="data/breadth_latest.json" as="fetch" crossorigin />
@@ -81,7 +83,8 @@
     <button type="button" role="tab" id="tab-tit" data-view="tit" aria-controls="v-tit" aria-selected="false" tabindex="-1">5 Titoli</button>
     <button type="button" role="tab" id="tab-idx" data-view="idx" aria-controls="v-idx" aria-selected="false" tabindex="-1">6 Indici</button>
     <button type="button" role="tab" id="tab-emg" data-view="emg" aria-controls="v-emg" aria-selected="false" tabindex="-1">7 Emergenti</button>
-    <button type="button" role="tab" id="tab-alr" data-view="alr" aria-controls="v-alr" aria-selected="false" tabindex="-1">8 Alert</button>
+    <button type="button" role="tab" id="tab-vix" data-view="vix" aria-controls="v-vix" aria-selected="false" tabindex="-1">8 VIX</button>
+    <button type="button" role="tab" id="tab-alr" data-view="alr" aria-controls="v-alr" aria-selected="false" tabindex="-1">9 Alert</button>
   </div>
   </nav>
 
@@ -428,6 +431,54 @@
   </section>
 
   <!-- 5 ALERT -->
+  <section class="view" id="v-vix" role="tabpanel" aria-labelledby="tab-vix" hidden>
+    <p class="note loading" id="vxLoading" hidden>Caricamento dei dati del VIX…</p>
+    <p class="note pb" id="vxMiss" hidden></p>
+    <div id="vxBody" hidden>
+    <div class="kpis" id="vxKpis"></div>
+    <p class="note pb vxmeta" id="vxMeta"></p>
+    <div class="controls vxctl">
+      <span class="ctl">Indice <span class="seg" id="vxIx" role="group" aria-label="Indice della tabella e dello scatter"><button type="button" data-ix="SPX" aria-pressed="true">S&amp;P 500</button><button type="button" data-ix="NDX" aria-pressed="false">Nasdaq-100</button></span></span>
+    </div>
+    <div class="vix-grid">
+      <div class="panel">
+        <div class="ph"><h2>Dopo i picchi del VIX</h2><span class="meta" id="vxTableMeta"></span></div>
+        <div class="tscroll"><table class="t vxtable" id="vxTable"></table></div>
+        <p class="note pb">Ogni riga conta gli <b>episodi</b>: la prima chiusura del VIX sopra la soglia dopo almeno 63 sedute sotto. «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato. Clic (o tocco) su una riga per i suoi episodi.</p>
+        <div class="ph sub"><h3 id="vxEpsTitle"></h3></div>
+        <div class="tscroll"><table class="t vxeps" id="vxEps"></table></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>VIX e rendimento a 12 mesi</h2><span class="meta" id="vxScMeta"></span></div>
+        <div class="chart-wrap" id="vxScWrap">
+          <svg class="ts vxsc" id="vxScatter" role="img" aria-label="Sedute con il VIX sopra 30: VIX contro rendimento dell'indice nei 12 mesi successivi"></svg>
+          <div class="tip" id="vxScTip" hidden></div>
+        </div>
+        <p class="note pb" id="vxScNote"></p>
+        <p class="note pb">Un colore per episodio; il punto grande è il primo giorno dell'episodio. Le linee verticali sono le soglie 40 e 50.</p>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h2>VIX contro volatilità realizzata · S&amp;P 500</h2><span class="ctl"><span class="seg" id="vxRange" role="group" aria-label="Periodo"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span></span></div>
+      <div class="chart-wrap" id="vxWrap">
+        <svg class="ts" id="vxChart" role="img" aria-label="VIX, volatilità realizzata dell'S&amp;P 500 e premio per la paura nel tempo"></svg>
+        <div class="tip" id="vxTip" hidden></div>
+      </div>
+      <div class="legend" id="vxLegend"></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h2>Come leggere il VIX</h2></div>
+      <div class="emread">
+        <p><b>Solo contesto, non un segnale.</b> Il VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&amp;P 500 nei prossimi 30 giorni: sale quando c'è paura. Non cambia stati né alert.</p>
+        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> ha dato un risultato robusto, e con 10 episodi i numeri sono indicativi. Tra 25 e 30 il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
+        <p><b>Lo scatter conta i giorni</b>, come il grafico di Massimo Rea da cui viene l'idea: le crisi lunghe mettono tanti punti, quindi sembra più sicuro di quanto sia. La tabella conta gli episodi.</p>
+        <p><b>VIX contro realizzata.</b> Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi. Sale insieme ai ribassi, non prima: un premio alto (oltre l'80° percentile) è stato seguito da un picco della volatilità entro 21 sedute solo 12 volte su 204. Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.</p>
+        <p class="muted">Ricalcolo: <span class="mono">ricerca/vix/</span> (ramo di sviluppo del repository): <span class="mono">regimi/</span> per la tabella, <span class="mono">volatilita/</span> per l'83%, i 3,4 punti e i 12 su 204.</p>
+      </div>
+    </div>
+    <p class="note pb">Fonti: VIX di chiusura di Cboe da FRED (VIXCLS; © Cboe, reprinted with permission), dal 02/01/1990; l'ultima seduta, che FRED pubblica la mattina dopo, viene da Yahoo Finance ed è provvisoria. S&amp;P 500 e Nasdaq-100 di solo prezzo (senza dividendi, circa 2 punti l'anno in meno) da Yahoo Finance. Il VIX chiude alle 16:15 di New York, l'indice alle 16:00: per non usare quel quarto d'ora i rendimenti partono dalla chiusura della seduta dopo il segnale. Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi. Idea di Massimo Rea (<a href="https://quant-rea.com" target="_blank" rel="noopener">quant-rea.com</a>); calcoli nostri su dati pubblici.</p>
+    </div>
+  </section>
   <section class="view" id="v-alr" role="tabpanel" aria-labelledby="tab-alr" hidden>
     <div class="kpis" id="alertStats"></div>
     <div class="grid-side">
@@ -774,7 +825,8 @@
         <li><b>5 Titoli</b>: dentro i settori. In alto «grandi contro piccoli»: per ogni settore il rendimento pesato per capitalizzazione e quello con ogni titolo a peso uguale (1, 3, 6 mesi, da inizio anno, 12 mesi), con la scia di 3 mesi, 1 mese e 1 settimana fa e la freccia dell'ultima settimana. Sotto, le bolle dei titoli del settore scelto e la lista dei più in pena. Il settore è lo stesso della vista 4. I numeri sono il rendimento di indici simulati con i membri di ogni data e possono differire da quelli del grafico di Rea: il motivo è nel riquadro «Come si legge».</li>
         <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari. Di partenza si vedono i 10 principali (S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, KOSPI 200, MSCI Emerging Markets); gli altri si aggiungono o si tolgono con un clic nel riquadro «Indici mostrati», e la scelta resta nel browser. Tutti gli indici: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets e Ibovespa. Tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia. «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione. Anche qui l'anello tratteggiato e la voce «Avvicinamento» segnano gli indici sotto la loro soglia di avvicinamento (sulla storia di ciascuno dei 22 indici, la più lunga dal 2001, nel campione: insieme all'Attenzione 89 tocchi del livello su 132 avvisati, contro 83 della sola Attenzione; l'avvicinamento da solo 83). La colonna e la scheda <b>Cali forti</b> contano i titoli che perdono almeno il 7% in una seduta, sommati su 5 sedute (preset di Rea): allerta sopra il 99° percentile della storia dell'indice. Un'allerta che si ripete per settimane segnala vendite forti e diffuse sotto la superficie; è contesto, non cambia stati né alert.</li>
         <li><b>7 Emergenti</b>: CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM con lo stato della vista 6 e, accanto, la valuta contro il dollaro, il dollaro contro le valute emergenti (FRED) e la forza relativa dell'ETF del paese contro ACWI. Solo contesto: non cambia lo stato e non manda alert.</li>
-        <li><b>8 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
+        <li><b>8 VIX</b>: come sono andati S&amp;P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi), lo scatter delle sedute con il VIX sopra 30 e il VIX contro la volatilità realizzata. Solo contesto.</li>
+        <li><b>9 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
       </ul>
       <h3>Stati dei settori</h3>
       <ul>
