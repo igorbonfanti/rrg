@@ -822,7 +822,7 @@ svg.bub { touch-action: pan-y; }
 /* tablet: i cinque riquadri in una riga, senza celle vuote */
 @media (min-width: 601px) and (max-width: 1100px) { .kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); } .kpis .kpi .s { overflow-wrap: anywhere; } }
 
-/* ---------- vista 8 Emergenti (solo contesto) ---------- */
+/* ---------- vista 7 Emergenti (solo contesto) ---------- */
 .emg-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 12px; align-items: start; }
 .emg-main, .emg-side { display: grid; gap: 12px; min-width: 0; }
 #emTable .nm { display: none; }

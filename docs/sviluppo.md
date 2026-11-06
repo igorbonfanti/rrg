@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 05/11/2026, versione 1.4.1.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 06/11/2026, versione 1.5.0.
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -28,6 +28,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/indexdata.js` | formato compatto degli indici |
   | `js/capitulation.js` | cali forti |
   | `js/calendar.js` | calendari |
+  | `js/vix.js` | vista 8: episodi del VIX, rendimenti dopo i picchi, scatter, realizzata e premio per la paura |
   | `js/emerging.js` | vista 7 (Emergenti): pulizia dei cambi, z e F della valuta, D del dollaro, forza relativa contro ACWI |
 
 - **Viste e grafici**:
@@ -38,6 +39,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/bottom.js` | Monitor, Bottom Map, Settore, Alert |
   | `js/indices.js` | vista 6 |
   | `js/titles.js` | vista 5 |
+  | `js/vix-view.js` | vista 8 VIX |
   | `js/emerging-view.js` | vista 7 Emergenti (stato degli indici preso dalla vista 6 con `snapshot`) |
   | `js/cap-view.js`, `js/cap-chart.js` | scheda Cali forti |
   | `js/rrg-chart.js`, `js/perf-chart.js`, `js/sector-chart.js`, `js/bottom-map.js` | grafici SVG |
@@ -60,6 +62,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Prezzi | `scripts/fetch_data.js` | `data/prices.json` (USA), `prices_global.json` (UCITS in euro), `prices_macro.json` (asset reali, CPI da FRED) |
 | Breadth settori | `scripts/fetch_breadth.js` | `breadth.json`, `breadth_latest.json`, `sectors.json`, `sp500_members.json`, `sp500_history.json`, `sector_members.json`, `capitulation.json` (SPX e settori) |
 | Indici | `scripts/fetch_indices.js` | `indices.json`, `indices_more.json`, `index_members/*.json`, `capitulation.json` (indici) |
+| VIX | `scripts/fetch_vix.js` | `vix.json` (VIX da FRED con l'ultima seduta da Yahoo, S&P 500 e Nasdaq-100 dal 1990); passo che può fallire senza fermare gli altri |
 | Emergenti | `scripts/fetch_emerging.js` | `emerging.json` (cambi della Fed da FRED con gli ultimi giorni da Yahoo, ETF da Yahoo, `DTWEXEMEGS` da FRED); passo che può fallire senza fermare gli altri |
 | Alert | `scripts/send_alerts.js` | Telegram e `alerts.json`; un invio fallito si riprova per 5 sedute |
 | Commit | `scripts/keep_unchanged.js` | non pubblica i file che cambiano solo per l'ora |
@@ -138,7 +141,8 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Cali forti | addon di contesto con il preset di Rea; il filtro «indice già oltre −20% dal massimo» è solo informativo (colonna «Dal max 52s»), non una regola |
 | Telegram per gli indici | rinviato fino alla fine del mese in cui gli indici sono solo registrati |
 | Discord | permesso di Massimo Rea (email del 18/10/2026) a condividere tutto nella stanza «Codice della Truppa»; il post con le novità è preparato, lo pubblica l'utente |
-| Vista 8 Emergenti (05/11/2026) | solo contesto: nessuna regola e nessun alert; i quattro elementi (stato, valuta, dollaro, forza relativa) tutti mostrati; scia della forza relativa solo per l'indice scelto; fasce «favorevole» sul grafico del dollaro |
+| Vista Emergenti (05/11/2026, allora la 8, oggi la 7) | solo contesto: nessuna regola e nessun alert; i quattro elementi (stato, valuta, dollaro, forza relativa) tutti mostrati; scia della forza relativa solo per l'indice scelto; fasce «favorevole» sul grafico del dollaro |
+| Vista 8 VIX (06/11/2026) | solo contesto; tabella dei regimi per episodi con tutte le soglie e solo il 40 segnato «robusto»; scatter in stile Rea con la didascalia giorni contro episodi; VIX contro realizzata con il premio; niente GARCH (riammesso solo per la verifica, scartato); rendimenti dalla chiusura della seduta dopo il segnale; Alert alla 9 |
 | Rendimenti degli episodi | indecisa: calcolarli dalla chiusura della seduta dopo il segnale invece che dal giorno stesso (cambio di regola, da decidere con l'utente) |
 
 ## 6. Ricerca svolta (`ricerca/`, ramo di sviluppo)
@@ -153,12 +157,13 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `quant-rea/` | catalogo e verifica delle 34 analisi del fascicolo di un utente, classifica di utilità, prova della capitolazione su 22 indici, preset |
 | `avvicinamento-uso/` | uso pratico dell'avvicinamento: promemoria, non segnale |
 | `indici-breadth50/` | breadth a 50 sedute per gli alert degli indici: nessun pattern regge |
+| `vix/` | regimi del VIX, implicita contro realizzata contro GARCH, dati e inserimento della vista 8 (`sintesi.md`) |
 | `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (1.4.1)
+## 7. Stato attuale (1.5.0)
 
-- 8 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
+- 9 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
 - Test automatici: `npm test`, 128 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti).
 - Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
@@ -179,6 +184,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **1.3.5 (05/11/2026)**: le date delle barre di Yahoo usano il fuso della borsa con l'ora legale di quel giorno (`barDate` in `scripts/lib/yahoo.js`); dall'arrivo dell'ora solare erano sbagliati il dollaro (DXY_INV) e la storia di DBMFE.PA prima del 28/04/2025. Controlli in `ricerca/qa/1.3.5/`.
 - **1.4.0 (05/11/2026)**: vista 8 Emergenti, solo contesto, dal piano `ricerca/emergenti/inserimento.md`. Il file `data/emerging.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Controllo nel browser `ricerca/qa/browser/v140.cjs`.
 - **1.4.1 (05/11/2026)**: schede riordinate su richiesta dell'utente: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 Alert (`VIEWS` in `js/app.js`); indirizzi e comandi invariati. Le note storiche usano i numeri di allora (Titoli era la 7, Alert la 5, Emergenti la 8).
+- **1.5.0 (06/11/2026)**: vista 8 VIX (Alert alla 9), dalla verifica in `ricerca/vix/` (idea di Massimo Rea). Il file `data/vix.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Test: `test/vix.test.js` (valori verificati con lo script di ricerca), controllo nel browser `ricerca/qa/browser/v150.cjs`.
 - Rilievi minori aperti della 1.3.5 (`ricerca/qa/1.3.5/codice/rapporto-codice.md`): la cache delle date di `barDate` non si svuota mai (nel caso reale 85.574 istanti diversi su 1,3 milioni, nessun problema); `scripts/backfill_indices.py` e i vecchi controlli in `ricerca/qa/audit-0.9.*` datano ancora con il `gmtoffset` (giusto per i titoli, sbagliato d'inverno per cambi e DX-Y.NYB).
 - Decisioni dell'utente del 18/10/2026: la scala Adatta/Massima della rotazione resta salvata nel browser.
 
@@ -189,13 +195,13 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | A | due righe negli episodi: «dal minimo vero» e «nuovo minimo entro 3 mesi dal trigger» | piccolo |
 | B | scheda «Il calo in corso»: episodi de-duplicati, «da −X% a −Y%» con *n*, sedute al minimo e al recupero | serve `data/history_long.json` con le chiusure lunghe degli indici, caricato solo all'apertura |
 | D | fasce toro/orso sui grafici degli indici, regola del 20% sulle chiusure | riusa B |
-| C | VIX per episodi nella vista Alert | `data/vix.json` dal 1990 |
+| C | colonna «VIX» negli episodi delle viste Indici (S&P 500, Nasdaq-100) e Settore | `data/vix.json` c'è dalla 1.5.0 |
 | — | Telegram per gli indici | dopo il mese di prova |
 | — | Taiwan nei cali forti | richiede la chiusura rettificata dei membri |
 
 Altri punti:
 - Vista 7: titoli usciti senza le azioni (q), effetto di circa 0,1 punti, e ritardo del CSV rispetto alle uscite segnalate su Wikipedia.
-- Da non fare, per la ricerca su quant-rea: anni analoghi, entropia, «ergodicità», Poisson, GARCH, serie di giorni consecutivi, soglie «dinamiche».
+- Da non fare, per la ricerca su quant-rea: anni analoghi, entropia, «ergodicità», Poisson, GARCH, serie di giorni consecutivi, soglie «dinamiche». Il GARCH è stato riammesso una volta per la verifica del VIX (06/11/2026) e scartato: `ricerca/vix/volatilita/volatilita.md`.
 
 ## 9. Procedure
 

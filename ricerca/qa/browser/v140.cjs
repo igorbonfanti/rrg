@@ -17,13 +17,13 @@ const STATES = ['Normale', 'Attenzione', 'Zona blu', 'Trigger', 'Fallito', 'Cool
     ok(await p.locator('#tab-emg').count() === 1 && /7 Emergenti/i.test(await p.locator("#tab-emg").innerText()), `${name} scheda «7 Emergenti»`);
     // 1.4.1: ordine delle schede scelto dall'utente
     const tabs = (await p.locator('.fnkeys button[data-view]').allInnerTexts()).map((t) => t.replace(/\s+/g, ' ').trim().toUpperCase());
-    ok(tabs.join('|') === ['1 MONITOR', '2 ROTAZIONE', '3 BOTTOM MAP', '4 SETTORE', '5 TITOLI', '6 INDICI', '7 EMERGENTI', '8 ALERT'].join('|'), `${name} ordine delle schede: ${tabs.join(' · ')}`);
+    ok(tabs.join('|') === ['1 MONITOR', '2 ROTAZIONE', '3 BOTTOM MAP', '4 SETTORE', '5 TITOLI', '6 INDICI', '7 EMERGENTI', '8 VIX', '9 ALERT'].join('|'), `${name} ordine delle schede: ${tabs.join(' · ')}`);
     if (!(await p.locator('#tab-emg').count())) { ok(false, `${name} vista assente: interrompo`); await ctx.close(); continue; }
     const before = await p.evaluate(() => performance.getEntriesByType('resource').some((r) => /data\/emerging\.json/.test(r.name)));
     ok(!before, `${name} data/emerging.json non scaricato aprendo il Monitor`);
     const rows = await p.evaluate(() => document.querySelectorAll('.fnkeys button').length);
     const tops = await p.evaluate(() => new Set([...document.querySelectorAll('.fnkeys button')].map((x) => Math.round(x.getBoundingClientRect().top))).size);
-    ok(rows === 8 && tops <= 2, `${name} 8 schede su ${tops} righe`);
+    ok(rows === 9 && tops <= 3, `${name} 9 schede su ${tops} righe (dalla 1.5.0)`);
     await p.locator('#tab-emg').click(); await p.waitForTimeout(3500);
     ok(/#emg-/.test(p.url()), `${name} indirizzo ${p.url().split('#')[1]}`);
     ok(await p.evaluate(() => performance.getEntriesByType('resource').some((r) => /data\/emerging\.json/.test(r.name))), `${name} data/emerging.json scaricato alla prima apertura`);
