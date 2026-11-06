@@ -1,0 +1,566 @@
+{
+ "SPX": {
+  "20": {
+   "robust": false,
+   "app": false,
+   "passed": 1,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 48,
+     "dMed": 1.6,
+     "dPos": 4.6,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 48,
+     "dMed": 2.2,
+     "dPos": 4.6,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 23,
+     "dMed": 5.8,
+     "dPos": 14.8,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 23,
+     "dMed": 4.5,
+     "dPos": 10.5,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 9,
+     "dMed": -1.1,
+     "dPos": 8.1,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 9,
+     "dMed": 2.5,
+     "dPos": 8.1,
+     "pass": false
+    }
+   ]
+  },
+  "25": {
+   "robust": false,
+   "app": false,
+   "passed": 0,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 49,
+     "dMed": -1,
+     "dPos": -17.5,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 49,
+     "dMed": -1.6,
+     "dPos": -15.5,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 21,
+     "dMed": -0.3,
+     "dPos": -4.6,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 21,
+     "dMed": 0.5,
+     "dPos": 0.1,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 10,
+     "dMed": -0.7,
+     "dPos": 9.2,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 10,
+     "dMed": -0.6,
+     "dPos": 9.2,
+     "pass": false
+    }
+   ]
+  },
+  "30": {
+   "robust": false,
+   "app": false,
+   "passed": 0,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 34,
+     "dMed": 3.4,
+     "dPos": -19,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 34,
+     "dMed": 3.3,
+     "dPos": -19,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 20,
+     "dMed": 3.4,
+     "dPos": -10.8,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 20,
+     "dMed": 4.2,
+     "dPos": -10.8,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 15,
+     "dMed": 4,
+     "dPos": -0.8,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 15,
+     "dMed": 4.6,
+     "dPos": -0.8,
+     "pass": false
+    }
+   ]
+  },
+  "40": {
+   "robust": true,
+   "app": true,
+   "passed": 6,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 13,
+     "dMed": 13.3,
+     "dPos": 3.8,
+     "pass": true
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 13,
+     "dMed": 12.1,
+     "dPos": 3.8,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 10,
+     "dMed": 11,
+     "dPos": -0.8,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 10,
+     "dMed": 9.9,
+     "dPos": -0.8,
+     "pass": true
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 9,
+     "dMed": 8.8,
+     "dPos": -3,
+     "pass": true
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 9,
+     "dMed": 7.7,
+     "dPos": -3,
+     "pass": true
+    }
+   ]
+  },
+  "50": {
+   "robust": false,
+   "app": false,
+   "passed": 0,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 4,
+     "dMed": 27.1,
+     "dPos": -5.8,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 4,
+     "dMed": 18.9,
+     "dPos": 19.2,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 3,
+     "dMed": 24.9,
+     "dPos": -14.1,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 3,
+     "dMed": 14.3,
+     "dPos": 19.2,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 3,
+     "dMed": 24.9,
+     "dPos": -14.1,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 3,
+     "dMed": 14.3,
+     "dPos": 19.2,
+     "pass": false
+    }
+   ]
+  }
+ },
+ "NDX": {
+  "20": {
+   "robust": false,
+   "app": true,
+   "passed": 2,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 48,
+     "dMed": 1.1,
+     "dPos": 3.7,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 48,
+     "dMed": 0.8,
+     "dPos": 3.7,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 23,
+     "dMed": 7.3,
+     "dPos": 11.9,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 23,
+     "dMed": 5.2,
+     "dPos": 11.9,
+     "pass": true
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 9,
+     "dMed": -4.1,
+     "dPos": 5.1,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 9,
+     "dMed": 0.7,
+     "dPos": 5.1,
+     "pass": false
+    }
+   ]
+  },
+  "25": {
+   "robust": false,
+   "app": false,
+   "passed": 0,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 49,
+     "dMed": -0.4,
+     "dPos": -18.4,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 49,
+     "dMed": -0.7,
+     "dPos": -18.5,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 21,
+     "dMed": -1,
+     "dPos": -2.8,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 21,
+     "dMed": -1.1,
+     "dPos": -2.8,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 10,
+     "dMed": -1.1,
+     "dPos": 6.2,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 10,
+     "dMed": 0,
+     "dPos": 6.2,
+     "pass": false
+    }
+   ]
+  },
+  "30": {
+   "robust": false,
+   "app": true,
+   "passed": 5,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 34,
+     "dMed": 4.7,
+     "dPos": -16.1,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 34,
+     "dMed": 7.1,
+     "dPos": -16.1,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 20,
+     "dMed": 7.9,
+     "dPos": -8.8,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 20,
+     "dMed": 10.1,
+     "dPos": -8.8,
+     "pass": true
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 15,
+     "dMed": 12,
+     "dPos": 2.9,
+     "pass": true
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 15,
+     "dMed": 12,
+     "dPos": 2.9,
+     "pass": true
+    }
+   ]
+  },
+  "40": {
+   "robust": true,
+   "app": true,
+   "passed": 6,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 13,
+     "dMed": 15.3,
+     "dPos": 8.6,
+     "pass": true
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 13,
+     "dMed": 21,
+     "dPos": 8.5,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 10,
+     "dMed": 14.3,
+     "dPos": 6.2,
+     "pass": true
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 10,
+     "dMed": 14,
+     "dPos": 6.2,
+     "pass": true
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 9,
+     "dMed": 13.3,
+     "dPos": 5.1,
+     "pass": true
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 9,
+     "dMed": 7,
+     "dPos": 5.1,
+     "pass": true
+    }
+   ]
+  },
+  "50": {
+   "robust": false,
+   "app": false,
+   "passed": 0,
+   "of": 6,
+   "vars": [
+    {
+     "Q": 21,
+     "entry": 0,
+     "n": 4,
+     "dMed": 34.3,
+     "dPos": 16.2,
+     "pass": false
+    },
+    {
+     "Q": 21,
+     "entry": 1,
+     "n": 4,
+     "dMed": 23.8,
+     "dPos": 16.2,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 0,
+     "n": 3,
+     "dMed": 28.3,
+     "dPos": 16.2,
+     "pass": false
+    },
+    {
+     "Q": 63,
+     "entry": 1,
+     "n": 3,
+     "dMed": 14,
+     "dPos": 16.2,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 0,
+     "n": 3,
+     "dMed": 28.3,
+     "dPos": 16.2,
+     "pass": false
+    },
+    {
+     "Q": 126,
+     "entry": 1,
+     "n": 3,
+     "dMed": 14,
+     "dPos": 16.2,
+     "pass": false
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,3 @@
+prices.json: 0 prezzi segnalati
+prices_global.json: 0 prezzi segnalati
+prices_macro.json: 0 prezzi segnalati

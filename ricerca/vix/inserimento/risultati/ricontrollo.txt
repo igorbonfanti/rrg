@@ -1,0 +1,14 @@
+sedute NYSE (^GSPC) dal 1990: 9280
+VIX FRED-Cboe: comuni 9309 diverse >0,005: 0
+VXN FRED-Cboe: comuni 4315 diverse >0,005: 0
+VIX Yahoo-Cboe: comuni 9278 >0,005: 13 >0,5: 3
+VXN Yahoo-FRED >0,5: 650 di cui prima del 2004: 646
+Cboe VIX in giorni senza NYSE: 34 dal 2022: 33
+sedute NYSE senza VIX Cboe: ['1991-03-01', '1997-01-31', '1997-11-26', '1999-12-31']
+sedute NYSE senza VIX FRED: ['1991-03-01', '1997-01-31', '1997-11-26']
+chiusure >= 20: Cboe 3436 Yahoo 3431
+chiusure >= 25: Cboe 1605 Yahoo 1602
+chiusure >= 30: Cboe 737 Yahoo 736
+chiusure >= 40: Cboe 208 Yahoo 208
+chiusure >= 50: Cboe 75 Yahoo 75
+16:15 contro 16:00: giorni 58 mediana 0.05 max 0.75 >0,5: 2

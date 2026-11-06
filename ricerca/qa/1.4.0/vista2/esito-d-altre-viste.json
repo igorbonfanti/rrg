@@ -1,0 +1,2510 @@
+{
+ "problemi": [],
+ "controlli": 468,
+ "misure": [
+  [
+   "1440 light #mon",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 light #rrg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 light #btm",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 light #XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 light #alr",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 light #idx",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 light #tit-XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 light #emg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "1440 dark #mon",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 dark #rrg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 dark #btm",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 dark #XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 dark #alr",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 dark #idx",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 dark #tit-XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1440 dark #emg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1440,
+    "cw": 1440,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "1280 light #mon",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 light #rrg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 light #btm",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 light #XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 light #alr",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 light #idx",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 light #tit-XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 light #emg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "1280 dark #mon",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 dark #rrg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 dark #btm",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 dark #XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 dark #alr",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 dark #idx",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 dark #tit-XLK",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "1280 dark #emg",
+   {
+    "rows": 1,
+    "n": 8,
+    "navH": 30,
+    "mainTop": 83,
+    "sw": 1280,
+    "cw": 1280,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "820 light #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 light #mon",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 light #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 light #rrg",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 light #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 light #btm",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 light #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 light #XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 light #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 light #alr",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 light #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 light #idx",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 light #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 light #tit-XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 light #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "820 dark #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 dark #mon",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 dark #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 dark #rrg",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 dark #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 dark #btm",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 dark #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 dark #XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 dark #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 dark #alr",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 dark #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 dark #idx",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 dark #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 820,
+    "cw": 820,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "820 dark #tit-XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "820 dark #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 820,
+    "cw": 820,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "768 light #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 light #mon",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 light #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 light #rrg",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 light #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 light #btm",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 light #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 light #XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 light #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 light #alr",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 light #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 light #idx",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 light #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 light #tit-XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 light #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "768 dark #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 dark #mon",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 dark #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 dark #rrg",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 dark #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 dark #btm",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 dark #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 dark #XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 dark #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 dark #alr",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 dark #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 dark #idx",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 dark #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 1,
+    "n": 7,
+    "navH": 36,
+    "mainTop": 146,
+    "sw": 768,
+    "cw": 768,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "768 dark #tit-XLK",
+   "contenuto più in basso di 36px (barra 36→72px, righe 1→2)"
+  ],
+  [
+   "768 dark #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 72,
+    "mainTop": 182,
+    "sw": 768,
+    "cw": 768,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "390 light #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 light #mon",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 light #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 light #rrg",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 light #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 light #btm",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 light #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 light #XLK",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 light #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 light #alr",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 light #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 light #idx",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 light #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 light #tit-XLK",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 light #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "390 dark #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 dark #mon",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 dark #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 dark #rrg",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 dark #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 dark #btm",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 dark #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 dark #XLK",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 dark #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 dark #alr",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 dark #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 dark #idx",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 dark #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 390,
+    "cw": 390,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "390 dark #tit-XLK",
+   "contenuto più in basso di -2px (barra 72→70px, righe 2→2)"
+  ],
+  [
+   "390 dark #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 70,
+    "mainTop": 241,
+    "sw": 390,
+    "cw": 390,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "360 light #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 light #mon",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 light #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 light #rrg",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 light #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 light #btm",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 light #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 light #XLK",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 light #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 light #alr",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 light #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 light #idx",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 light #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 light #tit-XLK",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 light #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ],
+  [
+   "360 dark #mon",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "1 Monitor",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 dark #mon",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 dark #rrg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "2 Rotazione",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 dark #rrg",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 dark #btm",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "3 Bottom Map",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 dark #btm",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 dark #XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "4 Settore",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 dark #XLK",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 dark #alr",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "5 Alert",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 dark #alr",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 dark #idx",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "6 Indici",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 dark #idx",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 dark #tit-XLK",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   },
+   {
+    "rows": 2,
+    "n": 7,
+    "navH": 72,
+    "mainTop": 243,
+    "sw": 360,
+    "cw": 360,
+    "sel": "7 Titoli",
+    "clipped": [],
+    "errs": []
+   }
+  ],
+  [
+   "360 dark #tit-XLK",
+   "contenuto più in basso di 12px (barra 72→84px, righe 2→2)"
+  ],
+  [
+   "360 dark #emg",
+   {
+    "rows": 2,
+    "n": 8,
+    "navH": 84,
+    "mainTop": 255,
+    "sw": 360,
+    "cw": 360,
+    "sel": "8 Emergenti",
+    "clipped": [],
+    "errs": []
+   },
+   null
+  ]
+ ]
+}

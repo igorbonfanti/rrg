@@ -1,0 +1,5041 @@
+{
+ "CNY=X": {
+  "fred": "DEXCHUS",
+  "comuni": 5729,
+  "scarto_mediano_%": 0.123,
+  "scarto_p99_%": 0.972,
+  "tolti": [
+   {
+    "date": "2013-03-18",
+    "yahoo": 6.2875,
+    "prev": 6.2139,
+    "next": 6.2143,
+    "fred": 6.2156,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2016-11-17",
+    "yahoo": 6.7892,
+    "prev": 6.8581,
+    "next": 6.8766,
+    "fred": 6.8674,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2017-04-24",
+    "yahoo": 6.7921,
+    "prev": 6.8817,
+    "next": 6.8825,
+    "fred": 6.884,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2023-08-22",
+    "yahoo": 7.198,
+    "prev": 7.2807,
+    "next": 7.2924,
+    "fred": 7.293,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2023-08-24",
+    "yahoo": 7.1705,
+    "prev": 7.2924,
+    "next": 7.2765,
+    "fred": 7.2786,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2023-09-04",
+    "yahoo": 7.1401,
+    "prev": 7.2569,
+    "next": 7.2719,
+    "fred": null,
+    "verdict": "FRED manca"
+   },
+   {
+    "date": "2023-10-16",
+    "yahoo": 7.1681,
+    "prev": 7.3015,
+    "next": 7.3093,
+    "fred": 7.3105,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2023-10-30",
+    "yahoo": 7.1587,
+    "prev": 7.3149,
+    "next": 7.3121,
+    "fred": 7.3133,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2023-11-13",
+    "yahoo": 7.1818,
+    "prev": 7.2823,
+    "next": 7.289,
+    "fred": 7.289,
+    "verdict": "errore confermato"
+   }
+  ],
+  "tolti_confermati": 8,
+  "tolti_non_confermati": [],
+  "sospetti_non_tolti": [
+   {
+    "date": "2011-07-18",
+    "yahoo": 5.863,
+    "fred": 6.4688,
+    "scarto_%": -9.36
+   },
+   {
+    "date": "2011-12-20",
+    "yahoo": 6.3,
+    "fred": 6.3459,
+    "scarto_%": -0.72
+   },
+   {
+    "date": "2012-10-03",
+    "yahoo": 6.3242,
+    "fred": 6.284,
+    "scarto_%": 0.64
+   },
+   {
+    "date": "2012-10-04",
+    "yahoo": 6.3225,
+    "fred": 6.284,
+    "scarto_%": 0.61
+   },
+   {
+    "date": "2012-10-05",
+    "yahoo": 6.3221,
+    "fred": 6.284,
+    "scarto_%": 0.61
+   },
+   {
+    "date": "2013-03-11",
+    "yahoo": 6.2724,
+    "fred": 6.2179,
+    "scarto_%": 0.88
+   },
+   {
+    "date": "2013-03-25",
+    "yahoo": 6.1722,
+    "fred": 6.2105,
+    "scarto_%": -0.62
+   },
+   {
+    "date": "2013-04-08",
+    "yahoo": 6.1674,
+    "fred": 6.2031,
+    "scarto_%": -0.58
+   },
+   {
+    "date": "2013-06-27",
+    "yahoo": 6.2013,
+    "fred": 6.1488,
+    "scarto_%": 0.85
+   },
+   {
+    "date": "2013-06-28",
+    "yahoo": 6.2298,
+    "fred": 6.1374,
+    "scarto_%": 1.51
+   },
+   {
+    "date": "2017-03-13",
+    "yahoo": 6.8566,
+    "fred": 6.905,
+    "scarto_%": -0.7
+   },
+   {
+    "date": "2017-08-07",
+    "yahoo": 6.7657,
+    "fred": 6.7207,
+    "scarto_%": 0.67
+   },
+   {
+    "date": "2017-11-20",
+    "yahoo": 6.6619,
+    "fred": 6.6245,
+    "scarto_%": 0.56
+   },
+   {
+    "date": "2020-03-03",
+    "yahoo": 6.9998,
+    "fred": 6.9579,
+    "scarto_%": 0.6
+   },
+   {
+    "date": "2022-11-07",
+    "yahoo": 7.1751,
+    "fred": 7.2266,
+    "scarto_%": -0.71
+   },
+   {
+    "date": "2023-07-31",
+    "yahoo": 7.1028,
+    "fred": 7.1426,
+    "scarto_%": -0.56
+   },
+   {
+    "date": "2023-08-01",
+    "yahoo": 7.0957,
+    "fred": 7.1775,
+    "scarto_%": -1.14
+   },
+   {
+    "date": "2023-08-07",
+    "yahoo": 7.1312,
+    "fred": 7.1895,
+    "scarto_%": -0.81
+   },
+   {
+    "date": "2023-08-14",
+    "yahoo": 7.1923,
+    "fred": 7.2585,
+    "scarto_%": -0.91
+   },
+   {
+    "date": "2023-09-11",
+    "yahoo": 7.2324,
+    "fred": 7.2882,
+    "scarto_%": -0.77
+   },
+   {
+    "date": "2023-10-02",
+    "yahoo": 7.1636,
+    "fred": 7.296,
+    "scarto_%": -1.81
+   },
+   {
+    "date": "2023-10-03",
+    "yahoo": 7.1799,
+    "fred": 7.296,
+    "scarto_%": -1.59
+   },
+   {
+    "date": "2023-10-04",
+    "yahoo": 7.1943,
+    "fred": 7.296,
+    "scarto_%": -1.39
+   },
+   {
+    "date": "2023-10-05",
+    "yahoo": 7.2003,
+    "fred": 7.296,
+    "scarto_%": -1.31
+   },
+   {
+    "date": "2023-10-06",
+    "yahoo": 7.1977,
+    "fred": 7.296,
+    "scarto_%": -1.35
+   },
+   {
+    "date": "2023-11-22",
+    "yahoo": 7.0869,
+    "fred": 7.155,
+    "scarto_%": -0.95
+   },
+   {
+    "date": "2023-11-24",
+    "yahoo": 7.0858,
+    "fred": 7.1488,
+    "scarto_%": -0.88
+   },
+   {
+    "date": "2023-11-27",
+    "yahoo": 7.0819,
+    "fred": 7.1528,
+    "scarto_%": -0.99
+   },
+   {
+    "date": "2023-11-29",
+    "yahoo": 7.0638,
+    "fred": 7.13,
+    "scarto_%": -0.93
+   },
+   {
+    "date": "2023-11-30",
+    "yahoo": 7.0789,
+    "fred": 7.136,
+    "scarto_%": -0.8
+   },
+   {
+    "date": "2023-12-01",
+    "yahoo": 7.0754,
+    "fred": 7.1386,
+    "scarto_%": -0.89
+   },
+   {
+    "date": "2023-12-04",
+    "yahoo": 7.0618,
+    "fred": 7.1424,
+    "scarto_%": -1.13
+   },
+   {
+    "date": "2023-12-11",
+    "yahoo": 7.1266,
+    "fred": 7.1765,
+    "scarto_%": -0.7
+   },
+   {
+    "date": "2023-12-15",
+    "yahoo": 7.067,
+    "fred": 7.1179,
+    "scarto_%": -0.72
+   },
+   {
+    "date": "2023-12-18",
+    "yahoo": 7.0705,
+    "fred": 7.1297,
+    "scarto_%": -0.83
+   },
+   {
+    "date": "2023-12-20",
+    "yahoo": 7.0676,
+    "fred": 7.1355,
+    "scarto_%": -0.95
+   },
+   {
+    "date": "2024-01-03",
+    "yahoo": 7.0896,
+    "fred": 7.1497,
+    "scarto_%": -0.84
+   },
+   {
+    "date": "2024-01-04",
+    "yahoo": 7.0989,
+    "fred": 7.1589,
+    "scarto_%": -0.84
+   },
+   {
+    "date": "2024-01-08",
+    "yahoo": 7.0925,
+    "fred": 7.154,
+    "scarto_%": -0.86
+   },
+   {
+    "date": "2024-01-09",
+    "yahoo": 7.09,
+    "fred": 7.1675,
+    "scarto_%": -1.08
+   },
+   {
+    "date": "2024-01-10",
+    "yahoo": 7.1016,
+    "fred": 7.1711,
+    "scarto_%": -0.97
+   },
+   {
+    "date": "2024-01-12",
+    "yahoo": 7.1031,
+    "fred": 7.1665,
+    "scarto_%": -0.88
+   },
+   {
+    "date": "2024-01-16",
+    "yahoo": 7.097,
+    "fred": 7.1874,
+    "scarto_%": -1.26
+   },
+   {
+    "date": "2024-01-17",
+    "yahoo": 7.1165,
+    "fred": 7.196,
+    "scarto_%": -1.1
+   },
+   {
+    "date": "2024-01-18",
+    "yahoo": 7.1145,
+    "fred": 7.1961,
+    "scarto_%": -1.13
+   },
+   {
+    "date": "2024-01-19",
+    "yahoo": 7.115,
+    "fred": 7.1931,
+    "scarto_%": -1.09
+   },
+   {
+    "date": "2024-01-22",
+    "yahoo": 7.1071,
+    "fred": 7.192,
+    "scarto_%": -1.18
+   },
+   {
+    "date": "2024-01-24",
+    "yahoo": 7.0776,
+    "fred": 7.158,
+    "scarto_%": -1.12
+   },
+   {
+    "date": "2024-01-25",
+    "yahoo": 7.082,
+    "fred": 7.169,
+    "scarto_%": -1.21
+   },
+   {
+    "date": "2024-01-26",
+    "yahoo": 7.0811,
+    "fred": 7.1763,
+    "scarto_%": -1.33
+   },
+   {
+    "date": "2024-01-29",
+    "yahoo": 7.0866,
+    "fred": 7.1798,
+    "scarto_%": -1.3
+   },
+   {
+    "date": "2024-01-30",
+    "yahoo": 7.0845,
+    "fred": 7.1755,
+    "scarto_%": -1.27
+   },
+   {
+    "date": "2024-01-31",
+    "yahoo": 7.0941,
+    "fred": 7.1673,
+    "scarto_%": -1.02
+   },
+   {
+    "date": "2024-02-01",
+    "yahoo": 7.1007,
+    "fred": 7.1799,
+    "scarto_%": -1.1
+   },
+   {
+    "date": "2024-02-02",
+    "yahoo": 7.0885,
+    "fred": 7.192,
+    "scarto_%": -1.44
+   },
+   {
+    "date": "2024-02-05",
+    "yahoo": 7.1126,
+    "fred": 7.1982,
+    "scarto_%": -1.19
+   },
+   {
+    "date": "2024-02-06",
+    "yahoo": 7.1085,
+    "fred": 7.1908,
+    "scarto_%": -1.14
+   },
+   {
+    "date": "2024-02-07",
+    "yahoo": 7.1001,
+    "fred": 7.1943,
+    "scarto_%": -1.31
+   },
+   {
+    "date": "2024-02-08",
+    "yahoo": 7.1011,
+    "fred": 7.1965,
+    "scarto_%": -1.33
+   },
+   {
+    "date": "2024-02-09",
+    "yahoo": 7.107,
+    "fred": 7.1929,
+    "scarto_%": -1.19
+   },
+   {
+    "date": "2025-01-30",
+    "yahoo": 7.169,
+    "fred": 7.2422,
+    "scarto_%": -1.01
+   },
+   {
+    "date": "2025-01-31",
+    "yahoo": 7.1809,
+    "fred": 7.2422,
+    "scarto_%": -0.85
+   },
+   {
+    "date": "2025-02-03",
+    "yahoo": 7.1858,
+    "fred": 7.2422,
+    "scarto_%": -0.78
+   },
+   {
+    "date": "2025-02-04",
+    "yahoo": 7.195,
+    "fred": 7.2422,
+    "scarto_%": -0.65
+   },
+   {
+    "date": "2025-02-05",
+    "yahoo": 7.1819,
+    "fred": 7.272,
+    "scarto_%": -1.24
+   },
+   {
+    "date": "2025-11-04",
+    "yahoo": 7.1718,
+    "fred": 7.1295,
+    "scarto_%": 0.59
+   },
+   {
+    "date": "2026-03-17",
+    "yahoo": 6.9555,
+    "fred": 6.8863,
+    "scarto_%": 1.0
+   }
+  ],
+  "sospetti_dal_2023_11": [
+   {
+    "date": "2023-11-22",
+    "yahoo": 7.0869,
+    "fred": 7.155,
+    "scarto_%": -0.95
+   },
+   {
+    "date": "2023-11-24",
+    "yahoo": 7.0858,
+    "fred": 7.1488,
+    "scarto_%": -0.88
+   },
+   {
+    "date": "2023-11-27",
+    "yahoo": 7.0819,
+    "fred": 7.1528,
+    "scarto_%": -0.99
+   },
+   {
+    "date": "2023-11-29",
+    "yahoo": 7.0638,
+    "fred": 7.13,
+    "scarto_%": -0.93
+   },
+   {
+    "date": "2023-11-30",
+    "yahoo": 7.0789,
+    "fred": 7.136,
+    "scarto_%": -0.8
+   },
+   {
+    "date": "2023-12-01",
+    "yahoo": 7.0754,
+    "fred": 7.1386,
+    "scarto_%": -0.89
+   },
+   {
+    "date": "2023-12-04",
+    "yahoo": 7.0618,
+    "fred": 7.1424,
+    "scarto_%": -1.13
+   },
+   {
+    "date": "2023-12-11",
+    "yahoo": 7.1266,
+    "fred": 7.1765,
+    "scarto_%": -0.7
+   },
+   {
+    "date": "2023-12-15",
+    "yahoo": 7.067,
+    "fred": 7.1179,
+    "scarto_%": -0.72
+   },
+   {
+    "date": "2023-12-18",
+    "yahoo": 7.0705,
+    "fred": 7.1297,
+    "scarto_%": -0.83
+   },
+   {
+    "date": "2023-12-20",
+    "yahoo": 7.0676,
+    "fred": 7.1355,
+    "scarto_%": -0.95
+   },
+   {
+    "date": "2024-01-03",
+    "yahoo": 7.0896,
+    "fred": 7.1497,
+    "scarto_%": -0.84
+   },
+   {
+    "date": "2024-01-04",
+    "yahoo": 7.0989,
+    "fred": 7.1589,
+    "scarto_%": -0.84
+   },
+   {
+    "date": "2024-01-08",
+    "yahoo": 7.0925,
+    "fred": 7.154,
+    "scarto_%": -0.86
+   },
+   {
+    "date": "2024-01-09",
+    "yahoo": 7.09,
+    "fred": 7.1675,
+    "scarto_%": -1.08
+   },
+   {
+    "date": "2024-01-10",
+    "yahoo": 7.1016,
+    "fred": 7.1711,
+    "scarto_%": -0.97
+   },
+   {
+    "date": "2024-01-12",
+    "yahoo": 7.1031,
+    "fred": 7.1665,
+    "scarto_%": -0.88
+   },
+   {
+    "date": "2024-01-16",
+    "yahoo": 7.097,
+    "fred": 7.1874,
+    "scarto_%": -1.26
+   },
+   {
+    "date": "2024-01-17",
+    "yahoo": 7.1165,
+    "fred": 7.196,
+    "scarto_%": -1.1
+   },
+   {
+    "date": "2024-01-18",
+    "yahoo": 7.1145,
+    "fred": 7.1961,
+    "scarto_%": -1.13
+   },
+   {
+    "date": "2024-01-19",
+    "yahoo": 7.115,
+    "fred": 7.1931,
+    "scarto_%": -1.09
+   },
+   {
+    "date": "2024-01-22",
+    "yahoo": 7.1071,
+    "fred": 7.192,
+    "scarto_%": -1.18
+   },
+   {
+    "date": "2024-01-24",
+    "yahoo": 7.0776,
+    "fred": 7.158,
+    "scarto_%": -1.12
+   },
+   {
+    "date": "2024-01-25",
+    "yahoo": 7.082,
+    "fred": 7.169,
+    "scarto_%": -1.21
+   },
+   {
+    "date": "2024-01-26",
+    "yahoo": 7.0811,
+    "fred": 7.1763,
+    "scarto_%": -1.33
+   },
+   {
+    "date": "2024-01-29",
+    "yahoo": 7.0866,
+    "fred": 7.1798,
+    "scarto_%": -1.3
+   },
+   {
+    "date": "2024-01-30",
+    "yahoo": 7.0845,
+    "fred": 7.1755,
+    "scarto_%": -1.27
+   },
+   {
+    "date": "2024-01-31",
+    "yahoo": 7.0941,
+    "fred": 7.1673,
+    "scarto_%": -1.02
+   },
+   {
+    "date": "2024-02-01",
+    "yahoo": 7.1007,
+    "fred": 7.1799,
+    "scarto_%": -1.1
+   },
+   {
+    "date": "2024-02-02",
+    "yahoo": 7.0885,
+    "fred": 7.192,
+    "scarto_%": -1.44
+   },
+   {
+    "date": "2024-02-05",
+    "yahoo": 7.1126,
+    "fred": 7.1982,
+    "scarto_%": -1.19
+   },
+   {
+    "date": "2024-02-06",
+    "yahoo": 7.1085,
+    "fred": 7.1908,
+    "scarto_%": -1.14
+   },
+   {
+    "date": "2024-02-07",
+    "yahoo": 7.1001,
+    "fred": 7.1943,
+    "scarto_%": -1.31
+   },
+   {
+    "date": "2024-02-08",
+    "yahoo": 7.1011,
+    "fred": 7.1965,
+    "scarto_%": -1.33
+   },
+   {
+    "date": "2024-02-09",
+    "yahoo": 7.107,
+    "fred": 7.1929,
+    "scarto_%": -1.19
+   },
+   {
+    "date": "2025-01-30",
+    "yahoo": 7.169,
+    "fred": 7.2422,
+    "scarto_%": -1.01
+   },
+   {
+    "date": "2025-01-31",
+    "yahoo": 7.1809,
+    "fred": 7.2422,
+    "scarto_%": -0.85
+   },
+   {
+    "date": "2025-02-03",
+    "yahoo": 7.1858,
+    "fred": 7.2422,
+    "scarto_%": -0.78
+   },
+   {
+    "date": "2025-02-04",
+    "yahoo": 7.195,
+    "fred": 7.2422,
+    "scarto_%": -0.65
+   },
+   {
+    "date": "2025-02-05",
+    "yahoo": 7.1819,
+    "fred": 7.272,
+    "scarto_%": -1.24
+   },
+   {
+    "date": "2025-11-04",
+    "yahoo": 7.1718,
+    "fred": 7.1295,
+    "scarto_%": 0.59
+   },
+   {
+    "date": "2026-03-17",
+    "yahoo": 6.9555,
+    "fred": 6.8863,
+    "scarto_%": 1.0
+   }
+  ],
+  "stati_cambiati_togliendo_sospetti_dal_2023_11": 182,
+  "esempi_cambiati": [
+   [
+    "2024-02-12",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-13",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-14",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-15",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-16",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-19",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-20",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-21",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-22",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-23",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-26",
+    "normale",
+    null
+   ],
+   [
+    "2024-02-27",
+    "normale",
+    null
+   ]
+  ],
+  "accordo_stati_yahoo_fred_dal_2023_11": "732/747",
+  "stato_app_oggi": [
+   "2026-11-04",
+   "normale"
+  ],
+  "stato_fred_ultimo": [
+   "2026-10-30",
+   "normale"
+  ],
+  "stato_app_stessa_data_fred": "normale",
+  "z_app_oggi": -0.7715843283050368,
+  "z_fred_ultimo": -0.9895726796982364
+ },
+ "INR=X": {
+  "fred": "DEXINUS",
+  "comuni": 5711,
+  "scarto_mediano_%": 0.164,
+  "scarto_p99_%": 1.291,
+  "tolti": [
+   {
+    "date": "2012-01-30",
+    "yahoo": 49.388,
+    "prev": 52.493,
+    "next": 52.493,
+    "fred": 49.66,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2012-01-31",
+    "yahoo": 52.493,
+    "prev": 49.388,
+    "next": 49.5,
+    "fred": 49.54,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2013-09-04",
+    "yahoo": 68.61,
+    "prev": 66.51,
+    "next": 66.27,
+    "fred": 67.08,
+    "verdict": "errore confermato"
+   }
+  ],
+  "tolti_confermati": 2,
+  "tolti_non_confermati": [
+   {
+    "date": "2012-01-30",
+    "yahoo": 49.388,
+    "prev": 52.493,
+    "next": 52.493,
+    "fred": 49.66,
+    "verdict": "NON confermato"
+   }
+  ],
+  "sospetti_non_tolti": [
+   {
+    "date": "2011-10-28",
+    "yahoo": 49.79,
+    "fred": 48.63,
+    "scarto_%": 2.39
+   },
+   {
+    "date": "2012-01-27",
+    "yahoo": 52.493,
+    "fred": 49.39,
+    "scarto_%": 6.28
+   },
+   {
+    "date": "2013-06-11",
+    "yahoo": 56.838,
+    "fred": 58.34,
+    "scarto_%": -2.57
+   },
+   {
+    "date": "2013-06-12",
+    "yahoo": 56.838,
+    "fred": 57.82,
+    "scarto_%": -1.7
+   },
+   {
+    "date": "2020-04-02",
+    "yahoo": 77.57,
+    "fred": 76.34,
+    "scarto_%": 1.61
+   },
+   {
+    "date": "2023-11-02",
+    "yahoo": 85.194,
+    "fred": 83.22,
+    "scarto_%": 2.37
+   },
+   {
+    "date": "2026-04-14",
+    "yahoo": 94.9468,
+    "fred": 93.37,
+    "scarto_%": 1.69
+   },
+   {
+    "date": "2026-08-26",
+    "yahoo": 93.5461,
+    "fred": 95.43,
+    "scarto_%": -1.97
+   }
+  ],
+  "sospetti_dal_2023_11": [
+   {
+    "date": "2023-11-02",
+    "yahoo": 85.194,
+    "fred": 83.22,
+    "scarto_%": 2.37
+   },
+   {
+    "date": "2026-04-14",
+    "yahoo": 94.9468,
+    "fred": 93.37,
+    "scarto_%": 1.69
+   },
+   {
+    "date": "2026-08-26",
+    "yahoo": 93.5461,
+    "fred": 95.43,
+    "scarto_%": -1.97
+   }
+  ],
+  "stati_cambiati_togliendo_sospetti_dal_2023_11": 64,
+  "esempi_cambiati": [
+   [
+    "2023-11-03",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-06",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-07",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-08",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-09",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-10",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-13",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-14",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-15",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-16",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-17",
+    "ferma",
+    "normale"
+   ],
+   [
+    "2023-11-20",
+    "ferma",
+    "normale"
+   ]
+  ],
+  "accordo_stati_yahoo_fred_dal_2023_11": "630/748",
+  "stato_app_oggi": [
+   "2026-11-04",
+   "ferma"
+  ],
+  "stato_fred_ultimo": [
+   "2026-10-30",
+   "ferma"
+  ],
+  "stato_app_stessa_data_fred": "ferma",
+  "z_app_oggi": -0.3627984701683717,
+  "z_fred_ultimo": -0.28606043206418885
+ },
+ "BRL=X": {
+  "fred": "DEXBZUS",
+  "comuni": 5126,
+  "scarto_mediano_%": 0.371,
+  "scarto_p99_%": 2.891,
+  "tolti": [
+   {
+    "date": "2006-05-08",
+    "yahoo": 1.9472,
+    "prev": 2.057,
+    "next": 2.057,
+    "fred": 2.0605,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-07-14",
+    "yahoo": 2.0968,
+    "prev": 2.204,
+    "next": 2.2097,
+    "fred": 2.213,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-08-16",
+    "yahoo": 2.0144,
+    "prev": 2.1428,
+    "next": 2.1269,
+    "fred": 2.129,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2008-10-14",
+    "yahoo": 2.026,
+    "prev": 2.1262,
+    "next": 2.1153,
+    "fred": 2.0855,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2009-10-23",
+    "yahoo": 1.6642,
+    "prev": 1.7243,
+    "next": 1.7158,
+    "fred": 1.7143,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2010-03-02",
+    "yahoo": 1.7325,
+    "prev": 1.798,
+    "next": 1.788,
+    "fred": 1.7822,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2010-08-30",
+    "yahoo": 1.6992,
+    "prev": 1.7563,
+    "next": 1.755,
+    "fred": 1.757,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2010-09-20",
+    "yahoo": 1.6655,
+    "prev": 1.7175,
+    "next": 1.7265,
+    "fred": 1.7158,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2010-10-04",
+    "yahoo": 1.6335,
+    "prev": 1.6961,
+    "next": 1.6975,
+    "fred": 1.6887,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2010-10-18",
+    "yahoo": 1.6064,
+    "prev": 1.6606,
+    "next": 1.672,
+    "fred": 1.6632,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2010-10-25",
+    "yahoo": 1.6439,
+    "prev": 1.694,
+    "next": 1.6998,
+    "fred": 1.7078,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2010-11-01",
+    "yahoo": 1.6462,
+    "prev": 1.7135,
+    "next": 1.7043,
+    "fred": 1.7042,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2011-01-10",
+    "yahoo": 1.6355,
+    "prev": 1.6859,
+    "next": 1.689,
+    "fred": 1.6921,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2011-01-27",
+    "yahoo": 1.6183,
+    "prev": 1.6677,
+    "next": 1.6723,
+    "fred": 1.6746,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2017-07-03",
+    "yahoo": 3.1777,
+    "prev": 3.3027,
+    "next": 3.3005,
+    "fred": 3.3,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2020-05-11",
+    "yahoo": 5.477,
+    "prev": 5.8287,
+    "next": 5.8171,
+    "fred": 5.7958,
+    "verdict": "errore confermato"
+   }
+  ],
+  "tolti_confermati": 15,
+  "tolti_non_confermati": [
+   {
+    "date": "2008-10-14",
+    "yahoo": 2.026,
+    "prev": 2.1262,
+    "next": 2.1153,
+    "fred": 2.0855,
+    "verdict": "NON confermato"
+   }
+  ],
+  "sospetti_non_tolti": [
+   {
+    "date": "2006-03-28",
+    "yahoo": 2.1677,
+    "fred": 2.2233,
+    "scarto_%": -2.5
+   },
+   {
+    "date": "2008-10-09",
+    "yahoo": 2.1485,
+    "fred": 2.2,
+    "scarto_%": -2.34
+   },
+   {
+    "date": "2008-10-17",
+    "yahoo": 2.0685,
+    "fred": 2.12,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2008-10-30",
+    "yahoo": 2.0675,
+    "fred": 2.131,
+    "scarto_%": -2.98
+   },
+   {
+    "date": "2008-11-14",
+    "yahoo": 2.2265,
+    "fred": 2.2756,
+    "scarto_%": -2.16
+   },
+   {
+    "date": "2008-11-18",
+    "yahoo": 2.2485,
+    "fred": 2.2985,
+    "scarto_%": -2.18
+   },
+   {
+    "date": "2008-11-20",
+    "yahoo": 2.3475,
+    "fred": 2.395,
+    "scarto_%": -1.98
+   },
+   {
+    "date": "2008-11-25",
+    "yahoo": 2.2535,
+    "fred": 2.3012,
+    "scarto_%": -2.07
+   },
+   {
+    "date": "2008-11-26",
+    "yahoo": 2.258,
+    "fred": 2.306,
+    "scarto_%": -2.08
+   },
+   {
+    "date": "2008-11-28",
+    "yahoo": 2.2567,
+    "fred": 2.3074,
+    "scarto_%": -2.2
+   },
+   {
+    "date": "2008-12-11",
+    "yahoo": 2.2395,
+    "fred": 2.2905,
+    "scarto_%": -2.23
+   },
+   {
+    "date": "2008-12-15",
+    "yahoo": 2.3115,
+    "fred": 2.3585,
+    "scarto_%": -1.99
+   },
+   {
+    "date": "2008-12-16",
+    "yahoo": 2.317,
+    "fred": 2.367,
+    "scarto_%": -2.11
+   },
+   {
+    "date": "2008-12-17",
+    "yahoo": 2.32,
+    "fred": 2.369,
+    "scarto_%": -2.07
+   },
+   {
+    "date": "2008-12-23",
+    "yahoo": 2.3261,
+    "fred": 2.3752,
+    "scarto_%": -2.07
+   },
+   {
+    "date": "2008-12-24",
+    "yahoo": 2.3261,
+    "fred": 2.375,
+    "scarto_%": -2.06
+   },
+   {
+    "date": "2008-12-26",
+    "yahoo": 2.3261,
+    "fred": 2.3727,
+    "scarto_%": -1.96
+   },
+   {
+    "date": "2009-01-06",
+    "yahoo": 2.139,
+    "fred": 2.1895,
+    "scarto_%": -2.31
+   },
+   {
+    "date": "2009-01-13",
+    "yahoo": 2.2483,
+    "fred": 2.2945,
+    "scarto_%": -2.01
+   },
+   {
+    "date": "2009-01-16",
+    "yahoo": 2.29,
+    "fred": 2.338,
+    "scarto_%": -2.05
+   },
+   {
+    "date": "2009-01-21",
+    "yahoo": 2.3038,
+    "fred": 2.3525,
+    "scarto_%": -2.07
+   },
+   {
+    "date": "2009-01-22",
+    "yahoo": 2.3003,
+    "fred": 2.3515,
+    "scarto_%": -2.18
+   },
+   {
+    "date": "2009-01-26",
+    "yahoo": 2.2638,
+    "fred": 2.3123,
+    "scarto_%": -2.1
+   },
+   {
+    "date": "2009-01-28",
+    "yahoo": 2.237,
+    "fred": 2.289,
+    "scarto_%": -2.27
+   },
+   {
+    "date": "2009-01-29",
+    "yahoo": 2.24,
+    "fred": 2.2871,
+    "scarto_%": -2.06
+   },
+   {
+    "date": "2009-03-16",
+    "yahoo": 2.2095,
+    "fred": 2.2635,
+    "scarto_%": -2.39
+   },
+   {
+    "date": "2009-06-18",
+    "yahoo": 1.911,
+    "fred": 1.9611,
+    "scarto_%": -2.55
+   },
+   {
+    "date": "2009-07-09",
+    "yahoo": 1.9425,
+    "fred": 1.991,
+    "scarto_%": -2.44
+   },
+   {
+    "date": "2009-07-16",
+    "yahoo": 1.8891,
+    "fred": 1.9362,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2009-08-17",
+    "yahoo": 1.8,
+    "fred": 1.8665,
+    "scarto_%": -3.56
+   },
+   {
+    "date": "2009-08-18",
+    "yahoo": 1.8,
+    "fred": 1.8683,
+    "scarto_%": -3.66
+   },
+   {
+    "date": "2009-08-24",
+    "yahoo": 1.7973,
+    "fred": 1.8333,
+    "scarto_%": -1.96
+   },
+   {
+    "date": "2009-08-28",
+    "yahoo": 1.8233,
+    "fred": 1.873,
+    "scarto_%": -2.65
+   },
+   {
+    "date": "2009-09-21",
+    "yahoo": 1.7714,
+    "fred": 1.8137,
+    "scarto_%": -2.33
+   },
+   {
+    "date": "2009-09-24",
+    "yahoo": 1.7535,
+    "fred": 1.8025,
+    "scarto_%": -2.72
+   },
+   {
+    "date": "2009-09-28",
+    "yahoo": 1.7413,
+    "fred": 1.7886,
+    "scarto_%": -2.64
+   },
+   {
+    "date": "2009-10-30",
+    "yahoo": 1.7024,
+    "fred": 1.7445,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2010-01-25",
+    "yahoo": 1.7835,
+    "fred": 1.82,
+    "scarto_%": -2.01
+   },
+   {
+    "date": "2010-04-13",
+    "yahoo": 1.7135,
+    "fred": 1.7583,
+    "scarto_%": -2.55
+   },
+   {
+    "date": "2010-08-09",
+    "yahoo": 1.7075,
+    "fred": 1.754,
+    "scarto_%": -2.65
+   },
+   {
+    "date": "2010-08-16",
+    "yahoo": 1.722,
+    "fred": 1.758,
+    "scarto_%": -2.05
+   },
+   {
+    "date": "2010-08-23",
+    "yahoo": 1.7128,
+    "fred": 1.764,
+    "scarto_%": -2.9
+   },
+   {
+    "date": "2010-09-13",
+    "yahoo": 1.668,
+    "fred": 1.7165,
+    "scarto_%": -2.83
+   },
+   {
+    "date": "2010-09-23",
+    "yahoo": 1.6743,
+    "fred": 1.7187,
+    "scarto_%": -2.58
+   },
+   {
+    "date": "2010-09-27",
+    "yahoo": 1.6644,
+    "fred": 1.7089,
+    "scarto_%": -2.6
+   },
+   {
+    "date": "2010-11-15",
+    "yahoo": 1.6704,
+    "fred": 1.7216,
+    "scarto_%": -2.97
+   },
+   {
+    "date": "2010-11-22",
+    "yahoo": 1.673,
+    "fred": 1.7223,
+    "scarto_%": -2.86
+   },
+   {
+    "date": "2010-12-06",
+    "yahoo": 1.6361,
+    "fred": 1.6848,
+    "scarto_%": -2.89
+   },
+   {
+    "date": "2010-12-20",
+    "yahoo": 1.6662,
+    "fred": 1.7081,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2011-01-03",
+    "yahoo": 1.6155,
+    "fred": 1.6452,
+    "scarto_%": -1.81
+   },
+   {
+    "date": "2011-01-12",
+    "yahoo": 1.6416,
+    "fred": 1.6761,
+    "scarto_%": -2.06
+   },
+   {
+    "date": "2011-01-13",
+    "yahoo": 1.6247,
+    "fred": 1.6666,
+    "scarto_%": -2.51
+   },
+   {
+    "date": "2011-01-21",
+    "yahoo": 1.6352,
+    "fred": 1.6705,
+    "scarto_%": -2.11
+   },
+   {
+    "date": "2011-01-24",
+    "yahoo": 1.6193,
+    "fred": 1.6695,
+    "scarto_%": -3.01
+   },
+   {
+    "date": "2011-01-31",
+    "yahoo": 1.6343,
+    "fred": 1.6739,
+    "scarto_%": -2.37
+   },
+   {
+    "date": "2011-02-07",
+    "yahoo": 1.6242,
+    "fred": 1.678,
+    "scarto_%": -3.21
+   },
+   {
+    "date": "2011-02-08",
+    "yahoo": 1.6279,
+    "fred": 1.6679,
+    "scarto_%": -2.4
+   },
+   {
+    "date": "2011-02-14",
+    "yahoo": 1.6155,
+    "fred": 1.6665,
+    "scarto_%": -3.06
+   },
+   {
+    "date": "2011-12-13",
+    "yahoo": 1.8092,
+    "fred": 1.8527,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2012-01-27",
+    "yahoo": 1.8525,
+    "fred": 1.7401,
+    "scarto_%": 6.46
+   },
+   {
+    "date": "2013-06-17",
+    "yahoo": 2.0964,
+    "fred": 2.1576,
+    "scarto_%": -2.84
+   },
+   {
+    "date": "2014-09-15",
+    "yahoo": 2.2719,
+    "fred": 2.3451,
+    "scarto_%": -3.12
+   },
+   {
+    "date": "2014-11-03",
+    "yahoo": 2.4135,
+    "fred": 2.4964,
+    "scarto_%": -3.32
+   },
+   {
+    "date": "2015-12-14",
+    "yahoo": 3.8127,
+    "fred": 3.8972,
+    "scarto_%": -2.17
+   },
+   {
+    "date": "2016-12-02",
+    "yahoo": 3.573,
+    "fred": 3.4576,
+    "scarto_%": 3.34
+   },
+   {
+    "date": "2017-05-15",
+    "yahoo": 3.1777,
+    "fred": 3.1049,
+    "scarto_%": 2.34
+   },
+   {
+    "date": "2017-06-12",
+    "yahoo": 3.1777,
+    "fred": 3.3097,
+    "scarto_%": -3.99
+   },
+   {
+    "date": "2017-07-10",
+    "yahoo": 3.1777,
+    "fred": 3.2627,
+    "scarto_%": -2.61
+   },
+   {
+    "date": "2017-09-11",
+    "yahoo": 3.1777,
+    "fred": 3.089,
+    "scarto_%": 2.87
+   },
+   {
+    "date": "2018-11-26",
+    "yahoo": 3.673,
+    "fred": 3.879,
+    "scarto_%": -5.31
+   },
+   {
+    "date": "2020-08-26",
+    "yahoo": 5.5074,
+    "fred": 5.6073,
+    "scarto_%": -1.78
+   },
+   {
+    "date": "2022-05-05",
+    "yahoo": 4.9188,
+    "fred": 5.0481,
+    "scarto_%": -2.56
+   },
+   {
+    "date": "2024-11-04",
+    "yahoo": 5.6775,
+    "fred": 5.7707,
+    "scarto_%": -1.62
+   },
+   {
+    "date": "2024-12-19",
+    "yahoo": 6.2889,
+    "fred": 6.1414,
+    "scarto_%": 2.4
+   },
+   {
+    "date": "2025-01-02",
+    "yahoo": 6.3,
+    "fred": 6.1556,
+    "scarto_%": 2.35
+   },
+   {
+    "date": "2025-03-04",
+    "yahoo": 6.0205,
+    "fred": 5.8872,
+    "scarto_%": 2.26
+   },
+   {
+    "date": "2026-10-26",
+    "yahoo": 4.9602,
+    "fred": 5.4415,
+    "scarto_%": -8.84
+   }
+  ],
+  "sospetti_dal_2023_11": [
+   {
+    "date": "2024-11-04",
+    "yahoo": 5.6775,
+    "fred": 5.7707,
+    "scarto_%": -1.62
+   },
+   {
+    "date": "2024-12-19",
+    "yahoo": 6.2889,
+    "fred": 6.1414,
+    "scarto_%": 2.4
+   },
+   {
+    "date": "2025-01-02",
+    "yahoo": 6.3,
+    "fred": 6.1556,
+    "scarto_%": 2.35
+   },
+   {
+    "date": "2025-03-04",
+    "yahoo": 6.0205,
+    "fred": 5.8872,
+    "scarto_%": 2.26
+   },
+   {
+    "date": "2026-10-26",
+    "yahoo": 4.9602,
+    "fred": 5.4415,
+    "scarto_%": -8.84
+   }
+  ],
+  "stati_cambiati_togliendo_sospetti_dal_2023_11": 22,
+  "esempi_cambiati": [
+   [
+    "2024-11-14",
+    "calo",
+    "normale"
+   ],
+   [
+    "2024-11-15",
+    "calo",
+    "normale"
+   ],
+   [
+    "2024-11-18",
+    "normale",
+    "calo"
+   ],
+   [
+    "2024-12-02",
+    "normale",
+    "calo"
+   ],
+   [
+    "2024-12-23",
+    "ferma",
+    "calo"
+   ],
+   [
+    "2025-01-08",
+    "ferma",
+    "calo"
+   ],
+   [
+    "2025-01-09",
+    "ferma",
+    "calo"
+   ],
+   [
+    "2025-01-10",
+    "ferma",
+    "calo"
+   ],
+   [
+    "2025-01-13",
+    "ferma",
+    "calo"
+   ],
+   [
+    "2025-01-14",
+    "ferma",
+    "calo"
+   ],
+   [
+    "2025-01-15",
+    "ferma",
+    "calo"
+   ],
+   [
+    "2025-01-16",
+    "ferma",
+    "calo"
+   ]
+  ],
+  "accordo_stati_yahoo_fred_dal_2023_11": "511/748",
+  "stato_app_oggi": [
+   "2026-11-04",
+   "calo"
+  ],
+  "stato_fred_ultimo": [
+   "2026-10-30",
+   "calo"
+  ],
+  "stato_app_stessa_data_fred": "calo",
+  "z_app_oggi": 1.5254701452770119,
+  "z_fred_ultimo": 1.5038580452026842
+ },
+ "KRW=X": {
+  "fred": "DEXKOUS",
+  "comuni": 5712,
+  "scarto_mediano_%": 0.297,
+  "scarto_p99_%": 2.489,
+  "tolti": [
+   {
+    "date": "2005-10-27",
+    "yahoo": 996.83,
+    "prev": 1047.0,
+    "next": 1044.0,
+    "fred": 1039.4,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-08-15",
+    "yahoo": 917.63,
+    "prev": 953.66,
+    "next": 949.34,
+    "fred": 965.5,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-08-29",
+    "yahoo": 916.67,
+    "prev": 953.27,
+    "next": 949.53,
+    "fred": 960.8,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-09-26",
+    "yahoo": 901.35,
+    "prev": 936.81,
+    "next": 929.64,
+    "fred": 943.7,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-10-03",
+    "yahoo": 900.58,
+    "prev": 931.44,
+    "next": 938.56,
+    "fred": 947.6,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-12-20",
+    "yahoo": 886.68,
+    "prev": 915.45,
+    "next": 916.67,
+    "fred": 925.7,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2006-12-26",
+    "yahoo": 892.81,
+    "prev": 921.47,
+    "next": 921.1,
+    "fred": 929.6,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2007-02-20",
+    "yahoo": 896.01,
+    "prev": 924.49,
+    "next": 927.69,
+    "fred": 938.2,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2007-02-21",
+    "yahoo": 927.69,
+    "prev": 896.01,
+    "next": 894.66,
+    "fred": 938.2,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2007-02-22",
+    "yahoo": 894.66,
+    "prev": 927.69,
+    "next": 927.28,
+    "fred": 938.7,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2007-05-01",
+    "yahoo": 891.62,
+    "prev": 930.55,
+    "next": 929.83,
+    "fred": 930.7,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2008-03-21",
+    "yahoo": 978.14,
+    "prev": 1008.1,
+    "next": 1008.4,
+    "fred": 1002.0,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2008-03-24",
+    "yahoo": 1008.4,
+    "prev": 978.14,
+    "next": 974.92,
+    "fred": 993.7,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2008-09-16",
+    "yahoo": 1160.0,
+    "prev": 1098.8,
+    "next": 1099.6,
+    "fred": 1159.75,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2008-09-17",
+    "yahoo": 1099.6,
+    "prev": 1160.0,
+    "next": 1158.5,
+    "fred": 1115.5,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2010-05-18",
+    "yahoo": 1162.1,
+    "prev": 1122.3,
+    "next": 1120.8,
+    "fred": 1146.0,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2013-01-14",
+    "yahoo": 1023.2,
+    "prev": 1057.6,
+    "next": 1055.3,
+    "fred": 1056.0,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2013-05-09",
+    "yahoo": 1056.2,
+    "prev": 1089.3,
+    "next": 1091.1,
+    "fred": 1091.12,
+    "verdict": "errore confermato"
+   }
+  ],
+  "tolti_confermati": 13,
+  "tolti_non_confermati": [
+   {
+    "date": "2007-02-21",
+    "yahoo": 927.69,
+    "prev": 896.01,
+    "next": 894.66,
+    "fred": 938.2,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2008-03-24",
+    "yahoo": 1008.4,
+    "prev": 978.14,
+    "next": 974.92,
+    "fred": 993.7,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2008-09-16",
+    "yahoo": 1160.0,
+    "prev": 1098.8,
+    "next": 1099.6,
+    "fred": 1159.75,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2008-09-17",
+    "yahoo": 1099.6,
+    "prev": 1160.0,
+    "next": 1158.5,
+    "fred": 1115.5,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2010-05-18",
+    "yahoo": 1162.1,
+    "prev": 1122.3,
+    "next": 1120.8,
+    "fred": 1146.0,
+    "verdict": "NON confermato"
+   }
+  ],
+  "sospetti_non_tolti": [
+   {
+    "date": "2004-03-24",
+    "yahoo": 1182.8,
+    "fred": 1155.0,
+    "scarto_%": 2.41
+   },
+   {
+    "date": "2004-03-25",
+    "yahoo": 1183.5,
+    "fred": 1158.0,
+    "scarto_%": 2.2
+   },
+   {
+    "date": "2004-03-26",
+    "yahoo": 1184.3,
+    "fred": 1157.9,
+    "scarto_%": 2.28
+   },
+   {
+    "date": "2004-03-29",
+    "yahoo": 1180.2,
+    "fred": 1157.8,
+    "scarto_%": 1.93
+   },
+   {
+    "date": "2004-03-30",
+    "yahoo": 1178.7,
+    "fred": 1154.0,
+    "scarto_%": 2.14
+   },
+   {
+    "date": "2004-04-02",
+    "yahoo": 1184.1,
+    "fred": 1141.8,
+    "scarto_%": 3.7
+   },
+   {
+    "date": "2004-04-05",
+    "yahoo": 1195.4,
+    "fred": 1144.0,
+    "scarto_%": 4.49
+   },
+   {
+    "date": "2004-04-06",
+    "yahoo": 1183.8,
+    "fred": 1150.4,
+    "scarto_%": 2.9
+   },
+   {
+    "date": "2004-10-05",
+    "yahoo": 1104.7,
+    "fred": 1149.0,
+    "scarto_%": -3.86
+   },
+   {
+    "date": "2004-10-06",
+    "yahoo": 1112.2,
+    "fred": 1153.0,
+    "scarto_%": -3.54
+   },
+   {
+    "date": "2004-10-13",
+    "yahoo": 1125.5,
+    "fred": 1149.0,
+    "scarto_%": -2.05
+   },
+   {
+    "date": "2004-11-02",
+    "yahoo": 1074.5,
+    "fred": 1115.0,
+    "scarto_%": -3.63
+   },
+   {
+    "date": "2004-11-04",
+    "yahoo": 1072.8,
+    "fred": 1112.0,
+    "scarto_%": -3.53
+   },
+   {
+    "date": "2004-11-22",
+    "yahoo": 1026.7,
+    "fred": 1064.0,
+    "scarto_%": -3.51
+   },
+   {
+    "date": "2004-12-31",
+    "yahoo": 1002.6,
+    "fred": 1035.1,
+    "scarto_%": -3.14
+   },
+   {
+    "date": "2005-01-10",
+    "yahoo": 1011.6,
+    "fred": 1053.0,
+    "scarto_%": -3.93
+   },
+   {
+    "date": "2005-10-14",
+    "yahoo": 1025.9,
+    "fred": 1042.2,
+    "scarto_%": -1.56
+   },
+   {
+    "date": "2005-10-24",
+    "yahoo": 1009.2,
+    "fred": 1055.9,
+    "scarto_%": -4.42
+   },
+   {
+    "date": "2005-11-15",
+    "yahoo": 1018.3,
+    "fred": 1034.9,
+    "scarto_%": -1.6
+   },
+   {
+    "date": "2005-11-17",
+    "yahoo": 1015.9,
+    "fred": 1034.4,
+    "scarto_%": -1.79
+   },
+   {
+    "date": "2005-11-18",
+    "yahoo": 1018.6,
+    "fred": 1035.9,
+    "scarto_%": -1.67
+   },
+   {
+    "date": "2005-11-30",
+    "yahoo": 1019.1,
+    "fred": 1037.4,
+    "scarto_%": -1.76
+   },
+   {
+    "date": "2005-12-01",
+    "yahoo": 1019.5,
+    "fred": 1036.9,
+    "scarto_%": -1.68
+   },
+   {
+    "date": "2005-12-05",
+    "yahoo": 1016.8,
+    "fred": 1036.4,
+    "scarto_%": -1.89
+   },
+   {
+    "date": "2006-01-06",
+    "yahoo": 940.71,
+    "fred": 989.2,
+    "scarto_%": -4.9
+   },
+   {
+    "date": "2006-02-28",
+    "yahoo": 952.76,
+    "fred": 970.9,
+    "scarto_%": -1.87
+   },
+   {
+    "date": "2006-03-02",
+    "yahoo": 949.07,
+    "fred": 968.7,
+    "scarto_%": -2.03
+   },
+   {
+    "date": "2006-03-15",
+    "yahoo": 958.99,
+    "fred": 974.5,
+    "scarto_%": -1.59
+   },
+   {
+    "date": "2006-03-17",
+    "yahoo": 925.23,
+    "fred": 970.8,
+    "scarto_%": -4.69
+   },
+   {
+    "date": "2006-03-20",
+    "yahoo": 922.71,
+    "fred": 966.8,
+    "scarto_%": -4.56
+   },
+   {
+    "date": "2006-03-30",
+    "yahoo": 955.9,
+    "fred": 975.7,
+    "scarto_%": -2.03
+   },
+   {
+    "date": "2006-04-17",
+    "yahoo": 939.07,
+    "fred": 955.4,
+    "scarto_%": -1.71
+   },
+   {
+    "date": "2006-04-27",
+    "yahoo": 927.78,
+    "fred": 944.6,
+    "scarto_%": -1.78
+   },
+   {
+    "date": "2006-04-28",
+    "yahoo": 922.47,
+    "fred": 942.8,
+    "scarto_%": -2.16
+   },
+   {
+    "date": "2006-05-12",
+    "yahoo": 916.12,
+    "fred": 932.77,
+    "scarto_%": -1.79
+   },
+   {
+    "date": "2006-06-01",
+    "yahoo": 930.12,
+    "fred": 946.9,
+    "scarto_%": -1.77
+   },
+   {
+    "date": "2006-06-08",
+    "yahoo": 918.36,
+    "fred": 953.1,
+    "scarto_%": -3.64
+   },
+   {
+    "date": "2006-06-26",
+    "yahoo": 941.43,
+    "fred": 959.2,
+    "scarto_%": -1.85
+   },
+   {
+    "date": "2006-07-14",
+    "yahoo": 912.9,
+    "fred": 953.7,
+    "scarto_%": -4.28
+   },
+   {
+    "date": "2006-07-26",
+    "yahoo": 932.93,
+    "fred": 954.3,
+    "scarto_%": -2.24
+   },
+   {
+    "date": "2006-08-01",
+    "yahoo": 938.25,
+    "fred": 955.7,
+    "scarto_%": -1.83
+   },
+   {
+    "date": "2006-09-21",
+    "yahoo": 927.86,
+    "fred": 944.1,
+    "scarto_%": -1.72
+   },
+   {
+    "date": "2006-10-02",
+    "yahoo": 931.44,
+    "fred": 947.6,
+    "scarto_%": -1.71
+   },
+   {
+    "date": "2006-10-19",
+    "yahoo": 939.45,
+    "fred": 957.1,
+    "scarto_%": -1.84
+   },
+   {
+    "date": "2006-10-26",
+    "yahoo": 932.83,
+    "fred": 949.5,
+    "scarto_%": -1.76
+   },
+   {
+    "date": "2006-11-22",
+    "yahoo": 916.95,
+    "fred": 933.6,
+    "scarto_%": -1.78
+   },
+   {
+    "date": "2006-11-28",
+    "yahoo": 916.12,
+    "fred": 930.5,
+    "scarto_%": -1.55
+   },
+   {
+    "date": "2006-12-08",
+    "yahoo": 899.04,
+    "fred": 919.8,
+    "scarto_%": -2.26
+   },
+   {
+    "date": "2007-01-29",
+    "yahoo": 924.89,
+    "fred": 940.1,
+    "scarto_%": -1.62
+   },
+   {
+    "date": "2007-02-06",
+    "yahoo": 916.77,
+    "fred": 932.5,
+    "scarto_%": -1.69
+   },
+   {
+    "date": "2007-03-01",
+    "yahoo": 903.6,
+    "fred": 941.4,
+    "scarto_%": -4.02
+   },
+   {
+    "date": "2007-03-02",
+    "yahoo": 903.97,
+    "fred": 947.4,
+    "scarto_%": -4.58
+   },
+   {
+    "date": "2007-03-05",
+    "yahoo": 909.89,
+    "fred": 949.1,
+    "scarto_%": -4.13
+   },
+   {
+    "date": "2007-03-15",
+    "yahoo": 929.0,
+    "fred": 944.1,
+    "scarto_%": -1.6
+   },
+   {
+    "date": "2007-03-21",
+    "yahoo": 920.48,
+    "fred": 937.7,
+    "scarto_%": -1.84
+   },
+   {
+    "date": "2007-05-17",
+    "yahoo": 890.42,
+    "fred": 927.8,
+    "scarto_%": -4.03
+   },
+   {
+    "date": "2007-10-03",
+    "yahoo": 899.36,
+    "fred": 915.5,
+    "scarto_%": -1.76
+   },
+   {
+    "date": "2007-12-24",
+    "yahoo": 921.89,
+    "fred": 939.2,
+    "scarto_%": -1.84
+   },
+   {
+    "date": "2008-12-26",
+    "yahoo": 1330.5,
+    "fred": 1298.9,
+    "scarto_%": 2.43
+   },
+   {
+    "date": "2009-04-13",
+    "yahoo": 1299.4,
+    "fred": 1328.9,
+    "scarto_%": -2.22
+   },
+   {
+    "date": "2009-08-28",
+    "yahoo": 1221.6,
+    "fred": 1244.8,
+    "scarto_%": -1.86
+   },
+   {
+    "date": "2009-09-17",
+    "yahoo": 1184.2,
+    "fred": 1206.0,
+    "scarto_%": -1.81
+   },
+   {
+    "date": "2009-09-25",
+    "yahoo": 1157.8,
+    "fred": 1184.25,
+    "scarto_%": -2.23
+   },
+   {
+    "date": "2010-04-02",
+    "yahoo": 1103.7,
+    "fred": 1125.9,
+    "scarto_%": -1.97
+   },
+   {
+    "date": "2010-05-13",
+    "yahoo": 1108.9,
+    "fred": 1129.2,
+    "scarto_%": -1.8
+   },
+   {
+    "date": "2010-05-19",
+    "yahoo": 1120.8,
+    "fred": 1163.9,
+    "scarto_%": -3.7
+   },
+   {
+    "date": "2010-07-14",
+    "yahoo": 1176.5,
+    "fred": 1201.55,
+    "scarto_%": -2.08
+   },
+   {
+    "date": "2010-10-12",
+    "yahoo": 1100.2,
+    "fred": 1130.15,
+    "scarto_%": -2.65
+   },
+   {
+    "date": "2010-12-27",
+    "yahoo": 1125.5,
+    "fred": 1148.9,
+    "scarto_%": -2.04
+   },
+   {
+    "date": "2011-01-21",
+    "yahoo": 1100.2,
+    "fred": 1118.0,
+    "scarto_%": -1.59
+   },
+   {
+    "date": "2011-05-18",
+    "yahoo": 1062.7,
+    "fred": 1087.6,
+    "scarto_%": -2.29
+   },
+   {
+    "date": "2011-07-25",
+    "yahoo": 1032.3,
+    "fred": 1053.45,
+    "scarto_%": -2.01
+   },
+   {
+    "date": "2011-08-16",
+    "yahoo": 1047.8,
+    "fred": 1068.05,
+    "scarto_%": -1.9
+   },
+   {
+    "date": "2011-10-05",
+    "yahoo": 1152.5,
+    "fred": 1186.5,
+    "scarto_%": -2.87
+   },
+   {
+    "date": "2012-03-05",
+    "yahoo": 1095.7,
+    "fred": 1116.0,
+    "scarto_%": -1.82
+   },
+   {
+    "date": "2012-03-26",
+    "yahoo": 1107.9,
+    "fred": 1133.35,
+    "scarto_%": -2.25
+   },
+   {
+    "date": "2012-06-11",
+    "yahoo": 1134.1,
+    "fred": 1171.0,
+    "scarto_%": -3.15
+   },
+   {
+    "date": "2012-06-18",
+    "yahoo": 1131.0,
+    "fred": 1157.0,
+    "scarto_%": -2.25
+   },
+   {
+    "date": "2012-07-02",
+    "yahoo": 1114.7,
+    "fred": 1143.4,
+    "scarto_%": -2.51
+   },
+   {
+    "date": "2012-07-16",
+    "yahoo": 1119.8,
+    "fred": 1146.18,
+    "scarto_%": -2.3
+   },
+   {
+    "date": "2012-08-06",
+    "yahoo": 1097.8,
+    "fred": 1127.93,
+    "scarto_%": -2.67
+   },
+   {
+    "date": "2012-08-13",
+    "yahoo": 1105.9,
+    "fred": 1128.73,
+    "scarto_%": -2.02
+   },
+   {
+    "date": "2012-08-27",
+    "yahoo": 1112.2,
+    "fred": 1134.49,
+    "scarto_%": -1.96
+   },
+   {
+    "date": "2012-09-10",
+    "yahoo": 1097.6,
+    "fred": 1128.55,
+    "scarto_%": -2.74
+   },
+   {
+    "date": "2012-10-29",
+    "yahoo": 1069.9,
+    "fred": 1095.76,
+    "scarto_%": -2.36
+   },
+   {
+    "date": "2012-11-26",
+    "yahoo": 1058.1,
+    "fred": 1085.62,
+    "scarto_%": -2.53
+   },
+   {
+    "date": "2012-12-03",
+    "yahoo": 1055.7,
+    "fred": 1082.65,
+    "scarto_%": -2.49
+   },
+   {
+    "date": "2012-12-17",
+    "yahoo": 1045.7,
+    "fred": 1072.3,
+    "scarto_%": -2.48
+   },
+   {
+    "date": "2012-12-31",
+    "yahoo": 1038.1,
+    "fred": 1063.24,
+    "scarto_%": -2.36
+   },
+   {
+    "date": "2013-01-07",
+    "yahoo": 1033.1,
+    "fred": 1062.5,
+    "scarto_%": -2.77
+   },
+   {
+    "date": "2013-02-04",
+    "yahoo": 1069.0,
+    "fred": 1089.35,
+    "scarto_%": -1.87
+   },
+   {
+    "date": "2013-02-25",
+    "yahoo": 1060.5,
+    "fred": 1086.0,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2013-03-04",
+    "yahoo": 1060.3,
+    "fred": 1090.8,
+    "scarto_%": -2.8
+   },
+   {
+    "date": "2013-03-25",
+    "yahoo": 1089.9,
+    "fred": 1110.88,
+    "scarto_%": -1.89
+   },
+   {
+    "date": "2013-04-01",
+    "yahoo": 1090.0,
+    "fred": 1114.38,
+    "scarto_%": -2.19
+   },
+   {
+    "date": "2013-04-02",
+    "yahoo": 1086.4,
+    "fred": 1117.87,
+    "scarto_%": -2.82
+   },
+   {
+    "date": "2013-04-19",
+    "yahoo": 1101.7,
+    "fred": 1119.03,
+    "scarto_%": -1.55
+   },
+   {
+    "date": "2013-04-22",
+    "yahoo": 1099.2,
+    "fred": 1119.51,
+    "scarto_%": -1.81
+   },
+   {
+    "date": "2013-05-06",
+    "yahoo": 1072.8,
+    "fred": 1094.34,
+    "scarto_%": -1.97
+   },
+   {
+    "date": "2013-05-13",
+    "yahoo": 1084.3,
+    "fred": 1113.12,
+    "scarto_%": -2.59
+   },
+   {
+    "date": "2013-05-20",
+    "yahoo": 1093.6,
+    "fred": 1118.19,
+    "scarto_%": -2.2
+   },
+   {
+    "date": "2013-06-10",
+    "yahoo": 1097.1,
+    "fred": 1127.38,
+    "scarto_%": -2.69
+   },
+   {
+    "date": "2013-06-11",
+    "yahoo": 1097.1,
+    "fred": 1133.0,
+    "scarto_%": -3.17
+   },
+   {
+    "date": "2013-06-12",
+    "yahoo": 1097.1,
+    "fred": 1127.76,
+    "scarto_%": -2.72
+   },
+   {
+    "date": "2013-07-29",
+    "yahoo": 1086.9,
+    "fred": 1112.21,
+    "scarto_%": -2.28
+   },
+   {
+    "date": "2013-10-21",
+    "yahoo": 1040.1,
+    "fred": 1060.93,
+    "scarto_%": -1.96
+   },
+   {
+    "date": "2013-11-04",
+    "yahoo": 1039.5,
+    "fred": 1062.38,
+    "scarto_%": -2.15
+   },
+   {
+    "date": "2013-11-18",
+    "yahoo": 1034.7,
+    "fred": 1054.84,
+    "scarto_%": -1.91
+   },
+   {
+    "date": "2014-05-19",
+    "yahoo": 999.83,
+    "fred": 1021.87,
+    "scarto_%": -2.16
+   },
+   {
+    "date": "2014-09-15",
+    "yahoo": 1009.1,
+    "fred": 1037.8,
+    "scarto_%": -2.77
+   },
+   {
+    "date": "2014-09-22",
+    "yahoo": 1022.8,
+    "fred": 1040.75,
+    "scarto_%": -1.72
+   },
+   {
+    "date": "2014-09-29",
+    "yahoo": 1026.0,
+    "fred": 1053.15,
+    "scarto_%": -2.58
+   },
+   {
+    "date": "2014-11-03",
+    "yahoo": 1051.2,
+    "fred": 1077.63,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2014-11-10",
+    "yahoo": 1064.4,
+    "fred": 1089.28,
+    "scarto_%": -2.28
+   },
+   {
+    "date": "2014-12-01",
+    "yahoo": 1088.5,
+    "fred": 1108.36,
+    "scarto_%": -1.79
+   },
+   {
+    "date": "2021-11-09",
+    "yahoo": 1199.86,
+    "fred": 1178.64,
+    "scarto_%": 1.8
+   },
+   {
+    "date": "2023-12-18",
+    "yahoo": 1276.47,
+    "fred": 1297.63,
+    "scarto_%": -1.63
+   }
+  ],
+  "sospetti_dal_2023_11": [
+   {
+    "date": "2023-12-18",
+    "yahoo": 1276.47,
+    "fred": 1297.63,
+    "scarto_%": -1.63
+   }
+  ],
+  "stati_cambiati_togliendo_sospetti_dal_2023_11": 0,
+  "esempi_cambiati": [],
+  "accordo_stati_yahoo_fred_dal_2023_11": "684/748",
+  "stato_app_oggi": [
+   "2026-11-04",
+   "ferma"
+  ],
+  "stato_fred_ultimo": [
+   "2026-10-30",
+   "ferma"
+  ],
+  "stato_app_stessa_data_fred": "ferma",
+  "z_app_oggi": -1.2734618654834686,
+  "z_fred_ultimo": -1.6559845733419505
+ },
+ "TWD=X": {
+  "fred": "DEXTAUS",
+  "comuni": 5093,
+  "scarto_mediano_%": 0.165,
+  "scarto_p99_%": 3.052,
+  "tolti": [
+   {
+    "date": "2011-10-05",
+    "yahoo": 29.546,
+    "prev": 30.53,
+    "next": 30.62,
+    "fred": 30.62,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2011-11-14",
+    "yahoo": 29.2,
+    "prev": 30.23,
+    "next": 30.12,
+    "fred": 30.17,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2012-08-22",
+    "yahoo": 29.022,
+    "prev": 29.97,
+    "next": 29.93,
+    "fred": 29.94,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2013-04-05",
+    "yahoo": 28.902,
+    "prev": 29.81,
+    "next": 29.9,
+    "fred": 29.95,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2013-05-09",
+    "yahoo": 28.522,
+    "prev": 29.51,
+    "next": 29.4,
+    "fred": 29.42,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2015-04-27",
+    "yahoo": 29.75,
+    "prev": 31.12,
+    "next": 30.851,
+    "fred": 30.44,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-06-22",
+    "yahoo": 29.729,
+    "prev": 30.709,
+    "next": 30.962,
+    "fred": 30.72,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2015-07-03",
+    "yahoo": 29.954,
+    "prev": 31.095,
+    "next": 31.111,
+    "fred": null,
+    "verdict": "FRED manca"
+   },
+   {
+    "date": "2015-07-20",
+    "yahoo": 30.313,
+    "prev": 31.304,
+    "next": 31.331,
+    "fred": 31.24,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2015-08-20",
+    "yahoo": 31.332,
+    "prev": 32.641,
+    "next": 32.659,
+    "fred": 32.57,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2015-10-07",
+    "yahoo": 31.609,
+    "prev": 32.991,
+    "next": 32.86,
+    "fred": 32.4,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-10-12",
+    "yahoo": 31.291,
+    "prev": 32.838,
+    "next": 32.551,
+    "fred": null,
+    "verdict": "FRED manca"
+   },
+   {
+    "date": "2015-11-18",
+    "yahoo": 31.899,
+    "prev": 33.014,
+    "next": 33.001,
+    "fred": 32.73,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2015-11-24",
+    "yahoo": 32.77,
+    "prev": 31.703,
+    "next": 31.659,
+    "fred": 32.53,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-11-27",
+    "yahoo": 32.695,
+    "prev": 31.462,
+    "next": 31.709,
+    "fred": 32.69,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-11-30",
+    "yahoo": 31.709,
+    "prev": 32.695,
+    "next": 32.822,
+    "fred": 32.53,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2015-12-01",
+    "yahoo": 32.822,
+    "prev": 31.709,
+    "next": 31.64,
+    "fred": 32.53,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-12-04",
+    "yahoo": 30.748,
+    "prev": 31.778,
+    "next": 31.871,
+    "fred": 32.53,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2015-12-11",
+    "yahoo": 33.0,
+    "prev": 31.719,
+    "next": 31.857,
+    "fred": 33.01,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-01-07",
+    "yahoo": 33.442,
+    "prev": 32.246,
+    "next": 32.234,
+    "fred": 33.2,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-02-24",
+    "yahoo": 33.472,
+    "prev": 32.338,
+    "next": 32.302,
+    "fred": 33.3,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-08",
+    "yahoo": 32.995,
+    "prev": 31.768,
+    "next": 31.908,
+    "fred": 32.76,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-09",
+    "yahoo": 31.908,
+    "prev": 32.995,
+    "next": 33.208,
+    "fred": 32.75,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2016-03-16",
+    "yahoo": 32.91,
+    "prev": 31.799,
+    "next": 31.601,
+    "fred": 32.77,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-17",
+    "yahoo": 31.601,
+    "prev": 32.91,
+    "next": 32.698,
+    "fred": 32.24,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-18",
+    "yahoo": 32.698,
+    "prev": 31.601,
+    "next": 31.486,
+    "fred": 32.3,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-21",
+    "yahoo": 31.486,
+    "prev": 32.698,
+    "next": 32.536,
+    "fred": 32.33,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2016-05-02",
+    "yahoo": 31.26,
+    "prev": 32.272,
+    "next": 32.274,
+    "fred": 32.22,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2016-06-20",
+    "yahoo": 31.268,
+    "prev": 32.381,
+    "next": 32.252,
+    "fred": 32.22,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2016-07-04",
+    "yahoo": 31.214,
+    "prev": 32.276,
+    "next": 32.196,
+    "fred": null,
+    "verdict": "FRED manca"
+   }
+  ],
+  "tolti_confermati": 15,
+  "tolti_non_confermati": [
+   {
+    "date": "2015-04-27",
+    "yahoo": 29.75,
+    "prev": 31.12,
+    "next": 30.851,
+    "fred": 30.44,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-10-07",
+    "yahoo": 31.609,
+    "prev": 32.991,
+    "next": 32.86,
+    "fred": 32.4,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-11-24",
+    "yahoo": 32.77,
+    "prev": 31.703,
+    "next": 31.659,
+    "fred": 32.53,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-11-27",
+    "yahoo": 32.695,
+    "prev": 31.462,
+    "next": 31.709,
+    "fred": 32.69,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-12-01",
+    "yahoo": 32.822,
+    "prev": 31.709,
+    "next": 31.64,
+    "fred": 32.53,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2015-12-11",
+    "yahoo": 33.0,
+    "prev": 31.719,
+    "next": 31.857,
+    "fred": 33.01,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-01-07",
+    "yahoo": 33.442,
+    "prev": 32.246,
+    "next": 32.234,
+    "fred": 33.2,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-02-24",
+    "yahoo": 33.472,
+    "prev": 32.338,
+    "next": 32.302,
+    "fred": 33.3,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-08",
+    "yahoo": 32.995,
+    "prev": 31.768,
+    "next": 31.908,
+    "fred": 32.76,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-16",
+    "yahoo": 32.91,
+    "prev": 31.799,
+    "next": 31.601,
+    "fred": 32.77,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-17",
+    "yahoo": 31.601,
+    "prev": 32.91,
+    "next": 32.698,
+    "fred": 32.24,
+    "verdict": "NON confermato"
+   },
+   {
+    "date": "2016-03-18",
+    "yahoo": 32.698,
+    "prev": 31.601,
+    "next": 31.486,
+    "fred": 32.3,
+    "verdict": "NON confermato"
+   }
+  ],
+  "sospetti_non_tolti": [
+   {
+    "date": "2011-07-18",
+    "yahoo": 28.268,
+    "fred": 28.93,
+    "scarto_%": -2.29
+   },
+   {
+    "date": "2011-08-15",
+    "yahoo": 28.277,
+    "fred": 28.94,
+    "scarto_%": -2.29
+   },
+   {
+    "date": "2011-08-16",
+    "yahoo": 27.963,
+    "fred": 28.92,
+    "scarto_%": -3.31
+   },
+   {
+    "date": "2011-08-17",
+    "yahoo": 28.195,
+    "fred": 28.95,
+    "scarto_%": -2.61
+   },
+   {
+    "date": "2011-08-19",
+    "yahoo": 28.275,
+    "fred": 29.0,
+    "scarto_%": -2.5
+   },
+   {
+    "date": "2011-08-22",
+    "yahoo": 28.143,
+    "fred": 29.01,
+    "scarto_%": -2.99
+   },
+   {
+    "date": "2011-08-29",
+    "yahoo": 28.236,
+    "fred": 29.02,
+    "scarto_%": -2.7
+   },
+   {
+    "date": "2011-09-13",
+    "yahoo": 28.551,
+    "fred": 29.47,
+    "scarto_%": -3.12
+   },
+   {
+    "date": "2011-10-11",
+    "yahoo": 29.752,
+    "fred": 30.32,
+    "scarto_%": -1.87
+   },
+   {
+    "date": "2011-10-12",
+    "yahoo": 29.509,
+    "fred": 30.35,
+    "scarto_%": -2.77
+   },
+   {
+    "date": "2011-10-17",
+    "yahoo": 29.421,
+    "fred": 30.11,
+    "scarto_%": -2.29
+   },
+   {
+    "date": "2011-10-24",
+    "yahoo": 29.254,
+    "fred": 30.06,
+    "scarto_%": -2.68
+   },
+   {
+    "date": "2011-10-25",
+    "yahoo": 1.8015,
+    "fred": 30.11,
+    "scarto_%": -94.02
+   },
+   {
+    "date": "2011-11-01",
+    "yahoo": 29.216,
+    "fred": 30.07,
+    "scarto_%": -2.84
+   },
+   {
+    "date": "2011-11-03",
+    "yahoo": 29.375,
+    "fred": 30.2,
+    "scarto_%": -2.73
+   },
+   {
+    "date": "2011-11-04",
+    "yahoo": 29.457,
+    "fred": 30.02,
+    "scarto_%": -1.88
+   },
+   {
+    "date": "2011-11-07",
+    "yahoo": 29.382,
+    "fred": 30.12,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2011-11-17",
+    "yahoo": 29.467,
+    "fred": 30.19,
+    "scarto_%": -2.39
+   },
+   {
+    "date": "2011-11-18",
+    "yahoo": 29.506,
+    "fred": 30.24,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2011-11-21",
+    "yahoo": 29.667,
+    "fred": 30.33,
+    "scarto_%": -2.19
+   },
+   {
+    "date": "2011-11-25",
+    "yahoo": 29.699,
+    "fred": 30.43,
+    "scarto_%": -2.4
+   },
+   {
+    "date": "2011-11-28",
+    "yahoo": 29.68,
+    "fred": 30.37,
+    "scarto_%": -2.27
+   },
+   {
+    "date": "2011-12-05",
+    "yahoo": 29.662,
+    "fred": 30.13,
+    "scarto_%": -1.55
+   },
+   {
+    "date": "2011-12-12",
+    "yahoo": 29.55,
+    "fred": 30.2,
+    "scarto_%": -2.15
+   },
+   {
+    "date": "2011-12-13",
+    "yahoo": 29.633,
+    "fred": 30.24,
+    "scarto_%": -2.01
+   },
+   {
+    "date": "2011-12-19",
+    "yahoo": 29.549,
+    "fred": 30.38,
+    "scarto_%": -2.74
+   },
+   {
+    "date": "2011-12-22",
+    "yahoo": 29.513,
+    "fred": 30.25,
+    "scarto_%": -2.44
+   },
+   {
+    "date": "2012-01-03",
+    "yahoo": 29.544,
+    "fred": 30.28,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2012-01-17",
+    "yahoo": 29.255,
+    "fred": 29.95,
+    "scarto_%": -2.32
+   },
+   {
+    "date": "2012-01-20",
+    "yahoo": 29.012,
+    "fred": 29.95,
+    "scarto_%": -3.13
+   },
+   {
+    "date": "2012-01-23",
+    "yahoo": 29.083,
+    "fred": 29.95,
+    "scarto_%": -2.89
+   },
+   {
+    "date": "2012-01-30",
+    "yahoo": 28.951,
+    "fred": 29.78,
+    "scarto_%": -2.78
+   },
+   {
+    "date": "2013-03-19",
+    "yahoo": 28.96,
+    "fred": 29.76,
+    "scarto_%": -2.69
+   },
+   {
+    "date": "2013-03-20",
+    "yahoo": 29.148,
+    "fred": 29.77,
+    "scarto_%": -2.09
+   },
+   {
+    "date": "2013-03-21",
+    "yahoo": 28.94,
+    "fred": 29.8,
+    "scarto_%": -2.89
+   },
+   {
+    "date": "2013-03-22",
+    "yahoo": 29.08,
+    "fred": 29.87,
+    "scarto_%": -2.64
+   },
+   {
+    "date": "2013-03-25",
+    "yahoo": 29.0,
+    "fred": 29.86,
+    "scarto_%": -2.88
+   },
+   {
+    "date": "2013-03-26",
+    "yahoo": 29.36,
+    "fred": 29.83,
+    "scarto_%": -1.58
+   },
+   {
+    "date": "2013-03-27",
+    "yahoo": 29.05,
+    "fred": 29.88,
+    "scarto_%": -2.78
+   },
+   {
+    "date": "2013-03-28",
+    "yahoo": 29.11,
+    "fred": 29.87,
+    "scarto_%": -2.54
+   },
+   {
+    "date": "2013-03-29",
+    "yahoo": 29.1,
+    "fred": 29.81,
+    "scarto_%": -2.38
+   },
+   {
+    "date": "2013-04-01",
+    "yahoo": 29.08,
+    "fred": 29.86,
+    "scarto_%": -2.61
+   },
+   {
+    "date": "2013-04-15",
+    "yahoo": 29.084,
+    "fred": 29.9,
+    "scarto_%": -2.73
+   },
+   {
+    "date": "2013-04-16",
+    "yahoo": 29.15,
+    "fred": 29.85,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2013-04-17",
+    "yahoo": 28.94,
+    "fred": 29.88,
+    "scarto_%": -3.15
+   },
+   {
+    "date": "2013-04-19",
+    "yahoo": 29.13,
+    "fred": 29.77,
+    "scarto_%": -2.15
+   },
+   {
+    "date": "2013-04-22",
+    "yahoo": 29.11,
+    "fred": 29.81,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2013-04-23",
+    "yahoo": 29.0,
+    "fred": 29.79,
+    "scarto_%": -2.65
+   },
+   {
+    "date": "2013-04-24",
+    "yahoo": 29.0,
+    "fred": 29.76,
+    "scarto_%": -2.55
+   },
+   {
+    "date": "2013-04-25",
+    "yahoo": 29.01,
+    "fred": 29.64,
+    "scarto_%": -2.13
+   },
+   {
+    "date": "2013-04-29",
+    "yahoo": 28.806,
+    "fred": 29.46,
+    "scarto_%": -2.22
+   },
+   {
+    "date": "2013-04-30",
+    "yahoo": 28.69,
+    "fred": 29.52,
+    "scarto_%": -2.81
+   },
+   {
+    "date": "2013-05-01",
+    "yahoo": 28.6,
+    "fred": 29.5,
+    "scarto_%": -3.05
+   },
+   {
+    "date": "2013-05-02",
+    "yahoo": 28.8,
+    "fred": 29.55,
+    "scarto_%": -2.54
+   },
+   {
+    "date": "2013-05-03",
+    "yahoo": 29.024,
+    "fred": 29.53,
+    "scarto_%": -1.71
+   },
+   {
+    "date": "2013-05-07",
+    "yahoo": 28.841,
+    "fred": 29.52,
+    "scarto_%": -2.3
+   },
+   {
+    "date": "2013-05-13",
+    "yahoo": 28.932,
+    "fred": 29.87,
+    "scarto_%": -3.14
+   },
+   {
+    "date": "2013-05-14",
+    "yahoo": 29.1,
+    "fred": 29.88,
+    "scarto_%": -2.61
+   },
+   {
+    "date": "2013-05-15",
+    "yahoo": 29.177,
+    "fred": 29.96,
+    "scarto_%": -2.61
+   },
+   {
+    "date": "2013-05-16",
+    "yahoo": 29.185,
+    "fred": 29.96,
+    "scarto_%": -2.59
+   },
+   {
+    "date": "2013-05-17",
+    "yahoo": 29.192,
+    "fred": 30.01,
+    "scarto_%": -2.73
+   },
+   {
+    "date": "2013-05-20",
+    "yahoo": 29.183,
+    "fred": 29.9,
+    "scarto_%": -2.4
+   },
+   {
+    "date": "2013-05-21",
+    "yahoo": 29.1,
+    "fred": 29.82,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2013-05-22",
+    "yahoo": 29.027,
+    "fred": 29.92,
+    "scarto_%": -2.98
+   },
+   {
+    "date": "2013-05-24",
+    "yahoo": 29.056,
+    "fred": 29.92,
+    "scarto_%": -2.89
+   },
+   {
+    "date": "2013-05-28",
+    "yahoo": 29.157,
+    "fred": 29.98,
+    "scarto_%": -2.75
+   },
+   {
+    "date": "2013-05-29",
+    "yahoo": 29.432,
+    "fred": 29.96,
+    "scarto_%": -1.76
+   },
+   {
+    "date": "2013-05-30",
+    "yahoo": 29.231,
+    "fred": 29.96,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2013-05-31",
+    "yahoo": 29.201,
+    "fred": 29.93,
+    "scarto_%": -2.44
+   },
+   {
+    "date": "2013-06-03",
+    "yahoo": 29.189,
+    "fred": 29.91,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2013-06-04",
+    "yahoo": 29.159,
+    "fred": 29.89,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2013-06-05",
+    "yahoo": 29.158,
+    "fred": 29.81,
+    "scarto_%": -2.19
+   },
+   {
+    "date": "2013-06-06",
+    "yahoo": 28.934,
+    "fred": 29.76,
+    "scarto_%": -2.78
+   },
+   {
+    "date": "2013-06-07",
+    "yahoo": 28.771,
+    "fred": 29.74,
+    "scarto_%": -3.26
+   },
+   {
+    "date": "2013-06-10",
+    "yahoo": 28.771,
+    "fred": 29.91,
+    "scarto_%": -3.81
+   },
+   {
+    "date": "2013-06-11",
+    "yahoo": 28.771,
+    "fred": 29.85,
+    "scarto_%": -3.61
+   },
+   {
+    "date": "2013-06-12",
+    "yahoo": 28.771,
+    "fred": 29.87,
+    "scarto_%": -3.68
+   },
+   {
+    "date": "2013-06-13",
+    "yahoo": 28.987,
+    "fred": 29.87,
+    "scarto_%": -2.96
+   },
+   {
+    "date": "2013-06-14",
+    "yahoo": 29.022,
+    "fred": 29.84,
+    "scarto_%": -2.74
+   },
+   {
+    "date": "2013-06-17",
+    "yahoo": 29.148,
+    "fred": 29.85,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2013-06-18",
+    "yahoo": 29.045,
+    "fred": 29.88,
+    "scarto_%": -2.79
+   },
+   {
+    "date": "2013-06-19",
+    "yahoo": 29.124,
+    "fred": 29.78,
+    "scarto_%": -2.2
+   },
+   {
+    "date": "2013-06-20",
+    "yahoo": 29.299,
+    "fred": 30.16,
+    "scarto_%": -2.85
+   },
+   {
+    "date": "2013-06-21",
+    "yahoo": 29.352,
+    "fred": 30.15,
+    "scarto_%": -2.65
+   },
+   {
+    "date": "2013-06-24",
+    "yahoo": 29.533,
+    "fred": 30.2,
+    "scarto_%": -2.21
+   },
+   {
+    "date": "2013-06-25",
+    "yahoo": 29.389,
+    "fred": 30.05,
+    "scarto_%": -2.2
+   },
+   {
+    "date": "2013-06-26",
+    "yahoo": 29.39,
+    "fred": 30.09,
+    "scarto_%": -2.33
+   },
+   {
+    "date": "2013-06-27",
+    "yahoo": 29.419,
+    "fred": 30.0,
+    "scarto_%": -1.94
+   },
+   {
+    "date": "2013-06-28",
+    "yahoo": 29.207,
+    "fred": 29.96,
+    "scarto_%": -2.51
+   },
+   {
+    "date": "2013-07-01",
+    "yahoo": 29.475,
+    "fred": 29.96,
+    "scarto_%": -1.62
+   },
+   {
+    "date": "2013-07-02",
+    "yahoo": 29.192,
+    "fred": 30.0,
+    "scarto_%": -2.69
+   },
+   {
+    "date": "2013-07-03",
+    "yahoo": 29.343,
+    "fred": 30.06,
+    "scarto_%": -2.39
+   },
+   {
+    "date": "2013-07-05",
+    "yahoo": 29.464,
+    "fred": 30.12,
+    "scarto_%": -2.18
+   },
+   {
+    "date": "2013-07-08",
+    "yahoo": 29.362,
+    "fred": 30.08,
+    "scarto_%": -2.39
+   },
+   {
+    "date": "2013-07-09",
+    "yahoo": 29.291,
+    "fred": 30.09,
+    "scarto_%": -2.66
+   },
+   {
+    "date": "2013-07-11",
+    "yahoo": 28.872,
+    "fred": 29.87,
+    "scarto_%": -3.34
+   },
+   {
+    "date": "2013-07-12",
+    "yahoo": 29.028,
+    "fred": 29.87,
+    "scarto_%": -2.82
+   },
+   {
+    "date": "2013-07-15",
+    "yahoo": 29.079,
+    "fred": 29.82,
+    "scarto_%": -2.48
+   },
+   {
+    "date": "2013-08-29",
+    "yahoo": 29.249,
+    "fred": 29.93,
+    "scarto_%": -2.28
+   },
+   {
+    "date": "2013-09-09",
+    "yahoo": 28.852,
+    "fred": 29.63,
+    "scarto_%": -2.63
+   },
+   {
+    "date": "2013-09-10",
+    "yahoo": 28.772,
+    "fred": 29.62,
+    "scarto_%": -2.86
+   },
+   {
+    "date": "2013-09-11",
+    "yahoo": 28.894,
+    "fred": 29.64,
+    "scarto_%": -2.52
+   },
+   {
+    "date": "2013-09-12",
+    "yahoo": 28.814,
+    "fred": 29.66,
+    "scarto_%": -2.85
+   },
+   {
+    "date": "2013-09-13",
+    "yahoo": 28.937,
+    "fred": 29.68,
+    "scarto_%": -2.5
+   },
+   {
+    "date": "2013-09-16",
+    "yahoo": 28.773,
+    "fred": 29.58,
+    "scarto_%": -2.73
+   },
+   {
+    "date": "2013-09-17",
+    "yahoo": 28.883,
+    "fred": 29.62,
+    "scarto_%": -2.49
+   },
+   {
+    "date": "2013-09-18",
+    "yahoo": 28.895,
+    "fred": 29.62,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2013-09-19",
+    "yahoo": 28.539,
+    "fred": 29.51,
+    "scarto_%": -3.29
+   },
+   {
+    "date": "2013-09-20",
+    "yahoo": 28.759,
+    "fred": 29.56,
+    "scarto_%": -2.71
+   },
+   {
+    "date": "2013-09-23",
+    "yahoo": 28.831,
+    "fred": 29.55,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2013-09-24",
+    "yahoo": 28.875,
+    "fred": 29.57,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2013-09-25",
+    "yahoo": 28.897,
+    "fred": 29.55,
+    "scarto_%": -2.21
+   },
+   {
+    "date": "2013-09-26",
+    "yahoo": 28.812,
+    "fred": 29.56,
+    "scarto_%": -2.53
+   },
+   {
+    "date": "2013-09-27",
+    "yahoo": 28.854,
+    "fred": 29.54,
+    "scarto_%": -2.32
+   },
+   {
+    "date": "2013-09-30",
+    "yahoo": 28.79,
+    "fred": 29.56,
+    "scarto_%": -2.6
+   },
+   {
+    "date": "2013-10-01",
+    "yahoo": 28.774,
+    "fred": 29.49,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2013-10-02",
+    "yahoo": 28.811,
+    "fred": 29.44,
+    "scarto_%": -2.14
+   },
+   {
+    "date": "2013-10-03",
+    "yahoo": 28.612,
+    "fred": 29.32,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2013-10-04",
+    "yahoo": 28.585,
+    "fred": 29.32,
+    "scarto_%": -2.51
+   },
+   {
+    "date": "2013-10-07",
+    "yahoo": 28.676,
+    "fred": 29.34,
+    "scarto_%": -2.26
+   },
+   {
+    "date": "2013-10-09",
+    "yahoo": 28.589,
+    "fred": 29.38,
+    "scarto_%": -2.69
+   },
+   {
+    "date": "2013-10-10",
+    "yahoo": 28.655,
+    "fred": 29.37,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2013-10-11",
+    "yahoo": 28.643,
+    "fred": 29.33,
+    "scarto_%": -2.34
+   },
+   {
+    "date": "2013-10-15",
+    "yahoo": 28.638,
+    "fred": 29.34,
+    "scarto_%": -2.39
+   },
+   {
+    "date": "2013-10-16",
+    "yahoo": 28.541,
+    "fred": 29.4,
+    "scarto_%": -2.92
+   },
+   {
+    "date": "2013-10-17",
+    "yahoo": 28.707,
+    "fred": 29.35,
+    "scarto_%": -2.19
+   },
+   {
+    "date": "2013-10-18",
+    "yahoo": 28.569,
+    "fred": 29.36,
+    "scarto_%": -2.69
+   },
+   {
+    "date": "2013-10-21",
+    "yahoo": 28.682,
+    "fred": 29.43,
+    "scarto_%": -2.54
+   },
+   {
+    "date": "2013-10-22",
+    "yahoo": 28.682,
+    "fred": 29.33,
+    "scarto_%": -2.21
+   },
+   {
+    "date": "2013-10-23",
+    "yahoo": 28.418,
+    "fred": 29.41,
+    "scarto_%": -3.37
+   },
+   {
+    "date": "2013-10-24",
+    "yahoo": 28.613,
+    "fred": 29.37,
+    "scarto_%": -2.58
+   },
+   {
+    "date": "2013-10-25",
+    "yahoo": 28.671,
+    "fred": 29.38,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2013-10-28",
+    "yahoo": 28.662,
+    "fred": 29.39,
+    "scarto_%": -2.48
+   },
+   {
+    "date": "2013-10-29",
+    "yahoo": 28.717,
+    "fred": 29.39,
+    "scarto_%": -2.29
+   },
+   {
+    "date": "2013-10-30",
+    "yahoo": 28.729,
+    "fred": 29.38,
+    "scarto_%": -2.22
+   },
+   {
+    "date": "2013-10-31",
+    "yahoo": 28.73,
+    "fred": 29.42,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2013-11-01",
+    "yahoo": 28.793,
+    "fred": 29.41,
+    "scarto_%": -2.1
+   },
+   {
+    "date": "2013-11-04",
+    "yahoo": 28.719,
+    "fred": 29.37,
+    "scarto_%": -2.22
+   },
+   {
+    "date": "2013-11-05",
+    "yahoo": 28.658,
+    "fred": 29.42,
+    "scarto_%": -2.59
+   },
+   {
+    "date": "2013-11-06",
+    "yahoo": 28.693,
+    "fred": 29.4,
+    "scarto_%": -2.4
+   },
+   {
+    "date": "2013-11-07",
+    "yahoo": 28.674,
+    "fred": 29.45,
+    "scarto_%": -2.63
+   },
+   {
+    "date": "2013-11-08",
+    "yahoo": 28.89,
+    "fred": 29.51,
+    "scarto_%": -2.1
+   },
+   {
+    "date": "2013-11-12",
+    "yahoo": 28.794,
+    "fred": 29.58,
+    "scarto_%": -2.66
+   },
+   {
+    "date": "2013-11-13",
+    "yahoo": 28.729,
+    "fred": 29.6,
+    "scarto_%": -2.94
+   },
+   {
+    "date": "2013-11-14",
+    "yahoo": 28.685,
+    "fred": 29.56,
+    "scarto_%": -2.96
+   },
+   {
+    "date": "2013-11-15",
+    "yahoo": 28.837,
+    "fred": 29.55,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2013-11-18",
+    "yahoo": 28.741,
+    "fred": 29.47,
+    "scarto_%": -2.47
+   },
+   {
+    "date": "2013-11-25",
+    "yahoo": 28.783,
+    "fred": 29.6,
+    "scarto_%": -2.76
+   },
+   {
+    "date": "2013-11-29",
+    "yahoo": 28.899,
+    "fred": 29.59,
+    "scarto_%": -2.34
+   },
+   {
+    "date": "2013-12-02",
+    "yahoo": 28.898,
+    "fred": 29.59,
+    "scarto_%": -2.34
+   },
+   {
+    "date": "2013-12-09",
+    "yahoo": 28.808,
+    "fred": 29.53,
+    "scarto_%": -2.44
+   },
+   {
+    "date": "2013-12-16",
+    "yahoo": 28.85,
+    "fred": 29.63,
+    "scarto_%": -2.63
+   },
+   {
+    "date": "2013-12-23",
+    "yahoo": 29.193,
+    "fred": 29.96,
+    "scarto_%": -2.56
+   },
+   {
+    "date": "2013-12-27",
+    "yahoo": 29.272,
+    "fred": 29.98,
+    "scarto_%": -2.36
+   },
+   {
+    "date": "2014-01-02",
+    "yahoo": 29.144,
+    "fred": 29.9,
+    "scarto_%": -2.53
+   },
+   {
+    "date": "2014-01-06",
+    "yahoo": 29.316,
+    "fred": 30.04,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2014-01-13",
+    "yahoo": 29.167,
+    "fred": 29.98,
+    "scarto_%": -2.71
+   },
+   {
+    "date": "2014-01-21",
+    "yahoo": 29.376,
+    "fred": 30.22,
+    "scarto_%": -2.79
+   },
+   {
+    "date": "2014-01-27",
+    "yahoo": 29.632,
+    "fred": 30.31,
+    "scarto_%": -2.24
+   },
+   {
+    "date": "2014-02-03",
+    "yahoo": 29.762,
+    "fred": 30.33,
+    "scarto_%": -1.87
+   },
+   {
+    "date": "2014-02-10",
+    "yahoo": 29.411,
+    "fred": 30.32,
+    "scarto_%": -3.0
+   },
+   {
+    "date": "2014-02-18",
+    "yahoo": 29.533,
+    "fred": 30.28,
+    "scarto_%": -2.47
+   },
+   {
+    "date": "2014-02-24",
+    "yahoo": 29.543,
+    "fred": 30.35,
+    "scarto_%": -2.66
+   },
+   {
+    "date": "2014-03-03",
+    "yahoo": 29.57,
+    "fred": 30.31,
+    "scarto_%": -2.44
+   },
+   {
+    "date": "2014-03-10",
+    "yahoo": 29.55,
+    "fred": 30.31,
+    "scarto_%": -2.51
+   },
+   {
+    "date": "2014-03-17",
+    "yahoo": 29.567,
+    "fred": 30.31,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2014-03-24",
+    "yahoo": 29.844,
+    "fred": 30.57,
+    "scarto_%": -2.37
+   },
+   {
+    "date": "2014-03-31",
+    "yahoo": 29.703,
+    "fred": 30.45,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2014-04-03",
+    "yahoo": 29.668,
+    "fred": 30.28,
+    "scarto_%": -2.02
+   },
+   {
+    "date": "2014-04-07",
+    "yahoo": 29.56,
+    "fred": 30.23,
+    "scarto_%": -2.22
+   },
+   {
+    "date": "2014-04-11",
+    "yahoo": 29.31,
+    "fred": 30.08,
+    "scarto_%": -2.56
+   },
+   {
+    "date": "2014-04-14",
+    "yahoo": 29.447,
+    "fred": 30.18,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2014-04-21",
+    "yahoo": 29.507,
+    "fred": 30.23,
+    "scarto_%": -2.39
+   },
+   {
+    "date": "2014-04-28",
+    "yahoo": 29.564,
+    "fred": 30.22,
+    "scarto_%": -2.17
+   },
+   {
+    "date": "2014-04-30",
+    "yahoo": 29.45,
+    "fred": 30.16,
+    "scarto_%": -2.35
+   },
+   {
+    "date": "2014-05-06",
+    "yahoo": 29.366,
+    "fred": 30.07,
+    "scarto_%": -2.34
+   },
+   {
+    "date": "2014-05-19",
+    "yahoo": 29.413,
+    "fred": 30.14,
+    "scarto_%": -2.41
+   },
+   {
+    "date": "2014-05-27",
+    "yahoo": 29.372,
+    "fred": 30.11,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2014-05-28",
+    "yahoo": 29.431,
+    "fred": 30.09,
+    "scarto_%": -2.19
+   },
+   {
+    "date": "2014-06-06",
+    "yahoo": 29.201,
+    "fred": 29.99,
+    "scarto_%": -2.63
+   },
+   {
+    "date": "2014-06-09",
+    "yahoo": 29.275,
+    "fred": 30.0,
+    "scarto_%": -2.42
+   },
+   {
+    "date": "2014-06-23",
+    "yahoo": 29.262,
+    "fred": 29.99,
+    "scarto_%": -2.43
+   },
+   {
+    "date": "2014-06-24",
+    "yahoo": 29.238,
+    "fred": 29.94,
+    "scarto_%": -2.34
+   },
+   {
+    "date": "2014-07-02",
+    "yahoo": 29.191,
+    "fred": 29.87,
+    "scarto_%": -2.27
+   },
+   {
+    "date": "2014-07-03",
+    "yahoo": 29.143,
+    "fred": 29.85,
+    "scarto_%": -2.37
+   },
+   {
+    "date": "2014-07-07",
+    "yahoo": 29.156,
+    "fred": 29.91,
+    "scarto_%": -2.52
+   },
+   {
+    "date": "2014-07-10",
+    "yahoo": 29.098,
+    "fred": 29.93,
+    "scarto_%": -2.78
+   },
+   {
+    "date": "2014-07-21",
+    "yahoo": 29.233,
+    "fred": 29.97,
+    "scarto_%": -2.46
+   },
+   {
+    "date": "2014-07-23",
+    "yahoo": 29.289,
+    "fred": 29.94,
+    "scarto_%": -2.17
+   },
+   {
+    "date": "2014-08-06",
+    "yahoo": 29.267,
+    "fred": 30.01,
+    "scarto_%": -2.48
+   },
+   {
+    "date": "2014-08-18",
+    "yahoo": 29.179,
+    "fred": 29.98,
+    "scarto_%": -2.67
+   },
+   {
+    "date": "2014-08-19",
+    "yahoo": 29.218,
+    "fred": 29.99,
+    "scarto_%": -2.57
+   },
+   {
+    "date": "2014-08-20",
+    "yahoo": 29.246,
+    "fred": 29.98,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2014-08-21",
+    "yahoo": 29.232,
+    "fred": 29.99,
+    "scarto_%": -2.53
+   },
+   {
+    "date": "2014-08-22",
+    "yahoo": 29.278,
+    "fred": 29.97,
+    "scarto_%": -2.31
+   },
+   {
+    "date": "2014-08-25",
+    "yahoo": 29.216,
+    "fred": 29.96,
+    "scarto_%": -2.48
+   },
+   {
+    "date": "2014-08-26",
+    "yahoo": 29.244,
+    "fred": 29.96,
+    "scarto_%": -2.39
+   },
+   {
+    "date": "2014-08-27",
+    "yahoo": 29.192,
+    "fred": 29.87,
+    "scarto_%": -2.27
+   },
+   {
+    "date": "2014-08-28",
+    "yahoo": 29.121,
+    "fred": 29.89,
+    "scarto_%": -2.57
+   },
+   {
+    "date": "2014-08-29",
+    "yahoo": 29.119,
+    "fred": 29.88,
+    "scarto_%": -2.55
+   },
+   {
+    "date": "2014-09-02",
+    "yahoo": 29.117,
+    "fred": 29.94,
+    "scarto_%": -2.75
+   },
+   {
+    "date": "2014-09-03",
+    "yahoo": 29.146,
+    "fred": 29.89,
+    "scarto_%": -2.49
+   },
+   {
+    "date": "2014-09-04",
+    "yahoo": 29.146,
+    "fred": 29.91,
+    "scarto_%": -2.55
+   },
+   {
+    "date": "2014-09-08",
+    "yahoo": 29.166,
+    "fred": 29.93,
+    "scarto_%": -2.55
+   },
+   {
+    "date": "2014-09-10",
+    "yahoo": 29.055,
+    "fred": 30.0,
+    "scarto_%": -3.15
+   },
+   {
+    "date": "2014-09-11",
+    "yahoo": 29.293,
+    "fred": 30.02,
+    "scarto_%": -2.42
+   },
+   {
+    "date": "2014-09-15",
+    "yahoo": 29.157,
+    "fred": 30.14,
+    "scarto_%": -3.26
+   },
+   {
+    "date": "2014-09-16",
+    "yahoo": 29.316,
+    "fred": 30.13,
+    "scarto_%": -2.7
+   },
+   {
+    "date": "2014-09-17",
+    "yahoo": 29.344,
+    "fred": 30.16,
+    "scarto_%": -2.71
+   },
+   {
+    "date": "2014-09-18",
+    "yahoo": 29.648,
+    "fred": 30.23,
+    "scarto_%": -1.93
+   },
+   {
+    "date": "2014-09-19",
+    "yahoo": 29.369,
+    "fred": 30.21,
+    "scarto_%": -2.78
+   },
+   {
+    "date": "2014-09-22",
+    "yahoo": 29.513,
+    "fred": 30.27,
+    "scarto_%": -2.5
+   },
+   {
+    "date": "2014-09-23",
+    "yahoo": 29.456,
+    "fred": 30.22,
+    "scarto_%": -2.53
+   },
+   {
+    "date": "2014-09-24",
+    "yahoo": 29.539,
+    "fred": 30.22,
+    "scarto_%": -2.25
+   },
+   {
+    "date": "2014-09-25",
+    "yahoo": 29.573,
+    "fred": 30.32,
+    "scarto_%": -2.46
+   },
+   {
+    "date": "2014-09-26",
+    "yahoo": 29.459,
+    "fred": 30.34,
+    "scarto_%": -2.9
+   },
+   {
+    "date": "2014-09-29",
+    "yahoo": 29.632,
+    "fred": 30.47,
+    "scarto_%": -2.75
+   },
+   {
+    "date": "2014-09-30",
+    "yahoo": 29.676,
+    "fred": 30.44,
+    "scarto_%": -2.51
+   },
+   {
+    "date": "2014-10-01",
+    "yahoo": 29.573,
+    "fred": 30.43,
+    "scarto_%": -2.82
+   },
+   {
+    "date": "2014-10-02",
+    "yahoo": 29.611,
+    "fred": 30.43,
+    "scarto_%": -2.69
+   },
+   {
+    "date": "2014-10-06",
+    "yahoo": 29.901,
+    "fred": 30.42,
+    "scarto_%": -1.71
+   },
+   {
+    "date": "2014-10-07",
+    "yahoo": 29.39,
+    "fred": 30.38,
+    "scarto_%": -3.26
+   },
+   {
+    "date": "2014-10-08",
+    "yahoo": 29.473,
+    "fred": 30.43,
+    "scarto_%": -3.14
+   },
+   {
+    "date": "2014-10-09",
+    "yahoo": 29.625,
+    "fred": 30.37,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2014-10-10",
+    "yahoo": 29.742,
+    "fred": 30.38,
+    "scarto_%": -2.1
+   },
+   {
+    "date": "2014-10-14",
+    "yahoo": 29.477,
+    "fred": 30.45,
+    "scarto_%": -3.2
+   },
+   {
+    "date": "2014-10-15",
+    "yahoo": 29.648,
+    "fred": 30.35,
+    "scarto_%": -2.31
+   },
+   {
+    "date": "2014-10-16",
+    "yahoo": 29.17,
+    "fred": 30.38,
+    "scarto_%": -3.98
+   },
+   {
+    "date": "2014-10-17",
+    "yahoo": 29.503,
+    "fred": 30.38,
+    "scarto_%": -2.89
+   },
+   {
+    "date": "2014-10-22",
+    "yahoo": 29.687,
+    "fred": 30.39,
+    "scarto_%": -2.31
+   },
+   {
+    "date": "2014-10-24",
+    "yahoo": 29.66,
+    "fred": 30.39,
+    "scarto_%": -2.4
+   },
+   {
+    "date": "2014-10-27",
+    "yahoo": 29.568,
+    "fred": 30.38,
+    "scarto_%": -2.67
+   },
+   {
+    "date": "2014-10-28",
+    "yahoo": 29.556,
+    "fred": 30.36,
+    "scarto_%": -2.65
+   },
+   {
+    "date": "2014-10-29",
+    "yahoo": 29.523,
+    "fred": 30.31,
+    "scarto_%": -2.6
+   },
+   {
+    "date": "2014-10-30",
+    "yahoo": 29.814,
+    "fred": 30.39,
+    "scarto_%": -1.9
+   },
+   {
+    "date": "2014-10-31",
+    "yahoo": 29.653,
+    "fred": 30.45,
+    "scarto_%": -2.62
+   },
+   {
+    "date": "2014-11-03",
+    "yahoo": 29.791,
+    "fred": 30.48,
+    "scarto_%": -2.26
+   },
+   {
+    "date": "2014-11-05",
+    "yahoo": 29.618,
+    "fred": 30.59,
+    "scarto_%": -3.18
+   },
+   {
+    "date": "2014-11-06",
+    "yahoo": 29.775,
+    "fred": 30.56,
+    "scarto_%": -2.57
+   },
+   {
+    "date": "2014-11-10",
+    "yahoo": 29.677,
+    "fred": 30.55,
+    "scarto_%": -2.86
+   },
+   {
+    "date": "2014-11-12",
+    "yahoo": 29.637,
+    "fred": 30.58,
+    "scarto_%": -3.08
+   },
+   {
+    "date": "2014-11-13",
+    "yahoo": 29.845,
+    "fred": 30.61,
+    "scarto_%": -2.5
+   },
+   {
+    "date": "2014-11-14",
+    "yahoo": 29.775,
+    "fred": 30.76,
+    "scarto_%": -3.2
+   },
+   {
+    "date": "2014-11-17",
+    "yahoo": 29.749,
+    "fred": 30.7,
+    "scarto_%": -3.1
+   },
+   {
+    "date": "2014-11-18",
+    "yahoo": 29.991,
+    "fred": 30.73,
+    "scarto_%": -2.4
+   },
+   {
+    "date": "2014-11-21",
+    "yahoo": 30.087,
+    "fred": 30.89,
+    "scarto_%": -2.6
+   },
+   {
+    "date": "2014-11-25",
+    "yahoo": 30.103,
+    "fred": 30.93,
+    "scarto_%": -2.67
+   },
+   {
+    "date": "2014-11-26",
+    "yahoo": 30.051,
+    "fred": 30.88,
+    "scarto_%": -2.68
+   },
+   {
+    "date": "2014-11-28",
+    "yahoo": 30.116,
+    "fred": 30.99,
+    "scarto_%": -2.82
+   },
+   {
+    "date": "2014-12-01",
+    "yahoo": 30.215,
+    "fred": 31.03,
+    "scarto_%": -2.63
+   },
+   {
+    "date": "2014-12-03",
+    "yahoo": 30.399,
+    "fred": 31.11,
+    "scarto_%": -2.29
+   },
+   {
+    "date": "2014-12-04",
+    "yahoo": 30.279,
+    "fred": 31.09,
+    "scarto_%": -2.61
+   },
+   {
+    "date": "2014-12-12",
+    "yahoo": 30.402,
+    "fred": 31.32,
+    "scarto_%": -2.93
+   },
+   {
+    "date": "2014-12-24",
+    "yahoo": 30.934,
+    "fred": 31.8,
+    "scarto_%": -2.72
+   },
+   {
+    "date": "2014-12-30",
+    "yahoo": 30.958,
+    "fred": 31.64,
+    "scarto_%": -2.16
+   },
+   {
+    "date": "2014-12-31",
+    "yahoo": 3.67,
+    "fred": 31.6,
+    "scarto_%": -88.39
+   },
+   {
+    "date": "2015-04-03",
+    "yahoo": 30.066,
+    "fred": 30.87,
+    "scarto_%": -2.6
+   },
+   {
+    "date": "2015-04-17",
+    "yahoo": 29.994,
+    "fred": 31.05,
+    "scarto_%": -3.4
+   },
+   {
+    "date": "2015-04-20",
+    "yahoo": 30.113,
+    "fred": 31.07,
+    "scarto_%": -3.08
+   },
+   {
+    "date": "2015-09-04",
+    "yahoo": 31.893,
+    "fred": 32.65,
+    "scarto_%": -2.32
+   },
+   {
+    "date": "2015-11-10",
+    "yahoo": 31.954,
+    "fred": 32.77,
+    "scarto_%": -2.49
+   },
+   {
+    "date": "2015-11-12",
+    "yahoo": 31.688,
+    "fred": 32.72,
+    "scarto_%": -3.15
+   },
+   {
+    "date": "2015-11-13",
+    "yahoo": 31.557,
+    "fred": 32.87,
+    "scarto_%": -3.99
+   },
+   {
+    "date": "2015-11-23",
+    "yahoo": 31.703,
+    "fred": 32.62,
+    "scarto_%": -2.81
+   },
+   {
+    "date": "2015-11-25",
+    "yahoo": 31.659,
+    "fred": 32.47,
+    "scarto_%": -2.5
+   },
+   {
+    "date": "2015-12-02",
+    "yahoo": 31.64,
+    "fred": 32.53,
+    "scarto_%": -2.74
+   },
+   {
+    "date": "2015-12-03",
+    "yahoo": 31.778,
+    "fred": 32.53,
+    "scarto_%": -2.31
+   },
+   {
+    "date": "2015-12-07",
+    "yahoo": 31.871,
+    "fred": 32.89,
+    "scarto_%": -3.1
+   },
+   {
+    "date": "2015-12-08",
+    "yahoo": 31.861,
+    "fred": 32.94,
+    "scarto_%": -3.28
+   },
+   {
+    "date": "2015-12-09",
+    "yahoo": 31.945,
+    "fred": 32.9,
+    "scarto_%": -2.9
+   },
+   {
+    "date": "2015-12-10",
+    "yahoo": 31.719,
+    "fred": 32.74,
+    "scarto_%": -3.12
+   },
+   {
+    "date": "2015-12-14",
+    "yahoo": 31.857,
+    "fred": 32.9,
+    "scarto_%": -3.17
+   },
+   {
+    "date": "2015-12-15",
+    "yahoo": 31.927,
+    "fred": 32.75,
+    "scarto_%": -2.51
+   },
+   {
+    "date": "2015-12-16",
+    "yahoo": 32.017,
+    "fred": 32.7,
+    "scarto_%": -2.09
+   },
+   {
+    "date": "2015-12-17",
+    "yahoo": 31.921,
+    "fred": 33.0,
+    "scarto_%": -3.27
+   },
+   {
+    "date": "2015-12-18",
+    "yahoo": 32.05,
+    "fred": 32.85,
+    "scarto_%": -2.44
+   },
+   {
+    "date": "2015-12-22",
+    "yahoo": 31.86,
+    "fred": 32.79,
+    "scarto_%": -2.84
+   },
+   {
+    "date": "2015-12-23",
+    "yahoo": 31.88,
+    "fred": 32.82,
+    "scarto_%": -2.86
+   },
+   {
+    "date": "2015-12-24",
+    "yahoo": 31.998,
+    "fred": 32.77,
+    "scarto_%": -2.36
+   },
+   {
+    "date": "2015-12-28",
+    "yahoo": 31.787,
+    "fred": 32.79,
+    "scarto_%": -3.06
+   },
+   {
+    "date": "2015-12-29",
+    "yahoo": 31.919,
+    "fred": 32.79,
+    "scarto_%": -2.66
+   },
+   {
+    "date": "2015-12-30",
+    "yahoo": 32.118,
+    "fred": 32.97,
+    "scarto_%": -2.58
+   },
+   {
+    "date": "2015-12-31",
+    "yahoo": 31.988,
+    "fred": 32.79,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2016-01-04",
+    "yahoo": 32.059,
+    "fred": 33.15,
+    "scarto_%": -3.29
+   },
+   {
+    "date": "2016-01-05",
+    "yahoo": 32.464,
+    "fred": 33.14,
+    "scarto_%": -2.04
+   },
+   {
+    "date": "2016-01-06",
+    "yahoo": 32.246,
+    "fred": 33.27,
+    "scarto_%": -3.08
+   },
+   {
+    "date": "2016-01-08",
+    "yahoo": 32.234,
+    "fred": 33.34,
+    "scarto_%": -3.32
+   },
+   {
+    "date": "2016-01-11",
+    "yahoo": 32.201,
+    "fred": 33.38,
+    "scarto_%": -3.53
+   },
+   {
+    "date": "2016-01-12",
+    "yahoo": 32.559,
+    "fred": 33.41,
+    "scarto_%": -2.55
+   },
+   {
+    "date": "2016-01-19",
+    "yahoo": 32.645,
+    "fred": 33.57,
+    "scarto_%": -2.76
+   },
+   {
+    "date": "2016-01-20",
+    "yahoo": 32.444,
+    "fred": 33.74,
+    "scarto_%": -3.84
+   },
+   {
+    "date": "2016-01-21",
+    "yahoo": 32.916,
+    "fred": 33.56,
+    "scarto_%": -1.92
+   },
+   {
+    "date": "2016-01-22",
+    "yahoo": 32.946,
+    "fred": 33.49,
+    "scarto_%": -1.62
+   },
+   {
+    "date": "2016-01-25",
+    "yahoo": 32.642,
+    "fred": 33.5,
+    "scarto_%": -2.56
+   },
+   {
+    "date": "2016-01-26",
+    "yahoo": 32.478,
+    "fred": 33.46,
+    "scarto_%": -2.93
+   },
+   {
+    "date": "2016-01-27",
+    "yahoo": 32.451,
+    "fred": 33.55,
+    "scarto_%": -3.28
+   },
+   {
+    "date": "2016-01-28",
+    "yahoo": 32.595,
+    "fred": 33.53,
+    "scarto_%": -2.79
+   },
+   {
+    "date": "2016-01-29",
+    "yahoo": 32.606,
+    "fred": 33.43,
+    "scarto_%": -2.46
+   },
+   {
+    "date": "2016-02-01",
+    "yahoo": 32.799,
+    "fred": 33.41,
+    "scarto_%": -1.83
+   },
+   {
+    "date": "2016-02-02",
+    "yahoo": 32.43,
+    "fred": 33.51,
+    "scarto_%": -3.22
+   },
+   {
+    "date": "2016-02-04",
+    "yahoo": 32.167,
+    "fred": 33.0,
+    "scarto_%": -2.52
+   },
+   {
+    "date": "2016-02-10",
+    "yahoo": 32.192,
+    "fred": 33.0,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2016-02-12",
+    "yahoo": 32.136,
+    "fred": 33.04,
+    "scarto_%": -2.74
+   },
+   {
+    "date": "2016-02-19",
+    "yahoo": 32.309,
+    "fred": 33.3,
+    "scarto_%": -2.98
+   },
+   {
+    "date": "2016-02-22",
+    "yahoo": 32.308,
+    "fred": 33.15,
+    "scarto_%": -2.54
+   },
+   {
+    "date": "2016-02-23",
+    "yahoo": 32.338,
+    "fred": 33.26,
+    "scarto_%": -2.77
+   },
+   {
+    "date": "2016-02-25",
+    "yahoo": 32.302,
+    "fred": 33.19,
+    "scarto_%": -2.68
+   },
+   {
+    "date": "2016-02-26",
+    "yahoo": 32.311,
+    "fred": 33.29,
+    "scarto_%": -2.94
+   },
+   {
+    "date": "2016-03-01",
+    "yahoo": 32.391,
+    "fred": 33.04,
+    "scarto_%": -1.96
+   },
+   {
+    "date": "2016-03-02",
+    "yahoo": 32.221,
+    "fred": 33.09,
+    "scarto_%": -2.63
+   },
+   {
+    "date": "2016-03-04",
+    "yahoo": 31.791,
+    "fred": 32.49,
+    "scarto_%": -2.15
+   },
+   {
+    "date": "2016-03-07",
+    "yahoo": 31.768,
+    "fred": 32.54,
+    "scarto_%": -2.37
+   },
+   {
+    "date": "2016-03-14",
+    "yahoo": 31.686,
+    "fred": 32.68,
+    "scarto_%": -3.04
+   },
+   {
+    "date": "2016-03-15",
+    "yahoo": 31.799,
+    "fred": 32.86,
+    "scarto_%": -3.23
+   },
+   {
+    "date": "2016-04-08",
+    "yahoo": 31.511,
+    "fred": 32.4,
+    "scarto_%": -2.74
+   },
+   {
+    "date": "2016-04-22",
+    "yahoo": 31.442,
+    "fred": 32.36,
+    "scarto_%": -2.84
+   },
+   {
+    "date": "2016-07-11",
+    "yahoo": 31.422,
+    "fred": 32.21,
+    "scarto_%": -2.45
+   },
+   {
+    "date": "2016-07-18",
+    "yahoo": 31.319,
+    "fred": 31.93,
+    "scarto_%": -1.91
+   },
+   {
+    "date": "2016-08-01",
+    "yahoo": 30.841,
+    "fred": 31.55,
+    "scarto_%": -2.25
+   },
+   {
+    "date": "2018-02-26",
+    "yahoo": 28.479,
+    "fred": 29.22,
+    "scarto_%": -2.54
+   },
+   {
+    "date": "2025-05-06",
+    "yahoo": 29.16,
+    "fred": 29.92,
+    "scarto_%": -2.54
+   },
+   {
+    "date": "2025-11-17",
+    "yahoo": 30.5545,
+    "fred": 31.15,
+    "scarto_%": -1.91
+   }
+  ],
+  "sospetti_dal_2023_11": [
+   {
+    "date": "2025-05-06",
+    "yahoo": 29.16,
+    "fred": 29.92,
+    "scarto_%": -2.54
+   },
+   {
+    "date": "2025-11-17",
+    "yahoo": 30.5545,
+    "fred": 31.15,
+    "scarto_%": -1.91
+   }
+  ],
+  "stati_cambiati_togliendo_sospetti_dal_2023_11": 3,
+  "esempi_cambiati": [
+   [
+    "2025-07-31",
+    "normale",
+    "ferma"
+   ],
+   [
+    "2025-12-15",
+    "calo",
+    "normale"
+   ],
+   [
+    "2025-12-23",
+    "normale",
+    "calo"
+   ]
+  ],
+  "accordo_stati_yahoo_fred_dal_2023_11": "689/748",
+  "stato_app_oggi": [
+   "2026-11-04",
+   "normale"
+  ],
+  "stato_fred_ultimo": [
+   "2026-10-30",
+   "normale"
+  ],
+  "stato_app_stessa_data_fred": "normale",
+  "z_app_oggi": 0.4476612600513245,
+  "z_fred_ultimo": 0.2739225051356868
+ },
+ "HKD=X": {
+  "fred": "DEXHKUS",
+  "comuni": 5714,
+  "scarto_mediano_%": 0.013,
+  "scarto_p99_%": 0.161,
+  "tolti": [
+   {
+    "date": "2006-02-10",
+    "yahoo": 7.8613,
+    "prev": 7.7613,
+    "next": 7.7601,
+    "fred": 7.759,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2008-03-14",
+    "yahoo": 7.6849,
+    "prev": 7.7832,
+    "next": 7.7632,
+    "fred": 7.7829,
+    "verdict": "errore confermato"
+   },
+   {
+    "date": "2008-03-21",
+    "yahoo": 7.6431,
+    "prev": 7.7767,
+    "next": 7.7792,
+    "fred": 7.777,
+    "verdict": "errore confermato"
+   }
+  ],
+  "tolti_confermati": 3,
+  "tolti_non_confermati": [],
+  "sospetti_non_tolti": [
+   {
+    "date": "2008-04-18",
+    "yahoo": 7.8352,
+    "fred": 7.7939,
+    "scarto_%": 0.53
+   },
+   {
+    "date": "2009-02-20",
+    "yahoo": 7.6907,
+    "fred": 7.7543,
+    "scarto_%": -0.82
+   }
+  ],
+  "sospetti_dal_2023_11": [],
+  "stati_cambiati_togliendo_sospetti_dal_2023_11": 0,
+  "esempi_cambiati": [],
+  "accordo_stati_yahoo_fred_dal_2023_11": "721/748",
+  "stato_app_oggi": [
+   "2026-11-04",
+   "normale"
+  ],
+  "stato_fred_ultimo": [
+   "2026-10-30",
+   "normale"
+  ],
+  "stato_app_stessa_data_fred": "normale",
+  "z_app_oggi": 0.05407199396536228,
+  "z_fred_ultimo": 0.09752545280529988
+ },
+ "DTWEXEMEGS": {
+  "righe_file": 5222,
+  "righe_fred_dal_inizio": 5222,
+  "diversi": [],
+  "n_diversi": 0,
+  "in_fred_non_nel_file": [],
+  "ultimo_file": "2026-10-30",
+  "ultimo_fred": "2026-10-30"
+ }
+}

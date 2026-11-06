@@ -1,0 +1,140 @@
+{
+ "global_DBMFE": {
+  "splicedUntil": "2025-04-28",
+  "factorOld": 4.572310518738118,
+  "factorNew": 4.545859894035529,
+  "fxShiftedBars": 758,
+  "fxBars": 1299,
+  "fxSundayOld": 151,
+  "fxSundayNew": 0,
+  "newVsOld": {
+   "sessions": 877,
+   "differ": 876,
+   "levelPct": {
+    "median": 0.5785,
+    "p95": 1.1883,
+    "max": 2.251
+   },
+   "dailyReturnPctPts": {
+    "median": 0.022,
+    "p95": 1.1087,
+    "max": 2.9587
+   },
+   "worst": {
+    "date": "2022-07-05",
+    "pct": -2.251
+   }
+  },
+  "oldVsPublished": {
+   "sessions": 877,
+   "differ": 877,
+   "levelPct": {
+    "median": 0,
+    "p95": 0.0001,
+    "max": 0.0001
+   },
+   "dailyReturnPctPts": {
+    "median": 0,
+    "p95": 0.0001,
+    "max": 0.0001
+   },
+   "worst": {
+    "date": "2021-11-18",
+    "pct": -0.0001
+   }
+  },
+  "newVsPublished": {
+   "sessions": 877,
+   "differ": 877,
+   "levelPct": {
+    "median": 0.5785,
+    "p95": 1.1884,
+    "max": 2.2511
+   },
+   "dailyReturnPctPts": {
+    "median": 0.0221,
+    "p95": 1.1087,
+    "max": 2.9587
+   },
+   "worst": {
+    "date": "2022-07-05",
+    "pct": -2.2511
+   }
+  },
+  "afterSplice_newVsPublished": {
+   "sessions": 385,
+   "differ": 362,
+   "levelPct": {
+    "median": 0,
+    "p95": 0,
+    "max": 0
+   },
+   "dailyReturnPctPts": {
+    "median": 0,
+    "p95": 0,
+    "max": 0
+   },
+   "worst": {
+    "date": "2026-09-25",
+    "pct": 0
+   }
+  }
+ },
+ "macro_DXY_INV": {
+  "newVsOld": {
+   "sessions": 1254,
+   "differ": 640,
+   "levelPct": {
+    "median": 0.0101,
+    "p95": 0.7301,
+    "max": 1.9728
+   },
+   "dailyReturnPctPts": {
+    "median": 0.1343,
+    "p95": 1.0204,
+    "max": 3.248
+   },
+   "worst": {
+    "date": "2025-04-09",
+    "pct": -1.9728
+   }
+  },
+  "oldVsPublished": {
+   "sessions": 1254,
+   "differ": 14,
+   "levelPct": {
+    "median": 0,
+    "p95": 0,
+    "max": 0.3547
+   },
+   "dailyReturnPctPts": {
+    "median": 0,
+    "p95": 0,
+    "max": 0.3547
+   },
+   "worst": {
+    "date": "2026-11-04",
+    "pct": 0.3547
+   }
+  },
+  "newVsPublished": {
+   "sessions": 1254,
+   "differ": 647,
+   "levelPct": {
+    "median": 0.0101,
+    "p95": 0.7301,
+    "max": 1.9728
+   },
+   "dailyReturnPctPts": {
+    "median": 0.1377,
+    "p95": 1.0204,
+    "max": 3.248
+   },
+   "worst": {
+    "date": "2025-04-09",
+    "pct": -1.9728
+   }
+  },
+  "oldEqualsNextNew": 640
+ }
+}

@@ -1,0 +1,71 @@
+asOf breadth 2026-10-30 | ultima data 2026-10-30
+primo stato settori: XLK 2005-01-03, XLC 2019-06-20, XLY 2005-01-03, XLP 2005-01-03, XLE 2005-01-03, XLF 2005-01-03, XLV 2005-01-03, XLI 2005-01-03, XLB 2005-01-03, XLRE 2016-10-07, XLU 2005-01-03
+prima breadth settori: XLK 2005-01-03, XLC 2005-01-03, XLY 2005-01-03, XLP 2005-01-03, XLE 2005-01-03, XLF 2005-01-03, XLV 2005-01-03, XLI 2005-01-03, XLB 2005-01-03, XLRE 2005-01-03, XLU 2005-01-03
+
+== settori (DEFINIZIONE SBAGLIATA: dalla seduta 0)
+C: tocchi avvisati 42/73 | primo avviso prima del tocco: mediana 49 (centrale basso 49) | ultimo 26.5 | allarmi 180, arrivano al livello 64/180 = 35.6% | anticipo degli allarmi che arrivano 27
+D: tocchi avvisati 59/73 | primo avviso prima del tocco: mediana 39 (centrale basso 39) | ultimo 23 | allarmi 278, arrivano al livello 85/278 = 30.6% | anticipo degli allarmi che arrivano 23
+E: tocchi avvisati 44/73 | primo avviso prima del tocco: mediana 30 (centrale basso 29) | ultimo 22.5 | allarmi 213, arrivano al livello 66/213 = 31.0% | anticipo degli allarmi che arrivano 12
+stesso tocco (avvisato da D e da E, n=44): D − E mediana 0 sedute, media 8.3; D prima 18 (guadagno mediano 6), uguale 26, D dopo 0
+  su quei tocchi: primo avviso mediano D 40.5, E 30
+tocchi avvisati solo da D: 15 (primo avviso mediano 23) | solo da E: 0
+
+== uso pratico (settori)
+ingressi in avvicinamento: 180
+zona blu entro 126 (setup): 36/172 = 20.9% | base normali non in avv. 3750/44862 = 8.4%
+zona blu entro 126 (setup o fail): 36/172 = 20.9% | base 3750/44862 = 8.4%
+calo massimo 63: ingressi -3.38 / -3.42 | base normali -3.37 / -3.37 (media dei centrali / centrale basso)
+rendimento 63: ingressi 4.78 / 4.61 (n=156) | base normali 2.95 / 2.95 | tutte le sedute 3.28 / 3.28
+condizionato (zona blu e trigger entro 252): episodi 43 | calo mediano fino al trigger -13.69 / -13.69
+terza seduta in Attenzione: 18/38 = 47.4% | ancora in avv. 25/70 = 35.7% | tornato sopra 19/64 = 29.7% | altro stato 0/0 = NaN% | non in Attenzione 44/134 = 32.8%
+variante «Attenzione o oltre a t+1 o t+2»: 21/45 = 46.7% | altrimenti 41/127 = 32.3%
+tocco nelle 126 sedute prima: 8/29 = 27.6% | nessun tocco 54/143 = 37.8% | (solo dentro il periodo: 5/24 = 20.8% contro 57/148 = 38.5%)
+livello raggiunto entro 126, tutti gli ingressi con finestra completa: 62/172 = 36.0%
+per settore (ingressi con 126 sedute dopo: zona blu setup / con fail | base):
+  XLK    1/9    11.1%  (con fail 1)  base 6.5%  R 1.70
+  XLC    0/16    0.0%  (con fail 0)  base 2.6%  R 0.00
+  XLY    1/8    12.5%  (con fail 1)  base 4.3%  R 2.90
+  XLP    2/10   20.0%  (con fail 2)  base 6.2%  R 3.22
+  XLE    6/19   31.6%  (con fail 6)  base 9.4%  R 3.35
+  XLF    5/18   27.8%  (con fail 5)  base 10.1%  R 2.75
+  XLV    2/9    22.2%  (con fail 2)  base 11.4%  R 1.95
+  XLI    2/12   16.7%  (con fail 2)  base 8.1%  R 2.07
+  XLB    9/26   34.6%  (con fail 9)  base 12.7%  R 2.72
+  XLRE   3/23   13.0%  (con fail 3)  base 8.1%  R 1.62
+  XLU    5/22   22.7%  (con fail 5)  base 14.0%  R 1.63
+soglia di oggi (alta→bassa): XLRE 39.8 (L 8, +31.8), XLU 36.0 (L 5, +31.0), XLB 33.1 (L 10, +23.1), XLP 30.4 (L 11, +19.4), XLE 29.6 (L 1, +28.6), XLV 28.1 (L 11, +17.1), XLF 27.9 (L 6, +21.9), XLI 26.3 (L 5, +21.3), XLK 26.0 (L 6, +20.0), XLY 25.8 (L 8, +17.8), XLC 25.8 (L 5, +20.8)
+soglia mediana nel periodo (alta→bassa): XLRE 41.3, XLU 35.4, XLB 33.8, XLP 30.4, XLE 30.0, XLV 28.2, XLF 27.9, XLI 26.6, XLC 26.4, XLY 26.2, XLK 26.0
+
+indici: prima breadth → primo stato
+  SPX      2005-01-03 → 2005-01-03
+  NDX      2008-01-02 → 2008-01-02
+  DJI      2000-01-03 → 2001-01-02
+  N225     2001-01-04 → 2001-01-11
+  SXXP     2006-01-02 → 2006-01-02
+  UKX      2001-01-02 → 2001-01-02
+  DAX      2001-01-02 → 2001-01-02
+  CAC      2001-01-02 → 2001-01-02
+  SMI      2001-01-03 → 2001-01-04
+  RUT      2017-09-01 → 2017-09-01
+  TSX60    2000-02-01 → 2001-01-03
+  SX5E     2007-04-02 → 2008-04-07
+  FTSEMIB  2005-04-01 → 2005-04-01
+  IBEX     2007-03-01 → 2007-03-01
+  HSI      2008-09-01 → 2008-09-01
+  CSI300   2012-06-01 → 2013-06-05
+  KOSPI200 2006-12-01 → 2006-12-01
+  TWN      2003-01-02 → 2003-01-02
+  NIFTY50  2007-10-01 → 2008-09-22
+  ASX200   2008-05-01 → 2008-05-01
+  EEM      2011-03-01 → 2011-03-01
+  IBOV     2008-11-03 → 2008-11-03
+
+== indici (DEFINIZIONE SBAGLIATA: dalla seduta 0)
+C: tocchi avvisati 86/135 | primo avviso prima del tocco: mediana 60.5 (centrale basso 60) | ultimo 24.5 | allarmi 336, arrivano al livello 137/336 = 40.8% | anticipo degli allarmi che arrivano 28
+D: tocchi avvisati 92/135 | primo avviso prima del tocco: mediana 63.5 (centrale basso 63) | ultimo 28 | allarmi 375, arrivano al livello 152/375 = 40.5% | anticipo degli allarmi che arrivano 24
+E: tocchi avvisati 84/135 | primo avviso prima del tocco: mediana 55.5 (centrale basso 55) | ultimo 25.5 | allarmi 308, arrivano al livello 153/308 = 49.7% | anticipo degli allarmi che arrivano 12
+stesso tocco (avvisato da D e da E, n=80): D − E mediana 1 sedute, media 12.3; D prima 51 (guadagno mediano 6), uguale 29, D dopo 0
+  su quei tocchi: primo avviso mediano D 68.5, E 55
+tocchi avvisati solo da D: 12 (primo avviso mediano 8) | solo da E: 4
+
+soglia propria contro approachSeries: 202259 sedute, 0 differenze; contro approachLevel sulla storia tagliata: 1684 sedute, 0 differenze

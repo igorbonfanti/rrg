@@ -1,0 +1,331 @@
+{
+ "steps": [
+  {
+   "label": "KOSPI200 blu 15 → 7",
+   "six": {
+    "IBOV": [
+     "Attenzione",
+     "18,4%",
+     "11%"
+    ],
+    "CSI300": [
+     "Attenzione",
+     "22,2%",
+     "14%"
+    ],
+    "KOSPI200": [
+     "Attenzione",
+     "17,5%",
+     "7%*"
+    ],
+    "EEM": [
+     "Normale",
+     "30,2%",
+     "15%"
+    ],
+    "HSI": [
+     "Normale",
+     "35,3%",
+     "8%"
+    ],
+    "NIFTY50": [
+     "Normale",
+     "46,0%",
+     "10%"
+    ],
+    "TWN": [
+     "Normale",
+     "68,9%",
+     "8%"
+    ]
+   },
+   "eight": {
+    "CSI300": [
+     "Attenzione",
+     "22,2%",
+     "14%"
+    ],
+    "NIFTY50": [
+     "Normale",
+     "46,0%",
+     "10%"
+    ],
+    "IBOV": [
+     "Attenzione",
+     "18,4%",
+     "11%"
+    ],
+    "KOSPI200": [
+     "Attenzione",
+     "17,5%",
+     "7%*"
+    ],
+    "TWN": [
+     "Normale",
+     "68,9%",
+     "8%"
+    ],
+    "HSI": [
+     "Normale",
+     "35,3%",
+     "8%"
+    ],
+    "EEM": [
+     "Normale",
+     "30,2%",
+     "15%"
+    ]
+   },
+   "kpis": [
+    "0 / 7 nessuno",
+    "3 / 7 CSI300 · IBOV · KOSPI200"
+   ],
+   "dmeta": "breadth 17,5% · livello blu 7% · dati al 04/11/2026",
+   "diff": []
+  },
+  {
+   "label": "NIFTY50 blu 10 → 50",
+   "six": {
+    "NIFTY50": [
+     "Attenzione",
+     "46,0%",
+     "50%*"
+    ],
+    "IBOV": [
+     "Attenzione",
+     "18,4%",
+     "11%"
+    ],
+    "CSI300": [
+     "Attenzione",
+     "22,2%",
+     "14%"
+    ],
+    "KOSPI200": [
+     "Attenzione",
+     "17,5%",
+     "7%*"
+    ],
+    "EEM": [
+     "Normale",
+     "30,2%",
+     "15%"
+    ],
+    "HSI": [
+     "Normale",
+     "35,3%",
+     "8%"
+    ],
+    "TWN": [
+     "Normale",
+     "68,9%",
+     "8%"
+    ]
+   },
+   "eight": {
+    "CSI300": [
+     "Attenzione",
+     "22,2%",
+     "14%"
+    ],
+    "NIFTY50": [
+     "Attenzione",
+     "46,0%",
+     "50%*"
+    ],
+    "IBOV": [
+     "Attenzione",
+     "18,4%",
+     "11%"
+    ],
+    "KOSPI200": [
+     "Attenzione",
+     "17,5%",
+     "7%*"
+    ],
+    "TWN": [
+     "Normale",
+     "68,9%",
+     "8%"
+    ],
+    "HSI": [
+     "Normale",
+     "35,3%",
+     "8%"
+    ],
+    "EEM": [
+     "Normale",
+     "30,2%",
+     "15%"
+    ]
+   },
+   "kpis": [
+    "0 / 7 nessuno",
+    "4 / 7 CSI300 · NIFTY50 · IBOV · KOSPI200"
+   ],
+   "dmeta": "breadth 46,0% · livello blu 50% · dati al 04/11/2026",
+   "diff": []
+  },
+  {
+   "label": "CSI300 blu 14 → 25",
+   "six": {
+    "CSI300": [
+     "Zona blu",
+     "22,2%",
+     "25%*"
+    ],
+    "NIFTY50": [
+     "Attenzione",
+     "46,0%",
+     "50%*"
+    ],
+    "IBOV": [
+     "Attenzione",
+     "18,4%",
+     "11%"
+    ],
+    "KOSPI200": [
+     "Attenzione",
+     "17,5%",
+     "7%*"
+    ],
+    "EEM": [
+     "Normale",
+     "30,2%",
+     "15%"
+    ],
+    "HSI": [
+     "Normale",
+     "35,3%",
+     "8%"
+    ],
+    "TWN": [
+     "Normale",
+     "68,9%",
+     "8%"
+    ]
+   },
+   "eight": {
+    "CSI300": [
+     "Zona blu",
+     "22,2%",
+     "25%*"
+    ],
+    "NIFTY50": [
+     "Attenzione",
+     "46,0%",
+     "50%*"
+    ],
+    "IBOV": [
+     "Attenzione",
+     "18,4%",
+     "11%"
+    ],
+    "KOSPI200": [
+     "Attenzione",
+     "17,5%",
+     "7%*"
+    ],
+    "TWN": [
+     "Normale",
+     "68,9%",
+     "8%"
+    ],
+    "HSI": [
+     "Normale",
+     "35,3%",
+     "8%"
+    ],
+    "EEM": [
+     "Normale",
+     "30,2%",
+     "15%"
+    ]
+   },
+   "kpis": [
+    "1 / 7 CSI300",
+    "3 / 7 NIFTY50 · IBOV · KOSPI200"
+   ],
+   "dmeta": "breadth 22,2% · livello blu 25% · dati al 03/11/2026",
+   "diff": []
+  }
+ ],
+ "reload": {
+  "six": {
+   "CSI300": [
+    "Zona blu",
+    "22,2%",
+    "25%*"
+   ],
+   "NIFTY50": [
+    "Attenzione",
+    "46,0%",
+    "50%*"
+   ],
+   "IBOV": [
+    "Attenzione",
+    "18,4%",
+    "11%"
+   ],
+   "KOSPI200": [
+    "Attenzione",
+    "17,5%",
+    "7%*"
+   ],
+   "EEM": [
+    "Normale",
+    "30,2%",
+    "15%"
+   ],
+   "HSI": [
+    "Normale",
+    "35,3%",
+    "8%"
+   ],
+   "TWN": [
+    "Normale",
+    "68,9%",
+    "8%"
+   ]
+  },
+  "eight": {
+   "CSI300": [
+    "Zona blu",
+    "22,2%",
+    "25%*"
+   ],
+   "NIFTY50": [
+    "Attenzione",
+    "46,0%",
+    "50%*"
+   ],
+   "IBOV": [
+    "Attenzione",
+    "18,4%",
+    "11%"
+   ],
+   "KOSPI200": [
+    "Attenzione",
+    "17,5%",
+    "7%*"
+   ],
+   "TWN": [
+    "Normale",
+    "68,9%",
+    "8%"
+   ],
+   "HSI": [
+    "Normale",
+    "35,3%",
+    "8%"
+   ],
+   "EEM": [
+    "Normale",
+    "30,2%",
+    "15%"
+   ]
+  },
+  "diff": []
+ },
+ "errors": []
+}

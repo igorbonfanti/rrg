@@ -1,0 +1,191 @@
+[
+ {
+  "id": "T1",
+  "area": "titoli",
+  "test": "phone apertura",
+  "ok": "OK",
+  "detail": "{\"body\":true,\"chips\":11,\"sel\":\"XLU\",\"meta\":\"al 19/10/2026 · ultimi 3 mesi, dal 21/07/2026\",\"rows\":12,\"bub\":31,\"pain\":12,\"hist\":true,\"h\":\"#tit-XLU\"}",
+  "shot": "shots/t-phone-0.png",
+  "sev": ""
+ },
+ {
+  "id": "T2",
+  "area": "titoli",
+  "test": "phone chip XLK",
+  "ok": "OK",
+  "detail": "{\"sel\":\"XLK\",\"h\":\"#tit-XLK\",\"bt\":\"Titoli · XLK Technology\",\"ht\":\"Storia della divergenza · XLK Technology\",\"focus\":\"XLK\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T2",
+  "area": "titoli",
+  "test": "phone chip XLE",
+  "ok": "OK",
+  "detail": "{\"sel\":\"XLE\",\"h\":\"#tit-XLE\",\"bt\":\"Titoli · XLE Energy\",\"ht\":\"Storia della divergenza · XLE Energy\",\"focus\":\"XLE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T2",
+  "area": "titoli",
+  "test": "phone chip XLRE",
+  "ok": "OK",
+  "detail": "{\"sel\":\"XLRE\",\"h\":\"#tit-XLRE\",\"bt\":\"Titoli · XLRE Real Estate\",\"ht\":\"Storia della divergenza · XLRE Real Estate\",\"focus\":\"XLRE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T3",
+  "area": "titoli",
+  "test": "phone Indietro torna al settore precedente",
+  "ok": "OK",
+  "detail": "{\"h\":\"#tit-XLE\",\"sel\":\"XLE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "phone periodo 1M",
+  "ok": "OK",
+  "detail": "{\"p\":[\"1M\"],\"meta\":\"al 19/10/2026 · ultimo mese, dal 18/09/2026\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "phone periodo 6M",
+  "ok": "OK",
+  "detail": "{\"p\":[\"6M\"],\"meta\":\"al 19/10/2026 · ultimi 6 mesi, dal 20/04/2026\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "phone periodo YTD",
+  "ok": "OK",
+  "detail": "{\"p\":[\"YTD\"],\"meta\":\"al 19/10/2026 · da inizio anno, dal 31/12/2025\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "phone periodo 1A",
+  "ok": "OK",
+  "detail": "{\"p\":[\"1A\"],\"meta\":\"al 19/10/2026 · ultimi 12 mesi, dal 16/10/2025\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "phone periodo 3M",
+  "ok": "OK",
+  "detail": "{\"p\":[\"3M\"],\"meta\":\"al 19/10/2026 · ultimi 3 mesi, dal 21/07/2026\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T5",
+  "area": "titoli",
+  "test": "phone scia sel",
+  "ok": "OK",
+  "detail": "cerchi=39",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T5",
+  "area": "titoli",
+  "test": "phone scia off",
+  "ok": "OK",
+  "detail": "cerchi=27",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T5",
+  "area": "titoli",
+  "test": "phone scia all",
+  "ok": "OK",
+  "detail": "cerchi=99",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T6",
+  "area": "titoli",
+  "test": "phone ordine Settore vs Divergenza cambia l'ordine",
+  "ok": "OK",
+  "detail": "sec=XLK,XLC,XLY,XLP,XLE,XLF,XLV,XLI,XLB,XLRE,XLU,SPX | div=XLV,XLK,XLI,XLU,XLRE,XLF,XLB,XLY,XLE,XLP,XLC,SPX",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T7",
+  "area": "titoli",
+  "test": "phone asse dd",
+  "ok": "OK",
+  "detail": "{\"v\":\"dd\",\"ls\":\"\\\"dd\\\"\",\"lbl\":\"distanza dal massimo a 52 settimane → | ↑ rendimento 3M\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T7",
+  "area": "titoli",
+  "test": "phone asse prev",
+  "ok": "OK",
+  "detail": "{\"v\":\"prev\",\"ls\":\"\\\"prev\\\"\",\"lbl\":\"rendimento nel periodo precedente → | ↑ rendimento 3M\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T7",
+  "area": "titoli",
+  "test": "phone asse d200",
+  "ok": "OK",
+  "detail": "{\"v\":\"d200\",\"ls\":\"\\\"d200\\\"\",\"lbl\":\"distanza dalla media a 200 sedute → | ↑ rendimento 3M\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T8",
+  "area": "titoli",
+  "test": "phone bolle Uguali",
+  "ok": "OK",
+  "detail": "peso: 28 raggi diversi, uguali: 1",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T9",
+  "area": "titoli",
+  "test": "phone scelte restano dopo la ricarica",
+  "ok": "OK",
+  "detail": "{\"per\":\"6M\",\"trail\":\"sel\",\"ax\":\"dd\",\"sel\":\"XLRE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T14",
+  "area": "titoli",
+  "test": "phone ticker dei più in pena aprono TradingView in nuova scheda",
+  "ok": "OK",
+  "detail": "https://www.tradingview.com/chart/?symbol=CSGP _blank | https://www.tradingview.com/chart/?symbol=WY _blank | https://www.tradingview.com/chart/?symbol=ARE _blank",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "phone nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

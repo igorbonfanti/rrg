@@ -1,0 +1,11 @@
+CNY=X       ps 10000 max err ass 2.50e-5 rel 4.02e-6 taglio a 2003-12-01 (81 righe tolte su 6039) | F diverse 12/5093 (2007-03-27…2007-04-11), z oltre 1e-3: 0, F ultimo app 0 grezzo 0
+INR=X       ps 10000 max err ass 3.81e-6 rel 5.93e-8 taglio a 2003-12-01 (0 righe tolte su 5946) | F diverse 0/4911 (-…-), z oltre 1e-3: 0, F ultimo app 1 grezzo 1
+BRL=X       ps 10000 max err ass 4.81e-5 rel 1.17e-5 taglio a 2006-03-24 (194 righe tolte su 5531) | F diverse 0/4402 (-…-), z oltre 1e-3: 0, F ultimo app 0 grezzo 0
+KRW=X       ps 100 max err ass 5.86e-5 rel 5.70e-8 taglio a 2003-12-01 (0 righe tolte su 5947) | F diverse 0/4897 (-…-), z oltre 1e-3: 0, F ultimo app 1 grezzo 1
+TWD=X       ps 10000 max err ass 1.90e-6 rel 5.90e-8 taglio a 2006-05-16 (146 righe tolte su 5454) | F diverse 0/4359 (-…-), z oltre 1e-3: 0, F ultimo app 0 grezzo 0
+  NO: HKD=X F diverse anche dopo il 2016 (2018-01-02)
+HKD=X       ps 10000 max err ass 5.00e-5 rel 6.45e-6 taglio a 2003-12-01 (85 righe tolte su 6034) | F diverse 24/4936 (2007-02-12…2018-01-02), z oltre 1e-3: 1939, F ultimo app 0 grezzo 0
+EWZ         ps 10000 max err ass 5.00e-5 rel 1.66e-5 taglio a 2003-01-02 (0 righe tolte su 5999)
+ACWI        ps 10000 max err ass 5.00e-5 rel 2.57e-6 taglio a 2008-03-28 (0 righe tolte su 4682)
+DTWEXEMEGS  ps 10000 max err ass 0.00e+0 rel 0.00e+0 taglio a 2006-01-02 (0 righe tolte su 5222) | D diverse 0/5222
+CONTROLLI 40, falliti 1

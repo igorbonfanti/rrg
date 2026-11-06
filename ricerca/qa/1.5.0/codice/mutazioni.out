@@ -1,0 +1,36 @@
+COLTA    js/vix.js: ingresso la stessa seduta
+COLTA    js/vix.js: quiete 62
+COLTA    js/vix.js: quiete con > invece di >=
+NON COLTA js/vix.js: soglia stretta
+NON COLTA js/vix.js: calo senza min(0)
+NON COLTA js/vix.js: finestra del calo 251
+COLTA    js/vix.js: quantile senza interpolazione
+NON COLTA js/vix.js: positivi con >=
+COLTA    js/vix.js: deviazione standard di popolazione
+COLTA    js/vix.js: annualizzazione 250
+COLTA    js/vix.js: percentile con < (pari esclusi)
+NON COLTA js/vix.js: provvisorio con >=
+COLTA    js/vix.js: base senza la prima seduta
+NON COLTA js/vix.js: scatter fuori di uno
+NON COLTA js/vix.js: VIX mancante riempito con il precedente
+NON COLTA js/vix.js: VIX massimo non calcolato
+COLTA    js/vix.js: robusto anche il 30
+NON COLTA js/vix.js: calo peggiore = massimo
+NON COLTA js/vix.js: parziale fuori di uno
+NON COLTA js/vix.js: sedute al minimo non mediana
+COLTA    js/vix.js: fasce chiuse a destra
+NON COLTA js/vix.js: crisi Covid spostata
+COLTA    js/vix.js: rendimento dalla seduta del segnale
+NON COLTA js/vix.js: base del calo con finestre incomplete
+COLTA    scripts/fetch_vix.js: VIX anche nei giorni di borsa chiusa
+COLTA    scripts/fetch_vix.js: VIX zero tenuto
+NON COLTA scripts/fetch_vix.js: coda di Yahoo senza filtro delle sedute (main)
+NON COLTA scripts/fetch_vix.js: senza la coda pubblicata se Yahoo cade (main)
+NON COLTA scripts/fetch_vix.js: controllo della storia dell'indice (main)
+COLTA    scripts/check_fresh.js: FRED 60 giorni
+COLTA    scripts/check_fresh.js: VIX 40 giorni
+NON COLTA scripts/check_fresh.js: NDX 40 giorni
+NON COLTA scripts/check_fresh.js: SPX 40 giorni
+COLTA    scripts/check_fresh.js: file illeggibile non segnalato
+NON COLTA scripts/check_fresh.js: check_fresh non legge vix.json (main)
+16 colte su 35

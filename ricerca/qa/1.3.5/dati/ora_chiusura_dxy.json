@@ -1,0 +1,66 @@
+{
+ "sym": "DX-Y.NYB",
+ "tz": "America/New_York",
+ "barre": 492,
+ "quasiEsatte": 270,
+ "oreDallInizioBarra_piuFrequenti": [
+  [
+   "14",
+   257
+  ],
+  [
+   "17",
+   28
+  ],
+  [
+   "16",
+   23
+  ],
+  [
+   "18",
+   18
+  ],
+  [
+   "13",
+   16
+  ],
+  [
+   "15",
+   14
+  ],
+  [
+   "11",
+   12
+  ],
+  [
+   "19",
+   10
+  ]
+ ],
+ "campione": [
+  {
+   "d": "2025-04-09",
+   "close": 102.9000015258789,
+   "oraPiuVicinaRispettoAllInizioBarra": 14,
+   "scarto": 0
+  },
+  {
+   "d": "2025-04-10",
+   "close": 100.87000274658203,
+   "oraPiuVicinaRispettoAllInizioBarra": 14,
+   "scarto": 0.000029800548859593157
+  },
+  {
+   "d": "2025-07-15",
+   "close": 98.62000274658203,
+   "oraPiuVicinaRispettoAllInizioBarra": 14,
+   "scarto": 0.00004061480447525856
+  },
+  {
+   "d": "2026-01-14",
+   "close": 99.12999725341797,
+   "oraPiuVicinaRispettoAllInizioBarra": 14,
+   "scarto": 0.00003032363087451806
+  }
+ ]
+}

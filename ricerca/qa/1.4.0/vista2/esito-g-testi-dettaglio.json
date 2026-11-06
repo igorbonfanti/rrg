@@ -1,0 +1,410 @@
+{
+ "1440 CSI300 3A": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 14%",
+   "CAMBIO CNY PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 22,2% · livello blu 14% · dati al 03/11/2026",
+  "notes": "Il cambio CNY è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con ASHR (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri CSI300 nella vista 6 →"
+ },
+ "1440 CSI300 MAX": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 14%",
+   "CAMBIO CNY PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 22,2% · livello blu 14% · dati al 03/11/2026",
+  "notes": "Il cambio CNY è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con ASHR (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri CSI300 nella vista 6 →"
+ },
+ "1440 NIFTY50 3A": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 10%",
+   "CAMBIO INR PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 46,0% · livello blu 10% · dati al 04/11/2026",
+  "notes": "Il cambio INR è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con INDA (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri NIFTY50 nella vista 6 →"
+ },
+ "1440 NIFTY50 MAX": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 10%",
+   "CAMBIO INR PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 46,0% · livello blu 10% · dati al 04/11/2026",
+  "notes": "Il cambio INR è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con INDA (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri NIFTY50 nella vista 6 →"
+ },
+ "1440 IBOV 3A": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 11%",
+   "CAMBIO BRL PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri IBOV nella vista 6 →"
+ },
+ "1440 IBOV MAX": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 11%",
+   "CAMBIO BRL PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri IBOV nella vista 6 →"
+ },
+ "1440 KOSPI200 3A": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+   "CAMBIO KRW PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri KOSPI200 nella vista 6 →"
+ },
+ "1440 KOSPI200 MAX": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+   "CAMBIO KRW PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri KOSPI200 nella vista 6 →"
+ },
+ "1440 TWN 3A": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 8%",
+   "CAMBIO TWD PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 68,9% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWT (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri TWN nella vista 6 →"
+ },
+ "1440 TWN MAX": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 8%",
+   "CAMBIO TWD PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 68,9% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWT (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri TWN nella vista 6 →"
+ },
+ "1440 HSI 3A": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 8%",
+   "CAMBIO",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [
+   "Dollaro di Hong Kong agganciato al dollaro americano: il cambio non dà informazioni"
+  ],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.\nForza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri HSI nella vista 6 →"
+ },
+ "1440 HSI MAX": {
+  "panes": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 8%",
+   "CAMBIO",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [
+   "Dollaro di Hong Kong agganciato al dollaro americano: il cambio non dà informazioni"
+  ],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.\nForza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri HSI nella vista 6 →"
+ },
+ "1440 EEM 3A": {
+  "panes": [
+   "PREZZO, BASE 100 · IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+   "CAMBIO",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [
+   "EEM è quotato in dollari: conta il dollaro contro gli emergenti, qui sotto"
+  ],
+  "meta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+  "notes": "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.\nForza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "prezzo in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri EEM nella vista 6 →"
+ },
+ "1440 EEM MAX": {
+  "panes": [
+   "PREZZO, BASE 100 · IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+   "CAMBIO",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ],
+  "other": [
+   "EEM è quotato in dollari: conta il dollaro contro gli emergenti, qui sotto"
+  ],
+  "meta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+  "notes": "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.\nForza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "prezzo in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri EEM nella vista 6 →"
+ },
+ "390 CSI300 3A": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 14%",
+   "CNY PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 22,2% · livello blu 14% · dati al 03/11/2026",
+  "notes": "Il cambio CNY è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con ASHR (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri CSI300 nella vista 6 →"
+ },
+ "390 CSI300 MAX": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 14%",
+   "CNY PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 22,2% · livello blu 14% · dati al 03/11/2026",
+  "notes": "Il cambio CNY è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con ASHR (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri CSI300 nella vista 6 →"
+ },
+ "390 NIFTY50 3A": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 10%",
+   "INR PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 46,0% · livello blu 10% · dati al 04/11/2026",
+  "notes": "Il cambio INR è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con INDA (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri NIFTY50 nella vista 6 →"
+ },
+ "390 NIFTY50 MAX": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 10%",
+   "INR PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 46,0% · livello blu 10% · dati al 04/11/2026",
+  "notes": "Il cambio INR è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».\nForza relativa con INDA (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri NIFTY50 nella vista 6 →"
+ },
+ "390 IBOV 3A": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 11%",
+   "BRL PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri IBOV nella vista 6 →"
+ },
+ "390 IBOV MAX": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 11%",
+   "BRL PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri IBOV nella vista 6 →"
+ },
+ "390 KOSPI200 3A": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 15%",
+   "KRW PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri KOSPI200 nella vista 6 →"
+ },
+ "390 KOSPI200 MAX": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 15%",
+   "KRW PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri KOSPI200 nella vista 6 →"
+ },
+ "390 TWN 3A": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 8%",
+   "TWD PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 68,9% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWT (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri TWN nella vista 6 →"
+ },
+ "390 TWN MAX": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 8%",
+   "TWD PER DOLLARO · SU = PIÙ DEBOLE",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 68,9% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Forza relativa con EWT (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri TWN nella vista 6 →"
+ },
+ "390 HSI 3A": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 8%",
+   "CAMBIO",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [
+   "HKD agganciato al dollaro"
+  ],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.\nForza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri HSI nella vista 6 →"
+ },
+ "390 HSI MAX": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 8%",
+   "CAMBIO",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [
+   "HKD agganciato al dollaro"
+  ],
+  "meta": "cambio al 04/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+  "notes": "Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.\nForza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri HSI nella vista 6 →"
+ },
+ "390 EEM 3A": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 15%",
+   "CAMBIO",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [
+   "EEM è in dollari"
+  ],
+  "meta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+  "notes": "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.\nForza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "prezzo in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri EEM nella vista 6 →"
+ },
+ "390 EEM MAX": {
+  "panes": [
+   "PREZZO, BASE 100",
+   "% SOPRA MEDIA 200 · BLU 15%",
+   "CAMBIO",
+   "DOLLARO VS EMERGENTI (FRED)"
+  ],
+  "other": [
+   "EEM è in dollari"
+  ],
+  "meta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).",
+  "dmeta": "breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+  "notes": "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.\nForza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI.",
+  "legend": "prezzo in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+  "open": "Apri EEM nella vista 6 →"
+ }
+}

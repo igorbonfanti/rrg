@@ -1,0 +1,8 @@
+passano 783 · diversi 0 · coincidenze da guardare 7
+ATTENZIONE ('KOSPI200 RS', 'KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)', 'ratio 99.9927 mom 98.3837', 'mostrato 100,0 ma il quadrante dipende dal valore non arrotondato')
+ATTENZIONE ('CSI300 3A:2023-11-20 prezzo', '3,65', '3,65', 'torna ma il valore è a metà tra due arrotondamenti')
+ATTENZIONE ('CSI300 3A:2025-04-21 prezzo', '3,88', '3,88', 'torna ma il valore è a metà tra due arrotondamenti')
+ATTENZIONE ('CSI300 3A:2026-11-02 prezzo', '4,08', '4,08', 'torna ma il valore è a metà tra due arrotondamenti')
+ATTENZIONE ('CSI300 MAX:2023-11-20 prezzo', '3,65', '3,65', 'torna ma il valore è a metà tra due arrotondamenti')
+ATTENZIONE ('HSI 3A:2026-11-04 prezzo', '23920', '23920', 'torna ma il valore è a metà tra due arrotondamenti')
+ATTENZIONE ('HSI MAX:2026-11-04 prezzo', '23920', '23920', 'torna ma il valore è a metà tra due arrotondamenti')
