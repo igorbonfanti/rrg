@@ -52,7 +52,7 @@ Sedute NYSE dal 02/01/1990 al 05/11/2026 (date di `^GSPC`): **9.280**. Il calend
 
 - **Yahoo riempie i buchi**: il 01/03/1991, 31/01/1997 e 26/11/1997 ha una barra piatta (apertura = massimo = minimo = chiusura = chiusura del giorno prima, volume 0). È un valore di riempimento: va trattato come mancante.
 - **31/12/1999**: manca solo nel file di Cboe; FRED e Yahoo hanno 24,64.
-- **VIX nelle feste USA dal 2022**: Cboe (e quindi FRED) ha **33 valori in feste NYSE dal 30/05/2022** (Memorial Day, Juneteenth, 4 luglio, Labor Day, Thanksgiving, MLK, Presidents' Day…): sono valori veri, diversi dal giorno prima (sedute «global trading hours» di Cboe), non ricopiati. Niente VIX invece a Natale, Capodanno e Venerdì santo (15 feste dal 2022). Yahoo li ha solo per 25/05/2026 e 07/09/2026. Il 34° è il 11/06/2004 (funerale di Reagan): barra piatta uguale al giorno prima, un valore ricopiato in un giorno senza seduta.
+- **VIX nelle feste USA dal 2022**: Cboe (e quindi FRED) ha **33 valori in giorni senza seduta NYSE dal 30/05/2022**: 32 feste (Memorial Day, Juneteenth, 4 luglio, Labor Day, Thanksgiving, MLK, Presidents' Day…) e il funerale di Carter (09/01/2025). Sono valori veri, tutti diversi dal giorno prima (sedute «global trading hours» di Cboe), non ricopiati. Niente VIX invece nelle feste prima del 30/05/2022 e, dopo, a Natale, Capodanno e Venerdì santo (15 feste NYSE dal 2022 senza VIX). Yahoo li ha solo per 25/05/2026 e 07/09/2026. Il 34° è l'11/06/2004 (funerale di Reagan): barra piatta uguale al giorno prima, un valore ricopiato in un giorno senza seduta.
 - **Giorni speciali** (nessuna fonte ha valori quando la NYSE è chiusa, tranne i due casi sopra):
 
 | Data | Evento | NYSE | VIX (FRED = Cboe) | Yahoo |
