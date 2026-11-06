@@ -1,0 +1,3010 @@
+{
+ "scaricato": "2026-11-06T14:40:29.120Z",
+ "copertura": {
+  "FRED VIXCLS": {
+   "da": "1990-01-02",
+   "a": "2026-11-04",
+   "n": 9310,
+   "vuoti": 302
+  },
+  "FRED VXNCLS": {
+   "da": "2001-02-02",
+   "a": "2026-11-04",
+   "n": 6478,
+   "vuoti": 242
+  },
+  "Cboe VIX_History": {
+   "da": "1990-01-02",
+   "a": "2026-11-05",
+   "n": 9310
+  },
+  "Cboe VXN_History": {
+   "da": "2009-09-14",
+   "a": "2026-11-05",
+   "n": 4316
+  },
+  "Yahoo ^VIX": {
+   "da": "1990-01-02",
+   "a": "2026-11-05",
+   "n": 9282,
+   "fuso": "America/Chicago"
+  },
+  "Yahoo ^VXN": {
+   "da": "2001-01-23",
+   "a": "2026-11-05",
+   "n": 6486,
+   "fuso": "America/New_York"
+  },
+  "Yahoo ^GSPC": {
+   "da": "1985-01-02",
+   "a": "2026-11-05",
+   "n": 10543,
+   "fuso": "America/New_York"
+  },
+  "Yahoo ^NDX": {
+   "da": "1985-10-01",
+   "a": "2026-11-05",
+   "n": 10355,
+   "fuso": "America/New_York"
+  },
+  "FRED SP500": {
+   "da": "2016-11-07",
+   "a": "2026-11-04",
+   "n": 2512
+  },
+  "FRED NASDAQ100": {
+   "da": "1986-01-02",
+   "a": "2026-11-05",
+   "n": 10293
+  }
+ },
+ "calendario": {
+  "sedute_GSPC_dal_1990": 9280,
+  "chiusure_feriali_non_regolari": [
+   "1994-04-27",
+   "2001-09-11",
+   "2001-09-12",
+   "2001-09-13",
+   "2001-09-14",
+   "2004-06-11",
+   "2007-01-02",
+   "2012-10-29",
+   "2012-10-30",
+   "2018-12-05",
+   "2025-01-09"
+  ],
+  "festivita_regolari_con_seduta": [
+   "1990-01-15",
+   "1991-01-21",
+   "1992-01-20",
+   "1993-01-18",
+   "1994-01-17",
+   "1995-01-16",
+   "1996-01-15",
+   "1997-01-20"
+  ]
+ },
+ "buchi": {
+  "FRED VIXCLS": {
+   "da": "1990-01-02",
+   "a": "2026-11-04",
+   "sedute_NYSE_senza_valore": [
+    "1991-03-01",
+    "1997-01-31",
+    "1997-11-26"
+   ],
+   "valori_in_giorni_senza_NYSE": [
+    "2004-06-11",
+    "2022-05-30",
+    "2022-06-20",
+    "2022-07-04",
+    "2022-09-05",
+    "2022-11-24",
+    "2023-01-16",
+    "2023-02-20",
+    "2023-05-29",
+    "2023-06-19",
+    "2023-07-04",
+    "2023-09-04",
+    "2023-11-23",
+    "2024-01-15",
+    "2024-02-19",
+    "2024-05-27",
+    "2024-06-19",
+    "2024-07-04",
+    "2024-09-02",
+    "2024-11-28",
+    "2025-01-09",
+    "2025-01-20",
+    "2025-02-17",
+    "2025-05-26",
+    "2025-06-19",
+    "2025-07-04",
+    "2025-09-01",
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07"
+   ]
+  },
+  "Cboe VIX": {
+   "da": "1990-01-02",
+   "a": "2026-11-05",
+   "sedute_NYSE_senza_valore": [
+    "1991-03-01",
+    "1997-01-31",
+    "1997-11-26",
+    "1999-12-31"
+   ],
+   "valori_in_giorni_senza_NYSE": [
+    "2004-06-11",
+    "2022-05-30",
+    "2022-06-20",
+    "2022-07-04",
+    "2022-09-05",
+    "2022-11-24",
+    "2023-01-16",
+    "2023-02-20",
+    "2023-05-29",
+    "2023-06-19",
+    "2023-07-04",
+    "2023-09-04",
+    "2023-11-23",
+    "2024-01-15",
+    "2024-02-19",
+    "2024-05-27",
+    "2024-06-19",
+    "2024-07-04",
+    "2024-09-02",
+    "2024-11-28",
+    "2025-01-09",
+    "2025-01-20",
+    "2025-02-17",
+    "2025-05-26",
+    "2025-06-19",
+    "2025-07-04",
+    "2025-09-01",
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07"
+   ]
+  },
+  "Yahoo ^VIX": {
+   "da": "1990-01-02",
+   "a": "2026-11-05",
+   "sedute_NYSE_senza_valore": [],
+   "valori_in_giorni_senza_NYSE": [
+    "2026-05-25",
+    "2026-09-07"
+   ]
+  },
+  "FRED VXNCLS": {
+   "da": "2001-02-02",
+   "a": "2026-11-04",
+   "sedute_NYSE_senza_valore": [
+    "2003-08-22",
+    "2004-09-10"
+   ],
+   "valori_in_giorni_senza_NYSE": [
+    "2003-08-24",
+    "2021-04-02",
+    "2021-12-24"
+   ]
+  },
+  "Cboe VXN": {
+   "da": "2009-09-14",
+   "a": "2026-11-05",
+   "sedute_NYSE_senza_valore": [],
+   "valori_in_giorni_senza_NYSE": [
+    "2021-04-02",
+    "2021-12-24"
+   ]
+  },
+  "Yahoo ^VXN": {
+   "da": "2001-01-23",
+   "a": "2026-11-05",
+   "sedute_NYSE_senza_valore": [],
+   "valori_in_giorni_senza_NYSE": []
+  },
+  "Yahoo ^NDX": {
+   "da": "1990-01-02",
+   "a": "2026-11-05",
+   "sedute_NYSE_senza_valore": [],
+   "valori_in_giorni_senza_NYSE": []
+  }
+ },
+ "fred_vuoti": {
+  "VIXCLS": {
+   "totale": 302,
+   "in_giorni_senza_NYSE": 299,
+   "in_sedute_NYSE": [
+    "1991-03-01",
+    "1997-01-31",
+    "1997-11-26"
+   ]
+  },
+  "VXNCLS": {
+   "totale": 242,
+   "in_giorni_senza_NYSE": 240,
+   "in_sedute_NYSE": [
+    "2003-08-22",
+    "2004-09-10"
+   ]
+  }
+ },
+ "giorni_speciali": {
+  "1994-04-27": {
+   "evento": "funerale di Nixon",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "assente",
+   "Yahoo VXN": "assente"
+  },
+  "2001-09-11": {
+   "evento": "11 settembre",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2001-09-12": {
+   "evento": "11 settembre",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2001-09-13": {
+   "evento": "11 settembre",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2001-09-14": {
+   "evento": "11 settembre",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2001-09-17": {
+   "evento": "riapertura",
+   "NYSE": true,
+   "FRED VIX": 41.76,
+   "Cboe VIX": 41.76,
+   "Yahoo VIX": 41.7599983215332,
+   "FRED VXN": 67.99,
+   "Yahoo VXN": 73.26000213623047
+  },
+  "2004-06-11": {
+   "evento": "funerale di Reagan",
+   "NYSE": false,
+   "FRED VIX": 15.04,
+   "Cboe VIX": 15.04,
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2007-01-02": {
+   "evento": "funerale di Ford",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2012-10-29": {
+   "evento": "uragano Sandy",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2012-10-30": {
+   "evento": "uragano Sandy",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2012-10-31": {
+   "evento": "riapertura dopo Sandy",
+   "NYSE": true,
+   "FRED VIX": 18.6,
+   "Cboe VIX": 18.6,
+   "Yahoo VIX": 18.600000381469727,
+   "FRED VXN": 20.33,
+   "Yahoo VXN": 20.329999923706055
+  },
+  "2018-12-05": {
+   "evento": "funerale di G.H.W. Bush",
+   "NYSE": false,
+   "FRED VIX": "vuoto",
+   "Cboe VIX": "assente",
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  },
+  "2025-01-09": {
+   "evento": "funerale di Carter",
+   "NYSE": false,
+   "FRED VIX": 18.07,
+   "Cboe VIX": 18.07,
+   "Yahoo VIX": "assente",
+   "FRED VXN": "vuoto",
+   "Yahoo VXN": "assente"
+  }
+ },
+ "ricopiati": {
+  "FRED VIXCLS": {
+   "coppie_uguali": 50,
+   "serie_di_3_o_piu": [
+    {
+     "da": "1995-07-26",
+     "n": 3,
+     "v": 13.18,
+     "a": "1995-07-28"
+    },
+    {
+     "da": "2005-08-18",
+     "n": 3,
+     "v": 13.42,
+     "a": "2005-08-22"
+    }
+   ],
+   "esempi": [
+    {
+     "da": "2023-05-29",
+     "n": 2,
+     "v": 17.46,
+     "a": "2023-05-30"
+    },
+    {
+     "da": "2023-11-27",
+     "n": 2,
+     "v": 12.69,
+     "a": "2023-11-28"
+    },
+    {
+     "da": "2024-05-03",
+     "n": 2,
+     "v": 13.49,
+     "a": "2024-05-06"
+    },
+    {
+     "da": "2024-11-26",
+     "n": 2,
+     "v": 14.1,
+     "a": "2024-11-27"
+    },
+    {
+     "da": "2026-01-27",
+     "n": 2,
+     "v": 16.35,
+     "a": "2026-01-28"
+    }
+   ]
+  },
+  "Cboe VIX": {
+   "coppie_uguali": 50,
+   "serie_di_3_o_piu": [
+    {
+     "da": "1995-07-26",
+     "n": 3,
+     "v": 13.18,
+     "a": "1995-07-28"
+    },
+    {
+     "da": "2005-08-18",
+     "n": 3,
+     "v": 13.42,
+     "a": "2005-08-22"
+    }
+   ],
+   "esempi": [
+    {
+     "da": "2023-05-29",
+     "n": 2,
+     "v": 17.46,
+     "a": "2023-05-30"
+    },
+    {
+     "da": "2023-11-27",
+     "n": 2,
+     "v": 12.69,
+     "a": "2023-11-28"
+    },
+    {
+     "da": "2024-05-03",
+     "n": 2,
+     "v": 13.49,
+     "a": "2024-05-06"
+    },
+    {
+     "da": "2024-11-26",
+     "n": 2,
+     "v": 14.1,
+     "a": "2024-11-27"
+    },
+    {
+     "da": "2026-01-27",
+     "n": 2,
+     "v": 16.35,
+     "a": "2026-01-28"
+    }
+   ]
+  },
+  "Yahoo ^VIX": {
+   "coppie_uguali": 51,
+   "serie_di_3_o_piu": [
+    {
+     "da": "1995-07-26",
+     "n": 3,
+     "v": 13.180000305175781,
+     "a": "1995-07-28"
+    },
+    {
+     "da": "2005-08-18",
+     "n": 3,
+     "v": 13.420000076293945,
+     "a": "2005-08-22"
+    }
+   ],
+   "esempi": [
+    {
+     "da": "2022-08-29",
+     "n": 2,
+     "v": 26.209999084472656,
+     "a": "2022-08-30"
+    },
+    {
+     "da": "2023-11-27",
+     "n": 2,
+     "v": 12.6899995803833,
+     "a": "2023-11-28"
+    },
+    {
+     "da": "2024-05-03",
+     "n": 2,
+     "v": 13.489999771118164,
+     "a": "2024-05-06"
+    },
+    {
+     "da": "2024-11-26",
+     "n": 2,
+     "v": 14.100000381469727,
+     "a": "2024-11-27"
+    },
+    {
+     "da": "2026-01-27",
+     "n": 2,
+     "v": 16.350000381469727,
+     "a": "2026-01-28"
+    }
+   ]
+  },
+  "FRED VXNCLS": {
+   "coppie_uguali": 32,
+   "serie_di_3_o_piu": [],
+   "esempi": [
+    {
+     "da": "2021-12-23",
+     "n": 2,
+     "v": 21.32,
+     "a": "2021-12-24"
+    },
+    {
+     "da": "2023-03-29",
+     "n": 2,
+     "v": 23.99,
+     "a": "2023-03-30"
+    },
+    {
+     "da": "2024-07-15",
+     "n": 2,
+     "v": 18.35,
+     "a": "2024-07-16"
+    },
+    {
+     "da": "2024-12-04",
+     "n": 2,
+     "v": 15.69,
+     "a": "2024-12-05"
+    },
+    {
+     "da": "2025-05-12",
+     "n": 2,
+     "v": 22.28,
+     "a": "2025-05-13"
+    }
+   ]
+  },
+  "Yahoo ^VXN": {
+   "coppie_uguali": 35,
+   "serie_di_3_o_piu": [
+    {
+     "da": "2017-02-10",
+     "n": 7,
+     "v": 12.3100004196167,
+     "a": "2017-02-21"
+    }
+   ],
+   "esempi": [
+    {
+     "da": "2021-11-01",
+     "n": 2,
+     "v": 19.729999542236328,
+     "a": "2021-11-02"
+    },
+    {
+     "da": "2023-03-29",
+     "n": 2,
+     "v": 23.989999771118164,
+     "a": "2023-03-30"
+    },
+    {
+     "da": "2024-07-15",
+     "n": 2,
+     "v": 18.350000381469727,
+     "a": "2024-07-16"
+    },
+    {
+     "da": "2024-12-04",
+     "n": 2,
+     "v": 15.6899995803833,
+     "a": "2024-12-05"
+    },
+    {
+     "da": "2025-05-12",
+     "n": 2,
+     "v": 22.280000686645508,
+     "a": "2025-05-13"
+    }
+   ]
+  }
+ },
+ "cboe_vix_ohlc_piatte_per_anno": {
+  "1990": 253,
+  "1991": 252,
+  "2004": 1
+ },
+ "confronto": {
+  "VIX FRED-Cboe": {
+   "comuni": 9309,
+   "diverse_oltre_0,005": 0,
+   "oltre_0,05": 0,
+   "oltre_0,5": 0,
+   "max": {
+    "data": "1990-01-02",
+    "a": 17.24,
+    "b": 17.24,
+    "diff": 0
+   },
+   "top": [
+    {
+     "data": "1990-01-02",
+     "a": 17.24,
+     "b": 17.24,
+     "diff": 0
+    },
+    {
+     "data": "1990-01-03",
+     "a": 18.19,
+     "b": 18.19,
+     "diff": 0
+    },
+    {
+     "data": "1990-01-04",
+     "a": 19.22,
+     "b": 19.22,
+     "diff": 0
+    },
+    {
+     "data": "1990-01-05",
+     "a": 20.11,
+     "b": 20.11,
+     "diff": 0
+    },
+    {
+     "data": "1990-01-08",
+     "a": 20.26,
+     "b": 20.26,
+     "diff": 0
+    },
+    {
+     "data": "1990-01-09",
+     "a": 22.2,
+     "b": 22.2,
+     "diff": 0
+    },
+    {
+     "data": "1990-01-10",
+     "a": 22.44,
+     "b": 22.44,
+     "diff": 0
+    },
+    {
+     "data": "1990-01-11",
+     "a": 20.05,
+     "b": 20.05,
+     "diff": 0
+    }
+   ],
+   "per_anno_oltre_0_005": {},
+   "solo_nella_prima": 1,
+   "solo_nella_seconda": 1,
+   "esempi_solo_prima": [
+    "1999-12-31"
+   ],
+   "esempi_solo_seconda": [
+    "2026-11-05"
+   ]
+  },
+  "VIX Yahoo-Cboe": {
+   "comuni": 9278,
+   "diverse_oltre_0,005": 13,
+   "oltre_0,05": 9,
+   "oltre_0,5": 3,
+   "max": {
+    "data": "2026-02-06",
+    "a": 20.37,
+    "b": 17.76,
+    "diff": 2.61
+   },
+   "top": [
+    {
+     "data": "2026-02-06",
+     "a": 20.37,
+     "b": 17.76,
+     "diff": 2.61
+    },
+    {
+     "data": "2014-10-15",
+     "a": 25.27,
+     "b": 26.25,
+     "diff": 0.98
+    },
+    {
+     "data": "2008-11-28",
+     "a": 55.28,
+     "b": 55.84,
+     "diff": 0.56
+    },
+    {
+     "data": "2014-12-09",
+     "a": 15.35,
+     "b": 14.89,
+     "diff": 0.46
+    },
+    {
+     "data": "2014-12-01",
+     "a": 14.16,
+     "b": 14.29,
+     "diff": 0.13
+    },
+    {
+     "data": "2009-11-27",
+     "a": 24.74,
+     "b": 24.85,
+     "diff": 0.11
+    },
+    {
+     "data": "2014-08-29",
+     "a": 12.09,
+     "b": 11.98,
+     "diff": 0.11
+    },
+    {
+     "data": "2021-08-11",
+     "a": 16.17,
+     "b": 16.06,
+     "diff": 0.11
+    }
+   ],
+   "per_anno_oltre_0_005": {
+    "2004": 1,
+    "2008": 2,
+    "2009": 1,
+    "2014": 6,
+    "2021": 2,
+    "2026": 1
+   },
+   "solo_nella_prima": 4,
+   "solo_nella_seconda": 32,
+   "esempi_solo_prima": [
+    "1991-03-01",
+    "1997-01-31",
+    "1997-11-26",
+    "1999-12-31"
+   ],
+   "esempi_solo_seconda": [
+    "2025-09-01",
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-06-19",
+    "2026-07-03"
+   ]
+  },
+  "VIX Yahoo-FRED": {
+   "comuni": 9278,
+   "diverse_oltre_0,005": 13,
+   "oltre_0,05": 9,
+   "oltre_0,5": 3,
+   "max": {
+    "data": "2026-02-06",
+    "a": 20.37,
+    "b": 17.76,
+    "diff": 2.61
+   },
+   "top": [
+    {
+     "data": "2026-02-06",
+     "a": 20.37,
+     "b": 17.76,
+     "diff": 2.61
+    },
+    {
+     "data": "2014-10-15",
+     "a": 25.27,
+     "b": 26.25,
+     "diff": 0.98
+    },
+    {
+     "data": "2008-11-28",
+     "a": 55.28,
+     "b": 55.84,
+     "diff": 0.56
+    },
+    {
+     "data": "2014-12-09",
+     "a": 15.35,
+     "b": 14.89,
+     "diff": 0.46
+    },
+    {
+     "data": "2014-12-01",
+     "a": 14.16,
+     "b": 14.29,
+     "diff": 0.13
+    },
+    {
+     "data": "2009-11-27",
+     "a": 24.74,
+     "b": 24.85,
+     "diff": 0.11
+    },
+    {
+     "data": "2014-08-29",
+     "a": 12.09,
+     "b": 11.98,
+     "diff": 0.11
+    },
+    {
+     "data": "2021-08-11",
+     "a": 16.17,
+     "b": 16.06,
+     "diff": 0.11
+    }
+   ],
+   "per_anno_oltre_0_005": {
+    "2004": 1,
+    "2008": 2,
+    "2009": 1,
+    "2014": 6,
+    "2021": 2,
+    "2026": 1
+   },
+   "solo_nella_prima": 4,
+   "solo_nella_seconda": 32,
+   "esempi_solo_prima": [
+    "1991-03-01",
+    "1997-01-31",
+    "1997-11-26",
+    "2026-11-05"
+   ],
+   "esempi_solo_seconda": [
+    "2025-09-01",
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-06-19",
+    "2026-07-03"
+   ]
+  },
+  "VXN FRED-Cboe": {
+   "comuni": 4315,
+   "diverse_oltre_0,005": 0,
+   "oltre_0,05": 0,
+   "oltre_0,5": 0,
+   "max": {
+    "data": "2009-09-14",
+    "a": 24.93,
+    "b": 24.93,
+    "diff": 0
+   },
+   "top": [
+    {
+     "data": "2009-09-14",
+     "a": 24.93,
+     "b": 24.93,
+     "diff": 0
+    },
+    {
+     "data": "2009-09-15",
+     "a": 24.61,
+     "b": 24.61,
+     "diff": 0
+    },
+    {
+     "data": "2009-09-16",
+     "a": 24.02,
+     "b": 24.02,
+     "diff": 0
+    },
+    {
+     "data": "2009-09-17",
+     "a": 24.26,
+     "b": 24.26,
+     "diff": 0
+    },
+    {
+     "data": "2009-09-18",
+     "a": 24.69,
+     "b": 24.69,
+     "diff": 0
+    },
+    {
+     "data": "2009-09-21",
+     "a": 24.92,
+     "b": 24.92,
+     "diff": 0
+    },
+    {
+     "data": "2009-09-22",
+     "a": 24.08,
+     "b": 24.08,
+     "diff": 0
+    },
+    {
+     "data": "2009-09-23",
+     "a": 24.47,
+     "b": 24.47,
+     "diff": 0
+    }
+   ],
+   "per_anno_oltre_0_005": {},
+   "solo_nella_prima": 2163,
+   "solo_nella_seconda": 1,
+   "esempi_solo_prima": [
+    "2009-09-03",
+    "2009-09-04",
+    "2009-09-08",
+    "2009-09-09",
+    "2009-09-10",
+    "2009-09-11"
+   ],
+   "esempi_solo_seconda": [
+    "2026-11-05"
+   ]
+  },
+  "VXN Yahoo-Cboe": {
+   "comuni": 4314,
+   "diverse_oltre_0,005": 14,
+   "oltre_0,05": 10,
+   "oltre_0,5": 3,
+   "max": {
+    "data": "2010-04-27",
+    "a": 21.3,
+    "b": 17.81,
+    "diff": 3.49
+   },
+   "top": [
+    {
+     "data": "2010-04-27",
+     "a": 21.3,
+     "b": 17.81,
+     "diff": 3.49
+    },
+    {
+     "data": "2017-02-21",
+     "a": 12.31,
+     "b": 12.98,
+     "diff": 0.67
+    },
+    {
+     "data": "2017-02-14",
+     "a": 12.31,
+     "b": 11.69,
+     "diff": 0.62
+    },
+    {
+     "data": "2019-03-05",
+     "a": 17.06,
+     "b": 17.51,
+     "diff": 0.45
+    },
+    {
+     "data": "2017-02-16",
+     "a": 12.31,
+     "b": 12.74,
+     "diff": 0.43
+    },
+    {
+     "data": "2021-08-11",
+     "a": 20.13,
+     "b": 20.45,
+     "diff": 0.32
+    },
+    {
+     "data": "2017-02-17",
+     "a": 12.31,
+     "b": 12.07,
+     "diff": 0.24
+    },
+    {
+     "data": "2017-02-13",
+     "a": 12.31,
+     "b": 12.18,
+     "diff": 0.13
+    }
+   ],
+   "per_anno_oltre_0_005": {
+    "2010": 1,
+    "2012": 1,
+    "2014": 1,
+    "2015": 1,
+    "2017": 6,
+    "2018": 1,
+    "2019": 1,
+    "2021": 2
+   },
+   "solo_nella_prima": 2172,
+   "solo_nella_seconda": 2,
+   "esempi_solo_prima": [
+    "2009-09-03",
+    "2009-09-04",
+    "2009-09-08",
+    "2009-09-09",
+    "2009-09-10",
+    "2009-09-11"
+   ],
+   "esempi_solo_seconda": [
+    "2021-04-02",
+    "2021-12-24"
+   ]
+  },
+  "VXN Yahoo-FRED": {
+   "comuni": 6475,
+   "diverse_oltre_0,005": 694,
+   "oltre_0,05": 680,
+   "oltre_0,5": 650,
+   "max": {
+    "data": "2001-04-06",
+    "a": 79.56,
+    "b": 67.24,
+    "diff": 12.32
+   },
+   "top": [
+    {
+     "data": "2001-04-06",
+     "a": 79.56,
+     "b": 67.24,
+     "diff": 12.32
+    },
+    {
+     "data": "2001-02-28",
+     "a": 75.57,
+     "b": 63.65,
+     "diff": 11.92
+    },
+    {
+     "data": "2001-04-11",
+     "a": 75.18,
+     "b": 63.28,
+     "diff": 11.9
+    },
+    {
+     "data": "2001-03-02",
+     "a": 77.43,
+     "b": 65.69,
+     "diff": 11.74
+    },
+    {
+     "data": "2001-03-15",
+     "a": 75.93,
+     "b": 64.77,
+     "diff": 11.16
+    },
+    {
+     "data": "2001-04-26",
+     "a": 78.42,
+     "b": 67.29,
+     "diff": 11.13
+    },
+    {
+     "data": "2001-04-04",
+     "a": 76.37,
+     "b": 65.33,
+     "diff": 11.04
+    },
+    {
+     "data": "2001-03-29",
+     "a": 73.22,
+     "b": 62.37,
+     "diff": 10.85
+    }
+   ],
+   "per_anno_oltre_0_005": {
+    "2001": 226,
+    "2002": 252,
+    "2003": 180,
+    "2005": 3,
+    "2006": 15,
+    "2007": 1,
+    "2008": 3,
+    "2010": 1,
+    "2012": 1,
+    "2014": 1,
+    "2015": 1,
+    "2017": 6,
+    "2018": 1,
+    "2019": 1,
+    "2021": 2
+   },
+   "solo_nella_prima": 11,
+   "solo_nella_seconda": 3,
+   "esempi_solo_prima": [
+    "2001-01-30",
+    "2001-01-31",
+    "2001-02-01",
+    "2003-08-22",
+    "2004-09-10",
+    "2026-11-05"
+   ],
+   "esempi_solo_seconda": [
+    "2003-08-24",
+    "2021-04-02",
+    "2021-12-24"
+   ]
+  }
+ },
+ "soglie": {
+  "20": {
+   "FRED": 3436,
+   "Cboe": 3436,
+   "Yahoo": 3431,
+   "FRED_si_Cboe_no": [],
+   "Yahoo_si_Cboe_no": [
+    "2026-02-06"
+   ],
+   "Cboe_si_Yahoo_no": []
+  },
+  "25": {
+   "FRED": 1604,
+   "Cboe": 1605,
+   "Yahoo": 1602,
+   "FRED_si_Cboe_no": [],
+   "Yahoo_si_Cboe_no": [],
+   "Cboe_si_Yahoo_no": []
+  },
+  "30": {
+   "FRED": 737,
+   "Cboe": 737,
+   "Yahoo": 736,
+   "FRED_si_Cboe_no": [],
+   "Yahoo_si_Cboe_no": [],
+   "Cboe_si_Yahoo_no": []
+  },
+  "40": {
+   "FRED": 208,
+   "Cboe": 208,
+   "Yahoo": 208,
+   "FRED_si_Cboe_no": [],
+   "Yahoo_si_Cboe_no": [],
+   "Cboe_si_Yahoo_no": []
+  },
+  "50": {
+   "FRED": 75,
+   "Cboe": 75,
+   "Yahoo": 75,
+   "FRED_si_Cboe_no": [],
+   "Yahoo_si_Cboe_no": [],
+   "Cboe_si_Yahoo_no": []
+  }
+ },
+ "chiusura_1615": {
+  "nota": "vix1600 = chiusura della barra a 5 minuti 15:55-16:00 ET (Yahoo); vix1615 = chiusura ufficiale (Cboe). La barra 15:55 di Yahoo è etichettata con l'inizio: la sua chiusura è il valore delle 16:00.",
+  "giorni": 58,
+  "mediana_diff_assoluta": 0.05,
+  "massima": 0.75,
+  "oltre_0_25": 5,
+  "oltre_0_5": 2,
+  "soglia_diversa": [],
+  "dettaglio": [
+   {
+    "d": "2026-08-17",
+    "vix1600": 15.17,
+    "vix1615": 15.19,
+    "diff": 0.02,
+    "ultimaBarra": 15.19,
+    "spx_ret": -0.52
+   },
+   {
+    "d": "2026-08-18",
+    "vix1600": 15.84,
+    "vix1615": 15.84,
+    "diff": 0,
+    "ultimaBarra": 15.84,
+    "spx_ret": -0.69
+   },
+   {
+    "d": "2026-08-19",
+    "vix1600": 14.91,
+    "vix1615": 14.89,
+    "diff": -0.02,
+    "ultimaBarra": 14.89,
+    "spx_ret": 0.21
+   },
+   {
+    "d": "2026-08-20",
+    "vix1600": 16.05,
+    "vix1615": 16.01,
+    "diff": -0.04,
+    "ultimaBarra": 16.01,
+    "spx_ret": -0.87
+   },
+   {
+    "d": "2026-08-21",
+    "vix1600": 15.17,
+    "vix1615": 15.13,
+    "diff": -0.04,
+    "ultimaBarra": 15.13,
+    "spx_ret": 0.43
+   },
+   {
+    "d": "2026-08-24",
+    "vix1600": 15.85,
+    "vix1615": 15.85,
+    "diff": 0,
+    "ultimaBarra": 15.84,
+    "spx_ret": -0.28
+   },
+   {
+    "d": "2026-08-25",
+    "vix1600": 15.45,
+    "vix1615": 15.45,
+    "diff": 0,
+    "ultimaBarra": 15.45,
+    "spx_ret": 0.32
+   },
+   {
+    "d": "2026-08-26",
+    "vix1600": 15.39,
+    "vix1615": 15.21,
+    "diff": -0.18,
+    "ultimaBarra": 15.21,
+    "spx_ret": -0.02
+   },
+   {
+    "d": "2026-08-27",
+    "vix1600": 14.49,
+    "vix1615": 14.51,
+    "diff": 0.02,
+    "ultimaBarra": 14.51,
+    "spx_ret": 0.72
+   },
+   {
+    "d": "2026-08-28",
+    "vix1600": 14.39,
+    "vix1615": 14.43,
+    "diff": 0.04,
+    "ultimaBarra": 14.42,
+    "spx_ret": -0.25
+   },
+   {
+    "d": "2026-08-31",
+    "vix1600": 14.89,
+    "vix1615": 14.92,
+    "diff": 0.03,
+    "ultimaBarra": 14.92,
+    "spx_ret": -0.33
+   },
+   {
+    "d": "2026-09-01",
+    "vix1600": 16.31,
+    "vix1615": 16.34,
+    "diff": 0.03,
+    "ultimaBarra": 16.33,
+    "spx_ret": -0.71
+   },
+   {
+    "d": "2026-09-02",
+    "vix1600": 15.31,
+    "vix1615": 15.2,
+    "diff": -0.11,
+    "ultimaBarra": 15.23,
+    "spx_ret": 0.46
+   },
+   {
+    "d": "2026-09-03",
+    "vix1600": 14.28,
+    "vix1615": 14.32,
+    "diff": 0.04,
+    "ultimaBarra": 14.31,
+    "spx_ret": 1.06
+   },
+   {
+    "d": "2026-09-04",
+    "vix1600": 14.49,
+    "vix1615": 14.53,
+    "diff": 0.04,
+    "ultimaBarra": 14.52,
+    "spx_ret": -0.38
+   },
+   {
+    "d": "2026-09-08",
+    "vix1600": 15.63,
+    "vix1615": 15.72,
+    "diff": 0.09,
+    "ultimaBarra": 15.73,
+    "spx_ret": -0.58
+   },
+   {
+    "d": "2026-09-09",
+    "vix1600": 16.45,
+    "vix1615": 16.46,
+    "diff": 0.01,
+    "ultimaBarra": 16.46,
+    "spx_ret": -0.48
+   },
+   {
+    "d": "2026-09-10",
+    "vix1600": 18.01,
+    "vix1615": 17.84,
+    "diff": -0.17,
+    "ultimaBarra": 17.84,
+    "spx_ret": -0.58
+   },
+   {
+    "d": "2026-09-11",
+    "vix1600": 15.9,
+    "vix1615": 15.84,
+    "diff": -0.06,
+    "ultimaBarra": 15.84,
+    "spx_ret": 0.86
+   },
+   {
+    "d": "2026-09-14",
+    "vix1600": 17.09,
+    "vix1615": 17.1,
+    "diff": 0.01,
+    "ultimaBarra": 17.1,
+    "spx_ret": -0.48
+   },
+   {
+    "d": "2026-09-15",
+    "vix1600": 17.38,
+    "vix1615": 17.2,
+    "diff": -0.18,
+    "ultimaBarra": 17.21,
+    "spx_ret": -0.45
+   },
+   {
+    "d": "2026-09-16",
+    "vix1600": 17.53,
+    "vix1615": 17.71,
+    "diff": 0.18,
+    "ultimaBarra": 17.71,
+    "spx_ret": -0.45
+   },
+   {
+    "d": "2026-09-17",
+    "vix1600": 15.43,
+    "vix1615": 15.44,
+    "diff": 0.01,
+    "ultimaBarra": 15.44,
+    "spx_ret": 1.14
+   },
+   {
+    "d": "2026-09-18",
+    "vix1600": 14.89,
+    "vix1615": 14.81,
+    "diff": -0.08,
+    "ultimaBarra": 14.81,
+    "spx_ret": 0.17
+   },
+   {
+    "d": "2026-09-21",
+    "vix1600": 14.79,
+    "vix1615": 14.87,
+    "diff": 0.08,
+    "ultimaBarra": 14.86,
+    "spx_ret": 1.49
+   },
+   {
+    "d": "2026-09-22",
+    "vix1600": 14.28,
+    "vix1615": 14.21,
+    "diff": -0.07,
+    "ultimaBarra": 14.21,
+    "spx_ret": 0
+   },
+   {
+    "d": "2026-09-23",
+    "vix1600": 15.22,
+    "vix1615": 15.18,
+    "diff": -0.04,
+    "ultimaBarra": 15.17,
+    "spx_ret": -0.75
+   },
+   {
+    "d": "2026-09-24",
+    "vix1600": 15.55,
+    "vix1615": 15.67,
+    "diff": 0.12,
+    "ultimaBarra": 15.67,
+    "spx_ret": -0.02
+   },
+   {
+    "d": "2026-09-25",
+    "vix1600": 14.84,
+    "vix1615": 14.87,
+    "diff": 0.03,
+    "ultimaBarra": 14.87,
+    "spx_ret": 0.51
+   },
+   {
+    "d": "2026-09-28",
+    "vix1600": 16.1,
+    "vix1615": 16.07,
+    "diff": -0.03,
+    "ultimaBarra": 16.07,
+    "spx_ret": -0.77
+   },
+   {
+    "d": "2026-09-29",
+    "vix1600": 16.09,
+    "vix1615": 16.04,
+    "diff": -0.05,
+    "ultimaBarra": 16.03,
+    "spx_ret": -0.17
+   },
+   {
+    "d": "2026-09-30",
+    "vix1600": 16.49,
+    "vix1615": 16.34,
+    "diff": -0.15,
+    "ultimaBarra": 16.32,
+    "spx_ret": -0.25
+   },
+   {
+    "d": "2026-10-01",
+    "vix1600": 16.46,
+    "vix1615": 16.39,
+    "diff": -0.07,
+    "ultimaBarra": 16.38,
+    "spx_ret": 0.19
+   },
+   {
+    "d": "2026-10-02",
+    "vix1600": 15.4,
+    "vix1615": 15.31,
+    "diff": -0.09,
+    "ultimaBarra": 15.31,
+    "spx_ret": 0.73
+   },
+   {
+    "d": "2026-10-05",
+    "vix1600": 15.56,
+    "vix1615": 15.52,
+    "diff": -0.04,
+    "ultimaBarra": 15.52,
+    "spx_ret": 0.66
+   },
+   {
+    "d": "2026-10-06",
+    "vix1600": 15.06,
+    "vix1615": 15.01,
+    "diff": -0.05,
+    "ultimaBarra": 15.01,
+    "spx_ret": 0.58
+   },
+   {
+    "d": "2026-10-07",
+    "vix1600": 15.08,
+    "vix1615": 15.08,
+    "diff": 0,
+    "ultimaBarra": 15.08,
+    "spx_ret": -0.22
+   },
+   {
+    "d": "2026-10-08",
+    "vix1600": 15.58,
+    "vix1615": 15.41,
+    "diff": -0.17,
+    "ultimaBarra": 15.42,
+    "spx_ret": -0.47
+   },
+   {
+    "d": "2026-10-09",
+    "vix1600": 14.79,
+    "vix1615": 14.84,
+    "diff": 0.05,
+    "ultimaBarra": 14.84,
+    "spx_ret": 0.59
+   },
+   {
+    "d": "2026-10-12",
+    "vix1600": 15.21,
+    "vix1615": 15.21,
+    "diff": 0,
+    "ultimaBarra": 15.21,
+    "spx_ret": -0.06
+   },
+   {
+    "d": "2026-10-13",
+    "vix1600": 15.25,
+    "vix1615": 15.27,
+    "diff": 0.02,
+    "ultimaBarra": 15.27,
+    "spx_ret": -0.02
+   },
+   {
+    "d": "2026-10-14",
+    "vix1600": 16.82,
+    "vix1615": 16.87,
+    "diff": 0.05,
+    "ultimaBarra": 16.85,
+    "spx_ret": -1.11
+   },
+   {
+    "d": "2026-10-15",
+    "vix1600": 16.47,
+    "vix1615": 16.46,
+    "diff": -0.01,
+    "ultimaBarra": 16.46,
+    "spx_ret": 0.33
+   },
+   {
+    "d": "2026-10-16",
+    "vix1600": 19.98,
+    "vix1615": 19.99,
+    "diff": 0.01,
+    "ultimaBarra": 19.98,
+    "spx_ret": -1.09
+   },
+   {
+    "d": "2026-10-19",
+    "vix1600": 18.5,
+    "vix1615": 18.44,
+    "diff": -0.06,
+    "ultimaBarra": 18.43,
+    "spx_ret": 0.41
+   },
+   {
+    "d": "2026-10-20",
+    "vix1600": 17.55,
+    "vix1615": 17.31,
+    "diff": -0.24,
+    "ultimaBarra": 17.31,
+    "spx_ret": 0.28
+   },
+   {
+    "d": "2026-10-21",
+    "vix1600": 16.69,
+    "vix1615": 16.68,
+    "diff": -0.01,
+    "ultimaBarra": 16.68,
+    "spx_ret": 0.58
+   },
+   {
+    "d": "2026-10-22",
+    "vix1600": 19.12,
+    "vix1615": 19.03,
+    "diff": -0.09,
+    "ultimaBarra": 19.04,
+    "spx_ret": -1.21
+   },
+   {
+    "d": "2026-10-23",
+    "vix1600": 19.79,
+    "vix1615": 19.45,
+    "diff": -0.34,
+    "ultimaBarra": 19.45,
+    "spx_ret": -0.52
+   },
+   {
+    "d": "2026-10-26",
+    "vix1600": 18.51,
+    "vix1615": 18.39,
+    "diff": -0.12,
+    "ultimaBarra": 18.39,
+    "spx_ret": 0.7
+   },
+   {
+    "d": "2026-10-27",
+    "vix1600": 17.62,
+    "vix1615": 17.52,
+    "diff": -0.1,
+    "ultimaBarra": 17.51,
+    "spx_ret": 0.6
+   },
+   {
+    "d": "2026-10-28",
+    "vix1600": 16.83,
+    "vix1615": 16.91,
+    "diff": 0.08,
+    "ultimaBarra": 16.89,
+    "spx_ret": 0.28
+   },
+   {
+    "d": "2026-10-29",
+    "vix1600": 16.45,
+    "vix1615": 17.2,
+    "diff": 0.75,
+    "ultimaBarra": 17.21,
+    "spx_ret": -0.3
+   },
+   {
+    "d": "2026-10-30",
+    "vix1600": 19.71,
+    "vix1615": 19.42,
+    "diff": -0.29,
+    "ultimaBarra": 19.44,
+    "spx_ret": -1.82
+   },
+   {
+    "d": "2026-11-02",
+    "vix1600": 21.54,
+    "vix1615": 21.15,
+    "diff": -0.39,
+    "ultimaBarra": 21.17,
+    "spx_ret": -0.51
+   },
+   {
+    "d": "2026-11-03",
+    "vix1600": 20.74,
+    "vix1615": 20.83,
+    "diff": 0.09,
+    "ultimaBarra": 20.81,
+    "spx_ret": 0.36
+   },
+   {
+    "d": "2026-11-04",
+    "vix1600": 16.78,
+    "vix1615": 16.61,
+    "diff": -0.17,
+    "ultimaBarra": 16.57,
+    "spx_ret": 1.58
+   },
+   {
+    "d": "2026-11-05",
+    "vix1600": 27.59,
+    "vix1615": 28.18,
+    "diff": 0.59,
+    "ultimaBarra": 28.15,
+    "spx_ret": -4.36
+   }
+  ],
+  "orari_barre_VIX": {
+   "giorno": "2026-11-05",
+   "prima": "03:15",
+   "ultima": "16:10",
+   "barre": 156
+  },
+  "orari_barre_VXN": {
+   "giorno": "2026-11-04",
+   "prima": "09:30",
+   "ultima": "15:55",
+   "barre": 78
+  },
+  "meta_VIX": {
+   "fuso": "America/Chicago",
+   "regular": {
+    "timezone": "CST",
+    "start": 1793952000,
+    "end": 1793999700,
+    "gmtoffset": -21600
+   }
+  }
+ },
+ "fred_ritardo": {
+  "nota": "sedute_di_ritardo = sedute NYSE tra l'ultima osservazione presente nel vintage e l'ultima seduta chiusa entro il giorno del vintage. Un vintage datato v contiene i valori pubblicati fino a v compreso.",
+  "vintage": 125,
+  "distribuzione_sedute": {
+   "0": 125
+  },
+  "prima_comparsa_giorni_di_calendario": {
+   "0": 81
+  },
+  "oggi": {
+   "FRED_VIXCLS": "2026-11-04",
+   "Cboe": "2026-11-05",
+   "Yahoo": "2026-11-05",
+   "scaricato": "2026-11-06T14:40:29.120Z"
+  },
+  "dettaglio": [
+   {
+    "vintage": "2012-01-03",
+    "ultima_osservazione": "2011-12-30",
+    "ultima_seduta_fino_al_vintage": "2012-01-03",
+    "sedute_di_ritardo": 1
+   },
+   {
+    "vintage": "2015-01-05",
+    "ultima_osservazione": "2015-01-02",
+    "ultima_seduta_fino_al_vintage": "2015-01-05",
+    "sedute_di_ritardo": 1
+   },
+   {
+    "vintage": "2018-01-02",
+    "ultima_osservazione": "2018-01-02",
+    "ultima_seduta_fino_al_vintage": "2018-01-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2020-01-02",
+    "ultima_osservazione": "2020-01-02",
+    "ultima_seduta_fino_al_vintage": "2020-01-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2022-01-03",
+    "ultima_osservazione": "2022-01-03",
+    "ultima_seduta_fino_al_vintage": "2022-01-03",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-01-02",
+    "ultima_osservazione": "2024-01-02",
+    "ultima_seduta_fino_al_vintage": "2024-01-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-01",
+    "ultima_osservazione": "2024-03-01",
+    "ultima_seduta_fino_al_vintage": "2024-03-01",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-02",
+    "ultima_osservazione": "2024-03-01",
+    "ultima_seduta_fino_al_vintage": "2024-03-01",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-03",
+    "ultima_osservazione": "2024-03-01",
+    "ultima_seduta_fino_al_vintage": "2024-03-01",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-04",
+    "ultima_osservazione": "2024-03-04",
+    "ultima_seduta_fino_al_vintage": "2024-03-04",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-05",
+    "ultima_osservazione": "2024-03-05",
+    "ultima_seduta_fino_al_vintage": "2024-03-05",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-06",
+    "ultima_osservazione": "2024-03-06",
+    "ultima_seduta_fino_al_vintage": "2024-03-06",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-07",
+    "ultima_osservazione": "2024-03-07",
+    "ultima_seduta_fino_al_vintage": "2024-03-07",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-08",
+    "ultima_osservazione": "2024-03-08",
+    "ultima_seduta_fino_al_vintage": "2024-03-08",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-09",
+    "ultima_osservazione": "2024-03-08",
+    "ultima_seduta_fino_al_vintage": "2024-03-08",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-10",
+    "ultima_osservazione": "2024-03-08",
+    "ultima_seduta_fino_al_vintage": "2024-03-08",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-11",
+    "ultima_osservazione": "2024-03-11",
+    "ultima_seduta_fino_al_vintage": "2024-03-11",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-12",
+    "ultima_osservazione": "2024-03-12",
+    "ultima_seduta_fino_al_vintage": "2024-03-12",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-13",
+    "ultima_osservazione": "2024-03-13",
+    "ultima_seduta_fino_al_vintage": "2024-03-13",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-14",
+    "ultima_osservazione": "2024-03-14",
+    "ultima_seduta_fino_al_vintage": "2024-03-14",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-15",
+    "ultima_osservazione": "2024-03-15",
+    "ultima_seduta_fino_al_vintage": "2024-03-15",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-16",
+    "ultima_osservazione": "2024-03-15",
+    "ultima_seduta_fino_al_vintage": "2024-03-15",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-17",
+    "ultima_osservazione": "2024-03-15",
+    "ultima_seduta_fino_al_vintage": "2024-03-15",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-18",
+    "ultima_osservazione": "2024-03-18",
+    "ultima_seduta_fino_al_vintage": "2024-03-18",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-19",
+    "ultima_osservazione": "2024-03-19",
+    "ultima_seduta_fino_al_vintage": "2024-03-19",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-20",
+    "ultima_osservazione": "2024-03-20",
+    "ultima_seduta_fino_al_vintage": "2024-03-20",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-21",
+    "ultima_osservazione": "2024-03-21",
+    "ultima_seduta_fino_al_vintage": "2024-03-21",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-22",
+    "ultima_osservazione": "2024-03-22",
+    "ultima_seduta_fino_al_vintage": "2024-03-22",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-23",
+    "ultima_osservazione": "2024-03-22",
+    "ultima_seduta_fino_al_vintage": "2024-03-22",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-24",
+    "ultima_osservazione": "2024-03-22",
+    "ultima_seduta_fino_al_vintage": "2024-03-22",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-25",
+    "ultima_osservazione": "2024-03-25",
+    "ultima_seduta_fino_al_vintage": "2024-03-25",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-26",
+    "ultima_osservazione": "2024-03-26",
+    "ultima_seduta_fino_al_vintage": "2024-03-26",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-27",
+    "ultima_osservazione": "2024-03-27",
+    "ultima_seduta_fino_al_vintage": "2024-03-27",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-28",
+    "ultima_osservazione": "2024-03-28",
+    "ultima_seduta_fino_al_vintage": "2024-03-28",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-29",
+    "ultima_osservazione": "2024-03-28",
+    "ultima_seduta_fino_al_vintage": "2024-03-28",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-30",
+    "ultima_osservazione": "2024-03-28",
+    "ultima_seduta_fino_al_vintage": "2024-03-28",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2024-03-31",
+    "ultima_osservazione": "2024-03-28",
+    "ultima_seduta_fino_al_vintage": "2024-03-28",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-01-02",
+    "ultima_osservazione": "2025-01-02",
+    "ultima_seduta_fino_al_vintage": "2025-01-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-01",
+    "ultima_osservazione": "2025-04-01",
+    "ultima_seduta_fino_al_vintage": "2025-04-01",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-02",
+    "ultima_osservazione": "2025-04-02",
+    "ultima_seduta_fino_al_vintage": "2025-04-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-03",
+    "ultima_osservazione": "2025-04-03",
+    "ultima_seduta_fino_al_vintage": "2025-04-03",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-04",
+    "ultima_osservazione": "2025-04-04",
+    "ultima_seduta_fino_al_vintage": "2025-04-04",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-05",
+    "ultima_osservazione": "2025-04-04",
+    "ultima_seduta_fino_al_vintage": "2025-04-04",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-06",
+    "ultima_osservazione": "2025-04-04",
+    "ultima_seduta_fino_al_vintage": "2025-04-04",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-07",
+    "ultima_osservazione": "2025-04-07",
+    "ultima_seduta_fino_al_vintage": "2025-04-07",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-08",
+    "ultima_osservazione": "2025-04-08",
+    "ultima_seduta_fino_al_vintage": "2025-04-08",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-09",
+    "ultima_osservazione": "2025-04-09",
+    "ultima_seduta_fino_al_vintage": "2025-04-09",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-10",
+    "ultima_osservazione": "2025-04-10",
+    "ultima_seduta_fino_al_vintage": "2025-04-10",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-11",
+    "ultima_osservazione": "2025-04-11",
+    "ultima_seduta_fino_al_vintage": "2025-04-11",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-12",
+    "ultima_osservazione": "2025-04-11",
+    "ultima_seduta_fino_al_vintage": "2025-04-11",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-13",
+    "ultima_osservazione": "2025-04-11",
+    "ultima_seduta_fino_al_vintage": "2025-04-11",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-14",
+    "ultima_osservazione": "2025-04-14",
+    "ultima_seduta_fino_al_vintage": "2025-04-14",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-15",
+    "ultima_osservazione": "2025-04-15",
+    "ultima_seduta_fino_al_vintage": "2025-04-15",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-16",
+    "ultima_osservazione": "2025-04-16",
+    "ultima_seduta_fino_al_vintage": "2025-04-16",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-17",
+    "ultima_osservazione": "2025-04-17",
+    "ultima_seduta_fino_al_vintage": "2025-04-17",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-18",
+    "ultima_osservazione": "2025-04-17",
+    "ultima_seduta_fino_al_vintage": "2025-04-17",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-19",
+    "ultima_osservazione": "2025-04-17",
+    "ultima_seduta_fino_al_vintage": "2025-04-17",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-20",
+    "ultima_osservazione": "2025-04-17",
+    "ultima_seduta_fino_al_vintage": "2025-04-17",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-21",
+    "ultima_osservazione": "2025-04-21",
+    "ultima_seduta_fino_al_vintage": "2025-04-21",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-22",
+    "ultima_osservazione": "2025-04-22",
+    "ultima_seduta_fino_al_vintage": "2025-04-22",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-23",
+    "ultima_osservazione": "2025-04-23",
+    "ultima_seduta_fino_al_vintage": "2025-04-23",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-24",
+    "ultima_osservazione": "2025-04-24",
+    "ultima_seduta_fino_al_vintage": "2025-04-24",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-25",
+    "ultima_osservazione": "2025-04-25",
+    "ultima_seduta_fino_al_vintage": "2025-04-25",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-26",
+    "ultima_osservazione": "2025-04-25",
+    "ultima_seduta_fino_al_vintage": "2025-04-25",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-27",
+    "ultima_osservazione": "2025-04-25",
+    "ultima_seduta_fino_al_vintage": "2025-04-25",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-28",
+    "ultima_osservazione": "2025-04-28",
+    "ultima_seduta_fino_al_vintage": "2025-04-28",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-29",
+    "ultima_osservazione": "2025-04-29",
+    "ultima_seduta_fino_al_vintage": "2025-04-29",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-04-30",
+    "ultima_osservazione": "2025-04-30",
+    "ultima_seduta_fino_al_vintage": "2025-04-30",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-15",
+    "ultima_osservazione": "2025-12-15",
+    "ultima_seduta_fino_al_vintage": "2025-12-15",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-16",
+    "ultima_osservazione": "2025-12-16",
+    "ultima_seduta_fino_al_vintage": "2025-12-16",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-17",
+    "ultima_osservazione": "2025-12-17",
+    "ultima_seduta_fino_al_vintage": "2025-12-17",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-18",
+    "ultima_osservazione": "2025-12-18",
+    "ultima_seduta_fino_al_vintage": "2025-12-18",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-19",
+    "ultima_osservazione": "2025-12-19",
+    "ultima_seduta_fino_al_vintage": "2025-12-19",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-20",
+    "ultima_osservazione": "2025-12-19",
+    "ultima_seduta_fino_al_vintage": "2025-12-19",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-21",
+    "ultima_osservazione": "2025-12-19",
+    "ultima_seduta_fino_al_vintage": "2025-12-19",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-22",
+    "ultima_osservazione": "2025-12-22",
+    "ultima_seduta_fino_al_vintage": "2025-12-22",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-23",
+    "ultima_osservazione": "2025-12-23",
+    "ultima_seduta_fino_al_vintage": "2025-12-23",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-24",
+    "ultima_osservazione": "2025-12-24",
+    "ultima_seduta_fino_al_vintage": "2025-12-24",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-25",
+    "ultima_osservazione": "2025-12-24",
+    "ultima_seduta_fino_al_vintage": "2025-12-24",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-26",
+    "ultima_osservazione": "2025-12-26",
+    "ultima_seduta_fino_al_vintage": "2025-12-26",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-27",
+    "ultima_osservazione": "2025-12-26",
+    "ultima_seduta_fino_al_vintage": "2025-12-26",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-28",
+    "ultima_osservazione": "2025-12-26",
+    "ultima_seduta_fino_al_vintage": "2025-12-26",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-29",
+    "ultima_osservazione": "2025-12-29",
+    "ultima_seduta_fino_al_vintage": "2025-12-29",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-30",
+    "ultima_osservazione": "2025-12-30",
+    "ultima_seduta_fino_al_vintage": "2025-12-30",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2025-12-31",
+    "ultima_osservazione": "2025-12-31",
+    "ultima_seduta_fino_al_vintage": "2025-12-31",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-01",
+    "ultima_osservazione": "2025-12-31",
+    "ultima_seduta_fino_al_vintage": "2025-12-31",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-02",
+    "ultima_osservazione": "2026-01-02",
+    "ultima_seduta_fino_al_vintage": "2026-01-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-03",
+    "ultima_osservazione": "2026-01-02",
+    "ultima_seduta_fino_al_vintage": "2026-01-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-04",
+    "ultima_osservazione": "2026-01-02",
+    "ultima_seduta_fino_al_vintage": "2026-01-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-05",
+    "ultima_osservazione": "2026-01-05",
+    "ultima_seduta_fino_al_vintage": "2026-01-05",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-06",
+    "ultima_osservazione": "2026-01-06",
+    "ultima_seduta_fino_al_vintage": "2026-01-06",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-07",
+    "ultima_osservazione": "2026-01-07",
+    "ultima_seduta_fino_al_vintage": "2026-01-07",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-08",
+    "ultima_osservazione": "2026-01-08",
+    "ultima_seduta_fino_al_vintage": "2026-01-08",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-09",
+    "ultima_osservazione": "2026-01-09",
+    "ultima_seduta_fino_al_vintage": "2026-01-09",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-01-10",
+    "ultima_osservazione": "2026-01-09",
+    "ultima_seduta_fino_al_vintage": "2026-01-09",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-01",
+    "ultima_osservazione": "2026-10-01",
+    "ultima_seduta_fino_al_vintage": "2026-10-01",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-02",
+    "ultima_osservazione": "2026-10-02",
+    "ultima_seduta_fino_al_vintage": "2026-10-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-03",
+    "ultima_osservazione": "2026-10-02",
+    "ultima_seduta_fino_al_vintage": "2026-10-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-04",
+    "ultima_osservazione": "2026-10-02",
+    "ultima_seduta_fino_al_vintage": "2026-10-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-05",
+    "ultima_osservazione": "2026-10-05",
+    "ultima_seduta_fino_al_vintage": "2026-10-05",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-06",
+    "ultima_osservazione": "2026-10-06",
+    "ultima_seduta_fino_al_vintage": "2026-10-06",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-07",
+    "ultima_osservazione": "2026-10-07",
+    "ultima_seduta_fino_al_vintage": "2026-10-07",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-08",
+    "ultima_osservazione": "2026-10-08",
+    "ultima_seduta_fino_al_vintage": "2026-10-08",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-09",
+    "ultima_osservazione": "2026-10-09",
+    "ultima_seduta_fino_al_vintage": "2026-10-09",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-10",
+    "ultima_osservazione": "2026-10-09",
+    "ultima_seduta_fino_al_vintage": "2026-10-09",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-11",
+    "ultima_osservazione": "2026-10-09",
+    "ultima_seduta_fino_al_vintage": "2026-10-09",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-12",
+    "ultima_osservazione": "2026-10-12",
+    "ultima_seduta_fino_al_vintage": "2026-10-12",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-13",
+    "ultima_osservazione": "2026-10-13",
+    "ultima_seduta_fino_al_vintage": "2026-10-13",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-14",
+    "ultima_osservazione": "2026-10-14",
+    "ultima_seduta_fino_al_vintage": "2026-10-14",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-15",
+    "ultima_osservazione": "2026-10-15",
+    "ultima_seduta_fino_al_vintage": "2026-10-15",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-16",
+    "ultima_osservazione": "2026-10-16",
+    "ultima_seduta_fino_al_vintage": "2026-10-16",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-17",
+    "ultima_osservazione": "2026-10-16",
+    "ultima_seduta_fino_al_vintage": "2026-10-16",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-18",
+    "ultima_osservazione": "2026-10-16",
+    "ultima_seduta_fino_al_vintage": "2026-10-16",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-19",
+    "ultima_osservazione": "2026-10-19",
+    "ultima_seduta_fino_al_vintage": "2026-10-19",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-20",
+    "ultima_osservazione": "2026-10-20",
+    "ultima_seduta_fino_al_vintage": "2026-10-20",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-21",
+    "ultima_osservazione": "2026-10-21",
+    "ultima_seduta_fino_al_vintage": "2026-10-21",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-22",
+    "ultima_osservazione": "2026-10-22",
+    "ultima_seduta_fino_al_vintage": "2026-10-22",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-23",
+    "ultima_osservazione": "2026-10-23",
+    "ultima_seduta_fino_al_vintage": "2026-10-23",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-24",
+    "ultima_osservazione": "2026-10-23",
+    "ultima_seduta_fino_al_vintage": "2026-10-23",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-25",
+    "ultima_osservazione": "2026-10-23",
+    "ultima_seduta_fino_al_vintage": "2026-10-23",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-26",
+    "ultima_osservazione": "2026-10-26",
+    "ultima_seduta_fino_al_vintage": "2026-10-26",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-27",
+    "ultima_osservazione": "2026-10-27",
+    "ultima_seduta_fino_al_vintage": "2026-10-27",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-28",
+    "ultima_osservazione": "2026-10-28",
+    "ultima_seduta_fino_al_vintage": "2026-10-28",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-29",
+    "ultima_osservazione": "2026-10-29",
+    "ultima_seduta_fino_al_vintage": "2026-10-29",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-30",
+    "ultima_osservazione": "2026-10-30",
+    "ultima_seduta_fino_al_vintage": "2026-10-30",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-10-31",
+    "ultima_osservazione": "2026-10-30",
+    "ultima_seduta_fino_al_vintage": "2026-10-30",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-11-01",
+    "ultima_osservazione": "2026-10-30",
+    "ultima_seduta_fino_al_vintage": "2026-10-30",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-11-02",
+    "ultima_osservazione": "2026-11-02",
+    "ultima_seduta_fino_al_vintage": "2026-11-02",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-11-03",
+    "ultima_osservazione": "2026-11-03",
+    "ultima_seduta_fino_al_vintage": "2026-11-03",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-11-04",
+    "ultima_osservazione": "2026-11-04",
+    "ultima_seduta_fino_al_vintage": "2026-11-04",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-11-05",
+    "ultima_osservazione": "2026-11-05",
+    "ultima_seduta_fino_al_vintage": "2026-11-05",
+    "sedute_di_ritardo": 0
+   },
+   {
+    "vintage": "2026-11-06",
+    "ultima_osservazione": "2026-11-05",
+    "ultima_seduta_fino_al_vintage": "2026-11-05",
+    "sedute_di_ritardo": 0
+   }
+  ]
+ },
+ "fred_revisioni": {
+  "VIX 2012-01-03": {
+   "valori": 5544,
+   "cambiati": 4,
+   "esempi": [
+    {
+     "d": "2004-11-26",
+     "allora": 12.78,
+     "oggi": 12.79
+    },
+    {
+     "d": "2008-07-03",
+     "allora": 24.78,
+     "oggi": 24.79
+    },
+    {
+     "d": "2008-11-28",
+     "allora": 55.28,
+     "oggi": 55.84
+    },
+    {
+     "d": "2009-11-27",
+     "allora": 24.74,
+     "oggi": 24.85
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VIX 2015-01-05": {
+   "valori": 6299,
+   "cambiati": 4,
+   "esempi": [
+    {
+     "d": "2004-11-26",
+     "allora": 12.78,
+     "oggi": 12.79
+    },
+    {
+     "d": "2008-07-03",
+     "allora": 24.78,
+     "oggi": 24.79
+    },
+    {
+     "d": "2008-11-28",
+     "allora": 55.28,
+     "oggi": 55.84
+    },
+    {
+     "d": "2009-11-27",
+     "allora": 24.74,
+     "oggi": 24.85
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VIX 2018-01-02": {
+   "valori": 7054,
+   "cambiati": 4,
+   "esempi": [
+    {
+     "d": "2004-11-26",
+     "allora": 12.78,
+     "oggi": 12.79
+    },
+    {
+     "d": "2008-07-03",
+     "allora": 24.78,
+     "oggi": 24.79
+    },
+    {
+     "d": "2008-11-28",
+     "allora": 55.28,
+     "oggi": 55.84
+    },
+    {
+     "d": "2009-11-27",
+     "allora": 24.74,
+     "oggi": 24.85
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VIX 2020-01-02": {
+   "valori": 7557,
+   "cambiati": 4,
+   "esempi": [
+    {
+     "d": "2004-11-26",
+     "allora": 12.78,
+     "oggi": 12.79
+    },
+    {
+     "d": "2008-07-03",
+     "allora": 24.78,
+     "oggi": 24.79
+    },
+    {
+     "d": "2008-11-28",
+     "allora": 55.28,
+     "oggi": 55.84
+    },
+    {
+     "d": "2009-11-27",
+     "allora": 24.74,
+     "oggi": 24.85
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VIX 2022-01-03": {
+   "valori": 8063,
+   "cambiati": 8,
+   "esempi": [
+    {
+     "d": "2004-09-10",
+     "allora": 14.01,
+     "oggi": 13.76
+    },
+    {
+     "d": "2008-07-03",
+     "allora": 24.8,
+     "oggi": 24.79
+    },
+    {
+     "d": "2008-09-16",
+     "allora": 31.54,
+     "oggi": 30.3
+    },
+    {
+     "d": "2008-12-16",
+     "allora": 51.29,
+     "oggi": 52.37
+    },
+    {
+     "d": "2012-07-02",
+     "allora": 16.74,
+     "oggi": 16.8
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VIX 2024-01-02": {
+   "valori": 8576,
+   "cambiati": 8,
+   "esempi": [
+    {
+     "d": "2004-09-10",
+     "allora": 14.01,
+     "oggi": 13.76
+    },
+    {
+     "d": "2008-07-03",
+     "allora": 24.8,
+     "oggi": 24.79
+    },
+    {
+     "d": "2008-09-16",
+     "allora": 31.54,
+     "oggi": 30.3
+    },
+    {
+     "d": "2008-12-16",
+     "allora": 51.29,
+     "oggi": 52.37
+    },
+    {
+     "d": "2012-07-02",
+     "allora": 16.74,
+     "oggi": 16.8
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VIX 2025-01-02": {
+   "valori": 8835,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-01": {
+   "valori": 9092,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-02": {
+   "valori": 9093,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-03": {
+   "valori": 9093,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-04": {
+   "valori": 9093,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-05": {
+   "valori": 9094,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-06": {
+   "valori": 9095,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-07": {
+   "valori": 9096,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-08": {
+   "valori": 9097,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VIX 2026-01-09": {
+   "valori": 9098,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VXN 2012-01-03": {
+   "valori": 6478,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 1
+  },
+  "VXN 2015-01-05": {
+   "valori": 3499,
+   "cambiati": 2,
+   "esempi": [
+    {
+     "d": "2009-11-27",
+     "allora": 25.4,
+     "oggi": 25.41
+    },
+    {
+     "d": "2010-04-27",
+     "allora": 21.3,
+     "oggi": 17.81
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VXN 2018-01-02": {
+   "valori": 4254,
+   "cambiati": 3,
+   "esempi": [
+    {
+     "d": "2009-11-27",
+     "allora": 25.4,
+     "oggi": 25.41
+    },
+    {
+     "d": "2010-04-27",
+     "allora": 21.3,
+     "oggi": 17.81
+    },
+    {
+     "d": "2015-07-23",
+     "allora": 14.16,
+     "oggi": 14.14
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VXN 2020-01-02": {
+   "valori": 4757,
+   "cambiati": 6,
+   "esempi": [
+    {
+     "d": "2009-11-27",
+     "allora": 25.4,
+     "oggi": 25.41
+    },
+    {
+     "d": "2010-04-27",
+     "allora": 21.3,
+     "oggi": 17.81
+    },
+    {
+     "d": "2015-07-23",
+     "allora": 14.16,
+     "oggi": 14.14
+    },
+    {
+     "d": "2018-01-19",
+     "allora": 16.15,
+     "oggi": 16.17
+    },
+    {
+     "d": "2019-03-05",
+     "allora": 17.06,
+     "oggi": 17.51
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VXN 2022-01-03": {
+   "valori": 5264,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VXN 2024-01-02": {
+   "valori": 5765,
+   "cambiati": 0,
+   "esempi": [],
+   "spariti_oggi": 0
+  },
+  "VXN 2025-01-02": {
+   "valori": 6017,
+   "cambiati": 1,
+   "esempi": [
+    {
+     "d": "2024-02-01",
+     "allora": 11.2,
+     "oggi": 17.33
+    }
+   ],
+   "spariti_oggi": 0
+  },
+  "VXN 2026-01-02": {
+   "valori": 6267,
+   "cambiati": 1,
+   "esempi": [
+    {
+     "d": "2024-02-01",
+     "allora": 11.2,
+     "oggi": 17.33
+    }
+   ],
+   "spariti_oggi": 0
+  }
+ },
+ "indici": {
+  "SPX: Yahoo ^GSPC contro data/indices.json": {
+   "comuni": 6751,
+   "diverse_oltre_un_centesimo": 0,
+   "oltre_1e4": 0,
+   "oltre_1e3": 0,
+   "top": [
+    {
+     "data": "2015-12-03",
+     "a": 2049.62,
+     "b": 2049.62,
+     "rel_pct": 0
+    },
+    {
+     "data": "2016-05-05",
+     "a": 2050.63,
+     "b": 2050.63,
+     "rel_pct": 0
+    },
+    {
+     "data": "2016-05-04",
+     "a": 2051.12,
+     "b": 2051.12,
+     "rel_pct": 0
+    },
+    {
+     "data": "2010-07-06",
+     "a": 1028.06,
+     "b": 1028.06,
+     "rel_pct": 0
+    },
+    {
+     "data": "2023-05-24",
+     "a": 4115.24,
+     "b": 4115.24,
+     "rel_pct": 0
+    },
+    {
+     "data": "2023-04-03",
+     "a": 4124.51,
+     "b": 4124.51,
+     "rel_pct": 0
+    }
+   ],
+   "solo_prima": [],
+   "solo_seconda": []
+  },
+  "NDX: Yahoo ^NDX contro data/indices.json": {
+   "comuni": 6751,
+   "diverse_oltre_un_centesimo": 0,
+   "oltre_1e4": 0,
+   "oltre_1e3": 0,
+   "top": [
+    {
+     "data": "2007-11-16",
+     "a": 2048.62,
+     "b": 2048.62,
+     "rel_pct": 0
+    },
+    {
+     "data": "2002-08-19",
+     "a": 1026.06,
+     "b": 1026.06,
+     "rel_pct": 0
+    },
+    {
+     "data": "2000-03-15",
+     "a": 4130.01,
+     "b": 4130.01,
+     "rel_pct": 0
+    },
+    {
+     "data": "2016-02-18",
+     "a": 4151.49,
+     "b": 4151.49,
+     "rel_pct": 0
+    },
+    {
+     "data": "2019-11-15",
+     "a": 8315.52,
+     "b": 8315.52,
+     "rel_pct": 0
+    },
+    {
+     "data": "2019-11-18",
+     "a": 8328.48,
+     "b": 8328.48,
+     "rel_pct": 0
+    }
+   ],
+   "solo_prima": [],
+   "solo_seconda": []
+  },
+  "SPX: Yahoo ^GSPC contro FRED SP500": {
+   "comuni": 2512,
+   "diverse_oltre_un_centesimo": 9,
+   "oltre_1e4": 2,
+   "oltre_1e3": 1,
+   "top": [
+    {
+     "data": "2021-08-11",
+     "a": 4442.41,
+     "b": 4447.7,
+     "rel_pct": 0.1189
+    },
+    {
+     "data": "2019-08-12",
+     "a": 2882.7,
+     "b": 2883.75,
+     "rel_pct": 0.0364
+    },
+    {
+     "data": "2020-05-11",
+     "a": 2930.19,
+     "b": 2930.32,
+     "rel_pct": 0.0044
+    },
+    {
+     "data": "2018-11-29",
+     "a": 2737.8,
+     "b": 2737.76,
+     "rel_pct": 0.0015
+    },
+    {
+     "data": "2020-10-05",
+     "a": 3408.6,
+     "b": 3408.63,
+     "rel_pct": 0.0009
+    },
+    {
+     "data": "2020-10-02",
+     "a": 3348.42,
+     "b": 3348.44,
+     "rel_pct": 0.0006
+    }
+   ],
+   "solo_prima": [],
+   "solo_seconda": []
+  },
+  "NDX: Yahoo ^NDX contro FRED NASDAQ100": {
+   "comuni": 10290,
+   "diverse_oltre_un_centesimo": 746,
+   "oltre_1e4": 555,
+   "oltre_1e3": 433,
+   "top": [
+    {
+     "data": "2001-09-26",
+     "a": 1143.48,
+     "b": 1172.11,
+     "rel_pct": 2.4426
+    },
+    {
+     "data": "1997-08-15",
+     "a": 1076.67,
+     "b": 1103.54,
+     "rel_pct": 2.4349
+    },
+    {
+     "data": "2003-11-20",
+     "a": 1363.49,
+     "b": 1394.38,
+     "rel_pct": 2.2153
+    },
+    {
+     "data": "2003-01-22",
+     "a": 1006.51,
+     "b": 1027.08,
+     "rel_pct": 2.0028
+    },
+    {
+     "data": "2003-08-06",
+     "a": 1215.13,
+     "b": 1237.14,
+     "rel_pct": 1.7791
+    },
+    {
+     "data": "1995-07-19",
+     "a": 547.12,
+     "b": 557.03,
+     "rel_pct": 1.7791
+    }
+   ],
+   "solo_prima": [
+    "2002-01-29"
+   ],
+   "solo_seconda": [
+    "1998-07-03",
+    "2001-01-01",
+    "2019-04-19"
+   ]
+  },
+  "indices_json": {
+   "asOf": "2026-11-05",
+   "SPX_da": "2000-01-03",
+   "NDX_da": "2000-01-03"
+  },
+  "NDX_buchi_oltre_5_giorni": [
+   [
+    "2001-09-10",
+    "2001-09-17",
+    7
+   ]
+  ]
+ },
+ "dimensione": {
+  "VIX+VXN (Cboe/FRED, 2 decimali)": {
+   "KB": 74,
+   "gzip_KB": 24
+  },
+  "VIX+VXN + SPX e NDX dal 1990 (Yahoo, 2 decimali)": {
+   "KB": 182,
+   "gzip_KB": 63
+  },
+  "VIX+VXN + SPX e NDX solo 1990-1999 (il resto da indices.json)": {
+   "KB": 101,
+   "gzip_KB": 33
+  }
+ }
+}
