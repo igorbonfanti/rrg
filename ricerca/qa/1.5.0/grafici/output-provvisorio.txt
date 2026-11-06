@@ -1,0 +1,9 @@
+INFO 05/11/2026 S&P 500 7354 VIX 28,18 Yahoo, provvisorio Realizzata 21 sedute 19,7 Premio per la paura +8,5 Percentile del premio 88°
+INFO 05/11/2026 S&P 500 7354 VIX 28,18 Yahoo, provvisorio Realizzata 21 sedute 19,7 Premio per la paura +8,5 Percentile del premio 88°
+INFO 05/11/2026 S&P 500 7354 VIX 28,18 Yahoo, provvisorio Realizzata 21 sedute 19,7 Premio per la paura +8,5 Percentile del premio 88°
+INFO 05/11/2026 S&P 500 7354 VIX 28,18 Yahoo, provvisorio Realizzata 21 sedute 19,7 Premio per la paura +8,5 Percentile del premio 88°
+OK   bordo destro: ultima seduta 05/11/2026 con «Yahoo, provvisorio»
+OK   seduta di FRED senza «provvisorio» (se raggiunta)
+INFO kpi: VIX 28,18 paura · al 05/11/2026 · Yahoo, provvisorio PERCENTILE DEL VIX 89° nella storia dal 02/01/1990 VOLATILITÀ REALI | meta: VIX al 05/11/2026 (FRED al 03/11/2026, poi Yahoo provvisorio) · S&P 500 al 05/11/2026 · Nasdaq-100 al 05/11/2026
+OK   riquadro VIX e riga delle date dicono «provvisorio»
+0 FAIL

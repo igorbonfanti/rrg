@@ -30,8 +30,7 @@ const FX_SINCE = '2000-01-01'; // cambi della Fed
 const TAIL_DAYS = 120; // coda di Yahoo scaricata per i cambi (basta qualche settimana)
 
 /** Serie compatta: date come negli altri file, valori a 4 decimali (2 sopra 1.000, per KRW) */
-export function pack(dates, val) {
-  const ps = Math.max(...val) < 1000 ? 10000 : 100;
+export function pack(dates, val, ps = Math.max(...val) < 1000 ? 10000 : 100) {
   return { ...encodeDates(dates), cd: deltaEncode(val, ps), ps };
 }
 

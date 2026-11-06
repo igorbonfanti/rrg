@@ -1,0 +1,160 @@
+[
+ {
+  "id": "path.today",
+  "ok": true,
+  "what": "riquadro VIX leggibile",
+  "detail": {
+   "vix": 28.18,
+   "applicable": 25,
+   "defaultRow": "40"
+  }
+ },
+ {
+  "id": "path.tablefold",
+  "ok": true,
+  "what": "la tabella «Dopo i picchi» si vede senza scorrere a 1440×900",
+  "detail": {
+   "top": 296,
+   "vh": 900
+  }
+ },
+ {
+  "id": "path.robust40",
+  "ok": true,
+  "what": "solo la soglia 40 segnata «robusto»",
+  "detail": [
+   "40"
+  ]
+ },
+ {
+  "id": "path.guide10",
+  "ok": true,
+  "what": "la guida dice «Sono 10 episodi» per la soglia 40: la tabella (S&P 500) ne conta lo stesso numero",
+  "detail": 10
+ },
+ {
+  "id": "path.guide10ndx",
+  "ok": true,
+  "what": "episodi sopra 40 con il Nasdaq-100 (informativo)",
+  "detail": 10
+ },
+ {
+  "id": "path.inCorso",
+  "ok": true,
+  "what": "episodi recenti: «in corso» e asterisco con spiegazione al passaggio del mouse (informativo)",
+  "detail": {
+   "inCorso": 4,
+   "star": [
+    "meno di 12 mesi di dati dopo il segnale: calo fino a oggi"
+   ],
+   "first": "02/11/2026 — 21,1 28,2 in corso in corso in corso in corso −2,8%*"
+  }
+ },
+ {
+  "id": "path.guidelink",
+  "ok": true,
+  "what": "dalla vista VIX la guida completa si apre alla sezione VIX",
+  "detail": "guida.html#vix"
+ },
+ {
+  "id": "path.guideanchor",
+  "ok": true,
+  "what": "guida.html#vix si apre sulla sezione, con il link «Apri il VIX»",
+  "detail": {
+   "top": 12,
+   "open": "./#vix",
+   "addr": "Indirizzi: #mon #rrg #btm #sec #alr #idx #tit #emg aprono una vista, #XLU un settore, #tit-XLK i titoli di un settore, #emg-KOSPI200 un indice emergente. Puoi salvarli tra i preferiti; il tasto Indietro del browser torna alla vista o al settore precedente."
+  }
+ },
+ {
+  "id": "path.guideaddr",
+  "ok": false,
+  "what": "guida, «Indirizzi»: elenca #vix",
+  "detail": "Indirizzi: #mon #rrg #btm #sec #alr #idx #tit #emg aprono una vista, #XLU un settore, #tit-XLK i titoli di un settore, #emg-KOSPI200 un indice emergente. Puoi salvarli tra i preferiti; il tasto Indietro del browser torna alla vista o al settore precedente."
+ },
+ {
+  "id": "path.guideopen",
+  "ok": true,
+  "what": "«Apri il VIX →» dalla guida apre la vista",
+  "detail": "http://127.0.0.1:8798/#vix"
+ },
+ {
+  "id": "a11y.panel",
+  "ok": true,
+  "what": "scheda e pannello collegati (role=tab/tabpanel)",
+  "detail": {
+   "panel": "tabpanel tab-vix",
+   "tab": "v-vix",
+   "svg": [
+    "img:true",
+    "img:true"
+   ],
+   "seg": [
+    "group:Indice della tabella e dello scatter",
+    "group:Periodo"
+   ],
+   "loading": null,
+   "miss": null,
+   "th": 8,
+   "caption": null,
+   "eps": null
+  }
+ },
+ {
+  "id": "a11y.svg",
+  "ok": true,
+  "what": "grafici con role=img e descrizione",
+  "detail": [
+   "img:true",
+   "img:true"
+  ]
+ },
+ {
+  "id": "a11y.seg",
+  "ok": true,
+  "what": "gruppi di pulsanti con nome",
+  "detail": [
+   "group:Indice della tabella e dello scatter",
+   "group:Periodo"
+  ]
+ },
+ {
+  "id": "a11y.consistency",
+  "ok": true,
+  "what": "righe attivabili del Monitor (per confronto): ruolo e attributi ARIA",
+  "detail": {
+   "role": null,
+   "aria": []
+  }
+ },
+ {
+  "id": "frac.600.5",
+  "ok": true,
+  "what": "larghezza frazionaria 600.5px (zoom): nessuna scheda fuori schermo",
+  "detail": {
+   "iw": 601,
+   "vw": 601,
+   "rows": 2,
+   "hs": 0,
+   "clipped": []
+  }
+ },
+ {
+  "id": "frac.860.5",
+  "ok": true,
+  "what": "larghezza frazionaria 860.5px (zoom): nessuna scheda fuori schermo",
+  "detail": {
+   "iw": 861,
+   "vw": 861,
+   "rows": 1,
+   "hs": 0,
+   "clipped": []
+  }
+ },
+ {
+  "id": "console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ }
+]

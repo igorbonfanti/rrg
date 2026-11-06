@@ -430,7 +430,7 @@
     </div>
   </section>
 
-  <!-- 5 ALERT -->
+  <!-- 8 VIX -->
   <section class="view" id="v-vix" role="tabpanel" aria-labelledby="tab-vix" hidden>
     <p class="note loading" id="vxLoading" hidden>Caricamento dei dati del VIX…</p>
     <p class="note pb" id="vxMiss" hidden></p>
@@ -470,15 +470,16 @@
       <div class="ph"><h2>Come leggere il VIX</h2></div>
       <div class="emread">
         <p><b>Solo contesto, non un segnale.</b> Il VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&amp;P 500 nei prossimi 30 giorni: sale quando c'è paura. Non cambia stati né alert.</p>
-        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> ha dato un risultato robusto, e con 10 episodi i numeri sono indicativi. Tra 25 e 30 il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
+        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto». Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte. Il 40 ha 10 episodi: numeri indicativi. Dopo un VIX sopra 25 o 30 il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
         <p><b>Lo scatter conta i giorni</b>, come il grafico di Massimo Rea da cui viene l'idea: le crisi lunghe mettono tanti punti, quindi sembra più sicuro di quanto sia. La tabella conta gli episodi.</p>
-        <p><b>VIX contro realizzata.</b> Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi. Sale insieme ai ribassi, non prima: un premio alto (oltre l'80° percentile) è stato seguito da un picco della volatilità entro 21 sedute solo 12 volte su 204. Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.</p>
+        <p><b>VIX contro realizzata.</b> Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi. Il VIX sale insieme ai ribassi, non prima: dal 2005 il premio alto (oltre l'80° percentile) si è acceso 204 volte, e solo in 12 entro 21 sedute è arrivato un picco della volatilità (la realizzata sopra il suo 90° percentile). Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.</p>
         <p class="muted">Ricalcolo: <span class="mono">ricerca/vix/</span> (ramo di sviluppo del repository): <span class="mono">regimi/</span> per la tabella, <span class="mono">volatilita/</span> per l'83%, i 3,4 punti e i 12 su 204.</p>
       </div>
     </div>
-    <p class="note pb">Fonti: VIX di chiusura di Cboe da FRED (VIXCLS; © Cboe, reprinted with permission), dal 02/01/1990; l'ultima seduta, che FRED pubblica la mattina dopo, viene da Yahoo Finance ed è provvisoria. S&amp;P 500 e Nasdaq-100 di solo prezzo (senza dividendi, circa 2 punti l'anno in meno) da Yahoo Finance. Il VIX chiude alle 16:15 di New York, l'indice alle 16:00: per non usare quel quarto d'ora i rendimenti partono dalla chiusura della seduta dopo il segnale. Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi. Idea di Massimo Rea (<a href="https://quant-rea.com" target="_blank" rel="noopener">quant-rea.com</a>); calcoli nostri su dati pubblici.</p>
+    <p class="note pb">Fonti: VIX di chiusura © Cboe, dalla serie VIXCLS di FRED (Federal Reserve Bank of St. Louis), che la ripubblica con il permesso di Cboe, dal 02/01/1990; l'ultima seduta, che FRED pubblica la mattina dopo, viene da Yahoo Finance ed è provvisoria. S&amp;P 500 e Nasdaq-100 di solo prezzo da Yahoo Finance (senza dividendi: sull'S&amp;P 500 circa 2 punti l'anno in meno; per il Nasdaq-100 la versione con i dividendi non è disponibile). Il VIX chiude alle 16:15 di New York, l'indice alle 16:00: per non usare quel quarto d'ora i rendimenti partono dalla chiusura della seduta dopo il segnale. Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi. Idea di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>); calcoli nostri su dati pubblici.</p>
     </div>
   </section>
+  <!-- 9 ALERT -->
   <section class="view" id="v-alr" role="tabpanel" aria-labelledby="tab-alr" hidden>
     <div class="kpis" id="alertStats"></div>
     <div class="grid-side">
@@ -859,7 +860,7 @@
         <dt>Tema</dt><dd>l'interruttore Chiaro in alto passa al fondo bianco, con le stesse regole di colore; la scelta resta salvata nel browser e vale anche per le altre app del sito.</dd>
       </dl>
       <h3>Comandi e tasti</h3>
-      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, ALRT, IDX, TIT, EMG, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>8</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra.</p>
+      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, TIT, IDX, EMG, VIX, ALRT, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>9</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra.</p>
       <label class="kbopt"><input type="checkbox" id="kbToggle" checked /> Scorciatoie da un tasto attive (toglile se usi un lettore di schermo o la dettatura)</label>
       <p class="note">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</p>
       <p class="note">La versione in uso è accanto al nome in alto (passa il mouse per le novità). Se compare «Nuova versione: ricarica», il browser sta usando file vecchi: clic sul pulsante, oppure Ctrl+F5 (su Mac Cmd+Maiusc+R).</p>

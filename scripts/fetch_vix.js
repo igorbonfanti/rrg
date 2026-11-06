@@ -49,7 +49,8 @@ async function main() {
   const prevSer = (s) => { const x = prev && prev.series && prev.series[s]; if (!x || !x.cd) return null; return { x, dates: decodeDates(x.d0, x.gaps), val: deltaDecode(x.cd, x.ps || 1) }; };
   const fresh = {}, errors = [], notes = [];
   for (const [key, sym] of [['SPX', '^GSPC'], ['NDX', '^NDX']]) {
-    try { const s = await index(sym); fresh[key] = { ...pack(s.dates, s.val), last: s.dates.at(-1) }; } catch (e) { errors.push(`${sym}: ${e.message}`); }
+    // 4 decimali: nel 1990-93 il Nasdaq-100 è quotato in ottavi (204,625)
+    try { const s = await index(sym); fresh[key] = { ...pack(s.dates, s.val, 10000), last: s.dates.at(-1) }; } catch (e) { errors.push(`${sym}: ${e.message}`); }
   }
   // sedute di riferimento: l'S&P 500 nuovo o quello pubblicato
   const spx = fresh.SPX ? { dates: decodeDates(fresh.SPX.d0, fresh.SPX.gaps) } : prevSer('SPX');

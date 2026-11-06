@@ -11,7 +11,7 @@
  * - calo successivo: il punto più basso dell'indice entro 252 sedute rispetto al prezzo d'ingresso (0 se non scende);
  * - base: tutte le sedute dalla prima data del VIX, con lo stesso ingresso;
  * - realizzata: deviazione standard dei rendimenti logaritmici delle ultime 21 sedute, annualizzata (×√252), in punti %;
- * - premio per la paura: VIX − realizzata; percentili sempre sulla sola storia fino a quel giorno.
+ * - premio per la paura: VIX − realizzata; percentili sempre sulla sola storia fino a quel giorno, «—» finché ha meno di 252 valori.
  * Un dato mancante resta null («—»), mai riempito.
  */
 import { decodeDates, deltaDecode } from './indexdata.js';
@@ -143,11 +143,11 @@ export function realized(close, w = 21) {
   return out;
 }
 
-/** Percentile (quota dei valori ≤ x) di ogni valore sulla storia fino a quel giorno */
-export function expandingPct(a) {
+/** Percentile (quota dei valori ≤ x) di ogni valore sulla storia fino a quel giorno; null finché la storia ha meno di minN valori */
+export function expandingPct(a, minN = 1) {
   const out = new Array(a.length).fill(null), seen = [];
   const ins = (x) => { let lo = 0, hi = seen.length; while (lo < hi) { const m = (lo + hi) >> 1; if (seen[m] <= x) lo = m + 1; else hi = m; } seen.splice(lo, 0, x); return lo; };
-  a.forEach((x, i) => { if (x == null) return; const k = ins(x); out[i] = (100 * (k + 1)) / seen.length; });
+  a.forEach((x, i) => { if (x == null) return; const k = ins(x); if (seen.length >= minN) out[i] = (100 * (k + 1)) / seen.length; });
   return out;
 }
 
@@ -156,6 +156,6 @@ export function today(A) {
   let t = A.vix.length - 1; while (t >= 0 && A.vix[t] == null) t--;
   if (t < 0) return null;
   const rv = realized(A.close), prem = A.vix.map((v, i) => (v != null && rv[i] != null ? v - rv[i] : null));
-  const vp = expandingPct(A.vix), pp = expandingPct(prem);
+  const vp = expandingPct(A.vix, 252), pp = expandingPct(prem, 252); // almeno un anno di storia
   return { date: A.dates[t], vix: A.vix[t], provisional: !!(A.fred && A.dates[t] > A.fred), band: bandOf(A.vix[t]), pct: vp[t], rv: rv[t], prem: prem[t], premPct: pp[t], rvSeries: rv, premSeries: prem, premPctSeries: pp, vixPctSeries: vp };
 }
