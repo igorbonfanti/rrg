@@ -102,7 +102,7 @@ def garch_filter(r, mu, om, a, b, s0):
 
 def garch_nll(theta, r, s0):
     mu, om, a, b = theta
-    if om <= 0 or a < 0 or b < 0 or a + b >= 1:
+    if om <= 0 or a < 0 or b < 0 or a + b >= 0.99999:   # stesso limite di garch.mjs
         return 1e12
     s2 = garch_filter(r, mu, om, a, b, s0)[:-1]
     if np.any(s2 <= 0):
@@ -112,13 +112,24 @@ def garch_nll(theta, r, s0):
 
 
 def garch_fit(r):
+    """SLSQP da due punti di partenza, poi rifinitura con Nelder-Mead dal migliore; si tiene la verosimiglianza più alta.
+    (Con un solo SLSQP, il 30/06/1998 dell'S&P 500 si fermava su un ottimo peggiore: trovato dal confronto con Node.)"""
     s0 = float(np.var(r))
-    x0 = np.array([float(np.mean(r)), 0.05 * s0, 0.10, 0.85])
+    m = float(np.mean(r))
     cons = [{'type': 'ineq', 'fun': lambda t: 0.99999 - t[2] - t[3]}]
     bnds = [(-1.0, 1.0), (1e-8, 10 * s0), (0.0, 1.0), (0.0, 1.0)]
-    res = minimize(garch_nll, x0, args=(r, s0), method='SLSQP', bounds=bnds, constraints=cons,
-                   options={'ftol': 1e-11, 'maxiter': 1000})
-    return res.x, float(res.fun), bool(res.success), s0
+    best = None
+    for a0, b0 in ((0.10, 0.85), (0.05, 0.93)):
+        x0 = np.array([m, (1 - a0 - b0) * s0, a0, b0])
+        res = minimize(garch_nll, x0, args=(r, s0), method='SLSQP', bounds=bnds, constraints=cons,
+                       options={'ftol': 1e-11, 'maxiter': 1000})
+        if best is None or res.fun < best[1]:
+            best = (res.x, float(res.fun), bool(res.success))
+    nm = minimize(garch_nll, best[0], args=(r, s0), method='Nelder-Mead',
+                  options={'xatol': 1e-10, 'fatol': 1e-11, 'maxiter': 20000, 'maxfev': 40000})
+    if nm.fun < best[1]:
+        best = (nm.x, float(nm.fun), True)
+    return best[0], best[1], best[2], s0
 
 
 def garch_avg_var(s1, om, a, b, h1, h2):
@@ -276,11 +287,17 @@ def analyze(key, cfg):
                       'sedute_indice_senza_implicita_dopo_inizio': [d for d in dates if d >= imp[0][0] and d not in impd]},
         'seconda_fonte_implicita': {'serie': cfg['impl_yahoo'], 'date_comuni': len(common),
                                     'diff_oltre_0_01': int(np.sum(diffs > 0.01)), 'diff_max': r4(float(diffs.max())),
-                                    'ultima_yahoo': imp_y[-1][0]},
+                                    'ultima_yahoo': imp_y[-1][0],
+                                    'fuori_campione_date_comuni': int(sum(1 for d in common if d >= cfg['oos'])),
+                                    'fuori_campione_diff_oltre_0_01': int(sum(1 for d in common if d >= cfg['oos'] and abs(impd[d] - yd[d]) > 0.01)),
+                                    'fuori_campione_diff_max': r4(max(abs(impd[d] - yd[d]) for d in common if d >= cfg['oos'])),
+                                    'fuori_campione_data_diff_max': max((d for d in common if d >= cfg['oos']), key=lambda d: abs(impd[d] - yd[d]))},
         'seconda_fonte_prezzo': {'serie': 'FRED ' + cfg['fred_prezzo'], 'date_comuni': len(cp),
                                  'scarto_relativo_max': float(rel.max()), 'date_scarto_oltre_1e-4': int(np.sum(rel > 1e-4)),
                                  'rendimenti_confrontati': int(len(rr)), 'scarto_rendimento_max_pp': r4(float(rr.max()), 6),
-                                 'rendimenti_scarto_oltre_0_01pp': int(np.sum(rr > 0.01))},
+                                 'rendimenti_scarto_oltre_0_01pp': int(np.sum(rr > 0.01)),
+                                 'fuori_campione_date_scarto_oltre_1e-4': int(sum(1 for d, x in zip(cp, rel) if d >= cfg['oos'] and x > 1e-4)),
+                                 'fuori_campione_scarto_relativo_max': float(max(x for d, x in zip(cp, rel) if d >= cfg['oos']))},
     }
     p = G['params']
     out['garch_parametri'] = {
@@ -490,7 +507,7 @@ def signal_stats(sig, ev, start, end, win=10, follow=21):
             'base_giornaliera': base, 'base_finestre': wbase,
             'rapporto_su_base_giornaliera': (len(prec) / n_ev) / base if n_ev and base else None,
             'rapporto_su_base_finestre': (len(prec) / n_ev) / wbase if n_ev and wbase else None,
-            'inizi_segnale': len(onsets), 'inizi_valutabili': len(judged), 'inizi_seguiti_da_evento': len(hit),
+            'inizi_segnale': len(onsets), 'inizi_per_anno': len(onsets) / ((end - start + 1) / 252), 'inizi_valutabili': len(judged), 'inizi_seguiti_da_evento': len(hit),
             'quota_inizi_seguiti': len(hit) / len(judged) if judged else None}
 
 
@@ -525,6 +542,12 @@ def event_study(dates, start, rvp, p90, sers, iv, g21, g2263, rvp_, ew, r):
                              'GARCH_21g': r4(g21[e], 2), 'implicita': r4(iv[e], 2), 'RVp': r4(rvp_[e], 2), 'EWMA': r4(ew[e], 2)}
         lst.append(row)
     res['lista'] = lst
+    for nm in sigs:
+        if nm.startswith('P'):
+            rs = [x[nm + '_rend_primo_segnale'] for x in lst if nm + '_rend_primo_segnale' in x]
+            r5 = [x[nm + '_rend_5g_prima_del_segnale'] for x in lst if nm + '_rend_5g_prima_del_segnale' in x]
+            res['misure'][nm]['primo_segnale_in_seduta_di_ribasso'] = int(sum(v < 0 for v in rs))
+            res['misure'][nm]['ribasso_nei_5g_fino_al_primo_segnale'] = int(sum(v < 0 for v in r5))
     # episodi citati: massimo della RVp nella finestra, soglia di quel giorno, evento o motivo per cui non lo è
     eps = [('2008 Lehman', '2008-09-01', '2008-12-31'), ('2011 debito USA', '2011-07-15', '2011-10-31'),
            ('2015 svalutazione yuan', '2015-08-01', '2015-10-15'), ('2018 febbraio', '2018-01-25', '2018-03-31'),

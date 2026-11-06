@@ -29,7 +29,11 @@
     "date_comuni": 9278,
     "diff_oltre_0_01": 12,
     "diff_max": 2.61,
-    "ultima_yahoo": "2026-11-05"
+    "ultima_yahoo": "2026-11-05",
+    "fuori_campione_date_comuni": 5497,
+    "fuori_campione_diff_oltre_0_01": 11,
+    "fuori_campione_diff_max": 2.61,
+    "fuori_campione_data_diff_max": "2026-02-06"
    },
    "seconda_fonte_prezzo": {
     "serie": "FRED SP500",
@@ -38,7 +42,9 @@
     "date_scarto_oltre_1e-4": 2,
     "rendimenti_confrontati": 2511,
     "scarto_rendimento_max_pp": 0.119007,
-    "rendimenti_scarto_oltre_0_01pp": 4
+    "rendimenti_scarto_oltre_0_01pp": 4,
+    "fuori_campione_date_scarto_oltre_1e-4": 2,
+    "fuori_campione_scarto_relativo_max": 0.0011893436495267196
    }
   },
   "garch_parametri": {
@@ -650,15 +656,18 @@
      "preceduti": 5,
      "quota_preceduti": 0.5,
      "anticipo_mediano": 7.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.3281,
-     "rapporto_su_base_giornaliera": 3.6494,
+     "rapporto_su_base_giornaliera": 3.6446,
      "rapporto_su_base_finestre": 1.5241,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.0549,
-     "criterio_utilita": false
+     "criterio_utilita": false,
+     "primo_segnale_in_seduta_di_ribasso": 5,
+     "ribasso_nei_5g_fino_al_primo_segnale": 5
     },
     "P2_impl_meno_RVp": {
      "eventi": 10,
@@ -670,10 +679,13 @@
      "rapporto_su_base_giornaliera": 4.1863,
      "rapporto_su_base_finestre": 1.7886,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 12,
      "quota_inizi_seguiti": 0.0588,
-     "criterio_utilita": false
+     "criterio_utilita": false,
+     "primo_segnale_in_seduta_di_ribasso": 7,
+     "ribasso_nei_5g_fino_al_primo_segnale": 6
     },
     "GARCH_livello": {
      "eventi": 10,
@@ -685,6 +697,7 @@
      "rapporto_su_base_giornaliera": 5.7449,
      "rapporto_su_base_finestre": 3.7587,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 19,
      "quota_inizi_seguiti": 0.2209
@@ -699,6 +712,7 @@
      "rapporto_su_base_giornaliera": 4.6069,
      "rapporto_su_base_finestre": 3.706,
      "inizi_segnale": 50,
+     "inizi_per_anno": 2.2926,
      "inizi_valutabili": 49,
      "inizi_seguiti_da_evento": 11,
      "quota_inizi_seguiti": 0.2245
@@ -713,6 +727,7 @@
      "rapporto_su_base_giornaliera": 5.3016,
      "rapporto_su_base_finestre": 3.322,
      "inizi_segnale": 104,
+     "inizi_per_anno": 4.7686,
      "inizi_valutabili": 104,
      "inizi_seguiti_da_evento": 18,
      "quota_inizi_seguiti": 0.1731
@@ -1103,11 +1118,12 @@
      "preceduti": 5,
      "quota_preceduti": 0.5,
      "anticipo_mediano": 7.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.3281,
-     "rapporto_su_base_giornaliera": 3.6494,
+     "rapporto_su_base_giornaliera": 3.6446,
      "rapporto_su_base_finestre": 1.5241,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.0549
@@ -1122,6 +1138,7 @@
      "rapporto_su_base_giornaliera": 4.1863,
      "rapporto_su_base_finestre": 1.7886,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 12,
      "quota_inizi_seguiti": 0.0588
@@ -1136,6 +1153,7 @@
      "rapporto_su_base_giornaliera": 5.7449,
      "rapporto_su_base_finestre": 3.7587,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 19,
      "quota_inizi_seguiti": 0.2209
@@ -1152,11 +1170,12 @@
      "preceduti": 7,
      "quota_preceduti": 0.5833,
      "anticipo_mediano": 7.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.3281,
-     "rapporto_su_base_giornaliera": 4.2576,
+     "rapporto_su_base_giornaliera": 4.252,
      "rapporto_su_base_finestre": 1.7781,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.0549
@@ -1171,6 +1190,7 @@
      "rapporto_su_base_giornaliera": 4.9837,
      "rapporto_su_base_finestre": 2.1292,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 14,
      "quota_inizi_seguiti": 0.0686
@@ -1185,6 +1205,7 @@
      "rapporto_su_base_giornaliera": 5.3194,
      "rapporto_su_base_finestre": 3.4802,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 16,
      "quota_inizi_seguiti": 0.186
@@ -1201,11 +1222,12 @@
      "preceduti": 7,
      "quota_preceduti": 0.7,
      "anticipo_mediano": 9.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.3281,
-     "rapporto_su_base_giornaliera": 5.1092,
+     "rapporto_su_base_giornaliera": 5.1024,
      "rapporto_su_base_finestre": 2.1338,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 18,
      "quota_inizi_seguiti": 0.0989
@@ -1220,6 +1242,7 @@
      "rapporto_su_base_giornaliera": 3.5882,
      "rapporto_su_base_finestre": 1.5331,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 12,
      "quota_inizi_seguiti": 0.0588
@@ -1234,6 +1257,7 @@
      "rapporto_su_base_giornaliera": 6.3833,
      "rapporto_su_base_finestre": 4.1763,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 17,
      "quota_inizi_seguiti": 0.1977
@@ -1250,11 +1274,12 @@
      "preceduti": 7,
      "quota_preceduti": 0.5833,
      "anticipo_mediano": 9.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.3281,
-     "rapporto_su_base_giornaliera": 4.2576,
+     "rapporto_su_base_giornaliera": 4.252,
      "rapporto_su_base_finestre": 1.7781,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 16,
      "quota_inizi_seguiti": 0.0879
@@ -1269,6 +1294,7 @@
      "rapporto_su_base_giornaliera": 4.4853,
      "rapporto_su_base_finestre": 1.9163,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 19,
      "quota_inizi_seguiti": 0.0931
@@ -1283,6 +1309,7 @@
      "rapporto_su_base_giornaliera": 5.8513,
      "rapporto_su_base_finestre": 3.8283,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 24,
      "quota_inizi_seguiti": 0.2791
@@ -1299,11 +1326,12 @@
      "preceduti": 5,
      "quota_preceduti": 0.5556,
      "anticipo_mediano": 7.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.3281,
-     "rapporto_su_base_giornaliera": 4.0549,
+     "rapporto_su_base_giornaliera": 4.0495,
      "rapporto_su_base_finestre": 1.6935,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0385
@@ -1318,6 +1346,7 @@
      "rapporto_su_base_giornaliera": 4.6514,
      "rapporto_su_base_finestre": 1.9873,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 11,
      "quota_inizi_seguiti": 0.0539
@@ -1332,6 +1361,7 @@
      "rapporto_su_base_giornaliera": 5.674,
      "rapporto_su_base_finestre": 3.7123,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 15,
      "quota_inizi_seguiti": 0.1744
@@ -1348,11 +1378,12 @@
      "preceduti": 5,
      "quota_preceduti": 0.5,
      "anticipo_mediano": 5.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.2455,
-     "rapporto_su_base_giornaliera": 3.6494,
+     "rapporto_su_base_giornaliera": 3.6446,
      "rapporto_su_base_finestre": 2.0371,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.0549
@@ -1367,6 +1398,7 @@
      "rapporto_su_base_giornaliera": 3.5882,
      "rapporto_su_base_finestre": 2.0977,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 12,
      "quota_inizi_seguiti": 0.0588
@@ -1381,6 +1413,7 @@
      "rapporto_su_base_giornaliera": 5.7449,
      "rapporto_su_base_finestre": 4.4125,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 19,
      "quota_inizi_seguiti": 0.2209
@@ -1397,11 +1430,12 @@
      "preceduti": 6,
      "quota_preceduti": 0.6,
      "anticipo_mediano": 8.0,
-     "base_giornaliera": 0.137,
+     "base_giornaliera": 0.1372,
      "base_finestre": 0.438,
-     "rapporto_su_base_giornaliera": 4.3793,
+     "rapporto_su_base_giornaliera": 4.3735,
      "rapporto_su_base_finestre": 1.37,
      "inizi_segnale": 184,
+     "inizi_per_anno": 8.4367,
      "inizi_valutabili": 182,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.0549
@@ -1416,6 +1450,7 @@
      "rapporto_su_base_giornaliera": 5.9804,
      "rapporto_su_base_finestre": 1.7967,
      "inizi_segnale": 206,
+     "inizi_per_anno": 9.4454,
      "inizi_valutabili": 204,
      "inizi_seguiti_da_evento": 12,
      "quota_inizi_seguiti": 0.0588
@@ -1430,6 +1465,7 @@
      "rapporto_su_base_giornaliera": 6.3833,
      "rapporto_su_base_finestre": 3.4052,
      "inizi_segnale": 87,
+     "inizi_per_anno": 3.9891,
      "inizi_valutabili": 86,
      "inizi_seguiti_da_evento": 19,
      "quota_inizi_seguiti": 0.2209
@@ -1446,14 +1482,15 @@
      "preceduti": 7,
      "quota_preceduti": 0.7,
      "anticipo_mediano": 8.0,
-     "base_giornaliera": 0.1739,
-     "base_finestre": 0.3876,
-     "rapporto_su_base_giornaliera": 4.0243,
-     "rapporto_su_base_finestre": 1.8062,
-     "inizi_segnale": 222,
-     "inizi_valutabili": 219,
-     "inizi_seguiti_da_evento": 12,
-     "quota_inizi_seguiti": 0.0548
+     "base_giornaliera": 0.1754,
+     "base_finestre": 0.3903,
+     "rapporto_su_base_giornaliera": 3.9909,
+     "rapporto_su_base_finestre": 1.7936,
+     "inizi_segnale": 224,
+     "inizi_per_anno": 10.2707,
+     "inizi_valutabili": 221,
+     "inizi_seguiti_da_evento": 13,
+     "quota_inizi_seguiti": 0.0588
     },
     "P2": {
      "eventi": 10,
@@ -1465,6 +1502,7 @@
      "rapporto_su_base_giornaliera": 3.3454,
      "rapporto_su_base_finestre": 1.5633,
      "inizi_segnale": 229,
+     "inizi_per_anno": 10.5,
      "inizi_valutabili": 227,
      "inizi_seguiti_da_evento": 14,
      "quota_inizi_seguiti": 0.0617
@@ -1479,6 +1517,7 @@
      "rapporto_su_base_giornaliera": 5.1557,
      "rapporto_su_base_finestre": 3.4286,
      "inizi_segnale": 109,
+     "inizi_per_anno": 4.9978,
      "inizi_valutabili": 108,
      "inizi_seguiti_da_evento": 16,
      "quota_inizi_seguiti": 0.1481
@@ -1500,6 +1539,7 @@
      "rapporto_su_base_giornaliera": 6.6217,
      "rapporto_su_base_finestre": 2.3792,
      "inizi_segnale": 117,
+     "inizi_per_anno": 5.3646,
      "inizi_valutabili": 117,
      "inizi_seguiti_da_evento": 8,
      "quota_inizi_seguiti": 0.0684
@@ -1514,6 +1554,7 @@
      "rapporto_su_base_giornaliera": 5.5854,
      "rapporto_su_base_finestre": 2.0977,
      "inizi_segnale": 128,
+     "inizi_per_anno": 5.869,
      "inizi_valutabili": 125,
      "inizi_seguiti_da_evento": 13,
      "quota_inizi_seguiti": 0.104
@@ -1528,6 +1569,7 @@
      "rapporto_su_base_giornaliera": 5.1727,
      "rapporto_su_base_finestre": 3.2714,
      "inizi_segnale": 46,
+     "inizi_per_anno": 2.1092,
      "inizi_valutabili": 45,
      "inizi_seguiti_da_evento": 5,
      "quota_inizi_seguiti": 0.1111
@@ -2168,7 +2210,11 @@
     "date_comuni": 6475,
     "diff_oltre_0_01": 692,
     "diff_max": 12.32,
-    "ultima_yahoo": "2026-11-05"
+    "ultima_yahoo": "2026-11-05",
+    "fuori_campione_date_comuni": 4741,
+    "fuori_campione_diff_oltre_0_01": 17,
+    "fuori_campione_diff_max": 7.71,
+    "fuori_campione_data_diff_max": "2008-10-22"
    },
    "seconda_fonte_prezzo": {
     "serie": "FRED NASDAQ100",
@@ -2177,7 +2223,9 @@
     "date_scarto_oltre_1e-4": 555,
     "rendimenti_confrontati": 10288,
     "scarto_rendimento_max_pp": 2.472933,
-    "rendimenti_scarto_oltre_0_01pp": 685
+    "rendimenti_scarto_oltre_0_01pp": 685,
+    "fuori_campione_date_scarto_oltre_1e-4": 2,
+    "fuori_campione_scarto_relativo_max": 0.0008520702572272221
    }
   },
   "garch_parametri": {
@@ -2249,7 +2297,7 @@
      "rmse": 8.9575,
      "distorsione": 0.8888,
      "corr": 0.6432,
-     "mz_a": 2.5767,
+     "mz_a": 2.5766,
      "mz_b": 0.8331,
      "mz_r2": 0.4136,
      "log_a": 0.0545,
@@ -2324,11 +2372,11 @@
      },
      "GARCH": {
       "n": 1259,
-      "mae": 6.4422,
+      "mae": 6.4421,
       "rmse": 9.9164,
       "distorsione": 1.5464,
       "corr": 0.7258,
-      "mz_a": 3.0432,
+      "mz_a": 3.0431,
       "mz_b": 0.816,
       "mz_r2": 0.5268,
       "log_a": 0.2472,
@@ -2351,7 +2399,7 @@
      "_dm_garch_contro": {
       "implicita": -0.4479,
       "RVp": -2.1384,
-      "EWMA": 0.0972,
+      "EWMA": 0.0971,
       "extra_implicita_meno_premio_passato": 0.7835
      },
      "_migliore_rmse": "EWMA",
@@ -2540,7 +2588,7 @@
      "rmse": 4.0543,
      "distorsione": 0.4879,
      "corr": 0.9384,
-     "mz_a": -1.8374,
+     "mz_a": -1.8375,
      "mz_b": 1.0662,
      "mz_r2": 0.8806,
      "log_a": -0.5355,
@@ -2594,7 +2642,7 @@
      "rmse": 4.6797,
      "distorsione": 0.289,
      "corr": 0.9066,
-     "mz_a": -0.1371,
+     "mz_a": -0.1372,
      "mz_b": 0.9926,
      "mz_r2": 0.8219,
      "log_a": -0.2592,
@@ -2607,7 +2655,7 @@
      "rmse": 5.018,
      "distorsione": 0.6575,
      "corr": 0.8986,
-     "mz_a": -3.1937,
+     "mz_a": -3.1938,
      "mz_b": 1.1222,
      "mz_r2": 0.8075,
      "log_a": -0.8853,
@@ -2794,10 +2842,13 @@
      "rapporto_su_base_giornaliera": 4.1989,
      "rapporto_su_base_finestre": 1.9429,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 13,
      "quota_inizi_seguiti": 0.0607,
-     "criterio_utilita": false
+     "criterio_utilita": false,
+     "primo_segnale_in_seduta_di_ribasso": 6,
+     "ribasso_nei_5g_fino_al_primo_segnale": 5
     },
     "P2_impl_meno_RVp": {
      "eventi": 7,
@@ -2809,10 +2860,13 @@
      "rapporto_su_base_giornaliera": 3.2981,
      "rapporto_su_base_finestre": 1.6531,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0422,
-     "criterio_utilita": false
+     "criterio_utilita": false,
+     "primo_segnale_in_seduta_di_ribasso": 5,
+     "ribasso_nei_5g_fino_al_primo_segnale": 5
     },
     "GARCH_livello": {
      "eventi": 7,
@@ -2824,6 +2878,7 @@
      "rapporto_su_base_giornaliera": 13.3265,
      "rapporto_su_base_finestre": 6.9008,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.1852
@@ -2838,6 +2893,7 @@
      "rapporto_su_base_giornaliera": 7.6484,
      "rapporto_su_base_finestre": 5.8616,
      "inizi_segnale": 30,
+     "inizi_per_anno": 1.5943,
      "inizi_valutabili": 29,
      "inizi_seguiti_da_evento": 8,
      "quota_inizi_seguiti": 0.2759
@@ -2852,6 +2908,7 @@
      "rapporto_su_base_giornaliera": 9.8895,
      "rapporto_su_base_finestre": 5.5909,
      "inizi_segnale": 58,
+     "inizi_per_anno": 3.0822,
      "inizi_valutabili": 57,
      "inizi_seguiti_da_evento": 8,
      "quota_inizi_seguiti": 0.1404
@@ -3174,6 +3231,7 @@
      "rapporto_su_base_giornaliera": 4.1989,
      "rapporto_su_base_finestre": 1.9429,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 13,
      "quota_inizi_seguiti": 0.0607
@@ -3188,6 +3246,7 @@
      "rapporto_su_base_giornaliera": 3.2981,
      "rapporto_su_base_finestre": 1.6531,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0422
@@ -3202,6 +3261,7 @@
      "rapporto_su_base_giornaliera": 13.3265,
      "rapporto_su_base_finestre": 6.9008,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.1852
@@ -3223,6 +3283,7 @@
      "rapporto_su_base_giornaliera": 3.4291,
      "rapporto_su_base_finestre": 1.5867,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.0467
@@ -3237,6 +3298,7 @@
      "rapporto_su_base_giornaliera": 3.2321,
      "rapporto_su_base_finestre": 1.62,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 12,
      "quota_inizi_seguiti": 0.0723
@@ -3251,6 +3313,7 @@
      "rapporto_su_base_giornaliera": 12.438,
      "rapporto_su_base_finestre": 6.4407,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 13,
      "quota_inizi_seguiti": 0.2407
@@ -3272,6 +3335,7 @@
      "rapporto_su_base_giornaliera": 1.6329,
      "rapporto_su_base_finestre": 0.7556,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 4,
      "quota_inizi_seguiti": 0.0187
@@ -3286,6 +3350,7 @@
      "rapporto_su_base_giornaliera": 3.0782,
      "rapporto_su_base_finestre": 1.5429,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 4,
      "quota_inizi_seguiti": 0.0241
@@ -3300,6 +3365,7 @@
      "rapporto_su_base_giornaliera": 15.5475,
      "rapporto_su_base_finestre": 8.0509,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 3,
      "quota_inizi_seguiti": 0.0556
@@ -3321,6 +3387,7 @@
      "rapporto_su_base_giornaliera": 4.2864,
      "rapporto_su_base_finestre": 1.9834,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 16,
      "quota_inizi_seguiti": 0.0748
@@ -3335,6 +3402,7 @@
      "rapporto_su_base_giornaliera": 3.463,
      "rapporto_su_base_finestre": 1.7357,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 9,
      "quota_inizi_seguiti": 0.0542
@@ -3349,6 +3417,7 @@
      "rapporto_su_base_giornaliera": 13.6041,
      "rapporto_su_base_finestre": 7.0446,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 16,
      "quota_inizi_seguiti": 0.2963
@@ -3370,6 +3439,7 @@
      "rapporto_su_base_giornaliera": 4.0823,
      "rapporto_su_base_finestre": 1.8889,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 11,
      "quota_inizi_seguiti": 0.0514
@@ -3384,6 +3454,7 @@
      "rapporto_su_base_giornaliera": 3.8478,
      "rapporto_su_base_finestre": 1.9286,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0422
@@ -3398,6 +3469,7 @@
      "rapporto_su_base_giornaliera": 12.9563,
      "rapporto_su_base_finestre": 6.7091,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.1296
@@ -3419,6 +3491,7 @@
      "rapporto_su_base_giornaliera": 1.3996,
      "rapporto_su_base_finestre": 0.8379,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 13,
      "quota_inizi_seguiti": 0.0607
@@ -3433,6 +3506,7 @@
      "rapporto_su_base_giornaliera": 0.0,
      "rapporto_su_base_finestre": 0.0,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0422
@@ -3447,6 +3521,7 @@
      "rapporto_su_base_giornaliera": 13.3265,
      "rapporto_su_base_finestre": 8.7223,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.1852
@@ -3468,6 +3543,7 @@
      "rapporto_su_base_giornaliera": 4.1989,
      "rapporto_su_base_finestre": 1.4982,
      "inizi_segnale": 214,
+     "inizi_per_anno": 11.3724,
      "inizi_valutabili": 214,
      "inizi_seguiti_da_evento": 13,
      "quota_inizi_seguiti": 0.0607
@@ -3482,6 +3558,7 @@
      "rapporto_su_base_giornaliera": 3.9577,
      "rapporto_su_base_finestre": 1.4403,
      "inizi_segnale": 169,
+     "inizi_per_anno": 8.981,
      "inizi_valutabili": 166,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0422
@@ -3496,6 +3573,7 @@
      "rapporto_su_base_giornaliera": 13.3265,
      "rapporto_su_base_finestre": 5.1515,
      "inizi_segnale": 55,
+     "inizi_per_anno": 2.9228,
      "inizi_valutabili": 54,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.1852
@@ -3517,6 +3595,7 @@
      "rapporto_su_base_giornaliera": 3.2465,
      "rapporto_su_base_finestre": 1.6824,
      "inizi_segnale": 235,
+     "inizi_per_anno": 12.4884,
      "inizi_valutabili": 230,
      "inizi_seguiti_da_evento": 11,
      "quota_inizi_seguiti": 0.0478
@@ -3531,6 +3610,7 @@
      "rapporto_su_base_giornaliera": 2.6691,
      "rapporto_su_base_finestre": 1.4008,
      "inizi_segnale": 198,
+     "inizi_per_anno": 10.5221,
      "inizi_valutabili": 196,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0357
@@ -3545,6 +3625,7 @@
      "rapporto_su_base_giornaliera": 10.3991,
      "rapporto_su_base_finestre": 6.2808,
      "inizi_segnale": 54,
+     "inizi_per_anno": 2.8697,
      "inizi_valutabili": 52,
      "inizi_seguiti_da_evento": 10,
      "quota_inizi_seguiti": 0.1923
@@ -3566,6 +3647,7 @@
      "rapporto_su_base_giornaliera": 6.5611,
      "rapporto_su_base_finestre": 2.6829,
      "inizi_segnale": 88,
+     "inizi_per_anno": 4.6765,
      "inizi_valutabili": 88,
      "inizi_seguiti_da_evento": 7,
      "quota_inizi_seguiti": 0.0795
@@ -3580,6 +3662,7 @@
      "rapporto_su_base_giornaliera": 5.8273,
      "rapporto_su_base_finestre": 2.1626,
      "inizi_segnale": 129,
+     "inizi_per_anno": 6.8553,
      "inizi_valutabili": 127,
      "inizi_seguiti_da_evento": 6,
      "quota_inizi_seguiti": 0.0472
@@ -3594,6 +3677,7 @@
      "rapporto_su_base_giornaliera": 6.2725,
      "rapporto_su_base_finestre": 4.2606,
      "inizi_segnale": 8,
+     "inizi_per_anno": 0.4251,
      "inizi_valutabili": 7,
      "inizi_seguiti_da_evento": 1,
      "quota_inizi_seguiti": 0.1429
@@ -4041,7 +4125,7 @@
     "rmse": 10.7095,
     "distorsione": 1.2083,
     "corr": 0.3443,
-    "mz_a": 9.3136,
+    "mz_a": 9.3135,
     "mz_b": 0.5089,
     "mz_r2": 0.1186,
     "log_a": 0.8295,

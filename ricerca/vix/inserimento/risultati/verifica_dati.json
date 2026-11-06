@@ -1,5 +1,5 @@
 {
- "scaricato": "2026-11-06T14:40:29.120Z",
+ "scaricato": "2026-11-06T14:44:52.521Z",
  "copertura": {
   "FRED VIXCLS": {
    "da": "1990-01-02",
@@ -1092,6 +1092,277 @@
    ]
   }
  },
+ "vxn_2001_2003": {
+  "oltre_mezzo_punto": 650,
+  "prima_del_2004": 646,
+  "ultima_prima_del_2004": "2003-09-19",
+  "dal_2004_in_poi": 4,
+  "date_dal_2004": [
+   "2008-10-22",
+   "2010-04-27",
+   "2017-02-14",
+   "2017-02-21"
+  ],
+  "differenza_media_Yahoo_meno_FRED_2001_2003": 4.89,
+  "rapporto_medio_Yahoo_su_FRED_2001_2003": 1.106
+ },
+ "vix_feste": [
+  {
+   "d": "2004-06-11",
+   "chiusura": 15.04,
+   "piatta": true,
+   "prima": 15.04,
+   "yahoo": null
+  },
+  {
+   "d": "2022-05-30",
+   "chiusura": 26.54,
+   "piatta": false,
+   "prima": 25.72,
+   "yahoo": null
+  },
+  {
+   "d": "2022-06-20",
+   "chiusura": 31.03,
+   "piatta": false,
+   "prima": 31.13,
+   "yahoo": null
+  },
+  {
+   "d": "2022-07-04",
+   "chiusura": 27.53,
+   "piatta": false,
+   "prima": 26.7,
+   "yahoo": null
+  },
+  {
+   "d": "2022-09-05",
+   "chiusura": 25.99,
+   "piatta": false,
+   "prima": 25.47,
+   "yahoo": null
+  },
+  {
+   "d": "2022-11-24",
+   "chiusura": 20.42,
+   "piatta": false,
+   "prima": 20.35,
+   "yahoo": null
+  },
+  {
+   "d": "2023-01-16",
+   "chiusura": 19.49,
+   "piatta": false,
+   "prima": 18.35,
+   "yahoo": null
+  },
+  {
+   "d": "2023-02-20",
+   "chiusura": 21.23,
+   "piatta": false,
+   "prima": 20.02,
+   "yahoo": null
+  },
+  {
+   "d": "2023-05-29",
+   "chiusura": 17.46,
+   "piatta": false,
+   "prima": 17.95,
+   "yahoo": null
+  },
+  {
+   "d": "2023-06-19",
+   "chiusura": 14.19,
+   "piatta": false,
+   "prima": 13.54,
+   "yahoo": null
+  },
+  {
+   "d": "2023-07-04",
+   "chiusura": 13.7,
+   "piatta": false,
+   "prima": 13.57,
+   "yahoo": null
+  },
+  {
+   "d": "2023-09-04",
+   "chiusura": 13.82,
+   "piatta": false,
+   "prima": 13.09,
+   "yahoo": null
+  },
+  {
+   "d": "2023-11-23",
+   "chiusura": 12.8,
+   "piatta": false,
+   "prima": 12.85,
+   "yahoo": null
+  },
+  {
+   "d": "2024-01-15",
+   "chiusura": 13.25,
+   "piatta": false,
+   "prima": 12.7,
+   "yahoo": null
+  },
+  {
+   "d": "2024-02-19",
+   "chiusura": 14.71,
+   "piatta": false,
+   "prima": 14.24,
+   "yahoo": null
+  },
+  {
+   "d": "2024-05-27",
+   "chiusura": 12.36,
+   "piatta": false,
+   "prima": 11.93,
+   "yahoo": null
+  },
+  {
+   "d": "2024-06-19",
+   "chiusura": 12.48,
+   "piatta": false,
+   "prima": 12.3,
+   "yahoo": null
+  },
+  {
+   "d": "2024-07-04",
+   "chiusura": 12.26,
+   "piatta": false,
+   "prima": 12.09,
+   "yahoo": null
+  },
+  {
+   "d": "2024-09-02",
+   "chiusura": 15.55,
+   "piatta": false,
+   "prima": 15,
+   "yahoo": null
+  },
+  {
+   "d": "2024-11-28",
+   "chiusura": 13.9,
+   "piatta": false,
+   "prima": 14.1,
+   "yahoo": null
+  },
+  {
+   "d": "2025-01-09",
+   "chiusura": 18.07,
+   "piatta": false,
+   "prima": 17.7,
+   "yahoo": null
+  },
+  {
+   "d": "2025-01-20",
+   "chiusura": 15.81,
+   "piatta": false,
+   "prima": 15.97,
+   "yahoo": null
+  },
+  {
+   "d": "2025-02-17",
+   "chiusura": 15.37,
+   "piatta": false,
+   "prima": 14.77,
+   "yahoo": null
+  },
+  {
+   "d": "2025-05-26",
+   "chiusura": 20.57,
+   "piatta": false,
+   "prima": 22.29,
+   "yahoo": null
+  },
+  {
+   "d": "2025-06-19",
+   "chiusura": 22.17,
+   "piatta": false,
+   "prima": 20.14,
+   "yahoo": null
+  },
+  {
+   "d": "2025-07-04",
+   "chiusura": 17.48,
+   "piatta": false,
+   "prima": 16.38,
+   "yahoo": null
+  },
+  {
+   "d": "2025-09-01",
+   "chiusura": 16.12,
+   "piatta": false,
+   "prima": 15.36,
+   "yahoo": null
+  },
+  {
+   "d": "2025-11-27",
+   "chiusura": 17.21,
+   "piatta": false,
+   "prima": 17.19,
+   "yahoo": null
+  },
+  {
+   "d": "2026-01-19",
+   "chiusura": 18.84,
+   "piatta": false,
+   "prima": 15.86,
+   "yahoo": null
+  },
+  {
+   "d": "2026-02-16",
+   "chiusura": 21.2,
+   "piatta": false,
+   "prima": 20.6,
+   "yahoo": null
+  },
+  {
+   "d": "2026-05-25",
+   "chiusura": 16.59,
+   "piatta": false,
+   "prima": 16.7,
+   "yahoo": 16.59000015258789
+  },
+  {
+   "d": "2026-06-19",
+   "chiusura": 16.78,
+   "piatta": false,
+   "prima": 16.4,
+   "yahoo": null
+  },
+  {
+   "d": "2026-07-03",
+   "chiusura": 15.81,
+   "piatta": false,
+   "prima": 16.15,
+   "yahoo": null
+  },
+  {
+   "d": "2026-09-07",
+   "chiusura": 15.3,
+   "piatta": false,
+   "prima": 14.53,
+   "yahoo": 15.300000190734863
+  }
+ ],
+ "feste_NYSE_dal_2022_senza_VIX": [
+  "2022-01-17",
+  "2022-02-21",
+  "2022-04-15",
+  "2022-12-26",
+  "2023-01-02",
+  "2023-04-07",
+  "2023-12-25",
+  "2024-01-01",
+  "2024-03-29",
+  "2024-12-25",
+  "2025-01-01",
+  "2025-04-18",
+  "2025-12-25",
+  "2026-01-01",
+  "2026-04-03"
+ ],
  "soglie": {
   "20": {
    "FRED": 3436,
@@ -1633,7 +1904,7 @@
   }
  },
  "fred_ritardo": {
-  "nota": "sedute_di_ritardo = sedute NYSE tra l'ultima osservazione presente nel vintage e l'ultima seduta chiusa entro il giorno del vintage. Un vintage datato v contiene i valori pubblicati fino a v compreso.",
+  "nota": "sedute_di_ritardo = sedute NYSE tra l'ultima osservazione presente nel vintage e l'ultima seduta chiusa entro il giorno del vintage. ATTENZIONE: ALFRED data le vintage di VIXCLS con il giorno della seduta, ma il valore compare su FRED solo la mattina dopo (pagina della serie il 06/11/2026: «Updated: Nov 6, 2026 8:38 AM CST» con l'ultima seduta del 05/11; alle 14:35 UTC del 06/11 il CSV senza cosd aveva ancora il 04/11). Le vintage non misurano quindi il ritardo vero: lo misura il controllo dal vivo (oggi).",
   "vintage": 125,
   "distribuzione_sedute": {
    "0": 125
@@ -1645,7 +1916,7 @@
    "FRED_VIXCLS": "2026-11-04",
    "Cboe": "2026-11-05",
    "Yahoo": "2026-11-05",
-   "scaricato": "2026-11-06T14:40:29.120Z"
+   "scaricato": "2026-11-06T14:44:52.521Z"
   },
   "dettaglio": [
    {
@@ -2791,6 +3062,7 @@
  },
  "indici": {
   "SPX: Yahoo ^GSPC contro data/indices.json": {
+   "per_anno_oltre_0_1pct": {},
    "comuni": 6751,
    "diverse_oltre_un_centesimo": 0,
    "oltre_1e4": 0,
@@ -2837,6 +3109,7 @@
    "solo_seconda": []
   },
   "NDX: Yahoo ^NDX contro data/indices.json": {
+   "per_anno_oltre_0_1pct": {},
    "comuni": 6751,
    "diverse_oltre_un_centesimo": 0,
    "oltre_1e4": 0,
@@ -2883,6 +3156,9 @@
    "solo_seconda": []
   },
   "SPX: Yahoo ^GSPC contro FRED SP500": {
+   "per_anno_oltre_0_1pct": {
+    "2021": 1
+   },
    "comuni": 2512,
    "diverse_oltre_un_centesimo": 9,
    "oltre_1e4": 2,
@@ -2929,6 +3205,21 @@
    "solo_seconda": []
   },
   "NDX: Yahoo ^NDX contro FRED NASDAQ100": {
+   "per_anno_oltre_0_1pct": {
+    "1986": 4,
+    "1987": 6,
+    "1988": 1,
+    "1989": 4,
+    "1992": 3,
+    "1994": 1,
+    "1995": 1,
+    "1997": 2,
+    "2000": 1,
+    "2001": 2,
+    "2003": 175,
+    "2004": 175,
+    "2005": 58
+   },
    "comuni": 10290,
    "diverse_oltre_un_centesimo": 746,
    "oltre_1e4": 555,
@@ -2984,6 +3275,50 @@
    "asOf": "2026-11-05",
    "SPX_da": "2000-01-03",
    "NDX_da": "2000-01-03"
+  },
+  "NDX_contro_QQQ": {
+   "giorni_contestati_dal_1999": 411,
+   "piu_vicino_Yahoo": 327,
+   "piu_vicino_FRED": 59,
+   "pari": 25,
+   "esempi": [
+    {
+     "d": "2001-09-26",
+     "QQQ_pct": -3.47,
+     "Yahoo_pct": -3.73,
+     "FRED_pct": -1.32
+    },
+    {
+     "d": "2003-01-22",
+     "QQQ_pct": -0.4,
+     "Yahoo_pct": -0.24,
+     "FRED_pct": 1.8
+    },
+    {
+     "d": "2003-01-23",
+     "QQQ_pct": 2.33,
+     "Yahoo_pct": 2.6,
+     "FRED_pct": 1.18
+    },
+    {
+     "d": "2003-01-24",
+     "QQQ_pct": -2.7,
+     "Yahoo_pct": -3.53,
+     "FRED_pct": -4.46
+    },
+    {
+     "d": "2003-01-28",
+     "QQQ_pct": 1.02,
+     "Yahoo_pct": 1.52,
+     "FRED_pct": 2.49
+    },
+    {
+     "d": "2003-01-31",
+     "QQQ_pct": -0.24,
+     "Yahoo_pct": -0.25,
+     "FRED_pct": 1.1
+    }
+   ]
   },
   "NDX_buchi_oltre_5_giorni": [
    [

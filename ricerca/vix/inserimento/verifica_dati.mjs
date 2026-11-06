@@ -147,6 +147,20 @@ R.confronto = {
 };
 // VIX: soglie toccate (chiusura >= 20/25/30/40/50) — le fonti danno gli stessi giorni?
 const cross = (map, L) => new Set([...map.keys()].filter((d) => map.get(d) >= L));
+// VXN: fino a quando FRED e Yahoo differiscono di oltre mezzo punto in modo sistematico?
+{
+  const d = [...F.VXN.map.keys()].filter((x) => Y.VXN.map.has(x));
+  const big = d.filter((x) => Math.abs(F.VXN.map.get(x) - Y.VXN.map.get(x)) > 0.5);
+  const sameAfter = (t) => d.filter((x) => x > t && Math.abs(F.VXN.map.get(x) - Y.VXN.map.get(x)) > 0.5).length;
+  const mean = (a) => a.reduce((s, x) => s + x, 0) / a.length;
+  const firstPart = big.filter((x) => x < '2004-01-01');
+  R.vxn_2001_2003 = { oltre_mezzo_punto: big.length, prima_del_2004: firstPart.length, ultima_prima_del_2004: firstPart[firstPart.length - 1], dal_2004_in_poi: sameAfter('2003-12-31'), date_dal_2004: big.filter((x) => x >= '2004-01-01'),
+    differenza_media_Yahoo_meno_FRED_2001_2003: +mean(firstPart.map((x) => Y.VXN.map.get(x) - F.VXN.map.get(x))).toFixed(2),
+    rapporto_medio_Yahoo_su_FRED_2001_2003: +mean(firstPart.map((x) => Y.VXN.map.get(x) / F.VXN.map.get(x))).toFixed(3) };
+}
+// valori del VIX in giorni senza seduta NYSE (FRED/Cboe dal 2022: sedute di Cboe nelle feste USA)
+R.vix_feste = [...B.VIX.map.keys()].filter((d) => !nyseSet.has(d)).map((d) => { const r = B.VIX.rows.find((x) => x.d === d); const i = B.VIX.rows.indexOf(r); return { d, chiusura: r.c, piatta: r.o === r.h && r.h === r.l, prima: B.VIX.rows[i - 1].c, yahoo: Y.VIX.map.get(d) ?? null }; });
+R.feste_NYSE_dal_2022_senza_VIX = (() => { const out = []; for (let y = 2022; y <= 2026; y++) for (const d of holidays(y)) if (d <= nyse[nyse.length - 1] && d >= '2022-01-01' && !B.VIX.map.has(d)) out.push(d); return out.sort(); })();
 R.soglie = Object.fromEntries([20, 25, 30, 40, 50].map((L) => {
   const f = cross(F.VIX.map, L), b = cross(B.VIX.map, L), y = cross(Y.VIX.map, L);
   const both = (s, t) => [...s].filter((d) => !t.has(d) && (F.VIX.map.has(d) && B.VIX.map.has(d) && Y.VIX.map.has(d)));
@@ -214,7 +228,7 @@ for (let i = 1; i < vintSorted.length; i++) {
 }
 const fsHist = {};
 for (const x of firstSeen) fsHist[x.giorni_di_calendario] = (fsHist[x.giorni_di_calendario] || 0) + 1;
-R.fred_ritardo = { nota: 'sedute_di_ritardo = sedute NYSE tra l\'ultima osservazione presente nel vintage e l\'ultima seduta chiusa entro il giorno del vintage. Un vintage datato v contiene i valori pubblicati fino a v compreso.', vintage: daily.length, distribuzione_sedute: hist, prima_comparsa_giorni_di_calendario: fsHist, oggi: { FRED_VIXCLS: [...F.VIX.map.keys()].pop(), Cboe: [...B.VIX.map.keys()].pop(), Yahoo: Y.VIX.dates[Y.VIX.dates.length - 1], scaricato: DL }, dettaglio: lag };
+R.fred_ritardo = { nota: 'sedute_di_ritardo = sedute NYSE tra l\'ultima osservazione presente nel vintage e l\'ultima seduta chiusa entro il giorno del vintage. ATTENZIONE: ALFRED data le vintage di VIXCLS con il giorno della seduta, ma il valore compare su FRED solo la mattina dopo (pagina della serie il 06/11/2026: «Updated: Nov 6, 2026 8:38 AM CST» con l\'ultima seduta del 05/11; alle 14:35 UTC del 06/11 il CSV senza cosd aveva ancora il 04/11). Le vintage non misurano quindi il ritardo vero: lo misura il controllo dal vivo (oggi).', vintage: daily.length, distribuzione_sedute: hist, prima_comparsa_giorni_di_calendario: fsHist, oggi: { FRED_VIXCLS: [...F.VIX.map.keys()].pop(), Cboe: [...B.VIX.map.keys()].pop(), Yahoo: Y.VIX.dates[Y.VIX.dates.length - 1], scaricato: DL }, dettaglio: lag };
 // revisioni: vintage annuali contro FRED di oggi
 const rev = {};
 for (const f of fs.readdirSync(C).filter((f) => /^alfred_(VIX|VXN)CLS_\d{4}-01-0\d\.csv$/.test(f)).sort()) {
@@ -235,7 +249,9 @@ function cmpRel(a, b) {
   const rel = common.map((d) => ({ d, a: a.get(d), b: b.get(d), r: Math.abs(a.get(d) / b.get(d) - 1) }));
   const top = [...rel].sort((p, q) => q.r - p.r).slice(0, 6).map((x) => ({ data: x.d, a: +x.a.toFixed(2), b: +x.b.toFixed(2), rel_pct: +(100 * x.r).toFixed(4) }));
   const centDiff = rel.filter((x) => Math.abs(x.a - x.b) > 0.0051).length;
-  return { comuni: common.length, 'diverse_oltre_un_centesimo': centDiff, oltre_1e4: rel.filter((x) => x.r > 1e-4).length, oltre_1e3: rel.filter((x) => x.r > 1e-3).length, top, solo_prima: [...a.keys()].filter((d) => !b.has(d) && d >= [...b.keys()][0] && d <= [...b.keys()].pop()).slice(-8), solo_seconda: [...b.keys()].filter((d) => !a.has(d) && d >= [...a.keys()][0] && d <= [...a.keys()].pop()).slice(-8) };
+  const perAnno = {};
+  for (const x of rel) if (x.r > 1e-3) perAnno[x.d.slice(0, 4)] = (perAnno[x.d.slice(0, 4)] || 0) + 1;
+  return { per_anno_oltre_0_1pct: perAnno, comuni: common.length, 'diverse_oltre_un_centesimo': centDiff, oltre_1e4: rel.filter((x) => x.r > 1e-4).length, oltre_1e3: rel.filter((x) => x.r > 1e-3).length, top, solo_prima: [...a.keys()].filter((d) => !b.has(d) && d >= [...b.keys()][0] && d <= [...b.keys()].pop()).slice(-8), solo_seconda: [...b.keys()].filter((d) => !a.has(d) && d >= [...a.keys()][0] && d <= [...a.keys()].pop()).slice(-8) };
 }
 R.indici = {
   'SPX: Yahoo ^GSPC contro data/indices.json': cmpRel(Y.GSPC.map, ixMap('SPX')),
@@ -244,6 +260,24 @@ R.indici = {
   'NDX: Yahoo ^NDX contro FRED NASDAQ100': cmpRel(Y.NDX.map, F.NDX.map),
   indices_json: { asOf: IX.asOf, SPX_da: ixMap('SPX').keys().next().value, NDX_da: ixMap('NDX').keys().next().value },
 };
+// Giorni in cui ^NDX di Yahoo e FRED NASDAQ100 differiscono di oltre lo 0,1%: quale dei due segue QQQ? (rendimento del giorno
+// dell'indice contro quello di QQQ; QQQ = ETF sul Nasdaq-100, chiusure rettificate solo per gli split)
+{
+  const Q = yahoo('yahoo_QQQ_1d.json');
+  const ret = (m, d, dates) => { const i = dates.indexOf(d); if (i < 1) return null; const p = dates[i - 1]; return m.has(d) && m.has(p) ? m.get(d) / m.get(p) - 1 : null; };
+  const dates = Y.NDX.dates.filter((d) => F.NDX.map.has(d) && Q.map.has(d));
+  const disputed = dates.filter((d) => Math.abs(Y.NDX.map.get(d) / F.NDX.map.get(d) - 1) > 1e-3);
+  let yahooCloser = 0, fredCloser = 0, tie = 0;
+  const ex = [];
+  for (const d of disputed) {
+    const q = ret(Q.map, d, dates), y = ret(Y.NDX.map, d, dates), f = ret(F.NDX.map, d, dates);
+    if (q == null || y == null || f == null) continue;
+    const ey = Math.abs(y - q), ef = Math.abs(f - q);
+    if (Math.abs(ey - ef) < 5e-4) tie++; else if (ey < ef) yahooCloser++; else fredCloser++;
+    if (ex.length < 6 && Math.abs(ey - ef) >= 5e-3) ex.push({ d, QQQ_pct: +(100 * q).toFixed(2), Yahoo_pct: +(100 * y).toFixed(2), FRED_pct: +(100 * f).toFixed(2) });
+  }
+  R.indici.NDX_contro_QQQ = { giorni_contestati_dal_1999: disputed.length, piu_vicino_Yahoo: yahooCloser, piu_vicino_FRED: fredCloser, pari: tie, esempi: ex };
+}
 // NDX: la storia di Yahoo prima del 1990-2000 ha buchi o salti?
 const ndxGap = [];
 for (let i = 1; i < Y.NDX.dates.length; i++) { const g = (Date.parse(Y.NDX.dates[i]) - Date.parse(Y.NDX.dates[i - 1])) / 864e5; if (g > 5) ndxGap.push([Y.NDX.dates[i - 1], Y.NDX.dates[i], g]); }
@@ -283,9 +317,13 @@ P(`  Cboe VIX con OHLC piatte per anno: ${JSON.stringify(R.cboe_vix_ohlc_piatte_
 P('\n4. Confronto delle fonti');
 for (const [k, v] of Object.entries(R.confronto)) P(`  ${k.padEnd(15)} comuni ${v.comuni}; diverse >0,005: ${v['diverse_oltre_0,005']}, >0,05: ${v['oltre_0,05']}, >0,5: ${v['oltre_0,5']}; max ${v.max ? `${v.max.diff} il ${v.max.data} (${v.max.a} / ${v.max.b})` : '—'}; solo nella prima ${v.solo_nella_prima}, solo nella seconda ${v.solo_nella_seconda}`);
 P(`  Soglie: ${JSON.stringify(Object.fromEntries(Object.entries(R.soglie).map(([L, v]) => [L, [v.FRED, v.Cboe, v.Yahoo, v.FRED_si_Cboe_no.length, v.Yahoo_si_Cboe_no.length, v.Cboe_si_Yahoo_no.length]])))} (FRED, Cboe, Yahoo, FRED sì/Cboe no, Yahoo sì/Cboe no, Cboe sì/Yahoo no)`);
+P(`  VXN FRED contro Yahoo: ${JSON.stringify(R.vxn_2001_2003)}`);
+P(`  VIX in giorni senza NYSE (Cboe): ${R.vix_feste.length}, dal 2022 ${R.vix_feste.filter((x) => x.d >= '2022').length}, piatte ${R.vix_feste.filter((x) => x.piatta).map((x) => x.d).join(' ')}; con Yahoo: ${R.vix_feste.filter((x) => x.yahoo != null).map((x) => x.d).join(' ')}`);
+P(`  Feste NYSE dal 2022 senza VIX: ${R.feste_NYSE_dal_2022_senza_VIX.join(' ')}`);
 P('\n5. 16:00 contro 16:15'); const c = R.chiusura_1615; P(`  ${c.giorni} giorni; mediana |16:15−16:00| ${c.mediana_diff_assoluta}, max ${c.massima}, oltre 0,25: ${c.oltre_0_25}, oltre 0,5: ${c.oltre_0_5}; soglia diversa: ${c.soglia_diversa.join(' ') || 'nessuno'}; barre VIX ${JSON.stringify(c.orari_barre_VIX)}, VXN ${JSON.stringify(c.orari_barre_VXN)}`);
 P('\n6. FRED'); P(`  ritardo (sedute) ${JSON.stringify(R.fred_ritardo.distribuzione_sedute)} su ${R.fred_ritardo.vintage} vintage; prima comparsa (giorni di calendario dopo la seduta) ${JSON.stringify(R.fred_ritardo.prima_comparsa_giorni_di_calendario)}; oggi ${JSON.stringify(R.fred_ritardo.oggi)}`);
 for (const [k, v] of Object.entries(R.fred_revisioni)) P(`  revisioni ${k}: ${v.cambiati} valori cambiati su ${v.valori}${v.esempi.length ? ` (es. ${v.esempi.map((x) => `${x.d} ${x.allora}→${x.oggi}`).join(', ')})` : ''}; spariti oggi ${v.spariti_oggi}`);
-P('\n7. Indici'); for (const [k, v] of Object.entries(R.indici)) if (v.comuni != null) P(`  ${k}: comuni ${v.comuni}, diverse oltre un centesimo ${v['diverse_oltre_un_centesimo']}, oltre 0,01% ${v.oltre_1e4}, oltre 0,1% ${v.oltre_1e3}; max ${v.top[0] ? `${v.top[0].rel_pct}% il ${v.top[0].data} (${v.top[0].a} / ${v.top[0].b})` : '—'}; solo prima ${v.solo_prima.join(' ')}; solo seconda ${v.solo_seconda.join(' ')}`);
+P('\n7. Indici'); for (const [k, v] of Object.entries(R.indici)) if (v.comuni != null) P(`  ${k}: per anno oltre 0,1% ${JSON.stringify(v.per_anno_oltre_0_1pct)}; comuni ${v.comuni}, diverse oltre un centesimo ${v['diverse_oltre_un_centesimo']}, oltre 0,01% ${v.oltre_1e4}, oltre 0,1% ${v.oltre_1e3}; max ${v.top[0] ? `${v.top[0].rel_pct}% il ${v.top[0].data} (${v.top[0].a} / ${v.top[0].b})` : '—'}; solo prima ${v.solo_prima.join(' ')}; solo seconda ${v.solo_seconda.join(' ')}`);
+P(`  NDX contro QQQ nei giorni contestati: ${JSON.stringify(R.indici.NDX_contro_QQQ)}`);
 P(`  indices.json: ${JSON.stringify(R.indici.indices_json)}; NDX Yahoo buchi oltre 5 giorni: ${JSON.stringify(R.indici.NDX_buchi_oltre_5_giorni)}`);
 P('\n8. Dimensione'); for (const [k, v] of Object.entries(R.dimensione)) P(`  ${k}: ${v.KB} KB, ${v.gzip_KB} KB compressi`);

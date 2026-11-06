@@ -51,6 +51,8 @@ const jobs = [
 for (const s of ['^VIX', '^VXN', '^GSPC', '^NDX']) {
   jobs.push([`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?period1=473385600&period2=${now}&interval=1d&includeAdjustedClose=true`, `yahoo_${s.slice(1)}_1d.json`]);
 }
+// QQQ e SPY (chiusure solo per gli split): terzo termine di paragone per i giorni in cui ^NDX/^GSPC di Yahoo e FRED differiscono
+for (const s of ['QQQ', 'SPY']) jobs.push([`https://query1.finance.yahoo.com/v8/finance/chart/${s}?period1=473385600&period2=${now}&interval=1d&includeAdjustedClose=true`, `yahoo_${s}_1d.json`]);
 for (const s of ['^VIX', '^GSPC', '^VXN']) {
   jobs.push([`https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(s)}?range=5d&interval=5m&includePrePost=true`, `yahoo_${s.slice(1)}_5m.json`]);
   // 60 giorni a 5 minuti (il massimo di Yahoo per questo intervallo): VIX alle 16:00 contro la chiusura delle 16:15
