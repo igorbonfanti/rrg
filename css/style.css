@@ -902,3 +902,4 @@ svg.bub { touch-action: pan-y; }
 .kl.vxk-vix { background: var(--amber); } .kl.vxk-rv { background: var(--blue-light); } .kl.vxk-prem { background: var(--ink-2); } .kb.vxk-high { background: var(--down); opacity: .3; }
 :root[data-theme="light"] .kb.vxk-high { opacity: .16; }
 @media (max-width: 600px) { .vxtable .h21, .vxtable .h126, .vxtable .hmin, .vxeps .h21, .vxeps .h126, .vxeps .hmin { display: none; } .vxeps td:nth-child(2), .vxeps th:nth-child(2) { white-space: normal; } }
+@media (min-width: 601px) and (max-width: 1100px) { #vxKpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } }

@@ -2,6 +2,22 @@
 // Uso: BASE=http://127.0.0.1:8791/ OUT=cartella_screenshot NODE_PATH=$(npm root -g) node ricerca/qa/browser/v130.cjs
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/', OUT = process.env.OUT;
+// Un pallino sul bordo sinistro è giusto solo se quella seduta è un ingresso vero nell'avvicinamento (la seduta prima non
+// lo era): si controlla nel periodo 10A, dove la stessa data non è sul bordo (1.5.0, XLV dal 31/10/2023).
+async function edgeDotIsEntry(browser, sym, page) {
+  const tipAt = async (pg, sel) => { const d = pg.locator(sel).first(); await d.scrollIntoViewIfNeeded(); const bb = await d.boundingBox(); await pg.mouse.move(bb.x + bb.width / 2, bb.y + bb.height / 2); await pg.waitForTimeout(200); return (await pg.locator('#tsTip').innerText()).split('\n')[0]; };
+  const L = await page.evaluate(() => +document.querySelector('#ts line.blue').getAttribute('x1'));
+  const idx = await page.evaluate((L) => [...document.querySelectorAll('#ts .apprin')].findIndex((c) => +c.getAttribute('cx') <= L + 0.01), L);
+  if (idx < 0) return true;
+  const date = await tipAt(page, `#ts .apprin >> nth=${idx}`);
+  const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  await ctx.addInitScript(() => { try { localStorage.setItem('sm.introSeen', 'true'); localStorage.setItem('sm.range', JSON.stringify('10A')); } catch {} });
+  const p2 = await ctx.newPage(); await p2.goto(BASE + '#' + sym); await p2.waitForTimeout(2000);
+  const n = await p2.locator('#ts .apprin').count(); let found = false;
+  for (let i = 0; i < n && !found; i++) found = (await tipAt(p2, `#ts .apprin >> nth=${i}`)) === date;
+  await ctx.close();
+  return found;
+}
 let fail = 0;
 const ok = (c, msg) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) fail++; };
 (async () => {
@@ -17,7 +33,7 @@ const ok = (c, msg) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) f
     // 1.3.2: nessun pallino d'ingresso sul bordo sinistro quando il tratto è iniziato prima del periodo mostrato
     // (la prima seduta del periodo è a x = L, l'inizio della linea blu; dalla 1.4.0 si confronta con L e non con 8,5 px:
     // a 390 px una seduta vale meno di mezzo pixel e un ingresso vero alla seconda seduta, XLV il 31/10/2023, finiva sotto 8,5)
-    ok(await page.evaluate(() => { const L = +document.querySelector('#ts line.blue').getAttribute('x1'); return ![...document.querySelectorAll('#ts .apprin')].some((c) => +c.getAttribute('cx') <= L + 0.01); }), `${name} nessun pallino sul bordo sinistro`);
+    ok(await page.evaluate(() => { const L = +document.querySelector('#ts line.blue').getAttribute('x1'); return ![...document.querySelectorAll('#ts .apprin')].some((c) => +c.getAttribute('cx') <= L + 0.01); }) || await edgeDotIsEntry(b, sym, page), `${name} nessun pallino sul bordo sinistro (o ingresso vero alla prima seduta)`);
     ok(i.dots > 0, `${name} pallini d'ingresso ${i.dots}, tratti ${i.segs}`);
     ok(i.legend.includes('breadth in avvicinamento') && !i.legend.includes('soglia di avvicinamento di oggi'), `${name} legenda`);
     const d = page.locator('#ts .apprin').last();
@@ -42,7 +58,7 @@ const ok = (c, msg) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${msg}`); if (!c) f
       const L = +document.querySelector('#ts line.blue').getAttribute('x1'), at = (x) => Math.abs(x - L) < 0.01;
       return { seg: [...document.querySelectorAll('#ts .brappr')].some((e) => at(parseFloat(e.getAttribute('d').slice(1)))), dot: [...document.querySelectorAll('#ts .apprin')].some((c) => at(+c.getAttribute('cx'))) };
     });
-    if (r.seg) { edge++; ok(!r.dot, `bordo ${sym} ${range}: tratto già in corso alla prima seduta, nessun pallino`); }
+    if (r.seg) { edge++; ok(!r.dot || await edgeDotIsEntry(b, sym, page), `bordo ${sym} ${range}: tratto alla prima seduta, pallino solo se è un ingresso vero`); }
     await ctx.close();
   }
   if (!edge) console.log('ATTENZIONE: nessun settore con l\'avvicinamento in corso alla prima seduta; il controllo del bordo è a vuoto');
