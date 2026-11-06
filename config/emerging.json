@@ -1,5 +1,5 @@
 {
-  "_note": "Vista 8 Emergenti, solo contesto (decisione dell'utente del 05/11/2026): nessuna regola, nessun alert. Indici della vista 6; cambio in valuta locale per un dollaro: storia dalla Federal Reserve (FRED H.10, fxFred), Yahoo solo per i giorni che la Fed non ha ancora pubblicato (decisione dell'utente del 05/11/2026); ETF in dollari per la forza relativa contro ACWI. Definizioni di F e D: ricerca/emergenti/backtest/script/backtest.mjs, portate in js/emerging.js.",
+  "_note": "Vista 7 Emergenti, solo contesto (decisione dell'utente del 05/11/2026): nessuna regola, nessun alert. Indici della vista 6; cambio in valuta locale per un dollaro: storia dalla Federal Reserve (FRED H.10, fxFred), Yahoo solo per i giorni che la Fed non ha ancora pubblicato (decisione dell'utente del 05/11/2026); ETF in dollari per la forza relativa contro ACWI. Definizioni di F e D: ricerca/emergenti/backtest/script/backtest.mjs, portate in js/emerging.js.",
   "order": [
     "CSI300",
     "NIFTY50",

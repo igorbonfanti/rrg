@@ -71,13 +71,21 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch_data.js
 
-      # vista 8 Emergenti (solo contesto): cambi, ETF in dollari e dollaro contro le valute emergenti di FRED; se fallisce
+      # vista 7 Emergenti (solo contesto): cambi, ETF in dollari e dollaro contro le valute emergenti di FRED; se fallisce
       # resta il file pubblicato e la corsa lo segnala alla fine
       - name: Cambi e dollaro emergente (vista Emergenti)
         id: emerging
         continue-on-error: true
         timeout-minutes: 8
         run: node scripts/fetch_emerging.js
+
+      # vista 8 VIX (solo contesto): VIX di FRED (Cboe) con l'ultima seduta da Yahoo, S&P 500 e Nasdaq-100 dal 1990; se
+      # fallisce resta il file pubblicato e la corsa lo segnala alla fine
+      - name: VIX (vista VIX)
+        id: vix
+        continue-on-error: true
+        timeout-minutes: 5
+        run: node scripts/fetch_vix.js
 
       - name: Breadth settoriale S&P 500 e storia ETF
         id: breadth
@@ -114,7 +122,8 @@ jobs:
             MACRO=$(node -p "(() => { try { return require('./data/prices_macro.json').asOf } catch { return '' } })()")
             INDICES=$(node -p "(() => { try { return require('./data/indices.json').asOf } catch { return '' } })()")
             EMG=$(node -p "(() => { try { return require('./data/emerging.json').asOf.fx } catch { return '' } })()")
-            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?}, indici al ${INDICES:-?}, emergenti al ${EMG:-?})"
+            VIX=$(node -p "(() => { try { return require('./data/vix.json').asOf.vix } catch { return '' } })()")
+            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?}, indici al ${INDICES:-?}, emergenti al ${EMG:-?}, VIX al ${VIX:-?})"
             git pull --rebase
             git push
           fi
@@ -153,7 +162,7 @@ jobs:
         run: node scripts/check_fresh.js
 
       - name: Esito
-        if: steps.prices.outcome == 'failure' || steps.emerging.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.indices.outcome == 'failure' || steps.alerts.outcome == 'failure' || steps.fresh.outcome == 'failure'
+        if: steps.prices.outcome == 'failure' || steps.emerging.outcome == 'failure' || steps.vix.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.indices.outcome == 'failure' || steps.alerts.outcome == 'failure' || steps.fresh.outcome == 'failure'
         run: |
-          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, emergenti: ${{ steps.emerging.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
+          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, emergenti: ${{ steps.emerging.outcome }}, VIX: ${{ steps.vix.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
           exit 1

@@ -70,3 +70,14 @@ test('dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED sett
   assert.equal(staleData({ ...base, emergingLast: { 'KRW=X': '2026-10-28', 'CNY=X': '2026-11-03' } }, '2026-11-05').length, 1);
   assert.deepEqual(staleData(base, '2026-11-05'), []); // file non ancora creato: nessun controllo
 });
+
+test('dati fermi: vista VIX, VIX e indici come gli altri prezzi, FRED fino a 6 giorni', () => {
+  const base = { breadth: { asOf: '2026-11-04' } };
+  const vx = (vix, spx, ndx, fred) => ({ ...base, vix: { asOf: { vix, spx, ndx, fred } } });
+  assert.deepEqual(staleData(vx('2026-11-04', '2026-11-04', '2026-11-04', '2026-11-03'), '2026-11-05'), []);
+  const p = staleData(vx('2026-10-29', '2026-11-04', '2026-11-04', '2026-10-28'), '2026-11-05');
+  assert.equal(p.length, 2, p.join(' | '));
+  assert.ok(p.some((x) => /VIX\)/.test(x)) && p.some((x) => /FRED/.test(x)));
+  assert.equal(staleData({ ...base, vix: null }, '2026-11-05').length, 4); // file illeggibile: segnalato
+  assert.deepEqual(staleData(base, '2026-11-05'), []); // file non ancora creato: nessun controllo
+});

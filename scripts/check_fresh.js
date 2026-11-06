@@ -51,6 +51,11 @@ export function staleData(d, today) {
   for (const [k, at] of Object.entries(d.emergingLast || {})) checks.push([`emerging.json: ${k}`, at, B, 6]);
   // cambi: la parte della Fed (H.10, settimanale) non deve fermarsi, altrimenti la coda provvisoria di Yahoo si allunga
   for (const [k, at] of Object.entries(d.emergingFed || {})) checks.push([`emerging.json: ${k} (Fed)`, at, today, 14]);
+  // vista 8 VIX: VIX e indici come gli altri prezzi; la parte di FRED (aggiornata ogni mattina) al massimo 6 giorni
+  if (d.vix !== undefined) {
+    checks.push(['vix.json (VIX)', d.vix && d.vix.asOf && d.vix.asOf.vix, B, 4], ['vix.json (S&P 500)', d.vix && d.vix.asOf && d.vix.asOf.spx, B, 4],
+      ['vix.json (Nasdaq-100)', d.vix && d.vix.asOf && d.vix.asOf.ndx, B, 4], ['vix.json (FRED)', d.vix && d.vix.asOf && d.vix.asOf.fred, today, 6]);
+  }
   // serie che non sono mai arrivate (prima corsa con qualche fonte giù): senza data, quindi segnalate
   for (const k of (d.emerging && d.emerging.missing) || []) checks.push([`emerging.json: ${k} (mancante)`, null, B, 6]);
   for (const [k, m] of Object.entries(d.indexMembers || {})) checks.push([`index_members/${k}.json`, m && m.asOf, today, 14]);
@@ -81,6 +86,7 @@ async function main() {
     sectorMembers: read('sector_members.json'), indices: read('indices.json'), capitulation: cap, indexMembers,
     prices: read('prices.json'), pricesGlobal: read('prices_global.json'), pricesMacro: read('prices_macro.json'), indexLast, capLast,
     emerging: em || undefined, emergingLast,
+    vix: read('vix.json') || undefined,
     emergingFed: em && em.series ? Object.fromEntries(Object.entries(em.series).filter(([, x]) => x.fred).map(([k, x]) => [k, x.fred])) : {},
   }, new Date().toISOString().slice(0, 10));
   for (const p of problems) console.log(`::error::Dati non aggiornati: ${p}`);

@@ -96,15 +96,16 @@ sup.cp { color: var(--amber); font-size: 0.8em; margin-left: 1px; }
 .tool { font: 600 11.5px var(--f-mono); letter-spacing: 0.03em; color: var(--ink-3); background: var(--panel-2); border: 0; padding: 4px 10px; cursor: pointer; white-space: nowrap; }
 .tool:hover { color: var(--amber); }
 .tool[aria-pressed="true"] { color: #000; background: var(--q-lead); }
-/* tablet stretto (otto schede su una riga occupano circa 815 px): due righe di quattro, come sul telefono */
+/* nove schede (1.5.0): sopra 860 px una riga, con meno spazio tra 861 e 1100; tablet 5 + 4; telefono 3 × 3 */
+@media (min-width: 861px) and (max-width: 1100px) { .fnkeys button { padding: 7px 9px; letter-spacing: 0; } }
 @media (min-width: 601px) and (max-width: 860px) {
-  .fnkeys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .fnkeys { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .fnkeys::after { display: none; }
   .fnkeys button { text-align: center; }
 }
-/* telefono: le otto schede vanno su due righe di quattro; guida e CVD salgono accanto al nome */
+/* telefono: le nove schede vanno su tre righe di tre; guida e CVD salgono accanto al nome */
 @media (max-width: 600px) {
-  .fnkeys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .fnkeys { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .fnkeys::after { display: none; }
   .fnkeys button { padding: 8px 3px; font-size: 11px; letter-spacing: 0; white-space: normal; text-align: center; }
   .tools { order: 1; margin-left: auto; }
@@ -821,7 +822,7 @@ svg.bub { touch-action: pan-y; }
 /* tablet: i cinque riquadri in una riga, senza celle vuote */
 @media (min-width: 601px) and (max-width: 1100px) { .kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); } .kpis .kpi .s { overflow-wrap: anywhere; } }
 
-/* ---------- vista 8 Emergenti (solo contesto) ---------- */
+/* ---------- vista 7 Emergenti (solo contesto) ---------- */
 .emg-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 12px; align-items: start; }
 .emg-main, .emg-side { display: grid; gap: 12px; min-width: 0; }
 #emTable .nm { display: none; }
@@ -869,3 +870,36 @@ svg.bub { touch-action: pan-y; }
 }
 #emTable .bullet { width: 70px; }
 @media (max-width: 1439px) { #emTable .zbar { width: 40px; } #emTable th, #emTable td { padding-left: 6px; padding-right: 6px; } }
+
+/* vista 8 VIX (1.5.0) */
+.vxmeta { margin-top: -4px; }
+.vxctl { margin: 0 0 10px; }
+.vix-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: start; }
+#vxScWrap { max-width: 900px; }
+.vxtable td, .vxtable th, .vxeps td, .vxeps th { white-space: nowrap; }
+.vxtable th small { font-weight: 400; color: var(--ink-3); }
+.vxtable tbody tr[data-x] { cursor: pointer; }
+.vxtable tbody tr.sel td { background: var(--row-hi); }
+.vxtable tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--amber); }
+.vxtable .vxbase td { color: var(--ink-3); border-bottom: 1px solid var(--rule); }
+.vxpos { color: var(--ink-3); }
+.pill.vxrob { color: var(--q-lead); border-color: var(--q-lead); font-size: 10px; padding: 0 5px; }
+.ph.sub { margin-top: 6px; }
+.ph.sub h3 { font: 600 12px var(--f-mono); letter-spacing: .04em; color: var(--amber); margin: 0; text-transform: uppercase; }
+.vxsc .vxpt { stroke: none; opacity: .75; }
+.vxsc .vxpt.start { stroke: var(--ink); stroke-width: 1; opacity: 1; }
+/* colori degli episodi: palette Okabe-Ito (leggibile con il daltonismo), ordinata perché due episodi vicini non si somiglino */
+.vxsc .c0 { fill: #e69f00; } .vxsc .c1 { fill: #56b4e9; } .vxsc .c2 { fill: #f0e442; } .vxsc .c3 { fill: #3b8fd6; } .vxsc .c4 { fill: #e8703a; } .vxsc .c5 { fill: #2fbf8f; }
+:root[data-theme="light"] .vxsc .c0 { fill: #a86f00; } :root[data-theme="light"] .vxsc .c1 { fill: #1f78b4; } :root[data-theme="light"] .vxsc .c2 { fill: #7a6f00; } :root[data-theme="light"] .vxsc .c3 { fill: #0b4f8a; } :root[data-theme="light"] .vxsc .c4 { fill: #b5470f; } :root[data-theme="light"] .vxsc .c5 { fill: #00785a; }
+.ts .vxthr { stroke: var(--amber); stroke-dasharray: 3 3; opacity: .7; }
+.ts .vxzero { stroke: var(--ink-3); stroke-width: 1; }
+.vxsc .vxring { fill: none; stroke: var(--ink); stroke-width: 1.4; pointer-events: none; }
+.ts .vxvix { fill: none; stroke: var(--amber); stroke-width: 1.3; }
+.ts .vxrv { fill: none; stroke: var(--blue-light); stroke-width: 1.2; }
+.ts .vxprem { fill: none; stroke: var(--ink-2); stroke-width: 1; }
+.ts .vxhigh { fill: var(--down); fill-opacity: .3; }
+:root[data-theme="light"] .ts .vxhigh { fill-opacity: .16; }
+.kl.vxk-vix { background: var(--amber); } .kl.vxk-rv { background: var(--blue-light); } .kl.vxk-prem { background: var(--ink-2); } .kb.vxk-high { background: var(--down); opacity: .3; }
+:root[data-theme="light"] .kb.vxk-high { opacity: .16; }
+@media (max-width: 600px) { .vxtable .h21, .vxtable .h126, .vxtable .hmin, .vxeps .h21, .vxeps .h126, .vxeps .hmin { display: none; } .vxeps td:nth-child(2), .vxeps th:nth-child(2) { white-space: normal; } }
+@media (min-width: 601px) and (max-width: 1100px) { #vxKpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
