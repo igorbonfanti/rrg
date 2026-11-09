@@ -9,3 +9,6 @@ ricerca/qa/*/*/shots/
 # dati ICE (HY OAS): licenza che non permette la ripubblicazione, restano solo in locale
 ricerca/vix/struttura/*/cache/BAMLH0A0HYM2*
 ricerca/vix/struttura/inserimento/shots/
+ricerca/qa/1.6.0/*/src/
+ricerca/qa/1.6.0/*/mut/
+ricerca/qa/1.6.0/*/wt/
