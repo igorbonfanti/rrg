@@ -1,3 +1,4 @@
+# ATTENZIONE: le righe «SVG identico alla 1.5.0» di questo file confrontano con la porta 8795, che serviva un altro 1.6.0 (porta occupata): non valgono. Il confronto vero con la 1.5.0 (porta 8911, git archive d962970) è in confronto-1.5.0.txt.
 OK   1440-chiaro: riquadri 6 in righe 6 (attese 6)
 OK   1440-chiaro: nessun testo dei riquadri che esce 
      1440-chiaro: riquadri: VIX | 25,64 | paura · al 06/11/2026 · provvisorio || PERCENTILE DEL VIX | 84° | nella storia dal 02/01/1990 || VOLATILITÀ REALIZZATA | 19,8 | S&P 500, 21 sedute al 06/11/2026, annualizzata || PREMIO PER LA PAURA | +5,8 | VIX − realizzata · 68° percentile || VIX / VIX3M | 1,04 backwardation | VIX 25,64 / VIX3M 24,60 · al 06/11/2026 · 95° percentile · provvisorio || CREDITO HIGH YIELD | −3,1% | HYG/IEF dal massimo di 12 mesi · −2,5% in un mese · 57° percentile · al 06/11/2026
