@@ -949,3 +949,13 @@ svg.bub { touch-action: pan-y; }
 .ts .vxnodata { fill: var(--ink-3); fill-opacity: .08; }
 .kl.vxk-ix { background: var(--ink); } .kb.vxk-ep { background: linear-gradient(90deg, var(--g3) 0 33%, var(--g10) 33% 66%, var(--ink-3) 66%); opacity: .6; }
 .legend .kd.vxk-dot { background: var(--vx-r); } .kl.vxk-r { background: var(--vx-r); } .kl.vxk-cr { background: var(--vx-cr); } .kb.vxk-back { background: var(--vx-back); outline: 1px solid var(--vx-r); outline-offset: -1px; }
+
+/* zoom su un sottoperiodo (js/zoom.js), uguale in tutti i grafici con il tempo */
+.ts .zoomband { fill: var(--amber); fill-opacity: .14; stroke: var(--amber); stroke-width: 1; pointer-events: none; }
+.ts.zooming { touch-action: none; }
+.ts { -webkit-user-select: none; user-select: none; }
+.zlens { margin-left: 6px; background: transparent; border: 1px solid var(--rule); color: var(--ink-2); padding: 3px 6px; cursor: pointer; vertical-align: middle; line-height: 0; }
+.zlens[aria-pressed="true"] { color: var(--bg); background: var(--amber); border-color: var(--amber); }
+.zchip { margin-left: 6px; font: 11px var(--f-mono, monospace); color: var(--amber); border: 1px solid var(--amber); padding: 1px 2px 1px 6px; white-space: nowrap; }
+.zchip button { background: transparent; border: 0; color: var(--amber); cursor: pointer; font-size: 13px; padding: 0 4px; }
+

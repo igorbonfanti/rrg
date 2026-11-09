@@ -7,6 +7,7 @@
  */
 import * as V from './vix.js';
 import { esc, fmt, sgnP, pct, dIT, placeTip, bindTip, chartWidth } from './format.js';
+import { attachZoom, timeTicks } from './zoom.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -24,7 +25,7 @@ export function createVix(ctx) {
   const { $, store } = ctx;
   let data = null, loading = null, failed = null, model = null;
   // crisi selezionata nello scatter (alone) e nella tabella degli episodi: chiave del gruppo, non salvata
-  let selG = null;
+  let selG = null, zoom = null;
   const st = { ix: ['SPX', 'NDX'].includes(store.get('vxIx')) ? store.get('vxIx') : 'SPX', thr: V.XS.includes(store.get('vxThr')) ? store.get('vxThr') : 40, range: ['3A', '10A', 'MAX'].includes(store.get('vxRange')) ? store.get('vxRange') : '10A' };
 
   function ensure() {
@@ -260,8 +261,10 @@ export function createVix(ctx) {
     if (!m || !T0) return;
     const { A } = m, dates = A.dates, n = dates.length;
     const W = chartWidth(svg, 1600), L = 8, R = 46, PW = W - L - R, narrow = PW < 440;
-    const t1 = Date.parse(dates[n - 1]), span = st.range === '3A' ? 3 : st.range === '10A' ? 10 : null;
-    const t0 = span ? Math.max(Date.parse(dates[0]), t1 - span * 365.25 * DAY) : Date.parse(dates[0]);
+    const tEnd = Date.parse(dates[n - 1]), span = st.range === '3A' ? 3 : st.range === '10A' ? 10 : null;
+    let t0 = span ? Math.max(Date.parse(dates[0]), tEnd - span * 365.25 * DAY) : Date.parse(dates[0]), t1 = tEnd;
+    // zoom su un sottoperiodo (trascinamento sul grafico, js/zoom.js): sostituisce la finestra del periodo
+    if (zoom && zoom.range) { t0 = Math.max(Date.parse(dates[0]), zoom.range[0]); t1 = Math.min(tEnd, zoom.range[1]); }
     const x = (d) => L + ((Date.parse(d) - t0) / (t1 - t0)) * PW, inWin = (d) => { const t = Date.parse(d); return t >= t0 && t <= t1; };
     const C = model.ctx, has3 = !!(C && C.has3m), hasC = !!(C && C.hasCredit);
     const MI = model[st.ix] || m, IN = IXN[st.ix] || IXN.SPX, ixAt = new Map(MI.A.dates.map((d, i) => [d, MI.A.close[i]]));
@@ -277,8 +280,7 @@ export function createVix(ctx) {
     const path = (vs, f2) => { let d = '', on = false; for (let i = 0; i < n; i++) { if (vs[i] == null || !inWin(dates[i])) { on = false; continue; } d += (on ? 'L' : 'M') + x(dates[i]).toFixed(1) + ' ' + f2(vs[i]).toFixed(1); on = true; } return d; };
     const vis = (a) => a.filter((v, i) => v != null && inWin(dates[i]));
     for (const p of P) { el('rect', { x: L, y: p.y0, width: PW, height: p.h, class: 'frame' }, svg); el('text', { x: L, y: p.y0 - 5, class: 'pane-t' }, svg).textContent = p.title; }
-    const yy0 = new Date(t0).getUTCFullYear(), yy1 = new Date(t1).getUTCFullYear(), every = Math.max(1, Math.ceil((yy1 - yy0 + 1) / (narrow ? 4 : 10)));
-    for (let yr = yy0 + 1; yr <= yy1; yr++) { if ((yr - yy0) % every) continue; const xx = x(`${yr}-01-01`); for (const p of P) el('line', { x1: xx, x2: xx, y1: p.y0, y2: p.y1, class: 'gridl' }, svg); el('text', { x: xx, y: H - 4, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = String(yr); }
+    for (const tk of timeTicks(t0, t1, narrow ? 4 : 10)) { const xx = L + ((tk.t - t0) / (t1 - t0)) * PW; for (const p of P) el('line', { x1: xx, x2: xx, y1: p.y0, y2: p.y1, class: 'gridl' }, svg); el('text', { x: xx, y: H - 4, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = tk.label; }
     // 1. VIX e realizzata
     const P0 = P[0], hi0 = Math.max(...vis(A.vix), ...vis(T0.rvSeries)) * 1.04, f0 = sy(P0, 0, hi0);
     const st0 = hi0 > 70 ? 20 : 10;
@@ -383,6 +385,7 @@ export function createVix(ctx) {
       placeTip($('vxTip'), $('vxWrap'), e, 12);
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('vxTip').hidden = true; });
+    if (zoom) zoom.update({ L, PW, top: P[0].y0, bottom: yEnd, t0, t1 });
     $('vxLegend').innerHTML = '<span><span class="kl vxk-vix"></span>VIX (implicita, prossimi 30 giorni)</span><span><span class="kl vxk-rv"></span>realizzata dell\'S&amp;P 500 nelle ultime 21 sedute</span>' + `<span><span class="kl vxk-ix"></span>${esc(IN)}</span><span><span class="kb vxk-ep"></span>episodi con il VIX a ${st.thr} o più (dal primo all'ultimo giorno), nel colore della crisi; grigi se la crisi non è nello scatter</span>` + '<span><span class="kl vxk-prem"></span>premio per la paura</span><span><span class="kb vxk-high"></span>premio oltre l\'80° percentile della sua storia</span>' +
       (has3 ? '<span><span class="kl vxk-r"></span>VIX / VIX3M</span><span><span class="kb vxk-back"></span>backwardation (VIX ≥ VIX3M)</span><span><span class="kd vxk-dot"></span>ultimo valore (pieno se in backwardation)</span>' : '') +
       (hasC ? '<span><span class="kl vxk-cr"></span>HYG/IEF: distanza dal massimo di 12 mesi</span>' : '');
@@ -391,7 +394,8 @@ export function createVix(ctx) {
   function bind() {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && selG && !$('v-vix').hidden) select(null); });
     document.querySelectorAll('#vxIx button').forEach((b) => b.onclick = () => { st.ix = b.dataset.ix; store.set('vxIx', st.ix); if (model) render(); });
-    document.querySelectorAll('#vxRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('vxRange', st.range); if (model) render(); });
+    document.querySelectorAll('#vxRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('vxRange', st.range); if (zoom) zoom.reset(); if (model) render(); });
+    zoom = attachZoom({ svg: $('vxChart'), lens: $('vxLens'), chip: $('vxZoom'), onChange: () => { if (model) renderChart(); } });
   }
 
   return { bind, render };
