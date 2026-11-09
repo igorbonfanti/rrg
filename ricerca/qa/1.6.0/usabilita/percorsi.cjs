@@ -203,8 +203,18 @@ const info = (m) => console.log(`INFO ${m}`);
       if (fx === 0.97) { const cov = await p.evaluate(() => { const t = document.querySelector('#vxTip').getBoundingClientRect(), s = document.querySelector('#vxChart').getBoundingClientRect(); return Math.round(100 * (t.width * t.height) / (s.width * s.height)); }); info(`${name}: il riquadro dei valori toccando ${cls} a destra copre il ${cov}% del grafico`); }
       if (cls === 'vxcr' && fx === 0.97) await p.screenshot({ path: path.join(SH, `${name}-03-tocco-grafico.png`) });
     }
-    await p.touchscreen.tap(w / 2, 3); await p.waitForTimeout(250);
+    // tocco fuori dal grafico: sulla legenda (in alto allo schermo, a questo punto, c'è ancora il grafico)
+    await p.locator('#vxLegend').scrollIntoViewIfNeeded(); const lg = await p.locator('#vxLegend').boundingBox();
+    await p.touchscreen.tap(lg.x + 5, lg.y + lg.height - 2); await p.waitForTimeout(250);
     ok(await p.locator('#vxTip').isHidden(), `${name}: toccando fuori il riquadro dei valori si chiude`);
+    // dopo un trascinamento verticale sul grafico (solo per scorrere la pagina) il riquadro dei valori resta aperto?
+    { const c2 = await ctx.newCDPSession(p); await p.locator('#vxChart').scrollIntoViewIfNeeded(); const q = await p.locator('#vxChart').boundingBox(); const gx = Math.round(q.x + q.width / 2), gy = Math.round(Math.max(120, q.y + 120));
+      await c2.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: gx, y: gy }] });
+      for (let k = 1; k <= 5; k++) await c2.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: gx, y: gy - k * 20 }] });
+      await c2.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] }); await p.waitForTimeout(400);
+      info(`${name}: dopo un trascinamento verticale sul grafico il riquadro dei valori è ${(await p.locator('#vxTip').isHidden()) ? 'chiuso' : 'aperto (minore)'}`);
+      await p.locator('#vxLegend').tap(); await p.waitForTimeout(200); }
+    info(`${name}: altezza del grafico ${Math.round((await p.locator('#vxChart').boundingBox()).height)} px su uno schermo di ${h}`);
     // periodi al tocco
     await p.locator('#vxRange button[data-range="MAX"]').tap(); await p.waitForTimeout(500);
     ok(await p.locator('#vxRange button[data-range="MAX"]').getAttribute('aria-pressed') === 'true', `${name}: MAX al tocco`);
