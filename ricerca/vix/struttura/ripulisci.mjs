@@ -13,7 +13,7 @@ const strip = (o, inThird) => {
   if (!o || typeof o !== 'object') return;
   for (const k of Object.keys(o)) {
     const third = inThird || THIRD.test(k);
-    if ((k === 'baa' || k === 'hy' || k === 'baa10y' || k === 'dbaa_meno_dgs10' || /^(max|min)(Hy|Baa)$/.test(k) || (third && LEVEL.has(k))) && typeof o[k] === 'number') { delete o[k]; n++; continue; }
+    if ((k === 'baa' || k === 'hy' || k === 'baa10y' || k === 'dbaa_meno_dgs10' || /^(max|min)(Hy|Baa)$/.test(k) || (third && LEVEL.has(k))) && (typeof o[k] === 'number' || (o[k] && typeof o[k].v === 'number'))) { delete o[k]; n++; continue; } // anche { date, v }
     strip(o[k], third);
   }
 };

@@ -31,25 +31,55 @@ for k, m in S.items():
     hi = max(m, key=m.get); lo = min(m, key=m.get)
     ext[k] = [(hi, m[hi]), (lo, m[lo])]
 hits, exthits, checked = [], [], 0
+KW = re.compile(r'HY|IG|OAS|BAA|AAA|Baa|Aaa|BAML|spread|credit|Moody|ICE', re.I)
+def isodate(x):
+    m = DATE.fullmatch(x.strip()) if isinstance(x, str) else None
+    if not m: return None
+    return '%s-%s-%s' % m.groups()[:3] if m.group(1) else '%s-%s-%s' % (m.group(6), m.group(5), m.group(4))
+CK = re.compile(r'hy|ig_|oas|baa|aaa|baml|credit|spread|moody|ice', re.I)
+def match(f, where, d, v, ns):
+    global checked
+    if isinstance(where, str) and not CK.search(where): return  # JSON: solo chiavi del credito (il VIX/VIX3M ~0,8-1,4 coincide per caso con Baa-Aaa)
+    checked += 1
+    for k, m in S.items():
+        if d in m and abs(round(v, 2) - m[d]) < 1e-9: hits.append((f, where, k, d, ns))
+def walk(f, o, path):
+    if isinstance(o, dict):
+        ds = [isodate(k) for k in o] + [isodate(v) for v in o.values()]
+        ds = [d for d in ds if d]
+        for k, v in o.items():
+            if isinstance(v, (int, float)) and not isinstance(v, bool) and v != int(v):
+                for d in ds: match(f, path + '.' + k, d, v, str(v))
+            if isodate(k) and isinstance(v, (int, float)) and not isinstance(v, bool): match(f, path + '.' + k, isodate(k), v, str(v))
+            walk(f, v, path + '.' + str(k))
+    elif isinstance(o, list):
+        if len(o) >= 2 and isodate(o[0]) and all(isinstance(x, (int, float)) for x in o[1:]):
+            for x in o[1:]: match(f, path, isodate(o[0]), x, str(x))
+        for i, x in enumerate(o): walk(f, x, path + '[%d]' % i)
 for f in files:
-    try: L = open(os.path.join(R, f), encoding='utf8').read().split('\n')
+    try: txt = open(os.path.join(R, f), encoding='utf8').read()
     except: continue
-    for i, line in enumerate(L):
-        win = ' '.join(L[max(0, i - 2): i + 3])
-        ds = ['%s-%s-%s' % (m[0], m[1], m[2]) if m[0] else '%s-%s-%s' % (m[5], m[4], m[3]) for m in DATE.findall(win)]
-        nums = NUM.findall(line)
-        for ns in nums:
-            v = float(ns.replace(',', '.').replace('−', '-')); checked += 1
-            for d in set(ds):
-                for k, m in S.items():
-                    if d in m and abs(round(v, 2) - m[d]) < 1e-9 and len(ns.split('.' if '.' in ns else ',')[1]) <= 2:
-                        hits.append((f, i + 1, k, d, ns, line.strip()[:200]))
+    if f.endswith('.json'):
+        try: walk(f, json.loads(txt), '')
+        except Exception as e: print('JSON non letto', f, e)
+        # in più: estremi scritti ovunque nel testo del file vicino a una chiave del credito
+    for i, line in enumerate(txt.split('\n')):
+        if not f.endswith('.json'):
+            ds = [isodate(m.group(0)) for m in DATE.finditer(line)]
+            if ds and KW.search(line):
+                for ns in NUM.findall(line):
+                    v = float(ns.replace(',', '.').replace('−', '-'))
+                    for d in ds: match(f, i + 1, d, v, ns)
+        for ns in NUM.findall(line):
+            if len(re.split('[.,]', ns)[1]) != 2: continue
+            v = float(ns.replace(',', '.').replace('−', '-'))
             for k, e in ext.items():
                 for d, x in e:
-                    if abs(round(v, 2) - x) < 1e-9 and len(ns.split('.' if '.' in ns else ',')[1]) == 2 and re.search(r'HY|IG|OAS|BAA|AAA|Baa|Aaa|BAML|spread|credit', win):
-                        exthits.append((f, i + 1, k, d, ns, line.strip()[:200]))
-print(f'file controllati: {len(files)}; numeri decimali letti: {checked}')
-print(f'coincidenze numero = livello alla data vicina: {len(hits)}')
-for h in hits: print('  ', h)
-print(f'estremi storici scritti vicino a parole del credito: {len(exthits)}')
-for h in exthits: print('  ', h)
+                    if abs(v - x) < 1e-9 and KW.search(line[max(0, line.find(ns) - 120): line.find(ns) + 40]):
+                        exthits.append((f, i + 1, k, 'estremo del ' + d, ns, line[max(0, line.find(ns) - 100): line.find(ns) + 30]))
+# Nota: le coincidenze vanno guardate a mano: percentili, correlazioni e rapporti del VIX possono coincidere per caso.
+print(f'file controllati: {len(files)}; coppie data-numero confrontate: {checked}')
+print(f'coincidenze numero = livello della stessa data: {len(hits)}')
+for h in hits: print('  ', h[:4] + ('[valore non scritto: può essere un livello di terzi]',))  # mai stampare il livello
+print(f'estremi storici (max/min) scritti vicino a parole del credito: {len(exthits)}')
+for h in exthits: print('  ', h[:4] + ('[valore non scritto]',))
