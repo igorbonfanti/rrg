@@ -49,3 +49,9 @@ for name, pal in (('scuro', dark), ('chiaro', light)):
         lab_ = mode or 'visione normale'
         print(f'  [{lab_}] coppie con ΔE<10: {sum(1 for p in pairs if p[0] < 10)}; le 8 più vicine:')
         for d, a, b in pairs[:8]: print(f"     {d:5.1f}  {a['label']} ({a['npts']}) ~ {b['label']} ({b['npts']})")
+
+# coppie vicine nel tempo (una o due crisi di distanza nell'elenco)
+for name, pal in (('scuro', dark), ('chiaro', light)):
+    L = {g['c']: lab(h2r(pal[str(g['c'])])) for g in groups}
+    near = sorted(((de2000(L[a['c']], L[b['c']]), a['label'], b['label']) for i, a in enumerate(groups) for b in groups[i + 1:i + 3]))
+    print(f'\n[{name}] crisi vicine nel tempo, le 4 coppie più simili:', '; '.join(f'{d:.1f} {x} ~ {y}' for d, x, y in near[:4]))

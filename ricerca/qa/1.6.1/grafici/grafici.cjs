@@ -19,6 +19,8 @@ async function open(b, w, theme, touch = w < 600) {
   const p = await ctx.newPage(); const errs = [];
   p.on('pageerror', (e) => errs.push(e.message)); p.on('console', (m) => m.type() === 'error' && errs.push(m.text()));
   await p.goto(BASE + '#vix'); await p.waitForSelector('#vxScatter circle.vxpt', { timeout: 30000 }); await p.waitForTimeout(500);
+  // MUT=1: guasti finti per provare che i controlli falliscono (colore di una crisi, un cerchio d'alone in più)
+  if (process.env.MUT) { await p.addStyleTag({ content: '.vxsc .vxpt.g12 { fill: #ff0000 !important }' }); await p.evaluate(() => new MutationObserver(() => { const h = document.querySelector('#vxScatter g.vxhalos g'); if (h && !h.dataset.m) { h.dataset.m = 1; const c = h.querySelector('circle').cloneNode(); c.setAttribute('cx', '100'); h.appendChild(c); } }).observe(document.getElementById('vxScatter'), { subtree: true, childList: true })); }
   return { ctx, p, errs };
 }
 // stato del disegno letto dal DOM
@@ -120,7 +122,8 @@ const iso2it = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
         for (let i = 0; i < rws.length; i++) {
           const r = rws[i]; const gk = await r.getAttribute('data-g'); await r.click(); await p.waitForTimeout(40);
           D = await dom(p); const hk = D.halo ? D.halo.c.length : 0, gg = gByKey.get(gk);
-          if (hk !== (gg ? gg.npts : -1)) bad.push(`${D.rows[i] && D.rows[i].d}→${gk}(${hk} cerchi)`);
+          if (hk !== (gg ? gg.npts : -1)) bad.push(`${await r.evaluate((x) => x.cells[0].textContent)}→${gk}(${hk} cerchi)`);
+          if (gg && !gg.npts) console.log(`     riga ${await r.evaluate((x) => x.cells[0].textContent)} (soglia ${X}) cliccabile ma la sua crisi ${gk} non ha punti: alone vuoto, legenda ${D.legend.some((l) => l.pr === 'true') ? 'premuta' : 'non premuta'}, scritta ${D.none ? 'sì' : 'no'}, punti spenti ${D.pts.filter((c) => c.op < 0.2).length}/${D.pts.length}`);
           await p.keyboard.press('Escape');
         }
         ok(!bad.length, `${tag} soglia ${X}: clic sulle ${rws.length} righe cliccabili → alone del gruppo ${bad.join(' ')}`);
