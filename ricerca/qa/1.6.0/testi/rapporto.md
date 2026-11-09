@@ -1,0 +1,60 @@
+# Controllo testi · versione 1.6.0 · commit 06a5360
+
+Verdetto: **NO-GO** (nessun numero sbagliato, ma 4 rilievi «da correggere»: una verifica attribuita alla misura sbagliata, due numeri senza script nel repository, un'equivalenza esagerata e una fonte dichiarata che può essere falsa).
+
+| # | Gravità | Dove | Cosa succede | Come riprodurlo | Prova |
+|---|---|---|---|---|---|
+| 1 | da correggere | `index.html` «Come leggere», paragrafo **Credito high yield**; `guida.html` #vix, ultimo punto dell'elenco; `README.md` riga 101 («troppo pochi casi di credito in tensione»); `index.html` riga «Ricalcolo: … `struttura/` per la struttura a termine e il credito» | I testi dicono che **la verifica** ha trovato troppo pochi casi di credito in tensione, e il lettore capisce che si parla della misura mostrata (HYG/IEF, distanza dal massimo di 252 sedute). Il backtest (`ricerca/vix/struttura/backtest/backtest.md`, Q3) ha usato invece **BAA10Y** (salita di +0,30 punti in 21 sedute), una serie che l'app non mostra. HYG/IEF non è mai stato provato: `grep -i hyg` in `backtest.mjs`, `backtest/risultati.json`, `inserimento/analisi.mjs` → 0 righe. In `dati/` HYG/IEF compare solo nelle correlazioni con l'HY OAS. Testi esatti: «Nella verifica i casi con il credito in tensione sono troppo pochi per una statistica: solo contesto.» (index); «… e i casi con il credito in tensione sono troppo pochi.» (guida); «troppo pochi casi di credito in tensione» (README). | `grep -ci hyg ricerca/vix/struttura/backtest/*` | backtest.md §Q3 («"Tensione" vuol dire che BAA10Y è salito di almeno 0,30 punti…») |
+| 2 | da correggere | `guida.html` #vix, punto **Credito high yield**: «(2008: −41%, 2020: −29%)» | I numeri sono giusti: il mio ricalcolo indipendente dà −41,39% l'11/12/2008 e −29,15% il 23/03/2020. Però nessuno script del repository li calcola: non sono in `ricerca/vix/struttura/` (dati, backtest, inserimento) e la riga «Ricalcolo» non porta a loro. È contro la regola di CLAUDE.md: le statistiche nei testi devono essere ricalcolabili con uno script del repository, citato. In più senza la parola «minimo» il lettore non capisce cosa sono. | `python3 -I ricerca/qa/1.6.0/testi/ricalcolo_testi.py` (`dd_min_2008`, `dd_min_2020`) | `ricalcolo_testi.json` |
+| 3 | da correggere | `guida.html` #vix: «qui ci sono **due misure equivalenti** con dati che si possono ripubblicare» e «**Dice quasi sempre la stessa cosa** del primo contro il secondo future sul VIX, senza i salti alle scadenze» | «Equivalenti» e «quasi sempre» non corrispondono ai dati di `dati/dati.md`. Il 91,1% di accordo con VX1/VX2 viene soprattutto dalle sedute in contango. Le sedute in backwardation sono 795 secondo i futures e 478 secondo VIX/VIX3M, e sono in backwardation per tutti e due solo 424. Su un giorno di backwardation di uno dei due, l'altro è d'accordo circa una volta su due (424 su 849). HYG/IEF segue l'HY OAS con correlazione 0,69-0,71, e nell'aprile 2025 il suo picco era solo all'89° percentile. Chi guarda il grafico di Serafini vedrà la backwardation più spesso che nell'app. | leggere `dati.md` §2 «Confronto» e §3 «Somiglianza» | `dati/risultati.json` → `concordanza` |
+| 4 | da correggere | `js/vix-view.js:76`, riga delle date sotto i riquadri: «VIX al 06/11/2026 (FRED al 05/11/2026, **poi Cboe provvisorio**) · VIX3M al … (… poi Cboe provvisorio)»; anche `README.md` riga 97 («dalla 1.6.0 è solo l'ultima riserva») e `js/version.js` NOTES[0] («l'ultima seduta del VIX ora dal file ufficiale di Cboe») | La scritta dice sempre «Cboe», ma `data/vix.json` non registra da dove viene la coda: se Cboe non ha ancora la seduta, la coda viene da Yahoo (`mergeTail`, `volSeries`) e la scritta è falsa. Succede spesso: nell'unica osservazione di `dati.md` il `VIX_History.csv` di Cboe è stato aggiornato alle 02:11 UTC del giorno dopo. La corsa principale della Action è alle 22:40 UTC, e le corse di recupero dalle 01:10 saltano se i prezzi USA ci sono già (`need_update.js`). Quindi per la notte il VIX provvisorio viene probabilmente da Yahoo, proprio la fonte che ha sbagliato il 06/02/2026. Nella 1.5.0 la scritta era «poi Yahoo provvisorio», giusta allora. | `#vix`, riga `#vxMeta`; `scripts/fetch_vix.js` righe 141-166 e 97-102 (nessun campo con la fonte della coda) | `testi_browser.json` → `meta` |
+| 5 | minore | `index.html` «Struttura a termine»: «il ritorno al contango non è stato un ingresso migliore del segnale del VIX»; uguale in guida e README («non batte il segnale del VIX») | Il backtest (Q2) lo dice contro il segnale del **VIX ≥ 30** (e contro la base). Contro i segnali ≥ 20 e ≥ 25 l'uscita «passa», con un calo meno profondo di 7-11 punti (è nel testo come contesto). La frase generica dice più del risultato. | backtest.md §Q2, «Contesto, rispetto ai segnali di VIX ≥ 20 e ≥ 25» | — |
+| 6 | minore | grafico a MAX: scritta nella fascia grigia «HYG/IEF dal 09/04/2008»; testi: «Credito high yield (dal 2007)», «HYG e IEF … dal 2007» | Le due date non coincidono. I dati partono l'11/04/2007, ma la distanza dal massimo esiste solo dopo 252 sedute, quindi dal 09/04/2008. La fascia dice «HYG/IEF dal» e il lettore pensa ai dati. | `#vix`, periodo MAX | `testi_browser.json` → `nodataMax` |
+| 7 | minore | riquadro «Credito high yield»: «… · 57° percentile · al 06/11/2026» | Senza il title, che al telefono si vede solo con un tocco, «57° percentile» non dice di cosa sia. È il percentile della profondità del calo (alto = calo più profondo), al contrario di come si legge di solito. | riquadro 6 | `testi_browser.json` → `kpis[5]` |
+| 8 | minore | `docs/sviluppo.md` §7: «Test automatici: `npm test`, 134 test; nel browser … v140fix.cjs» | `npm test` ora conta 142 test. Nell'elenco dei controlli nel browser mancano `v150.cjs` e `v160.cjs`. | `npm test` | `# tests 142` |
+| 9 | minore | `README.md` Licenza: «… e l'ultima seduta dai file pubblici di Cboe» | Il permesso citato è quello che FRED ha da Cboe. Le condizioni d'uso del sito di Cboe per `VIX_History.csv` e `VIX3M_History.csv` non sono state lette: `dati.md`, «Limiti», lo dice per i file dei futures. Va detto all'utente, come il punto aperto sui termini di FRED in `docs/sviluppo.md`. | — | `dati.md` §Limiti |
+| 10 | minore | `index.html` «Struttura a termine»: «Quando il VIX **supera** il VIX3M (rapporto da 1 in su, backwardation)» | «Supera» vuol dire >, mentre la regola e la legenda («VIX ≥ VIX3M») contano anche l'uguaglianza. | — | legenda |
+| 11 | minore | testi del credito (index, guida, title) | «Spread» non è mai spiegato («Non è uno spread ufficiale»). La guida scrive «titoli di Stato a 7-10 anni (IEF)» senza «USA», che invece c'è nel title. | — | — |
+
+## Correzioni proposte (testo nuovo)
+
+1. **index**, Credito: «Nella verifica il credito è stato provato con lo spread Baa di Moody's (BAA10Y), non con HYG/IEF: i casi in tensione erano troppo pochi per una statistica. Solo contesto.» Lo stesso, più breve, nella guida («… e con lo spread Baa di Moody's, usato nella verifica al posto di HYG/IEF, i casi con il credito in tensione sono troppo pochi») e nel README («troppo pochi casi di credito in tensione, provato con BAA10Y e non con HYG/IEF»). In alternativa, rifare Q3 con HYG/IEF (distanza dal massimo o variazione a 21 sedute) prima di pubblicare e citare quello script.
+2. **guida**: «(il calo più profondo: −41% nel dicembre 2008, −29% nel marzo 2020)», con uno script in `ricerca/vix/struttura/` che lo calcola (per esempio una funzione in `dati.mjs`, oppure `ricalcolo_testi.py` copiato lì) citato nella riga «Ricalcolo».
+3. **guida**: «qui ci sono due misure vicine, con dati che si possono ripubblicare» e «Dice la stessa cosa del primo contro il secondo future nel 91% delle sedute dal 2007, ma i futures segnano la backwardation più spesso (795 sedute contro 478) e hanno salti alle scadenze.»
+4. **vix-view.js**: «(FRED al 05/11/2026, poi provvisorio: Cboe o Yahoo)», oppure registrare in `fetch_vix.js` la fonte della coda (per esempio `tail: 'cboe'|'yahoo'`) e scrivere quella. Nel README: «Yahoo resta la riserva per la seduta che Cboe non ha ancora (di solito la sera stessa, prima della notte)». NOTES: «l'ultima seduta del VIX dal file ufficiale di Cboe quando c'è già, altrimenti da Yahoo».
+5. «… non è stato un ingresso migliore del segnale del VIX sopra 30».
+6. Scritta della fascia: «distanza dal massimo dal 09/04/2008»; guida: «Credito high yield (dati dal 2007, distanza dal massimo dal 2008)».
+7. Riquadro: «57° percentile del calo».
+8. sviluppo.md: «142 test»; aggiungere `v150.cjs` e `v160.cjs`.
+9. Una riga nel punto aperto di `docs/sviluppo.md`: condizioni d'uso del sito di Cboe per i file `*_History.csv` da far leggere all'utente.
+10. «Quando il VIX raggiunge o supera il VIX3M».
+11. Prima volta: «spread (quanto rendono in più le obbligazioni societarie rispetto ai titoli di Stato)»; guida: «titoli di Stato USA a 7-10 anni».
+
+## Cosa ho verificato e passa (52 controlli)
+
+- **Numeri ricalcolati da `data/vix.json`** con uno script Python indipendente, che non usa il codice dell'app (12 controlli):
+  - VIX3M dal 04/12/2007; HYG/IEF dall'11/04/2007 («dal 2007»);
+  - −41,4% l'11/12/2008 e −29,2% il 23/03/2020;
+  - 13 episodi del VIX ≥ 30 su 13 in backwardation dal 2008 (anche in `backtest.md`);
+  - riquadri di oggi: R 1,0423 → «1,04», percentile 95,4 → «95°», VIX 25,64 / VIX3M 24,60; credito −3,09% → «−3,1%», −2,51% in un mese → «−2,5%», percentile 56,9 → «57°»;
+  - massimo e minimo di R (24/10/2008 1,4309; 16/03/2012 0,7104), uguali a `inserimento.md`.
+- **Numeri presi dai file di ricerca** (8 controlli): 4.310 su 4.310 FRED = Cboe; 91% (0,9107); HY OAS di 3 anni e licenza ICE; nota Moody's su BAA10Y; errore Yahoo del 06/02/2026 (20,37 contro 17,76); 0 differenze su 9.309; 8 minuti del passo (workflow `timeout-minutes: 8`); `check_fresh` con VIX3M e HYG/IEF a 4 giorni e FRED a 6, come nel README.
+- **Coerenza tra le copie** (16 controlli): data d'inizio 04/12/2007 (index, guida, title, README, fetch, `source`); soglia 1 «da 1 in su» (index, guida, title, legenda, README, NOTES, `termState`); 252 sedute, 12 mesi e «ultimo anno» per lo stesso massimo; «provvisorio» nei riquadri e «provv.» nel riquadro dei valori; nessuna frase vecchia rimasta («Yahoo, provvisorio», «4 riquadri», «l'ultima seduta da Yahoo»). Il titolo «VIX contro volatilità realizzata» resta solo dove indica il primo pannello (guida h3, commento del codice) o è storia (nota 1.5.0).
+- **Citazioni e avvertenze** (8 controlli):
+  - Serafini (Swiss Capital School, Morning Trading Show di BNP Paribas) citato nelle fonti della vista, nella guida, nel README (sezione e nota 1.6.0), in NOTES, in `docs/sviluppo.md` e nei commenti di `fetch_vix.js`, `vix.js` e `vix-view.js`; Massimo Rea resta;
+  - © Cboe, VIXCLS e VXVCLS via FRED;
+  - nessun numero di rendimento nei testi nuovi, nessun materiale riservato;
+  - approssimazioni dette nell'app: non è uno spread ufficiale, VIX3M dal 2007, ultima seduta provvisoria, «solo contesto» in ogni punto.
+- **Nel browser** (1440 e 390 px, 8 controlli): 6 riquadri con title; legenda; titoli dei 4 pannelli; riquadro dei valori con VIX3M, R con lo stato e HYG/IEF; a MAX su una data del 1991 tutti «—»; console senza errori. `npm test`: 142 superati.
+
+## Cosa non ho potuto verificare e perché
+
+- Se Serafini usava davvero VX1/VX2 e l'HY OAS nella puntata: non c'è né la data né il link (`docs/sviluppo.md`).
+- L'ora in cui Cboe pubblica `VIX_History.csv`: c'è una sola osservazione in `dati.md` e la richiesta di oggi dal proxy restituisce 307 senza Last-Modified. Il rilievo 4 resta quindi «probabile» sull'orario, ma è certo sul fatto che la fonte non è registrata.
+- Tema chiaro: non controllato, perché il controllo riguarda i testi.
+
+## Script e screenshot
+
+- `ricerca/qa/1.6.0/testi/ricalcolo_testi.py` → `ricalcolo_testi.json` (ricalcolo indipendente dei numeri).
+- `ricerca/qa/1.6.0/testi/testi_browser.cjs` → `testi_browser.json` (testi come li vede l'utente: riquadri, title, riga delle date, legenda, titoli dei pannelli, riquadro dei valori, guida).
+- `ricerca/qa/1.6.0/testi/vix-1440.png`, `vix-390.png`.
