@@ -94,10 +94,10 @@ export function episodes(A, X, Q = QUIET, entry = ENTRY) {
   }
   return starts.map((j, e) => {
     const stop = e + 1 < starts.length ? starts[e + 1] : v.length;
-    let mx = v[j], last = j;
-    for (let k = j; k < stop; k++) if (v[k] >= X) { last = k; if (v[k] > mx) mx = v[k]; }
+    let mx = v[j], at = j, last = j;
+    for (let k = j; k < stop; k++) if (v[k] >= X) { last = k; if (v[k] > mx) { mx = v[k]; at = k; } }
     const p = pos[j];
-    return { date: A.dates[p], p, vix: v[j], vixMax: mx, end: A.dates[pos[last]], crisis: crisisOf(A.dates[p]), ...outcomes(A.close, p, entry) };
+    return { date: A.dates[p], p, vix: v[j], vixMax: mx, maxDate: A.dates[pos[at]], end: A.dates[pos[last]], crisis: crisisOf(A.dates[p]), ...outcomes(A.close, p, entry) };
   });
 }
 

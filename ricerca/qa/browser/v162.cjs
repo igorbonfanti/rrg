@@ -28,10 +28,10 @@ const iso = (s) => `${s.slice(6, 10)}-${s.slice(3, 5)}-${s.slice(0, 2)}`;
         ok(bigs.join() === want.join() && bigs.length > 0, `${name} ${ix} soglia ${X}: ${bigs.length} punti grandi = primi giorni sopra ${XB} (attesi ${want.length})`);
         if (X >= 30) {
           const col = (await p.$$eval('#vxEps tbody tr', (rs) => rs.map((r) => r.children[0].textContent))).map(iso).filter((d) => have.has(d)).sort();
-          ok(col.join() === bigs.join(), `${name} ${ix} soglia ${X}: punti grandi uguali alla colonna «Sopra ${X} dal» (${col.length})`);
+          ok(col.join() === bigs.join(), `${name} ${ix} soglia ${X}: punti grandi uguali alla colonna «Primo giorno a ${X} o più» (${col.length})`);
         }
         const head = await p.$$eval('#vxEps thead th', (t) => t.map((x) => x.textContent));
-        ok(head[0] === `Sopra ${X} dal` && head.includes('VIX quel giorno'), `${name} ${ix} soglia ${X}: intestazioni chiare (${head.slice(0, 4).join(' | ')})`);
+        ok(head[0] === `Primo giorno a ${X} o più` && head.includes('VIX quel giorno'), `${name} ${ix} soglia ${X}: intestazioni chiare (${head.slice(0, 4).join(' | ')})`);
       }
     }
     ok(/etichette di periodo/.test(await p.locator('#v-vix').innerText()), `${name}: detto che i nomi delle crisi sono etichette`);
