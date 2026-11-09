@@ -118,8 +118,8 @@ export function createVix(ctx) {
     $('vxTableMeta').textContent = `${IXN[st.ix]} · solo prezzo · dal ${dIT(R.from)} · ingresso alla chiusura della seduta dopo il segnale`;
     // episodi della soglia scelta
     const eps = R.thr[st.thr].episodes, G = m.G;
-    $('vxEpsTitle').textContent = `Episodi con il VIX sopra ${st.thr} · ${IXN[st.ix]}`;
-    $('vxScBig').textContent = st.thr >= 30 ? `il primo giorno di ogni episodio con il VIX a ${st.thr} o più, lo stesso della colonna «Primo giorno a ${st.thr} o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)` : `il primo giorno di ogni episodio con il VIX a 30 o più (con la soglia ${st.thr} della tabella i primi giorni sono sotto 30 e lo scatter non li mostra)`;
+    $('vxEpsTitle').textContent = `Episodi con il VIX a ${st.thr} o più · ${IXN[st.ix]}`;
+    $('vxScBig').textContent = st.thr >= 30 ? `il primo giorno di ogni episodio con il VIX a ${st.thr} o più, lo stesso della colonna «Primo giorno a ${st.thr} o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)` : `il primo giorno di ogni episodio a 30 o più (episodi calcolati con la soglia 30, perché lo scatter mostra solo le sedute a 30 o più: un episodio a ${st.thr} della tabella può non contenerne nessuno o contenerne più d'uno)`;
     $('vxEps').innerHTML = `<thead><tr><th title="Primo giorno dell'episodio: la prima chiusura del VIX a ${st.thr} o più dopo almeno 63 sedute sotto">Primo giorno a ${st.thr} o più</th><th>Crisi</th><th class="r" title="Chiusura del VIX nel primo giorno dell'episodio">VIX quel giorno</th><th class="r hmin" title="Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi">VIX massimo dell'episodio</th>${V.HS.map((h) => `<th class="r h${h}">${HL[h]}</th>`).join('')}<th class="r">calo dopo</th></tr></thead><tbody>` +
       eps.slice().reverse().map((e) => { const g = G.ofRow(e); return `<tr${g ? ` data-g="${esc(g.key)}" class="vxgrow g${g.c}" tabindex="0" role="button" aria-pressed="false" title="Clic per evidenziare la crisi nello scatter"` : ''}><td>${dIT(e.date)}</td><td>${g ? '<span class="kd"></span>' : ''}${esc(e.crisis || '—')}</td><td class="r">${fmt(e.vix, 1)}</td><td class="r hmin">${fmt(e.vixMax, 1)} <small class="muted">${dIT(e.maxDate)}</small></td>${V.HS.map((h) => `<td class="r h${h} ${e.ret[h] == null ? 'muted' : Math.abs(e.ret[h]) < 0.05 ? '' : e.ret[h] > 0 ? 'up' : 'down'}">${e.ret[h] == null ? 'in corso' : sgnP(e.ret[h], 1)}</td>`).join('')}<td class="r">${e.dd == null ? '—' : pct(e.dd, 1)}${e.partial && e.dd != null ? '<span class="loc" title="meno di 12 mesi di dati dopo il segnale: calo fino a oggi">*</span>' : ''}</td></tr>`; }).join('') + '</tbody>';
     $('vxEps').querySelectorAll('tr[data-g]').forEach((tr) => { const go = () => { select(selG === tr.dataset.g ? null : tr.dataset.g); if (selG) { const r = $('vxScatter').getBoundingClientRect(); if (r.top > innerHeight - 120 || r.bottom < 120) $('vxScatter').scrollIntoView({ block: 'center', behavior: 'smooth' }); } }; tr.onclick = go; tr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }; });
@@ -157,7 +157,7 @@ export function createVix(ctx) {
     const m = model && model[st.ix], g = m && selG ? m.G.byKey.get(selG) : null;
     const none = g && !document.querySelector(`#vxEps tr.sel`);
     $('vxEpsNone').hidden = !none;
-    if (none) $('vxEpsNone').textContent = `${g.label}: nella tabella sopra non ci sono episodi del VIX sopra ${st.thr} ${g.crisis ? 'in questa crisi' : 'in questo periodo'}.`;
+    if (none) $('vxEpsNone').textContent = `${g.label}: nella tabella sopra non ci sono episodi del VIX a ${st.thr} o più ${g.crisis ? 'in questa crisi' : 'in questo periodo'}.`;
   }
   let paintScatter = () => {};
   function renderScatter() {

@@ -42,7 +42,7 @@ const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail+
     ok(rows.filter((r) => /robusto/i.test(r[1])).map((r) => r[0]).join() === '40', `${name}: solo il 40 «robusto»`);
     if (want) ok(['20', '25', '30', '40', '50'].every((X) => rows.find((r) => r[0] === X)[1].includes(want.SPX[X])), `${name}: positivi a 12 mesi come i calcoli (S&P 500)`);
     const r30 = p.locator('#vxTable tr[data-x="30"]'); if (opt.hasTouch) await r30.tap(); else await r30.click(); await p.waitForTimeout(300);
-    ok(/sopra 30/i.test(await p.locator('#vxEpsTitle').innerText()), `${name}: clic sulla soglia 30 mostra i suoi episodi`);
+    ok(/(sopra 30|a 30 o più)/i.test(await p.locator('#vxEpsTitle').innerText()), `${name}: clic sulla soglia 30 mostra i suoi episodi`);
     ok(await p.locator('#vxEps tbody tr').count() >= 15, `${name}: episodi della soglia 30`);
     const nb = p.locator('#vxIx button[data-ix="NDX"]'); if (opt.hasTouch) await nb.tap(); else await nb.click(); await p.waitForTimeout(500);
     ok(/Nasdaq-100/.test(await p.locator('#vxTableMeta').innerText()), `${name}: Nasdaq-100`);

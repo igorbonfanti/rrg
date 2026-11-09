@@ -51,7 +51,7 @@ const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail+
     ok(/(rgba?|color)\(/.test(rowColor) && !/rgba\(0, 0, 0, 0\)/.test(rowColor), `${name}: riga colorata (${rowColor})`);
     // 4. crisi senza episodi sopra 40: lo dice
     await tap(p.locator('#vxCrises button', { hasText: '1990 Golfo' })); await p.waitForTimeout(200);
-    ok(!(await p.locator('#vxEpsNone').isHidden()) && /episodi del VIX sopra 40/.test(await p.locator('#vxEpsNone').innerText()), `${name}: crisi senza episodi sopra 40 segnalata`);
+    ok(!(await p.locator('#vxEpsNone').isHidden()) && /episodi del VIX a 40 o più/.test(await p.locator('#vxEpsNone').innerText()), `${name}: crisi senza episodi sopra 40 segnalata`);
     // la scritta sta sotto l'elenco delle crisi: lo scatter non si sposta
     ok(await p.evaluate(() => { const a = document.getElementById('vxEpsNone'), b = document.getElementById('vxScatter'); return a.getBoundingClientRect().top > b.getBoundingClientRect().bottom; }), `${name}: la scritta sta sotto lo scatter`);
     // 5. clic su una riga della tabella → stessa crisi nello scatter
