@@ -7,6 +7,7 @@
  * le sedute con la breadth sotto il livello blu fuori dalla zona blu (il motivo è nel tooltip).
  */
 import { fmt, sgn, sgnP, dIT, placeTip, pxDec, bindTip, syncX, emitX } from './format.js';
+import { sessionTicks } from './zoom.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -44,14 +45,18 @@ function sma200(c) {
  *   off: motivo per le sedute sotto il livello blu fuori dalla zona blu (runMachine().off), offText: testo di ogni motivo
  *   appr: sedute in avvicinamento (solo settori), apprA: soglia di avvicinamento di ogni seduta, calcolata fino a quel giorno
  *   ddNote: nota del pannello del drawdown sugli schermi larghi (default «CON DIVIDENDI»; per gli indici «SOLO PREZZO»)
+ *   i1: ultima seduta mostrata (default l'ultima della serie); zoom: gruppo dello zoom (js/zoom.js), zoomed: lo zoom è attivo
  */
 export function drawSector(svg, p) {
   const { i0, sym, blue, tipEl, wrapEl } = p;
+  // la media 200 su tutta la serie, poi il taglio: nello zoom è giusta fin dalla prima seduta
   const ma = sma200(p.close);
-  const dates = p.dates.slice(i0), n = dates.length;
-  const c = p.close.slice(i0), m = ma.slice(i0), dd = p.dd.slice(i0), b = p.b200.slice(i0), b50 = p.b50.slice(i0), days = p.days.slice(i0);
-  const off = p.off ? p.off.slice(i0) : [];
-  const appr = p.appr ? p.appr.slice(i0) : [], apprA = p.apprA ? p.apprA.slice(i0) : [];
+  const i1 = p.i1 ?? p.dates.length - 1, end = i1 + 1, atEnd = i1 === p.dates.length - 1;
+  const cut = (a) => a.slice(i0, end);
+  const dates = cut(p.dates), n = dates.length;
+  const c = cut(p.close), m = cut(ma), dd = cut(p.dd), b = cut(p.b200), b50 = cut(p.b50), days = cut(p.days);
+  const off = p.off ? cut(p.off) : [];
+  const appr = p.appr ? cut(p.appr) : [], apprA = p.apprA ? cut(p.apprA) : [];
   const W = p.width || 940, L = 8, R = 60, GAP = 26, PW = W - L - R;
   const narrow = PW < 440; // telefono: titoli e note più corti per non sovrapporsi
   const panes = [
@@ -115,12 +120,17 @@ export function drawSector(svg, p) {
     el('rect', { x: L, y: q.y0, width: PW, height: q.h, class: 'frame' }, svg);
     el('text', { x: L + 6, y: q.y0 - 7, class: 'pane-t' }, svg).textContent = q.title;
   }
-  el('text', { x: L + PW, y: P1.y0 - 7, class: 'axt', 'text-anchor': 'end' }, svg).textContent = `${narrow ? 'min' : 'peggiore nel periodo'} ${fmt(Math.min(...vals(dd)))}%`;
+  el('text', { x: L + PW, y: P1.y0 - 7, class: 'axt', 'text-anchor': 'end' }, svg).textContent = `${narrow ? 'min' : p.zoomed ? 'peggiore nel tratto' : 'peggiore nel periodo'} ${fmt(Math.min(...vals(dd)))}%`;
 
-  // asse del tempo: ogni 3, 6, 12, 24 o 48 mesi, il più fitto che entra nella larghezza del disegno
+  // asse del tempo: ogni 3, 6, 12, 24 o 48 mesi, il più fitto che entra nella larghezza del disegno; nello zoom anche
+  // mesi e giorni (js/zoom.js)
   const months = n / 21;
   const every = [3, 6, 12, 24, 48].find((e) => (months / e) * (e >= 12 ? 36 : 52) <= PW) || 48;
-  for (let i = 1; i < n; i++) {
+  if (p.zoomed) for (const tk of sessionTicks(dates, Math.max(3, Math.floor(PW / 70)))) {
+    for (const q of panes) el('line', { x1: sx(tk.i), x2: sx(tk.i), y1: q.y0, y2: q.y1, class: 'gridl' }, svg);
+    el('text', { x: sx(tk.i), y: H - 8, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = tk.label;
+  }
+  else for (let i = 1; i < n; i++) {
     const yy = +dates[i].slice(0, 4), mm = +dates[i].slice(5, 7) - 1, pm = +dates[i - 1].slice(5, 7) - 1;
     if (mm !== pm && (yy * 12 + mm) % every === 0) {
       for (const q of panes) el('line', { x1: sx(i), x2: sx(i), y1: q.y0, y2: q.y1, class: 'gridl' }, svg);
@@ -160,12 +170,14 @@ export function drawSector(svg, p) {
     if (e > i) el('path', { d: path(b.map((v, k) => (k >= i && k <= e ? v : null)), P2.sy), class: 'brappr' }, svg);
     if (!(i === 0 && p.appr && p.appr[i0 - 1])) el('circle', { cx: sx(i), cy: P2.sy(b[i]), r: e > i ? 2.6 : 2.2, class: 'apprin' }, svg);
   }
+  // valori dell'ultima seduta; se lo zoom finisce prima, quelli della fine dello zoom, in un riquadro vuoto con la data
   for (const [q, v, txt] of [[P0, c[n - 1], fmt(c[n - 1], pxDec(c[n - 1]))], [P1, dd[n - 1], fmt(dd[n - 1]) + '%'], [P2, b[n - 1], fmt(b[n - 1]) + '%']]) {
     if (v == null) continue;
     const yy = q.sy(v);
-    el('rect', { x: L + PW + 1, y: yy - 8, width: R - 3, height: 16, class: 'lasttag' }, svg);
-    el('text', { x: L + PW + 5, y: yy + 3.5, class: 'lasttxt' }, svg).textContent = txt;
+    el('rect', { x: L + PW + 1, y: yy - 8, width: R - 3, height: 16, class: atEnd ? 'lasttag' : 'lasttag zend' }, svg);
+    el('text', { x: L + PW + 5, y: yy + 3.5, class: atEnd ? 'lasttxt' : 'lasttxt zend' }, svg).textContent = txt;
   }
+  if (!atEnd) el('text', { x: W - 2, y: P0.y0 - 7, class: 'axt zendt', 'text-anchor': 'end' }, svg).textContent = `${narrow ? 'al' : 'valori al'} ${dIT(dates[n - 1])}`;
 
   // mirino con i valori dei tre pannelli
   const xh = el('line', { x1: 0, x2: 0, y1: P0.y0, y2: P2.y1, class: 'xhair', visibility: 'hidden' }, svg);
@@ -196,4 +208,5 @@ export function drawSector(svg, p) {
     placeTip(tipEl, wrapEl, e, 12);
   };
   bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); dots.forEach((d) => d.setAttribute('visibility', 'hidden')); tipEl.hidden = true; emitX(p.sync, svg.id, null); });
+  if (p.zoom) p.zoom.geo(svg, { L, PW, top: P0.y0, bottom: P2.y1, dates });
 }

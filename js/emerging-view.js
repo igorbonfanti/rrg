@@ -9,6 +9,7 @@ import { badge, apprBadge } from './bottom.js';
 import { emSeries, cleanFx, plain, fxSignals, fxState, dollarSignals, onDates, inUsd, change, relStrength } from './emerging.js';
 import { esc, fmt, sgnP, pct, dIT, qPill, placeTip, bindTip, chartWidth, keepFocus, syncX, emitX } from './format.js';
 import { STATES } from './signals.js';
+import { zoomGroup, timeTicks } from './zoom.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -35,7 +36,7 @@ const short = (name) => name.replace(/ \(.*\)/, '');
 export function createEmerging(ctx) {
   const { $, store, indices } = ctx;
   const CFG = ctx.config.indices, KEYS = ctx.config.order.filter((k) => CFG[k] && indices.isIndex(k));
-  let data = null, loading = null, failed = null, model = null;
+  let data = null, loading = null, failed = null, model = null, zoom = null;
   const st = { sel: KEYS.includes(store.get('emSel')) ? store.get('emSel') : KEYS[0], range: ['3A', '10A', 'MAX'].includes(store.get('emRange')) ? store.get('emRange') : '3A' };
 
   function ensure() {
@@ -184,9 +185,12 @@ export function createEmerging(ctx) {
     const svg = $('emChart'), snap = r.snap, k = r.k, c = CFG[k];
     svg.innerHTML = '';
     const W = chartWidth(svg, 940), L = 8, R = 56, PW = W - L - R, narrow = PW < 440;
-    const dates = snap.dates, n = dates.length, t1 = Date.parse(dates[n - 1]);
+    const dates = snap.dates, n = dates.length, tEnd = Date.parse(dates[n - 1]);
     const span = st.range === '3A' ? 3 : st.range === '10A' ? 10 : null;
-    const t0 = span ? Math.max(Date.parse(dates[0]), t1 - span * 365.25 * DAY) : Date.parse(dates[0]);
+    let t0 = span ? Math.max(Date.parse(dates[0]), tEnd - span * 365.25 * DAY) : Date.parse(dates[0]), t1 = tEnd;
+    // zoom su un sottoperiodo (js/zoom.js): il tratto scelto dentro il periodo, tagliato alla storia del paese
+    const zw = zoom ? zoom.time(t0, t1, dates) : null;
+    if (zw) [t0, t1] = zw;
     const x = (d) => L + ((Date.parse(d) - t0) / (t1 - t0)) * PW;
     const inWin = (d) => { const t = Date.parse(d); return t >= t0 && t <= t1; };
     const f = model.fx[k], dl = model.dollar;
@@ -210,7 +214,8 @@ export function createEmerging(ctx) {
     for (let i = i0; i < n; i++) if (snap.close[i] != null && (!usdRaw || usdRaw[i] != null)) { jb = i; break; }
     const rebase = (a) => a.map((v, i) => (i < i0 || v == null || jb < 0 ? null : (v / a[jb]) * 100));
     const loc = rebase(snap.close), usd = usdRaw ? rebase(usdRaw) : null;
-    const baseNote = jb > i0 ? ` · base 100 al ${dIT(dates[jb])}` : '';
+    // nello zoom la base 100 è il primo giorno del tratto: si scrive sempre, il valore cambia con lo zoom
+    const baseNote = zw && jb >= 0 ? ` · base 100 al ${dIT(dates[jb])}, inizio dello zoom` : jb > i0 ? ` · base 100 al ${dIT(dates[jb])}` : '';
     const scale = (vals, pad = 0.06, fixed = null) => {
       let lo = Infinity, hi = -Infinity;
       for (const v of vals) if (v != null) { lo = Math.min(lo, v); hi = Math.max(hi, v); }
@@ -233,13 +238,11 @@ export function createEmerging(ctx) {
       el('rect', { x: L, y: p.y0, width: PW, height: p.h, class: 'frame' }, svg);
       el('text', { x: L, y: p.y0 - 5, class: 'pane-t' }, svg).textContent = p.title;
     }
-    // anni sull'asse
-    const y0 = new Date(t0).getUTCFullYear(), y1 = new Date(t1).getUTCFullYear(), every = Math.max(1, Math.ceil((y1 - y0 + 1) / (narrow ? 4 : 10)));
-    for (let yr = y0 + 1; yr <= y1; yr++) {
-      if ((yr - y0) % every) continue;
-      const xx = x(`${yr}-01-01`);
+    // asse del tempo: anni, e nello zoom anche mesi e giorni
+    for (const tk of timeTicks(t0, t1, narrow ? 4 : 10)) {
+      const xx = L + ((tk.t - t0) / (t1 - t0)) * PW;
       for (const p of panes) el('line', { x1: xx, x2: xx, y1: p.y0, y2: p.y1, class: 'gridl' }, svg);
-      el('text', { x: xx, y: H - 4, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = String(yr);
+      el('text', { x: xx, y: H - 4, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = tk.label;
     }
     // zona blu sui primi due pannelli (come le bande del grafico dei settori)
     const blueOn = snap.m.days.map((s) => s === 'setup' || s === 'fail');
@@ -305,6 +308,7 @@ export function createEmerging(ctx) {
       placeTip($('emTip'), $('emWrap'), e, 12);
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('emTip').hidden = true; emitX('emg', svg.id, null); });
+    if (zoom) zoom.geo(svg, { L, PW, top: panes[0].y0, bottom: panes[3].y1, t0, t1, dates });
     // legenda
     $('emLegend').innerHTML = [
       `<span><span class="kl" style="background:var(--amber)"></span>${c.fx ? 'in valuta locale' : 'prezzo in dollari'}</span>`,
@@ -314,7 +318,7 @@ export function createEmerging(ctx) {
       hasFx ? '<span><span class="kb em-calo"></span>valuta in calo forte</span><span><span class="kb em-ferma"></span>valuta che ha smesso di scendere</span>' : '',
       '<span><span class="kl" style="background:var(--ink-2)"></span>dollaro contro emergenti</span><span><span class="kl" style="background:var(--amber)"></span>sua media 200</span><span><span class="kb em-fav"></span>dollaro favorevole (sotto la media e in calo in 3 mesi)</span>',
     ].join('');
-    $('emChartMeta').textContent = `${c.fx === null ? 'EEM è in dollari, senza cambio' : `cambio al ${f ? dIT(f.S.dates.at(-1)) : '—'}`}${f && f.S.fred && f.S.fred < f.S.dates.at(-1) ? ` (Fed fino al ${dIT(f.S.fred)}, poi Yahoo provvisorio)` : ''} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}${baseNote}${baseNote && usd ? ' (primo giorno con il cambio: le due linee hanno la stessa base)' : ''}`;
+    $('emChartMeta').textContent = `${c.fx === null ? 'EEM è in dollari, senza cambio' : `cambio al ${f ? dIT(f.S.dates.at(-1)) : '—'}`}${f && f.S.fred && f.S.fred < f.S.dates.at(-1) ? ` (Fed fino al ${dIT(f.S.fred)}, poi Yahoo provvisorio)` : ''} · dollaro FRED al ${dl ? dIT(dl.S.dates.at(-1)) : '—'}${baseNote}${baseNote && usd ? (zw ? ' (le due linee hanno la stessa base)' : ' (primo giorno con il cambio: le due linee hanno la stessa base)') : ''}`;
   }
 
   // ---------- forza relativa contro ACWI ----------
@@ -357,7 +361,10 @@ export function createEmerging(ctx) {
   }
 
   function bind() {
-    document.querySelectorAll('#emRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('emRange', st.range); if (model) renderDetail(row(st.sel)); });
+    // un pulsante del periodo, anche quello già scelto, toglie lo zoom
+    document.querySelectorAll('#emRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('emRange', st.range); zoom.reset(); if (model) renderDetail(row(st.sel)); });
+    zoom = zoomGroup('emg', { lens: $('emLens'), chips: [$('emZoom')], back: () => document.querySelector('#emRange [aria-pressed="true"]'), onChange: () => { if (model) drawChart(row(st.sel)); } });
+    zoom.attach($('emChart'));
     $('emOpenIx').onclick = () => ctx.openIndex(st.sel);
     // livello blu cambiato nella vista 6: stati e breadth si rileggono alla prossima apertura (o subito, se la vista è aperta)
     indices.onChange(() => { if (model && !$('v-emg').hidden) render(); });

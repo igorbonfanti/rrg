@@ -47,7 +47,8 @@ export function emitX(group, from, date) { const m = group && SYNC[group]; if (m
 // si apre dove si tocca, resta aperto e si chiude con un tocco fuori dal grafico.
 const TIPPED = new Set();
 export function bindTip(target, svg, show, hide) {
-  target.addEventListener('pointermove', show);
+  // durante la selezione di uno zoom (js/zoom.js) il riquadro resta chiuso
+  target.addEventListener('pointermove', (e) => { if (!svg._zoomDrag) show(e); });
   target.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') show(e); });
   target.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hide(); });
   hideOnTapOutside(svg, hide);

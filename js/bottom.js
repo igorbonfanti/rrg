@@ -7,6 +7,7 @@
 import { breadthSeries, priceSeries, runMachine, forward, worstWithin, offReasons, approachSeries, explainState, signalContext, median, DEFAULT_PARAMS, STATES, SECTOR_KEYS } from './signals.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
+import { zoomGroup } from './zoom.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, qPill, placeTip, hideOnTapOutside, chartWidth, keepFocus, DD_TIP, DDP_TIP, ddpTip, ilPct, delPct, checklistHTML, contextHTML, outOf } from './format.js';
@@ -401,8 +402,19 @@ export function createBottom(ctx) {
     const back = { '3A': 756, '10A': 2520, MAX: DATES.length }[st.range];
     return Math.max(first, NOW - back);
   }
+  // grafico del settore sulla finestra del periodo e dello zoom (lo zoom ridisegna solo questo e i cali forti)
+  let zoom = null;
+  const tsWin = (s) => (zoom ? zoom.idx(DATES, rangeStart(s), DATES.length - 1) : { i0: rangeStart(s), i1: DATES.length - 1, zoomed: false });
+  function drawTs(s) {
+    const m = machine(s), w = tsWin(s);
+    drawSector($('ts'), {
+      dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
+      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: w.i0, i1: w.i1, zoomed: w.zoomed, zoom, sym: s, blue: st.blue[s], tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940),
+      off: m.off, offText: offReasons(P), sync: 'sec', watchBand: P.watchBand, appr: apprDays(s), apprA: apprSeries(s),
+    });
+  }
   function renderSector() {
-    const s = st.sector, m = machine(s), L = st.blue[s], state = stateOf(s);
+    const s = st.sector, L = st.blue[s], state = stateOf(s);
     $('secChips').innerHTML = SECTOR_KEYS.map((k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}"><span class="sd sd-${stateOf(k).code}"></span>${k}</button>`).join('');
     $('secChips').querySelectorAll('button').forEach((b) => b.onclick = () => openSector(b.dataset.sym));
     document.querySelectorAll('#rangeSeg button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
@@ -410,11 +422,7 @@ export function createBottom(ctx) {
     $('secBadge').innerHTML = approach(s).on ? apprBadge() : badge(state.code);
     $('secCheck').innerHTML = checklistHTML(explain(s)) + (cap ? cap.info(s) : '');
     const i0 = rangeStart(s);
-    drawSector($('ts'), {
-      dates: DATES, close: PX[s].close, dd: PX[s].dd, b200: BR[s].pct200, b50: BR[s].pct50, days: m.days,
-      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0, sym: s, blue: L, tipEl: $('tsTip'), wrapEl: $('tsWrap'), width: chartWidth($('ts'), 940),
-      off: m.off, offText: offReasons(P), sync: 'sec', watchBand: P.watchBand, appr: apprDays(s), apprA: apprSeries(s),
-    });
+    drawTs(s);
     // livello blu
     $('blueVal').textContent = L + '%';
     $('blueMinus').disabled = L <= 0; $('bluePlus').disabled = L >= 60;
@@ -444,8 +452,8 @@ export function createBottom(ctx) {
     ].map(([k, v, t]) => { const tt = t ? ` title="${esc(t)}"` : ''; return `<dt${tt}>${k}</dt><dd${tt}>${v}</dd>`; }).join('');
     $('tvLinks').innerHTML = `<a href="${tvLink('AMEX:' + s)}" target="_blank" rel="noopener">${s} su TradingView ↗</a><a href="${tvLink('INDEX:' + TV[s])}" target="_blank" rel="noopener">${TV[s]} su TradingView ↗</a>`;
     renderMembers(s);
-    renderEpisodes(s, m);
-    if (cap) cap.card('sec', s, { dates: DATES, close: PX[s].close, from: DATES[i0], what: 'il settore' });
+    renderEpisodes(s, machine(s));
+    if (cap) cap.card('sec', s, { dates: DATES, close: PX[s].close, from: DATES[i0], what: 'il settore', win: () => tsWin(s), zoom });
   }
   function renderMembers(s) {
     if (!latest) { $('memTable').innerHTML = '<tbody><tr><td class="muted">Fotografia per titolo non disponibile.</td></tr></tbody>'; return; }
@@ -534,7 +542,13 @@ export function createBottom(ctx) {
     $('blueMinus').onclick = () => setBlue(-1);
     $('bluePlus').onclick = () => setBlue(+1);
     $('blueReset').onclick = () => { st.blue[st.sector] = config.blue[st.sector]; saveBlue(); renderSector(); };
-    document.querySelectorAll('#rangeSeg button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('range', st.range); renderSector(); });
+    // un pulsante del periodo, anche quello già scelto, toglie lo zoom
+    document.querySelectorAll('#rangeSeg button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('range', st.range); zoom.reset(); renderSector(); });
+    zoom = zoomGroup('sec', {
+      lens: $('secLens'), chips: [$('secZoom'), $('secCapZoom')], back: () => document.querySelector('#rangeSeg [aria-pressed="true"]'),
+      onChange: () => { drawTs(st.sector); if (cap) cap.redraw('sec'); },
+    });
+    zoom.attach($('ts')); zoom.attach($('secCapSvg'));
     $('copyCfg').onclick = async () => {
       const text = configText();
       try { await navigator.clipboard.writeText(text); $('copyMsg').textContent = 'Copiata: incollala in config/thresholds.json per usarla negli alert.'; }

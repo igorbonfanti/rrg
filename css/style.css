@@ -951,11 +951,20 @@ svg.bub { touch-action: pan-y; }
 .legend .kd.vxk-dot { background: var(--vx-r); } .kl.vxk-r { background: var(--vx-r); } .kl.vxk-cr { background: var(--vx-cr); } .kb.vxk-back { background: var(--vx-back); outline: 1px solid var(--vx-r); outline-offset: -1px; }
 
 /* zoom su un sottoperiodo (js/zoom.js), uguale in tutti i grafici con il tempo */
-.ts .zoomband { fill: var(--amber); fill-opacity: .14; stroke: var(--amber); stroke-width: 1; pointer-events: none; }
-.ts.zooming { touch-action: none; }
-.ts { -webkit-user-select: none; user-select: none; }
+svg.zoomable { -webkit-user-select: none; user-select: none; }
+svg.zoomable.zooming { touch-action: none; }
+svg .zoomband { fill: var(--amber); fill-opacity: .14; stroke: var(--amber); stroke-width: 1; pointer-events: none; }
+svg .zoomband.short { fill: var(--ink-3); stroke: var(--ink-3); }
+svg .zoomlab { fill: var(--ink); font: 600 10.5px var(--f-mono, monospace); pointer-events: none; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+.ts .lasttag.zend, svg .lasttag.zend { fill: var(--bg); stroke: var(--amber); stroke-width: 1; }
+.ts .lasttxt.zend, svg .lasttxt.zend { fill: var(--ink); }
+svg .zendt { fill: var(--amber); }
 .zlens { margin-left: 6px; background: transparent; border: 1px solid var(--rule); color: var(--ink-2); padding: 3px 6px; cursor: pointer; vertical-align: middle; line-height: 0; }
 .zlens[aria-pressed="true"] { color: var(--bg); background: var(--amber); border-color: var(--amber); }
 .zchip { margin-left: 6px; font: 11px var(--f-mono, monospace); color: var(--amber); border: 1px solid var(--amber); padding: 1px 2px 1px 6px; white-space: nowrap; }
 .zchip button { background: transparent; border: 0; color: var(--amber); cursor: pointer; font-size: 13px; padding: 0 4px; }
+.zchip.zcap { display: inline-block; margin: 0 0 6px; }
+.zchip.zcap[hidden] { display: none; }
+.zlive { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media print { .zlens { display: none; } .zchip button { display: none; } }
 
