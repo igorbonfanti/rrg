@@ -875,7 +875,6 @@ svg.bub { touch-action: pan-y; }
 .vxmeta { margin-top: -4px; }
 .vxctl { margin: 0 0 10px; }
 .vix-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: start; }
-#vxScWrap { max-width: 900px; }
 .vxtable td, .vxtable th, .vxeps td, .vxeps th { white-space: nowrap; }
 .vxtable th small { font-weight: 400; color: var(--ink-3); }
 .vxtable tbody tr[data-x] { cursor: pointer; }
@@ -886,11 +885,27 @@ svg.bub { touch-action: pan-y; }
 .pill.vxrob { color: var(--q-lead); border-color: var(--q-lead); font-size: 10px; padding: 0 5px; }
 .ph.sub { margin-top: 6px; }
 .ph.sub h3 { font: 600 12px var(--f-mono); letter-spacing: .04em; color: var(--amber); margin: 0; text-transform: uppercase; }
-.vxsc .vxpt { stroke: none; opacity: .75; }
+.vxsc .vxpt { stroke: none; }
 .vxsc .vxpt.start { stroke: var(--ink); stroke-width: 1; opacity: 1; }
 /* colori degli episodi: palette Okabe-Ito (leggibile con il daltonismo), ordinata perché due episodi vicini non si somiglino */
-.vxsc .c0 { fill: #e69f00; } .vxsc .c1 { fill: #56b4e9; } .vxsc .c2 { fill: #f0e442; } .vxsc .c3 { fill: #3b8fd6; } .vxsc .c4 { fill: #e8703a; } .vxsc .c5 { fill: #2fbf8f; }
-:root[data-theme="light"] .vxsc .c0 { fill: #a86f00; } :root[data-theme="light"] .vxsc .c1 { fill: #1f78b4; } :root[data-theme="light"] .vxsc .c2 { fill: #7a6f00; } :root[data-theme="light"] .vxsc .c3 { fill: #0b4f8a; } :root[data-theme="light"] .vxsc .c4 { fill: #b5470f; } :root[data-theme="light"] .vxsc .c5 { fill: #00785a; }
+/* scatter: un colore per crisi (16, scelti in ricerca/vix/scatter/tavolozza.py: distanti anche con il daltonismo simulato) */
+:root { --g0: #e69f00; --g1: #731af9; --g2: #1af9f9; --g3: #96412c; --g4: #f9f91a; --g5: #2c7696; --g6: #a8e6cd; --g7: #ca7049; --g8: #9c92fc; --g9: #aa186f; --g10: #92fca7; --g11: #ec799c; --g12: #2c9681; --g13: #49bdca; --g14: #ca4963; --g15: #dda288; }
+:root[data-theme="light"] { --g0: #a86f00; --g1: #0505bd; --g2: #329be2; --g3: #77222b; --g4: #e77255; --g5: #133686; --g6: #359cb6; --g7: #953e04; --g8: #ca4963; --g9: #065fe5; --g10: #95045b; --g11: #2c9681; --g12: #cd1d98; --g13: #226677; --g14: #22774d; --g15: #d369a9; }
+.g0 { --gc: var(--g0); } .g1 { --gc: var(--g1); } .g2 { --gc: var(--g2); } .g3 { --gc: var(--g3); } .g4 { --gc: var(--g4); } .g5 { --gc: var(--g5); } .g6 { --gc: var(--g6); } .g7 { --gc: var(--g7); } .g8 { --gc: var(--g8); } .g9 { --gc: var(--g9); } .g10 { --gc: var(--g10); } .g11 { --gc: var(--g11); } .g12 { --gc: var(--g12); } .g13 { --gc: var(--g13); } .g14 { --gc: var(--g14); } .g15 { --gc: var(--g15); } 
+.vxsc .vxpt { fill: var(--gc); opacity: .92; } /* i colori più scuri restano leggibili sul nero */
+.vxsc.vxsel .vxpt { opacity: .14; } .vxsc.vxsel .vxpt.on { opacity: 1; }
+.vxsc .vxhalo { fill: var(--gc); opacity: .26; pointer-events: none; }
+:root[data-theme="light"] .vxsc .vxhalo { opacity: .2; }
+.vxcrises { display: flex; flex-wrap: wrap; gap: 4px 6px; padding: 6px 10px 0; }
+.vxcrises button { font: 11px var(--f-mono, monospace); color: var(--ink-2); background: transparent; border: 1px solid var(--rule); padding: 2px 6px; cursor: pointer; }
+.vxcrises button .kd { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--gc); margin-right: 5px; vertical-align: -1px; }
+.vxcrises button[aria-pressed="true"] { color: var(--ink); border-color: var(--gc); box-shadow: inset 0 0 0 1px var(--gc); }
+.vxeps tr.vxgrow { cursor: pointer; }
+.vxeps tr.vxgrow .kd { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--gc); margin-right: 6px; vertical-align: 0; }
+.vxepsnone { margin-top: 6px; }
+@media (max-width: 600px) { .vxcrises button { min-height: 30px; } }
+.vxeps tr.vxgrow.sel td { background: color-mix(in srgb, var(--gc) 18%, transparent); }
+.vxeps tr.vxgrow.sel td:first-child { box-shadow: inset 4px 0 0 var(--gc); }
 .ts .vxthr { stroke: var(--amber); stroke-dasharray: 3 3; opacity: .7; }
 .ts .vxzero { stroke: var(--ink-3); stroke-width: 1; }
 .vxsc .vxring { fill: none; stroke: var(--ink); stroke-width: 1.4; pointer-events: none; }
