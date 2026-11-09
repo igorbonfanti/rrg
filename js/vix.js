@@ -201,7 +201,7 @@ export function context(A, v3, cr) {
   const provisional = (i) => i >= 0 && ((!!A.fred && A.dates[i] > A.fred) || (!!v3 && !!v3.fred && A.dates[i] > v3.fred));
   const tv = lastAt(A.vix), tr = lastAt(R), tc = lastAt(dd);
   return {
-    has3m: !!v3, hasCredit: !!cr, from3m: v3 ? v3.dates[0] : null, fromCredit: cr ? cr.dates[0] : null,
+    has3m: !!v3, hasCredit: !!cr, from3m: v3 ? v3.dates[0] : null, fromCredit: cr ? cr.dates[0] : null, fred3m: v3 ? v3.fred : null,
     v3: V3, r: R, rPct, credit: C, dd, ddPct, ch, provisional,
     now: {
       r: tr >= 0 ? { date: A.dates[tr], vix: A.vix[tr], v3: V3[tr], r: R[tr], state: termState(R[tr]), pct: rPct[tr], provisional: provisional(tr), sameDay: tr === tv } : null,

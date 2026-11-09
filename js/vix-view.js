@@ -67,27 +67,32 @@ export function createVix(ctx) {
     const prov = T.provisional ? ' · provvisorio' : '';
     const kpi = (k, v, s, t) => `<div class="kpi" title="${esc(t)}"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`;
     $('vxKpis').innerHTML = [
-      kpi('VIX', fmt(T.vix, 2), `${esc(T.band[2])} · al ${dIT(T.date)}${prov}`, 'Volatilità implicita dell\'S&P 500 per i prossimi 30 giorni (Cboe, da FRED). Fasce: sotto 15 calmo, 15-20 normale, 20-25 nervoso, 25-30 paura, 30-40 paura forte, 40-50 panico, oltre 50 panico estremo.'),
+      kpi('VIX', fmt(T.vix, 2), `${esc(T.band[2])} · al ${dIT(T.date)}${prov}`, 'Volatilità implicita dell\'S&P 500 per i prossimi 30 giorni (Cboe, da FRED). Fasce: sotto 15 calmo, 15-20 normale, 20-25 nervoso, 25-30 paura, 30-40 paura forte, 40-50 panico, oltre 50 panico estremo.' + PROV),
       kpi('Percentile del VIX', `${fmt(T.pct, 0)}°`, `nella storia dal ${dIT(model.SPX.R.from)}`, 'Quota delle chiusure del VIX fino a oggi minori o uguali a quella di oggi (solo storia passata).'),
       kpi('Volatilità realizzata', T.rv == null ? '—' : fmt(T.rv, 1), `S&P 500, 21 sedute al ${dIT(T.date)}, annualizzata`, 'Deviazione standard dei rendimenti logaritmici giornalieri delle ultime 21 sedute, ×√252.'),
       kpi('Premio per la paura', T.prem == null ? '—' : sgnP(T.prem, 1).replace('%', ''), T.premPct == null ? '—' : `VIX − realizzata · ${fmt(T.premPct, 0)}° percentile`, 'Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (vedi «Come leggere»).'),
       kpiTerm(kpi), kpiCredit(kpi),
     ].join('');
-    const a = data.asOf, after = (f, l) => (f && l && f < l ? ` (FRED al ${dIT(f)}, poi Cboe provvisorio)` : '');
-    $('vxMeta').textContent = `VIX al ${dIT(a.vix)}${after(a.fred, a.vix)}${a.vix3m ? ` · VIX3M al ${dIT(a.vix3m)}${after(a.fred3m, a.vix3m)}` : ''}${a.credit ? ` · HYG/IEF al ${dIT(a.credit)}` : ''} · S&P 500 al ${dIT(a.spx)} · Nasdaq-100 al ${dIT(a.ndx)}`;
+    const a = data.asOf, after = (f, l, src) => (f && l && f < l ? ` (FRED al ${dIT(f)}, poi ${src === 'Cboe' || src === 'Yahoo' ? src : 'Cboe o Yahoo'}, provvisorio)` : '');
+    $('vxMeta').textContent = `VIX al ${dIT(a.vix)}${after(a.fred, a.vix, a.vixSrc)}${a.vix3m ? ` · VIX3M al ${dIT(a.vix3m)}${after(a.fred3m, a.vix3m, a.vix3mSrc)}` : ''}${a.credit ? ` · HYG/IEF al ${dIT(a.credit)}` : ''} · S&P 500 al ${dIT(a.spx)} · Nasdaq-100 al ${dIT(a.ndx)}`;
   }
+  const PROV = ' «Provvisorio»: FRED pubblica la seduta la mattina dopo; fino ad allora il valore viene dal file di Cboe (o da Yahoo) e la corsa successiva lo sostituisce.';
+  // rapporto con 2 decimali, 3 vicino a 1 (0,996 non deve leggersi «1,00 contango»)
+  const fr = (r) => fmt(r, Math.abs(r - 1) < 0.005 ? 3 : 2);
   function kpiTerm(kpi) {
-    const C = model.ctx, t = 'Rapporto tra il VIX (paura per i prossimi 30 giorni) e il VIX3M (prossimi 3 mesi), dal 04/12/2007. Sotto 1 «contango», la situazione normale; da 1 in su «backwardation»: la paura è per i prossimi giorni, succede nei ribassi bruschi. Percentile sulla storia fino a quel giorno. Solo contesto.';
+    const C = model.ctx, t = 'Rapporto tra il VIX (paura per i prossimi 30 giorni) e il VIX3M (prossimi 3 mesi), dal 04/12/2007. Sotto 1 «contango», la situazione normale; da 1 in su «backwardation»: la paura è per i prossimi giorni, succede nei ribassi bruschi. Percentile sulla storia fino a quel giorno. Solo contesto.' + PROV;
     const r = C && C.now.r;
     if (!C || !C.has3m || !r) return kpi('VIX / VIX3M', '—', 'dato non disponibile', t);
-    if (!r.sameDay) return kpi('VIX / VIX3M', '—', `VIX3M del ${dIT(model.today.date)} non ancora arrivato · al ${dIT(r.date)} era ${fmt(r.r, 2)} (${r.state})`, t);
-    return kpi('VIX / VIX3M', `${fmt(r.r, 2)} <span class="vxst ${r.state === 'backwardation' ? 'back' : 'cont'}">${r.state}</span>`, `VIX ${fmt(r.vix, 2)} / VIX3M ${fmt(r.v3, 2)} · al ${dIT(r.date)}${r.pct == null ? '' : ` · ${fmt(r.pct, 0)}° percentile`}${r.provisional ? ' · provvisorio' : ''}`, t);
+    if (!r.sameDay) return kpi('VIX / VIX3M', '—', `VIX3M del ${dIT(model.today.date)} non ancora arrivato · al ${dIT(r.date)} era ${fr(r.r)} (${r.state})`, t);
+    return kpi('VIX / VIX3M', `${fr(r.r)} <span class="vxst ${r.state === 'backwardation' ? 'back' : 'cont'}">${r.state}</span>`, `VIX ${fmt(r.vix, 2)} / VIX3M ${fmt(r.v3, 2)} · al ${dIT(r.date)}${r.pct == null ? '' : ` · ${fmt(r.pct, 0)}° percentile`}${r.provisional ? ' · provvisorio' : ''}`, t);
   }
   function kpiCredit(kpi) {
     const C = model.ctx, t = 'Rapporto tra gli ETF HYG (obbligazioni societarie high yield) e IEF (titoli di Stato USA a 7-10 anni), con i dividendi reinvestiti: quanto ha perso dal massimo delle ultime 252 sedute. Vicino a 0 il credito è calmo; molto sotto zero il mercato teme i fallimenti. Il percentile dice quanto è profondo il calo rispetto alla storia fino a quel giorno (alto = più profondo). Non è uno spread ufficiale. Solo contesto.';
     const c = C && C.now.credit;
     if (!C || !C.hasCredit || !c) return kpi('Credito high yield', '—', 'dato non disponibile', t);
-    return kpi('Credito high yield', sgnP(c.dd, 1), `HYG/IEF dal massimo di 12 mesi · ${sgnP(c.ch, 1)} in un mese${c.pct == null ? '' : ` · ${fmt(c.pct, 0)}° percentile`} · al ${dIT(c.date)}`, t);
+    // come per il VIX3M: un credito più vecchio del VIX non si mostra come se fosse di oggi
+    if (c.date < model.today.date) return kpi('Credito high yield', '—', `HYG/IEF del ${dIT(model.today.date)} non ancora arrivato · al ${dIT(c.date)} era ${sgnP(c.dd, 1)} dal massimo`, t);
+    return kpi('Credito high yield', sgnP(c.dd, 1), `HYG/IEF dal massimo di 12 mesi · ${sgnP(c.ch, 1)} in un mese${c.pct == null ? '' : ` · ${fmt(c.pct, 0)}° percentile del calo (alto = più profondo)`} · al ${dIT(c.date)}`, t);
   }
 
   // ---------- tabella dei regimi ----------
@@ -172,9 +177,9 @@ export function createVix(ctx) {
     const t0 = span ? Math.max(Date.parse(dates[0]), t1 - span * 365.25 * DAY) : Date.parse(dates[0]);
     const x = (d) => L + ((Date.parse(d) - t0) / (t1 - t0)) * PW, inWin = (d) => { const t = Date.parse(d); return t >= t0 && t <= t1; };
     const C = model.ctx, has3 = !!(C && C.has3m), hasC = !!(C && C.hasCredit);
-    const P = [{ h: 230, title: narrow ? 'VIX E REALIZZATA (21 SEDUTE)' : 'VIX E VOLATILITÀ REALIZZATA DELL\'S&P 500 (21 SEDUTE, ANNUALIZZATA)' }, { h: 110, title: narrow ? 'PREMIO PER LA PAURA' : 'PREMIO PER LA PAURA (VIX − REALIZZATA)' }];
-    if (has3) P.push({ h: 110, key: 'r', title: narrow ? 'VIX / VIX3M' : 'STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)' });
-    if (hasC) P.push({ h: 90, key: 'c', title: narrow ? 'CREDITO: HYG/IEF DAL MASSIMO' : 'CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)' });
+    const P = [{ h: narrow ? 190 : 230, title: narrow ? 'VIX E REALIZZATA (21 SEDUTE)' : 'VIX E VOLATILITÀ REALIZZATA DELL\'S&P 500 (21 SEDUTE, ANNUALIZZATA)' }, { h: narrow ? 90 : 110, title: narrow ? 'PREMIO PER LA PAURA' : 'PREMIO PER LA PAURA (VIX − REALIZZATA)' }];
+    if (has3) P.push({ h: narrow ? 90 : 110, key: 'r', title: narrow ? 'VIX / VIX3M' : 'STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)' });
+    if (hasC) P.push({ h: narrow ? 80 : 90, key: 'c', title: narrow ? 'CREDITO: HYG/IEF DAL MASSIMO' : 'CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)' });
     let y = 4; for (const p of P) { p.y0 = y + 16; p.y1 = p.y0 + p.h; y = p.y1 + 6; }
     const H = y + 16;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
@@ -204,7 +209,9 @@ export function createVix(ctx) {
       if (!first || Date.parse(first) <= t0) return;
       const xe = Math.min(L + PW, x(first));
       el('rect', { x: L, y: p.y0, width: xe - L, height: p.h, class: 'vxnodata' }, svg);
-      if (xe - L > 90) el('text', { x: L + (xe - L) / 2, y: p.y0 + p.h / 2 + 3, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = label;
+      const t = el('text', { x: L + (xe - L) / 2, y: p.y0 + p.h / 2 + 3, class: 'axt', 'text-anchor': 'middle' }, svg);
+      t.textContent = label;
+      if (t.getComputedTextLength() > xe - L - 8) t.remove(); // la scritta solo se entra nella fascia
     };
     const step = (span, h) => [0.05, 0.1, 0.2, 0.25, 0.5, 1, 2, 5, 10, 20, 50].find((k) => (h * k) / span >= 22) || 100;
     bands(P1, (i) => T0.premPctSeries[i] != null && T0.premPctSeries[i] >= 80, 'vxhigh');
@@ -218,13 +225,14 @@ export function createVix(ctx) {
       const rv = vis(C.r), first = dates[C.r.findIndex((v) => v != null)];
       noData(PR, first, `VIX3M dal ${dIT(C.from3m)}`);
       if (rv.length) {
-        const lo = Math.min(0.8, ...rv) - 0.02, hi = Math.max(1.2, ...rv) + 0.02, fr = sy(PR, lo, hi), k = step(hi - lo, PR.h);
+        const lo = Math.min(0.8, ...rv) - 0.02, hi = Math.max(1.2, ...rv) + 0.02, fy = sy(PR, lo, hi), k = step(hi - lo, PR.h);
         bands(PR, (i) => C.r[i] != null && C.r[i] >= 1, 'vxback');
-        for (let v = Math.ceil(lo / k) * k; v < hi; v += k) el('text', { x: L + PW + 4, y: fr(v) + 3, class: 'axt' }, svg).textContent = fmt(v, k < 0.1 ? 2 : 1);
-        el('line', { x1: Math.max(L, Math.min(L + PW, x(first))), x2: L + PW, y1: fr(1), y2: fr(1), class: 'vxone' }, svg);
-        el('path', { d: path(C.r, fr), class: 'vxr' }, svg);
+        const dec = Math.abs(k * 10 - Math.round(k * 10)) > 1e-9 ? 2 : 1; // passo 0,05 o 0,25: due decimali
+        for (let v = Math.ceil(lo / k) * k; v < hi; v += k) el('text', { x: L + PW + 4, y: fy(v) + 3, class: 'axt' }, svg).textContent = fmt(v, dec);
+        el('line', { x1: Math.max(L, Math.min(L + PW, x(first))), x2: L + PW, y1: fy(1), y2: fy(1), class: 'vxone' }, svg);
+        el('path', { d: path(C.r, fy), class: 'vxr' }, svg);
         const tl = C.now.r && n - 1 - [...C.r].reverse().findIndex((v) => v != null);
-        if (C.now.r && inWin(dates[tl])) el('circle', { cx: x(dates[tl]), cy: fr(C.r[tl]), r: 3.2, class: `vxrdot${C.r[tl] >= 1 ? ' back' : ''}` }, svg);
+        if (C.now.r && inWin(dates[tl])) el('circle', { cx: x(dates[tl]), cy: fy(C.r[tl]), r: 3.2, class: `vxrdot${C.r[tl] >= 1 ? ' back' : ''}` }, svg);
       }
     }
     // 4. credito: distanza di HYG/IEF dal massimo di 252 sedute (0 in alto)
@@ -251,9 +259,9 @@ export function createVix(ctx) {
       let i = i0; while (i + 1 < n && Date.parse(dates[i + 1]) <= tq) i++;
       const xx = x(dates[i]); xh.setAttribute('x1', xx); xh.setAttribute('x2', xx); xh.setAttribute('visibility', 'visible');
       const prov = A.fred && dates[i] > A.fred && A.vix[i] != null ? ' <span class="muted">provv.</span>' : '';
-      const v3 = has3 ? C.v3[i] : null, p3 = has3 && v3 != null && model.ctx.provisional(i) ? ' <span class="muted">provv.</span>' : '';
+      const v3 = has3 ? C.v3[i] : null, p3 = has3 && v3 != null && C.fred3m && dates[i] > C.fred3m ? ' <span class="muted">provv.</span>' : '';
       const extra = (has3 ? `<div class="row"><span>VIX3M</span><b>${v3 == null ? '—' : fmt(v3, 2) + p3}</b></div>
-        <div class="row"><span>VIX / VIX3M</span><b>${C.r[i] == null ? '—' : `${fmt(C.r[i], 2)} ${C.r[i] >= 1 ? 'backwardation' : 'contango'}`}</b></div>` : '') +
+        <div class="row"><span>VIX / VIX3M</span><b>${C.r[i] == null ? '—' : `${fr(C.r[i])} ${C.r[i] >= 1 ? 'backwardation' : 'contango'}`}</b></div>` : '') +
         (hasC ? `<div class="row"><span>HYG/IEF dal massimo 12 mesi</span><b>${sgnP(C.dd[i], 1)}</b></div>` : '');
       $('vxTip').innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>S&amp;P 500 ${fmt(A.close[i], 0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span></div>
         <div class="row"><span>VIX</span><b>${A.vix[i] == null ? '—' : fmt(A.vix[i], 2) + prov}</b></div>
@@ -264,7 +272,7 @@ export function createVix(ctx) {
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('vxTip').hidden = true; });
     $('vxLegend').innerHTML = '<span><span class="kl vxk-vix"></span>VIX (implicita, prossimi 30 giorni)</span><span><span class="kl vxk-rv"></span>realizzata delle ultime 21 sedute</span><span><span class="kl vxk-prem"></span>premio per la paura</span><span><span class="kb vxk-high"></span>premio oltre l\'80° percentile della sua storia</span>' +
-      (has3 ? '<span><span class="kl vxk-r"></span>VIX / VIX3M</span><span><span class="kb vxk-back"></span>backwardation (VIX ≥ VIX3M)</span>' : '') +
+      (has3 ? '<span><span class="kl vxk-r"></span>VIX / VIX3M</span><span><span class="kb vxk-back"></span>backwardation (VIX ≥ VIX3M)</span><span><span class="kd vxk-dot"></span>ultimo valore (pieno se in backwardation)</span>' : '') +
       (hasC ? '<span><span class="kl vxk-cr"></span>HYG/IEF: distanza dal massimo di 12 mesi</span>' : '');
   }
 

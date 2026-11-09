@@ -47,6 +47,8 @@ const it = (v, d) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d).replace('.', 
     ok(kr && want.r && kr.v.includes(want.r) && kr.v.includes(want.st), `${name}: VIX / VIX3M ${kr && kr.v.replace(/\n/g, ' ')}`);
     ok(kc && want.dd && kc.v.includes(want.dd) && /HYG\/IEF/.test(kc.s), `${name}: credito ${kc && kc.v}`);
     ok(K.every((x) => !x.over), `${name}: nessun testo tagliato nei riquadri`);
+    const meta = await p.locator('#vxMeta').innerText(), src = D.asOf.vixSrc;
+    ok(!(D.asOf.fred < D.asOf.vix) || (src && meta.includes(`poi ${src}, provvisorio`)), `${name}: fonte dell'ultima seduta (${src}) nella riga delle date`);
     ok(new Set(K.map((x) => x.left)).size === cols, `${name}: ${cols} colonne di riquadri (${new Set(K.map((x) => x.left)).size})`);
     ok(await p.locator('#vxChart path.vxr').count() === 1 && await p.locator('#vxChart path.vxcr').count() === 1 && await p.locator('#vxChart line.vxone').count() === 1 && await p.locator('#vxChart circle.vxrdot').count() === 1, `${name}: pannelli VIX/VIX3M e credito, linea a 1, punto sull'ultimo valore`);
     ok(await p.locator('#vxChart rect.vxnodata').count() === 0, `${name}: a 10A nessuna fascia «dati non ancora disponibili»`);
@@ -59,7 +61,10 @@ const it = (v, d) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d).replace('.', 
     ok(/VIX3M/.test(tip) && /VIX \/ VIX3M/.test(tip) && /(backwardation|contango)/.test(tip) && /HYG\/IEF/.test(tip), `${name}: riquadro dei valori con VIX3M, rapporto e credito`);
     // MAX: fascia prima del 2007 e zone di backwardation
     const mx = p.locator('#vxRange button[data-range="MAX"]'); if (opt.hasTouch) await mx.tap(); else await mx.click(); await p.waitForTimeout(500);
-    ok(await p.locator('#vxChart rect.vxnodata').count() >= 1 && /VIX3M dal 04\/12\/2007/.test(await p.locator('#vxChart').textContent()), `${name}: MAX, fascia «VIX3M dal 04/12/2007»`);
+    ok(await p.locator('#vxChart rect.vxnodata').count() >= 1, `${name}: MAX, fascia grigia prima del 2007`);
+    // le scritte delle fasce grigie, se ci sono, stanno dentro la fascia
+    const lab = await p.$$eval('#vxChart rect.vxnodata', (rs) => rs.map((r) => { const t = [...r.parentNode.querySelectorAll('text')].find((x) => /dal \d/.test(x.textContent) && Math.abs(+x.getAttribute('y') - (+r.getAttribute('y') + +r.getAttribute('height') / 2 + 3)) < 1); if (!t) return true; const b = t.getBBox(); return b.x >= +r.getAttribute('x') && b.x + b.width <= +r.getAttribute('x') + +r.getAttribute('width'); }));
+    ok(lab.every(Boolean), `${name}: MAX, scritte delle fasce grigie dentro la fascia`);
     ok(await p.locator('#vxChart rect.vxback').count() > 20, `${name}: MAX, zone di backwardation (${await p.locator('#vxChart rect.vxback').count()})`);
     const tens = p.locator('#vxRange button[data-range="10A"]'); if (opt.hasTouch) await tens.tap(); else await tens.click(); await p.waitForTimeout(300);
     const sw = await p.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
@@ -85,6 +90,16 @@ const it = (v, d) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d).replace('.', 
     const kr = (await kpis(p)).find((x) => /VIX \/ VIX3M/i.test(x.k));
     ok(kr && kr.v.trim() === '—' && /non ancora arrivato/.test(kr.s), `VIX3M mancante: ${kr && kr.s}`);
     ok(!errs.length, `VIX3M mancante: console ${errs.join(' | ')}`);
+    await ctx.close();
+  }
+  // HYG/IEF più vecchio del VIX: «—» e l'ultimo valore con la sua data
+  {
+    const st = JSON.parse(raw);
+    if (st.series.HYGIEF) { const s2 = st.series.HYGIEF, d = decodeDates(s2.d0, s2.gaps), v = deltaDecode(s2.cd, s2.ps); st.series.HYGIEF = { ...pack(d.slice(0, -1), v.slice(0, -1), s2.ps), last: d.at(-2) }; }
+    const ctx = await ctxOf({ viewport: { width: 1440, height: 900 } }, 'dark', st); const { p, errs } = await open(ctx);
+    const kc = (await kpis(p)).find((x) => /credito/i.test(x.k));
+    ok(kc && kc.v.trim() === '—' && /non ancora arrivato/.test(kc.s), `credito in ritardo: ${kc && kc.s}`);
+    ok(!errs.length, `credito in ritardo: console ${errs.join(' | ')}`);
     await ctx.close();
   }
   await b.close();

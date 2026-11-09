@@ -4,10 +4,11 @@
  * (struttura a termine) e rapporto HYG/IEF dal 2007 (credito high yield). Scrive data/vix.json.
  *
  * Fonti (ricerca/vix/inserimento/inserimento.md, ricerca/vix/struttura/dati/dati.md):
- * - VIX e VIX3M: FRED VIXCLS e VXVCLS, identiche ai file ufficiali di Cboe (VIX: 0 differenze su 9.309 sedute; VIX3M:
+ * - VIX e VIX3M: FRED VIXCLS e VXVCLS, identiche ai file ufficiali di Cboe (VIX: 0 differenze su 9.309 date; VIX3M:
  *   4.310 date uguali su 4.310), aggiornate la mattina dopo. Per le sedute dopo l'ultimo valore di FRED (di solito una)
- *   il file ufficiale di Cboe (VIX_History.csv, VIX3M_History.csv, pubblicato la sera stessa), e per una seduta che
- *   Cboe non ha ancora Yahoo (^VIX, ^VIX3M): valori provvisori (campo `fred` = ultima data di FRED). Yahoo da solo ha
+ *   il file ufficiale di Cboe (VIX_History.csv, VIX3M_History.csv, aggiornato la sera o la notte dopo la seduta), e per una
+ *   seduta che Cboe non ha ancora Yahoo (^VIX, ^VIX3M): valori provvisori (campo `fred` = ultima data di FRED, `src` = fonte
+ *   dell'ultima seduta, FRED, Cboe o Yahoo), scartati se valgono più del triplo o meno di un terzo della seduta prima. Yahoo da solo ha
  *   errori (06/02/2026: VIX 20,37 contro 17,76 di Cboe), quindi è solo l'ultima riserva.
  * - Indici: Yahoo ^GSPC e ^NDX (solo prezzo), le stesse chiusure della vista Indici (coincidono al centesimo dal 2000).
  * - Credito: rapporto tra le chiusure rettificate per i dividendi degli ETF HYG (obbligazioni high yield) e IEF (titoli
@@ -56,17 +57,42 @@ export function parseCboe(text) {
     const a = l.split(','), m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec((a[iD] || '').trim()), v = +a[iC];
     if (m && v > 0) rows.push([`${m[3]}-${m[1]}-${m[2]}`, v]);
   }
-  rows.sort((x, y) => (x[0] < y[0] ? -1 : 1));
-  return { dates: rows.map((r) => r[0]), val: rows.map((r) => r[1]) };
+  const m = new Map(rows); // una data ripetuta: vale l'ultima riga (encodeDates non accetta date doppie)
+  const dates = [...m.keys()].sort();
+  return { dates, val: dates.map((d) => m.get(d)) };
 }
 
-/** Coda provvisoria: Cboe, più le sedute di Yahoo dopo l'ultima di Cboe (null = fonte non arrivata) */
+/** Coda provvisoria: Cboe, più le sedute di Yahoo dopo l'ultima di Cboe (null = fonte non arrivata). yFrom = prima data
+ *  presa da Yahoo (null se tutta da Cboe) */
 export function mergeTail(cboe, yahoo) {
-  if (!cboe) return yahoo;
-  if (!yahoo) return cboe;
+  if (cboe && !cboe.dates.length) cboe = null;
+  if (!cboe) return yahoo ? { ...yahoo, yFrom: yahoo.dates[0] || null } : null;
+  if (!yahoo) return { ...cboe, yFrom: null };
   const last = cboe.dates.at(-1), dates = [...cboe.dates], val = [...cboe.val];
-  yahoo.dates.forEach((d, i) => { if (d > last) { dates.push(d); val.push(yahoo.val[i]); } });
-  return { dates, val };
+  let yFrom = null;
+  yahoo.dates.forEach((d, i) => { if (d > last) { dates.push(d); val.push(yahoo.val[i]); if (!yFrom) yFrom = d; } });
+  return { dates, val, yFrom };
+}
+
+/** Fonte dell'ultima seduta: 'FRED', 'Cboe' o 'Yahoo' */
+export function lastSource(dates, fredLast, yFrom) {
+  const last = dates.at(-1);
+  if (!last || last <= fredLast) return 'FRED';
+  return yFrom && last >= yFrom ? 'Yahoo' : 'Cboe';
+}
+
+/** Coda plausibile: si scartano le sedute dopo FRED che valgono più del triplo o meno di un terzo della seduta prima
+ *  (il salto più grande del VIX, il 05/02/2018, è stato ×2,16). Restituisce { dates, val, dropped } */
+export function plausible(base, tail, fredLast) {
+  const dates = [], val = [], dropped = [];
+  let prev = base;
+  tail.dates.forEach((d, i) => {
+    const v = tail.val[i];
+    if (d > fredLast && prev && (v > prev * 3 || v < prev / 3)) { dropped.push(`${d} ${v}`); return; }
+    dates.push(d); val.push(v);
+    if (d >= fredLast) prev = v;
+  });
+  return { dates, val, dropped };
 }
 
 /** Rapporto tra due serie di chiusure sulle date comuni */
@@ -85,7 +111,7 @@ export function assemble(fresh, prev, now = new Date()) {
   for (const k of [...REQUIRED, ...OPTIONAL]) {
     const r = pickSeries(fresh[k], prev && prev.series && prev.series[k]);
     if (!r) continue;
-    series[k] = r.s;
+    series[k] = r.same && fresh[k] && fresh[k].src !== r.s.src ? fresh[k] : r.s; // stessi valori, fonte dell'ultima seduta cambiata
     if (r.kept) kept.push(k);
     if (r.short) errors.push(`${k}: la serie nuova ha la storia accorciata: tenuta la pubblicata`);
   }
@@ -93,7 +119,7 @@ export function assemble(fresh, prev, now = new Date()) {
   if (missingReq.length) return { out: null, missing: missingReq, kept, errors };
   const out = {
     generated: now.toISOString(),
-    asOf: { vix: series.VIX.last, fred: series.VIX.fred || null, spx: series.SPX.last, ndx: series.NDX.last, vix3m: series.VIX3M ? series.VIX3M.last : null, fred3m: (series.VIX3M && series.VIX3M.fred) || null, credit: series.HYGIEF ? series.HYGIEF.last : null },
+    asOf: { vix: series.VIX.last, fred: series.VIX.fred || null, vixSrc: series.VIX.src || null, vix3mSrc: series.VIX3M ? series.VIX3M.src || null : null, spx: series.SPX.last, ndx: series.NDX.last, vix3m: series.VIX3M ? series.VIX3M.last : null, fred3m: (series.VIX3M && series.VIX3M.fred) || null, credit: series.HYGIEF ? series.HYGIEF.last : null },
     source: {
       vix: 'FRED VIXCLS (Cboe; © Cboe, reprinted with permission); dopo l\'ultimo valore di FRED (campo fred) il file ufficiale di Cboe, o Yahoo ^VIX per una seduta che Cboe non ha ancora: provvisorio',
       vix3m: 'FRED VXVCLS (Cboe; © Cboe, reprinted with permission) dal 04/12/2007; dopo l\'ultimo valore di FRED (campo fred) il file ufficiale di Cboe, o Yahoo ^VIX3M: provvisorio',
@@ -109,24 +135,29 @@ export function assemble(fresh, prev, now = new Date()) {
 let yahooDown = null; // dopo il primo errore di Yahoo gli altri simboli non lo richiedono (con Yahoo appeso ognuno costa 2 minuti)
 async function yahoo(sym, opt) {
   if (yahooDown) throw new Error(`non richiesto, Yahoo già giù (${yahooDown})`);
-  try { return await fetchDaily(sym, opt); } catch (e) { yahooDown = e.message; throw e; }
+  // un errore 4xx (simbolo sconosciuto) riguarda solo quel simbolo: gli altri si chiedono lo stesso
+  try { return await fetchDaily(sym, opt); } catch (e) { if (!/HTTP 4\d\d/.test(e.message) || /HTTP 429/.test(e.message)) yahooDown = e.message; throw e; }
 }
 let fredDown = null; // lo stesso per FRED (4 tentativi da 30 secondi per serie)
 async function fred(id, since) {
   if (fredDown) throw new Error(`non richiesto, FRED già giù (${fredDown})`);
   try { return await fetchFred(id, since, parseFredDaily); } catch (e) { fredDown = e.message; throw e; }
 }
+let cboeDown = null; // come per Yahoo e FRED: dopo un errore di rete o del server il secondo file non si chiede
 async function cboeFile(sym) {
+  if (cboeDown) throw new Error(`non richiesto, Cboe già giù (${cboeDown})`);
   let err;
   for (let k = 0; k < 3; k++) {
+    if (k) await new Promise((ok) => setTimeout(ok, 1500 * 2 ** (k - 1)));
     try {
       const r = await fetch(`https://cdn.cboe.com/api/global/us_indices/daily_prices/${sym}_History.csv`, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor data fetch)' }, signal: AbortSignal.timeout(30000) });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const s = parseCboe(await r.text());
       if (!s.dates.length) throw new Error('nessun dato');
       return s;
-    } catch (e) { err = e; await new Promise((ok) => setTimeout(ok, 1500 * 2 ** k)); }
+    } catch (e) { err = e; if (/HTTP 4\d\d/.test(e.message) && !/HTTP 429/.test(e.message)) break; }
   }
+  if (!/HTTP 4\d\d/.test(err.message) || /HTTP 429/.test(err.message)) cboeDown = err.message;
   throw err;
 }
 
@@ -157,13 +188,18 @@ async function volSeries({ key, id, since, cboe, ysym, ps }, p, spx, errors, not
       yh = onSessions(yh, spx);
     } catch (e) { errors.push(`${ysym} (Yahoo): ${e.message}`); }
   }
-  let tail = mergeTail(cb, yh);
-  if (!tail && p) tail = { dates: p.dates, val: p.val }; // nessuna coda nuova: resta quella pubblicata
+  let tail = mergeTail(cb, yh), yFrom = tail ? tail.yFrom : null;
+  if (!tail && p) { tail = { dates: p.dates, val: p.val }; yFrom = p.x.src === 'Yahoo' ? p.dates.at(-1) : null; } // nessuna coda nuova: resta quella pubblicata
+  if (tail) {
+    const q = plausible(fed.val.at(-1), tail, fed.dates.at(-1));
+    if (q.dropped.length) errors.push(`${key}: sedute provvisorie non plausibili scartate (${q.dropped.join(', ')})`);
+    tail = { dates: q.dates, val: q.val };
+  }
   const s = splice(fed, tail);
   if (s.devMed != null && s.devMed > 0.02) notes.push(`${key}: la coda (Cboe/Yahoo) si scosta da FRED in mediana del ${(100 * s.devMed).toFixed(2)}% negli ultimi 60 giorni`);
   // FRED non torna indietro: se risponde con dati più vecchi di quelli pubblicati si tiene la serie pubblicata
   if (p && p.x.fred && s.fredLast < p.x.fred) throw new Error(`FRED arriva al ${s.fredLast}, prima del ${p.x.fred} pubblicato`);
-  return { ...pack(s.dates, s.val, ps), last: s.dates.at(-1), fred: s.fredLast };
+  return { ...pack(s.dates, s.val, ps), last: s.dates.at(-1), fred: s.fredLast, src: lastSource(s.dates, s.fredLast, yFrom) };
 }
 
 async function main() {
@@ -177,8 +213,8 @@ async function main() {
   // sedute di riferimento: l'S&P 500 nuovo o quello pubblicato
   const spxS = fresh.SPX ? { dates: decodeDates(fresh.SPX.d0, fresh.SPX.gaps) } : prevSer('SPX');
   const spx = spxS && spxS.dates;
-  // VIX: pack con ps di default (10000) come nella 1.5.0, per non riscrivere il file; VIX3M a 2 decimali come i valori
-  for (const c of [{ key: 'VIX', id: 'VIXCLS', since: SINCE, cboe: 'VIX', ysym: '^VIX' }, { key: 'VIX3M', id: 'VXVCLS', since: '2007-01-01', cboe: 'VIX3M', ysym: '^VIX3M', ps: 100 }]) {
+  // VIX: ps 10000 come nella 1.5.0 (fisso: un valore anomalo non deve cambiare la scala), VIX3M a 2 decimali come i valori
+  for (const c of [{ key: 'VIX', id: 'VIXCLS', since: SINCE, cboe: 'VIX', ysym: '^VIX', ps: 10000 }, { key: 'VIX3M', id: 'VXVCLS', since: '2007-01-01', cboe: 'VIX3M', ysym: '^VIX3M', ps: 100 }]) {
     try {
       if (!spx) throw new Error('senza le sedute dell\'S&P 500');
       fresh[c.key] = await volSeries(c, prevSer(c.key), spx, errors, notes);

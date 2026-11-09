@@ -165,7 +165,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 ## 7. Stato attuale (1.6.0)
 
 - 9 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
-- Test automatici: `npm test`, 134 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti).
+- Test automatici: `npm test`, 143 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti), `v150.cjs` (vista VIX), `v160.cjs` (struttura a termine e credito).
 - Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
   - la tabella della rotazione sul telefono nasconde colonne invece di diventare a schede;

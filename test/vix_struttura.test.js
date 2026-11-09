@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import * as V from '../js/vix.js';
-import { parseCboe, mergeTail, ratioSeries, assemble } from '../scripts/fetch_vix.js';
+import { parseCboe, mergeTail, ratioSeries, assemble, lastSource, plausible } from '../scripts/fetch_vix.js';
 
 const near = (a, b, eps = 1e-9) => assert.ok(Math.abs(a - b) < eps, `${a} contro ${b}`);
 const days = (n) => Array.from({ length: n }, (_, i) => `2020-${String(i).padStart(4, '0')}`); // date fittizie ordinate
@@ -69,16 +69,32 @@ test('fetch_vix: file di Cboe, coda Cboe + Yahoo, rapporto HYG/IEF', () => {
   assert.deepEqual(s, { dates: ['2026-11-05', '2026-11-06'], val: [28.18, 25.64] });
   assert.throws(() => parseCboe('Date,Valore\n1,2'));
   const cb = { dates: ['a1', 'a2'], val: [1, 2] }, yh = { dates: ['a1', 'a2', 'a3'], val: [9, 9, 3] };
-  assert.deepEqual(mergeTail(cb, yh), { dates: ['a1', 'a2', 'a3'], val: [1, 2, 3] }); // Yahoo solo dopo l'ultima di Cboe
-  assert.equal(mergeTail(null, yh), yh);
-  assert.equal(mergeTail(cb, null), cb);
+  assert.deepEqual(mergeTail(cb, yh), { dates: ['a1', 'a2', 'a3'], val: [1, 2, 3], yFrom: 'a3' }); // Yahoo solo dopo l'ultima di Cboe
+  assert.deepEqual(mergeTail(null, yh), { ...yh, yFrom: 'a1' });
+  assert.deepEqual(mergeTail(cb, null), { ...cb, yFrom: null });
+  assert.equal(mergeTail(cb, yh).yFrom, 'a3');
+  assert.deepEqual(mergeTail({ dates: [], val: [] }, yh), { ...yh, yFrom: 'a1' }); // Cboe vuoto dopo il filtro: Yahoo
+  // date ripetute nel file di Cboe: una sola, l'ultima riga
+  assert.deepEqual(parseCboe('DATE,CLOSE\n11/05/2026,28\n11/05/2026,28.18\n'), { dates: ['2026-11-05'], val: [28.18] });
   assert.deepEqual(ratioSeries({ dates: ['a', 'b', 'c'], val: [2, 3, 4] }, { dates: ['a', 'c'], val: [4, 0] }), { dates: ['a'], val: [0.5] });
+});
+
+test('fetch_vix: fonte dell\'ultima seduta e sedute provvisorie non plausibili', () => {
+  assert.equal(lastSource(['d1', 'd2'], 'd2', null), 'FRED');
+  assert.equal(lastSource(['d1', 'd2', 'd3'], 'd2', null), 'Cboe');
+  assert.equal(lastSource(['d1', 'd2', 'd3'], 'd2', 'd3'), 'Yahoo');
+  assert.equal(lastSource(['d1', 'd2', 'd3', 'd4'], 'd2', 'd4'), 'Yahoo');
+  const q = plausible(20, { dates: ['d1', 'd2', 'd3', 'd4'], val: [19, 20, 2564, 43] }, 'd2');
+  assert.deepEqual(q.dates, ['d1', 'd2', 'd4']); // 2564 scartato; 43 (×2,15 come il 05/02/2018) tenuto
+  assert.deepEqual(q.dropped, ['d3 2564']);
+  assert.deepEqual(plausible(20, { dates: ['d3'], val: [6] }, 'd2').dates, []); // meno di un terzo
 });
 
 test('fetch_vix: VIX3M e credito facoltativi, VIX, S&P 500 e Nasdaq-100 obbligatori', () => {
   const ser = (last, fred) => ({ d0: '2026-01-02', gaps: '', cd: [100], ps: 100, last, ...(fred ? { fred } : {}) });
   const fresh = { VIX: ser('2026-11-06', '2026-11-05'), SPX: ser('2026-11-06'), NDX: ser('2026-11-06') };
   const r = assemble(fresh, null, new Date('2026-11-06T23:00:00Z'));
+  assert.equal(r.out.asOf.vixSrc, null);
   assert.deepEqual(r.missing, ['VIX3M', 'HYGIEF']);
   assert.deepEqual(r.out.missing, ['VIX3M', 'HYGIEF']);
   assert.equal(r.out.asOf.vix3m, null);
@@ -89,6 +105,10 @@ test('fetch_vix: VIX3M e credito facoltativi, VIX, S&P 500 e Nasdaq-100 obbligat
   assert.deepEqual(r2.missing, ['HYGIEF']);
   assert.ok(r2.kept.includes('VIX3M'));
   assert.equal(r2.out.asOf.fred3m, '2026-11-04');
+  // stessi valori ma fonte dell'ultima seduta diversa (Yahoo → Cboe): si scrive la nuova
+  const pv = { series: { ...fresh, VIX: { ...fresh.VIX, src: 'Yahoo' } } };
+  assert.equal(assemble({ ...fresh, VIX: { ...fresh.VIX, src: 'Cboe' } }, pv).out.asOf.vixSrc, 'Cboe');
+  assert.equal(assemble({ ...fresh, VIX: { ...fresh.VIX, src: 'Yahoo' } }, pv).out.series.VIX, pv.series.VIX);
   // manca una serie obbligatoria: nessun file
   const r3 = assemble({ VIX: fresh.VIX, SPX: fresh.SPX }, null);
   assert.equal(r3.out, null);

@@ -915,4 +915,4 @@ svg.bub { touch-action: pan-y; }
 .ts .vxrdot { fill: var(--bg); stroke: var(--vx-r); stroke-width: 1.4; } .ts .vxrdot.back { fill: var(--vx-r); }
 .ts .vxcr { fill: none; stroke: var(--vx-cr); stroke-width: 1.2; }
 .ts .vxnodata { fill: var(--ink-3); fill-opacity: .08; }
-.kl.vxk-r { background: var(--vx-r); } .kl.vxk-cr { background: var(--vx-cr); } .kb.vxk-back { background: var(--vx-back); outline: 1px solid var(--vx-r); outline-offset: -1px; }
+.legend .kd.vxk-dot { background: var(--vx-r); } .kl.vxk-r { background: var(--vx-r); } .kl.vxk-cr { background: var(--vx-cr); } .kb.vxk-back { background: var(--vx-back); outline: 1px solid var(--vx-r); outline-offset: -1px; }
