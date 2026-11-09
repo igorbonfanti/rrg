@@ -1,0 +1,142 @@
+{
+ "390-chiaro-MAX": {
+  "W": 330,
+  "H": 648,
+  "cssW": 330,
+  "back": 133,
+  "colors": {
+   "bg": "rgb(255, 255, 255)",
+   "panelBg": "rgb(255, 255, 255)",
+   "vix": "rgb(154, 74, 0)",
+   "rv": "rgb(31, 90, 214)",
+   "prem": "rgb(58, 58, 58)",
+   "r": "rgb(158, 63, 120)",
+   "cr": "rgb(0, 120, 90)",
+   "back": "rgba(158, 63, 120, 0.26)",
+   "backOp": "1",
+   "high": "rgb(194, 39, 39)",
+   "highOp": "0.16",
+   "nodata": "rgb(98, 98, 98)",
+   "nodataOp": "0.08",
+   "one": "rgb(98, 98, 98)",
+   "axt": "rgb(98, 98, 98)",
+   "title": "rgb(154, 74, 0)",
+   "dot": "rgb(158, 63, 120)",
+   "dotStroke": "rgb(158, 63, 120)"
+  },
+  "legend": [
+   {
+    "t": "VIX (implicita, prossimi 30 giorni)",
+    "sw": "kl vxk-vix",
+    "bg": "rgb(154, 74, 0)",
+    "op": "1"
+   },
+   {
+    "t": "realizzata delle ultime 21 sedute",
+    "sw": "kl vxk-rv",
+    "bg": "rgb(31, 90, 214)",
+    "op": "1"
+   },
+   {
+    "t": "premio per la paura",
+    "sw": "kl vxk-prem",
+    "bg": "rgb(58, 58, 58)",
+    "op": "1"
+   },
+   {
+    "t": "premio oltre l'80° percentile della sua storia",
+    "sw": "kb vxk-high",
+    "bg": "rgb(194, 39, 39)",
+    "op": "0.16"
+   },
+   {
+    "t": "VIX / VIX3M",
+    "sw": "kl vxk-r",
+    "bg": "rgb(158, 63, 120)",
+    "op": "1"
+   },
+   {
+    "t": "backwardation (VIX ≥ VIX3M)",
+    "sw": "kb vxk-back",
+    "bg": "rgba(158, 63, 120, 0.26)",
+    "op": "1"
+   },
+   {
+    "t": "HYG/IEF: distanza dal massimo di 12 mesi",
+    "sw": "kl vxk-cr",
+    "bg": "rgb(0, 120, 90)",
+    "op": "1"
+   }
+  ]
+ },
+ "390-scuro-MAX": {
+  "W": 330,
+  "H": 648,
+  "cssW": 330,
+  "back": 133,
+  "colors": {
+   "bg": "rgb(0, 0, 0)",
+   "panelBg": "rgb(0, 0, 0)",
+   "vix": "rgb(255, 160, 40)",
+   "rv": "rgb(127, 166, 255)",
+   "prem": "rgb(180, 180, 180)",
+   "r": "rgb(204, 121, 167)",
+   "cr": "rgb(47, 191, 143)",
+   "back": "rgba(204, 121, 167, 0.36)",
+   "backOp": "1",
+   "high": "rgb(239, 68, 68)",
+   "highOp": "0.3",
+   "nodata": "rgb(138, 138, 138)",
+   "nodataOp": "0.08",
+   "one": "rgb(138, 138, 138)",
+   "axt": "rgb(138, 138, 138)",
+   "title": "rgb(255, 160, 40)",
+   "dot": "rgb(204, 121, 167)",
+   "dotStroke": "rgb(204, 121, 167)"
+  },
+  "legend": [
+   {
+    "t": "VIX (implicita, prossimi 30 giorni)",
+    "sw": "kl vxk-vix",
+    "bg": "rgb(255, 160, 40)",
+    "op": "1"
+   },
+   {
+    "t": "realizzata delle ultime 21 sedute",
+    "sw": "kl vxk-rv",
+    "bg": "rgb(127, 166, 255)",
+    "op": "1"
+   },
+   {
+    "t": "premio per la paura",
+    "sw": "kl vxk-prem",
+    "bg": "rgb(180, 180, 180)",
+    "op": "1"
+   },
+   {
+    "t": "premio oltre l'80° percentile della sua storia",
+    "sw": "kb vxk-high",
+    "bg": "rgb(239, 68, 68)",
+    "op": "0.3"
+   },
+   {
+    "t": "VIX / VIX3M",
+    "sw": "kl vxk-r",
+    "bg": "rgb(204, 121, 167)",
+    "op": "1"
+   },
+   {
+    "t": "backwardation (VIX ≥ VIX3M)",
+    "sw": "kb vxk-back",
+    "bg": "rgba(204, 121, 167, 0.36)",
+    "op": "1"
+   },
+   {
+    "t": "HYG/IEF: distanza dal massimo di 12 mesi",
+    "sw": "kl vxk-cr",
+    "bg": "rgb(47, 191, 143)",
+    "op": "1"
+   }
+  ]
+ }
+}
