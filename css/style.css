@@ -885,14 +885,14 @@ svg.bub { touch-action: pan-y; }
 .pill.vxrob { color: var(--q-lead); border-color: var(--q-lead); font-size: 10px; padding: 0 5px; }
 .ph.sub { margin-top: 6px; }
 .ph.sub h3 { font: 600 12px var(--f-mono); letter-spacing: .04em; color: var(--amber); margin: 0; text-transform: uppercase; }
-.vxsc .vxpt { stroke: none; opacity: .75; }
+.vxsc .vxpt { stroke: none; }
 .vxsc .vxpt.start { stroke: var(--ink); stroke-width: 1; opacity: 1; }
 /* colori degli episodi: palette Okabe-Ito (leggibile con il daltonismo), ordinata perché due episodi vicini non si somiglino */
 /* scatter: un colore per crisi (16, scelti in ricerca/vix/scatter/tavolozza.py: distanti anche con il daltonismo simulato) */
 :root { --g0: #e69f00; --g1: #731af9; --g2: #1af9f9; --g3: #96412c; --g4: #f9f91a; --g5: #2c7696; --g6: #a8e6cd; --g7: #ca7049; --g8: #9c92fc; --g9: #aa186f; --g10: #92fca7; --g11: #ec799c; --g12: #2c9681; --g13: #49bdca; --g14: #ca4963; --g15: #dda288; }
 :root[data-theme="light"] { --g0: #a86f00; --g1: #0505bd; --g2: #329be2; --g3: #77222b; --g4: #e77255; --g5: #133686; --g6: #359cb6; --g7: #953e04; --g8: #ca4963; --g9: #065fe5; --g10: #95045b; --g11: #2c9681; --g12: #cd1d98; --g13: #226677; --g14: #22774d; --g15: #d369a9; }
 .g0 { --gc: var(--g0); } .g1 { --gc: var(--g1); } .g2 { --gc: var(--g2); } .g3 { --gc: var(--g3); } .g4 { --gc: var(--g4); } .g5 { --gc: var(--g5); } .g6 { --gc: var(--g6); } .g7 { --gc: var(--g7); } .g8 { --gc: var(--g8); } .g9 { --gc: var(--g9); } .g10 { --gc: var(--g10); } .g11 { --gc: var(--g11); } .g12 { --gc: var(--g12); } .g13 { --gc: var(--g13); } .g14 { --gc: var(--g14); } .g15 { --gc: var(--g15); } 
-.vxsc .vxpt { fill: var(--gc); }
+.vxsc .vxpt { fill: var(--gc); opacity: .92; } /* i colori più scuri restano leggibili sul nero */
 .vxsc.vxsel .vxpt { opacity: .14; } .vxsc.vxsel .vxpt.on { opacity: 1; }
 .vxsc .vxhalo { fill: var(--gc); opacity: .26; pointer-events: none; }
 :root[data-theme="light"] .vxsc .vxhalo { opacity: .2; }

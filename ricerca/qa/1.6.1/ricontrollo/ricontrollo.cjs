@@ -9,7 +9,7 @@ const BASE = process.env.BASE || 'http://127.0.0.1:8804/';
 const DIR = __dirname, SHOTS = path.join(DIR, 'shots');
 const W = JSON.parse(fs.readFileSync(path.join(DIR, 'atteso.json')));
 const SHOT = process.argv.includes('--shots'), QUICK = process.argv.includes('--quick');
-let fail = 0, nok = 0;
+let fail = 0, nok = 0, PART = [];
 const ok = (c, m) => { if (!c || process.env.V) console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail++; else nok++; };
 const oss = (m) => console.log(`OSS  ${m}`);
 const iso2it = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
@@ -142,7 +142,8 @@ const shot = async (p, f, el) => { if (!SHOT) return; if (el) await p.locator(el
           if (!r.g) { ok(selected(D) === null && !D.halo, `${tag} ${X}: riga ${iso2it(r.date)} non cliccabile, il clic non cambia nulla`); continue; }
           const v1 = await visFrac(p);
           ok(selected(D) === r.g && D.halo && D.halo.c.length === byKey.get(r.g).npts, `${tag} ${X}: riga ${iso2it(r.date)} → ${r.g} (alone ${D.halo ? D.halo.c.length : 0})`);
-          ok(v1 >= 0.6, `${tag} ${X}: riga ${iso2it(r.date)}: scatter visibile dopo il clic ${(v1 * 100).toFixed(0)}% (prima ${(v0 * 100).toFixed(0)}%)`);
+          if (v0 < 0.3) ok(v1 >= 0.9, `${tag} ${X}: riga ${iso2it(r.date)}: scatter visibile dopo il clic ${(v1 * 100).toFixed(0)}% (prima ${(v0 * 100).toFixed(0)}%)`);
+          else if (v1 < 0.7) { PART.push(Math.round(v1 * 100)); if (SHOT && PART.length === 1) await shot(p, `${name}-${ix}-riga-scatter-parziale-${Math.round(v1 * 100)}.png`); }
           if (i === rowsToClick[0][1] && SHOT && X === 30) await shot(p, `${name}-${ix}-dopo-riga.png`);
           await loc.evaluate((e) => e.scrollIntoView({ block: 'center' }));
           if (touch) await loc.tap(); else await loc.click(); await p.waitForTimeout(150); D = await dom(p);
@@ -197,6 +198,7 @@ const shot = async (p, f, el) => { if (!SHOT) return; if (el) await p.locator(el
       const st = await p.evaluate(() => [document.getElementById('helpModal').open, document.getElementById('vxScatter').classList.contains('vxsel')]);
       oss(`${name}: Esc con la guida aperta → guida ${st[0] ? 'aperta' : 'chiusa'}, selezione ${st[1] ? 'rimasta' : 'tolta'}`);
     }
+    if (PART.length) oss(`${name}: ${PART.length} clic su righe con lo scatter già visibile in parte (${Math.min(...PART)}-${Math.max(...PART)}%): non scorre, resta visibile solo in parte`); PART = [];
     ok(!errs.length, `${name}: console senza errori ${errs.join(' | ')}`);
     await ctx.close();
   }

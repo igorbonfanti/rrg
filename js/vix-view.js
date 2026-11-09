@@ -214,7 +214,7 @@ export function createVix(ctx) {
     };
     bindTip(hit, svg, show, () => { $('vxScTip').hidden = true; ring.setAttribute('visibility', 'hidden'); });
     // clic su un punto: la sua crisi (resta accesa: sul telefono il tocco serve anche a leggere i valori); su un punto vuoto: toglie
-    hit.addEventListener('click', (e) => { const p = nearest(e), g = p && gOf(p); select(g ? g.key : null); });
+    hit.addEventListener('click', (e) => { const p = nearest(e), g = p && gOf(p); select(g ? g.key : null); if (p) show(e); }); // riquadro aggiornato dopo la scelta
     hit.style.cursor = 'pointer';
     // legenda delle crisi, cliccabile
     $('vxCrises').innerHTML = G.list.map((g) => `<button type="button" class="vxcr-b g${g.c}" data-g="${esc(g.key)}" aria-pressed="false"><span class="kd"></span>${esc(g.label)}</button>`).join('');
