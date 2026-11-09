@@ -438,7 +438,7 @@
     <div class="kpis" id="vxKpis"></div>
     <p class="note pb vxmeta" id="vxMeta"></p>
     <div class="controls vxctl">
-      <span class="ctl">Indice <span class="seg" id="vxIx" role="group" aria-label="Indice della tabella e dello scatter"><button type="button" data-ix="SPX" aria-pressed="true">S&amp;P 500</button><button type="button" data-ix="NDX" aria-pressed="false">Nasdaq-100</button></span></span>
+      <span class="ctl">Indice <span class="seg" id="vxIx" role="group" aria-label="Indice della tabella, dello scatter e del pannello del prezzo nel grafico in fondo"><button type="button" data-ix="SPX" aria-pressed="true">S&amp;P 500</button><button type="button" data-ix="NDX" aria-pressed="false">Nasdaq-100</button></span></span>
     </div>
     <div class="vix-grid">
       <div class="panel">
@@ -446,6 +446,7 @@
         <div class="tscroll"><table class="t vxtable" id="vxTable"></table></div>
         <p class="note pb">Ogni riga conta gli <b>episodi</b>: un episodio inizia con la prima chiusura del VIX alla soglia o più dopo almeno 63 sedute sotto, e finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila (in mezzo può scendere sotto: alle soglie basse un episodio può durare anni e comprendere più crisi, per questo accanto al massimo c'è la sua data, nella colonna visibile sul computer). «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato. Clic (o tocco) su una riga per i suoi episodi.</p>
         <div class="ph sub"><h3 id="vxEpsTitle"></h3></div>
+        <p class="note pb vxsplegend">Andamento del VIX: la linea tratteggiata è la soglia, colorati i tratti alla soglia o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno; da 3 mesi prima a un mese dopo, ogni mini-grafico con la sua scala. Asterisco: episodio non ancora finito.</p>
         <div class="tscroll"><table class="t vxeps" id="vxEps"></table></div>
       </div>
       <div class="panel">

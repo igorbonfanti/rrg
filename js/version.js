@@ -8,7 +8,7 @@
 export const VERSION = '1.7.0';
 export const RELEASE = '2026-11-09';
 export const NOTES = [
-  'VIX: nella tabella degli episodi il mini-grafico del VIX (salita, primo giorno, massimo, fine), l\'ultimo giorno alla soglia e le sedute; sotto il VIX il grafico dell\'indice scelto con gli episodi colorati',
+  'VIX: nella tabella degli episodi il mini-grafico del VIX (salita, primo giorno, massimo, fine), «VIX massimo» con la data, l\'ultimo giorno alla soglia o più e le sedute; sotto il VIX il grafico dell\'indice scelto con gli episodi colorati',
   'VIX: i punti grandi dello scatter sono il primo giorno dell\'episodio alla soglia scelta nella tabella (prima sempre a 30); colonne «Primo giorno a X o più», «VIX quel giorno», «VIX massimo dell\'episodio» con la sua data; spiegato quanto dura un episodio e che i nomi delle crisi sono etichette di periodo',
   'VIX: scatter a tutta larghezza, un colore per crisi; clic su un punto, sull\'elenco delle crisi o su una riga degli episodi per evidenziare la crisi con un alone, anche nella tabella',
   'VIX: struttura a termine (VIX / VIX3M, backwardation da 1 in su) e credito high yield (HYG contro IEF, distanza dal massimo di 12 mesi), solo contesto, idea di Stefano Serafini; l\'ultima seduta del VIX ora dal file ufficiale di Cboe quando c\'è (altrimenti Yahoo), con la fonte indicata',
