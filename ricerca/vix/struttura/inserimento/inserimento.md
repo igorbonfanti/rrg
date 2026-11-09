@@ -192,7 +192,7 @@ Screenshot in `shots/` (sotto, §6). Il prototipo usa il CSS dell'app e aggiunge
 - `title`: spiegazione e «dal 04/12/2007».
 
 **«Spread di credito Baa»**
-- Valore: `1,57 punti`.
+- Valore: il livello in punti (valore di oggi non riportato: licenza di Moody's).
 - Sotto: «+11 pb in un mese · 11° percentile · al 05/11/2026» (pb = punti base, spiegato nel `title`).
 
 **Impaginazione** (misurata nel prototipo):

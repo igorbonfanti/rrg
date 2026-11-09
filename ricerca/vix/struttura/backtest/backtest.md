@@ -186,7 +186,7 @@ Alla soglia 25 la direzione si inverte: con tensione il calo è meno profondo. I
 **HY OAS (descrittivo, 07/11/2023-05/11/2026, 747 sedute).**
 
 - Correlazione con BAA10Y: 0,44 sui livelli e 0,67 sulle variazioni a 21 sedute.
-- I massimi cadono entrambi il 07/04/2025: HY 4,61, BAA10Y 2,02.
+- I massimi cadono entrambi il 07/04/2025 (livelli non riportati: licenze ICE e Moody's, vedi `../ripulisci.mjs`).
 - Variazione a 21 sedute al segnale, HY contro BAA10Y:
   - 05/08/2024: +0,66 contro +0,29;
   - 03/04/2025: +1,13 contro +0,32;

@@ -5364,55 +5364,40 @@
   },
   "aprile_2025": {
    "HY OAS (BAMLH0A0HYM2)": {
-    "al_2025_04_02": 3.42,
-    "massimo": 4.61,
     "data_massimo": "2025-04-07",
     "aumento": 1.19,
     "aumento_in_sd_delle_variazioni_21": 3.83,
     "percentile_del_massimo_nel_periodo_hy": 1,
-    "massimo_del_periodo_hy": 4.61,
     "data_massimo_periodo_hy": "2025-04-07"
    },
    "IG OAS (BAMLC0A0CM)": {
-    "al_2025_04_02": 0.96,
-    "massimo": 1.21,
     "data_massimo": "2025-04-09",
     "aumento": 0.25,
     "aumento_in_sd_delle_variazioni_21": 3.32,
     "percentile_del_massimo_nel_periodo_hy": 0.9907,
-    "massimo_del_periodo_hy": 1.29,
     "data_massimo_periodo_hy": "2023-11-07"
    },
    "BAA10Y": {
-    "al_2025_04_02": 1.73,
-    "massimo": 2.02,
     "data_massimo": "2025-04-07",
     "aumento": 0.29,
     "aumento_in_sd_delle_variazioni_21": 2.76,
     "percentile_del_massimo_nel_periodo_hy": 1,
-    "massimo_del_periodo_hy": 2.02,
     "data_massimo_periodo_hy": "2025-04-07",
     "percentile_del_massimo_dal_1990": 0.4384
    },
    "AAA10Y": {
-    "al_2025_04_02": 1.05,
-    "massimo": 1.3,
     "data_massimo": "2025-04-07",
     "aumento": 0.25,
     "aumento_in_sd_delle_variazioni_21": 2.78,
     "percentile_del_massimo_nel_periodo_hy": 0.9973,
-    "massimo_del_periodo_hy": 1.32,
     "data_massimo_periodo_hy": "2026-03-13",
     "percentile_del_massimo_dal_1990": 0.5074
    },
    "Baa-Aaa (BAA10Y-AAA10Y)": {
-    "al_2025_04_02": 0.68,
-    "massimo": 0.77,
     "data_massimo": "2025-04-21",
     "aumento": 0.09,
     "aumento_in_sd_delle_variazioni_21": 1.83,
     "percentile_del_massimo_nel_periodo_hy": 0.925,
-    "massimo_del_periodo_hy": 1.03,
     "data_massimo_periodo_hy": "2023-11-14",
     "percentile_del_massimo_dal_1990": 0.3804
    },

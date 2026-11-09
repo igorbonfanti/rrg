@@ -160,14 +160,16 @@ Le variazioni a 5 e 21 sedute si sovrappongono, quindi le correlazioni non sono 
 
 | Serie | 02/04/2025 | Massimo 03/04 – 30/05 | Data | Aumento | In deviazioni standard (var. a 21 sedute) | Percentile del massimo nei 3 anni |
 |---|---|---|---|---|---|---|
-| HY OAS | 3,42 | 4,61 | 07/04 | +1,19 | 3,83 | 100% (massimo dei 3 anni) |
-| IG OAS | 0,96 | 1,21 | 09/04 | +0,25 | 3,32 | 99% |
-| BAA10Y | 1,73 | 2,02 | 07/04 | +0,29 | 2,76 | 100% |
-| AAA10Y | 1,05 | 1,30 | 07/04 | +0,25 | 2,78 | 99,7% |
-| Baa − Aaa | 0,68 | 0,77 | 21/04 | +0,09 | 1,83 | 92,5% |
+| HY OAS | — | — | 07/04 | +1,19 | 3,83 | 100% (massimo dei 3 anni) |
+| IG OAS | — | — | 09/04 | +0,25 | 3,32 | 99% |
+| BAA10Y | — | — | 07/04 | +0,29 | 2,76 | 100% |
+| AAA10Y | — | — | 07/04 | +0,25 | 2,78 | 99,7% |
+| Baa − Aaa | — | — | 21/04 | +0,09 | 1,83 | 92,5% |
 | −ln(HYG/IEF) | 21,89 | 25,88 | 04/04 | +3,99 | 2,98 | 89,5% |
 
-Sulla storia dal 1990 il picco di BAA10Y dell'aprile 2025 (2,02) è solo al **44° percentile**: è stato il massimo degli ultimi 3 anni, non un livello di crisi. Una soglia fissa sul livello di BAA10Y andrebbe quindi studiata nel backtest, non copiata da quelle tipiche dell'HY.
+I livelli di ICE e Moody's non sono riportati nel repository (licenze; `../ripulisci.mjs` li toglie anche dai JSON).
+
+Sulla storia dal 1990 il picco di BAA10Y dell'aprile 2025 è solo al **44° percentile**: è stato il massimo degli ultimi 3 anni, non un livello di crisi. Una soglia fissa sul livello di BAA10Y andrebbe quindi studiata nel backtest, non copiata da quelle tipiche dell'HY.
 
 ### Ritardo e buchi
 
@@ -217,7 +219,7 @@ Calcolato con `pack()` di `scripts/fetch_emerging.js`, solo sulle sedute dell'S&
 **Tutti i numeri coincidono**, alla quarta cifra decimale per le correlazioni e alla singola seduta per i conteggi:
 - VIX3M: 4.761 valori, 4.310 su 4.310 uguali a Cboe, 0 valori fuori seduta (`VIXCLS` 33); Yahoo: 44 su 44 negli ultimi 60 giorni, 12 diversi nella storia, massimo 1,05 il 15/10/2014;
 - struttura: 4.761 sedute, 4.336 uguali (0,9107), 424 / 54 / 371; correlazioni 0,8548 e 0,5856; ingressi 132 → 69 e 126 → 64, filtrati 58 → 29 e 63 → 29; stato entro ±2 sedute 115, 68, 47, 35; 185 periodi di disaccordo, 18 di almeno 5 sedute e 5 di almeno 10; 227 scadenze, salto mediano 1,60, massimo 9,75;
-- credito: BAA10Y 0,4401 / 0,6876 / 0,6736, AAA10Y −0,1782 / 0,629 / 0,5475, IG 0,9287 / 0,822 / 0,8843, HYG/IEF 0,6921 / 0,6986 / 0,7062, Baa−Aaa 0,7005 / 0,1277 / 0,4376; BAA10Y contro HYG/IEF dal 2007 0,7394; aprile 2025: HY da 3,42 a 4,61 il 07/04, BAA10Y da 1,73 a 2,02 il 07/04; 79 sedute senza BAA10Y dal 1990;
+- credito: BAA10Y 0,4401 / 0,6876 / 0,6736, AAA10Y −0,1782 / 0,629 / 0,5475, IG 0,9287 / 0,822 / 0,8843, HYG/IEF 0,6921 / 0,6986 / 0,7062, Baa−Aaa 0,7005 / 0,1277 / 0,4376; BAA10Y contro HYG/IEF dal 2007 0,7394; aprile 2025: HY +1,19 al 07/04, BAA10Y +0,29 al 07/04; 79 sedute senza BAA10Y dal 1990;
 - peso: VIX3M 30,9 KB (21,68 KB con ps 100), BAA10Y 45,66 KB (30,93 KB con ps 100).
 
 Il ricalcolo indipendente non copre il gzip e la tabella dell'aprile 2025 in deviazioni standard e percentili.
