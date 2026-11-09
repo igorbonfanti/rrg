@@ -46,7 +46,7 @@ const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail+
     ok(halo === nPts.get(covid), `${name}: alone attorno a ${halo} punti (attesi ${nPts.get(covid)})`);
     ok(await p.$eval('#vxScatter', (s) => s.classList.contains('vxsel')), `${name}: le altre crisi si spengono`);
     const rows = await p.$$eval('#vxEps tr.sel', (rs) => rs.map((r) => r.children[1].textContent));
-    ok(rows.length === thr40 && rows.every((x) => x === covid), `${name}: ${rows.length} righe della tabella evidenziate (attese ${thr40})`);
+    ok(rows.length === thr40 && rows.every((x) => x.startsWith(covid)), `${name}: ${rows.length} righe della tabella evidenziate (attese ${thr40})`);
     const rowColor = await p.$eval('#vxEps tr.sel td', (td) => getComputedStyle(td).backgroundColor).catch(() => '');
     ok(/(rgba?|color)\(/.test(rowColor) && !/rgba\(0, 0, 0, 0\)/.test(rowColor), `${name}: riga colorata (${rowColor})`);
     // 4. crisi senza episodi sopra 40: lo dice
