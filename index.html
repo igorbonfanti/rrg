@@ -447,7 +447,6 @@
         <p class="note pb">Ogni riga conta gli <b>episodi</b>: la prima chiusura del VIX sopra la soglia dopo almeno 63 sedute sotto. «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato. Clic (o tocco) su una riga per i suoi episodi.</p>
         <div class="ph sub"><h3 id="vxEpsTitle"></h3></div>
         <div class="tscroll"><table class="t vxeps" id="vxEps"></table></div>
-        <p class="note pb" id="vxEpsNone" hidden></p>
       </div>
       <div class="panel">
         <div class="ph"><h2>VIX e rendimento a 12 mesi</h2><span class="meta" id="vxScMeta"></span></div>
@@ -456,8 +455,9 @@
           <div class="tip" id="vxScTip" hidden></div>
         </div>
         <div class="vxcrises" id="vxCrises" role="group" aria-label="Crisi: clic per evidenziarne i punti"></div>
+        <p class="note pb vxepsnone" id="vxEpsNone" hidden></p>
         <p class="note pb" id="vxScNote"></p>
-        <p class="note pb">Un colore per crisi (o per episodio fuori dalle crisi elencate); il punto grande è il primo giorno di ogni episodio. Clic su un punto, su una crisi qui sopra o su una riga della tabella degli episodi: l'alone racchiude tutti i punti di quella crisi e la tabella la evidenzia; clic su un punto vuoto o Esc per togliere. Le linee verticali sono le soglie 40 e 50.</p>
+        <p class="note pb">Un colore per crisi: ogni seduta va con la crisi dell'elenco in cui cade, altrimenti con quella del suo episodio («Altro episodio» se neanche quello è in una crisi). Il punto grande è il primo giorno di ogni episodio. Clic o tocco su un punto, su una crisi qui sopra o su una riga colorata della tabella degli episodi: l'alone racchiude tutti i punti di quella crisi e la tabella ne colora le righe. Per togliere: clic o tocco su un punto vuoto o di nuovo sulla stessa crisi (Esc sul computer). Le linee verticali sono le soglie 40 e 50.</p>
       </div>
     </div>
     <div class="panel">

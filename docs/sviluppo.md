@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 09/11/2026, versione 1.6.0.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 09/11/2026, versione 1.6.1.
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -162,10 +162,10 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (1.6.0)
+## 7. Stato attuale (1.6.1)
 
 - 9 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
-- Test automatici: `npm test`, 143 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti), `v150.cjs` (vista VIX), `v160.cjs` (struttura a termine e credito).
+- Test automatici: `npm test`, 143 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti), `v150.cjs` (vista VIX), `v160.cjs` (struttura a termine e credito), `v161.cjs` (scatter per crisi).
 - Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
   - la tabella della rotazione sul telefono nasconde colonne invece di diventare a schede;
@@ -186,6 +186,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **1.4.0 (05/11/2026)**: vista 8 Emergenti, solo contesto, dal piano `ricerca/emergenti/inserimento.md`. Il file `data/emerging.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Controllo nel browser `ricerca/qa/browser/v140.cjs`.
 - **1.4.1 (05/11/2026)**: schede riordinate su richiesta dell'utente: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 Alert (`VIEWS` in `js/app.js`); indirizzi e comandi invariati. Le note storiche usano i numeri di allora (Titoli era la 7, Alert la 5, Emergenti la 8).
 - **1.5.0 (06/11/2026)**: vista 8 VIX (Alert alla 9), dalla verifica in `ricerca/vix/` (idea di Massimo Rea). Il file `data/vix.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Test: `test/vix.test.js` (valori verificati con lo script di ricerca), controllo nel browser `ricerca/qa/browser/v150.cjs`.
+- **1.6.1 (09/11/2026)**: scatter della vista 8 a tutta larghezza, un colore per crisi (ogni seduta con la crisi della sua data, altrimenti del suo episodio; tavolozza di `ricerca/vix/scatter/tavolozza.py`), elenco delle crisi cliccabile, alone e righe della tabella degli episodi collegate (richiesta dell'utente). Controllo nel browser `ricerca/qa/browser/v161.cjs`. Minori aperti: con il daltonismo simulato restano coppie di crisi poco distinguibili (15 colori non bastano: la selezione con l'alone fa la distinzione); al 17° gruppo i colori si ripeterebbero; Esc che chiude la guida toglie anche la selezione; sul telefono l'elenco delle crisi è lungo.
 - **1.6.0 (09/11/2026)**: nella vista 8 struttura a termine (VIX/VIX3M) e credito (HYG/IEF), due riquadri e due pannelli, dalla verifica in `ricerca/vix/struttura/`. Finché la Action non scrive le serie nuove i due riquadri dicono «dato non disponibile». Test: `test/vix_struttura.test.js`, controllo nel browser `ricerca/qa/browser/v160.cjs` (fallisce sulla 1.5.0).
 - Punto aperto per l'utente (segnalato il 09/11/2026): i termini d'uso di FRED vietano di archiviare i loro dati in una raccolta, mentre permettono di mostrare con la citazione le serie «Citation required»; riguarda già VIX, cambi H.10 e CPI pubblicati in `data/`. Decisione sua se approfondire.
 - Altri punti aperti per l'utente (09/11/2026): le condizioni d'uso dei file `*_History.csv` di Cboe (ultima seduta del VIX e del VIX3M) non sono state lette; nella cronologia del ramo di sviluppo (commit già su GitHub) restano un centinaio di livelli di HY OAS (ICE) e degli spread di Moody's, tolti dai file con `ricerca/vix/struttura/ripulisci.mjs`: riscrivere la cronologia solo se l'utente lo chiede.
