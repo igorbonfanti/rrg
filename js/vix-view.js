@@ -98,6 +98,24 @@ export function createVix(ctx) {
     return kpi('Credito high yield', sgnP(c.dd, 1), `HYG/IEF dal massimo di 12 mesi · ${sgnP(c.ch, 1)} in un mese${c.pct == null ? '' : ` · ${fmt(c.pct, 0)}° percentile del calo (alto = più profondo)`} · al ${dIT(c.date)}`, t);
   }
 
+  // ---------- mini-grafico di un episodio: il VIX da 63 sedute prima del primo giorno a 21 dopo l'ultimo giorno a X o più,
+  // con la soglia (tratteggio), i tratti a X o più colorati, il primo giorno (punto pieno), il massimo (cerchio) e la fine (tacca)
+  function spark(A, e, X) {
+    const n = A.vix.length, i0 = Math.max(0, e.p - 63), i1 = Math.min(n - 1, e.endP + 21), W = 150, H = 38, pad = 3;
+    let hi = X; for (let i = i0; i <= i1; i++) if (A.vix[i] != null && A.vix[i] > hi) hi = A.vix[i];
+    hi *= 1.06;
+    const sx = (i) => pad + ((i - i0) / Math.max(1, i1 - i0)) * (W - 2 * pad), sy = (v) => H - pad - (v / hi) * (H - 2 * pad);
+    let d = '', dh = '', on = false;
+    for (let i = i0; i <= i1; i++) {
+      const v = A.vix[i]; if (v == null) { on = false; continue; }
+      d += (on ? 'L' : 'M') + sx(i).toFixed(1) + ' ' + sy(v).toFixed(1); on = true;
+      if (v >= X && i >= e.p && i <= e.endP) { const pv = A.vix[i - 1]; dh += (pv != null && pv >= X && i > e.p ? 'L' : 'M') + sx(i).toFixed(1) + ' ' + sy(v).toFixed(1); if (!(i + 1 <= e.endP && A.vix[i + 1] != null && A.vix[i + 1] >= X)) dh += 'h0.01'; }
+    }
+    const im = A.dates.indexOf(e.maxDate, e.p);
+    const t = `VIX da ${dIT(A.dates[i0])}: ${fmt(A.vix[i0], 1)}; primo giorno a ${X} o più il ${dIT(e.date)} (${fmt(e.vix, 1)}); massimo ${fmt(e.vixMax, 1)} il ${dIT(e.maxDate)}; ultimo giorno a ${X} o più il ${dIT(e.end)}; poi fino al ${dIT(A.dates[i1])}: ${fmt(A.vix[i1], 1)}`;
+    return `<svg class="vxsp" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${esc(t)}"><title>${esc(t)}</title><line x1="${pad}" x2="${W - pad}" y1="${sy(X).toFixed(1)}" y2="${sy(X).toFixed(1)}" class="vxsp-t"/><path d="${d}" class="vxsp-l"/><path d="${dh}" class="vxsp-h"/><line x1="${sx(e.endP).toFixed(1)}" x2="${sx(e.endP).toFixed(1)}" y1="${(sy(A.vix[e.endP]) - 4).toFixed(1)}" y2="${(sy(A.vix[e.endP]) + 4).toFixed(1)}" class="vxsp-e"/><circle cx="${sx(im).toFixed(1)}" cy="${sy(e.vixMax).toFixed(1)}" r="2.6" class="vxsp-m"/><circle cx="${sx(e.p).toFixed(1)}" cy="${sy(e.vix).toFixed(1)}" r="2.4" class="vxsp-s"/></svg>`;
+  }
+
   // ---------- tabella dei regimi ----------
   function renderTable() {
     const m = model[st.ix];
@@ -112,7 +130,7 @@ export function createVix(ctx) {
     }).join('');
     $('vxTable').innerHTML = head + `<tbody>${base}${rows}</tbody>`;
     $('vxTable').querySelectorAll('tbody tr[data-x]').forEach((tr) => {
-      const go = () => { st.thr = +tr.dataset.x; store.set('vxThr', st.thr); renderTable(); renderScatter(); }; // i punti grandi seguono la soglia
+      const go = () => { st.thr = +tr.dataset.x; store.set('vxThr', st.thr); renderTable(); renderScatter(); renderChart(); }; // punti grandi e fasce seguono la soglia
       tr.onclick = go; tr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); const n = $('vxTable').querySelector(`tr[data-x="${st.thr}"]`); if (n) n.focus(); } };
     });
     $('vxTableMeta').textContent = `${IXN[st.ix]} · solo prezzo · dal ${dIT(R.from)} · ingresso alla chiusura della seduta dopo il segnale`;
@@ -120,8 +138,8 @@ export function createVix(ctx) {
     const eps = R.thr[st.thr].episodes, G = m.G;
     $('vxEpsTitle').textContent = `Episodi con il VIX a ${st.thr} o più · ${IXN[st.ix]}`;
     $('vxScBig').textContent = st.thr >= 30 ? `il primo giorno di ogni episodio con il VIX a ${st.thr} o più, lo stesso della colonna «Primo giorno a ${st.thr} o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)` : `il primo giorno di ogni episodio a 30 o più (episodi calcolati con la soglia 30, perché lo scatter mostra solo le sedute a 30 o più: un episodio a ${st.thr} della tabella può non contenerne nessuno o contenerne più d'uno)`;
-    $('vxEps').innerHTML = `<thead><tr><th title="Primo giorno dell'episodio: la prima chiusura del VIX a ${st.thr} o più dopo almeno 63 sedute sotto">Primo giorno a ${st.thr} o più</th><th>Crisi</th><th class="r" title="Chiusura del VIX nel primo giorno dell'episodio">VIX quel giorno</th><th class="r hmin" title="Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi">VIX massimo dell'episodio</th>${V.HS.map((h) => `<th class="r h${h}">${HL[h]}</th>`).join('')}<th class="r">calo dopo</th></tr></thead><tbody>` +
-      eps.slice().reverse().map((e) => { const g = G.ofRow(e); return `<tr${g ? ` data-g="${esc(g.key)}" class="vxgrow g${g.c}" tabindex="0" role="button" aria-pressed="false" title="Clic per evidenziare la crisi nello scatter"` : ''}><td>${dIT(e.date)}</td><td>${g ? '<span class="kd"></span>' : ''}${esc(e.crisis || '—')}</td><td class="r">${fmt(e.vix, 1)}</td><td class="r hmin">${fmt(e.vixMax, 1)} <small class="muted">${dIT(e.maxDate)}</small></td>${V.HS.map((h) => `<td class="r h${h} ${e.ret[h] == null ? 'muted' : Math.abs(e.ret[h]) < 0.05 ? '' : e.ret[h] > 0 ? 'up' : 'down'}">${e.ret[h] == null ? 'in corso' : sgnP(e.ret[h], 1)}</td>`).join('')}<td class="r">${e.dd == null ? '—' : pct(e.dd, 1)}${e.partial && e.dd != null ? '<span class="loc" title="meno di 12 mesi di dati dopo il segnale: calo fino a oggi">*</span>' : ''}</td></tr>`; }).join('') + '</tbody>';
+    $('vxEps').innerHTML = `<thead><tr><th title="Primo giorno dell'episodio: la prima chiusura del VIX a ${st.thr} o più dopo almeno 63 sedute sotto">Primo giorno a ${st.thr} o più</th><th>Crisi</th><th class="vxspc" title="Il VIX da 3 mesi prima del primo giorno a un mese dopo l'ultimo giorno a ${st.thr} o più: linea tratteggiata la soglia, colorati i tratti a ${st.thr} o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno. Ogni mini-grafico ha la sua scala di tempo e di valori: per confrontare la durata guarda la colonna Sedute">Andamento del VIX</th><th class="r" title="Chiusura del VIX nel primo giorno dell'episodio">VIX quel giorno</th><th class="r hmin" title="Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi">Massimo</th><th class="hend" title="Ultima chiusura del VIX a ${st.thr} o più prima di 63 sedute di fila sotto (l'episodio in corso non è ancora finito)">Ultimo giorno a ${st.thr} o più</th><th class="r hend" title="Sedute dal primo all'ultimo giorno a ${st.thr} o più (in mezzo il VIX può essere sceso sotto la soglia)">Sedute</th>${V.HS.map((h) => `<th class="r h${h}">${HL[h]}</th>`).join('')}<th class="r">calo dopo</th></tr></thead><tbody>` +
+      eps.slice().reverse().map((e) => { const g = G.ofRow(e); return `<tr${g ? ` data-g="${esc(g.key)}" class="vxgrow g${g.c}" tabindex="0" role="button" aria-pressed="false" title="Clic per evidenziare la crisi nello scatter"` : ''}><td>${dIT(e.date)}</td><td>${g ? '<span class="kd"></span>' : ''}${esc(e.crisis || '—')}</td><td class="vxspc">${spark(m.A, e, st.thr)}</td><td class="r">${fmt(e.vix, 1)}</td><td class="r hmin">${fmt(e.vixMax, 1)} <small class="muted">${dIT(e.maxDate)}</small></td><td class="hend">${e.endP + 63 > m.A.vix.length - 1 ? `<span class="muted" title="non ancora 63 sedute sotto la soglia: l'episodio può continuare">${dIT(e.end)}*</span>` : dIT(e.end)}</td><td class="r hend">${fmt(e.sessions, 0)}</td>${V.HS.map((h) => `<td class="r h${h} ${e.ret[h] == null ? 'muted' : Math.abs(e.ret[h]) < 0.05 ? '' : e.ret[h] > 0 ? 'up' : 'down'}">${e.ret[h] == null ? 'in corso' : sgnP(e.ret[h], 1)}</td>`).join('')}<td class="r">${e.dd == null ? '—' : pct(e.dd, 1)}${e.partial && e.dd != null ? '<span class="loc" title="meno di 12 mesi di dati dopo il segnale: calo fino a oggi">*</span>' : ''}</td></tr>`; }).join('') + '</tbody>';
     $('vxEps').querySelectorAll('tr[data-g]').forEach((tr) => { const go = () => { select(selG === tr.dataset.g ? null : tr.dataset.g); if (selG) { const r = $('vxScatter').getBoundingClientRect(); if (r.top > innerHeight - 120 || r.bottom < 120) $('vxScatter').scrollIntoView({ block: 'center', behavior: 'smooth' }); } }; tr.onclick = go; tr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }; });
     markRows();
   }
@@ -245,7 +263,10 @@ export function createVix(ctx) {
     const t0 = span ? Math.max(Date.parse(dates[0]), t1 - span * 365.25 * DAY) : Date.parse(dates[0]);
     const x = (d) => L + ((Date.parse(d) - t0) / (t1 - t0)) * PW, inWin = (d) => { const t = Date.parse(d); return t >= t0 && t <= t1; };
     const C = model.ctx, has3 = !!(C && C.has3m), hasC = !!(C && C.hasCredit);
-    const P = [{ h: narrow ? 190 : 230, title: narrow ? 'VIX E REALIZZATA (21 SEDUTE)' : 'VIX E VOLATILITÀ REALIZZATA DELL\'S&P 500 (21 SEDUTE, ANNUALIZZATA)' }, { h: narrow ? 90 : 110, title: narrow ? 'PREMIO PER LA PAURA' : 'PREMIO PER LA PAURA (VIX − REALIZZATA)' }];
+    const MI = model[st.ix] || m, IN = IXN[st.ix] || IXN.SPX, ixAt = new Map(MI.A.dates.map((d, i) => [d, MI.A.close[i]]));
+    const P = [{ h: narrow ? 190 : 230, title: narrow ? 'VIX E REALIZZATA (21 SEDUTE)' : 'VIX E VOLATILITÀ REALIZZATA DELL\'S&P 500 (21 SEDUTE, ANNUALIZZATA)' },
+      { h: narrow ? 120 : 160, key: 'ix', title: narrow ? `${IN.toUpperCase()} · EPISODI A ${st.thr} O PIÙ` : `${IN.toUpperCase()} (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A ${st.thr} O PIÙ DELLA TABELLA` },
+      { h: narrow ? 90 : 110, key: 'prem', title: narrow ? 'PREMIO PER LA PAURA' : 'PREMIO PER LA PAURA (VIX − REALIZZATA)' }];
     if (has3) P.push({ h: narrow ? 90 : 110, key: 'r', title: narrow ? 'VIX / VIX3M' : 'STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)' });
     if (hasC) P.push({ h: narrow ? 80 : 90, key: 'c', title: narrow ? 'CREDITO: HYG/IEF DAL MASSIMO' : 'CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)' });
     let y = 4; for (const p of P) { p.y0 = y + 16; p.y1 = p.y0 + p.h; y = p.y1 + 6; }
@@ -263,8 +284,28 @@ export function createVix(ctx) {
     for (let v = st0; v < hi0; v += st0) { el('line', { x1: L, x2: L + PW, y1: f0(v), y2: f0(v), class: 'gridl' }, svg); el('text', { x: L + PW + 4, y: f0(v) + 3, class: 'axt' }, svg).textContent = String(v); }
     el('path', { d: path(T0.rvSeries, f0), class: 'vxrv' }, svg);
     el('path', { d: path(A.vix, f0), class: 'vxvix' }, svg);
-    // 2. premio, con le sedute oltre l'80° percentile (storia fino a quel giorno)
-    const P1 = P[1], pv = vis(T0.premSeries), lo1 = Math.min(-10, ...pv), hi1 = Math.max(10, ...pv), f1 = sy(P1, lo1, hi1);
+    // 2. indice scelto, scala logaritmica, con le fasce degli episodi della soglia della tabella (dal primo all'ultimo giorno)
+    {
+      const PI = P.find((p) => p.key === 'ix'), IA = MI.A, xs = [], ys = [];
+      IA.dates.forEach((d, i) => { if (IA.close[i] != null && inWin(d)) { xs.push(d); ys.push(IA.close[i]); } });
+      if (ys.length) {
+        const lo = Math.log(Math.min(...ys)) - 0.03, hi = Math.log(Math.max(...ys)) + 0.03, fi = (v) => PI.y0 + ((hi - Math.log(v)) / (hi - lo)) * PI.h;
+        for (const e of MI.R.thr[st.thr].episodes) {
+          const a = Math.max(t0, Date.parse(e.date)), b = Math.min(t1, Date.parse(e.end)); if (b < a) continue;
+          const g = MI.G.ofRow(e), xa = L + ((a - t0) / (t1 - t0)) * PW, xb = L + ((b - t0) / (t1 - t0)) * PW;
+          el('rect', { x: xa.toFixed(1), y: PI.y0, width: Math.max(1.5, xb - xa).toFixed(1), height: PI.h, class: `vxepb${g ? ` g${g.c}` : ''}` }, svg);
+        }
+        // etichette dei prezzi: 1, 2, 5 × 10^k distanti almeno 20 px; se troppo poche, anche 1,5 2,5 3 4 6 8
+        const vals = []; for (let k = Math.floor(lo / Math.LN10) - 1; k <= Math.ceil(hi / Math.LN10) + 1; k++) for (const mm of [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8]) vals.push(mm * 10 ** k);
+        let lastY = Infinity; const inR = vals.filter((v) => Math.log(v) > lo && Math.log(v) < hi);
+        const main = inR.filter((v) => [1, 2, 5].includes(+(v / 10 ** Math.floor(Math.log10(v))).toFixed(2)));
+        for (const v of (main.length >= 3 ? main : inR)) { const yv = fi(v); if (lastY - yv < 20) continue; lastY = yv; el('line', { x1: L, x2: L + PW, y1: yv, y2: yv, class: 'gridl' }, svg); el('text', { x: L + PW + 4, y: yv + 3, class: 'axt' }, svg).textContent = v >= 1000 ? fmt(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, 0); }
+        let d = '', on = false; IA.dates.forEach((dd, i) => { if (IA.close[i] == null || !inWin(dd)) { on = false; return; } d += (on ? 'L' : 'M') + x(dd).toFixed(1) + ' ' + fi(IA.close[i]).toFixed(1); on = true; });
+        el('path', { d, class: 'vxix' }, svg);
+      }
+    }
+    // 3. premio, con le sedute oltre l'80° percentile (storia fino a quel giorno)
+    const P1 = P.find((p) => p.key === 'prem'), pv = vis(T0.premSeries), lo1 = Math.min(-10, ...pv), hi1 = Math.max(10, ...pv), f1 = sy(P1, lo1, hi1);
     // fasce (sedute consecutive in cui test è vero), dal primo giorno visibile: niente segni d'ingresso sul bordo
     const bands = (p, test, cls) => {
       let s = null, prev = null;
@@ -332,7 +373,8 @@ export function createVix(ctx) {
       const extra = (has3 ? `<div class="row"><span>VIX3M</span><b>${v3 == null ? '—' : fmt(v3, 2) + p3}</b></div>
         <div class="row"><span>VIX / VIX3M</span><b>${C.r[i] == null ? '—' : `${fr(C.r[i])} ${C.r[i] >= 1 ? 'backwardation' : 'contango'}`}</b></div>` : '') +
         (hasC ? `<div class="row"><span>HYG/IEF dal massimo 12 mesi</span><b>${sgnP(C.dd[i], 1)}</b></div>` : '');
-      $('vxTip').innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>S&amp;P 500 ${fmt(A.close[i], 0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span></div>
+      const ci = ixAt.get(dates[i]), epi = MI.R.thr[st.thr].episodes.find((e) => e.date <= dates[i] && dates[i] <= e.end);
+      $('vxTip').innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>${esc(IN)} ${ci == null ? '—' : fmt(ci, 0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span></div>${epi ? `<div class="row note-row">Nell'episodio a ${st.thr} o più dal ${dIT(epi.date)} al ${dIT(epi.end)}${epi.crisis ? ` (${esc(epi.crisis)})` : ''}</div>` : ''}
         <div class="row"><span>VIX</span><b>${A.vix[i] == null ? '—' : fmt(A.vix[i], 2) + prov}</b></div>
         <div class="row"><span>Realizzata 21 sedute</span><b>${T0.rvSeries[i] == null ? '—' : fmt(T0.rvSeries[i], 1)}</b></div>
         <div class="row"><span>Premio per la paura</span><b>${T0.premSeries[i] == null ? '—' : sgnP(T0.premSeries[i], 1).replace('%', '')}</b></div>
@@ -340,7 +382,7 @@ export function createVix(ctx) {
       placeTip($('vxTip'), $('vxWrap'), e, 12);
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('vxTip').hidden = true; });
-    $('vxLegend').innerHTML = '<span><span class="kl vxk-vix"></span>VIX (implicita, prossimi 30 giorni)</span><span><span class="kl vxk-rv"></span>realizzata delle ultime 21 sedute</span><span><span class="kl vxk-prem"></span>premio per la paura</span><span><span class="kb vxk-high"></span>premio oltre l\'80° percentile della sua storia</span>' +
+    $('vxLegend').innerHTML = '<span><span class="kl vxk-vix"></span>VIX (implicita, prossimi 30 giorni)</span><span><span class="kl vxk-rv"></span>realizzata delle ultime 21 sedute</span>' + `<span><span class="kl vxk-ix"></span>${esc(IN)}</span><span><span class="kb vxk-ep"></span>episodi con il VIX a ${st.thr} o più (dal primo all'ultimo giorno), nel colore della crisi</span>` + '<span><span class="kl vxk-prem"></span>premio per la paura</span><span><span class="kb vxk-high"></span>premio oltre l\'80° percentile della sua storia</span>' +
       (has3 ? '<span><span class="kl vxk-r"></span>VIX / VIX3M</span><span><span class="kb vxk-back"></span>backwardation (VIX ≥ VIX3M)</span><span><span class="kd vxk-dot"></span>ultimo valore (pieno se in backwardation)</span>' : '') +
       (hasC ? '<span><span class="kl vxk-cr"></span>HYG/IEF: distanza dal massimo di 12 mesi</span>' : '');
   }
