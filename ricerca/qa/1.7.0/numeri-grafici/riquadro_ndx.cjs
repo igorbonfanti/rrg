@@ -1,0 +1,12 @@
+const { chromium } = require('playwright');
+const OUT = process.argv[2];
+(async () => { const b = await chromium.launch(); const c = await b.newContext({ viewport: { width: 1440, height: 900 } });
+  await c.addInitScript(() => { try { if (!sessionStorage.getItem('i')) { sessionStorage.setItem('i', 1); localStorage.clear(); localStorage.setItem('antigravity-theme', 'light'); localStorage.setItem('sm.introSeen', 'true'); } } catch {} });
+  const p = await c.newPage(); await p.goto('http://127.0.0.1:8807/#vix'); await p.waitForSelector('#vxEps tbody tr', { timeout: 30000 });
+  await p.click('#vxIx button[data-ix="NDX"]'); await p.click('#vxTable tr[data-x="30"]'); await p.click('#vxRange button[data-range="MAX"]'); await p.waitForTimeout(300);
+  const ch = await p.$('#vxChart'); await ch.scrollIntoViewIfNeeded(); const bb = await ch.boundingBox();
+  await p.mouse.move(bb.x + bb.width * 0.30, bb.y + bb.height * 0.35); await p.waitForTimeout(150);
+  console.log(await p.$eval('#vxTip', (t) => t.innerText));
+  console.log(await p.$$eval('#vxChart text.axt', (t) => t.map((x) => x.textContent).join(' ')));
+  await p.locator('#vxWrap').screenshot({ path: `${OUT}/riquadro-NDX-30-MAX-1440-chiaro.png` });
+  await b.close(); })();
