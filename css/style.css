@@ -875,7 +875,6 @@ svg.bub { touch-action: pan-y; }
 .vxmeta { margin-top: -4px; }
 .vxctl { margin: 0 0 10px; }
 .vix-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: start; }
-#vxScWrap { max-width: 900px; }
 .vxtable td, .vxtable th, .vxeps td, .vxeps th { white-space: nowrap; }
 .vxtable th small { font-weight: 400; color: var(--ink-3); }
 .vxtable tbody tr[data-x] { cursor: pointer; }
@@ -889,8 +888,21 @@ svg.bub { touch-action: pan-y; }
 .vxsc .vxpt { stroke: none; opacity: .75; }
 .vxsc .vxpt.start { stroke: var(--ink); stroke-width: 1; opacity: 1; }
 /* colori degli episodi: palette Okabe-Ito (leggibile con il daltonismo), ordinata perché due episodi vicini non si somiglino */
-.vxsc .c0 { fill: #e69f00; } .vxsc .c1 { fill: #56b4e9; } .vxsc .c2 { fill: #f0e442; } .vxsc .c3 { fill: #3b8fd6; } .vxsc .c4 { fill: #e8703a; } .vxsc .c5 { fill: #2fbf8f; }
-:root[data-theme="light"] .vxsc .c0 { fill: #a86f00; } :root[data-theme="light"] .vxsc .c1 { fill: #1f78b4; } :root[data-theme="light"] .vxsc .c2 { fill: #7a6f00; } :root[data-theme="light"] .vxsc .c3 { fill: #0b4f8a; } :root[data-theme="light"] .vxsc .c4 { fill: #b5470f; } :root[data-theme="light"] .vxsc .c5 { fill: #00785a; }
+/* scatter: un colore per crisi (16, in ordine di tempo alternano tinte lontane) */
+:root { --g0: #e69f00; --g1: #56b4e9; --g2: #ff6f91; --g3: #2fbf8f; --g4: #f0e442; --g5: #b48cf2; --g6: #e8703a; --g7: #88ccee; --g8: #d4b483; --g9: #3b8fd6; --g10: #7cd250; --g11: #f29ac6; --g12: #19b2a6; --g13: #ff9f40; --g14: #a3a3ff; --g15: #bdbdbd; }
+:root[data-theme="light"] { --g0: #a86f00; --g1: #1f78b4; --g2: #c2185b; --g3: #00785a; --g4: #7a6f00; --g5: #6a3fbf; --g6: #b5470f; --g7: #2c8fb8; --g8: #8a6a2e; --g9: #0b4f8a; --g10: #3f8a10; --g11: #a8327a; --g12: #00796b; --g13: #c25e00; --g14: #4b4bc4; --g15: #6b6b6b; }
+.g0 { --gc: var(--g0); } .g1 { --gc: var(--g1); } .g2 { --gc: var(--g2); } .g3 { --gc: var(--g3); } .g4 { --gc: var(--g4); } .g5 { --gc: var(--g5); } .g6 { --gc: var(--g6); } .g7 { --gc: var(--g7); } .g8 { --gc: var(--g8); } .g9 { --gc: var(--g9); } .g10 { --gc: var(--g10); } .g11 { --gc: var(--g11); } .g12 { --gc: var(--g12); } .g13 { --gc: var(--g13); } .g14 { --gc: var(--g14); } .g15 { --gc: var(--g15); } 
+.vxsc .vxpt { fill: var(--gc); }
+.vxsc.vxsel .vxpt { opacity: .14; } .vxsc.vxsel .vxpt.on { opacity: 1; }
+.vxsc .vxhalo { fill: var(--gc); opacity: .26; pointer-events: none; }
+:root[data-theme="light"] .vxsc .vxhalo { opacity: .2; }
+.vxcrises { display: flex; flex-wrap: wrap; gap: 4px 6px; padding: 6px 10px 0; }
+.vxcrises button { font: 11px var(--f-mono, monospace); color: var(--ink-2); background: transparent; border: 1px solid var(--rule); padding: 2px 6px; cursor: pointer; }
+.vxcrises button .kd { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--gc); margin-right: 5px; vertical-align: -1px; }
+.vxcrises button[aria-pressed="true"] { color: var(--ink); border-color: var(--gc); box-shadow: inset 0 0 0 1px var(--gc); }
+.vxeps tr.vxgrow { cursor: pointer; }
+.vxeps tr.vxgrow.sel td { background: color-mix(in srgb, var(--gc) 18%, transparent); }
+.vxeps tr.vxgrow.sel td:first-child { box-shadow: inset 4px 0 0 var(--gc); }
 .ts .vxthr { stroke: var(--amber); stroke-dasharray: 3 3; opacity: .7; }
 .ts .vxzero { stroke: var(--ink-3); stroke-width: 1; }
 .vxsc .vxring { fill: none; stroke: var(--ink); stroke-width: 1.4; pointer-events: none; }

@@ -23,6 +23,8 @@ const HL = { 21: '1 mese', 63: '3 mesi', 126: '6 mesi', 252: '12 mesi' };
 export function createVix(ctx) {
   const { $, store } = ctx;
   let data = null, loading = null, failed = null, model = null;
+  // crisi selezionata nello scatter (alone) e nella tabella degli episodi: chiave del gruppo, non salvata
+  let selG = null;
   const st = { ix: ['SPX', 'NDX'].includes(store.get('vxIx')) ? store.get('vxIx') : 'SPX', thr: V.XS.includes(store.get('vxThr')) ? store.get('vxThr') : 40, range: ['3A', '10A', 'MAX'].includes(store.get('vxRange')) ? store.get('vxRange') : '10A' };
 
   function ensure() {
@@ -38,7 +40,8 @@ export function createVix(ctx) {
       const s = V.vxSeries(data.series[k]);
       if (!vix || !s) { out[k] = null; continue; }
       const A = V.align(s, vix);
-      out[k] = { A, R: V.regimes(A), S: V.scatter(A) };
+      const S = V.scatter(A);
+      out[k] = { A, R: V.regimes(A), S, G: groupsOf(S) };
     }
     out.today = out.SPX ? V.today(out.SPX.A) : null;
     // struttura a termine e credito: sulle sedute dell'S&P 500; con un file senza le serie nuove has3m/hasCredit sono falsi
@@ -114,19 +117,48 @@ export function createVix(ctx) {
     });
     $('vxTableMeta').textContent = `${IXN[st.ix]} · solo prezzo · dal ${dIT(R.from)} · ingresso alla chiusura della seduta dopo il segnale`;
     // episodi della soglia scelta
-    const eps = R.thr[st.thr].episodes;
+    const eps = R.thr[st.thr].episodes, G = m.G;
     $('vxEpsTitle').textContent = `Episodi con il VIX sopra ${st.thr} · ${IXN[st.ix]}`;
     $('vxEps').innerHTML = `<thead><tr><th>Inizio</th><th>Crisi</th><th class="r">VIX</th><th class="r hmin">VIX max</th>${V.HS.map((h) => `<th class="r h${h}">${HL[h]}</th>`).join('')}<th class="r">calo dopo</th></tr></thead><tbody>` +
-      eps.slice().reverse().map((e) => `<tr><td>${dIT(e.date)}</td><td>${esc(e.crisis || '—')}</td><td class="r">${fmt(e.vix, 1)}</td><td class="r hmin">${fmt(e.vixMax, 1)}</td>${V.HS.map((h) => `<td class="r h${h} ${e.ret[h] == null ? 'muted' : Math.abs(e.ret[h]) < 0.05 ? '' : e.ret[h] > 0 ? 'up' : 'down'}">${e.ret[h] == null ? 'in corso' : sgnP(e.ret[h], 1)}</td>`).join('')}<td class="r">${e.dd == null ? '—' : pct(e.dd, 1)}${e.partial && e.dd != null ? '<span class="loc" title="meno di 12 mesi di dati dopo il segnale: calo fino a oggi">*</span>' : ''}</td></tr>`).join('') + '</tbody>';
+      eps.slice().reverse().map((e) => { const g = G.ofRow(e); return `<tr${g ? ` data-g="${esc(g.key)}" class="vxgrow g${g.c}" tabindex="0" title="Clic per evidenziare la crisi nello scatter"` : ''}><td>${dIT(e.date)}</td><td>${esc(e.crisis || '—')}</td><td class="r">${fmt(e.vix, 1)}</td><td class="r hmin">${fmt(e.vixMax, 1)}</td>${V.HS.map((h) => `<td class="r h${h} ${e.ret[h] == null ? 'muted' : Math.abs(e.ret[h]) < 0.05 ? '' : e.ret[h] > 0 ? 'up' : 'down'}">${e.ret[h] == null ? 'in corso' : sgnP(e.ret[h], 1)}</td>`).join('')}<td class="r">${e.dd == null ? '—' : pct(e.dd, 1)}${e.partial && e.dd != null ? '<span class="loc" title="meno di 12 mesi di dati dopo il segnale: calo fino a oggi">*</span>' : ''}</td></tr>`; }).join('') + '</tbody>';
+    $('vxEps').querySelectorAll('tr[data-g]').forEach((tr) => { const go = () => select(selG === tr.dataset.g ? null : tr.dataset.g); tr.onclick = go; tr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }; });
+    markRows();
   }
 
   // ---------- scatter in stile Rea (giorni con il VIX ≥ 30) ----------
+  // Gruppi: una crisi della lista (CRISES) per gli episodi che iniziano dentro di essa, altrimenti l'episodio da solo.
+  // Colori assegnati in ordine di tempo da una tavolozza di 16 che alterna tinte lontane (crisi vicine, colori diversi).
+  function groupsOf(S) {
+    const list = [], byKey = new Map(), byEp = new Map();
+    for (const e of S.eps) {
+      const key = e.crisis || `ep:${e.date}`;
+      if (!byKey.has(key)) { const g = { key, label: e.crisis || `Fuori dalle crisi elencate · ${dIT(e.date).slice(3)}`, c: list.length % 16, eps: [] }; byKey.set(key, g); list.push(g); }
+      byKey.get(key).eps.push(e); byEp.set(e.date, byKey.get(key));
+    }
+    const n = new Map(); for (const p of S.pts) { const g = byEp.get(p.ep); if (g) n.set(g.key, (n.get(g.key) || 0) + 1); }
+    // riga della tabella (episodio a un'altra soglia): la sua crisi, oppure il gruppo dell'episodio sopra 30 in corso quel giorno
+    const ofRow = (e) => (e.crisis && byKey.has(e.crisis) ? byKey.get(e.crisis) : (() => { let g = null; for (const x of S.eps) if (x.p <= e.p && e.date <= (x.end || x.date)) g = byEp.get(x.date); return g; })());
+    return { list: list.filter((g) => n.get(g.key)), byKey, byEp, ofRow };
+  }
+  function select(key) {
+    selG = key;
+    paintScatter(); markRows();
+  }
+  function markRows() {
+    document.querySelectorAll('#vxEps tr[data-g]').forEach((tr) => tr.classList.toggle('sel', tr.dataset.g === selG));
+    const m = model && model[st.ix], g = m && selG ? m.G.byKey.get(selG) : null;
+    const none = g && !document.querySelector(`#vxEps tr.sel`);
+    $('vxEpsNone').hidden = !none;
+    if (none) $('vxEpsNone').textContent = `${g.label}: nessun episodio sopra ${st.thr} in questa crisi.`;
+  }
+  let paintScatter = () => {};
   function renderScatter() {
     const svg = $('vxScatter'), m = model[st.ix];
     svg.innerHTML = '';
     if (!m) return;
-    const { pts, eps, open } = m.S;
-    const W = chartWidth(svg, 900), H = Math.round(Math.min(380, Math.max(240, W * 0.45))), L = 44, R = 12, T = 10, B = 30, PW = W - L - R, PH = H - T - B;
+    const { pts, eps, open } = m.S, G = m.G;
+    if (selG && !G.byKey.has(selG)) selG = null;
+    const W = chartWidth(svg, 1800), H = Math.round(Math.min(520, Math.max(260, W * 0.36))), L = 44, R = 12, T = 10, B = 30, PW = W - L - R, PH = H - T - B;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
     const xmax = Math.max(60, Math.ceil(Math.max(...pts.map((p) => p.vix)) / 10) * 10), xmin = 30;
     const ys = pts.map((p) => p.ret), ymin = Math.min(-50, Math.floor(Math.min(...ys) / 10) * 10), ymax = Math.max(60, Math.ceil(Math.max(...ys) / 10) * 10);
@@ -134,28 +166,51 @@ export function createVix(ctx) {
     el('rect', { x: L, y: T, width: PW, height: PH, class: 'frame' }, svg);
     for (let v = xmin; v <= xmax; v += 10) { el('line', { x1: sx(v), x2: sx(v), y1: T, y2: T + PH, class: v === 40 || v === 50 ? 'vxthr' : 'gridl' }, svg); el('text', { x: sx(v), y: H - 12, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = String(v); }
     for (let v = Math.ceil(ymin / 20) * 20; v <= ymax; v += 20) { el('line', { x1: L, x2: L + PW, y1: sy(v), y2: sy(v), class: v === 0 ? 'vxzero' : 'gridl' }, svg); el('text', { x: L - 4, y: sy(v) + 3, class: 'axt', 'text-anchor': 'end' }, svg).textContent = (v > 0 ? '+' : '') + v + '%'; }
-    // colore per episodio (alternato), inizio dell'episodio più grande
-    const idx = new Map(eps.map((e, i) => [e.date, i]));
-    const g = el('g', {}, svg);
-    for (const p of pts) el('circle', { cx: sx(p.vix).toFixed(1), cy: sy(p.ret).toFixed(1), r: p.start ? 4.2 : 2, class: `vxpt c${(idx.get(p.ep) || 0) % 6}${p.start ? ' start' : ''}` }, g);
-    // riquadro dei valori: il punto più vicino
+    el('rect', { x: L, y: T, width: PW, height: PH }, el('clipPath', { id: 'vxScClip' }, el('defs', {}, svg)));
+    const halo = el('g', { class: 'vxhalos' }, svg), dots = el('g', { class: 'vxdots' }, svg);
+    const gOf = (p) => G.byEp.get(p.ep);
+    // punti normali sotto, inizi degli episodi sopra
+    for (const p of [...pts.filter((q) => !q.start), ...pts.filter((q) => q.start)]) { const g = gOf(p); el('circle', { cx: sx(p.vix).toFixed(1), cy: sy(p.ret).toFixed(1), r: p.start ? 5.5 : 2.1, class: `vxpt g${g ? g.c : 0}${p.start ? ' start' : ''}`, 'data-g': g ? g.key : '' }, dots); }
+    paintScatter = () => {
+      halo.innerHTML = '';
+      svg.classList.toggle('vxsel', !!selG);
+      dots.querySelectorAll('circle').forEach((c) => c.classList.toggle('on', c.dataset.g === selG));
+      const g = selG && G.byKey.get(selG);
+      if (g) {
+        // alone: un cerchio largo attorno a ogni punto della crisi, disegnati insieme con un'unica trasparenza (dove si
+        // sovrappongono non si scuriscono): la forma segue i punti invece di un poligono che copre anche le zone vuote
+        const hg = el('g', { class: `vxhalo g${g.c}`, 'clip-path': 'url(#vxScClip)' }, halo), r = Math.max(10, Math.min(28, PW / 45));
+        for (const p of pts) if (gOf(p) === g) el('circle', { cx: sx(p.vix).toFixed(1), cy: sy(p.ret).toFixed(1), r }, hg);
+      }
+      document.querySelectorAll('#vxCrises button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.g === selG)));
+    };
+    // riquadro dei valori: il punto più vicino; clic (o tocco) su un punto: evidenzia la sua crisi, su un punto vuoto: toglie
     const hit = el('rect', { x: L, y: T, width: PW, height: PH, fill: 'transparent' }, svg);
-    const ring = el('circle', { r: 6, class: 'vxring', visibility: 'hidden' }, svg);
-    const show = (e) => {
+    const ring = el('circle', { r: 7, class: 'vxring', visibility: 'hidden' }, svg);
+    const nearest = (e) => {
       const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
       const q = pt.matrixTransform(svg.getScreenCTM().inverse());
       let best = null, bd = Infinity;
       for (const p of pts) { const d = (sx(p.vix) - q.x) ** 2 + (sy(p.ret) - q.y) ** 2; if (d < bd) { bd = d; best = p; } }
-      if (!best || bd > 400) { $('vxScTip').hidden = true; ring.setAttribute('visibility', 'hidden'); return; }
+      return bd <= 400 ? best : null;
+    };
+    const show = (e) => {
+      const best = nearest(e);
+      if (!best) { $('vxScTip').hidden = true; ring.setAttribute('visibility', 'hidden'); return; }
       ring.setAttribute('cx', sx(best.vix)); ring.setAttribute('cy', sy(best.ret)); ring.setAttribute('visibility', 'visible');
-      const ep = eps.find((x) => x.date === best.ep);
-      $('vxScTip').innerHTML = `<div class="row"><b>${dIT(best.date)}</b><span>${esc(best.crisis || '')}</span></div>
+      const ep = eps.find((x) => x.date === best.ep), g = gOf(best);
+      $('vxScTip').innerHTML = `<div class="row"><b>${dIT(best.date)}</b><span>${esc(g ? g.label : '')}</span></div>
         <div class="row"><span>VIX</span><b>${fmt(best.vix, 2)}</b></div>
         <div class="row"><span>${IXN[st.ix]} dopo 12 mesi</span><b>${sgnP(best.ret, 1)}</b></div>
-        <div class="row"><span>Episodio iniziato il</span><b>${ep ? dIT(ep.date) : '—'}</b></div>${best.start ? '<div class="row note-row">Primo giorno dell\'episodio (il punto grande).</div>' : ''}`;
+        <div class="row"><span>Episodio iniziato il</span><b>${ep ? dIT(ep.date) : '—'}</b></div>${best.start ? '<div class="row note-row">Primo giorno dell\'episodio (il punto grande).</div>' : ''}<div class="row note-row">Clic per evidenziare la crisi.</div>`;
       placeTip($('vxScTip'), $('vxScWrap'), e, 12);
     };
     bindTip(hit, svg, show, () => { $('vxScTip').hidden = true; ring.setAttribute('visibility', 'hidden'); });
+    hit.addEventListener('click', (e) => { const p = nearest(e), g = p && gOf(p); select(g ? (selG === g.key ? null : g.key) : null); });
+    // legenda delle crisi, cliccabile
+    $('vxCrises').innerHTML = G.list.map((g) => `<button type="button" class="vxcr-b g${g.c}" data-g="${esc(g.key)}" aria-pressed="false"><span class="kd"></span>${esc(g.label)}</button>`).join('');
+    $('vxCrises').querySelectorAll('button').forEach((b) => b.onclick = () => select(selG === b.dataset.g ? null : b.dataset.g));
+    paintScatter();
     // didascalia: giorni contro episodi, calcolata sui dati
     const byEp = new Map(); for (const p of pts) byEp.set(p.ep, (byEp.get(p.ep) || 0) + 1);
     const top2 = [...byEp.values()].sort((a, b) => b - a).slice(0, 2).reduce((s, x) => s + x, 0);
@@ -278,6 +333,7 @@ export function createVix(ctx) {
   }
 
   function bind() {
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && selG && !$('v-vix').hidden) select(null); });
     document.querySelectorAll('#vxIx button').forEach((b) => b.onclick = () => { st.ix = b.dataset.ix; store.set('vxIx', st.ix); if (model) render(); });
     document.querySelectorAll('#vxRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('vxRange', st.range); if (model) render(); });
   }
