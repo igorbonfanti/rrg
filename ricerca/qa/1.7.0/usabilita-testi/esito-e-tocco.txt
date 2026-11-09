@@ -1,0 +1,12 @@
+390 #vxEps thead th:nth-child(1) {"txt":"Primo giorno dell'episodio: la prima chiusura del VIX a 40 o più dopo almeno 63 sedute sotto","in":true}
+390 #vxEps thead th.vxspc {"txt":"Il VIX da 3 mesi prima del primo giorno a un mese dopo l'ultimo giorno a 40 o più: linea tratteggiata la soglia, colorati i tratti a 40 o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno. Ogni mini-grafico ha la sua scala di tempo e di valori: per confrontare la durata guarda la colonna Sedute","in":true}
+390 #vxEps thead th:nth-child(4) {"txt":"Chiusura del VIX nel primo giorno dell'episodio","in":true}
+390 tocco sul mini-grafico: taptip null riga selezionata 2
+390 asterisco calo {"txt":"meno di 12 mesi di dati dopo il segnale: calo fino a oggi","in":true}
+390 errori []
+360 #vxEps thead th:nth-child(1) {"txt":"Primo giorno dell'episodio: la prima chiusura del VIX a 40 o più dopo almeno 63 sedute sotto","in":true}
+360 #vxEps thead th.vxspc {"txt":"Il VIX da 3 mesi prima del primo giorno a un mese dopo l'ultimo giorno a 40 o più: linea tratteggiata la soglia, colorati i tratti a 40 o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno. Ogni mini-grafico ha la sua scala di tempo e di valori: per confrontare la durata guarda la colonna Sedute","in":true}
+360 #vxEps thead th:nth-child(4) {"txt":"Chiusura del VIX nel primo giorno dell'episodio","in":true}
+360 tocco sul mini-grafico: taptip null riga selezionata 2
+360 asterisco calo {"txt":"meno di 12 mesi di dati dopo il segnale: calo fino a oggi","in":true}
+360 errori []
