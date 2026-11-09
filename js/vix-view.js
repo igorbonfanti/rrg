@@ -112,14 +112,15 @@ export function createVix(ctx) {
     }).join('');
     $('vxTable').innerHTML = head + `<tbody>${base}${rows}</tbody>`;
     $('vxTable').querySelectorAll('tbody tr[data-x]').forEach((tr) => {
-      const go = () => { st.thr = +tr.dataset.x; store.set('vxThr', st.thr); renderTable(); };
+      const go = () => { st.thr = +tr.dataset.x; store.set('vxThr', st.thr); renderTable(); renderScatter(); }; // i punti grandi seguono la soglia
       tr.onclick = go; tr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); const n = $('vxTable').querySelector(`tr[data-x="${st.thr}"]`); if (n) n.focus(); } };
     });
     $('vxTableMeta').textContent = `${IXN[st.ix]} · solo prezzo · dal ${dIT(R.from)} · ingresso alla chiusura della seduta dopo il segnale`;
     // episodi della soglia scelta
     const eps = R.thr[st.thr].episodes, G = m.G;
     $('vxEpsTitle').textContent = `Episodi con il VIX sopra ${st.thr} · ${IXN[st.ix]}`;
-    $('vxEps').innerHTML = `<thead><tr><th>Inizio</th><th>Crisi</th><th class="r">VIX</th><th class="r hmin">VIX max</th>${V.HS.map((h) => `<th class="r h${h}">${HL[h]}</th>`).join('')}<th class="r">calo dopo</th></tr></thead><tbody>` +
+    $('vxScBig').textContent = st.thr >= 30 ? `il primo giorno con il VIX sopra ${st.thr} di ogni episodio, come la colonna «Sopra ${st.thr} dal» della tabella` : `il primo giorno con il VIX sopra 30 di ogni episodio (con la soglia ${st.thr} della tabella i primi giorni sono sotto 30 e lo scatter non li mostra)`;
+    $('vxEps').innerHTML = `<thead><tr><th>Sopra ${st.thr} dal</th><th>Crisi</th><th class="r" title="Chiusura del VIX nel primo giorno sopra la soglia">VIX quel giorno</th><th class="r hmin" title="Chiusura più alta del VIX nell'episodio">VIX massimo dell'episodio</th>${V.HS.map((h) => `<th class="r h${h}">${HL[h]}</th>`).join('')}<th class="r">calo dopo</th></tr></thead><tbody>` +
       eps.slice().reverse().map((e) => { const g = G.ofRow(e); return `<tr${g ? ` data-g="${esc(g.key)}" class="vxgrow g${g.c}" tabindex="0" role="button" aria-pressed="false" title="Clic per evidenziare la crisi nello scatter"` : ''}><td>${dIT(e.date)}</td><td>${g ? '<span class="kd"></span>' : ''}${esc(e.crisis || '—')}</td><td class="r">${fmt(e.vix, 1)}</td><td class="r hmin">${fmt(e.vixMax, 1)}</td>${V.HS.map((h) => `<td class="r h${h} ${e.ret[h] == null ? 'muted' : Math.abs(e.ret[h]) < 0.05 ? '' : e.ret[h] > 0 ? 'up' : 'down'}">${e.ret[h] == null ? 'in corso' : sgnP(e.ret[h], 1)}</td>`).join('')}<td class="r">${e.dd == null ? '—' : pct(e.dd, 1)}${e.partial && e.dd != null ? '<span class="loc" title="meno di 12 mesi di dati dopo il segnale: calo fino a oggi">*</span>' : ''}</td></tr>`; }).join('') + '</tbody>';
     $('vxEps').querySelectorAll('tr[data-g]').forEach((tr) => { const go = () => { select(selG === tr.dataset.g ? null : tr.dataset.g); if (selG) { const r = $('vxScatter').getBoundingClientRect(); if (r.top > innerHeight - 120 || r.bottom < 120) $('vxScatter').scrollIntoView({ block: 'center', behavior: 'smooth' }); } }; tr.onclick = go; tr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } }; });
     markRows();
@@ -176,8 +177,11 @@ export function createVix(ctx) {
     el('rect', { x: L, y: T, width: PW, height: PH }, el('clipPath', { id: 'vxScClip' }, el('defs', {}, svg)));
     const halo = el('g', { class: 'vxhalos' }, svg), dots = el('g', { class: 'vxdots' }, svg);
     const gOf = (p) => G.ofPt(p);
-    // punti normali sotto, inizi degli episodi sopra
-    for (const p of [...pts.filter((q) => !q.start), ...pts.filter((q) => q.start)]) { const g = gOf(p); el('circle', { cx: sx(p.vix).toFixed(1), cy: sy(p.ret).toFixed(1), r: p.start ? 5.5 : 2.1, class: `vxpt g${g ? g.c : 0}${p.start ? ' start' : ''}`, 'data-g': g ? g.key : '' }, dots); }
+    // punti grandi: primo giorno degli episodi della soglia scelta nella tabella (30 se la soglia è più bassa: lo scatter
+    // mostra solo le sedute con il VIX a 30 o più), così coincidono con la colonna «Sopra X dal» della tabella
+    const XB = Math.max(30, st.thr), epsB = XB === 30 ? eps : m.R.thr[XB].episodes, big = new Set(epsB.map((e) => e.date));
+    const inEp = (list, p) => { let r = null; for (const e of list) if (e.date <= p.date && p.date <= (e.end || e.date)) r = e; return r; };
+    for (const p of [...pts.filter((q) => !big.has(q.date)), ...pts.filter((q) => big.has(q.date))]) { const g = gOf(p), b = big.has(p.date); el('circle', { cx: sx(p.vix).toFixed(1), cy: sy(p.ret).toFixed(1), r: b ? 5.5 : 2.1, class: `vxpt g${g ? g.c : 0}${b ? ' start' : ''}`, 'data-g': g ? g.key : '', 'data-d': p.date }, dots); }
     paintScatter = () => {
       halo.innerHTML = '';
       svg.classList.toggle('vxsel', !!selG);
@@ -205,11 +209,11 @@ export function createVix(ctx) {
       const best = nearest(e);
       if (!best) { $('vxScTip').hidden = true; ring.setAttribute('visibility', 'hidden'); return; }
       ring.setAttribute('cx', sx(best.vix)); ring.setAttribute('cy', sy(best.ret)); ring.setAttribute('visibility', 'visible');
-      const ep = eps.find((x) => x.date === best.ep), g = gOf(best);
+      const ep = eps.find((x) => x.date === best.ep), g = gOf(best), eB = XB > 30 ? inEp(epsB, best) : null;
       $('vxScTip').innerHTML = `<div class="row"><b>${dIT(best.date)}</b><span>${esc(g ? g.label : '')}</span></div>
         <div class="row"><span>VIX</span><b>${fmt(best.vix, 2)}</b></div>
         <div class="row"><span>${IXN[st.ix]} dopo 12 mesi</span><b>${sgnP(best.ret, 1)}</b></div>
-        <div class="row"><span>Episodio iniziato il</span><b>${ep ? dIT(ep.date) : '—'}</b></div>${best.start ? '<div class="row note-row">Primo giorno dell\'episodio (il punto grande).</div>' : ''}<div class="row note-row">${g && selG === g.key ? 'Crisi evidenziata: clic su un punto vuoto per togliere.' : 'Clic o tocco per evidenziare la crisi.'}</div>`;
+        <div class="row"><span>VIX sopra 30 dal</span><b>${ep ? dIT(ep.date) : '—'}</b></div>${XB > 30 ? `<div class="row"><span>VIX sopra ${XB} dal</span><b>${eB ? dIT(eB.date) : '—'}</b></div>` : ''}${big.has(best.date) ? `<div class="row note-row">Primo giorno con il VIX sopra ${XB} dell'episodio (il punto grande).</div>` : ''}<div class="row note-row">${g && selG === g.key ? 'Crisi evidenziata: clic su un punto vuoto per togliere.' : 'Clic o tocco per evidenziare la crisi.'}</div>`;
       placeTip($('vxScTip'), $('vxScWrap'), e, 12);
     };
     bindTip(hit, svg, show, () => { $('vxScTip').hidden = true; ring.setAttribute('visibility', 'hidden'); });

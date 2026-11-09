@@ -39,7 +39,7 @@ const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail+
     const fills = await p.$$eval('#vxScatter circle.vxpt', (cs) => { const m = {}; for (const c of cs) { const f = getComputedStyle(c).fill; (m[c.dataset.g] = m[c.dataset.g] || new Set()).add(f); } return Object.values(m).map((s) => s.size); });
     ok(fills.every((n) => n === 1), `${name}: tutti i punti di una crisi hanno lo stesso colore`);
     const big = await p.$$eval('#vxScatter circle.vxpt.start', (cs) => cs.map((c) => +c.getAttribute('r')));
-    ok(big.length >= 15 && big.every((r) => r >= 5), `${name}: pallini d'inizio grandi (${big.length})`);
+    ok(big.length >= 5 && big.every((r) => r >= 5), `${name}: pallini d'inizio grandi (${big.length})`); // dalla 1.6.2 seguono la soglia della tabella (40 di partenza)
     // 3. clic sulla crisi nell'elenco: alone con un cerchio per punto, altre spente, righe della tabella
     await tap(p.locator('#vxCrises button', { hasText: covid })); await p.waitForTimeout(200);
     const halo = await p.locator('#vxScatter .vxhalo circle').count();

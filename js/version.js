@@ -5,9 +5,10 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.6.1';
+export const VERSION = '1.6.2';
 export const RELEASE = '2026-11-09';
 export const NOTES = [
+  'VIX: i punti grandi dello scatter sono il primo giorno sopra la soglia scelta nella tabella (prima sempre sopra 30); colonne «Sopra X dal», «VIX quel giorno», «VIX massimo dell\'episodio»; i nomi delle crisi sono etichette di periodo',
   'VIX: scatter a tutta larghezza, un colore per crisi; clic su un punto, sull\'elenco delle crisi o su una riga degli episodi per evidenziare la crisi con un alone, anche nella tabella',
   'VIX: struttura a termine (VIX / VIX3M, backwardation da 1 in su) e credito high yield (HYG contro IEF, distanza dal massimo di 12 mesi), solo contesto, idea di Stefano Serafini; l\'ultima seduta del VIX ora dal file ufficiale di Cboe quando c\'è (altrimenti Yahoo), con la fonte indicata',
   'Nuova vista 8 VIX, solo contesto: come sono andati S&P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi, dalla seduta dopo), lo scatter in stile Rea e il VIX contro la volatilità realizzata; Alert passa alla 9',
