@@ -44,7 +44,7 @@ const it = (iso) => `${iso.slice(8, 10)}/${iso.slice(5, 7)}/${iso.slice(0, 4)}`;
     // la tabella degli episodi sta nel suo riquadro (nessuna colonna tagliata) sopra 1000 px
     if (!opt.hasTouch) { const tw = await p.$eval('#vxEps', (t) => [t.scrollWidth, t.parentElement.clientWidth]); ok(tw[0] <= tw[1] + 1, `${name}: tabella degli episodi intera (${tw[0]}/${tw[1]})`); }
     // telefono: massimo, fine e sedute nella colonna della crisi
-    if (opt.hasTouch) ok(await p.$$eval('#vxEps .vxmob', (x) => x.length > 0 && x.every((y) => getComputedStyle(y).display !== 'none' && /sedute/.test(y.textContent))), `${name}: massimo, fine e sedute visibili sul telefono`);
+    if (opt.hasTouch) ok(await p.$$eval('#vxEps .vxmob', (x) => x.length > 0 && x.every((y) => getComputedStyle(y).display !== 'none' && /sedut[ae]/.test(y.textContent))), `${name}: massimo, fine e sedute visibili sul telefono`);
     const sw = await p.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
     ok(sw[0] <= sw[1], `${name}: nessuno scorrimento orizzontale della pagina`);
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);

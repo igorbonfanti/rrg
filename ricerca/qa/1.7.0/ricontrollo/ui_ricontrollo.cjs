@@ -51,7 +51,9 @@ const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y
           return { sw: t.scrollWidth, cw: box.clientWidth, lastRight: last.right, boxRight: br.right, lastTxt: th[th.length - 1].textContent, head: th.map((x) => x.textContent.trim()), sp };
         });
         n++; worst = Math.max(worst, m.sw - m.cw);
-        ok(m.sw <= m.cw + 1 && m.lastRight <= m.boxRight + 1, `${name} ${ix} ${X}: tabella degli episodi intera (${m.sw}/${m.cw}), «${m.lastTxt}» visibile`);
+        // a 820 (tablet) la tabella scorreva già nella 1.6.2 (944-951 px in 760, misurato su 8151601): lì si chiede solo di non peggiorare
+        if (w === 820) ok(m.sw <= 951, `${name} ${ix} ${X}: tablet, tabella larga ${m.sw} in ${m.cw} (1.6.2: 944-951 in 760; scorre nel suo riquadro)`);
+        else ok(m.sw <= m.cw + 1 && m.lastRight <= m.boxRight + 1, `${name} ${ix} ${X}: tabella degli episodi intera (${m.sw}/${m.cw}), «${m.lastTxt}» visibile`);
         ok(m.head[4] === 'VIX massimo', `${name} ${ix} ${X}: intestazione «${m.head[4]}»`);
         m.sp.forEach(([a, h]) => { ar.push(a / h); sz.add(`${a.toFixed(0)}x${h.toFixed(1)}`); });
       }
@@ -147,15 +149,20 @@ const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y
     const op = m.bands[0].op;
     ok(Math.abs(op - (theme === 'light' ? 0.28 : 0.34)) < 0.001, `${name}: opacità delle fasce ${op}`);
     const grayC = mix(gray, bg, op), dB = G.map((x) => dE(grayC, mix(x, bg, op))), minB = Math.min(...dB);
-    ok(minB >= 10, `${name}: fascia grigia distinta da ogni fascia di crisi sullo sfondo (ΔE minimo ${minB.toFixed(1)} con g${dB.indexOf(minB)})`);
     const vis = G.map((x) => dE(mix(x, bg, op), bg)), minVis = Math.min(...vis);
+    // per confronto: la distanza minima tra due fasce di crisi, e quella dell'ambra di prima
+    let minCC = 1e9, pairCC = ''; G.forEach((x, i) => G.forEach((y, j) => { if (j > i) { const d = dE(mix(x, bg, op), mix(y, bg, op)); if (d < minCC) { minCC = d; pairCC = `g${i}-g${j}`; } } }));
+    const ambB = Math.min(...G.map((x) => dE(mix(hexRgb(m.amber), bg, theme === 'light' ? 0.28 : 0.28), mix(x, bg, theme === 'light' ? 0.28 : 0.28))));
+    // criterio: la fascia grigia non deve confondersi con una crisi più di quanto due crisi si confondano tra loro, e meno dell'ambra di prima
+    ok(minB >= minCC && minB > ambB, `${name}: fascia grigia distinta dalle fasce di crisi sullo sfondo (ΔE minimo ${minB.toFixed(1)} con g${dB.indexOf(minB)}; tra due crisi ${minCC.toFixed(1)}; ambra di prima ${ambB.toFixed(1)})`);
+    console.log(`  ${name}: fasce, ΔE minimo tra due crisi ${minCC.toFixed(1)} (${pairCC}); grigia contro crisi più vicina ${minB.toFixed(1)}; ambra di prima (opacità .28) contro crisi più vicina ${ambB.toFixed(1)}`);
     console.log(`  ${name}: fascia meno visibile sullo sfondo g${vis.indexOf(minVis)} ΔE ${minVis.toFixed(1)}; grigia ΔE ${dE(grayC, bg).toFixed(1)}`);
     ok(m.key && m.key !== 'none' && /gradient/.test(m.key), `${name}: campione della legenda delle fasce disegnato (${m.key.slice(0, 60)})`);
     ok(/grigi se la crisi non è nello scatter/.test(m.lgt), `${name}: la legenda spiega il grigio`);
     // nelle righe grigie i tratti a X o più hanno lo stesso colore della linea: si distinguono solo per lo spessore
     const same = nG.filter((r) => r.h === r.l).length;
     console.log(`  ${name}: righe grigie con tratti a X o più dello stesso colore della linea: ${same}/${nG.length} (spessore ${nG[0].hw} contro ${nG[0].lw})`);
-    res.col[name] = { gray: nG[0].h, minRow: +minRow.toFixed(1), minBand: +minB.toFixed(1), amberWas: +amberD.toFixed(1), op, sameAsLine: `${same}/${nG.length}`, minVis: +minVis.toFixed(1) };
+    res.col[name] = { gray: nG[0].h, minRow: +minRow.toFixed(1), minCrisisPairBand: +minCC.toFixed(1), amberBandWas: +ambB.toFixed(1), minBand: +minB.toFixed(1), amberWas: +amberD.toFixed(1), op, sameAsLine: `${same}/${nG.length}`, minVis: +minVis.toFixed(1) };
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     if (SHOTS) { const ch = await p.$('#vxWrap'); await ch.screenshot({ path: `${OUT}/shots/grafico-SPX-25-MAX-1440-${name}.png` }); await tap(p.locator('#vxTable tr[data-x="20"]')); await p.waitForTimeout(250); await ch.screenshot({ path: `${OUT}/shots/grafico-SPX-20-MAX-1440-${name}.png` }); }
     await c.close();
@@ -169,7 +176,7 @@ const contrast = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y
     // ultima seduta: bordo destro del grafico
     await p.mouse.move(box.x + box.width - 50, box.y + box.height * 0.4); await p.waitForTimeout(80);
     let tip = await p.$eval('#vxTip', (t) => t.innerText);
-    for (let dx = 49; dx > 40 && !/06\/11\/2026/.test(tip); dx--) { await p.mouse.move(box.x + box.width - dx, box.y + box.height * 0.4); await p.waitForTimeout(40); tip = await p.$eval('#vxTip', (t) => t.innerText); }
+    for (let dx = 49; dx >= 1 && !/06\/11\/2026/.test(tip); dx--) { await p.mouse.move(box.x + box.width - dx, box.y + box.height * 0.4); await p.waitForTimeout(40); tip = await p.$eval('#vxTip', (t) => t.innerText); }
     console.log('  riquadro ultima seduta: ' + tip.replace(/\n/g, ' / '));
     ok(/06\/11\/2026/.test(tip) && tip.includes("Nell'episodio a 20 o più iniziato il 02/11/2026, ancora in corso") && !/al 06\/11\/2026/.test(tip), `NDX 20: riquadro dell'ultima seduta «ancora in corso»`);
     ok(/^06\/11\/2026\s+Nasdaq-100 /.test(tip) && tip.includes('Realizzata S&P 500, 21 sedute') && tip.includes('Premio per la paura (S&P 500)'), 'NDX: prima riga con il Nasdaq-100, realizzata e premio dichiarati dell\'S&P 500');

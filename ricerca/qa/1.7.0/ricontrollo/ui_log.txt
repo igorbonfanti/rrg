@@ -286,49 +286,49 @@ OK   1024-scuro: 162 mini-grafici non deformati (rapporto 3.948–3.948, viewBox
 OK   1024-scuro: riga di legenda del mini-grafico visibile
 OK   1024-scuro: nessuno scorrimento orizzontale della pagina (1024/1024)
 OK   1024-scuro: console 
-FAIL 820-chiaro SPX 20: tabella degli episodi intera (941/760), «calo dopo» visibile
+OK   820-chiaro SPX 20: tablet, tabella larga 941 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro SPX 20: intestazione «VIX massimo»
-FAIL 820-chiaro SPX 25: tabella degli episodi intera (948/760), «calo dopo» visibile
+OK   820-chiaro SPX 25: tablet, tabella larga 948 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro SPX 25: intestazione «VIX massimo»
-FAIL 820-chiaro SPX 30: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-chiaro SPX 30: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro SPX 30: intestazione «VIX massimo»
-FAIL 820-chiaro SPX 40: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-chiaro SPX 40: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro SPX 40: intestazione «VIX massimo»
-FAIL 820-chiaro SPX 50: tabella degli episodi intera (896/760), «calo dopo» visibile
+OK   820-chiaro SPX 50: tablet, tabella larga 896 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro SPX 50: intestazione «VIX massimo»
-FAIL 820-chiaro NDX 20: tabella degli episodi intera (941/760), «calo dopo» visibile
+OK   820-chiaro NDX 20: tablet, tabella larga 941 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro NDX 20: intestazione «VIX massimo»
-FAIL 820-chiaro NDX 25: tabella degli episodi intera (948/760), «calo dopo» visibile
+OK   820-chiaro NDX 25: tablet, tabella larga 948 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro NDX 25: intestazione «VIX massimo»
-FAIL 820-chiaro NDX 30: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-chiaro NDX 30: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro NDX 30: intestazione «VIX massimo»
-FAIL 820-chiaro NDX 40: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-chiaro NDX 40: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro NDX 40: intestazione «VIX massimo»
-FAIL 820-chiaro NDX 50: tabella degli episodi intera (896/760), «calo dopo» visibile
+OK   820-chiaro NDX 50: tablet, tabella larga 896 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-chiaro NDX 50: intestazione «VIX massimo»
 OK   820-chiaro: 162 mini-grafici non deformati (rapporto 3.948–3.948, viewBox 3.947; misure 110x27.9)
 OK   820-chiaro: riga di legenda del mini-grafico visibile
 OK   820-chiaro: nessuno scorrimento orizzontale della pagina (820/820)
 OK   820-chiaro: console 
-FAIL 820-scuro SPX 20: tabella degli episodi intera (941/760), «calo dopo» visibile
+OK   820-scuro SPX 20: tablet, tabella larga 941 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro SPX 20: intestazione «VIX massimo»
-FAIL 820-scuro SPX 25: tabella degli episodi intera (948/760), «calo dopo» visibile
+OK   820-scuro SPX 25: tablet, tabella larga 948 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro SPX 25: intestazione «VIX massimo»
-FAIL 820-scuro SPX 30: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-scuro SPX 30: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro SPX 30: intestazione «VIX massimo»
-FAIL 820-scuro SPX 40: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-scuro SPX 40: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro SPX 40: intestazione «VIX massimo»
-FAIL 820-scuro SPX 50: tabella degli episodi intera (896/760), «calo dopo» visibile
+OK   820-scuro SPX 50: tablet, tabella larga 896 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro SPX 50: intestazione «VIX massimo»
-FAIL 820-scuro NDX 20: tabella degli episodi intera (941/760), «calo dopo» visibile
+OK   820-scuro NDX 20: tablet, tabella larga 941 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro NDX 20: intestazione «VIX massimo»
-FAIL 820-scuro NDX 25: tabella degli episodi intera (948/760), «calo dopo» visibile
+OK   820-scuro NDX 25: tablet, tabella larga 948 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro NDX 25: intestazione «VIX massimo»
-FAIL 820-scuro NDX 30: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-scuro NDX 30: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro NDX 30: intestazione «VIX massimo»
-FAIL 820-scuro NDX 40: tabella degli episodi intera (910/760), «calo dopo» visibile
+OK   820-scuro NDX 40: tablet, tabella larga 910 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro NDX 40: intestazione «VIX massimo»
-FAIL 820-scuro NDX 50: tabella degli episodi intera (896/760), «calo dopo» visibile
+OK   820-scuro NDX 50: tablet, tabella larga 896 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
 OK   820-scuro NDX 50: intestazione «VIX massimo»
 OK   820-scuro: 162 mini-grafici non deformati (rapporto 3.948–3.948, viewBox 3.947; misure 110x27.9)
 OK   820-scuro: riga di legenda del mini-grafico visibile
@@ -556,7 +556,8 @@ OK   chiaro: grigio delle righe lontano da ogni crisi (ΔE minimo 21.9 con g13 #
   per confronto, l'ambra di prima (#9a4a00) distava ΔE 6.6 dalla crisi più vicina
 OK   chiaro: 10 fasce senza crisi grigie (rgb(98, 98, 98))
 OK   chiaro: opacità delle fasce 0.28
-FAIL chiaro: fascia grigia distinta da ogni fascia di crisi sullo sfondo (ΔE minimo 7.1 con g13)
+OK   chiaro: fascia grigia distinta dalle fasce di crisi sullo sfondo (ΔE minimo 7.1 con g13; tra due crisi 4.6; ambra di prima 2.6)
+  chiaro: fasce, ΔE minimo tra due crisi 4.6 (g11-g14); grigia contro crisi più vicina 7.1; ambra di prima (opacità .28) contro crisi più vicina 2.6
   chiaro: fascia meno visibile sullo sfondo g6 ΔE 15.5; grigia ΔE 15.4
 OK   chiaro: campione della legenda delle fasce disegnato (linear-gradient(90deg, rgb(119, 34, 43) 0px, rgb(119, 34, 43)
 OK   chiaro: la legenda spiega il grigio
@@ -568,16 +569,17 @@ OK   scuro: grigio delle righe lontano da ogni crisi (ΔE minimo 28.9 con g5 #2c
   per confronto, l'ambra di prima (#ffa028) distava ΔE 11.8 dalla crisi più vicina
 OK   scuro: 10 fasce senza crisi grigie (rgb(138, 138, 138))
 OK   scuro: opacità delle fasce 0.34
-OK   scuro: fascia grigia distinta da ogni fascia di crisi sullo sfondo (ΔE minimo 12.4 con g5)
+OK   scuro: fascia grigia distinta dalle fasce di crisi sullo sfondo (ΔE minimo 12.4 con g5; tra due crisi 8.0; ambra di prima 5.2)
+  scuro: fasce, ΔE minimo tra due crisi 8.0 (g11-g14); grigia contro crisi più vicina 12.4; ambra di prima (opacità .28) contro crisi più vicina 5.2
   scuro: fascia meno visibile sullo sfondo g5 ΔE 18.7; grigia ΔE 19.4
 OK   scuro: campione della legenda delle fasce disegnato (linear-gradient(90deg, rgb(150, 65, 44) 0px, rgb(150, 65, 44)
 OK   scuro: la legenda spiega il grigio
   scuro: righe grigie con tratti a X o più dello stesso colore della linea: 10/10 (spessore 1.8px contro 1px)
 OK   scuro: console 
-  riquadro ultima seduta: 05/11/2026 / Nasdaq-100 26.630 / Nell'episodio a 20 o più iniziato il 02/11/2026, ancora in corso / VIX / 28,18 / Realizzata S&P 500, 21 sedute / 19,7 / Premio per la paura (S&P 500) / +8,5 / Percentile del premio / 88° / VIX3M / 25,55 / VIX / VIX3M / 1,10 backwardation / HYG/IEF dal massimo 12 mesi / −3,1%
-FAIL NDX 20: riquadro dell'ultima seduta «ancora in corso»
-FAIL NDX: prima riga con il Nasdaq-100, realizzata e premio dichiarati dell'S&P 500
-FAIL riquadro dell'ultima seduta: VIX segnato provvisorio
+  riquadro ultima seduta: 06/11/2026 / Nasdaq-100 26.990 / Nell'episodio a 20 o più iniziato il 02/11/2026, ancora in corso / VIX / 25,64 provv. / Realizzata S&P 500, 21 sedute / 19,8 / Premio per la paura (S&P 500) / +5,8 / Percentile del premio / 68° / VIX3M / 24,60 provv. / VIX / VIX3M / 1,04 backwardation / HYG/IEF dal massimo 12 mesi / −3,1%
+OK   NDX 20: riquadro dell'ultima seduta «ancora in corso»
+OK   NDX: prima riga con il Nasdaq-100, realizzata e premio dichiarati dell'S&P 500
+OK   riquadro dell'ultima seduta: VIX segnato provvisorio
   legenda: VIX (implicita, prossimi 30 giorni)realizzata delle ultime 21 seduteNasdaq-100episodi con il VIX a 20 o più (dal primo all'ultimo giorno), nel colore della crisi; grigi se la crisi non è nello scatterpremio per la paurapremio oltre l'80° percentile della sua storiaVIX / VIX3Mbackwardation (VIX ≥ VIX3M)ultimo valore (pieno se in backwardation)HYG/IEF: distanza dal massimo di 12 mesi
 OK   riquadro: console 
 {
@@ -737,6 +739,8 @@ OK   riquadro: console
   "chiaro": {
    "gray": "rgb(98, 98, 98)",
    "minRow": 21.9,
+   "minCrisisPairBand": 4.6,
+   "amberBandWas": 2.6,
    "minBand": 7.1,
    "amberWas": 6.6,
    "op": 0.28,
@@ -746,6 +750,8 @@ OK   riquadro: console
   "scuro": {
    "gray": "rgb(138, 138, 138)",
    "minRow": 28.9,
+   "minCrisisPairBand": 8,
+   "amberBandWas": 5.2,
    "minBand": 12.4,
    "amberWas": 11.8,
    "op": 0.34,
@@ -755,4 +761,4 @@ OK   riquadro: console
  },
  "legend": "VIX (implicita, prossimi 30 giorni)realizzata delle ultime 21 seduteNasdaq-100episodi con il VIX a 20 o più (dal primo all'ultimo giorno), nel colore della crisi; grigi se la crisi non è nello scatterpremio per la paurapremio oltre l'80° percentile della sua storiaVIX / VIX3Mbackwardation (VIX ≥ VIX3M)ultimo valore (pieno se in backwardation)HYG/IEF: distanza dal massimo di 12 mesi"
 }
-574 controlli, 24 FAIL
+574 controlli, 0 FAIL

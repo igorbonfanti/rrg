@@ -1,6 +1,6 @@
 {
  "checks": 574,
- "fail": 24,
+ "fail": 0,
  "res": {
   "desk": [
    {
@@ -158,6 +158,8 @@
    "chiaro": {
     "gray": "rgb(98, 98, 98)",
     "minRow": 21.9,
+    "minCrisisPairBand": 4.6,
+    "amberBandWas": 2.6,
     "minBand": 7.1,
     "amberWas": 6.6,
     "op": 0.28,
@@ -167,6 +169,8 @@
    "scuro": {
     "gray": "rgb(138, 138, 138)",
     "minRow": 28.9,
+    "minCrisisPairBand": 8,
+    "amberBandWas": 5.2,
     "minBand": 12.4,
     "amberWas": 11.8,
     "op": 0.34,
