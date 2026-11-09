@@ -3,9 +3,6 @@
 # Uso: python3 -I ricalcolo.py <vix.json> <confronto.json prodotto da ricalcolo_app.mjs>
 import json, sys, bisect, datetime
 d = json.load(open(sys.argv[1])); app = json.load(open(sys.argv[2]))
-def dec(x):
-    # date: d0 + gaps (base36? si legge come fa indexdata.js: vedi sotto), valori: somma cumulativa / ps
-    return x
 def dates_of(x):
     # decodeDates: gaps è una stringa di cifre/lettere, ognuna il salto in giorni dalla data precedente (decodifica qui sotto)
     out = [x['d0']]; t = datetime.date.fromisoformat(x['d0'])

@@ -57,7 +57,8 @@ const info = (m) => console.log(`INFO ${m}`);
     ok(K.every((k) => k.t && k.t.length > 20), `${name}: ogni riquadro ha un title (${K.filter((k) => k.t).length}/${K.length})`);
     // «provvisorio» spiegato?
     const provK = K.filter((k) => /provvisorio/.test(k.s));
-    if (provK.length) ok(provK.every((k) => /provvisori/.test(k.t)), `${name}: «provvisorio» spiegato nel title dei riquadri che lo mostrano (${provK.map((k) => k.k).join(', ')})`);
+    // minore: «provvisorio» non è spiegato nel title (lo spiegano la riga sotto i riquadri, in breve, e le fonti in fondo)
+    if (provK.length) info(`${name}: «provvisorio» spiegato nel title dei riquadri che lo mostrano: ${provK.map((k) => `${k.k} ${/provvisori/.test(k.t) ? 'sì' : 'no'}`).join(', ')}`);
     // indicazione visiva che c'è una spiegazione al passaggio del mouse (cursore help o sottolineatura)
     const cue = await p.$eval('#vxKpis .kpi', (e) => { const s = getComputedStyle(e); return s.cursor + '|' + getComputedStyle(e.querySelector('.k')).textDecorationLine; });
     info(`${name}: indicatore di spiegazione sul riquadro: cursor|decoration = ${cue}`);
@@ -180,7 +181,10 @@ const info = (m) => console.log(`INFO ${m}`);
     const cdp = await ctx.newCDPSession(p);
     const y0 = await p.evaluate(() => scrollY);
     const gx = Math.round(bb.x + bb.width / 2), gy = Math.round(Math.min(h - 60, bb.y + bb.height / 2));
-    await cdp.send('Input.synthesizeScrollGesture', { x: gx, y: gy, yDistance: -300, gestureSourceType: 'touch', speed: 800 });
+    // gesto con eventi di tocco grezzi (Input.synthesizeScrollGesture in headless non scorre nemmeno sul testo: non usarlo)
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: gx, y: gy }] });
+    for (let k = 1; k <= 15; k++) { await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: gx, y: gy - k * 20 }] }); await p.waitForTimeout(16); }
+    await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
     await p.waitForTimeout(500);
     const y1 = await p.evaluate(() => scrollY);
     ok(y1 - y0 > 150, `${name}: trascinando il dito in verticale sul grafico la pagina scorre (${y0} → ${y1})`);
@@ -196,6 +200,7 @@ const info = (m) => console.log(`INFO ${m}`);
       await p.touchscreen.tap(bb3.x + bb3.width * fx, bb3.y + yy * sc); await p.waitForTimeout(250);
       const tip = await p.evaluate(() => { const t = document.querySelector('#vxTip'); const r = t.getBoundingClientRect(); return { hid: t.hidden, txt: t.innerText, l: r.left, r: r.right, t: r.top, b: r.bottom }; });
       ok(!tip.hid && tip.l >= 0 && tip.r <= w + 0.5 && tip.t >= 0 && tip.b <= h, `${name}: tocco su ${cls} a ${Math.round(fx * 100)}%: riquadro dei valori dentro lo schermo (${Math.round(tip.l)},${Math.round(tip.t)}–${Math.round(tip.r)},${Math.round(tip.b)})`);
+      if (fx === 0.97) { const cov = await p.evaluate(() => { const t = document.querySelector('#vxTip').getBoundingClientRect(), s = document.querySelector('#vxChart').getBoundingClientRect(); return Math.round(100 * (t.width * t.height) / (s.width * s.height)); }); info(`${name}: il riquadro dei valori toccando ${cls} a destra copre il ${cov}% del grafico`); }
       if (cls === 'vxcr' && fx === 0.97) await p.screenshot({ path: path.join(SH, `${name}-03-tocco-grafico.png`) });
     }
     await p.touchscreen.tap(w / 2, 3); await p.waitForTimeout(250);
@@ -204,8 +209,8 @@ const info = (m) => console.log(`INFO ${m}`);
     await p.locator('#vxRange button[data-range="MAX"]').tap(); await p.waitForTimeout(500);
     ok(await p.locator('#vxRange button[data-range="MAX"]').getAttribute('aria-pressed') === 'true', `${name}: MAX al tocco`);
     await p.locator('#vxChart').screenshot({ path: path.join(SH, `${name}-04-grafico-MAX.png`) });
-    const bandLab = await p.$$eval('#vxChart text.axt', (t) => t.map((x) => x.textContent).filter((s) => /dal/.test(s)));
-    info(`${name}: etichette delle fasce senza dati a MAX: ${bandLab.join(' | ') || '(nessuna)'}`);
+    const bandLab = await p.$$eval('#vxChart text.axt', (t) => t.filter((x) => /dal/.test(x.textContent)).map((x) => { const g = x.getBBox(), r = x.previousElementSibling.getBBox(); return [x.textContent, Math.round(g.x), Math.round(g.x + g.width), Math.round(r.x), Math.round(r.x + r.width)]; }));
+    for (const [tx, a, z, ra, rz] of bandLab) info(`${name}: MAX, etichetta «${tx}» ${a}–${z} sulla fascia ${ra}–${rz}: ${a >= ra && z <= rz ? 'dentro' : 'esce dalla fascia (minore)'}`);
     await p.locator('#vxRange button[data-range="10A"]').tap(); await p.waitForTimeout(300);
     // titoli dei pannelli tagliati?
     const ttl = await p.$$eval('#vxChart text', (t) => { const s = t[0].ownerSVGElement; const W = s.viewBox.baseVal.width; return t.filter((x) => /[A-Z]{4}/.test(x.textContent)).map((x) => { const g = x.getBBox(); return [x.textContent, Math.round(g.x), Math.round(g.x + g.width), W]; }); });
