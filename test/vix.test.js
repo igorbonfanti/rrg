@@ -54,6 +54,8 @@ test('vix: data del massimo dell\'episodio (un episodio a 20 può comprendere pi
   assert.deepEqual([e20.vixMax, e20.maxDate], [52.33, '2025-04-08']); // il picco dei dazi, non del carry yen (FRED VIXCLS)
   const e40 = V.episodes(A, 40).find((e) => e.date === '2008-09-29');
   assert.deepEqual([e40.vixMax, e40.maxDate], [80.86, '2008-11-20']);
+  // ultimo giorno a 40 o più e sedute dal primo all'ultimo (compresi)
+  assert.deepEqual([e40.end, A.dates[e40.endP], e40.sessions], ['2009-04-07', '2009-04-07', A.dates.indexOf('2009-04-07') - A.dates.indexOf('2008-09-29') + 1]);
 });
 
 test('vix: realizzata, percentili sulla storia fino a quel giorno, fasce, scatter', () => {

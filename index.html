@@ -438,14 +438,15 @@
     <div class="kpis" id="vxKpis"></div>
     <p class="note pb vxmeta" id="vxMeta"></p>
     <div class="controls vxctl">
-      <span class="ctl">Indice <span class="seg" id="vxIx" role="group" aria-label="Indice della tabella e dello scatter"><button type="button" data-ix="SPX" aria-pressed="true">S&amp;P 500</button><button type="button" data-ix="NDX" aria-pressed="false">Nasdaq-100</button></span></span>
+      <span class="ctl">Indice <span class="seg" id="vxIx" role="group" aria-label="Indice della tabella, dello scatter e del pannello del prezzo nel grafico in fondo"><button type="button" data-ix="SPX" aria-pressed="true">S&amp;P 500</button><button type="button" data-ix="NDX" aria-pressed="false">Nasdaq-100</button></span></span>
     </div>
     <div class="vix-grid">
       <div class="panel">
         <div class="ph"><h2>Dopo i picchi del VIX</h2><span class="meta" id="vxTableMeta"></span></div>
         <div class="tscroll"><table class="t vxtable" id="vxTable"></table></div>
-        <p class="note pb">Ogni riga conta gli <b>episodi</b>: un episodio inizia con la prima chiusura del VIX alla soglia o più dopo almeno 63 sedute sotto, e finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila (in mezzo può scendere sotto: alle soglie basse un episodio può durare anni e comprendere più crisi, per questo accanto al massimo c'è la sua data, nella colonna visibile sul computer). «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato. Clic (o tocco) su una riga per i suoi episodi.</p>
+        <p class="note pb">Ogni riga conta gli <b>episodi</b>: un episodio inizia con la prima chiusura del VIX alla soglia o più dopo almeno 63 sedute sotto, e finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila (in mezzo può scendere sotto: alle soglie basse un episodio può durare anni e comprendere più crisi, per questo accanto al massimo c'è la sua data). «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato. Clic (o tocco) su una riga per i suoi episodi.</p>
         <div class="ph sub"><h3 id="vxEpsTitle"></h3></div>
+        <p class="note pb vxsplegend">Andamento del VIX: la linea tratteggiata è la soglia, colorati i tratti alla soglia o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno; da 3 mesi prima a un mese dopo, ogni mini-grafico con la sua scala. Asterisco: episodio non ancora finito.</p>
         <div class="tscroll"><table class="t vxeps" id="vxEps"></table></div>
       </div>
       <div class="panel">
@@ -461,9 +462,9 @@
       </div>
     </div>
     <div class="panel">
-      <div class="ph"><h2>VIX, struttura a termine e credito · S&amp;P 500</h2><span class="ctl"><span class="seg" id="vxRange" role="group" aria-label="Periodo"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span></span></div>
+      <div class="ph"><h2>VIX e indice nel tempo · struttura a termine e credito</h2><span class="ctl"><span class="seg" id="vxRange" role="group" aria-label="Periodo"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span></span></div>
       <div class="chart-wrap" id="vxWrap">
-        <svg class="ts" id="vxChart" role="img" aria-label="VIX, volatilità realizzata dell'S&amp;P 500, premio per la paura, rapporto VIX/VIX3M e credito high yield nel tempo"></svg>
+        <svg class="ts" id="vxChart" role="img" aria-label="VIX, volatilità realizzata dell'S&amp;P 500, prezzo dell'indice scelto con gli episodi, premio per la paura, rapporto VIX/VIX3M e credito high yield nel tempo"></svg>
         <div class="tip" id="vxTip" hidden></div>
       </div>
       <div class="legend" id="vxLegend"></div>
@@ -472,7 +473,7 @@
       <div class="ph"><h2>Come leggere il VIX</h2></div>
       <div class="emread">
         <p><b>Solo contesto, non un segnale.</b> Il VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&amp;P 500 nei prossimi 30 giorni: sale quando c'è paura. Non cambia stati né alert.</p>
-        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto». Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte. Il 40 ha 10 episodi: numeri indicativi. Dopo un VIX sopra 25 o 30 il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
+        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto». Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte. Il 40 ha 10 episodi: numeri indicativi. Dopo un VIX a 25 o 30 o più il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
         <p><b>Lo scatter conta i giorni</b>, come il grafico di Massimo Rea da cui viene l'idea: le crisi lunghe mettono tanti punti, quindi sembra più sicuro di quanto sia. La tabella conta gli episodi.</p>
         <p><b>VIX contro realizzata.</b> Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi. Il VIX sale insieme ai ribassi, non prima: dal 2005 il premio alto (oltre l'80° percentile) si è acceso 204 volte, e solo in 12 entro 21 sedute è arrivato un picco della volatilità (la realizzata sopra il suo 90° percentile). Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.</p>
         <p><b>Struttura a termine.</b> Il VIX misura la paura per i prossimi 30 giorni, il VIX3M per i prossimi 3 mesi. Di solito il VIX sta sotto il VIX3M (rapporto sotto 1, <b>contango</b>): chi si assicura paga di più per le scadenze lunghe. Quando il VIX arriva al VIX3M o lo supera (rapporto da 1 in su, <b>backwardation</b>) la paura è per i prossimi giorni: succede nei ribassi bruschi. Nella verifica non aggiunge informazione al livello del VIX (dal 2008 tutti gli episodi del VIX sopra 30 erano già in backwardation il giorno del segnale) e il ritorno al contango non è stato un ingresso migliore del segnale del VIX sopra 30: solo contesto.</p>

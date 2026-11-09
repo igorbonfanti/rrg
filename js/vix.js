@@ -97,7 +97,7 @@ export function episodes(A, X, Q = QUIET, entry = ENTRY) {
     let mx = v[j], at = j, last = j;
     for (let k = j; k < stop; k++) if (v[k] >= X) { last = k; if (v[k] > mx) { mx = v[k]; at = k; } }
     const p = pos[j];
-    return { date: A.dates[p], p, vix: v[j], vixMax: mx, maxDate: A.dates[pos[at]], end: A.dates[pos[last]], crisis: crisisOf(A.dates[p]), ...outcomes(A.close, p, entry) };
+    return { date: A.dates[p], p, vix: v[j], vixMax: mx, maxDate: A.dates[pos[at]], end: A.dates[pos[last]], endP: pos[last], sessions: pos[last] - p + 1, crisis: crisisOf(A.dates[p]), ...outcomes(A.close, p, entry) };
   });
 }
 
