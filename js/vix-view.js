@@ -76,9 +76,9 @@ export function createVix(ctx) {
     const a = data.asOf, after = (f, l, src) => (f && l && f < l ? ` (FRED al ${dIT(f)}, poi ${src === 'Cboe' || src === 'Yahoo' ? src : 'Cboe o Yahoo'}, provvisorio)` : '');
     $('vxMeta').textContent = `VIX al ${dIT(a.vix)}${after(a.fred, a.vix, a.vixSrc)}${a.vix3m ? ` · VIX3M al ${dIT(a.vix3m)}${after(a.fred3m, a.vix3m, a.vix3mSrc)}` : ''}${a.credit ? ` · HYG/IEF al ${dIT(a.credit)}` : ''} · S&P 500 al ${dIT(a.spx)} · Nasdaq-100 al ${dIT(a.ndx)}`;
   }
-  const PROV = ' «Provvisorio»: FRED pubblica la seduta la mattina dopo; fino ad allora il valore viene dal file di Cboe (o da Yahoo) e la corsa successiva lo sostituisce.';
+  const PROV = ' «Provvisorio»: FRED pubblica la seduta la mattina dopo; fino ad allora il valore viene dal file di Cboe (o da Yahoo) e di solito la corsa della sera dopo lo sostituisce.';
   // rapporto con 2 decimali, 3 vicino a 1 (0,996 non deve leggersi «1,00 contango»)
-  const fr = (r) => fmt(r, Math.abs(r - 1) < 0.005 ? 3 : 2);
+  const fr = (r) => (Math.abs(r - 1) < 0.005 ? fmt(r < 1 ? Math.floor(r * 1000) / 1000 : r, 3) : fmt(r, 2)); // sotto 1 si tronca: mai «1,000 contango»
   function kpiTerm(kpi) {
     const C = model.ctx, t = 'Rapporto tra il VIX (paura per i prossimi 30 giorni) e il VIX3M (prossimi 3 mesi), dal 04/12/2007. Sotto 1 «contango», la situazione normale; da 1 in su «backwardation»: la paura è per i prossimi giorni, succede nei ribassi bruschi. Percentile sulla storia fino a quel giorno. Solo contesto.' + PROV;
     const r = C && C.now.r;
@@ -211,6 +211,7 @@ export function createVix(ctx) {
       el('rect', { x: L, y: p.y0, width: xe - L, height: p.h, class: 'vxnodata' }, svg);
       const t = el('text', { x: L + (xe - L) / 2, y: p.y0 + p.h / 2 + 3, class: 'axt', 'text-anchor': 'middle' }, svg);
       t.textContent = label;
+      if (t.getComputedTextLength() > xe - L - 8) t.textContent = `dal ${first.slice(0, 4)}`; // sul telefono la scritta corta
       if (t.getComputedTextLength() > xe - L - 8) t.remove(); // la scritta solo se entra nella fascia
     };
     const step = (span, h) => [0.05, 0.1, 0.2, 0.25, 0.5, 1, 2, 5, 10, 20, 50].find((k) => (h * k) / span >= 22) || 100;

@@ -180,7 +180,7 @@ async function volSeries({ key, id, since, cboe, ysym, ps }, p, spx, errors, not
   fed = onSessions(fed, spx);
   let cb = null, yh = null;
   try { cb = onSessions(await cboeFile(cboe), spx); } catch (e) { errors.push(`${cboe} (Cboe): ${e.message}`); }
-  if (!cb || cb.dates.at(-1) < spx.at(-1)) {
+  if (!cb || !cb.dates.length || cb.dates.at(-1) < spx.at(-1)) {
     try {
       const d = await yahoo(ysym, { period1: Math.floor(Date.now() / 1000) - TAIL_DAYS * 86400, raw: true });
       yh = { dates: [], val: [] };
@@ -188,8 +188,8 @@ async function volSeries({ key, id, since, cboe, ysym, ps }, p, spx, errors, not
       yh = onSessions(yh, spx);
     } catch (e) { errors.push(`${ysym} (Yahoo): ${e.message}`); }
   }
-  let tail = mergeTail(cb, yh), yFrom = tail ? tail.yFrom : null;
-  if (!tail && p) { tail = { dates: p.dates, val: p.val }; yFrom = p.x.src === 'Yahoo' ? p.dates.at(-1) : null; } // nessuna coda nuova: resta quella pubblicata
+  let tail = mergeTail(cb, yh), yFrom = tail ? tail.yFrom : null, fromPrev = false;
+  if (!tail && p) { tail = { dates: p.dates, val: p.val }; fromPrev = true; } // nessuna coda nuova: resta quella pubblicata
   if (tail) {
     const q = plausible(fed.val.at(-1), tail, fed.dates.at(-1));
     if (q.dropped.length) errors.push(`${key}: sedute provvisorie non plausibili scartate (${q.dropped.join(', ')})`);
@@ -199,7 +199,9 @@ async function volSeries({ key, id, since, cboe, ysym, ps }, p, spx, errors, not
   if (s.devMed != null && s.devMed > 0.02) notes.push(`${key}: la coda (Cboe/Yahoo) si scosta da FRED in mediana del ${(100 * s.devMed).toFixed(2)}% negli ultimi 60 giorni`);
   // FRED non torna indietro: se risponde con dati più vecchi di quelli pubblicati si tiene la serie pubblicata
   if (p && p.x.fred && s.fredLast < p.x.fred) throw new Error(`FRED arriva al ${s.fredLast}, prima del ${p.x.fred} pubblicato`);
-  return { ...pack(s.dates, s.val, ps), last: s.dates.at(-1), fred: s.fredLast, src: lastSource(s.dates, s.fredLast, yFrom) };
+  // coda tenuta dal file pubblicato: la sua fonte (null se il file è della 1.5.0 e non la dice)
+  const src = fromPrev && s.dates.at(-1) > s.fredLast ? p.x.src || null : lastSource(s.dates, s.fredLast, yFrom);
+  return { ...pack(s.dates, s.val, ps), last: s.dates.at(-1), fred: s.fredLast, src };
 }
 
 async function main() {
