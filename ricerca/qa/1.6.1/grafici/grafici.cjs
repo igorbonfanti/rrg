@@ -33,7 +33,7 @@ const dom = (p) => p.evaluate(() => {
   const legend = [...document.querySelectorAll('#vxCrises button')].map((b) => ({ g: b.dataset.g, t: b.textContent.trim(), pr: b.getAttribute('aria-pressed'), kd: cs(b.querySelector('.kd')).backgroundColor }));
   const rows = [...document.querySelectorAll('#vxEps tbody tr')].map((r) => ({ d: r.cells[0].textContent, cr: r.cells[1].textContent, g: r.dataset.g || null, sel: r.classList.contains('sel'), bg: cs(r.cells[0]).backgroundColor }));
   const none = document.getElementById('vxEpsNone');
-  return { vb, ticks, pts, halo, pal, legend, rows, none: none.hidden ? null : none.textContent, sel: svg.classList.contains('vxsel'), tip: document.getElementById('vxScTip').hidden ? null : document.getElementById('vxScTip').innerText };
+  return { vb, ticks, pts, halo, pal, legend, rows, none: !none || none.hidden ? null : none.textContent, sel: svg.classList.contains('vxsel'), tip: document.getElementById('vxScTip').hidden ? null : document.getElementById('vxScTip').innerText };
 });
 // scala dagli assi (etichette) e posizioni attese dei punti ricalcolati
 function scale(D) {
@@ -79,6 +79,7 @@ const iso2it = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
       // colori distinti tra i gruppi visibili
       ok(new Set(want.map((g) => D.pal[g.c])).size === want.length, `${tag}: ${want.length} gruppi visibili con colori tutti diversi`);
       // ---- selezione di ogni gruppo dalla legenda: alone e punti accesi
+      if (!D.legend.length) { ok(false, `${tag}: manca l'elenco delle crisi: salto selezione e tabella`); continue; }
       for (const g of want) {
         await p.click(`#vxCrises button[data-g="${g.key}"]`); await p.waitForTimeout(80);
         D = await dom(p);
