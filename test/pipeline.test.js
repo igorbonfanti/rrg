@@ -78,6 +78,16 @@ test('dati fermi: vista VIX, VIX e indici come gli altri prezzi, FRED fino a 6 g
   const p = staleData(vx('2026-10-29', '2026-11-04', '2026-11-04', '2026-10-28'), '2026-11-05');
   assert.equal(p.length, 2, p.join(' | '));
   assert.ok(p.some((x) => /VIX\)/.test(x)) && p.some((x) => /FRED/.test(x)));
-  assert.equal(staleData({ ...base, vix: null }, '2026-11-05').length, 4); // file illeggibile: segnalato
+  assert.equal(staleData({ ...base, vix: null }, '2026-11-05').length, 7); // file illeggibile: segnalato
   assert.deepEqual(staleData(base, '2026-11-05'), []); // file non ancora creato: nessun controllo
+});
+
+test('dati fermi: VIX3M e credito della 1.6.0 (file vecchio senza i campi: nessun controllo)', () => {
+  const base = { breadth: { asOf: '2026-11-04' } };
+  const vx = (x) => ({ ...base, vix: { asOf: { vix: '2026-11-04', spx: '2026-11-04', ndx: '2026-11-04', fred: '2026-11-03', ...x } } });
+  assert.deepEqual(staleData(vx({}), '2026-11-05'), []); // file della 1.5.0
+  assert.deepEqual(staleData(vx({ vix3m: '2026-11-04', fred3m: '2026-11-03', credit: '2026-11-04' }), '2026-11-05'), []);
+  const p = staleData(vx({ vix3m: '2026-10-29', fred3m: '2026-10-28', credit: null }), '2026-11-05');
+  assert.equal(p.length, 3, p.join(' | '));
+  assert.ok(p.some((x) => /VIX3M\): fermo/.test(x)) && p.some((x) => /FRED VIX3M/.test(x)) && p.some((x) => /HYG\/IEF\): senza data/.test(x)));
 });

@@ -5,9 +5,10 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.5.0';
-export const RELEASE = '2026-11-06';
+export const VERSION = '1.6.0';
+export const RELEASE = '2026-11-09';
 export const NOTES = [
+  'VIX: struttura a termine (VIX / VIX3M, backwardation da 1 in su) e credito high yield (HYG contro IEF, distanza dal massimo di 12 mesi), solo contesto, idea di Stefano Serafini; l\'ultima seduta del VIX ora dal file ufficiale di Cboe quando c\'è (altrimenti Yahoo), con la fonte indicata',
   'Nuova vista 8 VIX, solo contesto: come sono andati S&P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi, dalla seduta dopo), lo scatter in stile Rea e il VIX contro la volatilità realizzata; Alert passa alla 9',
   'Schede in un nuovo ordine, dal settore ai suoi titoli e poi al resto del mondo: 5 Titoli subito dopo 4 Settore, 6 Indici, 7 Emergenti, 8 Alert per ultima; indirizzi e comandi invariati, cambiano solo i tasti 5, 7 e 8',
   'Nuova vista Emergenti, solo contesto: per CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM lo stato della vista 6 con la valuta (in calo forte o che ha smesso di scendere), il dollaro contro le valute emergenti e la forza relativa contro ACWI; cambi della Federal Reserve (gli ultimi giorni da Yahoo, provvisori); nessuna regola nuova e nessun alert',
