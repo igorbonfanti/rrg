@@ -11,7 +11,12 @@
  * - calo successivo: il punto più basso dell'indice entro 252 sedute rispetto al prezzo d'ingresso (0 se non scende);
  * - base: tutte le sedute dalla prima data del VIX, con lo stesso ingresso;
  * - realizzata: deviazione standard dei rendimenti logaritmici delle ultime 21 sedute, annualizzata (×√252), in punti %;
- * - premio per la paura: VIX − realizzata; percentili sempre sulla sola storia fino a quel giorno, «—» finché ha meno di 252 valori.
+ * - premio per la paura: VIX − realizzata; percentili sempre sulla sola storia fino a quel giorno, «—» finché ha meno di 252 valori;
+ * - struttura a termine (dal 04/12/2007): R = VIX / VIX3M alla stessa seduta, da 1 in su «backwardation», sotto 1 «contango»;
+ * - credito (dal 2007): rapporto tra le chiusure rettificate di HYG e IEF, distanza % dal massimo delle ultime 252 sedute e
+ *   variazione % su 21 sedute. Struttura a termine e credito: idea da un grafico di Stefano Serafini (Swiss Capital School)
+ *   al Morning Trading Show di BNP Paribas; solo contesto, il backtest non ha trovato statistiche robuste
+ *   (ricerca/vix/struttura/backtest/backtest.md).
  * Un dato mancante resta null («—»), mai riempito.
  */
 import { decodeDates, deltaDecode } from './indexdata.js';
@@ -149,6 +154,60 @@ export function expandingPct(a, minN = 1) {
   const ins = (x) => { let lo = 0, hi = seen.length; while (lo < hi) { const m = (lo + hi) >> 1; if (seen[m] <= x) lo = m + 1; else hi = m; } seen.splice(lo, 0, x); return lo; };
   a.forEach((x, i) => { if (x == null) return; const k = ins(x); if (seen.length >= minN) out[i] = (100 * (k + 1)) / seen.length; });
   return out;
+}
+
+// ---------- struttura a termine e credito (idea di Stefano Serafini, solo contesto) ----------
+/** Valori di una serie {dates, val} sulle date date (null dove manca; tutto null se la serie non c'è) */
+export function onDates(dates, s) {
+  if (!s) return dates.map(() => null);
+  const m = new Map(s.dates.map((d, i) => [d, s.val[i]]));
+  return dates.map((d) => (m.has(d) ? m.get(d) : null));
+}
+/** a / b seduta per seduta, null se manca uno dei due (mai riempito) */
+export const ratio = (a, b) => a.map((x, i) => (x != null && b[i] != null && b[i] > 0 ? x / b[i] : null));
+/** Stato della struttura a termine: da 1 in su backwardation (soglia decisa con l'utente il 09/11/2026) */
+export const termState = (r) => (r == null ? null : r >= 1 ? 'backwardation' : 'contango');
+/** Distanza % dal massimo delle ultime w osservazioni valide (oggi compreso); null finché non ce ne sono w */
+export function ddFromMax(a, w = 252) {
+  const out = new Array(a.length).fill(null), pos = [];
+  a.forEach((x, i) => {
+    if (x == null) return;
+    pos.push(i);
+    if (pos.length < w) return;
+    let mx = -Infinity;
+    for (let k = pos.length - w; k < pos.length; k++) if (a[pos[k]] > mx) mx = a[pos[k]];
+    out[i] = (x / mx - 1) * 100;
+  });
+  return out;
+}
+/** Variazione % rispetto a h osservazioni valide prima (salta i null senza riempirli) */
+export function obsChange(a, h = 21) {
+  const out = new Array(a.length).fill(null), pos = [];
+  a.forEach((x, i) => { if (x == null) return; pos.push(i); const k = pos.length - 1 - h; if (k >= 0) out[i] = (x / a[pos[k]] - 1) * 100; });
+  return out;
+}
+const lastAt = (a, t = a.length - 1) => { while (t >= 0 && a[t] == null) t--; return t; };
+
+/**
+ * Struttura a termine e credito sulle sedute di A (serie allineata). v3 = VIX3M, cr = rapporto HYG/IEF ({dates, val,
+ * fred} o null se il file non le ha). R = VIX/VIX3M; credito = distanza del rapporto HYG/IEF dal massimo di 252 sedute;
+ * percentili sulla sola storia fino a quel giorno (almeno 252 valori); per il credito il percentile è della profondità
+ * del calo (alto = calo più profondo della storia). R è provvisorio se la seduta è dopo l'ultimo FRED del VIX o del VIX3M.
+ */
+export function context(A, v3, cr) {
+  const V3 = onDates(A.dates, v3), R = ratio(A.vix, V3), C = onDates(A.dates, cr);
+  const dd = ddFromMax(C, 252), ch = obsChange(C, 21);
+  const rPct = expandingPct(R, 252), ddPct = expandingPct(dd.map((x) => (x == null ? null : -x)), 252);
+  const provisional = (i) => i >= 0 && ((!!A.fred && A.dates[i] > A.fred) || (!!v3 && !!v3.fred && A.dates[i] > v3.fred));
+  const tv = lastAt(A.vix), tr = lastAt(R), tc = lastAt(dd);
+  return {
+    has3m: !!v3, hasCredit: !!cr, from3m: v3 ? v3.dates[0] : null, fromCredit: cr ? cr.dates[0] : null,
+    v3: V3, r: R, rPct, credit: C, dd, ddPct, ch, provisional,
+    now: {
+      r: tr >= 0 ? { date: A.dates[tr], vix: A.vix[tr], v3: V3[tr], r: R[tr], state: termState(R[tr]), pct: rPct[tr], provisional: provisional(tr), sameDay: tr === tv } : null,
+      credit: tc >= 0 ? { date: A.dates[tc], dd: dd[tc], ch: ch[tc], pct: ddPct[tc] } : null,
+    },
+  };
 }
 
 /** Lettura di oggi: ultimo VIX, fascia, percentile, realizzata, premio e suo percentile (storia fino a oggi) */

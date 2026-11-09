@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 06/11/2026, versione 1.5.0.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 09/11/2026, versione 1.6.0.
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -28,7 +28,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/indexdata.js` | formato compatto degli indici |
   | `js/capitulation.js` | cali forti |
   | `js/calendar.js` | calendari |
-  | `js/vix.js` | vista 8: episodi del VIX, rendimenti dopo i picchi, scatter, realizzata e premio per la paura |
+  | `js/vix.js` | vista 8: episodi del VIX, rendimenti dopo i picchi, scatter, realizzata e premio per la paura, struttura a termine (VIX/VIX3M) e credito (HYG/IEF) |
   | `js/emerging.js` | vista 7 (Emergenti): pulizia dei cambi, z e F della valuta, D del dollaro, forza relativa contro ACWI |
 
 - **Viste e grafici**:
@@ -62,7 +62,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Prezzi | `scripts/fetch_data.js` | `data/prices.json` (USA), `prices_global.json` (UCITS in euro), `prices_macro.json` (asset reali, CPI da FRED) |
 | Breadth settori | `scripts/fetch_breadth.js` | `breadth.json`, `breadth_latest.json`, `sectors.json`, `sp500_members.json`, `sp500_history.json`, `sector_members.json`, `capitulation.json` (SPX e settori) |
 | Indici | `scripts/fetch_indices.js` | `indices.json`, `indices_more.json`, `index_members/*.json`, `capitulation.json` (indici) |
-| VIX | `scripts/fetch_vix.js` | `vix.json` (VIX da FRED con l'ultima seduta da Yahoo, S&P 500 e Nasdaq-100 dal 1990); passo che può fallire senza fermare gli altri |
+| VIX | `scripts/fetch_vix.js` | `vix.json` (VIX dal 1990 e VIX3M dal 2007 da FRED con l'ultima seduta dal file di Cboe, Yahoo di riserva; S&P 500 e Nasdaq-100 dal 1990; HYG/IEF rettificati dal 2007; VIX3M e HYG/IEF facoltativi); passo che può fallire senza fermare gli altri, 8 minuti |
 | Emergenti | `scripts/fetch_emerging.js` | `emerging.json` (cambi della Fed da FRED con gli ultimi giorni da Yahoo, ETF da Yahoo, `DTWEXEMEGS` da FRED); passo che può fallire senza fermare gli altri |
 | Alert | `scripts/send_alerts.js` | Telegram e `alerts.json`; un invio fallito si riprova per 5 sedute |
 | Commit | `scripts/keep_unchanged.js` | non pubblica i file che cambiano solo per l'ora |
@@ -142,6 +142,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Telegram per gli indici | rinviato fino alla fine del mese in cui gli indici sono solo registrati |
 | Discord | permesso di Massimo Rea (email del 18/10/2026) a condividere tutto nella stanza «Codice della Truppa»; il post con le novità è preparato, lo pubblica l'utente |
 | Vista Emergenti (05/11/2026, allora la 8, oggi la 7) | solo contesto: nessuna regola e nessun alert; i quattro elementi (stato, valuta, dollaro, forza relativa) tutti mostrati; scia della forza relativa solo per l'indice scelto; fasce «favorevole» sul grafico del dollaro |
+| Struttura a termine e credito nella vista 8 (09/11/2026) | solo contesto (il backtest non trova statistiche robuste); VIX/VIX3M al posto di VX1/VX2 (stessa lettura nel 91% delle sedute, niente salti di scadenza); soglia 1 per la backwardation; credito da HYG/IEF (HY OAS di ICE non ripubblicabile, BAA10Y con nota restrittiva di Moody's) come distanza dal massimo di 12 mesi; ultima seduta del VIX e del VIX3M dal file ufficiale di Cboe, Yahoo di riserva. Idea di Stefano Serafini (Morning Trading Show di BNP Paribas), senza data né link della puntata |
 | Vista 8 VIX (06/11/2026) | solo contesto; tabella dei regimi per episodi con tutte le soglie e solo il 40 segnato «robusto»; scatter in stile Rea con la didascalia giorni contro episodi; VIX contro realizzata con il premio; niente GARCH (riammesso solo per la verifica, scartato); rendimenti dalla chiusura della seduta dopo il segnale; Alert alla 9 |
 | Rendimenti degli episodi | indecisa: calcolarli dalla chiusura della seduta dopo il segnale invece che dal giorno stesso (cambio di regola, da decidere con l'utente) |
 
@@ -157,11 +158,11 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `quant-rea/` | catalogo e verifica delle 34 analisi del fascicolo di un utente, classifica di utilità, prova della capitolazione su 22 indici, preset |
 | `avvicinamento-uso/` | uso pratico dell'avvicinamento: promemoria, non segnale |
 | `indici-breadth50/` | breadth a 50 sedute per gli alert degli indici: nessun pattern regge |
-| `vix/` | regimi del VIX, implicita contro realizzata contro GARCH, dati e inserimento della vista 8 (`sintesi.md`) |
+| `vix/` | regimi del VIX, implicita contro realizzata contro GARCH, dati e inserimento della vista 8 (`sintesi.md`); `struttura/` dati, backtest e piano della struttura a termine e del credito (1.6.0) |
 | `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (1.5.0)
+## 7. Stato attuale (1.6.0)
 
 - 9 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
 - Test automatici: `npm test`, 134 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti).
@@ -185,6 +186,8 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **1.4.0 (05/11/2026)**: vista 8 Emergenti, solo contesto, dal piano `ricerca/emergenti/inserimento.md`. Il file `data/emerging.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Controllo nel browser `ricerca/qa/browser/v140.cjs`.
 - **1.4.1 (05/11/2026)**: schede riordinate su richiesta dell'utente: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 Alert (`VIEWS` in `js/app.js`); indirizzi e comandi invariati. Le note storiche usano i numeri di allora (Titoli era la 7, Alert la 5, Emergenti la 8).
 - **1.5.0 (06/11/2026)**: vista 8 VIX (Alert alla 9), dalla verifica in `ricerca/vix/` (idea di Massimo Rea). Il file `data/vix.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Test: `test/vix.test.js` (valori verificati con lo script di ricerca), controllo nel browser `ricerca/qa/browser/v150.cjs`.
+- **1.6.0 (09/11/2026)**: nella vista 8 struttura a termine (VIX/VIX3M) e credito (HYG/IEF), due riquadri e due pannelli, dalla verifica in `ricerca/vix/struttura/`. Finché la Action non scrive le serie nuove i due riquadri dicono «dato non disponibile». Test: `test/vix_struttura.test.js`, controllo nel browser `ricerca/qa/browser/v160.cjs` (fallisce sulla 1.5.0).
+- Punto aperto per l'utente (segnalato il 09/11/2026): i termini d'uso di FRED vietano di archiviare i loro dati in una raccolta, mentre permettono di mostrare con la citazione le serie «Citation required»; riguarda già VIX, cambi H.10 e CPI pubblicati in `data/`. Decisione sua se approfondire.
 - 1.5.0, rilievi minori aperti (`ricerca/qa/1.5.0/`): tabella dei regimi più larga dello schermo sul telefono (si scorre dentro la tabella); righe della tabella senza ruolo per i lettori di schermo (come nel Monitor); spiegazioni solo nei `title` (al tocco si vedono su riquadri e pillole); la riga della soglia di oggi non è evidenziata all'apertura; prima corsa con ^GSPC accorciato scriverebbe una storia corta (si ripara alla corsa dopo). Sul Nasdaq-100 la soglia 30 supera il criterio in 5 varianti su 6 (scelta: «robusto» solo con 6 su 6).
 - Rilievi minori aperti della 1.3.5 (`ricerca/qa/1.3.5/codice/rapporto-codice.md`): la cache delle date di `barDate` non si svuota mai (nel caso reale 85.574 istanti diversi su 1,3 milioni, nessun problema); `scripts/backfill_indices.py` e i vecchi controlli in `ricerca/qa/audit-0.9.*` datano ancora con il `gmtoffset` (giusto per i titoli, sbagliato d'inverno per cambi e DX-Y.NYB).
 - Decisioni dell'utente del 18/10/2026: la scala Adatta/Massima della rotazione resta salvata nel browser.

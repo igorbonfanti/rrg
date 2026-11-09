@@ -54,7 +54,10 @@ export function staleData(d, today) {
   // vista 8 VIX: VIX e indici come gli altri prezzi; la parte di FRED (aggiornata ogni mattina) al massimo 6 giorni
   if (d.vix !== undefined) {
     checks.push(['vix.json (VIX)', d.vix && d.vix.asOf && d.vix.asOf.vix, B, 4], ['vix.json (S&P 500)', d.vix && d.vix.asOf && d.vix.asOf.spx, B, 4],
-      ['vix.json (Nasdaq-100)', d.vix && d.vix.asOf && d.vix.asOf.ndx, B, 4], ['vix.json (FRED)', d.vix && d.vix.asOf && d.vix.asOf.fred, today, 6]);
+      ['vix.json (Nasdaq-100)', d.vix && d.vix.asOf && d.vix.asOf.ndx, B, 4], ['vix.json (FRED)', d.vix && d.vix.asOf && d.vix.asOf.fred, today, 6],
+      // dalla 1.6.0: VIX3M come il VIX, credito HYG/IEF come gli altri prezzi di Yahoo (null = serie facoltativa mai arrivata)
+      ['vix.json (VIX3M)', d.vix && d.vix.asOf && d.vix.asOf.vix3m, B, 4], ['vix.json (FRED VIX3M)', d.vix && d.vix.asOf && d.vix.asOf.fred3m, today, 6],
+      ['vix.json (HYG/IEF)', d.vix && d.vix.asOf && d.vix.asOf.credit, B, 4]);
   }
   // serie che non sono mai arrivate (prima corsa con qualche fonte giù): senza data, quindi segnalate
   for (const k of (d.emerging && d.emerging.missing) || []) checks.push([`emerging.json: ${k} (mancante)`, null, B, 6]);

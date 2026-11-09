@@ -79,12 +79,12 @@ jobs:
         timeout-minutes: 8
         run: node scripts/fetch_emerging.js
 
-      # vista 8 VIX (solo contesto): VIX di FRED (Cboe) con l'ultima seduta da Yahoo, S&P 500 e Nasdaq-100 dal 1990; se
-      # fallisce resta il file pubblicato e la corsa lo segnala alla fine
+      # vista 8 VIX (solo contesto): VIX e VIX3M di FRED (Cboe) con l'ultima seduta dal file di Cboe (Yahoo di riserva),
+      # S&P 500 e Nasdaq-100 dal 1990, credito HYG/IEF di Yahoo; se fallisce resta il file pubblicato e la corsa lo segnala
       - name: VIX (vista VIX)
         id: vix
         continue-on-error: true
-        timeout-minutes: 5
+        timeout-minutes: 8
         run: node scripts/fetch_vix.js
 
       - name: Breadth settoriale S&P 500 e storia ETF

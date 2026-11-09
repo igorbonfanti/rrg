@@ -902,4 +902,17 @@ svg.bub { touch-action: pan-y; }
 .kl.vxk-vix { background: var(--amber); } .kl.vxk-rv { background: var(--blue-light); } .kl.vxk-prem { background: var(--ink-2); } .kb.vxk-high { background: var(--down); opacity: .3; }
 :root[data-theme="light"] .kb.vxk-high { opacity: .16; }
 @media (max-width: 600px) { .vxtable .h21, .vxtable .h126, .vxtable .hmin, .vxeps .h21, .vxeps .h126, .vxeps .hmin { display: none; } .vxeps td:nth-child(2), .vxeps th:nth-child(2) { white-space: normal; } }
-@media (min-width: 601px) and (max-width: 1100px) { #vxKpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 601px) and (max-width: 1100px) { #vxKpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) { #vxKpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } #vxKpis .kpi .s { overflow-wrap: anywhere; } #vxKpis .kpi .v .vxst { display: block; margin-left: 0; } }
+/* struttura a termine (VIX/VIX3M) e credito (HYG/IEF): idea di Stefano Serafini; colori Okabe-Ito */
+:root { --vx-r: #cc79a7; --vx-back: rgba(204, 121, 167, .36); --vx-cr: #2fbf8f; }
+:root[data-theme="light"] { --vx-r: #9e3f78; --vx-back: rgba(158, 63, 120, .26); --vx-cr: #00785a; }
+.kpi .v .vxst { font: 500 13px var(--f-mono); margin-left: 6px; }
+.kpi .v .vxst.back { color: var(--vx-r); } .kpi .v .vxst.cont { color: var(--ink-3); }
+.ts .vxr { fill: none; stroke: var(--vx-r); stroke-width: 1.1; }
+.ts .vxback { fill: var(--vx-back); }
+.ts .vxone { stroke: var(--ink-3); stroke-dasharray: 3 3; }
+.ts .vxrdot { fill: var(--bg); stroke: var(--vx-r); stroke-width: 1.4; } .ts .vxrdot.back { fill: var(--vx-r); }
+.ts .vxcr { fill: none; stroke: var(--vx-cr); stroke-width: 1.2; }
+.ts .vxnodata { fill: var(--ink-3); fill-opacity: .08; }
+.kl.vxk-r { background: var(--vx-r); } .kl.vxk-cr { background: var(--vx-cr); } .kb.vxk-back { background: var(--vx-back); outline: 1px solid var(--vx-r); outline-offset: -1px; }

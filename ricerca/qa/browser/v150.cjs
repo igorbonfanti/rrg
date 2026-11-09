@@ -36,7 +36,7 @@ const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail+
     if (opt.hasTouch) await p.locator('#tab-vix').tap(); else await p.keyboard.press('8');
     await p.waitForSelector('#vxTable tbody tr', { timeout: 30000 }); await p.waitForTimeout(600);
     ok(await p.evaluate(() => location.hash) === '#vix', `${name}: indirizzo #vix`);
-    ok(await p.locator('#vxKpis .kpi').count() === 4, `${name}: 4 riquadri`);
+    ok(await p.locator('#vxKpis .kpi').count() >= 4, `${name}: almeno 4 riquadri`); // dalla 1.6.0 sono 6: li controlla v160.cjs
     const rows = await p.$$eval('#vxTable tbody tr', (t) => t.map((r) => [r.dataset.x || 'base', r.textContent]));
     ok(rows.length === 6 && rows[0][0] === 'base', `${name}: tabella con la base e 5 soglie`);
     ok(rows.filter((r) => /robusto/i.test(r[1])).map((r) => r[0]).join() === '40', `${name}: solo il 40 «robusto»`);
