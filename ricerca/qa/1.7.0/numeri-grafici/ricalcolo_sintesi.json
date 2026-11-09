@@ -1,0 +1,1775 @@
+{
+ "fred_last": "2026-11-05",
+ "file_vix_last": "2026-11-06",
+ "vix_file_vs_fred": {
+  "n_diff": 0,
+  "max": null,
+  "solo_file": [
+   "2026-11-06"
+  ],
+  "solo_fred": [
+   "2004-06-11",
+   "2022-05-30",
+   "2022-06-20",
+   "2022-07-04",
+   "2022-09-05",
+   "2022-11-24",
+   "2023-01-16",
+   "2023-02-20",
+   "2023-05-29",
+   "2023-06-19",
+   "2023-07-04",
+   "2023-09-04",
+   "2023-11-23",
+   "2024-01-15",
+   "2024-02-19",
+   "2024-05-27",
+   "2024-06-19",
+   "2024-07-04",
+   "2024-09-02",
+   "2024-11-28",
+   "2025-01-09",
+   "2025-01-20",
+   "2025-02-17",
+   "2025-05-26",
+   "2025-06-19",
+   "2025-07-04",
+   "2025-09-01",
+   "2025-11-27",
+   "2026-01-19",
+   "2026-02-16",
+   "2026-05-25",
+   "2026-06-19",
+   "2026-07-03",
+   "2026-09-07"
+  ]
+ },
+ "SPX": {
+  "cal": {
+   "solo_yahoo": 0,
+   "solo_file": 0,
+   "n_yahoo": 9281,
+   "n_file": 9281
+  },
+  "close_maxrel": [
+   5.461046292953853e-08,
+   "1995-06-14"
+  ],
+  "diff_A_B": [
+   [
+    20,
+    "2026-11-02",
+    "end",
+    "2026-11-05",
+    "2026-11-06"
+   ],
+   [
+    20,
+    "2026-11-02",
+    "sessions",
+    4,
+    5
+   ],
+   [
+    25,
+    "2026-11-05",
+    "end",
+    "2026-11-05",
+    "2026-11-06"
+   ],
+   [
+    25,
+    "2026-11-05",
+    "sessions",
+    1,
+    2
+   ]
+  ],
+  "eps": {
+   "20": [
+    {
+     "date": "1992-04-08",
+     "vix": 20.15,
+     "vixMax": 20.15,
+     "maxDate": "1992-04-08",
+     "end": "1992-04-08",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1992-10-05",
+     "vix": 20.01,
+     "vixMax": 21.02,
+     "maxDate": "1992-10-07",
+     "end": "1992-10-09",
+     "sessions": 5,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1994-03-31",
+     "vix": 20.45,
+     "vixMax": 23.87,
+     "maxDate": "1994-04-04",
+     "end": "1994-04-04",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1996-03-08",
+     "vix": 20.7,
+     "vixMax": 20.7,
+     "maxDate": "1996-03-08",
+     "end": "1996-04-10",
+     "sessions": 23,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1996-07-15",
+     "vix": 20.11,
+     "vixMax": 21.55,
+     "maxDate": "1996-07-23",
+     "end": "1996-09-05",
+     "sessions": 38,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1996-12-12",
+     "vix": 20.45,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "2003-10-02",
+     "sessions": 1712,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2004-03-11",
+     "vix": 20.67,
+     "vixMax": 21.58,
+     "maxDate": "2004-03-22",
+     "end": "2004-03-23",
+     "sessions": 9,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2006-06-12",
+     "vix": 20.96,
+     "vixMax": 23.81,
+     "maxDate": "2006-06-13",
+     "end": "2006-06-14",
+     "sessions": 3,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2007-07-26",
+     "vix": 20.74,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2012-07-24",
+     "sessions": 1260,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2012-12-28",
+     "vix": 22.72,
+     "vixMax": 22.72,
+     "maxDate": "2012-12-28",
+     "end": "2012-12-28",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2013-06-20",
+     "vix": 20.49,
+     "vixMax": 20.49,
+     "maxDate": "2013-06-20",
+     "end": "2013-06-24",
+     "sessions": 3,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2013-10-08",
+     "vix": 20.34,
+     "vixMax": 20.34,
+     "maxDate": "2013-10-08",
+     "end": "2013-10-08",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2014-02-03",
+     "vix": 21.44,
+     "vixMax": 21.44,
+     "maxDate": "2014-02-03",
+     "end": "2014-02-03",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2014-10-10",
+     "vix": 21.24,
+     "vixMax": 26.25,
+     "maxDate": "2014-10-15",
+     "end": "2015-01-30",
+     "sessions": 77,
+     "finished": true,
+     "crisis": "2014 ottobre"
+    },
+    {
+     "date": "2015-08-21",
+     "vix": 28.03,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2016-02-29",
+     "sessions": 131,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2016-06-13",
+     "vix": 20.97,
+     "vixMax": 25.76,
+     "maxDate": "2016-06-24",
+     "end": "2016-06-27",
+     "sessions": 11,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2016-11-03",
+     "vix": 22.08,
+     "vixMax": 22.51,
+     "maxDate": "2016-11-04",
+     "end": "2016-11-04",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2018-02-05",
+     "vix": 37.32,
+     "vixMax": 37.32,
+     "maxDate": "2018-02-05",
+     "end": "2018-04-11",
+     "sessions": 46,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2018-10-10",
+     "vix": 22.96,
+     "vixMax": 36.07,
+     "maxDate": "2018-12-24",
+     "end": "2019-01-22",
+     "sessions": 70,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2019-05-13",
+     "vix": 20.55,
+     "vixMax": 24.59,
+     "maxDate": "2019-08-05",
+     "end": "2019-10-08",
+     "sessions": 104,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2020-02-24",
+     "vix": 25.03,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2023-05-24",
+     "sessions": 820,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2023-10-19",
+     "vix": 21.4,
+     "vixMax": 21.71,
+     "maxDate": "2023-10-20",
+     "end": "2023-10-27",
+     "sessions": 7,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2024-08-02",
+     "vix": 23.39,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2026-07-29",
+     "sessions": 498,
+     "finished": true,
+     "crisis": "2024 carry yen"
+    },
+    {
+     "date": "2026-11-02",
+     "vix": 21.15,
+     "vixMax": 28.18,
+     "maxDate": "2026-11-05",
+     "end": "2026-11-06",
+     "sessions": 5,
+     "finished": false,
+     "crisis": null
+    }
+   ],
+   "25": [
+    {
+     "date": "1990-08-03",
+     "vix": 28.74,
+     "vixMax": 36.47,
+     "maxDate": "1990-08-23",
+     "end": "1991-01-18",
+     "sessions": 117,
+     "finished": true,
+     "crisis": "1990 Golfo"
+    },
+    {
+     "date": "1997-09-04",
+     "vix": 25.27,
+     "vixMax": 38.2,
+     "maxDate": "1997-10-30",
+     "end": "1998-01-13",
+     "sessions": 91,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1998-04-27",
+     "vix": 26.09,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "2000-05-23",
+     "sessions": 525,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2000-10-11",
+     "vix": 26.57,
+     "vixMax": 43.74,
+     "maxDate": "2001-09-20",
+     "end": "2002-02-07",
+     "sessions": 330,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2002-06-13",
+     "vix": 25.02,
+     "vixMax": 45.08,
+     "maxDate": "2002-08-05",
+     "end": "2003-04-10",
+     "sessions": 209,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2007-08-03",
+     "vix": 25.16,
+     "vixMax": 32.24,
+     "maxDate": "2008-03-17",
+     "end": "2008-03-31",
+     "sessions": 165,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2008-07-02",
+     "vix": 25.92,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2010-08-31",
+     "sessions": 546,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2011-03-16",
+     "vix": 29.4,
+     "vixMax": 29.4,
+     "maxDate": "2011-03-16",
+     "end": "2011-03-17",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2011-07-29",
+     "vix": 25.25,
+     "vixMax": 48.0,
+     "maxDate": "2011-08-08",
+     "end": "2011-12-15",
+     "sessions": 98,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2012-05-18",
+     "vix": 25.1,
+     "vixMax": 26.66,
+     "maxDate": "2012-06-01",
+     "end": "2012-06-04",
+     "sessions": 11,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2014-10-15",
+     "vix": 26.25,
+     "vixMax": 26.25,
+     "maxDate": "2014-10-15",
+     "end": "2014-10-16",
+     "sessions": 2,
+     "finished": true,
+     "crisis": "2014 ottobre"
+    },
+    {
+     "date": "2015-08-21",
+     "vix": 28.03,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2015-09-29",
+     "sessions": 27,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2016-01-08",
+     "vix": 27.01,
+     "vixMax": 28.14,
+     "maxDate": "2016-02-11",
+     "end": "2016-02-12",
+     "sessions": 25,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2016-06-24",
+     "vix": 25.76,
+     "vixMax": 25.76,
+     "maxDate": "2016-06-24",
+     "end": "2016-06-24",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2018-02-05",
+     "vix": 37.32,
+     "vixMax": 37.32,
+     "maxDate": "2018-02-05",
+     "end": "2018-02-12",
+     "sessions": 6,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2018-10-24",
+     "vix": 25.23,
+     "vixMax": 36.07,
+     "maxDate": "2018-12-24",
+     "end": "2019-01-03",
+     "sessions": 48,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2020-02-24",
+     "vix": 25.03,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2021-05-12",
+     "sessions": 308,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2021-09-20",
+     "vix": 25.71,
+     "vixMax": 36.45,
+     "maxDate": "2022-03-07",
+     "end": "2023-03-17",
+     "sessions": 376,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2024-08-05",
+     "vix": 38.57,
+     "vixMax": 38.57,
+     "maxDate": "2024-08-05",
+     "end": "2024-08-07",
+     "sessions": 3,
+     "finished": true,
+     "crisis": "2024 carry yen"
+    },
+    {
+     "date": "2024-12-18",
+     "vix": 27.62,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-28",
+     "sessions": 88,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2025-10-16",
+     "vix": 25.31,
+     "vixMax": 26.42,
+     "maxDate": "2025-11-20",
+     "end": "2025-11-20",
+     "sessions": 26,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2026-03-06",
+     "vix": 29.49,
+     "vixMax": 31.05,
+     "maxDate": "2026-03-27",
+     "end": "2026-04-07",
+     "sessions": 22,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2026-11-05",
+     "vix": 28.18,
+     "vixMax": 28.18,
+     "maxDate": "2026-11-05",
+     "end": "2026-11-06",
+     "sessions": 2,
+     "finished": false,
+     "crisis": null
+    }
+   ],
+   "30": [
+    {
+     "date": "1990-08-06",
+     "vix": 35.91,
+     "vixMax": 36.47,
+     "maxDate": "1990-08-23",
+     "end": "1991-01-16",
+     "sessions": 114,
+     "finished": true,
+     "crisis": "1990 Golfo"
+    },
+    {
+     "date": "1997-10-27",
+     "vix": 31.12,
+     "vixMax": 38.2,
+     "maxDate": "1997-10-30",
+     "end": "1997-12-24",
+     "sessions": 42,
+     "finished": true,
+     "crisis": "1997 Asia"
+    },
+    {
+     "date": "1998-08-04",
+     "vix": 31.06,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "1999-02-18",
+     "sessions": 137,
+     "finished": true,
+     "crisis": "1998 Russia/LTCM"
+    },
+    {
+     "date": "2000-04-14",
+     "vix": 33.49,
+     "vixMax": 33.49,
+     "maxDate": "2000-04-14",
+     "end": "2000-05-04",
+     "sessions": 14,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2000-10-12",
+     "vix": 30.51,
+     "vixMax": 34.72,
+     "maxDate": "2001-04-03",
+     "end": "2001-04-09",
+     "sessions": 123,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2001-09-07",
+     "vix": 30.99,
+     "vixMax": 43.74,
+     "maxDate": "2001-09-20",
+     "end": "2001-11-05",
+     "sessions": 38,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2002-07-09",
+     "vix": 30.22,
+     "vixMax": 45.08,
+     "maxDate": "2002-08-05",
+     "end": "2003-03-24",
+     "sessions": 179,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2007-08-15",
+     "vix": 30.67,
+     "vixMax": 32.24,
+     "maxDate": "2008-03-17",
+     "end": "2008-03-17",
+     "sessions": 148,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2008-09-15",
+     "vix": 31.7,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2009-07-08",
+     "sessions": 205,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2009-10-30",
+     "vix": 30.69,
+     "vixMax": 30.69,
+     "maxDate": "2009-10-30",
+     "end": "2009-10-30",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2010-05-06",
+     "vix": 32.8,
+     "vixMax": 45.79,
+     "maxDate": "2010-05-20",
+     "end": "2010-07-02",
+     "sessions": 41,
+     "finished": true,
+     "crisis": "2010 euro/flash crash"
+    },
+    {
+     "date": "2011-08-04",
+     "vix": 31.66,
+     "vixMax": 48.0,
+     "maxDate": "2011-08-08",
+     "end": "2011-12-08",
+     "sessions": 89,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2015-08-24",
+     "vix": 40.74,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2015-09-01",
+     "sessions": 7,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2018-02-05",
+     "vix": 37.32,
+     "vixMax": 37.32,
+     "maxDate": "2018-02-05",
+     "end": "2018-02-08",
+     "sessions": 4,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2018-12-21",
+     "vix": 30.11,
+     "vixMax": 36.07,
+     "maxDate": "2018-12-24",
+     "end": "2018-12-26",
+     "sessions": 3,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2020-02-27",
+     "vix": 39.16,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2021-02-01",
+     "sessions": 235,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2021-12-01",
+     "vix": 31.12,
+     "vixMax": 36.45,
+     "maxDate": "2022-03-07",
+     "end": "2022-06-21",
+     "sessions": 139,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2022-09-26",
+     "vix": 32.26,
+     "vixMax": 33.63,
+     "maxDate": "2022-10-11",
+     "end": "2022-10-19",
+     "sessions": 18,
+     "finished": true,
+     "crisis": "2022 inflazione/tassi"
+    },
+    {
+     "date": "2024-08-05",
+     "vix": 38.57,
+     "vixMax": 38.57,
+     "maxDate": "2024-08-05",
+     "end": "2024-08-05",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2024 carry yen"
+    },
+    {
+     "date": "2025-04-03",
+     "vix": 30.02,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-22",
+     "sessions": 13,
+     "finished": true,
+     "crisis": "2025 dazi"
+    },
+    {
+     "date": "2026-03-27",
+     "vix": 31.05,
+     "vixMax": 31.05,
+     "maxDate": "2026-03-27",
+     "end": "2026-03-30",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    }
+   ],
+   "40": [
+    {
+     "date": "1998-08-31",
+     "vix": 44.28,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "1998-10-13",
+     "sessions": 31,
+     "finished": true,
+     "crisis": "1998 Russia/LTCM"
+    },
+    {
+     "date": "2001-09-17",
+     "vix": 41.76,
+     "vixMax": 43.74,
+     "maxDate": "2001-09-20",
+     "end": "2001-09-21",
+     "sessions": 5,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2002-07-22",
+     "vix": 41.87,
+     "vixMax": 45.08,
+     "maxDate": "2002-08-05",
+     "end": "2002-10-09",
+     "sessions": 57,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2008-09-29",
+     "vix": 46.72,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2009-04-07",
+     "sessions": 132,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2010-05-07",
+     "vix": 40.95,
+     "vixMax": 45.79,
+     "maxDate": "2010-05-20",
+     "end": "2010-05-21",
+     "sessions": 11,
+     "finished": true,
+     "crisis": "2010 euro/flash crash"
+    },
+    {
+     "date": "2011-08-08",
+     "vix": 48.0,
+     "vixMax": 48.0,
+     "maxDate": "2011-08-08",
+     "end": "2011-10-04",
+     "sessions": 41,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2015-08-24",
+     "vix": 40.74,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2015-08-24",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2020-02-28",
+     "vix": 40.11,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2020-06-11",
+     "sessions": 73,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2020-10-28",
+     "vix": 40.28,
+     "vixMax": 40.28,
+     "maxDate": "2020-10-28",
+     "end": "2020-10-28",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2025-04-04",
+     "vix": 45.31,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-10",
+     "sessions": 5,
+     "finished": true,
+     "crisis": "2025 dazi"
+    }
+   ],
+   "50": [
+    {
+     "date": "2008-10-06",
+     "vix": 52.05,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2009-03-05",
+     "sessions": 104,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2020-03-09",
+     "vix": 54.46,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2020-04-02",
+     "sessions": 19,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2025-04-08",
+     "vix": 52.33,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-08",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2025 dazi"
+    }
+   ]
+  }
+ },
+ "NDX": {
+  "cal": {
+   "solo_yahoo": 0,
+   "solo_file": 0,
+   "n_yahoo": 9281,
+   "n_file": 9281
+  },
+  "close_maxrel": [
+   5.6752692656480974e-08,
+   "1991-05-15"
+  ],
+  "diff_A_B": [
+   [
+    20,
+    "2026-11-02",
+    "end",
+    "2026-11-05",
+    "2026-11-06"
+   ],
+   [
+    20,
+    "2026-11-02",
+    "sessions",
+    4,
+    5
+   ],
+   [
+    25,
+    "2026-11-05",
+    "end",
+    "2026-11-05",
+    "2026-11-06"
+   ],
+   [
+    25,
+    "2026-11-05",
+    "sessions",
+    1,
+    2
+   ]
+  ],
+  "eps": {
+   "20": [
+    {
+     "date": "1992-04-08",
+     "vix": 20.15,
+     "vixMax": 20.15,
+     "maxDate": "1992-04-08",
+     "end": "1992-04-08",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1992-10-05",
+     "vix": 20.01,
+     "vixMax": 21.02,
+     "maxDate": "1992-10-07",
+     "end": "1992-10-09",
+     "sessions": 5,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1994-03-31",
+     "vix": 20.45,
+     "vixMax": 23.87,
+     "maxDate": "1994-04-04",
+     "end": "1994-04-04",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1996-03-08",
+     "vix": 20.7,
+     "vixMax": 20.7,
+     "maxDate": "1996-03-08",
+     "end": "1996-04-10",
+     "sessions": 23,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1996-07-15",
+     "vix": 20.11,
+     "vixMax": 21.55,
+     "maxDate": "1996-07-23",
+     "end": "1996-09-05",
+     "sessions": 38,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1996-12-12",
+     "vix": 20.45,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "2003-10-02",
+     "sessions": 1712,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2004-03-11",
+     "vix": 20.67,
+     "vixMax": 21.58,
+     "maxDate": "2004-03-22",
+     "end": "2004-03-23",
+     "sessions": 9,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2006-06-12",
+     "vix": 20.96,
+     "vixMax": 23.81,
+     "maxDate": "2006-06-13",
+     "end": "2006-06-14",
+     "sessions": 3,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2007-07-26",
+     "vix": 20.74,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2012-07-24",
+     "sessions": 1260,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2012-12-28",
+     "vix": 22.72,
+     "vixMax": 22.72,
+     "maxDate": "2012-12-28",
+     "end": "2012-12-28",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2013-06-20",
+     "vix": 20.49,
+     "vixMax": 20.49,
+     "maxDate": "2013-06-20",
+     "end": "2013-06-24",
+     "sessions": 3,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2013-10-08",
+     "vix": 20.34,
+     "vixMax": 20.34,
+     "maxDate": "2013-10-08",
+     "end": "2013-10-08",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2014-02-03",
+     "vix": 21.44,
+     "vixMax": 21.44,
+     "maxDate": "2014-02-03",
+     "end": "2014-02-03",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2014-10-10",
+     "vix": 21.24,
+     "vixMax": 26.25,
+     "maxDate": "2014-10-15",
+     "end": "2015-01-30",
+     "sessions": 77,
+     "finished": true,
+     "crisis": "2014 ottobre"
+    },
+    {
+     "date": "2015-08-21",
+     "vix": 28.03,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2016-02-29",
+     "sessions": 131,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2016-06-13",
+     "vix": 20.97,
+     "vixMax": 25.76,
+     "maxDate": "2016-06-24",
+     "end": "2016-06-27",
+     "sessions": 11,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2016-11-03",
+     "vix": 22.08,
+     "vixMax": 22.51,
+     "maxDate": "2016-11-04",
+     "end": "2016-11-04",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2018-02-05",
+     "vix": 37.32,
+     "vixMax": 37.32,
+     "maxDate": "2018-02-05",
+     "end": "2018-04-11",
+     "sessions": 46,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2018-10-10",
+     "vix": 22.96,
+     "vixMax": 36.07,
+     "maxDate": "2018-12-24",
+     "end": "2019-01-22",
+     "sessions": 70,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2019-05-13",
+     "vix": 20.55,
+     "vixMax": 24.59,
+     "maxDate": "2019-08-05",
+     "end": "2019-10-08",
+     "sessions": 104,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2020-02-24",
+     "vix": 25.03,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2023-05-24",
+     "sessions": 820,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2023-10-19",
+     "vix": 21.4,
+     "vixMax": 21.71,
+     "maxDate": "2023-10-20",
+     "end": "2023-10-27",
+     "sessions": 7,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2024-08-02",
+     "vix": 23.39,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2026-07-29",
+     "sessions": 498,
+     "finished": true,
+     "crisis": "2024 carry yen"
+    },
+    {
+     "date": "2026-11-02",
+     "vix": 21.15,
+     "vixMax": 28.18,
+     "maxDate": "2026-11-05",
+     "end": "2026-11-06",
+     "sessions": 5,
+     "finished": false,
+     "crisis": null
+    }
+   ],
+   "25": [
+    {
+     "date": "1990-08-03",
+     "vix": 28.74,
+     "vixMax": 36.47,
+     "maxDate": "1990-08-23",
+     "end": "1991-01-18",
+     "sessions": 117,
+     "finished": true,
+     "crisis": "1990 Golfo"
+    },
+    {
+     "date": "1997-09-04",
+     "vix": 25.27,
+     "vixMax": 38.2,
+     "maxDate": "1997-10-30",
+     "end": "1998-01-13",
+     "sessions": 91,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "1998-04-27",
+     "vix": 26.09,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "2000-05-23",
+     "sessions": 525,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2000-10-11",
+     "vix": 26.57,
+     "vixMax": 43.74,
+     "maxDate": "2001-09-20",
+     "end": "2002-02-07",
+     "sessions": 330,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2002-06-13",
+     "vix": 25.02,
+     "vixMax": 45.08,
+     "maxDate": "2002-08-05",
+     "end": "2003-04-10",
+     "sessions": 209,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2007-08-03",
+     "vix": 25.16,
+     "vixMax": 32.24,
+     "maxDate": "2008-03-17",
+     "end": "2008-03-31",
+     "sessions": 165,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2008-07-02",
+     "vix": 25.92,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2010-08-31",
+     "sessions": 546,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2011-03-16",
+     "vix": 29.4,
+     "vixMax": 29.4,
+     "maxDate": "2011-03-16",
+     "end": "2011-03-17",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2011-07-29",
+     "vix": 25.25,
+     "vixMax": 48.0,
+     "maxDate": "2011-08-08",
+     "end": "2011-12-15",
+     "sessions": 98,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2012-05-18",
+     "vix": 25.1,
+     "vixMax": 26.66,
+     "maxDate": "2012-06-01",
+     "end": "2012-06-04",
+     "sessions": 11,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2014-10-15",
+     "vix": 26.25,
+     "vixMax": 26.25,
+     "maxDate": "2014-10-15",
+     "end": "2014-10-16",
+     "sessions": 2,
+     "finished": true,
+     "crisis": "2014 ottobre"
+    },
+    {
+     "date": "2015-08-21",
+     "vix": 28.03,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2015-09-29",
+     "sessions": 27,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2016-01-08",
+     "vix": 27.01,
+     "vixMax": 28.14,
+     "maxDate": "2016-02-11",
+     "end": "2016-02-12",
+     "sessions": 25,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2016-06-24",
+     "vix": 25.76,
+     "vixMax": 25.76,
+     "maxDate": "2016-06-24",
+     "end": "2016-06-24",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2018-02-05",
+     "vix": 37.32,
+     "vixMax": 37.32,
+     "maxDate": "2018-02-05",
+     "end": "2018-02-12",
+     "sessions": 6,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2018-10-24",
+     "vix": 25.23,
+     "vixMax": 36.07,
+     "maxDate": "2018-12-24",
+     "end": "2019-01-03",
+     "sessions": 48,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2020-02-24",
+     "vix": 25.03,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2021-05-12",
+     "sessions": 308,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2021-09-20",
+     "vix": 25.71,
+     "vixMax": 36.45,
+     "maxDate": "2022-03-07",
+     "end": "2023-03-17",
+     "sessions": 376,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2024-08-05",
+     "vix": 38.57,
+     "vixMax": 38.57,
+     "maxDate": "2024-08-05",
+     "end": "2024-08-07",
+     "sessions": 3,
+     "finished": true,
+     "crisis": "2024 carry yen"
+    },
+    {
+     "date": "2024-12-18",
+     "vix": 27.62,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-28",
+     "sessions": 88,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2025-10-16",
+     "vix": 25.31,
+     "vixMax": 26.42,
+     "maxDate": "2025-11-20",
+     "end": "2025-11-20",
+     "sessions": 26,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2026-03-06",
+     "vix": 29.49,
+     "vixMax": 31.05,
+     "maxDate": "2026-03-27",
+     "end": "2026-04-07",
+     "sessions": 22,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2026-11-05",
+     "vix": 28.18,
+     "vixMax": 28.18,
+     "maxDate": "2026-11-05",
+     "end": "2026-11-06",
+     "sessions": 2,
+     "finished": false,
+     "crisis": null
+    }
+   ],
+   "30": [
+    {
+     "date": "1990-08-06",
+     "vix": 35.91,
+     "vixMax": 36.47,
+     "maxDate": "1990-08-23",
+     "end": "1991-01-16",
+     "sessions": 114,
+     "finished": true,
+     "crisis": "1990 Golfo"
+    },
+    {
+     "date": "1997-10-27",
+     "vix": 31.12,
+     "vixMax": 38.2,
+     "maxDate": "1997-10-30",
+     "end": "1997-12-24",
+     "sessions": 42,
+     "finished": true,
+     "crisis": "1997 Asia"
+    },
+    {
+     "date": "1998-08-04",
+     "vix": 31.06,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "1999-02-18",
+     "sessions": 137,
+     "finished": true,
+     "crisis": "1998 Russia/LTCM"
+    },
+    {
+     "date": "2000-04-14",
+     "vix": 33.49,
+     "vixMax": 33.49,
+     "maxDate": "2000-04-14",
+     "end": "2000-05-04",
+     "sessions": 14,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2000-10-12",
+     "vix": 30.51,
+     "vixMax": 34.72,
+     "maxDate": "2001-04-03",
+     "end": "2001-04-09",
+     "sessions": 123,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2001-09-07",
+     "vix": 30.99,
+     "vixMax": 43.74,
+     "maxDate": "2001-09-20",
+     "end": "2001-11-05",
+     "sessions": 38,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2002-07-09",
+     "vix": 30.22,
+     "vixMax": 45.08,
+     "maxDate": "2002-08-05",
+     "end": "2003-03-24",
+     "sessions": 179,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2007-08-15",
+     "vix": 30.67,
+     "vixMax": 32.24,
+     "maxDate": "2008-03-17",
+     "end": "2008-03-17",
+     "sessions": 148,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2008-09-15",
+     "vix": 31.7,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2009-07-08",
+     "sessions": 205,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2009-10-30",
+     "vix": 30.69,
+     "vixMax": 30.69,
+     "maxDate": "2009-10-30",
+     "end": "2009-10-30",
+     "sessions": 1,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2010-05-06",
+     "vix": 32.8,
+     "vixMax": 45.79,
+     "maxDate": "2010-05-20",
+     "end": "2010-07-02",
+     "sessions": 41,
+     "finished": true,
+     "crisis": "2010 euro/flash crash"
+    },
+    {
+     "date": "2011-08-04",
+     "vix": 31.66,
+     "vixMax": 48.0,
+     "maxDate": "2011-08-08",
+     "end": "2011-12-08",
+     "sessions": 89,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2015-08-24",
+     "vix": 40.74,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2015-09-01",
+     "sessions": 7,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2018-02-05",
+     "vix": 37.32,
+     "vixMax": 37.32,
+     "maxDate": "2018-02-05",
+     "end": "2018-02-08",
+     "sessions": 4,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2018-12-21",
+     "vix": 30.11,
+     "vixMax": 36.07,
+     "maxDate": "2018-12-24",
+     "end": "2018-12-26",
+     "sessions": 3,
+     "finished": true,
+     "crisis": "2018 volatilità/Fed"
+    },
+    {
+     "date": "2020-02-27",
+     "vix": 39.16,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2021-02-01",
+     "sessions": 235,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2021-12-01",
+     "vix": 31.12,
+     "vixMax": 36.45,
+     "maxDate": "2022-03-07",
+     "end": "2022-06-21",
+     "sessions": 139,
+     "finished": true,
+     "crisis": null
+    },
+    {
+     "date": "2022-09-26",
+     "vix": 32.26,
+     "vixMax": 33.63,
+     "maxDate": "2022-10-11",
+     "end": "2022-10-19",
+     "sessions": 18,
+     "finished": true,
+     "crisis": "2022 inflazione/tassi"
+    },
+    {
+     "date": "2024-08-05",
+     "vix": 38.57,
+     "vixMax": 38.57,
+     "maxDate": "2024-08-05",
+     "end": "2024-08-05",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2024 carry yen"
+    },
+    {
+     "date": "2025-04-03",
+     "vix": 30.02,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-22",
+     "sessions": 13,
+     "finished": true,
+     "crisis": "2025 dazi"
+    },
+    {
+     "date": "2026-03-27",
+     "vix": 31.05,
+     "vixMax": 31.05,
+     "maxDate": "2026-03-27",
+     "end": "2026-03-30",
+     "sessions": 2,
+     "finished": true,
+     "crisis": null
+    }
+   ],
+   "40": [
+    {
+     "date": "1998-08-31",
+     "vix": 44.28,
+     "vixMax": 45.74,
+     "maxDate": "1998-10-08",
+     "end": "1998-10-13",
+     "sessions": 31,
+     "finished": true,
+     "crisis": "1998 Russia/LTCM"
+    },
+    {
+     "date": "2001-09-17",
+     "vix": 41.76,
+     "vixMax": 43.74,
+     "maxDate": "2001-09-20",
+     "end": "2001-09-21",
+     "sessions": 5,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2002-07-22",
+     "vix": 41.87,
+     "vixMax": 45.08,
+     "maxDate": "2002-08-05",
+     "end": "2002-10-09",
+     "sessions": 57,
+     "finished": true,
+     "crisis": "2000-03 bolla internet"
+    },
+    {
+     "date": "2008-09-29",
+     "vix": 46.72,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2009-04-07",
+     "sessions": 132,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2010-05-07",
+     "vix": 40.95,
+     "vixMax": 45.79,
+     "maxDate": "2010-05-20",
+     "end": "2010-05-21",
+     "sessions": 11,
+     "finished": true,
+     "crisis": "2010 euro/flash crash"
+    },
+    {
+     "date": "2011-08-08",
+     "vix": 48.0,
+     "vixMax": 48.0,
+     "maxDate": "2011-08-08",
+     "end": "2011-10-04",
+     "sessions": 41,
+     "finished": true,
+     "crisis": "2011-12 debito USA/euro"
+    },
+    {
+     "date": "2015-08-24",
+     "vix": 40.74,
+     "vixMax": 40.74,
+     "maxDate": "2015-08-24",
+     "end": "2015-08-24",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2015-16 Cina/petrolio"
+    },
+    {
+     "date": "2020-02-28",
+     "vix": 40.11,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2020-06-11",
+     "sessions": 73,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2020-10-28",
+     "vix": 40.28,
+     "vixMax": 40.28,
+     "maxDate": "2020-10-28",
+     "end": "2020-10-28",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2025-04-04",
+     "vix": 45.31,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-10",
+     "sessions": 5,
+     "finished": true,
+     "crisis": "2025 dazi"
+    }
+   ],
+   "50": [
+    {
+     "date": "2008-10-06",
+     "vix": 52.05,
+     "vixMax": 80.86,
+     "maxDate": "2008-11-20",
+     "end": "2009-03-05",
+     "sessions": 104,
+     "finished": true,
+     "crisis": "2007-09 crisi finanziaria"
+    },
+    {
+     "date": "2020-03-09",
+     "vix": 54.46,
+     "vixMax": 82.69,
+     "maxDate": "2020-03-16",
+     "end": "2020-04-02",
+     "sessions": 19,
+     "finished": true,
+     "crisis": "2020 Covid"
+    },
+    {
+     "date": "2025-04-08",
+     "vix": 52.33,
+     "vixMax": 52.33,
+     "maxDate": "2025-04-08",
+     "end": "2025-04-08",
+     "sessions": 1,
+     "finished": true,
+     "crisis": "2025 dazi"
+    }
+   ]
+  }
+ }
+}
