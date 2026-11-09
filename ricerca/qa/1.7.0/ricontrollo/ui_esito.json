@@ -1,0 +1,179 @@
+{
+ "checks": 574,
+ "fail": 24,
+ "res": {
+  "desk": [
+   {
+    "name": "1440-chiaro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "150x38.0"
+    ]
+   },
+   {
+    "name": "1440-scuro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "150x38.0"
+    ]
+   },
+   {
+    "name": "1410-chiaro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "150x38.0"
+    ]
+   },
+   {
+    "name": "1410-scuro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "150x38.0"
+    ]
+   },
+   {
+    "name": "1366-chiaro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "1366-scuro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "1280-chiaro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "1280-scuro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "1100-chiaro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "1100-scuro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "1024-chiaro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "1024-scuro",
+    "worst": 0,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "820-chiaro",
+    "worst": 188,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   },
+   {
+    "name": "820-scuro",
+    "worst": 188,
+    "n": 10,
+    "sizes": [
+     "110x27.9"
+    ]
+   }
+  ],
+  "tel": [
+   {
+    "name": "390-chiaro",
+    "first": 78.734375,
+    "visSpark": 1,
+    "tableW": 563,
+    "boxW": 330,
+    "spark": "92x23.3",
+    "hiddenCells": 5
+   },
+   {
+    "name": "390-scuro",
+    "first": 78.734375,
+    "visSpark": 1,
+    "tableW": 563,
+    "boxW": 330,
+    "spark": "92x23.3",
+    "hiddenCells": 5
+   },
+   {
+    "name": "360-chiaro",
+    "first": 78.734375,
+    "visSpark": 0.69,
+    "tableW": 563,
+    "boxW": 300,
+    "spark": "92x23.3",
+    "hiddenCells": 5
+   },
+   {
+    "name": "360-scuro",
+    "first": 78.734375,
+    "visSpark": 0.69,
+    "tableW": 563,
+    "boxW": 300,
+    "spark": "92x23.3",
+    "hiddenCells": 5
+   }
+  ],
+  "col": {
+   "chiaro": {
+    "gray": "rgb(98, 98, 98)",
+    "minRow": 21.9,
+    "minBand": 7.1,
+    "amberWas": 6.6,
+    "op": 0.28,
+    "sameAsLine": "10/10",
+    "minVis": 15.5
+   },
+   "scuro": {
+    "gray": "rgb(138, 138, 138)",
+    "minRow": 28.9,
+    "minBand": 12.4,
+    "amberWas": 11.8,
+    "op": 0.34,
+    "sameAsLine": "10/10",
+    "minVis": 18.7
+   }
+  },
+  "legend": "VIX (implicita, prossimi 30 giorni)realizzata delle ultime 21 seduteNasdaq-100episodi con il VIX a 20 o più (dal primo all'ultimo giorno), nel colore della crisi; grigi se la crisi non è nello scatterpremio per la paurapremio oltre l'80° percentile della sua storiaVIX / VIX3Mbackwardation (VIX ≥ VIX3M)ultimo valore (pieno se in backwardation)HYG/IEF: distanza dal massimo di 12 mesi"
+ }
+}
