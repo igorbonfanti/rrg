@@ -1,0 +1,250 @@
+
+== ok | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   Cboe aggiornato, senza file: fonte ["Cboe","Cboe"] (attesa Cboe, Cboe)
+OK   Cboe aggiornato: VIX ["2026-11-06",25.64], FRED al 2026-11-05
+OK   ps del VIX 10000 (atteso 10000)
+OK   Cboe aggiornato: Yahoo per VIX e VIX3M non chiesto (0, 0)
+
+== ok | prev vix160.json | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   Cboe aggiornato sul file del commit: cambia solo «generated» (true)
+
+== ok | prev vix150.json | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   file della 1.5.0: VIX identico (d0, gaps, ps 10000, cd di 9278 valori); date o valori diversi: 0
+OK   file della 1.5.0: SPX e NDX identici
+OK   file della 1.5.0: fonte ["Cboe","Cboe"]
+
+== cboeLate | prev nessuno | exit 0 | attesa 0s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   Cboe in ritardo → Yahoo: fonte ["Yahoo","Yahoo"], VIX ["2026-11-06",25.64]
+
+== cboeLate | prev vix160.json | exit 0 | attesa 0s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   Cboe in ritardo sul file del commit (stessi valori, fonte cambiata Cboe → Yahoo): fonte ["Yahoo","Yahoo"]
+
+== ok | prev vix160_yahoo.json | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   stessi valori, fonte cambiata Yahoo → Cboe: si scrive, fonte ["Cboe","Cboe"]
+OK   stessi valori, fonte cambiata: cd e ps del VIX invariati (cambia solo src)
+
+== cboeLate3m | prev nessuno | exit 0 | attesa 0s | richieste 9 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   in ritardo solo il VIX3M: fonte ["Cboe","Yahoo"] (attesa Cboe, Yahoo)
+
+== cboeDown | prev nessuno | exit 0 | attesa 0s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX (Cboe): HTTP 403
+   ! VIX3M (Cboe): HTTP 403
+OK   Cboe 403: un solo tentativo per file (1, 1), fonte ["Yahoo","Yahoo"]
+
+== cboe503 | prev nessuno | exit 0 | attesa 4.5s | richieste 11 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX yahoo_VIX fred_VXVCLS yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX (Cboe): HTTP 503
+   ! VIX3M (Cboe): non richiesto, Cboe già giù (HTTP 503)
+OK   Cboe 503: 3 tentativi sul VIX, VIX3M non chiesto (3, 0), fonte ["Yahoo","Yahoo"]
+
+== cboe404VIX3M | prev nessuno | exit 0 | attesa 0s | richieste 9 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX3M (Cboe): HTTP 404
+OK   solo il file del VIX3M 404: fonte ["Cboe","Yahoo"], Yahoo ^VIX non chiesto
+
+== cboeEmpty | prev nessuno | exit 0 | attesa 4.5s | richieste 11 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX yahoo_VIX fred_VXVCLS yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX (Cboe): nessun dato
+   ! VIX3M (Cboe): non richiesto, Cboe già giù (nessun dato)
+OK   Cboe vuoto: fonte ["Yahoo","Yahoo"], VIX3M di Cboe chiesto 0 volte
+
+== cboeNoSess | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-05","fred":"2026-11-05","vixSrc":"FRED","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-05",28.18] VIX3M ["2026-11-05",25.55]
+FAIL Cboe senza sedute dell'S&P 500 (vuoto dopo il filtro): fonte ["FRED","FRED"], VIX ["2026-11-05",28.18], Yahoo ^VIX chiesto 0 volte (attesa Yahoo)
+
+== cboeYahooDownNet | prev vix160.json | exit 0 | attesa 16.5s | richieste 9 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX fred_VXVCLS]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX (Cboe): fetch failed
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! VIX3M (Cboe): non richiesto, Cboe già giù (fetch failed)
+   ! ^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+OK   Cboe e Yahoo giù, coda dal file pubblicato (Cboe): fonte ["Cboe","Cboe"], file invariato true
+
+== cboeYahooDownNet | prev vix160_yahoo.json | exit 0 | attesa 16.5s | richieste 9 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX fred_VXVCLS]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX (Cboe): fetch failed
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! VIX3M (Cboe): non richiesto, Cboe già giù (fetch failed)
+   ! ^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+OK   Cboe e Yahoo giù, coda dal file pubblicato (Yahoo): fonte ["Yahoo","Yahoo"]
+
+== cboeYahooDownNet | prev vix150.json | exit 0 | attesa 16.5s | richieste 9 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX fred_VXVCLS]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] VIX ["2026-11-06",25.64] VIX3M ["2026-11-05",25.55]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX (Cboe): fetch failed
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! VIX3M (Cboe): non richiesto, Cboe già giù (fetch failed)
+FAIL Cboe e Yahoo giù, coda dal file della 1.5.0 (ultima seduta di Yahoo, src assente): fonte ["Cboe","FRED"] (attesa Yahoo o null, non Cboe)
+
+== cboeWild | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-05","fred":"2026-11-05","vixSrc":"FRED","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-05",28.18] VIX3M ["2026-11-05",25.55]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 2564)
+   ! VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 2564)
+OK   2564 invece di 25,64: scartato (VIX ["2026-11-05",28.18], ps 10000, fonte ["FRED","FRED"])
+OK   2564 invece di 25,64: la serie finisce all'ultimo FRED con fonte FRED (2026-11-05, FRED)
+
+== cboeWild | prev vix160.json | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 2564)
+   ! VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 2564)
+OK   2564 invece di 25,64, file del commit: resta il VIX pubblicato (2026-11-06, Cboe; file intero invariato: true)
+
+== cboeLow | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-05","fred":"2026-11-05","vixSrc":"FRED","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-05",28.18] VIX3M ["2026-11-05",25.55]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 0.2564)
+   ! VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 0.2564)
+OK   0,2564: scartato (VIX ["2026-11-05",28.18], ps 10000, fonte ["FRED","FRED"])
+OK   0,2564: la serie finisce all'ultimo FRED con fonte FRED (2026-11-05, FRED)
+
+== cboeLow | prev vix160.json | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 0.2564)
+   ! VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 0.2564)
+OK   0,2564, file del commit: resta il VIX pubblicato (2026-11-06, Cboe; file intero invariato: true)
+
+== yahooWild | prev nessuno | exit 0 | attesa 0s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-05","fred":"2026-11-05","vixSrc":"FRED","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-05",28.18] VIX3M ["2026-11-06",24.6]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 256.4)
+OK   Yahoo 256,4 con Cboe in ritardo: scartato (VIX ["2026-11-05",28.18], ps 10000, fonte ["FRED","Yahoo"])
+OK   Yahoo 256,4 con Cboe in ritardo: la serie finisce all'ultimo FRED con fonte FRED (2026-11-05, FRED)
+
+== yahooWild | prev vix160.json | exit 0 | attesa 0s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 256.4)
+OK   Yahoo 256,4 con Cboe in ritardo, file del commit: resta il VIX pubblicato (2026-11-06, Cboe; file intero invariato: false)
+
+== cboeDup | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-05","fred":"2026-11-05","vixSrc":"FRED","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-05",28.18] VIX3M ["2026-11-05",25.55]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 99.99)
+   ! VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 99.99)
+OK   data ripetuta con 99,99: scartato (VIX ["2026-11-05",28.18], ps 10000, fonte ["FRED","FRED"])
+OK   data ripetuta con 99,99: la serie finisce all'ultimo FRED con fonte FRED (2026-11-05, FRED)
+
+== cboeDup | prev vix160.json | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX: sedute provvisorie non plausibili scartate (2026-11-06 99.99)
+   ! VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 99.99)
+OK   data ripetuta con 99,99, file del commit: resta il VIX pubblicato (2026-11-06, Cboe; file intero invariato: true)
+
+== cboeDupOk | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   ultima data due volte (25,00 poi 25,64): vale l'ultima riga ["2026-11-06",25.64]
+
+== cboeDupMid | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+OK   prima data ripetuta: file scritto, fonte ["Cboe","Cboe"]
+
+== vix3m404 | prev nessuno | exit 0 | attesa 0s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-05",25.55]
+   ! ^VIX3M (Yahoo): HTTP 404
+OK   Cboe in ritardo e ^VIX3M 404: HYG e IEF chiesti (1, 1), credito 2026-11-06
+OK   … fonte ["Yahoo","FRED"] (attesa Yahoo, FRED)
+
+== cboeLateVix404 | prev nessuno | exit 0 | attesa 0s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-05","fred":"2026-11-05","vixSrc":"FRED","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-05",28.18] VIX3M ["2026-11-06",24.6]
+   ! ^VIX (Yahoo): HTTP 404
+OK   Cboe in ritardo e ^VIX 404: ^VIX3M, HYG e IEF chiesti, credito 2026-11-06
+
+== yahooDown | prev nessuno | exit 1 | attesa 12s | richieste 4 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC]
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+OK   Yahoo giù (errore di rete): 4 tentativi sul primo simbolo, HYG e IEF non chiesti (4, 0)
+
+== cboeLateYahooNoData | prev nessuno | exit 0 | attesa 0s | richieste 8 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX yahoo_VIX fred_VXVCLS cboe_VIX3M yahoo_VIX3M]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] VIX ["2026-11-06",25.64] VIX3M ["2026-11-05",25.55]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^VIX3M (Yahoo): nessun dato
+   ! HYG/IEF: non richiesto, Yahoo già giù (nessun dato)
+   (informativo) ^VIX3M risponde 200 senza dati: HYG chiesto 0 volte, credito null
+
+== allHang | prev nessuno | exit 1 | attesa 132s | richieste 4 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC]
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+OK   allHang (nessuno): attesa 132 s (≤ 400 s; il passo ha 480 s), exit 1, richieste 4
+
+== allHang | prev vix160.json | exit 0 | attesa 369s | richieste 11 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS fred_VIXCLS fred_VIXCLS fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX: tenuta la parte FRED pubblicata
+   ! VIX3M: tenuta la parte FRED pubblicata
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VIX (Cboe): The operation was aborted due to timeout
+OK   allHang (vix160.json): attesa 369 s (≤ 400 s; il passo ha 480 s), exit 0, richieste 11
+OK   allHang (vix160.json): file scritto, VIX al 2026-11-06
+
+== allHang | prev vix150.json | exit 0 | attesa 369s | richieste 11 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS fred_VIXCLS fred_VIXCLS fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":null,"spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":null} missing ["VIX3M","HYGIEF"] VIX ["2026-11-06",25.64] VIX3M null
+   ! VIX: tenuta la parte FRED pubblicata
+   ! Serie facoltative mancanti: VIX3M, HYGIEF
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VIX (Cboe): The operation was aborted due to timeout
+OK   allHang (vix150.json): attesa 369 s (≤ 400 s; il passo ha 480 s), exit 0, richieste 11
+OK   allHang (vix150.json): file scritto, VIX al 2026-11-06
+
+== cboeHang | prev vix160.json | exit 0 | attesa 94.5s | richieste 11 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX yahoo_VIX fred_VXVCLS yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Yahoo","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX (Cboe): The operation was aborted due to timeout
+   ! VIX3M (Cboe): non richiesto, Cboe già giù (The operation was aborted due to timeout)
+OK   cboeHang (vix160.json): attesa 94.5 s (≤ 400 s; il passo ha 480 s), exit 0, richieste 11
+OK   cboeHang (vix160.json): file scritto, VIX al 2026-11-06
+
+== cboeDownYahooHang | prev vix160.json | exit 0 | attesa 136.5s | richieste 9 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX fred_VXVCLS]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIX (Cboe): HTTP 503
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIX3M (Cboe): non richiesto, Cboe già giù (HTTP 503)
+   ! ^VIX3M (Yahoo): non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+OK   cboeDownYahooHang (vix160.json): attesa 136.5 s (≤ 400 s; il passo ha 480 s), exit 0, richieste 9
+OK   cboeDownYahooHang (vix160.json): file scritto, VIX al 2026-11-06
+
+== cboeHangOnly3m | prev vix160.json | exit 0 | attesa 94.5s | richieste 11 [yahoo_GSPC yahoo_NDX fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M cboe_VIX3M cboe_VIX3M yahoo_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Yahoo","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX3M (Cboe): The operation was aborted due to timeout
+OK   cboeHangOnly3m (vix160.json): attesa 94.5 s (≤ 400 s; il passo ha 480 s), exit 0, richieste 11
+OK   cboeHangOnly3m (vix160.json): file scritto, VIX al 2026-11-06
+
+== fredHang | prev vix160.json | exit 0 | attesa 142.5s | richieste 10 [yahoo_GSPC yahoo_NDX fred_VIXCLS fred_VIXCLS fred_VIXCLS fred_VIXCLS cboe_VIX cboe_VIX3M yahoo_HYG yahoo_IEF]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! VIX: tenuta la parte FRED pubblicata
+   ! VIX3M: tenuta la parte FRED pubblicata
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)
+OK   fredHang (vix160.json): attesa 142.5 s (≤ 400 s; il passo ha 480 s), exit 0, richieste 10
+OK   fredHang (vix160.json): file scritto, VIX al 2026-11-06
+
+== yahooHang | prev vix160.json | exit 0 | attesa 132s | richieste 8 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS cboe_VIX fred_VXVCLS cboe_VIX3M]
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"Cboe","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] VIX ["2026-11-06",25.64] VIX3M ["2026-11-06",24.6]
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! HYG/IEF: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+OK   yahooHang (vix160.json): attesa 132 s (≤ 400 s; il passo ha 480 s), exit 0, richieste 8
+OK   yahooHang (vix160.json): file scritto, VIX al 2026-11-06
+
+54 controlli, 2 FAIL

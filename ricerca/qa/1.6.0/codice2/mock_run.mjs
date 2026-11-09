@@ -1,3 +1,4 @@
+// (Copia del controllo 1 in ricerca/qa/1.6.0/codice/, con scenari nuovi per il secondo giro: in fondo a S.)
 // Esegue scripts/fetch_vix.js di una copia di lavoro con fetch simulato (risposte vere registrate, poi modificate per
 // scenario). Il tempo di attesa (pause tra i tentativi e timeout da 30 s) è contato su un orologio virtuale, non atteso.
 // Uso: WT=<copia> CACHE=<cartella> MODE=record node mock_run.mjs        (registra le risposte vere)
@@ -62,16 +63,32 @@ const S = {
   fredNeg: { fredTxt: (t) => t.trim() + '\n' }, // controllo: invariato
   vix3m404: { yahoo404: '^VIX3M', cboeTxt: (t) => cboeEdit(t, (l) => l.slice(0, -1)) }, // Cboe in ritardo e ^VIX3M di Yahoo 404: HYG/IEF?
   hygShort: { yahooJson: (j, sym) => { if (sym === 'HYG') { const r = j.chart.result[0], n = r.timestamp.length, k = n - 3000; r.timestamp = r.timestamp.slice(k); const q = r.indicators.quote[0]; for (const f of Object.keys(q)) q[f] = q[f].slice(k); r.indicators.adjclose[0].adjclose = r.indicators.adjclose[0].adjclose.slice(k); } return j; } },
+  // ---- secondo giro (codice2) ----
+  cboe503: { cboe: () => resp('x', 503) }, // errore del server: corto circuito, il VIX3M non si chiede
+  cboe404VIX3M: { cboeK: (k) => (k === 'cboe_VIX3M' ? resp('Not Found', 404) : null) }, // solo il file del VIX3M sparito
+  cboeEmpty: { cboeTxt: () => 'DATE,OPEN,HIGH,LOW,CLOSE\n' }, // file vuoto (solo intestazione)
+  cboeNoSess: { cboeTxt: () => 'DATE,OPEN,HIGH,LOW,CLOSE\n11/07/2026,1,1,1,25.00\n' }, // nessuna data è una seduta dell'S&P 500
+  cboeLate3m: { cboeTxt: (t, k) => (k === 'cboe_VIX3M' ? cboeEdit(t, (l) => l.slice(0, -1)) : t) }, // in ritardo solo il VIX3M
+  cboeLateVix404: { yahoo404: '^VIX', cboeTxt: (t) => cboeEdit(t, (l) => l.slice(0, -1)) }, // Cboe in ritardo e ^VIX 404
+  cboeLateYahooNoData: { yahooNoData: '^VIX3M', cboeTxt: (t) => cboeEdit(t, (l) => l.slice(0, -1)) }, // ^VIX3M 200 senza dati
+  cboeYahooDownNet: { cboe: netErr, yahoo: netErr }, // Cboe e Yahoo giù, FRED su: coda dal file pubblicato
+  cboeDownYahooHang: { cboe: () => resp('x', 503), yahoo: hang },
+  cboeHangOnly3m: { cboeK: (k) => (k === 'cboe_VIX3M' ? hang() : null) },
+  cboeDupOk: { cboeTxt: (t) => cboeEdit(t, (l) => [...l.slice(0, -1), l.at(-1).replace(/,[^,]*$/, ',25.000000'), l.at(-1)]) }, // ultima data due volte, valori plausibili
+  cboeDupMid: { cboeTxt: (t) => cboeEdit(t, (l) => [l[0], l[1], ...l.slice(1)]) }, // prima data ripetuta in testa
+  cboeLow: { cboeTxt: (t) => cboeEdit(t, (l) => [...l.slice(0, -1), l.at(-1).replace(/,[^,]*$/, ',0.256400')]) }, // valore /100
+  yahooWild: { cboeTxt: (t) => cboeEdit(t, (l) => l.slice(0, -1)), yahooJson: (j, sym) => { if (sym === '^VIX') { const c = j.chart.result[0].indicators.quote[0].close; const ts = j.chart.result[0].timestamp; for (let i = 0; i < ts.length; i++) if (new Date(ts[i] * 1000).toISOString().startsWith('2026-11-06')) c[i] = 256.4; } return j; } },
   hygDiv: { yahooJson: (j, sym) => { if (sym === 'HYG') { const a = j.chart.result[0].indicators.adjclose[0].adjclose; for (let i = 0; i < a.length - 1; i++) if (a[i] != null) a[i] *= 0.9955; } return j; } }, // dividendo: storia riscalata
 };
 const sc = S[SCEN]; if (!sc) { console.error('scenario sconosciuto', SCEN); process.exit(2); }
 globalThis.fetch = async (u, opt) => {
   const k = keyOf(u); calls.push(k);
   if (k.startsWith('fred')) { if (sc.fred) return sc.fred(); let t = fs.readFileSync(file(k), 'utf8'); if (sc.fredTxt) t = sc.fredTxt(t, k.slice(5)); return resp(t); }
-  if (k.startsWith('cboe')) { if (sc.cboe) return sc.cboe(); let t = fs.readFileSync(file(k), 'utf8'); if (sc.cboeTxt) t = sc.cboeTxt(t); return resp(t); }
+  if (k.startsWith('cboe')) { if (sc.cboe) return sc.cboe(); if (sc.cboeK) { const r = sc.cboeK(k); if (r) return r; } let t = fs.readFileSync(file(k), 'utf8'); if (sc.cboeTxt) t = sc.cboeTxt(t, k); return resp(t); }
   if (sc.yahoo) return sc.yahoo();
   const sym = decodeURIComponent(new URL(u).pathname.split('/').pop());
   if (sc.yahoo404 === sym) return resp('{"chart":{"result":null,"error":{"code":"Not Found"}}}', 404);
+  if (sc.yahooNoData === sym) return resp('{"chart":{"result":null,"error":null}}', 200);
   let j = JSON.parse(fs.readFileSync(file(k), 'utf8')); if (sc.yahooJson) j = sc.yahooJson(j, sym);
   return resp(JSON.stringify(j));
 };

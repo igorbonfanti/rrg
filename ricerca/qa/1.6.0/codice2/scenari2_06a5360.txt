@@ -1,0 +1,3 @@
+--- (vecchio)
+allHang (vix160.json) sul 06a5360: @@ scenario=allHang exit=0 attesa_virtuale_s=475.5 richieste=14 [yahoo_GSPC yahoo_GSPC yahoo_GSPC yahoo_GSPC fred_VIXCLS fred_VIXCLS fred_VIXCLS fred_VIXCLS cboe_VIX cboe_VIX cboe_VIX cboe_VIX3M cboe_VIX3M cboe_VIX3M]
+Nota: lo script si ferma allo scenario cboeDup (06a5360 non scrive il file: encodeDates lancia «intervallo di 0 giorni»)
