@@ -8,7 +8,7 @@ Durante il controllo un'altra sessione ha cambiato la copia di lavoro (`js/zoom.
 - **Valori attesi** calcolati in Python direttamente dai JSON in `data/`, senza usare funzioni dell'app. Sono stati riscritti: decodifica di date, differenze e RLE; media 200; drawdown a 252 sedute; breadth = a200/n; somma dei cali forti e soglia al 99° percentile delle sedute precedenti (almeno 756); realizzata a 21 sedute; base 100.
 - **Valori mostrati** letti dal browser: il riquadro a **ogni seduta** del tratto (in tutto più di 3.000 riquadri), le coordinate di tutti i percorsi SVG, i riquadri a destra, le note e le etichette dell'asse.
 - Per ogni scala si ricalcola la y attesa di ogni punto e la si confronta con quella disegnata (tolleranza 0,06 unità SVG, cioè l'arrotondamento di `toFixed(1)`).
-- Script in `ricerca/qa/v180-numeri/` (si ripetono tutti con `sh ricerca/qa/v180-numeri/run.sh`, con il sito servito su 127.0.0.1:8791): `ref.py` contiene i calcoli indipendenti; `sec.cjs`, `sec2.cjs`, `sec3.cjs`, `ix.cjs`, `perf.cjs`, `perflate.cjs` e `tm.cjs` raccolgono i dati dal browser; i file `check_*.py` fanno i confronti. In totale **452 controlli passati**. I rilievi sono qui sotto. Gli altri «FAIL» del registro vengono dallo strumento di misura e sono stati verificati uno per uno (cursore a meno di mezza seduta dal bordo nel periodo MAX; campionamento ogni 7 sedute).
+- Script in `ricerca/qa/v180-numeri/` (si ripetono tutti con `sh ricerca/qa/v180-numeri/run.sh`, con il sito servito su 127.0.0.1:8791): `ref.py` contiene i calcoli indipendenti; `sec.cjs`, `sec2.cjs`, `sec3.cjs`, `ix.cjs`, `perf.cjs`, `perflate.cjs` e `tm.cjs` raccolgono i dati dal browser; i file `check_*.py` fanno i confronti. Nel primo controllo 452 controlli passati e i rilievi 1–5 qui sotto. **Nel ricontrollo su b08aeb3: 463 controlli passati, 0 falliti**. Sono stati ripetuti tutti gli scenari, più i punti a metà tra due sedute per il riquadro dei grafici per data. In più, `ticks2.mjs` prova direttamente le tacche di `zoom.js` su 41.086 finestre di 10–60 sedute dei calendari dei settori, di N225 e di DAX: nessuna etichetta diversa dalla seduta sotto, nessuna di sabato o domenica.
 
 Scenari: Settore XLK 3A (mar–mag 2025), XLF MAX (set 2008–giu 2009, taglio dei cali forti), XLK MAX 2005–2012 (8 anni, scala log), XLK MAX 2017–19, 2010–12 e 2015–16 con passaggio a XLC e XLRE, XLE 3 settimane (zoom nello zoom), XLE con avvicinamento iniziato prima del tratto e iniziato al primo giorno del tratto. Indici: SPX → N225, DAX e FTSEMIB (lug–set 2024), SPX → N225 3 settimane a cavallo di Capodanno, N225 MAX → SPX (2008–09). Performance relativa: settori USA, 3 settimane, linea che parte dopo l'inizio del tratto (MWEQ.MI). Emergenti: NIFTY50 (anche dal 20/01/2025, giorno senza cambio), KOSPI200 3 settimane, EEM 2020. VIX: 10A 2020, 3A 3 settimane, MAX 2007–09 con passaggio a NDX.
 
@@ -24,7 +24,7 @@ Scenari: Settore XLK 3A (mar–mag 2025), XLF MAX (set 2008–giu 2009, taglio d
 | Base 100 di #perf | ✅ | 12 linee × 83 sedute e 12 × 15: valore = chiusura / chiusura del primo giorno × 100, a 0,05; legenda «zoom dal … al …, base 100 al …»; etichette finali corrette |
 | Base 100 di #perf per una linea che parte dopo l'inizio del tratto | ✅ | MWEQ.MI (prima quotazione 07/10/2024) in un tratto dal 02/09/2024: 100,0 il 07/10, assente il giorno prima, nota in legenda. Dall'interfaccia il caso non si raggiunge con i dati di oggi (il periodo massimo, 504 sedute, parte il 05/11/2024): provato con `drawPerf` e un vero `zoomGroup` su un periodo di 600 sedute |
 | Base 100 di #emChart (valori) | ✅ | «In dollari (base 100)» = (chiusura/cambio)/(idem al primo giorno) × 100 in ogni seduta |
-| Scala del prezzo base 100 di #emChart sui valori visibili | ❌ | rilievo 1 |
+| Scala del prezzo base 100 di #emChart sui valori visibili | ✅ | ricontrollo: scarto ≤ 0,05 px dalla scala sui soli valori del tratto (EEM 2020, NIFTY50, KOSPI200). Prima era ❌ (rilievo 1) |
 | Riquadri a destra (zend) e «valori al <data>» | ✅ | prezzo, drawdown e breadth all'ultima seduta del tratto (settori, indici, Cali forti); nessun riquadro vuoto quando il tratto arriva all'ultima seduta |
 | «peggiore nel tratto» | ✅ | = minimo del drawdown nel tratto, in tutti gli scenari |
 | «soglia X al <data>» nei Cali forti | ✅ | = soglia ricalcolata all'ultima seduta del tratto (settori e indici, anche sul calendario di N225 e FTSEMIB) |
@@ -34,39 +34,25 @@ Scenari: Settore XLK 3A (mar–mag 2025), XLF MAX (set 2008–giu 2009, taglio d
 | Passaggio log/lineare | ✅ | lineare fino a 4 anni (2017–19, 754 sedute); logaritmica oltre (2005–12, 2.013 sedute), con il titolo «SCALA LOGARITMICA» |
 | Taglio della scala dei Cali forti | ✅ | taglio a 1,3 × la soglia più alta del tratto (XLK 2025: 32,5; XLF 2008: 118,3); etichette «▲71 (apr 2025)» e «▲134 (nov 2008)» = massimi dei tratti oltre il taglio |
 | VIX: x per data, pallino VIX/VIX3M, NDX | ✅ | x di ogni punto alla sua data; il pallino dell'ultimo VIX/VIX3M c'è solo se il tratto arriva all'ultima seduta; lo zoom resta passando a NDX |
-| Asse del tempo, zoom di 2–3 settimane, grafici per seduta | ❌ | rilievo 2 |
+| Asse del tempo, zoom di 2–3 settimane, grafici per seduta | ✅ | ricontrollo: XLE «16/10 20/10 22/10 26/10 …», SPX e N225 a cavallo di Capodanno, «27/05» per il Memorial Day: ogni etichetta è la data della seduta sotto. Prima era ❌ (rilievo 2) |
 | Asse del tempo, zoom di mesi o anni | ✅ | «ott 08 … 2009 … mar 09», «apr 25 mag 25», anni: in ordine e sulla prima seduta del mese o dell'anno |
-| Asse del tempo, grafici per data (Emergenti, VIX) | ⚠️ | etichette alla data giusta, ma anche sabato e domenica (rilievo 5) |
-| Nota «base 100 al …, inizio dello zoom» | ⚠️ | rilievo 3 |
-| Riquadro nei grafici per data in uno zoom stretto | ⚠️ | rilievo 4 |
+| Asse del tempo, grafici per data (Emergenti, VIX) | ✅ | ricontrollo: VIX e KOSPI200 in 3 settimane «15/10 19/10 21/10 … 02/11», nessun sabato o domenica. Prima era ⚠️ (rilievo 5) |
+| Nota «base 100 al …, inizio dello zoom» | ✅ | ricontrollo: NIFTY50 dal 20/01/2025 → «base 100 al 21/01/2025, primo giorno dello zoom con tutti i dati»; quando la base è il primo giorno resta «inizio dello zoom». Prima era ⚠️ (rilievo 3) |
+| Riquadro nei grafici per data: seduta più vicina | ✅ | ricontrollo: puntatore al 40% e al 60% tra due sedute consecutive → la prima e la seconda, con valori uguali al file. Sono 520 punti, oltre a ogni seduta del tratto (NIFTY50, KOSPI200, EEM, VIX 2020, VIX 3 settimane, VIX 2007–09). L'ultima seduta si raggiunge anche dentro il grafico. Prima era ⚠️ (rilievo 4) |
 | Errori in console | ✅ | nessuno in tutti gli scenari |
 
-## Rilievi
+## Rilievi del primo controllo (5cfa6d6), tutti corretti in b08aeb3
 
-**1. #emChart: la scala del pannello del prezzo (base 100) non è ricalcolata sui valori visibili. Da correggere.**
-La scala usa tutte le sedute dal primo giorno del tratto fino all'ultima disponibile, anche quelle dopo la fine del tratto: in `drawChart` la funzione `rebase` non ha un limite a destra, e `scale([...loc, ...usd])` non filtra con `inWin`.
-Per riprodurlo: aprire `#emg-EEM`, scegliere 10A e trascinare dal 03/02/2020 al 30/06/2020. I valori visibili vanno da 71,9 a 105,1, ma la scala arriva a 167,2 (il valore di oggi). La linea resta schiacciata nella parte bassa del pannello: rispetto alla scala sui visibili, lo scarto arriva a 75 px.
-Altri casi: NIFTY50 dal 02/01 al 30/04/2025 (26 px), KOSPI200 3A dal 14/10 al 03/11/2026 (53 px: dopo il tratto la serie scende a 83,5).
-I numeri nel riquadro sono giusti. I pannelli del cambio e del dollaro filtrano già con `inWin`.
+1. **#emChart, scala del prezzo base 100 calcolata anche sulle sedute dopo la fine del tratto.** Da correggere. Esempio: EEM 10A dal 03/02 al 30/06/2020, valori visibili 71,9–105,1 ma scala fino a 167,2, scarto fino a 75 px. **Corretto**: ora la base 100 si calcola solo sulle sedute della finestra.
+2. **Grafici per seduta, zoom sotto i due mesi: l'etichetta di un giorno senza seduta finiva sulla seduta dopo con la data del giorno chiuso.** Da correggere. Esempi: «17/10» sotto il 19/10/2026, «26/05» sotto il 27/05/2025. **Corretto**: `sessionTicks` scrive la data della seduta.
+3. **Nota «base 100 al 21/01/2025, inizio dello zoom» con lo zoom dal 20/01** (NIFTY50, giorno senza cambio). Minore. **Corretto**.
+4. **Riquadro dei grafici per data sulla seduta precedente**: in uno zoom stretto il mirino saltava indietro fino a ~100 px. Minore. **Corretto**: ora è la seduta più vicina.
+5. **Etichette di sabato e domenica** negli zoom di poche settimane dei grafici per data. Minore. **Corretto**.
 
-**2. Asse del tempo nei grafici per seduta, con zoom sotto i due mesi: le etichette di giorni senza seduta finiscono sulla seduta dopo. Da correggere.**
-Riguarda #ts, #ixTs, i due grafici dei Cali forti e #perf. `sessionTicks` sposta su `lb(dates, giorno)` le tacche di sabato, domenica e dei giorni di festa, ma lascia la data del giorno chiuso. Sotto quella seduta compare quindi una data diversa di 1 o 2 giorni.
-Per riprodurlo: aprire `#XLE`, scegliere 10A, fare uno zoom su giugno–novembre 2026 e poi un secondo zoom dal 15/10 al 04/11/2026. Si vede «17/10» sotto la seduta del 19/10, «25/10» sotto il 26/10, «31/10» sotto il 02/11.
-Con le tacche settimanali capita nei lunedì di festa: «26/05» sotto il 27/05/2025 (Memorial Day). In una prova diretta su `sessionTicks` è successo lo stesso con «07/09» (Labor Day 2026) e «19/01» (Martin Luther King Day 2026).
-Per la regola «solo numeri verificati» una data sbagliata sull'asse va corretta prima di pubblicare. Due correzioni possibili: scrivere la data della seduta (`dates[i]`), oppure saltare le tacche che non cadono su una seduta.
+**Resta, non blocca.** La selezione dello zoom nei grafici per data (`dateAt`) prende il giorno di calendario sotto il puntatore, non la seduta più vicina come dice il suo commento. La differenza è sotto il pixel e la fascia della selezione mostra le date prese, quindi non c'è nessun inganno.
 
-**3. Nota di #emChart: «base 100 al 21/01/2025, inizio dello zoom» quando lo zoom inizia il 20/01. Minore.**
-Per riprodurlo: aprire `#emg-NIFTY50`, scegliere 3A e trascinare dal 20/01/2025 al 14/03/2025 (il 20/01 la Fed non ha il cambio, Martin Luther King Day). L'etichetta dice «dal 20/01/2025». La base è giustamente il primo giorno con le due linee (21/01), e la linea in valuta locale ha un punto il 20/01 diverso da 100. Però «inizio dello zoom» è falso. Basterebbe scrivere «primo giorno del tratto con il cambio».
-
-**4. Grafici per data (Emergenti, VIX): il riquadro mostra sempre la seduta precedente, e in uno zoom stretto si vede. Minore.**
-La regola è `dates[i+1] <= tq`. In 3 settimane del VIX (circa 100 px per seduta) il mirino salta indietro fin quasi alla seduta dopo. L'ultima seduta del tratto si legge solo sul bordo destro o nel margine.
-Anche il commento di `dateAt` («la seduta più vicina») non corrisponde al codice: si prende il giorno di calendario sotto il puntatore. Un trascinamento che parte appena prima della mezzanotte del giorno X seleziona X−1. La differenza è sotto il pixel e la fascia mostra comunque le date prese, quindi nessun inganno.
-
-**5. Grafici per data, zoom di 3 settimane: etichette ogni due giorni, anche nel fine settimana. Minore.**
-Per esempio VIX 3A, dal 14/10 al 03/11/2026: «18/10», «24/10», «01/11». Sono alla posizione giusta, ma in un grafico di sedute sono strane: meglio i lunedì o i giorni di borsa.
-
-**Osservazioni, non sono errori.** Da 10A non si fa uno zoom di 3 settimane in un solo trascinamento: sono meno di 5 px, e serve uno zoom nello zoom. Prima del 1.8.0 il caso «linea che parte dopo l'inizio del tratto» in #perf non si raggiungeva dall'interfaccia, e non si raggiunge neanche ora.
+**Osservazioni, non sono errori.** Da 10A non si fa uno zoom di 3 settimane in un solo trascinamento: sono meno di 5 px, e serve uno zoom nello zoom. In #perf il caso «linea che parte dopo l'inizio del tratto» non si raggiunge dall'interfaccia con i dati di oggi; è stato provato con `drawPerf` (`perflate.cjs`).
 
 ## Verdetto
 
-**NO-GO** finché non sono corretti i rilievi 1 e 2: in un caso la scala contraddice il comportamento dichiarato, nell'altro l'asse mostra una data che non è quella della seduta. Sono correzioni piccole e locali: `emerging-view.js`, scala del primo pannello; `zoom.js`, `sessionTicks`. Tutti gli altri numeri controllati (valori, basi 100, riquadri di fine tratto, soglie, scale, trigger, fasce, pallini, calendari diversi, settori giovani) coincidono con il calcolo indipendente. Dopo le due correzioni basta ripetere gli script `tm.cjs`/`check_tm.py` e `sec.cjs`/`check_sec.py` (scenario A6) per arrivare al GO. I rilievi 3–5 si possono correggere anche dopo.
+**GO** (ricontrollo su b08aeb3). Tutti i numeri controllati coincidono con il calcolo indipendente dai file: valori dei riquadri, basi 100, riquadri di fine tratto, soglie, scale, trigger, fasce, pallini, calendari diversi, settori giovani. I cinque rilievi del primo controllo sono corretti. `npm test` passa. Nessun errore in console.
