@@ -73,6 +73,12 @@ const CH = [
         // un clic senza trascinare apre il riquadro e non cambia lo zoom
         await p.mouse.click(f.x + f.w * 0.5, y); await p.waitForTimeout(150);
         ok((await chip(ch)) === t && !(await p.$eval('#' + ch.tip, (x) => x.hidden)), `${tag}: clic senza trascinare = riquadro, zoom invariato`);
+        // tasto premuto nel grafico, uscita in verticale e rilascio fuori: nessuna selezione rimasta attaccata al mouse
+        if (ch.svg === 'ts') {
+          await p.mouse.move(f.x + f.w * 0.5, f.y + 20); await p.mouse.down(); await p.mouse.move(f.x + f.w * 0.5 + 2, f.y - 300, { steps: 5 }); await p.mouse.up();
+          await p.mouse.move(f.x + f.w * 0.3, y, { steps: 5 }); await p.mouse.move(f.x + f.w * 0.4, y, { steps: 5 }); await p.waitForTimeout(150);
+          ok((await p.locator('#ts rect.zoomband').count()) === 0 && !(await p.$eval('#tsTip', (x) => x.hidden)), `${tag}: rilascio fuori dal grafico: niente banda appiccicata, riquadro di nuovo visibile`);
+        }
         // trascinamento sotto le 10 sedute: niente
         const fw = f.w;
         if (!ch.time) {
@@ -183,7 +189,15 @@ const CH = [
         ok(await p.$eval('#' + ch.lens, (l) => l.getAttribute('aria-pressed') === 'true') && await p.$eval('#' + ch.svg, (s) => s.classList.contains('zooming')), `${tag}: lente accesa`);
         await p.locator('#' + ch.svg).scrollIntoViewIfNeeded(); await p.waitForTimeout(200);
         f = await frame(ch);
-        const yy = f.y + Math.min(f.h * 0.5, 60);
+        let yy = f.y + Math.min(f.h * 0.5, 60);
+        // con la lente accesa un gesto verticale fa scorrere la pagina e non fa zoom
+        const s1 = await p.evaluate(() => scrollY);
+        // dito verso il basso: la pagina sale (in fondo alla pagina non potrebbe scendere)
+        await touch(line(f.x + f.w * 0.5, yy - 50, f.x + f.w * 0.5 + 8, yy + 130, 12));
+        const s2 = await p.evaluate(() => scrollY);
+        ok(s2 < s1 - 50 && (await chip(ch)) === null, `${tag}: lente accesa, gesto verticale: la pagina scorre (${s1} → ${s2}) e niente zoom`);
+        await p.locator('#' + ch.svg).scrollIntoViewIfNeeded(); await p.waitForTimeout(200);
+        f = await frame(ch); yy = f.y + Math.min(f.h * 0.5, 60);
         await p.touchscreen.tap(f.x + f.w * 0.5, yy); await p.waitForTimeout(150);
         ok(!(await p.$eval('#' + ch.tip, (t) => t.hidden)) && (await chip(ch)) === null, `${tag}: un tocco con la lente accesa apre il riquadro`);
         await touch(line(f.x + f.w * 0.2, yy, f.x + f.w * 0.75, yy));

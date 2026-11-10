@@ -129,7 +129,7 @@ if (typeof document !== 'undefined') {
     if (e.key !== 'Escape' || document.querySelector('dialog[open]')) return; // con la guida aperta Esc chiude la guida
     let done = false;
     for (const z of GROUPS.values()) {
-      if (z.lensOn && [...z.svgs.keys()].some(visible)) z.setLens(false);
+      if (z.lensOn && [...z.svgs.keys()].some(visible)) { z.setLens(false); done = true; }
       if (z.shown && [...z.svgs.keys()].some(visible)) { z.clear(); done = true; }
     }
     if (done) { e.preventDefault(); e.stopImmediatePropagation(); }
@@ -187,11 +187,19 @@ export function zoomGroup(key, { lens, chips = [], onChange, back }) {
       const q = toSvg(e);
       if (q.x < g.L || q.x > g.L + g.PW || q.y < g.top || q.y > g.bottom) return;
       if (e.pointerType === 'mouse') e.preventDefault(); // niente selezione del testo della pagina durante il trascinamento
-      drag = { x: q.x, id: e.pointerId, moved: false };
+      drag = { x: q.x, y: e.clientY, cy: e.clientY, id: e.pointerId, mouse: e.pointerType === 'mouse', moved: false, scroll: false };
     });
     svg.addEventListener('pointermove', (e) => {
       if (!drag || e.pointerId !== drag.id) return;
+      // tasto rilasciato fuori dal grafico prima che la selezione iniziasse: niente selezione «appiccicata» al mouse
+      if (drag.mouse && !(e.buttons & 1)) { stop(); return; }
       const g = z.svgs.get(svg), q = toSvg(e);
+      // al tocco con la lente: un gesto soprattutto verticale fa scorrere la pagina, non seleziona
+      if (!drag.mouse && !drag.moved) {
+        const dy = e.clientY - drag.y, dx = Math.abs(q.x - drag.x);
+        if (drag.scroll || (Math.abs(dy) > 10 && Math.abs(dy) > dx)) { drag.scroll = true; window.scrollBy(0, drag.cy - e.clientY); drag.cy = e.clientY; return; }
+        if (dx < 12) return;
+      }
       if (!drag.moved && Math.abs(q.x - drag.x) < 5) return;
       if (!drag.moved) {
         // da qui è una selezione: via riquadro, mirino e linea condivisa finché non si rilascia
