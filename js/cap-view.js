@@ -89,6 +89,7 @@ export function createCap(ctx) {
    * @param {string} k serie (indice o settore)
    * @param {{dates: string[], close: number[], from: string, name: string, noCap?: string, what: string}} o
    *   dates/close: date e prezzo del grafico principale della vista (asse del tempo e rendimenti); from: prima data del grafico
+   *   win: () => {i0, i1, zoomed}, la finestra del grafico principale al momento del disegno (periodo e zoom); zoom: gruppo
    */
   function card(p, k, o) {
     const $ = (id) => document.getElementById(p + id);
@@ -129,16 +130,7 @@ export function createCap(ctx) {
 
     // grafico: sulle stesse sedute del grafico principale della vista (stesso asse del tempo, linea condivisa);
     // i cali forti si prendono per data, e prima dell'inizio della loro storia restano vuoti
-    const ci = new Map(s.dates.map((d, i) => [d, i]));
-    let i0 = o.dates.indexOf(o.from);
-    if (i0 < 0) i0 = 0;
-    const days = o.dates.slice(i0), pick = (arr, none) => days.map((d) => (ci.has(d) ? arr[ci.get(d)] : none));
-    drawCap($('CapSvg'), {
-      dates: days, close: o.close.slice(i0), sum: pick(a.sum, null), alert: pick(a.alert, null), on: pick(a.on, false), sync: p,
-      unit: unit(), label: `CALI FORTI · ${opt.mode === 'pct' ? '% DEI TITOLI' : 'TITOLI'} CON −${opt.thr}% O PEGGIO, SOMMA SU ${opt.win} SEDUTE`,
-      short: `CALI FORTI · −${opt.thr}% · ${opt.win} SEDUTE${opt.mode === 'pct' ? ' · %' : ''}`,
-      sym: k, tipEl: $('CapTip'), wrapEl: $('CapWrap'), width: chartWidth($('CapSvg'), 940),
-    });
+    chart(p);
 
     // episodi: dal più recente
     const { rows, base } = capOutcomes(a.episodes, s.dates, o.dates, o.close, a.from);
@@ -156,5 +148,24 @@ export function createCap(ctx) {
       'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati).<span class="only-phone"> Sul telefono «Dal max 52s» e «Calo dopo, 3M» sono nascoste.</span>';
     body.dataset.k = k;
   }
-  return { ensure, onChange, status, info, cell, card, ready: () => !!data, failed: () => failed };
+  // solo il grafico della scheda, sulla finestra del grafico principale in questo momento (periodo e zoom): lo zoom
+  // ridisegna questo, non tutta la scheda
+  function chart(p) {
+    if (!last[p] || !data) return;
+    const [k, o] = last[p], s = series(k), a = analysis(k);
+    if (o.noCap || !s || !a || !a.today) return;
+    const $ = (id) => document.getElementById(p + id);
+    const ci = new Map(s.dates.map((d, i) => [d, i]));
+    let w = o.win ? o.win() : null;
+    if (!w) { let i0 = o.dates.indexOf(o.from); if (i0 < 0) i0 = 0; w = { i0, i1: o.dates.length - 1, zoomed: false }; }
+    const days = o.dates.slice(w.i0, w.i1 + 1), pick = (arr, none) => days.map((d) => (ci.has(d) ? arr[ci.get(d)] : none));
+    drawCap($('CapSvg'), {
+      dates: days, close: o.close.slice(w.i0, w.i1 + 1), sum: pick(a.sum, null), alert: pick(a.alert, null), on: pick(a.on, false), sync: p,
+      unit: unit(), label: `CALI FORTI · ${opt.mode === 'pct' ? '% DEI TITOLI' : 'TITOLI'} CON −${opt.thr}% O PEGGIO, SOMMA SU ${opt.win} SEDUTE`,
+      short: `CALI FORTI · −${opt.thr}% · ${opt.win} SEDUTE${opt.mode === 'pct' ? ' · %' : ''}`,
+      sym: k, tipEl: $('CapTip'), wrapEl: $('CapWrap'), width: chartWidth($('CapSvg'), 940),
+      atEnd: w.i1 === o.dates.length - 1, zoomed: w.zoomed, zoom: o.zoom,
+    });
+  }
+  return { ensure, onChange, status, info, cell, card, redraw: chart, ready: () => !!data, failed: () => failed };
 }

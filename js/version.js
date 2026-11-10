@@ -5,9 +5,10 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.7.0';
-export const RELEASE = '2026-11-09';
+export const VERSION = '1.8.0';
+export const RELEASE = '2026-11-10';
 export const NOTES = [
+  'Zoom su un tratto nei grafici con il tempo (Performance relativa, Settore e Indici con i Cali forti, Emergenti, VIX): sul computer trascina sul grafico, sul telefono tocca prima la lente; si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo',
   'VIX: nella tabella degli episodi il mini-grafico del VIX (salita, primo giorno, massimo, fine), «VIX massimo» con la data, l\'ultimo giorno alla soglia o più e le sedute; sotto il VIX il grafico dell\'indice scelto con gli episodi colorati',
   'VIX: i punti grandi dello scatter sono il primo giorno dell\'episodio alla soglia scelta nella tabella (prima sempre a 30); colonne «Primo giorno a X o più», «VIX quel giorno», «VIX massimo dell\'episodio» con la sua data; spiegato quanto dura un episodio e che i nomi delle crisi sono etichette di periodo',
   'VIX: scatter a tutta larghezza, un colore per crisi; clic su un punto, sull\'elenco delle crisi o su una riga degli episodi per evidenziare la crisi con un alone, anche nella tabella',

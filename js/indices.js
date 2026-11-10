@@ -8,6 +8,7 @@ import { priceSeries, runMachine, forward, worstWithin, offReasons, approachLeve
 import { indexSeries } from './indexdata.js';
 import { weeklyIndices } from './engine.js';
 import { drawSector } from './sector-chart.js';
+import { zoomGroup } from './zoom.js';
 import { drawBottomMap, zoneOf } from './bottom-map.js';
 import { nearestHead, SIZE } from './rrg-chart.js';
 import { badge, apprBadge } from './bottom.js';
@@ -357,6 +358,19 @@ export function createIndices(ctx) {
     const back = { '3A': 756, '10A': 2520, MAX: S[k].dates.length }[st.range];
     return Math.max(first, S[k].dates.length - 1 - back);
   }
+  // grafico dell'indice sulla finestra del periodo e dello zoom (lo zoom ridisegna solo questo e i cali forti); ogni
+  // indice ha il suo calendario: lo zoom per date si taglia alla sua storia
+  let zoom = null;
+  const tsWin = (k) => { const n = S[k].dates.length - 1; return zoom ? zoom.idx(S[k].dates, rangeStart(k), n) : { i0: rangeStart(k), i1: n, zoomed: false }; };
+  function drawTs(k) {
+    const s = S[k], m = machine(k), w = tsWin(k);
+    drawSector($('ixTs'), {
+      dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
+      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: w.i0, i1: w.i1, zoomed: w.zoomed, zoom, sym: k, blue: st.blue[k],
+      tipEl: $('ixTsTip'), wrapEl: $('ixTsWrap'), width: chartWidth($('ixTs'), 940), ddNote: 'SOLO PREZZO',
+      off: m.off, offText: offReasons(P), sync: 'ix',
+    });
+  }
   function renderDetail() {
     const k = st.sel, s = S[k], m = machine(k), L = st.blue[k], t = NOW[k], last = s.close.length - 1;
     keepFocus($('ixChips'), 'data-ix', [...new Set([...VIS(), k])].map((x) => `<button type="button" class="chip" data-ix="${x}" aria-pressed="${x === k}"><span class="sd sd-${stateOf(x).code}"></span>${x}</button>`).join(''));
@@ -365,12 +379,7 @@ export function createIndices(ctx) {
     $('ixTitle').textContent = `${k} · ${name(k)}`;
     $('ixBadge').innerHTML = approach(k).on ? apprBadge() : badge(stateOf(k).code);
     $('ixCheck').innerHTML = checklistHTML(explain(k)) + (cap ? cap.info(k) : '');
-    drawSector($('ixTs'), {
-      dates: s.dates, close: s.close, dd: PX[k].dd, b200: s.pct200, b50: s.pct50, days: m.days,
-      triggers: m.events.filter((e) => e.code === 'trig').map((e) => e.t), i0: rangeStart(k), sym: k, blue: L,
-      tipEl: $('ixTsTip'), wrapEl: $('ixTsWrap'), width: chartWidth($('ixTs'), 940), ddNote: 'SOLO PREZZO',
-      off: m.off, offText: offReasons(P), sync: 'ix',
-    });
+    drawTs(k);
     // livello blu
     $('ixBlueVal').textContent = L + '%';
     $('ixBlueMinus').disabled = L <= 0; $('ixBluePlus').disabled = L >= 60;
@@ -405,7 +414,7 @@ export function createIndices(ctx) {
     $('ixLinks').innerHTML = (ctx.emgKeys && ctx.emgKeys.includes(k) ? `<a href="#emg-${k}">Cambio e dollaro: vista 7 Emergenti →</a>` : '') +
       (TV[k] || []).map((x) => `<a href="${tvLink(x)}" target="_blank" rel="noopener">${esc(x.split(':')[1])} su TradingView ↗</a>`).join('');
     renderEpisodes(k, m);
-    if (cap) cap.card('ix', k, { dates: s.dates, close: s.close, from: s.dates[rangeStart(k)], noCap: CFG[k].noCap, what: "l'indice" });
+    if (cap) cap.card('ix', k, { dates: s.dates, close: s.close, from: s.dates[rangeStart(k)], noCap: CFG[k].noCap, what: "l'indice", win: () => tsWin(k), zoom });
   }
   function renderEpisodes(k, m) {
     const c = S[k].close, dates = S[k].dates;
@@ -454,7 +463,13 @@ export function createIndices(ctx) {
     $('ixBlueMinus').onclick = () => setBlue(st.blue[st.sel] - 1);
     $('ixBluePlus').onclick = () => setBlue(st.blue[st.sel] + 1);
     $('ixBlueReset').onclick = () => setBlue(CFG[st.sel].blue);
-    document.querySelectorAll('#ixRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('ixRange', st.range); renderDetail(); });
+    // un pulsante del periodo, anche quello già scelto, toglie lo zoom
+    document.querySelectorAll('#ixRange button').forEach((b) => b.onclick = () => { st.range = b.dataset.range; store.set('ixRange', st.range); zoom.reset(); renderDetail(); });
+    zoom = zoomGroup('ix', {
+      lens: $('ixLens'), chips: [$('ixTsZoom'), $('ixCapZoom')], back: () => document.querySelector('#ixRange [aria-pressed="true"]'),
+      onChange: () => { if (!D) return; drawTs(st.sel); if (cap) cap.redraw('ix'); },
+    });
+    zoom.attach($('ixTs')); zoom.attach($('ixCapSvg'));
     $('ixPickMain').onclick = () => setShown(MAIN());
     $('ixPickAll').onclick = () => setShown(KEYS);
     const svg = $('ixMap'), tip = $('ixMapTip');

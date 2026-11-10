@@ -10,6 +10,7 @@ import { VERSION, RELEASE, NOTES } from './version.js';
 import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
+import { zoomGroup } from './zoom.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
 import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
@@ -670,9 +671,11 @@ function setPortfolioWeights(p, weights) {
 function savePortfolio(p) {
   store.set(p.saveKey, ptfCustom(p) && ptfTotal(p) ? { ...p.weights } : null);
 }
+let perfZoom = null;
 function renderPerf() {
   const d = ds();
   drawPerf($('perf'), {
+    zoom: perfZoom,
     dates: d.dates, closes: Object.fromEntries(Object.entries(d.tickers).map(([s, t]) => [s, t.close])), labels: labelMap(), width: chartWidth($('perf'), 640),
     syms: symbols().filter((s) => !state.hidden.has(s)), bench: state.benchmark, focus: focused(), days: state.perfDays,
     tipEl: $('perfTip'), wrapEl: $('perfWrap'), legendEl: $('perfLegend'),
@@ -906,7 +909,10 @@ function bind() {
   seg('tableSeg', 'mode', (v) => { state.tableMode = v; renderRRGView(); });
   seg('tailSeg', 'tail', (v) => { state.tail = +v; store.set('tail', state.tail); renderAll(); });
   seg('scaleSeg', 'scale', (v) => { state.scale = v; store.set('scale', v); renderAll(); });
-  seg('perfSeg', 'days', (v) => { state.perfDays = +v; store.set('perfDays', state.perfDays); renderPerf(); });
+  // un pulsante del periodo, anche quello già scelto, toglie lo zoom
+  seg('perfSeg', 'days', (v) => { state.perfDays = +v; store.set('perfDays', state.perfDays); perfZoom.reset(); renderPerf(); });
+  perfZoom = zoomGroup('perf', { lens: $('perfLens'), chips: [$('perfZoom')], back: () => document.querySelector('#perfSeg [aria-pressed="true"]'), onChange: renderPerf });
+  perfZoom.attach($('perf'));
   $('frame').oninput = (e) => { stop(); state.frame = +e.target.value; renderRRGView(true); };
   $('playBtn').onclick = play;
 

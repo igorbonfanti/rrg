@@ -4,6 +4,7 @@
  * su benchmark, evidenza, migliore e peggiore. Mirino con i valori di tutti i titoli.
  */
 import { fmt, dIT, esc, placeTip, bindTip } from './format.js';
+import { sessionTicks } from './zoom.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -26,22 +27,24 @@ function niceTicks(lo, hi, n) {
  * @param {SVGSVGElement} svg
  * @param {{dates: string[], closes: Record<string, number[]>, syms: string[], bench: string, focus?: string|null,
  *          days: number, tipEl: HTMLElement, wrapEl: HTMLElement, legendEl: HTMLElement, labels?: Record<string,string>, width?: number}} p
+ *   zoom: gruppo dello zoom (js/zoom.js); nello zoom la base 100 è il primo giorno del tratto
  */
 export function drawPerf(svg, p) {
   const { dates: all, closes, syms, bench, focus, days, tipEl, wrapEl, legendEl, labels = {} } = p;
   const lab = (s) => labels[s] || s;
-  const i0 = Math.max(0, all.length - 1 - days);
-  const dates = all.slice(i0), n = dates.length;
+  const w = p.zoom ? p.zoom.idx(all, Math.max(0, all.length - 1 - days), all.length - 1) : { i0: Math.max(0, all.length - 1 - days), i1: all.length - 1, zoomed: false };
+  const { i0, i1 } = w;
+  const dates = all.slice(i0, i1 + 1), n = dates.length;
   const lines = {}, late = [];
   for (const s of syms.concat([bench])) {
     const c = closes[s];
     if (!c) continue;
     // base 100 al primo prezzo del periodo: un ETF più giovane del periodo parte dopo
     let j = i0;
-    while (j < all.length && c[j] == null) j++;
-    if (j >= all.length - 1) continue;
+    while (j <= i1 && c[j] == null) j++;
+    if (j >= i1) continue;
     if (j - i0 > 5) late.push([s, all[j]]);
-    lines[s] = c.slice(i0).map((v, k) => (v == null || k < j - i0 ? null : (v / c[j]) * 100));
+    lines[s] = c.slice(i0, i1 + 1).map((v, k) => (v == null || k < j - i0 ? null : (v / c[j]) * 100));
   }
   // margine destro per le etichette finali (nome breve + valore, carattere monospazio da 11px)
   const longest = Math.max(0, ...Object.keys(lines).map((s) => lab(s).length + 4));
@@ -59,7 +62,11 @@ export function drawPerf(svg, p) {
   for (const v of ticks) el('line', { x1: L, x2: L + PW, y1: sy(v), y2: sy(v), class: v === 100 ? 'base' : 'gridl' }, svg);
   // etichette del tempo: inizio di mese, ogni 1, 2, 3 o 6 mesi secondo il periodo e la larghezza
   const every = [1, 2, 3, 6].find((e) => (n / 21 / e) * 48 <= PW) || 6;
-  for (let i = 1; i < n; i++) {
+  if (w.zoomed) for (const tk of sessionTicks(dates, Math.max(3, Math.floor(PW / 70)))) {
+    el('line', { x1: sx(tk.i), x2: sx(tk.i), y1: T, y2: T + PH, class: 'gridl' }, svg);
+    el('text', { x: sx(tk.i), y: H - 8, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = tk.label;
+  }
+  else for (let i = 1; i < n; i++) {
     const m = +dates[i].slice(5, 7), pm = +dates[i - 1].slice(5, 7);
     if (m !== pm && (m - 1) % every === 0) {
       el('line', { x1: sx(i), x2: sx(i), y1: T, y2: T + PH, class: 'gridl' }, svg);
@@ -103,9 +110,10 @@ export function drawPerf(svg, p) {
     placeTip(tipEl, wrapEl, e, -40);
   };
   bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); tipEl.hidden = true; });
+  if (p.zoom) p.zoom.geo(svg, { L, PW, top: T, bottom: T + PH, dates });
 
   legendEl.innerHTML = `<span><span class="kl" style="background:var(--ink)"></span>${esc(lab(bench))} (benchmark)</span>` +
     (focus && lines[focus] ? `<span><span class="kl" style="background:var(--amber)"></span>${esc(lab(focus))} (in evidenza)</span>` : '') +
-    `<span><span class="kl" style="background:var(--chart-line)"></span>altri titoli</span><span class="muted">dal ${dIT(dates[0])}</span>` +
+    `<span><span class="kl" style="background:var(--chart-line)"></span>altri titoli</span><span class="muted">${w.zoomed ? `zoom dal ${dIT(dates[0])} al ${dIT(dates[n - 1])}, base 100 al ${dIT(dates[0])}` : `dal ${dIT(dates[0])}`}</span>` +
     late.map(([s, d]) => `<span class="muted">${esc(lab(s))} quotato dal ${dIT(d)}: base 100 da quel giorno</span>`).join('');
 }
