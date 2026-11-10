@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 09/11/2026, versione 1.7.0.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 10/11/2026, versione 1.8.0.
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -162,7 +162,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
-## 7. Stato attuale (1.7.0)
+## 7. Stato attuale (1.8.0)
 
 - 9 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
 - Test automatici: `npm test`, 144 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti), `v150.cjs` (vista VIX), `v160.cjs` (struttura a termine e credito), `v161.cjs` (scatter per crisi), `v162.cjs` (punti grandi e tabella), `v170.cjs` (mini-grafici e pannello dell'indice).
@@ -186,6 +186,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **1.4.0 (05/11/2026)**: vista 8 Emergenti, solo contesto, dal piano `ricerca/emergenti/inserimento.md`. Il file `data/emerging.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Controllo nel browser `ricerca/qa/browser/v140.cjs`.
 - **1.4.1 (05/11/2026)**: schede riordinate su richiesta dell'utente: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 Alert (`VIEWS` in `js/app.js`); indirizzi e comandi invariati. Le note storiche usano i numeri di allora (Titoli era la 7, Alert la 5, Emergenti la 8).
 - **1.5.0 (06/11/2026)**: vista 8 VIX (Alert alla 9), dalla verifica in `ricerca/vix/` (idea di Massimo Rea). Il file `data/vix.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Test: `test/vix.test.js` (valori verificati con lo script di ricerca), controllo nel browser `ricerca/qa/browser/v150.cjs`.
+- **1.8.0 (10/11/2026)**: zoom su un tratto (richiesta dell'utente) con il modulo comune `js/zoom.js` in Performance relativa, Settore e Indici con i Cali forti (zoom condiviso), Emergenti e VIX; scelte dell'utente: base 100 dall'inizio del tratto, zoom tenuto cambiando settore/indice/paese, lente sul telefono, «Storia della divergenza» dei Titoli fuori, valori a destra della fine del tratto in un riquadro vuoto con la data. Piano in `ricerca/zoom/inserimento.md`; controlli `v180.cjs`, `ricerca/qa/v180-uso.md`, `ricerca/qa/v180-numeri.md`. Minori aperti: con la lente accesa sul telefono il grafico non fa scrollare con gesti obliqui; nessuna selezione da tastiera (ci sono i pulsanti del periodo); eventuale barra di navigazione sotto il grafico (rangeslider) da valutare.
 - **1.7.0 (09/11/2026)**: tabella degli episodi con il mini-grafico del VIX (63 sedute prima del primo giorno, 21 dopo l'ultimo), «VIX massimo» con la data, ultimo giorno alla soglia o più (asterisco e «provv.» se in corso) e sedute; sul telefono riassunto sotto il nome della crisi; pannello del prezzo dell'indice scelto con le fasce degli episodi. Controllo nel browser `v170.cjs`. Minori aperti (`ricerca/qa/1.7.0/ricontrollo/rapporto.md`): nelle righe grigie i tratti alla soglia si distinguono solo per lo spessore; la guida non spiega il grigio delle fasce; «provv.» non compare accanto alla data del massimo se cadesse nella seduta provvisoria; a 820 px la tabella scorre nel suo riquadro.
 - **1.6.2 (09/11/2026)**: punti grandi dello scatter allineati alla soglia della tabella (segnalazione dell'utente), colonne «Primo giorno a X o più», «VIX quel giorno», «VIX massimo dell'episodio» con la data, testi su quanto dura un episodio e sulle crisi come etichette di periodo. Ricalcolo indipendente degli episodi: `ricerca/vix/scatter/verifica_episodi.py`; controllo `v162.cjs`.
 - **1.6.1 (09/11/2026)**: scatter della vista 8 a tutta larghezza, un colore per crisi (ogni seduta con la crisi della sua data, altrimenti del suo episodio; tavolozza di `ricerca/vix/scatter/tavolozza.py`), elenco delle crisi cliccabile, alone e righe della tabella degli episodi collegate (richiesta dell'utente). Controllo nel browser `ricerca/qa/browser/v161.cjs`. Minori aperti: con il daltonismo simulato restano coppie di crisi poco distinguibili (15 colori non bastano: la selezione con l'alone fa la distinzione); al 17° gruppo i colori si ripeterebbero; Esc che chiude la guida toglie anche la selezione; sul telefono l'elenco delle crisi è lungo.
