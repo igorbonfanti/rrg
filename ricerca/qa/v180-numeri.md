@@ -1,0 +1,72 @@
+# 1.8.0 · controllo indipendente dei numeri e dei grafici durante lo zoom
+
+Controllore: agente indipendente (non ha scritto il codice). Data: 10/11/2026. Base: ramo `claude/great-noether-2f1ude`, commit 5cfa6d6. Server locale su 127.0.0.1:8791, Chromium (Playwright) a 1440×900.
+Durante il controllo un'altra sessione ha cambiato la copia di lavoro (`js/zoom.js`: solo la gestione del puntatore e di Esc; `guida.html`, `css`, `index.html`, `version.js`). Il codice dei calcoli e dei disegni non è cambiato, quindi i rilievi valgono anche per quella versione.
+
+## Metodo
+
+- **Valori attesi** calcolati in Python direttamente dai JSON in `data/`, senza usare funzioni dell'app. Sono stati riscritti: decodifica di date, differenze e RLE; media 200; drawdown a 252 sedute; breadth = a200/n; somma dei cali forti e soglia al 99° percentile delle sedute precedenti (almeno 756); realizzata a 21 sedute; base 100.
+- **Valori mostrati** letti dal browser: il riquadro a **ogni seduta** del tratto (in tutto più di 3.000 riquadri), le coordinate di tutti i percorsi SVG, i riquadri a destra, le note e le etichette dell'asse.
+- Per ogni scala si ricalcola la y attesa di ogni punto e la si confronta con quella disegnata (tolleranza 0,06 unità SVG, cioè l'arrotondamento di `toFixed(1)`).
+- Script nella cartella di lavoro del controllo (`qa-numeri/`): `ref.py` contiene i calcoli indipendenti; `sec.cjs`, `sec2.cjs`, `sec3.cjs`, `ix.cjs`, `perf.cjs`, `perflate.cjs` e `tm.cjs` raccolgono i dati dal browser; i file `check_*.py` fanno i confronti. In totale **452 controlli passati**. I rilievi sono qui sotto. Gli altri «FAIL» del registro vengono dallo strumento di misura e sono stati verificati uno per uno (cursore a meno di mezza seduta dal bordo nel periodo MAX; campionamento ogni 7 sedute).
+
+Scenari: Settore XLK 3A (mar–mag 2025), XLF MAX (set 2008–giu 2009, taglio dei cali forti), XLK MAX 2005–2012 (8 anni, scala log), XLK MAX 2017–19, 2010–12 e 2015–16 con passaggio a XLC e XLRE, XLE 3 settimane (zoom nello zoom), XLE con avvicinamento iniziato prima del tratto e iniziato al primo giorno del tratto. Indici: SPX → N225, DAX e FTSEMIB (lug–set 2024), SPX → N225 3 settimane a cavallo di Capodanno, N225 MAX → SPX (2008–09). Performance relativa: settori USA, 3 settimane, linea che parte dopo l'inizio del tratto (MWEQ.MI). Emergenti: NIFTY50 (anche dal 20/01/2025, giorno senza cambio), KOSPI200 3 settimane, EEM 2020. VIX: 10A 2020, 3A 3 settimane, MAX 2007–09 con passaggio a NDX.
+
+## Controlli
+
+| Controllo | Esito | Dettaglio |
+|---|---|---|
+| Sedute disegnate e date ai bordi = tratto scelto (#ts, #secCapSvg, #ixTs, #ixCapSvg, #perf) | ✅ | numero di punti = sedute con chiusura nel file; x = L + i/(n−1)·PW per ogni punto; etichetta «Zoom: dal … al …» = riquadro al bordo sinistro e al destro |
+| Indice non USA, calendario diverso (N225, DAX, FTSEMIB) | ✅ | lo zoom di SPX 01/07–30/09/2024 passa a N225 con le sedute del calendario giapponese (stessi bordi, numero di sedute diverso); N225 MAX 01/09/2008 → SPX parte dal 02/09/2008 |
+| Settore giovane (XLC, XLRE) | ✅ | zoom 2017–19 → XLC dal 20/06/2019 (prima seduta del suo periodo); zoom 2010–12 → XLC e XLRE tornano al periodo e l'etichetta sparisce; zoom 2015–16 → XLRE dal 07/10/2016. Stesso tratto nei Cali forti |
+| Riquadro con zoom = senza zoom (prezzo, media 200, drawdown, breadth 200 e 50, cali forti e soglia) | ✅ | identico carattere per carattere in 63 + 209 + 754 + 754 + 402 sedute (settori), 63 (indici), e uguale al calcolo dal file in ogni seduta del tratto |
+| Riquadro con zoom = senza zoom e = file (Emergenti: prezzo, breadth, cambio, dollaro; VIX: VIX, realizzata, premio) | ✅ | 80 + 39 + 15 + 104 sedute (Emergenti), 62 + 15 + 524 sedute (VIX) |
+| Base 100 di #perf | ✅ | 12 linee × 83 sedute e 12 × 15: valore = chiusura / chiusura del primo giorno × 100, a 0,05; legenda «zoom dal … al …, base 100 al …»; etichette finali corrette |
+| Base 100 di #perf per una linea che parte dopo l'inizio del tratto | ✅ | MWEQ.MI (prima quotazione 07/10/2024) in un tratto dal 02/09/2024: 100,0 il 07/10, assente il giorno prima, nota in legenda. Dall'interfaccia il caso non si raggiunge con i dati di oggi (il periodo massimo, 504 sedute, parte il 05/11/2024): provato con `drawPerf` e un vero `zoomGroup` su un periodo di 600 sedute |
+| Base 100 di #emChart (valori) | ✅ | «In dollari (base 100)» = (chiusura/cambio)/(idem al primo giorno) × 100 in ogni seduta |
+| Scala del prezzo base 100 di #emChart sui valori visibili | ❌ | rilievo 1 |
+| Riquadri a destra (zend) e «valori al <data>» | ✅ | prezzo, drawdown e breadth all'ultima seduta del tratto (settori, indici, Cali forti); nessun riquadro vuoto quando il tratto arriva all'ultima seduta |
+| «peggiore nel tratto» | ✅ | = minimo del drawdown nel tratto, in tutti gli scenari |
+| «soglia X al <data>» nei Cali forti | ✅ | = soglia ricalcolata all'ultima seduta del tratto (settori e indici, anche sul calendario di N225 e FTSEMIB) |
+| Pallino d'ingresso dell'avvicinamento | ✅ | XLE con zoom dal 28/04/2025 (tratto iniziato il 21/04): nessun pallino sul bordo; zoom dal 21/04: pallino sul bordo; gli altri pallini sono gli stessi che senza zoom |
+| Triangoli dei trigger e fasce (zona blu, sotto il livello) | ✅ | stesse sedute che senza zoom, solo quelle dentro il tratto (per esempio XLK 2005–12: 4 trigger, 164 + 14 sedute di fasce); nessun triangolo fuori dal riquadro |
+| Scale e punti dentro il riquadro (#ts, #ixTs, Cali forti, #perf, #vxChart) | ✅ | y di ogni punto = scala sui soli valori visibili; nessun punto fuori dal pannello |
+| Passaggio log/lineare | ✅ | lineare fino a 4 anni (2017–19, 754 sedute); logaritmica oltre (2005–12, 2.013 sedute), con il titolo «SCALA LOGARITMICA» |
+| Taglio della scala dei Cali forti | ✅ | taglio a 1,3 × la soglia più alta del tratto (XLK 2025: 32,5; XLF 2008: 118,3); etichette «▲71 (apr 2025)» e «▲134 (nov 2008)» = massimi dei tratti oltre il taglio |
+| VIX: x per data, pallino VIX/VIX3M, NDX | ✅ | x di ogni punto alla sua data; il pallino dell'ultimo VIX/VIX3M c'è solo se il tratto arriva all'ultima seduta; lo zoom resta passando a NDX |
+| Asse del tempo, zoom di 2–3 settimane, grafici per seduta | ❌ | rilievo 2 |
+| Asse del tempo, zoom di mesi o anni | ✅ | «ott 08 … 2009 … mar 09», «apr 25 mag 25», anni: in ordine e sulla prima seduta del mese o dell'anno |
+| Asse del tempo, grafici per data (Emergenti, VIX) | ⚠️ | etichette alla data giusta, ma anche sabato e domenica (rilievo 5) |
+| Nota «base 100 al …, inizio dello zoom» | ⚠️ | rilievo 3 |
+| Riquadro nei grafici per data in uno zoom stretto | ⚠️ | rilievo 4 |
+| Errori in console | ✅ | nessuno in tutti gli scenari |
+
+## Rilievi
+
+**1. #emChart: la scala del pannello del prezzo (base 100) non è ricalcolata sui valori visibili. Da correggere.**
+La scala usa tutte le sedute dal primo giorno del tratto fino all'ultima disponibile, anche quelle dopo la fine del tratto: in `drawChart` la funzione `rebase` non ha un limite a destra, e `scale([...loc, ...usd])` non filtra con `inWin`.
+Per riprodurlo: aprire `#emg-EEM`, scegliere 10A e trascinare dal 03/02/2020 al 30/06/2020. I valori visibili vanno da 71,9 a 105,1, ma la scala arriva a 167,2 (il valore di oggi). La linea resta schiacciata nella parte bassa del pannello: rispetto alla scala sui visibili, lo scarto arriva a 75 px.
+Altri casi: NIFTY50 dal 02/01 al 30/04/2025 (26 px), KOSPI200 3A dal 14/10 al 03/11/2026 (53 px: dopo il tratto la serie scende a 83,5).
+I numeri nel riquadro sono giusti. I pannelli del cambio e del dollaro filtrano già con `inWin`.
+
+**2. Asse del tempo nei grafici per seduta, con zoom sotto i due mesi: le etichette di giorni senza seduta finiscono sulla seduta dopo. Da correggere.**
+Riguarda #ts, #ixTs, i due grafici dei Cali forti e #perf. `sessionTicks` sposta su `lb(dates, giorno)` le tacche di sabato, domenica e dei giorni di festa, ma lascia la data del giorno chiuso. Sotto quella seduta compare quindi una data diversa di 1 o 2 giorni.
+Per riprodurlo: aprire `#XLE`, scegliere 10A, fare uno zoom su giugno–novembre 2026 e poi un secondo zoom dal 15/10 al 04/11/2026. Si vede «17/10» sotto la seduta del 19/10, «25/10» sotto il 26/10, «31/10» sotto il 02/11.
+Con le tacche settimanali capita nei lunedì di festa: «26/05» sotto il 27/05/2025 (Memorial Day). In una prova diretta su `sessionTicks` è successo lo stesso con «07/09» (Labor Day 2026) e «19/01» (Martin Luther King Day 2026).
+Per la regola «solo numeri verificati» una data sbagliata sull'asse va corretta prima di pubblicare. Due correzioni possibili: scrivere la data della seduta (`dates[i]`), oppure saltare le tacche che non cadono su una seduta.
+
+**3. Nota di #emChart: «base 100 al 21/01/2025, inizio dello zoom» quando lo zoom inizia il 20/01. Minore.**
+Per riprodurlo: aprire `#emg-NIFTY50`, scegliere 3A e trascinare dal 20/01/2025 al 14/03/2025 (il 20/01 la Fed non ha il cambio, Martin Luther King Day). L'etichetta dice «dal 20/01/2025». La base è giustamente il primo giorno con le due linee (21/01), e la linea in valuta locale ha un punto il 20/01 diverso da 100. Però «inizio dello zoom» è falso. Basterebbe scrivere «primo giorno del tratto con il cambio».
+
+**4. Grafici per data (Emergenti, VIX): il riquadro mostra sempre la seduta precedente, e in uno zoom stretto si vede. Minore.**
+La regola è `dates[i+1] <= tq`. In 3 settimane del VIX (circa 100 px per seduta) il mirino salta indietro fin quasi alla seduta dopo. L'ultima seduta del tratto si legge solo sul bordo destro o nel margine.
+Anche il commento di `dateAt` («la seduta più vicina») non corrisponde al codice: si prende il giorno di calendario sotto il puntatore. Un trascinamento che parte appena prima della mezzanotte del giorno X seleziona X−1. La differenza è sotto il pixel e la fascia mostra comunque le date prese, quindi nessun inganno.
+
+**5. Grafici per data, zoom di 3 settimane: etichette ogni due giorni, anche nel fine settimana. Minore.**
+Per esempio VIX 3A, dal 14/10 al 03/11/2026: «18/10», «24/10», «01/11». Sono alla posizione giusta, ma in un grafico di sedute sono strane: meglio i lunedì o i giorni di borsa.
+
+**Osservazioni, non sono errori.** Da 10A non si fa uno zoom di 3 settimane in un solo trascinamento: sono meno di 5 px, e serve uno zoom nello zoom. Prima del 1.8.0 il caso «linea che parte dopo l'inizio del tratto» in #perf non si raggiungeva dall'interfaccia, e non si raggiunge neanche ora.
+
+## Verdetto
+
+**NO-GO** finché non sono corretti i rilievi 1 e 2: in un caso la scala contraddice il comportamento dichiarato, nell'altro l'asse mostra una data che non è quella della seduta. Sono correzioni piccole e locali: `emerging-view.js`, scala del primo pannello; `zoom.js`, `sessionTicks`. Tutti gli altri numeri controllati (valori, basi 100, riquadri di fine tratto, soglie, scale, trigger, fasce, pallini, calendari diversi, settori giovani) coincidono con il calcolo indipendente. Dopo le due correzioni basta ripetere gli script `tm.cjs`/`check_tm.py` e `sec.cjs`/`check_sec.py` (scenario A6) per arrivare al GO. I rilievi 3–5 si possono correggere anche dopo.

@@ -91,12 +91,12 @@ export function timeTicks(t0, t1, maxN = 10) {
     }
     return out;
   }
-  // meno di due mesi: un giorno ogni 1 o 2, oppure i lunedì (ogni 1 o 2 settimane)
-  const days = (t1 - t0) / DAY, step = [1, 2, 7, 14].find((s) => days / s <= maxN) || 28;
+  // meno di due mesi: un giorno feriale ogni 1 o 2, oppure i lunedì (ogni 1 o 2 settimane); mai sabato e domenica
+  const days = (t1 - t0) / DAY, step = [1, 2, 7, 14].find((s) => (days * (s < 7 ? 5 / 7 : 1)) / s <= maxN) || 28;
   let k = 0;
   for (let t = Math.ceil((t0 + 1) / DAY) * DAY; t <= t1; t += DAY) {
-    const d = new Date(t);
-    if (step >= 7) { if (d.getUTCDay() !== 1) continue; if (k++ % (step / 7)) continue; } else if (Math.round((t - t0) / DAY) % step) continue;
+    const d = new Date(t), wd = d.getUTCDay();
+    if (step >= 7) { if (wd !== 1) continue; if (k++ % (step / 7)) continue; } else { if (wd === 0 || wd === 6) continue; if (k++ % step) continue; }
     out.push({ t, label: `${String(d.getUTCDate()).padStart(2, '0')}/${String(d.getUTCMonth() + 1).padStart(2, '0')}` });
   }
   return out;
@@ -108,7 +108,9 @@ export function sessionTicks(dates, maxN = 10) {
   const out = [];
   for (const tk of timeTicks(Date.parse(dates[0]), Date.parse(dates.at(-1)), maxN)) {
     const i = lb(dates, isoOf(tk.t));
-    if (i > 0 && i < dates.length && (!out.length || out.at(-1).i !== i)) out.push({ i, label: tk.label });
+    // un giorno senza seduta (festa) va sulla seduta dopo: l'etichetta di un giorno è la data di quella seduta
+    const label = /^\d\d\/\d\d$/.test(tk.label) ? `${dates[i].slice(8, 10)}/${dates[i].slice(5, 7)}` : tk.label;
+    if (i > 0 && i < dates.length && (!out.length || out.at(-1).i !== i)) out.push({ i, label });
   }
   return out;
 }

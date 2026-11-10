@@ -212,10 +212,11 @@ export function createEmerging(ctx) {
     const usdRaw = r.usd && c.fx ? r.usd : null;
     let jb = -1;
     for (let i = i0; i < n; i++) if (snap.close[i] != null && (!usdRaw || usdRaw[i] != null)) { jb = i; break; }
-    const rebase = (a) => a.map((v, i) => (i < i0 || v == null || jb < 0 ? null : (v / a[jb]) * 100));
+    // solo le sedute della finestra: la scala del prezzo è sui valori visibili (nello zoom anche a destra)
+    const rebase = (a) => a.map((v, i) => (i < i0 || v == null || jb < 0 || !inWin(dates[i]) ? null : (v / a[jb]) * 100));
     const loc = rebase(snap.close), usd = usdRaw ? rebase(usdRaw) : null;
     // nello zoom la base 100 è il primo giorno del tratto: si scrive sempre, il valore cambia con lo zoom
-    const baseNote = zw && jb >= 0 ? ` · base 100 al ${dIT(dates[jb])}, inizio dello zoom` : jb > i0 ? ` · base 100 al ${dIT(dates[jb])}` : '';
+    const baseNote = zw && jb >= 0 ? ` · base 100 al ${dIT(dates[jb])}, ${jb === i0 ? 'inizio dello zoom' : 'primo giorno dello zoom con tutti i dati'}` : jb > i0 ? ` · base 100 al ${dIT(dates[jb])}` : '';
     const scale = (vals, pad = 0.06, fixed = null) => {
       let lo = Infinity, hi = -Infinity;
       for (const v of vals) if (v != null) { lo = Math.min(lo, v); hi = Math.max(hi, v); }
@@ -293,6 +294,8 @@ export function createEmerging(ctx) {
       const q = pt.matrixTransform(svg.getScreenCTM().inverse());
       const tq = t0 + ((Math.max(L, Math.min(L + PW, q.x)) - L) / PW) * (t1 - t0);
       let i = i0; while (i + 1 < n && Date.parse(dates[i + 1]) <= tq) i++;
+      // la seduta più vicina al puntatore (come la selezione dello zoom), dentro la finestra
+      if (i + 1 < n && Date.parse(dates[i + 1]) <= t1 && Date.parse(dates[i + 1]) - tq < tq - Date.parse(dates[i])) i++;
       const d = dates[i];
       line(d); emitX('emg', svg.id, d);
       const fi = fxAt ? fxAt.get(d) : undefined, di = dlAt ? dlAt.get(d) : undefined;

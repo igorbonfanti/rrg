@@ -371,6 +371,8 @@ export function createVix(ctx) {
       const q = pt.matrixTransform(svg.getScreenCTM().inverse());
       const tq = t0 + ((Math.max(L, Math.min(L + PW, q.x)) - L) / PW) * (t1 - t0);
       let i = i0; while (i + 1 < n && Date.parse(dates[i + 1]) <= tq) i++;
+      // la seduta più vicina al puntatore (come la selezione dello zoom), dentro la finestra
+      if (i + 1 < n && Date.parse(dates[i + 1]) <= t1 && Date.parse(dates[i + 1]) - tq < tq - Date.parse(dates[i])) i++;
       const xx = x(dates[i]); xh.setAttribute('x1', xx); xh.setAttribute('x2', xx); xh.setAttribute('visibility', 'visible');
       const prov = A.fred && dates[i] > A.fred && A.vix[i] != null ? ' <span class="muted">provv.</span>' : '';
       const v3 = has3 ? C.v3[i] : null, p3 = has3 && v3 != null && C.fred3m && dates[i] > C.fred3m ? ' <span class="muted">provv.</span>' : '';

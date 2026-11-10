@@ -81,3 +81,12 @@ test('zoom: tacche per seduta su sedute che esistono', () => {
 test('zoom: testo dell\'etichetta', () => {
   assert.equal(zoomText(['2020-02-03', '2020-05-15']), 'dal 03/02/2020 al 15/05/2020');
 });
+
+test('zoom: le etichette dei giorni non cadono mai di sabato o domenica, né su un giorno senza seduta', () => {
+  for (const [a, b] of [['2026-10-15', '2026-11-04'], ['2020-02-20', '2020-03-12']]) {
+    for (const maxN of [4, 6, 10]) for (const t of timeTicks(Date.parse(a), Date.parse(b), maxN)) assert.ok(![0, 6].includes(new Date(t.t).getUTCDay()), `${a}–${b}: ${t.label}`);
+  }
+  // calendario con una festa di lunedì (26/05/2025): l'etichetta è la data della seduta dopo
+  const ds = DATES.filter((d) => d >= '2021-05-10' && d <= '2021-06-30' && d !== '2021-05-31');
+  for (const t of sessionTicks(ds, 10)) if (/^\d\d\/\d\d$/.test(t.label)) assert.equal(t.label, `${ds[t.i].slice(8, 10)}/${ds[t.i].slice(5, 7)}`);
+});
