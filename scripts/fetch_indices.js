@@ -21,7 +21,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, parse, mapLimit } from './lib/yahoo.js';
-import { SOURCES, PARSERS, parseNikkei, parseExsa, parseNasdaq, parseIShares, parseB3 } from './lib/members.js';
+import { SOURCES, PARSERS, parseNikkei, parseExsa, parseNasdaq, parseIShares, parseB3, checkList, nextList } from './lib/members.js';
 import { parseCSV } from './fetch_breadth.js';
 import { encodeRLE, expandRLE } from '../js/signals.js';
 import { decodeDates, encodeDates, unpackIndex, packIndex } from '../js/indexdata.js';
@@ -33,7 +33,7 @@ const DATA = path.join(ROOT, 'data');
 // di prezzi la media a 200 sedute c'è per circa 45 sedute, meno nelle borse con più feste: le sedute più vecchie si
 // saltano comunque se troppi titoli non hanno ancora 200 chiusure (countDay, short); il 20/10/2026 un ricalcolo di 50
 // sedute senza questo controllo aveva abbassato di decine di punti le sedute di inizio agosto
-const RECOMPUTE = Math.max(5, Math.min(40, +process.env.RECOMPUTE || 5)), STALE_DAYS = 5, MIN_FRESH = 0.75, MIN_OVERLAP = 0.8;
+const RECOMPUTE = Math.max(5, Math.min(40, +process.env.RECOMPUTE || 5)), STALE_DAYS = 5, MIN_FRESH = 0.75;
 const UA = 'Mozilla/5.0 (sector-monitor data fetch)';
 const DAY = 86400000;
 const readJSON = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf-8')) : d);
@@ -57,43 +57,24 @@ async function fetchList(k) {
   if (src.kind === 'b3') return parseB3(JSON.parse(await get(src.url)));
   return null;
 }
-// Lista nuova accettabile? `prev` = ultima lista buona
-export function checkList(list, prev, { min, max }) {
-  const problems = [];
-  if (!Array.isArray(list) || !list.length) return ['lista vuota o illeggibile'];
-  if (new Set(list).size !== list.length) problems.push('simboli doppi');
-  if (list.length < min || list.length > max) problems.push(`${list.length} titoli (attesi ${min}-${max})`);
-  if (prev && prev.length) {
-    const s = new Set(list), same = prev.filter((t) => s.has(t)).length;
-    if (same < prev.length * MIN_OVERLAP) problems.push(`solo ${same} titoli su ${prev.length} in comune con l'ultima lista`);
-  }
-  return problems;
-}
+// checkList e nextList stanno in scripts/lib/members.js (le usano anche le industrie, scripts/fetch_industries.js)
+export { checkList };
 async function loadMembers(k, today) {
   const file = path.join(DATA, 'index_members', k + '.json');
   const prev = readJSON(file, null);
-  let fresh = null;
+  let r = null;
   try {
-    const list = await fetchList(k);
-    const problems = checkList(list, prev && prev.tickers, SOURCES[k]);
-    if (problems.length) console.log(`::warning::${k}: lista scartata (${problems.join('; ')}), tengo l'ultima buona`);
-    else fresh = [...list].sort();
+    r = nextList(await fetchList(k), prev, SOURCES[k], today, { index: k });
   } catch (e) {
     console.log(`::warning::${k}: lista non disponibile (${e.message}), tengo l'ultima buona`);
   }
-  if (!fresh) {
+  if (r && r.problems.length) console.log(`::warning::${k}: lista scartata (${r.problems.join('; ')}), tengo l'ultima buona`);
+  if (!r || !r.out) {
     if (!prev) throw new Error(`${k}: nessuna lista dei membri`);
     return { tickers: prev.tickers, write: null };
   }
-  const out = prev ? { ...prev } : { index: k, changes: [] };
-  const before = new Set(prev ? prev.tickers : []), after = new Set(fresh);
-  const added = fresh.filter((t) => !before.has(t)), removed = [...before].filter((t) => !after.has(t));
-  if (prev && (added.length || removed.length)) {
-    out.changes = [...(prev.changes || []), { date: today, added, removed }];
-    console.log(`${k}: +${added.join(' +') || '—'} / -${removed.join(' -') || '—'}`);
-  }
-  out.asOf = today; out.count = fresh.length; out.tickers = fresh;
-  return { tickers: fresh, write: [file, out] };
+  if (r.added.length || r.removed.length) console.log(`${k}: +${r.added.join(' +') || '—'} / -${r.removed.join(' -') || '—'}`);
+  return { tickers: r.tickers, write: [file, r.out] };
 }
 
 // ---------- prezzi ----------

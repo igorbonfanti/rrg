@@ -162,6 +162,72 @@ export function parseIShares(text, parseCSV, foreign = false) {
   return [...new Set(out)]; // lo stesso titolo può comparire su due righe (es. con un diritto)
 }
 
+/**
+ * Holdings di un ETF iShares USA con nomi, pesi e azioni (industrie: SOXX). Righe "Equity" con il simbolo di Yahoo come
+ * parseIShares (titoli USA e ADR: punti e spazi diventano trattini); lo stesso titolo su due righe si somma.
+ * @returns {{asOf: string|null, rows: {s: string, name: string, w: number|null, q: number|null, location: string, exchange: string}[]}|null}
+ *   asOf = data delle holdings («Fund Holdings as of»), w = peso nell'ETF in %, q = azioni detenute; null se il file non ha la tabella
+ */
+export function parseISharesHoldings(text, parseCSV) {
+  const lines = text.replace(/^﻿/, '').split(/\r?\n/);
+  const h = lines.findIndex((l) => l.startsWith('Ticker,'));
+  if (h < 0) return null;
+  const raw = (/Fund Holdings as of,"([^"]+)"/.exec(text) || [])[1];
+  const dt = raw ? new Date(`${raw} 12:00 UTC`) : null;
+  const asOf = dt && !Number.isNaN(dt.getTime()) ? dt.toISOString().slice(0, 10) : null;
+  const num = (v) => { const x = Number(String(v ?? '').replace(/,/g, '')); return String(v ?? '').trim() !== '' && Number.isFinite(x) ? x : null; };
+  const rows = [], by = new Map();
+  for (const r of parseCSV(lines.slice(h).join('\n'))) {
+    if (r['Asset Class'] !== 'Equity') continue;
+    const t = (r.Ticker || '').trim();
+    if (!t || t === '-') continue;
+    const s = t.replace(/[ .]/g, '-').toUpperCase(), w = num(r['Weight (%)']), q = num(r.Quantity);
+    const old = by.get(s);
+    if (old) { if (w != null) old.w = Math.round(((old.w || 0) + w) * 100) / 100; if (q != null) old.q = (old.q || 0) + q; continue; }
+    const row = { s, name: (r.Name || '').trim(), w, q, location: (r.Location || '').trim(), exchange: (r.Exchange || '').trim() };
+    by.set(s, row);
+    rows.push(row);
+  }
+  return { asOf, rows };
+}
+
+// Lista nuova accettabile? `prev` = ultima lista buona (stesse regole per gli indici e per le industrie)
+export const MIN_OVERLAP = 0.8;
+export function checkList(list, prev, { min, max }) {
+  const problems = [];
+  if (!Array.isArray(list) || !list.length) return ['lista vuota o illeggibile'];
+  if (new Set(list).size !== list.length) problems.push('simboli doppi');
+  if (list.length < min || list.length > max) problems.push(`${list.length} titoli (attesi ${min}-${max})`);
+  if (prev && prev.length) {
+    const s = new Set(list), same = prev.filter((t) => s.has(t)).length;
+    if (same < prev.length * MIN_OVERLAP) problems.push(`solo ${same} titoli su ${prev.length} in comune con l'ultima lista`);
+  }
+  return problems;
+}
+
+/**
+ * Lista di oggi contro l'ultima buona: se `list` passa checkList diventa la lista (ordinata) e i cambi si registrano in
+ * `changes` con la data `today`; altrimenti resta `prev`. Funzione pura: chi chiama scrive il file e gli avvisi.
+ * @param {string[]|null} list lista appena letta (null = illeggibile)
+ * @param {{tickers: string[], changes?: object[]}|null} prev ultima lista buona (forma di data/index_members/*.json)
+ * @param {{min: number, max: number}} lim
+ * @param {string} today data ISO della lettura
+ * @param {object} [base] campi della lista nuova quando non c'è `prev` (per esempio {index: 'NDX'})
+ * @returns {{tickers: string[]|null, out: object|null, problems: string[], added: string[], removed: string[]}}
+ *   out = lista da scrivere (null se resta quella di prima)
+ */
+export function nextList(list, prev, lim, today, base = {}) {
+  const problems = checkList(list, prev && prev.tickers, lim);
+  if (problems.length) return { tickers: prev ? prev.tickers : null, out: null, problems, added: [], removed: [] };
+  const fresh = [...list].sort();
+  const out = prev ? { ...prev } : { ...base, changes: [] };
+  const before = new Set(prev ? prev.tickers : []), after = new Set(fresh);
+  const added = fresh.filter((t) => !before.has(t)), removed = [...before].filter((t) => !after.has(t));
+  if (prev && (added.length || removed.length)) out.changes = [...(prev.changes || []), { date: today, added, removed }];
+  out.asOf = today; out.count = fresh.length; out.tickers = fresh;
+  return { tickers: fresh, out, problems: [], added: prev ? added : [], removed };
+}
+
 // Ibovespa: portafoglio del giorno di B3 (campo cod) → ABEV3.SA
 export function parseB3(json) {
   const rows = json && json.results;
