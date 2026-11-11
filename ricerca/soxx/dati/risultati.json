@@ -1,0 +1,4400 @@
+{
+ "generato": "2026-11-11",
+ "metodo": "vedi testa di script/analisi.mjs e README.md",
+ "parametri": {
+  "watchBand": 10,
+  "ddSetup": 70,
+  "ddWatch": 85,
+  "setupCloses": 2,
+  "minRecoveryPoints": 5,
+  "minRecoveryStocks": 2,
+  "slowSetupSessions": 60,
+  "failWindow": 20,
+  "cooldown": 63,
+  "resetFloor": 40,
+  "resetAbove": 25
+ },
+ "holdings": {
+  "fonte": "https://www.ishares.com/us/products/239705/x/latest-holdings.csv",
+  "asOf": "Nov 10, 2026",
+  "titoli": 30
+ },
+ "membri": [
+  {
+   "ticker": "AMD",
+   "nome": "ADVANCED MICRO DEVICES",
+   "peso": 10.11,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "AVGO",
+   "nome": "BROADCOM INC",
+   "peso": 8.3,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2009-08-06",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 4343
+  },
+  {
+   "ticker": "NVDA",
+   "nome": "NVIDIA",
+   "peso": 7.11,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1999-01-22",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 6994
+  },
+  {
+   "ticker": "MU",
+   "nome": "MICRON TECHNOLOGY",
+   "peso": 6.99,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "INTC",
+   "nome": "INTEL CORPORATION",
+   "peso": 6,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "TXN",
+   "nome": "TEXAS INSTRUMENT",
+   "peso": 5.35,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "ADI",
+   "nome": "ANALOG DEVICES",
+   "peso": 5.08,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "QCOM",
+   "nome": "QUALCOMM",
+   "peso": 4.72,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1991-12-13",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 8789
+  },
+  {
+   "ticker": "MPWR",
+   "nome": "MONOLITHIC POWER SYSTEMS INC",
+   "peso": 4.12,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2004-11-19",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 5528
+  },
+  {
+   "ticker": "KLAC",
+   "nome": "KLA",
+   "peso": 4.04,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "NXPI",
+   "nome": "NXP SEMICONDUCTORS NV",
+   "peso": 3.82,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2010-08-06",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 4091
+  },
+  {
+   "ticker": "AMAT",
+   "nome": "APPLIED MATERIAL INC",
+   "peso": 3.75,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "TSM",
+   "nome": "TAIWAN SEMICONDUCTOR MANUFACTURING",
+   "peso": 3.42,
+   "paese": "Taiwan",
+   "borsa": "NYSE",
+   "primaSeduta": "1997-10-09",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 7317
+  },
+  {
+   "ticker": "LRCX",
+   "nome": "LAM RESEARCH",
+   "peso": 3.41,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "MRVL",
+   "nome": "MARVELL TECHNOLOGY",
+   "peso": 3.37,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2000-06-30",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 6630
+  },
+  {
+   "ticker": "SKHY",
+   "nome": "SK HYNIX AMERICAN DEPOSITARY SHARE",
+   "peso": 2.78,
+   "paese": "Korea (South)",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2026-07-10",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 87
+  },
+  {
+   "ticker": "TER",
+   "nome": "TERADYNE",
+   "peso": 2.43,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1990-01-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 9283
+  },
+  {
+   "ticker": "MCHP",
+   "nome": "MICROCHIP TECHNOLOGY INC",
+   "peso": 2.09,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1993-03-19",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 8470
+  },
+  {
+   "ticker": "ALAB",
+   "nome": "ASTERA LABS",
+   "peso": 1.96,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2024-03-20",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 664
+  },
+  {
+   "ticker": "ON",
+   "nome": "ON SEMICONDUCTOR CORP",
+   "peso": 1.73,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2000-05-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 6672
+  },
+  {
+   "ticker": "ASML",
+   "nome": "ASML HOLDING ADR REPRESENTING",
+   "peso": 1.64,
+   "paese": "Netherlands",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1995-03-15",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 7968
+  },
+  {
+   "ticker": "CRDO",
+   "nome": "CREDO TECHNOLOGY GROUP HOLDING LTD",
+   "peso": 1.4,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2022-01-27",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 1202
+  },
+  {
+   "ticker": "ENTG",
+   "nome": "ENTEGRIS INC",
+   "peso": 1.36,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2000-07-11",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 6624
+  },
+  {
+   "ticker": "MTSI",
+   "nome": "MACOM TECHNOLOGY SOLUTIONS",
+   "peso": 1.03,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2012-03-15",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 3686
+  },
+  {
+   "ticker": "TSEM",
+   "nome": "TOWER SEMICONDUCTOR",
+   "peso": 0.99,
+   "paese": "Israel",
+   "borsa": "NASDAQ",
+   "primaSeduta": "1994-10-26",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 8064
+  },
+  {
+   "ticker": "ASX",
+   "nome": "ASE TECHNOLOGY HOLDING ADR REPRESE",
+   "peso": 0.93,
+   "paese": "Taiwan",
+   "borsa": "NYSE",
+   "primaSeduta": "2000-10-02",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 6566
+  },
+  {
+   "ticker": "CBRS",
+   "nome": "CEREBRAS SYSTEMS INC CLASS A",
+   "peso": 0.57,
+   "paese": "United States",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2026-05-14",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 125
+  },
+  {
+   "ticker": "UMC",
+   "nome": "UNITED MICRO ELECTRONICS ADR REP",
+   "peso": 0.54,
+   "paese": "Taiwan",
+   "borsa": "NYSE",
+   "primaSeduta": "2000-09-19",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 6575
+  },
+  {
+   "ticker": "STM",
+   "nome": "STMICROELECTRONICS ADR",
+   "peso": 0.48,
+   "paese": "France",
+   "borsa": "NYSE",
+   "primaSeduta": "1994-12-08",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 8034
+  },
+  {
+   "ticker": "ARM",
+   "nome": "ARM HOLDINGS AMERICAN DEPOSITARY S",
+   "peso": 0.4,
+   "paese": "United Kingdom",
+   "borsa": "NASDAQ",
+   "primaSeduta": "2023-09-14",
+   "ultimaSeduta": "2026-11-10",
+   "sedute": 793
+  }
+ ],
+ "disponibilita": [
+  {
+   "data": "2001-07-13",
+   "membri": 30,
+   "conPrezzi": 21,
+   "con200Sedute": 20,
+   "mancanti": [
+    "AVGO (2009-08-06)",
+    "MPWR (2004-11-19)",
+    "NXPI (2010-08-06)",
+    "SKHY (2026-07-10)",
+    "ALAB (2024-03-20)",
+    "CRDO (2022-01-27)",
+    "MTSI (2012-03-15)",
+    "CBRS (2026-05-14)",
+    "ARM (2023-09-14)"
+   ]
+  },
+  {
+   "data": "2002-10-09",
+   "membri": 30,
+   "conPrezzi": 21,
+   "con200Sedute": 21,
+   "mancanti": [
+    "AVGO (2009-08-06)",
+    "MPWR (2004-11-19)",
+    "NXPI (2010-08-06)",
+    "SKHY (2026-07-10)",
+    "ALAB (2024-03-20)",
+    "CRDO (2022-01-27)",
+    "MTSI (2012-03-15)",
+    "CBRS (2026-05-14)",
+    "ARM (2023-09-14)"
+   ]
+  },
+  {
+   "data": "2008-01-02",
+   "membri": 30,
+   "conPrezzi": 22,
+   "con200Sedute": 22,
+   "mancanti": [
+    "AVGO (2009-08-06)",
+    "NXPI (2010-08-06)",
+    "SKHY (2026-07-10)",
+    "ALAB (2024-03-20)",
+    "CRDO (2022-01-27)",
+    "MTSI (2012-03-15)",
+    "CBRS (2026-05-14)",
+    "ARM (2023-09-14)"
+   ]
+  },
+  {
+   "data": "2008-11-20",
+   "membri": 30,
+   "conPrezzi": 22,
+   "con200Sedute": 22,
+   "mancanti": [
+    "AVGO (2009-08-06)",
+    "NXPI (2010-08-06)",
+    "SKHY (2026-07-10)",
+    "ALAB (2024-03-20)",
+    "CRDO (2022-01-27)",
+    "MTSI (2012-03-15)",
+    "CBRS (2026-05-14)",
+    "ARM (2023-09-14)"
+   ]
+  },
+  {
+   "data": "2015-01-02",
+   "membri": 30,
+   "conPrezzi": 25,
+   "con200Sedute": 25,
+   "mancanti": [
+    "SKHY (2026-07-10)",
+    "ALAB (2024-03-20)",
+    "CRDO (2022-01-27)",
+    "CBRS (2026-05-14)",
+    "ARM (2023-09-14)"
+   ]
+  },
+  {
+   "data": "2020-01-02",
+   "membri": 30,
+   "conPrezzi": 25,
+   "con200Sedute": 25,
+   "mancanti": [
+    "SKHY (2026-07-10)",
+    "ALAB (2024-03-20)",
+    "CRDO (2022-01-27)",
+    "CBRS (2026-05-14)",
+    "ARM (2023-09-14)"
+   ]
+  },
+  {
+   "data": "2022-10-13",
+   "membri": 30,
+   "conPrezzi": 26,
+   "con200Sedute": 25,
+   "mancanti": [
+    "SKHY (2026-07-10)",
+    "ALAB (2024-03-20)",
+    "CBRS (2026-05-14)",
+    "ARM (2023-09-14)"
+   ]
+  },
+  {
+   "data": "2025-04-08",
+   "membri": 30,
+   "conPrezzi": 28,
+   "con200Sedute": 28,
+   "mancanti": [
+    "SKHY (2026-07-10)",
+    "CBRS (2026-05-14)"
+   ]
+  }
+ ],
+ "breadth": {
+  "inizioRegolaApp": "2001-08-01",
+  "primaSedutaCoperta60": "2001-07-13",
+  "primaSedutaSOXX": "2001-07-13",
+  "ultimaSeduta": "2026-11-10",
+  "oggi": {
+   "data": "2026-11-10",
+   "sopra": 7,
+   "n": 30,
+   "con200Sedute": 28,
+   "pct200": 23.3
+  },
+  "minimoN": {
+   "data": "2001-08-01",
+   "n": 21
+  },
+  "nPerAnno": {
+   "2001": {
+    "n": 21,
+    "con200Sedute": 21
+   },
+   "2002": {
+    "n": 21,
+    "con200Sedute": 21
+   },
+   "2003": {
+    "n": 21,
+    "con200Sedute": 21
+   },
+   "2004": {
+    "n": 21,
+    "con200Sedute": 21
+   },
+   "2005": {
+    "n": 22,
+    "con200Sedute": 21
+   },
+   "2006": {
+    "n": 22,
+    "con200Sedute": 22
+   },
+   "2007": {
+    "n": 22,
+    "con200Sedute": 22
+   },
+   "2008": {
+    "n": 22,
+    "con200Sedute": 22
+   },
+   "2009": {
+    "n": 22,
+    "con200Sedute": 22
+   },
+   "2010": {
+    "n": 23,
+    "con200Sedute": 22
+   },
+   "2011": {
+    "n": 24,
+    "con200Sedute": 23
+   },
+   "2012": {
+    "n": 24,
+    "con200Sedute": 24
+   },
+   "2013": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2014": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2015": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2016": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2017": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2018": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2019": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2020": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2021": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2022": {
+    "n": 25,
+    "con200Sedute": 25
+   },
+   "2023": {
+    "n": 26,
+    "con200Sedute": 26
+   },
+   "2024": {
+    "n": 27,
+    "con200Sedute": 26
+   },
+   "2025": {
+    "n": 28,
+    "con200Sedute": 27
+   },
+   "2026": {
+    "n": 28,
+    "con200Sedute": 28
+   }
+  },
+  "percentiliTuttaLaStoria": {
+   "p1": 0,
+   "p3": 0,
+   "p5": 4,
+   "p10": 9.1
+  },
+  "p3FinoAOggi": 0,
+  "quotaSedute": {
+   "3": {
+    "dalInizio": {
+     "sedute": 6357,
+     "sotto": 260,
+     "quota": 4.09
+    },
+    "dal2008": {
+     "sedute": 4745,
+     "sotto": 185,
+     "quota": 3.9
+    }
+   },
+   "5": {
+    "dalInizio": {
+     "sedute": 6357,
+     "sotto": 445,
+     "quota": 7
+    },
+    "dal2008": {
+     "sedute": 4745,
+     "sotto": 308,
+     "quota": 6.49
+    }
+   },
+   "10": {
+    "dalInizio": {
+     "sedute": 6357,
+     "sotto": 779,
+     "quota": 12.25
+    },
+    "dal2008": {
+     "sedute": 4745,
+     "sotto": 493,
+     "quota": 10.39
+    }
+   }
+  },
+  "seduteA0": {
+   "sedute": 6357,
+   "sotto": 260,
+   "quota": 4.09
+  }
+ },
+ "crisi": [
+  {
+   "nome": "dot-com 2001-2003",
+   "da": "2001-07-13",
+   "a": "2003-03-31",
+   "minBreadth": 0,
+   "data": "2001-09-19",
+   "sopra": 0,
+   "n": 21,
+   "con200Sedute": 21,
+   "seduteA0": 73,
+   "seduteSotto3": 73,
+   "seduteSotto5": 125,
+   "seduteSotto10": 196,
+   "p3FinoAQuelGiorno": null,
+   "minimoPrezzoSOXX": "2002-10-09",
+   "ddAlMinimo": -65.9,
+   "pctDDAlMinimo": 100
+  },
+  {
+   "nome": "crisi 2008-2009",
+   "da": "2008-09-01",
+   "a": "2009-03-31",
+   "minBreadth": 0,
+   "data": "2008-09-29",
+   "sopra": 0,
+   "n": 22,
+   "con200Sedute": 22,
+   "seduteA0": 115,
+   "seduteSotto3": 115,
+   "seduteSotto5": 125,
+   "seduteSotto10": 139,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2008-11-20",
+   "ddAlMinimo": -62,
+   "pctDDAlMinimo": 100
+  },
+  {
+   "nome": "agosto 2011",
+   "da": "2011-07-01",
+   "a": "2011-12-31",
+   "minBreadth": 0,
+   "data": "2011-08-04",
+   "sopra": 0,
+   "n": 24,
+   "con200Sedute": 24,
+   "seduteA0": 19,
+   "seduteSotto3": 19,
+   "seduteSotto5": 33,
+   "seduteSotto10": 48,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2011-08-19",
+   "ddAlMinimo": -30.5,
+   "pctDDAlMinimo": 79
+  },
+  {
+   "nome": "2015-2016",
+   "da": "2015-07-01",
+   "a": "2016-03-31",
+   "minBreadth": 0,
+   "data": "2015-08-24",
+   "sopra": 0,
+   "n": 25,
+   "con200Sedute": 25,
+   "seduteA0": 2,
+   "seduteSotto3": 2,
+   "seduteSotto5": 7,
+   "seduteSotto10": 23,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2015-08-25",
+   "ddAlMinimo": -24.6,
+   "pctDDAlMinimo": 78
+  },
+  {
+   "nome": "fine 2018",
+   "da": "2018-10-01",
+   "a": "2019-01-31",
+   "minBreadth": 0,
+   "data": "2018-12-24",
+   "sopra": 0,
+   "n": 25,
+   "con200Sedute": 25,
+   "seduteA0": 2,
+   "seduteSotto3": 2,
+   "seduteSotto5": 24,
+   "seduteSotto10": 67,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2018-12-24",
+   "ddAlMinimo": -25.3,
+   "pctDDAlMinimo": 83
+  },
+  {
+   "nome": "Covid 2020",
+   "da": "2020-02-15",
+   "a": "2020-04-30",
+   "minBreadth": 4,
+   "data": "2020-03-16",
+   "sopra": 1,
+   "n": 25,
+   "con200Sedute": 25,
+   "seduteA0": 0,
+   "seduteSotto3": 0,
+   "seduteSotto5": 1,
+   "seduteSotto10": 8,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2020-03-20",
+   "ddAlMinimo": -34.3,
+   "pctDDAlMinimo": 91
+  },
+  {
+   "nome": "2022",
+   "da": "2022-05-01",
+   "a": "2022-12-31",
+   "minBreadth": 0,
+   "data": "2022-10-11",
+   "sopra": 0,
+   "n": 26,
+   "con200Sedute": 25,
+   "seduteA0": 5,
+   "seduteSotto3": 5,
+   "seduteSotto5": 48,
+   "seduteSotto10": 93,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2022-10-14",
+   "ddAlMinimo": -45.8,
+   "pctDDAlMinimo": 95
+  },
+  {
+   "nome": "estate 2024",
+   "da": "2024-07-01",
+   "a": "2024-09-30",
+   "minBreadth": 39.3,
+   "data": "2024-08-07",
+   "sopra": 11,
+   "n": 28,
+   "con200Sedute": 27,
+   "seduteA0": 0,
+   "seduteSotto3": 0,
+   "seduteSotto5": 0,
+   "seduteSotto10": 0,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2024-08-07",
+   "ddAlMinimo": -24.9,
+   "pctDDAlMinimo": 84
+  },
+  {
+   "nome": "aprile 2025",
+   "da": "2025-03-01",
+   "a": "2025-05-31",
+   "minBreadth": 0,
+   "data": "2025-03-06",
+   "sopra": 0,
+   "n": 28,
+   "con200Sedute": 28,
+   "seduteA0": 20,
+   "seduteSotto3": 20,
+   "seduteSotto5": 29,
+   "seduteSotto10": 33,
+   "p3FinoAQuelGiorno": 0,
+   "minimoPrezzoSOXX": "2025-04-08",
+   "ddAlMinimo": -41.4,
+   "pctDDAlMinimo": 94
+  }
+ ],
+ "discese": {
+  "3": {
+   "dalInizio": [
+    {
+     "inizio": "2001-09-19",
+     "fine": "2001-10-09",
+     "sedute": 12,
+     "min": 0,
+     "dataMin": "2001-09-19"
+    },
+    {
+     "inizio": "2002-07-19",
+     "fine": "2002-10-14",
+     "sedute": 61,
+     "min": 0,
+     "dataMin": "2002-07-19"
+    },
+    {
+     "inizio": "2006-07-21",
+     "fine": "2006-07-24",
+     "sedute": 2,
+     "min": 0,
+     "dataMin": "2006-07-21"
+    },
+    {
+     "inizio": "2008-01-07",
+     "fine": "2008-02-14",
+     "sedute": 22,
+     "min": 0,
+     "dataMin": "2008-01-07"
+    },
+    {
+     "inizio": "2008-09-29",
+     "fine": "2009-03-20",
+     "sedute": 115,
+     "min": 0,
+     "dataMin": "2008-09-29"
+    },
+    {
+     "inizio": "2011-08-04",
+     "fine": "2011-10-04",
+     "sedute": 19,
+     "min": 0,
+     "dataMin": "2011-08-04"
+    },
+    {
+     "inizio": "2015-08-24",
+     "fine": "2015-08-25",
+     "sedute": 2,
+     "min": 0,
+     "dataMin": "2015-08-24"
+    },
+    {
+     "inizio": "2018-12-24",
+     "fine": "2019-01-03",
+     "sedute": 2,
+     "min": 0,
+     "dataMin": "2018-12-24"
+    },
+    {
+     "inizio": "2022-10-11",
+     "fine": "2022-10-17",
+     "sedute": 5,
+     "min": 0,
+     "dataMin": "2022-10-11"
+    },
+    {
+     "inizio": "2025-03-06",
+     "fine": "2025-04-23",
+     "sedute": 20,
+     "min": 0,
+     "dataMin": "2025-03-06"
+    }
+   ],
+   "dal2008": [
+    {
+     "inizio": "2008-01-07",
+     "fine": "2008-02-14",
+     "sedute": 22,
+     "min": 0,
+     "dataMin": "2008-01-07"
+    },
+    {
+     "inizio": "2008-09-29",
+     "fine": "2009-03-20",
+     "sedute": 115,
+     "min": 0,
+     "dataMin": "2008-09-29"
+    },
+    {
+     "inizio": "2011-08-04",
+     "fine": "2011-10-04",
+     "sedute": 19,
+     "min": 0,
+     "dataMin": "2011-08-04"
+    },
+    {
+     "inizio": "2015-08-24",
+     "fine": "2015-08-25",
+     "sedute": 2,
+     "min": 0,
+     "dataMin": "2015-08-24"
+    },
+    {
+     "inizio": "2018-12-24",
+     "fine": "2019-01-03",
+     "sedute": 2,
+     "min": 0,
+     "dataMin": "2018-12-24"
+    },
+    {
+     "inizio": "2022-10-11",
+     "fine": "2022-10-17",
+     "sedute": 5,
+     "min": 0,
+     "dataMin": "2022-10-11"
+    },
+    {
+     "inizio": "2025-03-06",
+     "fine": "2025-04-23",
+     "sedute": 20,
+     "min": 0,
+     "dataMin": "2025-03-06"
+    }
+   ]
+  },
+  "5": {
+   "dalInizio": [
+    {
+     "inizio": "2001-09-17",
+     "fine": "2001-10-10",
+     "sedute": 18,
+     "min": 0,
+     "dataMin": "2001-09-19"
+    },
+    {
+     "inizio": "2002-06-11",
+     "fine": "2003-03-11",
+     "sedute": 107,
+     "min": 0,
+     "dataMin": "2002-07-19"
+    },
+    {
+     "inizio": "2004-08-11",
+     "fine": "2004-08-17",
+     "sedute": 5,
+     "min": 4.8,
+     "dataMin": "2004-08-11"
+    },
+    {
+     "inizio": "2006-07-14",
+     "fine": "2006-07-26",
+     "sedute": 7,
+     "min": 0,
+     "dataMin": "2006-07-21"
+    },
+    {
+     "inizio": "2008-01-07",
+     "fine": "2008-03-28",
+     "sedute": 38,
+     "min": 0,
+     "dataMin": "2008-01-07"
+    },
+    {
+     "inizio": "2008-09-09",
+     "fine": "2009-03-20",
+     "sedute": 125,
+     "min": 0,
+     "dataMin": "2008-09-29"
+    },
+    {
+     "inizio": "2010-09-10",
+     "fine": "2010-09-10",
+     "sedute": 1,
+     "min": 4.2,
+     "dataMin": "2010-09-10"
+    },
+    {
+     "inizio": "2011-08-04",
+     "fine": "2011-11-25",
+     "sedute": 33,
+     "min": 0,
+     "dataMin": "2011-08-04"
+    },
+    {
+     "inizio": "2015-08-24",
+     "fine": "2015-10-01",
+     "sedute": 7,
+     "min": 0,
+     "dataMin": "2015-08-24"
+    },
+    {
+     "inizio": "2018-10-29",
+     "fine": "2019-01-04",
+     "sedute": 24,
+     "min": 0,
+     "dataMin": "2018-12-24"
+    },
+    {
+     "inizio": "2020-03-16",
+     "fine": "2020-03-16",
+     "sedute": 1,
+     "min": 4,
+     "dataMin": "2020-03-16"
+    },
+    {
+     "inizio": "2022-04-29",
+     "fine": "2022-11-03",
+     "sedute": 49,
+     "min": 0,
+     "dataMin": "2022-10-11"
+    },
+    {
+     "inizio": "2025-03-06",
+     "fine": "2025-05-01",
+     "sedute": 29,
+     "min": 0,
+     "dataMin": "2025-03-06"
+    },
+    {
+     "inizio": "2026-11-05",
+     "fine": "2026-11-05",
+     "sedute": 1,
+     "min": 3.3,
+     "dataMin": "2026-11-05"
+    }
+   ],
+   "dal2008": [
+    {
+     "inizio": "2008-01-07",
+     "fine": "2008-03-28",
+     "sedute": 38,
+     "min": 0,
+     "dataMin": "2008-01-07"
+    },
+    {
+     "inizio": "2008-09-09",
+     "fine": "2009-03-20",
+     "sedute": 125,
+     "min": 0,
+     "dataMin": "2008-09-29"
+    },
+    {
+     "inizio": "2010-09-10",
+     "fine": "2010-09-10",
+     "sedute": 1,
+     "min": 4.2,
+     "dataMin": "2010-09-10"
+    },
+    {
+     "inizio": "2011-08-04",
+     "fine": "2011-11-25",
+     "sedute": 33,
+     "min": 0,
+     "dataMin": "2011-08-04"
+    },
+    {
+     "inizio": "2015-08-24",
+     "fine": "2015-10-01",
+     "sedute": 7,
+     "min": 0,
+     "dataMin": "2015-08-24"
+    },
+    {
+     "inizio": "2018-10-29",
+     "fine": "2019-01-04",
+     "sedute": 24,
+     "min": 0,
+     "dataMin": "2018-12-24"
+    },
+    {
+     "inizio": "2020-03-16",
+     "fine": "2020-03-16",
+     "sedute": 1,
+     "min": 4,
+     "dataMin": "2020-03-16"
+    },
+    {
+     "inizio": "2022-04-29",
+     "fine": "2022-11-03",
+     "sedute": 49,
+     "min": 0,
+     "dataMin": "2022-10-11"
+    },
+    {
+     "inizio": "2025-03-06",
+     "fine": "2025-05-01",
+     "sedute": 29,
+     "min": 0,
+     "dataMin": "2025-03-06"
+    },
+    {
+     "inizio": "2026-11-05",
+     "fine": "2026-11-05",
+     "sedute": 1,
+     "min": 3.3,
+     "dataMin": "2026-11-05"
+    }
+   ]
+  },
+  "10": {
+   "dalInizio": [
+    {
+     "inizio": "2001-09-17",
+     "fine": "2001-10-30",
+     "sedute": 30,
+     "min": 0,
+     "dataMin": "2001-09-19"
+    },
+    {
+     "inizio": "2002-06-10",
+     "fine": "2003-03-12",
+     "sedute": 166,
+     "min": 0,
+     "dataMin": "2002-07-19"
+    },
+    {
+     "inizio": "2004-06-17",
+     "fine": "2004-10-18",
+     "sedute": 76,
+     "min": 4.8,
+     "dataMin": "2004-08-11"
+    },
+    {
+     "inizio": "2006-07-13",
+     "fine": "2006-08-07",
+     "sedute": 14,
+     "min": 0,
+     "dataMin": "2006-07-21"
+    },
+    {
+     "inizio": "2008-01-04",
+     "fine": "2008-03-31",
+     "sedute": 54,
+     "min": 0,
+     "dataMin": "2008-01-07"
+    },
+    {
+     "inizio": "2008-09-08",
+     "fine": "2009-03-30",
+     "sedute": 139,
+     "min": 0,
+     "dataMin": "2008-09-29"
+    },
+    {
+     "inizio": "2010-08-26",
+     "fine": "2010-09-10",
+     "sedute": 7,
+     "min": 4.2,
+     "dataMin": "2010-09-10"
+    },
+    {
+     "inizio": "2011-08-04",
+     "fine": "2011-11-29",
+     "sedute": 48,
+     "min": 0,
+     "dataMin": "2011-08-04"
+    },
+    {
+     "inizio": "2012-06-04",
+     "fine": "2012-06-04",
+     "sedute": 1,
+     "min": 8,
+     "dataMin": "2012-06-04"
+    },
+    {
+     "inizio": "2012-07-12",
+     "fine": "2012-07-17",
+     "sedute": 4,
+     "min": 8,
+     "dataMin": "2012-07-12"
+    },
+    {
+     "inizio": "2012-10-11",
+     "fine": "2012-10-23",
+     "sedute": 4,
+     "min": 8,
+     "dataMin": "2012-10-11"
+    },
+    {
+     "inizio": "2015-07-27",
+     "fine": "2015-10-01",
+     "sedute": 23,
+     "min": 0,
+     "dataMin": "2015-08-24"
+    },
+    {
+     "inizio": "2018-10-10",
+     "fine": "2019-01-23",
+     "sedute": 67,
+     "min": 0,
+     "dataMin": "2018-12-24"
+    },
+    {
+     "inizio": "2020-03-12",
+     "fine": "2020-04-03",
+     "sedute": 8,
+     "min": 4,
+     "dataMin": "2020-03-16"
+    },
+    {
+     "inizio": "2022-04-08",
+     "fine": "2022-11-09",
+     "sedute": 103,
+     "min": 0,
+     "dataMin": "2022-10-11"
+    },
+    {
+     "inizio": "2025-03-06",
+     "fine": "2025-05-01",
+     "sedute": 33,
+     "min": 0,
+     "dataMin": "2025-03-06"
+    },
+    {
+     "inizio": "2026-11-05",
+     "fine": "2026-11-06",
+     "sedute": 2,
+     "min": 3.3,
+     "dataMin": "2026-11-05"
+    }
+   ],
+   "dal2008": [
+    {
+     "inizio": "2008-01-04",
+     "fine": "2008-03-31",
+     "sedute": 54,
+     "min": 0,
+     "dataMin": "2008-01-07"
+    },
+    {
+     "inizio": "2008-09-08",
+     "fine": "2009-03-30",
+     "sedute": 139,
+     "min": 0,
+     "dataMin": "2008-09-29"
+    },
+    {
+     "inizio": "2010-08-26",
+     "fine": "2010-09-10",
+     "sedute": 7,
+     "min": 4.2,
+     "dataMin": "2010-09-10"
+    },
+    {
+     "inizio": "2011-08-04",
+     "fine": "2011-11-29",
+     "sedute": 48,
+     "min": 0,
+     "dataMin": "2011-08-04"
+    },
+    {
+     "inizio": "2012-06-04",
+     "fine": "2012-06-04",
+     "sedute": 1,
+     "min": 8,
+     "dataMin": "2012-06-04"
+    },
+    {
+     "inizio": "2012-07-12",
+     "fine": "2012-07-17",
+     "sedute": 4,
+     "min": 8,
+     "dataMin": "2012-07-12"
+    },
+    {
+     "inizio": "2012-10-11",
+     "fine": "2012-10-23",
+     "sedute": 4,
+     "min": 8,
+     "dataMin": "2012-10-11"
+    },
+    {
+     "inizio": "2015-07-27",
+     "fine": "2015-10-01",
+     "sedute": 23,
+     "min": 0,
+     "dataMin": "2015-08-24"
+    },
+    {
+     "inizio": "2018-10-10",
+     "fine": "2019-01-23",
+     "sedute": 67,
+     "min": 0,
+     "dataMin": "2018-12-24"
+    },
+    {
+     "inizio": "2020-03-12",
+     "fine": "2020-04-03",
+     "sedute": 8,
+     "min": 4,
+     "dataMin": "2020-03-16"
+    },
+    {
+     "inizio": "2022-04-08",
+     "fine": "2022-11-09",
+     "sedute": 103,
+     "min": 0,
+     "dataMin": "2022-10-11"
+    },
+    {
+     "inizio": "2025-03-06",
+     "fine": "2025-05-01",
+     "sedute": 33,
+     "min": 0,
+     "dataMin": "2025-03-06"
+    },
+    {
+     "inizio": "2026-11-05",
+     "fine": "2026-11-06",
+     "sedute": 2,
+     "min": 3.3,
+     "dataMin": "2026-11-05"
+    }
+   ]
+  }
+ },
+ "macchina": {
+  "soxxRettificato": [
+   {
+    "livello": 3,
+    "primaSedutaConStato": "2002-07-19",
+    "zoneBlu": 7,
+    "trigger": 7,
+    "falliti": 0,
+    "episodiConTrigger": 7,
+    "contesto": [
+     {
+      "gruppo": "trig",
+      "n": 7,
+      "mediane": {
+       "1M": 3.4,
+       "3M": 11.7,
+       "6M": 20.3,
+       "12M": 39.9
+      },
+      "positiviA3M": [
+       6,
+       7
+      ]
+     },
+     {
+      "gruppo": "setup",
+      "n": 7,
+      "mediane": {
+       "1M": -3.8,
+       "3M": 10.6,
+       "6M": 11.5,
+       "12M": 12.9
+      },
+      "positiviA3M": [
+       4,
+       7
+      ]
+     },
+     {
+      "gruppo": "any",
+      "n": 6097,
+      "mediane": {
+       "1M": 1.9,
+       "3M": 5.5,
+       "6M": 10.5,
+       "12M": 20
+      },
+      "positiviA3M": [
+       4063,
+       6055
+      ]
+     }
+    ],
+    "basePeggiorCalo": {
+     "mediana63": -5.8,
+     "mediana252": -11.2
+    },
+    "statoOggi": "watch",
+    "eventi": [
+     {
+      "data": "2002-07-22",
+      "t": 253,
+      "code": "setup"
+     },
+     {
+      "data": "2003-02-24",
+      "t": 402,
+      "code": "trig"
+     },
+     {
+      "data": "2008-01-08",
+      "t": 1629,
+      "code": "setup"
+     },
+     {
+      "data": "2008-02-26",
+      "t": 1662,
+      "code": "trig"
+     },
+     {
+      "data": "2008-09-30",
+      "t": 1813,
+      "code": "setup"
+     },
+     {
+      "data": "2009-03-26",
+      "t": 1935,
+      "code": "trig"
+     },
+     {
+      "data": "2011-08-05",
+      "t": 2531,
+      "code": "setup"
+     },
+     {
+      "data": "2011-09-16",
+      "t": 2560,
+      "code": "trig"
+     },
+     {
+      "data": "2015-08-25",
+      "t": 3550,
+      "code": "setup"
+     },
+     {
+      "data": "2015-09-08",
+      "t": 3559,
+      "code": "trig"
+     },
+     {
+      "data": "2022-10-12",
+      "t": 5346,
+      "code": "setup"
+     },
+     {
+      "data": "2022-11-08",
+      "t": 5365,
+      "code": "trig"
+     },
+     {
+      "data": "2025-03-27",
+      "t": 5961,
+      "code": "setup"
+     },
+     {
+      "data": "2025-05-02",
+      "t": 5986,
+      "code": "trig"
+     }
+    ],
+    "episodi": [
+     {
+      "zonaBlu": "2002-07-22",
+      "breadthIngresso": 0,
+      "nIngresso": 21,
+      "ddIngresso": -42.8,
+      "pctDD": 99,
+      "minBreadth": 0,
+      "dataMinBreadth": "2002-07-22",
+      "dataMinPrezzo": "2002-10-09",
+      "trigger": [
+       "2003-02-24"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2003-02-24",
+      "rendDaZonaBlu": {
+       "1M": -5.5,
+       "3M": -27.6,
+       "6M": -23.3,
+       "12M": 5.7
+      },
+      "peggiorCalo63DaZonaBlu": -42.8,
+      "peggiorCalo252DaZonaBlu": -42.8,
+      "rendDaPrimoTrigger": {
+       "1M": 9.2,
+       "3M": 17.9,
+       "6M": 55.5,
+       "12M": 80.8
+      },
+      "peggiorCalo63DaPrimoTrigger": -5.2,
+      "peggiorCalo252DaPrimoTrigger": -5.2,
+      "rendDaUltimoTrigger": {
+       "1M": 9.2,
+       "3M": 17.9,
+       "6M": 55.5,
+       "12M": 80.8
+      }
+     },
+     {
+      "zonaBlu": "2008-01-08",
+      "breadthIngresso": 0,
+      "nIngresso": 22,
+      "ddIngresso": -26.7,
+      "pctDD": 77,
+      "minBreadth": 0,
+      "dataMinBreadth": "2008-01-08",
+      "dataMinPrezzo": "2008-01-17",
+      "trigger": [
+       "2008-02-26"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2008-02-26",
+      "rendDaZonaBlu": {
+       "1M": -3.8,
+       "3M": 0,
+       "6M": -9.2,
+       "12M": -41.8
+      },
+      "peggiorCalo63DaZonaBlu": -6.4,
+      "peggiorCalo252DaZonaBlu": -54.8,
+      "rendDaPrimoTrigger": {
+       "1M": -5.2,
+       "3M": 8.7,
+       "6M": -5.1,
+       "12M": -46.8
+      },
+      "peggiorCalo63DaPrimoTrigger": -7.6,
+      "peggiorCalo252DaPrimoTrigger": -55.3,
+      "rendDaUltimoTrigger": {
+       "1M": -5.2,
+       "3M": 8.7,
+       "6M": -5.1,
+       "12M": -46.8
+      }
+     },
+     {
+      "zonaBlu": "2008-09-30",
+      "breadthIngresso": 0,
+      "nIngresso": 22,
+      "ddIngresso": -41,
+      "pctDD": 89,
+      "minBreadth": 0,
+      "dataMinBreadth": "2008-09-30",
+      "dataMinPrezzo": "2008-11-20",
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2009-03-26",
+      "rendDaZonaBlu": {
+       "1M": -22.1,
+       "3M": -30.1,
+       "6M": -21.2,
+       "12M": 11.8
+      },
+      "peggiorCalo63DaZonaBlu": -42.3,
+      "peggiorCalo252DaZonaBlu": -42.3,
+      "rendDaPrimoTrigger": {
+       "1M": 3.4,
+       "3M": 11.7,
+       "6M": 34.8,
+       "12M": 50.2
+      },
+      "peggiorCalo63DaPrimoTrigger": -5.9,
+      "peggiorCalo252DaPrimoTrigger": -5.9,
+      "rendDaUltimoTrigger": {
+       "1M": 3.4,
+       "3M": 11.7,
+       "6M": 34.8,
+       "12M": 50.2
+      }
+     },
+     {
+      "zonaBlu": "2011-08-05",
+      "breadthIngresso": 0,
+      "nIngresso": 24,
+      "ddIngresso": -25.4,
+      "pctDD": 72,
+      "minBreadth": 0,
+      "dataMinBreadth": "2011-08-05",
+      "dataMinPrezzo": "2011-08-19",
+      "trigger": [
+       "2011-09-16"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2011-09-16",
+      "rendDaZonaBlu": {
+       "1M": -3,
+       "3M": 10.6,
+       "6M": 21.1,
+       "12M": 12.9
+      },
+      "peggiorCalo63DaZonaBlu": -6.8,
+      "peggiorCalo252DaZonaBlu": -6.8,
+      "rendDaPrimoTrigger": {
+       "1M": -3,
+       "3M": -8,
+       "6M": 15.5,
+       "12M": 6.7
+      },
+      "peggiorCalo63DaPrimoTrigger": -14.5,
+      "peggiorCalo252DaPrimoTrigger": -14.5,
+      "rendDaUltimoTrigger": {
+       "1M": -3,
+       "3M": -8,
+       "6M": 15.5,
+       "12M": 6.7
+      }
+     },
+     {
+      "zonaBlu": "2015-08-25",
+      "breadthIngresso": 0,
+      "nIngresso": 25,
+      "ddIngresso": -24.6,
+      "pctDD": 78,
+      "minBreadth": 0,
+      "dataMinBreadth": "2015-08-25",
+      "dataMinPrezzo": "2015-08-25",
+      "trigger": [
+       "2015-09-08"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2015-09-08",
+      "rendDaZonaBlu": {
+       "1M": 5.4,
+       "3M": 17.8,
+       "6M": 11.5,
+       "12M": 43.8
+      },
+      "peggiorCalo63DaZonaBlu": 0,
+      "peggiorCalo252DaZonaBlu": 0,
+      "rendDaPrimoTrigger": {
+       "1M": 1,
+       "3M": 10.1,
+       "6M": 3.7,
+       "12M": 29.8
+      },
+      "peggiorCalo63DaPrimoTrigger": -7.6,
+      "peggiorCalo252DaPrimoTrigger": -9.9,
+      "rendDaUltimoTrigger": {
+       "1M": 1,
+       "3M": 10.1,
+       "6M": 3.7,
+       "12M": 29.8
+      }
+     },
+     {
+      "zonaBlu": "2022-10-12",
+      "breadthIngresso": 0,
+      "nIngresso": 26,
+      "ddIngresso": -45,
+      "pctDD": 95,
+      "minBreadth": 0,
+      "dataMinBreadth": "2022-10-12",
+      "dataMinPrezzo": "2022-10-14",
+      "trigger": [
+       "2022-11-08"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2022-11-08",
+      "rendDaZonaBlu": {
+       "1M": 21.1,
+       "3M": 27.3,
+       "6M": 40.4,
+       "12M": 59
+      },
+      "peggiorCalo63DaZonaBlu": -1.4,
+      "peggiorCalo252DaZonaBlu": -1.4,
+      "rendDaPrimoTrigger": {
+       "1M": 10,
+       "3M": 23.9,
+       "6M": 20.3,
+       "12M": 39.9
+      },
+      "peggiorCalo63DaPrimoTrigger": -3.2,
+      "peggiorCalo252DaPrimoTrigger": -3.2,
+      "rendDaUltimoTrigger": {
+       "1M": 10,
+       "3M": 23.9,
+       "6M": 20.3,
+       "12M": 39.9
+      }
+     },
+     {
+      "zonaBlu": "2025-03-27",
+      "breadthIngresso": 0,
+      "nIngresso": 28,
+      "ddIngresso": -26.3,
+      "pctDD": 85,
+      "minBreadth": 0,
+      "dataMinBreadth": "2025-03-27",
+      "dataMinPrezzo": "2025-04-08",
+      "trigger": [
+       "2025-05-02"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2025-05-02",
+      "rendDaZonaBlu": {
+       "1M": -5.2,
+       "3M": 23,
+       "6M": 38.8,
+       "12M": 60.2
+      },
+      "peggiorCalo63DaZonaBlu": -20.4,
+      "peggiorCalo252DaZonaBlu": -20.4,
+      "rendDaPrimoTrigger": {
+       "1M": 12.4,
+       "3M": 26.8,
+       "6M": 62,
+       "12M": 155.7
+      },
+      "peggiorCalo63DaPrimoTrigger": -1.7,
+      "peggiorCalo252DaPrimoTrigger": -1.7,
+      "rendDaUltimoTrigger": {
+       "1M": 12.4,
+       "3M": 26.8,
+       "6M": 62,
+       "12M": 155.7
+      }
+     }
+    ]
+   },
+   {
+    "livello": 5,
+    "primaSedutaConStato": "2002-07-19",
+    "zoneBlu": 9,
+    "trigger": 11,
+    "falliti": 2,
+    "episodiConTrigger": 9,
+    "contesto": [
+     {
+      "gruppo": "trig",
+      "n": 11,
+      "mediane": {
+       "1M": 4.2,
+       "3M": 7.2,
+       "6M": 13.6,
+       "12M": 34.9
+      },
+      "positiviA3M": [
+       10,
+       11
+      ]
+     },
+     {
+      "gruppo": "setup",
+      "n": 9,
+      "mediane": {
+       "1M": -3,
+       "3M": 10.6,
+       "6M": 11.5,
+       "12M": 33.7
+      },
+      "positiviA3M": [
+       5,
+       9
+      ]
+     },
+     {
+      "gruppo": "any",
+      "n": 6097,
+      "mediane": {
+       "1M": 1.9,
+       "3M": 5.5,
+       "6M": 10.5,
+       "12M": 20
+      },
+      "positiviA3M": [
+       4063,
+       6055
+      ]
+     }
+    ],
+    "basePeggiorCalo": {
+     "mediana63": -5.8,
+     "mediana252": -11.2
+    },
+    "statoOggi": "watch",
+    "eventi": [
+     {
+      "data": "2002-07-22",
+      "t": 253,
+      "code": "setup"
+     },
+     {
+      "data": "2003-02-24",
+      "t": 402,
+      "code": "trig"
+     },
+     {
+      "data": "2006-07-21",
+      "t": 1261,
+      "code": "setup"
+     },
+     {
+      "data": "2006-08-03",
+      "t": 1270,
+      "code": "trig"
+     },
+     {
+      "data": "2008-01-08",
+      "t": 1629,
+      "code": "setup"
+     },
+     {
+      "data": "2008-03-25",
+      "t": 1681,
+      "code": "trig"
+     },
+     {
+      "data": "2008-09-10",
+      "t": 1799,
+      "code": "setup"
+     },
+     {
+      "data": "2009-03-26",
+      "t": 1935,
+      "code": "trig"
+     },
+     {
+      "data": "2011-08-05",
+      "t": 2531,
+      "code": "setup"
+     },
+     {
+      "data": "2011-10-12",
+      "t": 2578,
+      "code": "trig"
+     },
+     {
+      "data": "2015-08-25",
+      "t": 3550,
+      "code": "setup"
+     },
+     {
+      "data": "2015-09-15",
+      "t": 3564,
+      "code": "trig"
+     },
+     {
+      "data": "2018-11-13",
+      "t": 4362,
+      "code": "setup"
+     },
+     {
+      "data": "2018-12-03",
+      "t": 4375,
+      "code": "trig"
+     },
+     {
+      "data": "2018-12-19",
+      "t": 4386,
+      "code": "fail"
+     },
+     {
+      "data": "2019-01-24",
+      "t": 4409,
+      "code": "trig"
+     },
+     {
+      "data": "2022-06-14",
+      "t": 5263,
+      "code": "setup"
+     },
+     {
+      "data": "2022-07-21",
+      "t": 5288,
+      "code": "trig"
+     },
+     {
+      "data": "2022-09-26",
+      "t": 5334,
+      "code": "fail"
+     },
+     {
+      "data": "2022-11-08",
+      "t": 5365,
+      "code": "trig"
+     },
+     {
+      "data": "2025-03-11",
+      "t": 5949,
+      "code": "setup"
+     },
+     {
+      "data": "2025-05-08",
+      "t": 5990,
+      "code": "trig"
+     }
+    ],
+    "episodi": [
+     {
+      "zonaBlu": "2002-07-22",
+      "breadthIngresso": 0,
+      "nIngresso": 21,
+      "ddIngresso": -42.8,
+      "pctDD": 99,
+      "minBreadth": 0,
+      "dataMinBreadth": "2002-07-22",
+      "dataMinPrezzo": "2002-10-09",
+      "trigger": [
+       "2003-02-24"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2003-02-24",
+      "rendDaZonaBlu": {
+       "1M": -5.5,
+       "3M": -27.6,
+       "6M": -23.3,
+       "12M": 5.7
+      },
+      "peggiorCalo63DaZonaBlu": -42.8,
+      "peggiorCalo252DaZonaBlu": -42.8,
+      "rendDaPrimoTrigger": {
+       "1M": 9.2,
+       "3M": 17.9,
+       "6M": 55.5,
+       "12M": 80.8
+      },
+      "peggiorCalo63DaPrimoTrigger": -5.2,
+      "peggiorCalo252DaPrimoTrigger": -5.2,
+      "rendDaUltimoTrigger": {
+       "1M": 9.2,
+       "3M": 17.9,
+       "6M": 55.5,
+       "12M": 80.8
+      }
+     },
+     {
+      "zonaBlu": "2006-07-21",
+      "breadthIngresso": 0,
+      "nIngresso": 22,
+      "ddIngresso": -25.6,
+      "pctDD": 70,
+      "minBreadth": 0,
+      "dataMinBreadth": "2006-07-21",
+      "dataMinPrezzo": "2006-07-21",
+      "trigger": [
+       "2006-08-03"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2006-08-03",
+      "rendDaZonaBlu": {
+       "1M": 14,
+       "3M": 19.5,
+       "6M": 16.7,
+       "12M": 33.7
+      },
+      "peggiorCalo63DaZonaBlu": 0,
+      "peggiorCalo252DaZonaBlu": 0,
+      "rendDaPrimoTrigger": {
+       "1M": 7.3,
+       "3M": 7.2,
+       "6M": 11,
+       "12M": 17
+      },
+      "peggiorCalo63DaPrimoTrigger": -2.9,
+      "peggiorCalo252DaPrimoTrigger": -2.9,
+      "rendDaUltimoTrigger": {
+       "1M": 7.3,
+       "3M": 7.2,
+       "6M": 11,
+       "12M": 17
+      }
+     },
+     {
+      "zonaBlu": "2008-01-08",
+      "breadthIngresso": 0,
+      "nIngresso": 22,
+      "ddIngresso": -26.7,
+      "pctDD": 77,
+      "minBreadth": 0,
+      "dataMinBreadth": "2008-01-08",
+      "dataMinPrezzo": "2008-03-10",
+      "trigger": [
+       "2008-03-25"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2008-03-25",
+      "rendDaZonaBlu": {
+       "1M": -3.8,
+       "3M": 0,
+       "6M": -9.2,
+       "12M": -41.8
+      },
+      "peggiorCalo63DaZonaBlu": -6.4,
+      "peggiorCalo252DaZonaBlu": -54.8,
+      "rendDaPrimoTrigger": {
+       "1M": 4.2,
+       "3M": 3.5,
+       "6M": -18.4,
+       "12M": -38.8
+      },
+      "peggiorCalo63DaPrimoTrigger": -5,
+      "peggiorCalo252DaPrimoTrigger": -54.6,
+      "rendDaUltimoTrigger": {
+       "1M": 4.2,
+       "3M": 3.5,
+       "6M": -18.4,
+       "12M": -38.8
+      }
+     },
+     {
+      "zonaBlu": "2008-09-10",
+      "breadthIngresso": 4.5,
+      "nIngresso": 22,
+      "ddIngresso": -36.7,
+      "pctDD": 86,
+      "minBreadth": 0,
+      "dataMinBreadth": "2008-09-29",
+      "dataMinPrezzo": "2008-11-20",
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2009-03-26",
+      "rendDaZonaBlu": {
+       "1M": -23.8,
+       "3M": -36.4,
+       "6M": -30.4,
+       "12M": 7.2
+      },
+      "peggiorCalo63DaZonaBlu": -46.3,
+      "peggiorCalo252DaZonaBlu": -46.3,
+      "rendDaPrimoTrigger": {
+       "1M": 3.4,
+       "3M": 11.7,
+       "6M": 34.8,
+       "12M": 50.2
+      },
+      "peggiorCalo63DaPrimoTrigger": -5.9,
+      "peggiorCalo252DaPrimoTrigger": -5.9,
+      "rendDaUltimoTrigger": {
+       "1M": 3.4,
+       "3M": 11.7,
+       "6M": 34.8,
+       "12M": 50.2
+      }
+     },
+     {
+      "zonaBlu": "2011-08-05",
+      "breadthIngresso": 0,
+      "nIngresso": 24,
+      "ddIngresso": -25.4,
+      "pctDD": 72,
+      "minBreadth": 0,
+      "dataMinBreadth": "2011-08-05",
+      "dataMinPrezzo": "2011-08-19",
+      "trigger": [
+       "2011-10-12"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2011-10-12",
+      "rendDaZonaBlu": {
+       "1M": -3,
+       "3M": 10.6,
+       "6M": 21.1,
+       "12M": 12.9
+      },
+      "peggiorCalo63DaZonaBlu": -6.8,
+      "peggiorCalo252DaZonaBlu": -6.8,
+      "rendDaPrimoTrigger": {
+       "1M": 2.6,
+       "3M": 6.6,
+       "6M": 13.6,
+       "12M": 1.4
+      },
+      "peggiorCalo63DaPrimoTrigger": -6.6,
+      "peggiorCalo252DaPrimoTrigger": -6.6,
+      "rendDaUltimoTrigger": {
+       "1M": 2.6,
+       "3M": 6.6,
+       "6M": 13.6,
+       "12M": 1.4
+      }
+     },
+     {
+      "zonaBlu": "2015-08-25",
+      "breadthIngresso": 0,
+      "nIngresso": 25,
+      "ddIngresso": -24.6,
+      "pctDD": 78,
+      "minBreadth": 0,
+      "dataMinBreadth": "2015-08-25",
+      "dataMinPrezzo": "2015-08-25",
+      "trigger": [
+       "2015-09-15"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2015-09-15",
+      "rendDaZonaBlu": {
+       "1M": 5.4,
+       "3M": 17.8,
+       "6M": 11.5,
+       "12M": 43.8
+      },
+      "peggiorCalo63DaZonaBlu": 0,
+      "peggiorCalo252DaZonaBlu": 0,
+      "rendDaPrimoTrigger": {
+       "1M": 3.2,
+       "3M": 5.4,
+       "6M": 6.5,
+       "12M": 27.1
+      },
+      "peggiorCalo63DaPrimoTrigger": -7.8,
+      "peggiorCalo252DaPrimoTrigger": -10.1,
+      "rendDaUltimoTrigger": {
+       "1M": 3.2,
+       "3M": 5.4,
+       "6M": 6.5,
+       "12M": 27.1
+      }
+     },
+     {
+      "zonaBlu": "2018-11-13",
+      "breadthIngresso": 4,
+      "nIngresso": 25,
+      "ddIngresso": -17,
+      "pctDD": 71,
+      "minBreadth": 0,
+      "dataMinBreadth": "2018-12-24",
+      "dataMinPrezzo": "2018-12-24",
+      "trigger": [
+       "2018-12-03",
+       "2019-01-24"
+      ],
+      "falliti": [
+       "2018-12-19"
+      ],
+      "ultimoTriggerValido": "2019-01-24",
+      "rendDaZonaBlu": {
+       "1M": -0.8,
+       "3M": 14,
+       "6M": 18.8,
+       "12M": 47.4
+      },
+      "peggiorCalo63DaZonaBlu": -10,
+      "peggiorCalo252DaZonaBlu": -10,
+      "rendDaPrimoTrigger": {
+       "1M": -9.8,
+       "3M": 4.3,
+       "6M": 8.2,
+       "12M": 34.9
+      },
+      "peggiorCalo63DaPrimoTrigger": -15.8,
+      "peggiorCalo252DaPrimoTrigger": -15.8,
+      "rendDaUltimoTrigger": {
+       "1M": 9.8,
+       "3M": 24.8,
+       "6M": 28.2,
+       "12M": 55.5
+      }
+     },
+     {
+      "zonaBlu": "2022-06-14",
+      "breadthIngresso": 3.8,
+      "nIngresso": 26,
+      "ddIngresso": -33.4,
+      "pctDD": 91,
+      "minBreadth": 0,
+      "dataMinBreadth": "2022-10-11",
+      "dataMinPrezzo": "2022-10-14",
+      "trigger": [
+       "2022-07-21",
+       "2022-11-08"
+      ],
+      "falliti": [
+       "2022-09-26"
+      ],
+      "ultimoTriggerValido": "2022-11-08",
+      "rendDaZonaBlu": {
+       "1M": 0.1,
+       "3M": -2.9,
+       "6M": 5.7,
+       "12M": 40.5
+      },
+      "peggiorCalo63DaZonaBlu": -8.6,
+      "peggiorCalo252DaZonaBlu": -18.6,
+      "rendDaPrimoTrigger": {
+       "1M": 1.6,
+       "3M": -22.7,
+       "6M": -3,
+       "12M": 29
+      },
+      "peggiorCalo63DaPrimoTrigger": -25,
+      "peggiorCalo252DaPrimoTrigger": -25,
+      "rendDaUltimoTrigger": {
+       "1M": 10,
+       "3M": 23.9,
+       "6M": 20.3,
+       "12M": 39.9
+      }
+     },
+     {
+      "zonaBlu": "2025-03-11",
+      "breadthIngresso": 3.6,
+      "nIngresso": 28,
+      "ddIngresso": -27.3,
+      "pctDD": 86,
+      "minBreadth": 0,
+      "dataMinBreadth": "2025-03-26",
+      "dataMinPrezzo": "2025-04-08",
+      "trigger": [
+       "2025-05-08"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2025-05-08",
+      "rendDaZonaBlu": {
+       "1M": -4.3,
+       "3M": 18.5,
+       "6M": 32.4,
+       "12M": 73.1
+      },
+      "peggiorCalo63DaZonaBlu": -19.3,
+      "peggiorCalo252DaZonaBlu": -19.3,
+      "rendDaPrimoTrigger": {
+       "1M": 16,
+       "3M": 26.9,
+       "6M": 55.8,
+       "12M": 179.6
+      },
+      "peggiorCalo63DaPrimoTrigger": 0,
+      "peggiorCalo252DaPrimoTrigger": 0,
+      "rendDaUltimoTrigger": {
+       "1M": 16,
+       "3M": 26.9,
+       "6M": 55.8,
+       "12M": 179.6
+      }
+     }
+    ]
+   },
+   {
+    "livello": 10,
+    "primaSedutaConStato": "2002-07-19",
+    "zoneBlu": 12,
+    "trigger": 14,
+    "falliti": 3,
+    "episodiConTrigger": 11,
+    "contesto": [
+     {
+      "gruppo": "trig",
+      "n": 14,
+      "mediane": {
+       "1M": 5.2,
+       "3M": 5.7,
+       "6M": 11.4,
+       "12M": 34.3
+      },
+      "positiviA3M": [
+       9,
+       14
+      ]
+     },
+     {
+      "gruppo": "setup",
+      "n": 11,
+      "mediane": {
+       "1M": -3,
+       "3M": 9.8,
+       "6M": 16.7,
+       "12M": 33.7
+      },
+      "positiviA3M": [
+       7,
+       11
+      ]
+     },
+     {
+      "gruppo": "any",
+      "n": 6097,
+      "mediane": {
+       "1M": 1.9,
+       "3M": 5.5,
+       "6M": 10.5,
+       "12M": 20
+      },
+      "positiviA3M": [
+       4063,
+       6055
+      ]
+     }
+    ],
+    "basePeggiorCalo": {
+     "mediana63": -5.8,
+     "mediana252": -11.2
+    },
+    "statoOggi": "setup",
+    "eventi": [
+     {
+      "data": "2002-07-22",
+      "t": 253,
+      "code": "setup"
+     },
+     {
+      "data": "2003-02-28",
+      "t": 406,
+      "code": "trig"
+     },
+     {
+      "data": "2004-09-07",
+      "t": 789,
+      "code": "setup"
+     },
+     {
+      "data": "2004-10-25",
+      "t": 823,
+      "code": "trig"
+     },
+     {
+      "data": "2006-07-21",
+      "t": 1261,
+      "code": "setup"
+     },
+     {
+      "data": "2006-08-03",
+      "t": 1270,
+      "code": "trig"
+     },
+     {
+      "data": "2008-01-07",
+      "t": 1628,
+      "code": "setup"
+     },
+     {
+      "data": "2008-04-02",
+      "t": 1687,
+      "code": "trig"
+     },
+     {
+      "data": "2008-09-09",
+      "t": 1798,
+      "code": "setup"
+     },
+     {
+      "data": "2009-03-26",
+      "t": 1935,
+      "code": "trig"
+     },
+     {
+      "data": "2011-08-05",
+      "t": 2531,
+      "code": "setup"
+     },
+     {
+      "data": "2011-10-14",
+      "t": 2580,
+      "code": "trig"
+     },
+     {
+      "data": "2015-08-21",
+      "t": 3548,
+      "code": "setup"
+     },
+     {
+      "data": "2015-10-08",
+      "t": 3581,
+      "code": "trig"
+     },
+     {
+      "data": "2018-10-24",
+      "t": 4348,
+      "code": "setup"
+     },
+     {
+      "data": "2018-12-03",
+      "t": 4375,
+      "code": "trig"
+     },
+     {
+      "data": "2018-12-21",
+      "t": 4388,
+      "code": "fail"
+     },
+     {
+      "data": "2019-01-28",
+      "t": 4411,
+      "code": "trig"
+     },
+     {
+      "data": "2020-03-19",
+      "t": 4699,
+      "code": "setup"
+     },
+     {
+      "data": "2020-04-06",
+      "t": 4711,
+      "code": "trig"
+     },
+     {
+      "data": "2022-04-11",
+      "t": 5219,
+      "code": "setup"
+     },
+     {
+      "data": "2022-05-27",
+      "t": 5252,
+      "code": "trig"
+     },
+     {
+      "data": "2022-06-13",
+      "t": 5262,
+      "code": "fail"
+     },
+     {
+      "data": "2022-07-21",
+      "t": 5288,
+      "code": "trig"
+     },
+     {
+      "data": "2022-09-26",
+      "t": 5334,
+      "code": "fail"
+     },
+     {
+      "data": "2022-11-10",
+      "t": 5367,
+      "code": "trig"
+     },
+     {
+      "data": "2025-03-07",
+      "t": 5947,
+      "code": "setup"
+     },
+     {
+      "data": "2025-05-12",
+      "t": 5992,
+      "code": "trig"
+     },
+     {
+      "data": "2026-11-06",
+      "t": 6367,
+      "code": "setup"
+     }
+    ],
+    "episodi": [
+     {
+      "zonaBlu": "2002-07-22",
+      "breadthIngresso": 0,
+      "nIngresso": 21,
+      "ddIngresso": -42.8,
+      "pctDD": 99,
+      "minBreadth": 0,
+      "dataMinBreadth": "2002-07-22",
+      "dataMinPrezzo": "2002-10-09",
+      "trigger": [
+       "2003-02-28"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2003-02-28",
+      "rendDaZonaBlu": {
+       "1M": -5.5,
+       "3M": -27.6,
+       "6M": -23.3,
+       "12M": 5.7
+      },
+      "peggiorCalo63DaZonaBlu": -42.8,
+      "peggiorCalo252DaZonaBlu": -42.8,
+      "rendDaPrimoTrigger": {
+       "1M": -2.5,
+       "3M": 26.6,
+       "6M": 55.8,
+       "12M": 82.9
+      },
+      "peggiorCalo63DaPrimoTrigger": -7.8,
+      "peggiorCalo252DaPrimoTrigger": -7.8,
+      "rendDaUltimoTrigger": {
+       "1M": -2.5,
+       "3M": 26.6,
+       "6M": 55.8,
+       "12M": 82.9
+      }
+     },
+     {
+      "zonaBlu": "2004-09-07",
+      "breadthIngresso": 9.5,
+      "nIngresso": 21,
+      "ddIngresso": -37.2,
+      "pctDD": 70,
+      "minBreadth": 9.5,
+      "dataMinBreadth": "2004-09-07",
+      "dataMinPrezzo": "2004-09-08",
+      "trigger": [
+       "2004-10-25"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2004-10-25",
+      "rendDaZonaBlu": {
+       "1M": 15.5,
+       "3M": 26.3,
+       "6M": 21.4,
+       "12M": 34.1
+      },
+      "peggiorCalo63DaZonaBlu": -0.5,
+      "peggiorCalo252DaZonaBlu": -0.5,
+      "rendDaPrimoTrigger": {
+       "1M": 8.2,
+       "3M": -2.5,
+       "6M": -1.5,
+       "12M": 15.6
+      },
+      "peggiorCalo63DaPrimoTrigger": -4.1,
+      "peggiorCalo252DaPrimoTrigger": -4.7,
+      "rendDaUltimoTrigger": {
+       "1M": 8.2,
+       "3M": -2.5,
+       "6M": -1.5,
+       "12M": 15.6
+      }
+     },
+     {
+      "zonaBlu": "2006-07-21",
+      "breadthIngresso": 0,
+      "nIngresso": 22,
+      "ddIngresso": -25.6,
+      "pctDD": 70,
+      "minBreadth": 0,
+      "dataMinBreadth": "2006-07-21",
+      "dataMinPrezzo": "2006-07-21",
+      "trigger": [
+       "2006-08-03"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2006-08-03",
+      "rendDaZonaBlu": {
+       "1M": 14,
+       "3M": 19.5,
+       "6M": 16.7,
+       "12M": 33.7
+      },
+      "peggiorCalo63DaZonaBlu": 0,
+      "peggiorCalo252DaZonaBlu": 0,
+      "rendDaPrimoTrigger": {
+       "1M": 7.3,
+       "3M": 7.2,
+       "6M": 11,
+       "12M": 17
+      },
+      "peggiorCalo63DaPrimoTrigger": -2.9,
+      "peggiorCalo252DaPrimoTrigger": -2.9,
+      "rendDaUltimoTrigger": {
+       "1M": 7.3,
+       "3M": 7.2,
+       "6M": 11,
+       "12M": 17
+      }
+     },
+     {
+      "zonaBlu": "2008-01-07",
+      "breadthIngresso": 0,
+      "nIngresso": 22,
+      "ddIngresso": -24.9,
+      "pctDD": 76,
+      "minBreadth": 0,
+      "dataMinBreadth": "2008-01-07",
+      "dataMinPrezzo": "2008-03-10",
+      "trigger": [
+       "2008-04-02"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2008-04-02",
+      "rendDaZonaBlu": {
+       "1M": -7,
+       "3M": -3.4,
+       "6M": -7.6,
+       "12M": -40.4
+      },
+      "peggiorCalo63DaZonaBlu": -8.6,
+      "peggiorCalo252DaZonaBlu": -55.8,
+      "rendDaPrimoTrigger": {
+       "1M": 6.5,
+       "3M": -1.6,
+       "6M": -21.8,
+       "12M": -38.4
+      },
+      "peggiorCalo63DaPrimoTrigger": -3.5,
+      "peggiorCalo252DaPrimoTrigger": -54.9,
+      "rendDaUltimoTrigger": {
+       "1M": 6.5,
+       "3M": -1.6,
+       "6M": -21.8,
+       "12M": -38.4
+      }
+     },
+     {
+      "zonaBlu": "2008-09-09",
+      "breadthIngresso": 4.5,
+      "nIngresso": 22,
+      "ddIngresso": -37.1,
+      "pctDD": 86,
+      "minBreadth": 0,
+      "dataMinBreadth": "2008-09-29",
+      "dataMinPrezzo": "2008-11-20",
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2009-03-26",
+      "rendDaZonaBlu": {
+       "1M": -22,
+       "3M": -38.8,
+       "6M": -32.9,
+       "12M": 6.2
+      },
+      "peggiorCalo63DaZonaBlu": -45.9,
+      "peggiorCalo252DaZonaBlu": -45.9,
+      "rendDaPrimoTrigger": {
+       "1M": 3.4,
+       "3M": 11.7,
+       "6M": 34.8,
+       "12M": 50.2
+      },
+      "peggiorCalo63DaPrimoTrigger": -5.9,
+      "peggiorCalo252DaPrimoTrigger": -5.9,
+      "rendDaUltimoTrigger": {
+       "1M": 3.4,
+       "3M": 11.7,
+       "6M": 34.8,
+       "12M": 50.2
+      }
+     },
+     {
+      "zonaBlu": "2011-08-05",
+      "breadthIngresso": 0,
+      "nIngresso": 24,
+      "ddIngresso": -25.4,
+      "pctDD": 72,
+      "minBreadth": 0,
+      "dataMinBreadth": "2011-08-05",
+      "dataMinPrezzo": "2011-08-19",
+      "trigger": [
+       "2011-10-14"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2011-10-14",
+      "rendDaZonaBlu": {
+       "1M": -3,
+       "3M": 10.6,
+       "6M": 21.1,
+       "12M": 12.9
+      },
+      "peggiorCalo63DaZonaBlu": -6.8,
+      "peggiorCalo252DaZonaBlu": -6.8,
+      "rendDaPrimoTrigger": {
+       "1M": 1.8,
+       "3M": 1.5,
+       "6M": 11.8,
+       "12M": -1
+      },
+      "peggiorCalo63DaPrimoTrigger": -9.5,
+      "peggiorCalo252DaPrimoTrigger": -9.5,
+      "rendDaUltimoTrigger": {
+       "1M": 1.8,
+       "3M": 1.5,
+       "6M": 11.8,
+       "12M": -1
+      }
+     },
+     {
+      "zonaBlu": "2015-08-21",
+      "breadthIngresso": 8,
+      "nIngresso": 25,
+      "ddIngresso": -22.1,
+      "pctDD": 75,
+      "minBreadth": 0,
+      "dataMinBreadth": "2015-08-24",
+      "dataMinPrezzo": "2015-08-25",
+      "trigger": [
+       "2015-10-08"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2015-10-08",
+      "rendDaZonaBlu": {
+       "1M": 3,
+       "3M": 15.1,
+       "6M": 5.3,
+       "12M": 39.7
+      },
+      "peggiorCalo63DaZonaBlu": -3.2,
+      "peggiorCalo252DaZonaBlu": -3.2,
+      "rendDaPrimoTrigger": {
+       "1M": 6.8,
+       "3M": -4.9,
+       "6M": 6.5,
+       "12M": 33.8
+      },
+      "peggiorCalo63DaPrimoTrigger": -4.9,
+      "peggiorCalo252DaPrimoTrigger": -11.4,
+      "rendDaUltimoTrigger": {
+       "1M": 6.8,
+       "3M": -4.9,
+       "6M": 6.5,
+       "12M": 33.8
+      }
+     },
+     {
+      "zonaBlu": "2018-10-24",
+      "breadthIngresso": 8,
+      "nIngresso": 25,
+      "ddIngresso": -20,
+      "pctDD": 77,
+      "minBreadth": 0,
+      "dataMinBreadth": "2018-12-24",
+      "dataMinPrezzo": "2018-12-24",
+      "trigger": [
+       "2018-12-03",
+       "2019-01-28"
+      ],
+      "falliti": [
+       "2018-12-21"
+      ],
+      "ultimoTriggerValido": "2019-01-28",
+      "rendDaZonaBlu": {
+       "1M": 3.1,
+       "3M": 9.8,
+       "6M": 35.7,
+       "12M": 45.9
+      },
+      "peggiorCalo63DaZonaBlu": -6.5,
+      "peggiorCalo252DaZonaBlu": -6.5,
+      "rendDaPrimoTrigger": {
+       "1M": -9.8,
+       "3M": 4.3,
+       "6M": 8.2,
+       "12M": 34.9
+      },
+      "peggiorCalo63DaPrimoTrigger": -15.8,
+      "peggiorCalo252DaPrimoTrigger": -15.8,
+      "rendDaUltimoTrigger": {
+       "1M": 7.8,
+       "3M": 23.5,
+       "6M": 28.4,
+       "12M": 53
+      }
+     },
+     {
+      "zonaBlu": "2020-03-19",
+      "breadthIngresso": 8,
+      "nIngresso": 25,
+      "ddIngresso": -32.3,
+      "pctDD": 90,
+      "minBreadth": 8,
+      "dataMinBreadth": "2020-03-19",
+      "dataMinPrezzo": "2020-03-20",
+      "trigger": [
+       "2020-04-06"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2020-04-06",
+      "rendDaZonaBlu": {
+       "1M": 24.9,
+       "3M": 48.5,
+       "6M": 65.3,
+       "12M": 127.9
+      },
+      "peggiorCalo63DaZonaBlu": -2.8,
+      "peggiorCalo252DaZonaBlu": -2.8,
+      "rendDaPrimoTrigger": {
+       "1M": 7.4,
+       "3M": 27.4,
+       "6M": 44.9,
+       "12M": 107.2
+      },
+      "peggiorCalo63DaPrimoTrigger": -0.4,
+      "peggiorCalo252DaPrimoTrigger": -0.4,
+      "rendDaUltimoTrigger": {
+       "1M": 7.4,
+       "3M": 27.4,
+       "6M": 44.9,
+       "12M": 107.2
+      }
+     },
+     {
+      "zonaBlu": "2022-04-11",
+      "breadthIngresso": 7.7,
+      "nIngresso": 26,
+      "ddIngresso": -24.2,
+      "pctDD": 85,
+      "minBreadth": 0,
+      "dataMinBreadth": "2022-10-11",
+      "dataMinPrezzo": "2022-10-14",
+      "trigger": [
+       "2022-05-27",
+       "2022-07-21",
+       "2022-11-10"
+      ],
+      "falliti": [
+       "2022-06-13",
+       "2022-09-26"
+      ],
+      "ultimoTriggerValido": "2022-11-10",
+      "rendDaZonaBlu": {
+       "1M": -8.2,
+       "3M": -15.8,
+       "6M": -26.7,
+       "12M": 2.1
+      },
+      "peggiorCalo63DaZonaBlu": -19.6,
+      "peggiorCalo252DaZonaBlu": -28.4,
+      "rendDaPrimoTrigger": {
+       "1M": -17.2,
+       "3M": -11.6,
+       "6M": -13.6,
+       "12M": 12.7
+      },
+      "peggiorCalo63DaPrimoTrigger": -21.1,
+      "peggiorCalo252DaPrimoTrigger": -29.8,
+      "rendDaUltimoTrigger": {
+       "1M": 3.9,
+       "3M": 15.8,
+       "6M": 15.6,
+       "12M": 34.9
+      }
+     },
+     {
+      "zonaBlu": "2025-03-07",
+      "breadthIngresso": 7.1,
+      "nIngresso": 28,
+      "ddIngresso": -22.9,
+      "pctDD": 82,
+      "minBreadth": 0,
+      "dataMinBreadth": "2025-03-26",
+      "dataMinPrezzo": "2025-04-08",
+      "trigger": [
+       "2025-05-12"
+      ],
+      "falliti": [],
+      "ultimoTriggerValido": "2025-05-12",
+      "rendDaZonaBlu": {
+       "1M": -20.8,
+       "3M": 6.8,
+       "6M": 22.5,
+       "12M": 67.4
+      },
+      "peggiorCalo63DaZonaBlu": -23.9,
+      "peggiorCalo252DaZonaBlu": -23.9,
+      "rendDaPrimoTrigger": {
+       "1M": 9,
+       "3M": 20.6,
+       "6M": 45.9,
+       "12M": 155.8
+      },
+      "peggiorCalo63DaPrimoTrigger": -2.6,
+      "peggiorCalo252DaPrimoTrigger": -2.6,
+      "rendDaUltimoTrigger": {
+       "1M": 9,
+       "3M": 20.6,
+       "6M": 45.9,
+       "12M": 155.8
+      }
+     },
+     {
+      "zonaBlu": "2026-11-06",
+      "breadthIngresso": 10,
+      "nIngresso": 30,
+      "ddIngresso": -37.4,
+      "pctDD": 93,
+      "minBreadth": 10,
+      "dataMinBreadth": "2026-11-06",
+      "dataMinPrezzo": "2026-11-06",
+      "trigger": [],
+      "falliti": [],
+      "ultimoTriggerValido": null,
+      "rendDaZonaBlu": {
+       "1M": null,
+       "3M": null,
+       "6M": null,
+       "12M": null
+      },
+      "peggiorCalo63DaZonaBlu": 0,
+      "peggiorCalo252DaZonaBlu": 0,
+      "rendDaPrimoTrigger": null,
+      "peggiorCalo63DaPrimoTrigger": null,
+      "peggiorCalo252DaPrimoTrigger": null,
+      "rendDaUltimoTrigger": null
+     }
+    ]
+   }
+  ],
+  "soxxSoloPrezzo": [
+   {
+    "livello": 3,
+    "zoneBlu": 7,
+    "trigger": 7,
+    "falliti": 0,
+    "episodi": [
+     {
+      "zonaBlu": "2002-07-22",
+      "min": 0,
+      "trigger": [
+       "2003-02-24"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 5.7
+     },
+     {
+      "zonaBlu": "2008-01-08",
+      "min": 0,
+      "trigger": [
+       "2008-02-26"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -42.5
+     },
+     {
+      "zonaBlu": "2008-09-30",
+      "min": 0,
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 10.5
+     },
+     {
+      "zonaBlu": "2011-08-05",
+      "min": 0,
+      "trigger": [
+       "2011-09-16"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 11.9
+     },
+     {
+      "zonaBlu": "2015-08-25",
+      "min": 0,
+      "trigger": [
+       "2015-09-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 41.9
+     },
+     {
+      "zonaBlu": "2022-10-12",
+      "min": 0,
+      "trigger": [
+       "2022-11-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 57.3
+     },
+     {
+      "zonaBlu": "2025-03-27",
+      "min": 0,
+      "trigger": [
+       "2025-05-02"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 59.2
+     }
+    ]
+   },
+   {
+    "livello": 5,
+    "zoneBlu": 9,
+    "trigger": 11,
+    "falliti": 2,
+    "episodi": [
+     {
+      "zonaBlu": "2002-07-22",
+      "min": 0,
+      "trigger": [
+       "2003-02-24"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 5.7
+     },
+     {
+      "zonaBlu": "2006-07-21",
+      "min": 0,
+      "trigger": [
+       "2006-08-03"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 33.2
+     },
+     {
+      "zonaBlu": "2008-01-08",
+      "min": 0,
+      "trigger": [
+       "2008-03-25"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -42.5
+     },
+     {
+      "zonaBlu": "2008-09-10",
+      "min": 0,
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 5.9
+     },
+     {
+      "zonaBlu": "2011-08-05",
+      "min": 0,
+      "trigger": [
+       "2011-10-12"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 11.9
+     },
+     {
+      "zonaBlu": "2015-08-25",
+      "min": 0,
+      "trigger": [
+       "2015-09-15"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 41.9
+     },
+     {
+      "zonaBlu": "2018-11-13",
+      "min": 0,
+      "trigger": [
+       "2018-12-03",
+       "2019-01-24"
+      ],
+      "falliti": [
+       "2018-12-19"
+      ],
+      "rend12MDaZonaBlu": 45.4
+     },
+     {
+      "zonaBlu": "2022-06-14",
+      "min": 0,
+      "trigger": [
+       "2022-07-21",
+       "2022-11-08"
+      ],
+      "falliti": [
+       "2022-09-26"
+      ],
+      "rend12MDaZonaBlu": 38.9
+     },
+     {
+      "zonaBlu": "2025-03-11",
+      "min": 0,
+      "trigger": [
+       "2025-05-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 71.9
+     }
+    ]
+   },
+   {
+    "livello": 10,
+    "zoneBlu": 12,
+    "trigger": 14,
+    "falliti": 3,
+    "episodi": [
+     {
+      "zonaBlu": "2002-07-22",
+      "min": 0,
+      "trigger": [
+       "2003-02-28"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 5.7
+     },
+     {
+      "zonaBlu": "2004-09-07",
+      "min": 9.5,
+      "trigger": [
+       "2004-10-25"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 34.1
+     },
+     {
+      "zonaBlu": "2006-07-21",
+      "min": 0,
+      "trigger": [
+       "2006-08-03"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 33.2
+     },
+     {
+      "zonaBlu": "2008-01-07",
+      "min": 0,
+      "trigger": [
+       "2008-04-02"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -41.1
+     },
+     {
+      "zonaBlu": "2008-09-09",
+      "min": 0,
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 4.9
+     },
+     {
+      "zonaBlu": "2011-08-05",
+      "min": 0,
+      "trigger": [
+       "2011-10-14"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 11.9
+     },
+     {
+      "zonaBlu": "2015-08-21",
+      "min": 0,
+      "trigger": [
+       "2015-10-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 37.8
+     },
+     {
+      "zonaBlu": "2018-10-24",
+      "min": 0,
+      "trigger": [
+       "2018-12-03",
+       "2019-01-28"
+      ],
+      "falliti": [
+       "2018-12-21"
+      ],
+      "rend12MDaZonaBlu": 43.9
+     },
+     {
+      "zonaBlu": "2020-03-19",
+      "min": 8,
+      "trigger": [
+       "2020-04-06"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 125.3
+     },
+     {
+      "zonaBlu": "2022-04-11",
+      "min": 0,
+      "trigger": [
+       "2022-05-27",
+       "2022-07-21",
+       "2022-11-10"
+      ],
+      "falliti": [
+       "2022-06-13",
+       "2022-09-26"
+      ],
+      "rend12MDaZonaBlu": 0.9
+     },
+     {
+      "zonaBlu": "2025-03-07",
+      "min": 0,
+      "trigger": [
+       "2025-05-12"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 66.2
+     },
+     {
+      "zonaBlu": "2026-11-06",
+      "min": 10,
+      "trigger": [],
+      "falliti": [],
+      "rend12MDaZonaBlu": null
+     }
+    ]
+   }
+  ],
+  "indiceSOX": [
+   {
+    "livello": 3,
+    "zoneBlu": 8,
+    "trigger": 9,
+    "falliti": 1,
+    "episodi": [
+     {
+      "zonaBlu": "2001-09-20",
+      "min": 0,
+      "trigger": [
+       "2001-10-24"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -36.7
+     },
+     {
+      "zonaBlu": "2002-07-22",
+      "min": 0,
+      "trigger": [
+       "2003-01-09"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 8.7
+     },
+     {
+      "zonaBlu": "2008-01-08",
+      "min": 0,
+      "trigger": [
+       "2008-02-26",
+       "2008-04-03"
+      ],
+      "falliti": [
+       "2008-03-17"
+      ],
+      "rend12MDaZonaBlu": -38.3
+     },
+     {
+      "zonaBlu": "2008-09-30",
+      "min": 0,
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 6.1
+     },
+     {
+      "zonaBlu": "2011-08-08",
+      "min": 0,
+      "trigger": [
+       "2011-09-16"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 20.7
+     },
+     {
+      "zonaBlu": "2015-08-25",
+      "min": 0,
+      "trigger": [
+       "2015-09-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 42
+     },
+     {
+      "zonaBlu": "2022-10-12",
+      "min": 0,
+      "trigger": [
+       "2022-11-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 57.1
+     },
+     {
+      "zonaBlu": "2025-03-27",
+      "min": 0,
+      "trigger": [
+       "2025-05-02"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 61.8
+     }
+    ]
+   },
+   {
+    "livello": 5,
+    "zoneBlu": 11,
+    "trigger": 12,
+    "falliti": 1,
+    "episodi": [
+     {
+      "zonaBlu": "2001-09-18",
+      "min": 0,
+      "trigger": [
+       "2001-11-05"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -39.6
+     },
+     {
+      "zonaBlu": "2002-06-21",
+      "min": 0,
+      "trigger": [
+       "2003-02-25"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -4.5
+     },
+     {
+      "zonaBlu": "2004-08-12",
+      "min": 4.8,
+      "trigger": [
+       "2004-10-20"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 28.4
+     },
+     {
+      "zonaBlu": "2006-07-21",
+      "min": 0,
+      "trigger": [
+       "2006-08-03"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 36.1
+     },
+     {
+      "zonaBlu": "2008-01-08",
+      "min": 0,
+      "trigger": [
+       "2008-03-25"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -38.3
+     },
+     {
+      "zonaBlu": "2008-09-10",
+      "min": 0,
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 1.2
+     },
+     {
+      "zonaBlu": "2011-08-08",
+      "min": 0,
+      "trigger": [
+       "2011-10-12"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 20.7
+     },
+     {
+      "zonaBlu": "2015-08-25",
+      "min": 0,
+      "trigger": [
+       "2015-09-15"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 42
+     },
+     {
+      "zonaBlu": "2018-12-20",
+      "min": 0,
+      "trigger": [
+       "2019-01-24"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 65.9
+     },
+     {
+      "zonaBlu": "2022-06-14",
+      "min": 0,
+      "trigger": [
+       "2022-07-21",
+       "2022-11-08"
+      ],
+      "falliti": [
+       "2022-09-26"
+      ],
+      "rend12MDaZonaBlu": 37.9
+     },
+     {
+      "zonaBlu": "2025-03-11",
+      "min": 0,
+      "trigger": [
+       "2025-05-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 74.7
+     }
+    ]
+   },
+   {
+    "livello": 10,
+    "zoneBlu": 13,
+    "trigger": 14,
+    "falliti": 2,
+    "episodi": [
+     {
+      "zonaBlu": "2001-09-18",
+      "min": 0,
+      "trigger": [
+       "2001-11-05"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -39.6
+     },
+     {
+      "zonaBlu": "2002-06-11",
+      "min": 0,
+      "trigger": [
+       "2003-02-28"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -9.2
+     },
+     {
+      "zonaBlu": "2004-08-12",
+      "min": 4.8,
+      "trigger": [
+       "2004-10-25"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 28.4
+     },
+     {
+      "zonaBlu": "2006-07-21",
+      "min": 0,
+      "trigger": [
+       "2006-08-03"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 36.1
+     },
+     {
+      "zonaBlu": "2008-01-07",
+      "min": 0,
+      "trigger": [
+       "2008-04-02"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": -36.9
+     },
+     {
+      "zonaBlu": "2008-09-09",
+      "min": 0,
+      "trigger": [
+       "2009-03-26"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 0.3
+     },
+     {
+      "zonaBlu": "2011-08-08",
+      "min": 0,
+      "trigger": [
+       "2011-10-14"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 20.7
+     },
+     {
+      "zonaBlu": "2015-08-25",
+      "min": 0,
+      "trigger": [
+       "2015-10-08"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 42
+     },
+     {
+      "zonaBlu": "2018-12-19",
+      "min": 0,
+      "trigger": [
+       "2019-01-28"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 62.8
+     },
+     {
+      "zonaBlu": "2020-03-19",
+      "min": 8,
+      "trigger": [
+       "2020-04-06"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 124.5
+     },
+     {
+      "zonaBlu": "2022-04-11",
+      "min": 0,
+      "trigger": [
+       "2022-05-27",
+       "2022-07-21",
+       "2022-11-10"
+      ],
+      "falliti": [
+       "2022-06-13",
+       "2022-09-26"
+      ],
+      "rend12MDaZonaBlu": 0.6
+     },
+     {
+      "zonaBlu": "2025-03-07",
+      "min": 0,
+      "trigger": [
+       "2025-05-12"
+      ],
+      "falliti": [],
+      "rend12MDaZonaBlu": 69.9
+     },
+     {
+      "zonaBlu": "2026-11-06",
+      "min": 10,
+      "trigger": [],
+      "falliti": [],
+      "rend12MDaZonaBlu": null
+     }
+    ]
+   }
+  ]
+ },
+ "drawdown": {
+  "oggi": {
+   "data": "2026-11-10",
+   "rettificato": -32.8,
+   "pctRettificato": 91,
+   "soloPrezzo": -32.9,
+   "pctSoloPrezzo": 91,
+   "sox": {
+    "data": "2026-11-10",
+    "dd": -31.7,
+    "pct": 84,
+    "storiaDal": "1994-05-04"
+   }
+  },
+  "soxxStoriaDal": "2001-07-13",
+  "percentileDaSeduta": "2002-07-19",
+  "peggiori": [
+   {
+    "data": "2002-10-09",
+    "dd": -65.9
+   }
+  ],
+  "soglie": {
+   "p70": 15.7,
+   "p85": 25.3
+  }
+ },
+ "bias": {
+  "fotografie": [
+   {
+    "rev": 29689342,
+    "url": "https://en.wikipedia.org/w/index.php?oldid=29689342",
+    "data": "2005-11-30",
+    "elencati": 19,
+    "conPrezzi": 11,
+    "esclusi": [
+     "(uscita dal listino, nessun simbolo)",
+     "BRCM: nessun prezzo su Yahoo",
+     "FSL: nessun prezzo su Yahoo",
+     "LLTC: nessun prezzo su Yahoo",
+     "MXIM: nessun prezzo su Yahoo",
+     "NSM: nessun prezzo su Yahoo",
+     "NVLS: nessun prezzo su Yahoo",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "usati": [
+     "AMAT",
+     "AMD",
+     "IFNNY",
+     "INTC",
+     "KLAC",
+     "MRVL",
+     "MU",
+     "STM",
+     "TER",
+     "TSM",
+     "TXN"
+    ]
+   },
+   {
+    "rev": 393882719,
+    "url": "https://en.wikipedia.org/w/index.php?oldid=393882719",
+    "data": "2010-06-20",
+    "elencati": 30,
+    "conPrezzi": 18,
+    "esclusi": [
+     "ALTR: nessun prezzo su Yahoo",
+     "ATHR: prezzi dal 2025-04-10, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "BRCM: nessun prezzo su Yahoo",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "HITT: nessun prezzo su Yahoo",
+     "LLTC: nessun prezzo su Yahoo",
+     "NETL: prezzi dal 2019-03-22, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "NSM: nessun prezzo su Yahoo",
+     "NVLS: nessun prezzo su Yahoo",
+     "SNDK: prezzi dal 2025-02-13, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "WFR: nessun prezzo su Yahoo",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "usati": [
+     "AMAT",
+     "AMD",
+     "AVGO",
+     "CRUS",
+     "INTC",
+     "KLAC",
+     "LRCX",
+     "MKSI",
+     "MRVL",
+     "MU",
+     "NVDA",
+     "POWI",
+     "RBCN",
+     "STM",
+     "TER",
+     "TSM",
+     "TXN",
+     "VECO"
+    ]
+   },
+   {
+    "rev": 618085128,
+    "url": "https://en.wikipedia.org/w/index.php?oldid=618085128",
+    "data": "2014-07-21",
+    "elencati": 30,
+    "conPrezzi": 19,
+    "esclusi": [
+     "ALTR: nessun prezzo su Yahoo",
+     "ARMH: prezzi dal 2025-03-19, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "ATML: nessun prezzo su Yahoo",
+     "BRCM: nessun prezzo su Yahoo",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "FSL: nessun prezzo su Yahoo",
+     "LLTC: nessun prezzo su Yahoo",
+     "MXIM: nessun prezzo su Yahoo",
+     "SNDK: prezzi dal 2025-02-13, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "(uscita dal listino, nessun simbolo)",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "usati": [
+     "AMAT",
+     "AMD",
+     "ADI",
+     "ASML",
+     "AVGO",
+     "INTC",
+     "KLAC",
+     "LRCX",
+     "MRVL",
+     "MCHP",
+     "MU",
+     "NVDA",
+     "NXPI",
+     "ON",
+     "QCOM",
+     "SWKS",
+     "TER",
+     "TSM",
+     "TXN"
+    ]
+   },
+   {
+    "rev": 991467661,
+    "url": "https://en.wikipedia.org/w/index.php?oldid=991467661",
+    "data": "2020-11-20",
+    "elencati": 30,
+    "conPrezzi": 25,
+    "esclusi": [
+     "CCMP: nessun prezzo su Yahoo",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "IPHI: nessun prezzo su Yahoo",
+     "QRVO: prezzi dal 2026-10-02, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "usati": [
+     "ASML",
+     "AMD",
+     "ADI",
+     "AMAT",
+     "AVGO",
+     "AZTA",
+     "ENTG",
+     "INTC",
+     "KLAC",
+     "LRCX",
+     "LSCC",
+     "MKSI",
+     "MRVL",
+     "MCHP",
+     "MU",
+     "MPWR",
+     "NVDA",
+     "NXPI",
+     "ON",
+     "QCOM",
+     "SLAB",
+     "SWKS",
+     "TSM",
+     "TER",
+     "TXN"
+    ]
+   },
+   {
+    "rev": 1152689792,
+    "url": "https://en.wikipedia.org/w/index.php?oldid=1152689792",
+    "data": "2023-01-20",
+    "elencati": 30,
+    "conPrezzi": 28,
+    "esclusi": [
+     "QRVO: prezzi dal 2026-10-02, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)"
+    ],
+    "usati": [
+     "AMD",
+     "ADI",
+     "AMAT",
+     "ASML",
+     "AZTA",
+     "AVGO",
+     "COHR",
+     "ENTG",
+     "GFS",
+     "INTC",
+     "IPGP",
+     "KLAC",
+     "LRCX",
+     "LSCC",
+     "MRVL",
+     "MCHP",
+     "MU",
+     "MPWR",
+     "NOVT",
+     "NVDA",
+     "NXPI",
+     "ON",
+     "QCOM",
+     "SWKS",
+     "SYNA",
+     "TSM",
+     "TER",
+     "TXN"
+    ]
+   },
+   {
+    "rev": 1246738930,
+    "url": "https://en.wikipedia.org/w/index.php?oldid=1246738930",
+    "data": "2024-09-20",
+    "elencati": 30,
+    "conPrezzi": 28,
+    "esclusi": [
+     "QRVO: prezzi dal 2026-10-02, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)"
+    ],
+    "usati": [
+     "AMD",
+     "ALGM",
+     "AMKR",
+     "ADI",
+     "AMAT",
+     "ASML",
+     "ACLS",
+     "AVGO",
+     "COHR",
+     "ENTG",
+     "GFS",
+     "INTC",
+     "KLAC",
+     "LRCX",
+     "LSCC",
+     "MRVL",
+     "MCHP",
+     "MU",
+     "MPWR",
+     "NVDA",
+     "NXPI",
+     "ON",
+     "QCOM",
+     "RMBS",
+     "SWKS",
+     "TSM",
+     "TER",
+     "TXN"
+    ]
+   }
+  ],
+  "confronto": [
+   {
+    "fotografia": "2005-11-30",
+    "fino": "2010-06-20",
+    "sedute": 1145,
+    "elencati": 19,
+    "conPrezzi": 11,
+    "esclusi": [
+     "(uscita dal listino, nessun simbolo)",
+     "BRCM: nessun prezzo su Yahoo",
+     "FSL: nessun prezzo su Yahoo",
+     "LLTC: nessun prezzo su Yahoo",
+     "MXIM: nessun prezzo su Yahoo",
+     "NSM: nessun prezzo su Yahoo",
+     "NVLS: nessun prezzo su Yahoo",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "scartoMedio": 2.6,
+    "scartoMediano": 0,
+    "scartoMin": -20.9,
+    "scartoMax": 22.7,
+    "seduteFotografiaSotto20": 368,
+    "scartoMedioSotto20": 3,
+    "minimoMembriOggi": {
+     "data": "2006-07-21",
+     "breadth": 0
+    },
+    "minimoFotografia": {
+     "data": "2008-01-04",
+     "breadth": 0
+    },
+    "seduteSotto3MembriOggi": 139,
+    "seduteSotto3Fotografia": 162
+   },
+   {
+    "fotografia": "2010-06-20",
+    "fino": "2014-07-21",
+    "sedute": 1027,
+    "elencati": 30,
+    "conPrezzi": 18,
+    "esclusi": [
+     "ALTR: nessun prezzo su Yahoo",
+     "ATHR: prezzi dal 2025-04-10, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "BRCM: nessun prezzo su Yahoo",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "HITT: nessun prezzo su Yahoo",
+     "LLTC: nessun prezzo su Yahoo",
+     "NETL: prezzi dal 2019-03-22, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "NSM: nessun prezzo su Yahoo",
+     "NVLS: nessun prezzo su Yahoo",
+     "SNDK: prezzi dal 2025-02-13, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "WFR: nessun prezzo su Yahoo",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "scartoMedio": 2,
+    "scartoMediano": 1.6,
+    "scartoMin": -20.4,
+    "scartoMax": 24.9,
+    "seduteFotografiaSotto20": 146,
+    "scartoMedioSotto20": 1.3,
+    "minimoMembriOggi": {
+     "data": "2011-08-04",
+     "breadth": 0
+    },
+    "minimoFotografia": {
+     "data": "2011-08-04",
+     "breadth": 0
+    },
+    "seduteSotto3MembriOggi": 19,
+    "seduteSotto3Fotografia": 19
+   },
+   {
+    "fotografia": "2014-07-21",
+    "fino": "2020-11-20",
+    "sedute": 1598,
+    "elencati": 30,
+    "conPrezzi": 19,
+    "esclusi": [
+     "ALTR: nessun prezzo su Yahoo",
+     "ARMH: prezzi dal 2025-03-19, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "ATML: nessun prezzo su Yahoo",
+     "BRCM: nessun prezzo su Yahoo",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "FSL: nessun prezzo su Yahoo",
+     "LLTC: nessun prezzo su Yahoo",
+     "MXIM: nessun prezzo su Yahoo",
+     "SNDK: prezzi dal 2025-02-13, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "(uscita dal listino, nessun simbolo)",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "scartoMedio": -0.7,
+    "scartoMediano": -0.4,
+    "scartoMin": -17.5,
+    "scartoMax": 12.4,
+    "seduteFotografiaSotto20": 147,
+    "scartoMedioSotto20": -0.1,
+    "minimoMembriOggi": {
+     "data": "2015-08-24",
+     "breadth": 0
+    },
+    "minimoFotografia": {
+     "data": "2015-08-24",
+     "breadth": 0
+    },
+    "seduteSotto3MembriOggi": 4,
+    "seduteSotto3Fotografia": 4
+   },
+   {
+    "fotografia": "2020-11-20",
+    "fino": "2023-01-20",
+    "sedute": 543,
+    "elencati": 30,
+    "conPrezzi": 25,
+    "esclusi": [
+     "CCMP: nessun prezzo su Yahoo",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "IPHI: nessun prezzo su Yahoo",
+     "QRVO: prezzi dal 2026-10-02, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "XLNX: nessun prezzo su Yahoo"
+    ],
+    "scartoMedio": 2.6,
+    "scartoMediano": 3.4,
+    "scartoMin": -8,
+    "scartoMax": 12,
+    "seduteFotografiaSotto20": 144,
+    "scartoMedioSotto20": 3,
+    "minimoMembriOggi": {
+     "data": "2022-10-11",
+     "breadth": 0
+    },
+    "minimoFotografia": {
+     "data": "2022-04-29",
+     "breadth": 0
+    },
+    "seduteSotto3MembriOggi": 5,
+    "seduteSotto3Fotografia": 32
+   },
+   {
+    "fotografia": "2023-01-20",
+    "fino": "2024-09-20",
+    "sedute": 419,
+    "elencati": 30,
+    "conPrezzi": 28,
+    "esclusi": [
+     "QRVO: prezzi dal 2026-10-02, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)"
+    ],
+    "scartoMedio": 4.9,
+    "scartoMediano": 4.9,
+    "scartoMin": -4.9,
+    "scartoMax": 14.3,
+    "seduteFotografiaSotto20": 0,
+    "scartoMedioSotto20": null,
+    "minimoMembriOggi": {
+     "data": "2023-10-30",
+     "breadth": 29.6
+    },
+    "minimoFotografia": {
+     "data": "2023-10-25",
+     "breadth": 25
+    },
+    "seduteSotto3MembriOggi": 0,
+    "seduteSotto3Fotografia": 0
+   },
+   {
+    "fotografia": "2024-09-20",
+    "fino": "2026-11-10",
+    "sedute": 536,
+    "elencati": 30,
+    "conPrezzi": 28,
+    "esclusi": [
+     "QRVO: prezzi dal 2026-10-02, dopo la data della lista (simbolo riusato o storia ricominciata)",
+     "WOLF: prezzi dal 2025-09-29, dopo la data della lista (simbolo riusato o storia ricominciata)"
+    ],
+    "scartoMedio": 3.7,
+    "scartoMediano": 3.6,
+    "scartoMin": -10.7,
+    "scartoMax": 17.9,
+    "seduteFotografiaSotto20": 52,
+    "scartoMedioSotto20": -2,
+    "minimoMembriOggi": {
+     "data": "2025-03-06",
+     "breadth": 0
+    },
+    "minimoFotografia": {
+     "data": "2025-04-03",
+     "breadth": 0
+    },
+    "seduteSotto3MembriOggi": 20,
+    "seduteSotto3Fotografia": 13
+   }
+  ],
+  "serieAFotografie": {
+   "da": "2005-11-30",
+   "membriOggi": [
+    {
+     "livello": 3,
+     "zoneBlu": 6,
+     "trigger": 6,
+     "falliti": 0,
+     "episodi": [
+      {
+       "zonaBlu": "2008-01-08",
+       "min": 0,
+       "trigger": [
+        "2008-02-26"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": -41.8
+      },
+      {
+       "zonaBlu": "2008-09-30",
+       "min": 0,
+       "trigger": [
+        "2009-03-26"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 11.8
+      },
+      {
+       "zonaBlu": "2011-08-05",
+       "min": 0,
+       "trigger": [
+        "2011-09-16"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 12.9
+      },
+      {
+       "zonaBlu": "2015-08-25",
+       "min": 0,
+       "trigger": [
+        "2015-09-08"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 43.8
+      },
+      {
+       "zonaBlu": "2022-10-12",
+       "min": 0,
+       "trigger": [
+        "2022-11-08"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 59
+      },
+      {
+       "zonaBlu": "2025-03-27",
+       "min": 0,
+       "trigger": [
+        "2025-05-02"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 60.2
+      }
+     ]
+    },
+    {
+     "livello": 5,
+     "zoneBlu": 8,
+     "trigger": 10,
+     "falliti": 2,
+     "episodi": [
+      {
+       "zonaBlu": "2006-07-21",
+       "min": 0,
+       "trigger": [
+        "2006-08-03"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 33.7
+      },
+      {
+       "zonaBlu": "2008-01-08",
+       "min": 0,
+       "trigger": [
+        "2008-03-25"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": -41.8
+      },
+      {
+       "zonaBlu": "2008-09-10",
+       "min": 0,
+       "trigger": [
+        "2009-03-26"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 7.2
+      },
+      {
+       "zonaBlu": "2011-08-05",
+       "min": 0,
+       "trigger": [
+        "2011-10-12"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 12.9
+      },
+      {
+       "zonaBlu": "2015-08-25",
+       "min": 0,
+       "trigger": [
+        "2015-09-15"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 43.8
+      },
+      {
+       "zonaBlu": "2018-11-13",
+       "min": 0,
+       "trigger": [
+        "2018-12-03",
+        "2019-01-24"
+       ],
+       "falliti": [
+        "2018-12-19"
+       ],
+       "rend12MDaZonaBlu": 47.4
+      },
+      {
+       "zonaBlu": "2022-06-14",
+       "min": 0,
+       "trigger": [
+        "2022-07-21",
+        "2022-11-08"
+       ],
+       "falliti": [
+        "2022-09-26"
+       ],
+       "rend12MDaZonaBlu": 40.5
+      },
+      {
+       "zonaBlu": "2025-03-11",
+       "min": 0,
+       "trigger": [
+        "2025-05-08"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 73.1
+      }
+     ]
+    },
+    {
+     "livello": 10,
+     "zoneBlu": 10,
+     "trigger": 12,
+     "falliti": 3,
+     "episodi": [
+      {
+       "zonaBlu": "2006-07-21",
+       "min": 0,
+       "trigger": [
+        "2006-08-03"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 33.7
+      },
+      {
+       "zonaBlu": "2008-01-07",
+       "min": 0,
+       "trigger": [
+        "2008-04-02"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": -40.4
+      },
+      {
+       "zonaBlu": "2008-09-09",
+       "min": 0,
+       "trigger": [
+        "2009-03-26"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 6.2
+      },
+      {
+       "zonaBlu": "2011-08-05",
+       "min": 0,
+       "trigger": [
+        "2011-10-14"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 12.9
+      },
+      {
+       "zonaBlu": "2015-08-21",
+       "min": 0,
+       "trigger": [
+        "2015-10-08"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 39.7
+      },
+      {
+       "zonaBlu": "2018-10-24",
+       "min": 0,
+       "trigger": [
+        "2018-12-03",
+        "2019-01-28"
+       ],
+       "falliti": [
+        "2018-12-21"
+       ],
+       "rend12MDaZonaBlu": 45.9
+      },
+      {
+       "zonaBlu": "2020-03-19",
+       "min": 8,
+       "trigger": [
+        "2020-04-06"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 127.9
+      },
+      {
+       "zonaBlu": "2022-04-11",
+       "min": 0,
+       "trigger": [
+        "2022-05-27",
+        "2022-07-21",
+        "2022-11-10"
+       ],
+       "falliti": [
+        "2022-06-13",
+        "2022-09-26"
+       ],
+       "rend12MDaZonaBlu": 2.1
+      },
+      {
+       "zonaBlu": "2025-03-07",
+       "min": 0,
+       "trigger": [
+        "2025-05-12"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 67.4
+      },
+      {
+       "zonaBlu": "2026-11-06",
+       "min": 10,
+       "trigger": [],
+       "falliti": [],
+       "rend12MDaZonaBlu": null
+      }
+     ]
+    }
+   ],
+   "fotografie": [
+    {
+     "livello": 3,
+     "zoneBlu": 6,
+     "trigger": 7,
+     "falliti": 1,
+     "episodi": [
+      {
+       "zonaBlu": "2008-01-07",
+       "min": 0,
+       "trigger": [
+        "2008-04-03"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": -40.4
+      },
+      {
+       "zonaBlu": "2008-09-05",
+       "min": 0,
+       "trigger": [
+        "2009-04-02"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": -1.7
+      },
+      {
+       "zonaBlu": "2011-08-05",
+       "min": 0,
+       "trigger": [
+        "2011-10-10"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 12.9
+      },
+      {
+       "zonaBlu": "2015-08-25",
+       "min": 0,
+       "trigger": [
+        "2015-09-15"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 43.8
+      },
+      {
+       "zonaBlu": "2022-06-14",
+       "min": 0,
+       "trigger": [
+        "2022-07-21",
+        "2022-11-08"
+       ],
+       "falliti": [
+        "2022-10-11"
+       ],
+       "rend12MDaZonaBlu": 40.5
+      },
+      {
+       "zonaBlu": "2025-04-04",
+       "min": 0,
+       "trigger": [
+        "2025-05-12"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 136.5
+      }
+     ]
+    },
+    {
+     "livello": 5,
+     "zoneBlu": 6,
+     "trigger": 8,
+     "falliti": 2,
+     "episodi": [
+      {
+       "zonaBlu": "2008-01-07",
+       "min": 0,
+       "trigger": [
+        "2008-04-03"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": -40.4
+      },
+      {
+       "zonaBlu": "2008-09-05",
+       "min": 0,
+       "trigger": [
+        "2009-04-02"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": -1.7
+      },
+      {
+       "zonaBlu": "2011-08-05",
+       "min": 0,
+       "trigger": [
+        "2011-10-10"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 12.9
+      },
+      {
+       "zonaBlu": "2015-08-25",
+       "min": 0,
+       "trigger": [
+        "2015-09-15"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 43.8
+      },
+      {
+       "zonaBlu": "2022-04-11",
+       "min": 0,
+       "trigger": [
+        "2022-05-27",
+        "2022-07-21",
+        "2022-11-08"
+       ],
+       "falliti": [
+        "2022-06-13",
+        "2022-09-26"
+       ],
+       "rend12MDaZonaBlu": 2.1
+      },
+      {
+       "zonaBlu": "2025-04-01",
+       "min": 0,
+       "trigger": [
+        "2025-05-12"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 81.5
+      }
+     ]
+    },
+    {
+     "livello": 10,
+     "zoneBlu": 7,
+     "trigger": 13,
+     "falliti": 6,
+     "episodi": [
+      {
+       "zonaBlu": "2006-07-21",
+       "min": 9.1,
+       "trigger": [
+        "2006-08-16"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 33.7
+      },
+      {
+       "zonaBlu": "2008-01-04",
+       "min": 0,
+       "trigger": [
+        "2008-05-13",
+        "2008-08-12",
+        "2009-04-23"
+       ],
+       "falliti": [
+        "2008-07-09",
+        "2008-09-04"
+       ],
+       "rend12MDaZonaBlu": -44.8
+      },
+      {
+       "zonaBlu": "2011-08-05",
+       "min": 0,
+       "trigger": [
+        "2011-10-13"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 12.9
+      },
+      {
+       "zonaBlu": "2015-08-21",
+       "min": 0,
+       "trigger": [
+        "2015-10-14"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 39.7
+      },
+      {
+       "zonaBlu": "2018-11-13",
+       "min": 0,
+       "trigger": [
+        "2018-12-03",
+        "2019-01-24"
+       ],
+       "falliti": [
+        "2018-12-19"
+       ],
+       "rend12MDaZonaBlu": 47.4
+      },
+      {
+       "zonaBlu": "2022-03-08",
+       "min": 0,
+       "trigger": [
+        "2022-03-16",
+        "2022-06-02",
+        "2022-07-29",
+        "2022-11-10"
+       ],
+       "falliti": [
+        "2022-04-22",
+        "2022-06-13",
+        "2022-09-26"
+       ],
+       "rend12MDaZonaBlu": -4
+      },
+      {
+       "zonaBlu": "2025-03-31",
+       "min": 0,
+       "trigger": [
+        "2025-05-12"
+       ],
+       "falliti": [],
+       "rend12MDaZonaBlu": 81.1
+      }
+     ]
+    }
+   ],
+   "discese3": {
+    "membriOggi": 8,
+    "fotografie": 8
+   },
+   "nMinimo": {
+    "data": "2005-11-30",
+    "n": 11
+   }
+  }
+ }
+}
