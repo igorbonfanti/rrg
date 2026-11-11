@@ -430,16 +430,16 @@ export function createTitles(ctx) {
       box(L + 4, T + 10, lw(`↑ rendimento ${st.per}`)),
     ];
     const heavy = [...list].sort((a, b) => (b.w || 0) - (a.w || 0)).slice(0, narrow ? 2 : 3);
-    const ext = list.filter(foreign), labeled = new Set();
+    const ext = list.filter(foreign), labeled = new Map();
     for (const s of new Set([...order.slice(0, narrow ? 6 : WORST), ...heavy, ...ext])) {
       const p = pos.find((q) => q.s === s);
       if (!p) continue; // senza valore sull'asse x: solo nella lista
-      const fw = foreign(s) ? FLAG_W + 3 : 0;
-      const b = placeLabel(p, boxes, L, W - R, T, H - B, fw);
+      // con la bandiera l'etichetta è più larga: se non c'è posto si riprova senza, così il nome non si perde
+      let fw = foreign(s) && hasFlag(s.c) ? FLAG_W + 3 : 0, b = placeLabel(p, boxes, L, W - R, T, H - B, fw);
+      if (!b && fw) { fw = 0; b = placeLabel(p, boxes, L, W - R, T, H - B, 0); }
       if (!b) continue;
       if (fw) drawFlag(labels, s.c, b[0], b[1] - 9, FLAG_W);
-      text(labels, b[0] + fw, b[1], s.s, { class: `lab${worst.has(s.s) ? ' bad' : ''}` });
-      labeled.add(s.s);
+      labeled.set(s.s, text(labels, b[0] + fw, b[1], s.s, { class: `lab${worst.has(s.s) ? ' bad' : ''}` }));
     }
     const hoverLab = text(svg, -99, -99, '', { class: 'lab on' });
     bub = { pos, hoverLab, boxes, bounds: [L, W - R, T, H - B], W, labeled };
@@ -481,6 +481,8 @@ export function createTitles(ctx) {
     if (!bub) return;
     $('titBubble').querySelectorAll('circle.dot').forEach((c) => c.classList.toggle('on', c.dataset.s === s));
     const p = s && bub.pos.find((q) => q.s.s === s);
+    // l'etichetta già scritta del titolo si accende (come quella al passaggio); le altre tornano normali
+    if (bub.labeled) for (const [k, t] of bub.labeled) t.classList.toggle('on', k === s);
     if (p && bub.labeled && bub.labeled.has(s)) { // già con la sua etichetta: solo in primo piano
       const c = $('titBubble').querySelector(`circle.dot[data-s="${CSS.escape(s)}"]`);
       if (c) c.parentNode.appendChild(c);
