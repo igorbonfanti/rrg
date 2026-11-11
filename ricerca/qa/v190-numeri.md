@@ -1,10 +1,49 @@
-# Controllo numeri, dati e grafici · versione 1.9.0 · commit f1a5de9
+# Controllo numeri, dati e grafici · versione 1.9.0 · commit 9455c5d (ricontrollo)
 
-(HEAD del ramo al momento del controllo: 2f79ee1, che rispetto a f1a5de9 aggiunge solo screenshot in `ricerca/soxx/shots/`: il codice e i dati controllati sono quelli di f1a5de9.)
+Verdetto: **GO** (dopo il ricontrollo del commit 9455c5d)
 
-Verdetto: **NO-GO**
+Il primo controllo, sul commit f1a5de9, aveva dato NO-GO. I suoi rilievi sono nella tabella più sotto; qui sopra c'è l'esito del ricontrollo. Non restano bloccanti né rilievi da correggere. Restano aperti i minori 5, 6, 8, 10 e 11, da riportare in `docs/sviluppo.md`.
 
-Due rilievi bloccanti (vista 5 del SOXX su YTD e 1 anno; `data/capitulation.json` del ramo più vecchio di quello di `main`) e quattro da correggere. Il resto dei numeri del SOXX torna con un ricalcolo indipendente, e gli 11 settori sono identici tra 1.8.0 e 1.9.0 con gli stessi dati.
+## Ricontrollo del commit 9455c5d
+
+Il server 8791 era già con il codice e i dati nuovi. Come confronto ho usato la 1.8.0 (`origin/main`) servita sulla porta 8792 con i dati nuovi del ramo, così le due versioni avevano gli stessi dati. Ho rilanciato gli stessi script del primo controllo, più quelli nuovi `recheck_cap.py`, `recheck_hist.py`, `recheck.cjs`, `rrg_check.py`, `rrg2.cjs` ed `eng.mjs`.
+
+| # | Esito | Prova |
+|---|---|---|
+| 1 | **chiuso** | Il pallino pieno del SOXX ora è il rendimento dell'ETF, solo prezzo: tutti e 20 i valori del file (5 periodi × oggi, 1 settimana, 1 mese e 3 mesi fa) coincidono con Yahoo entro 0,05 punti. Nel browser il cap è −19,3 / −19,5 / −14,8 / **+46,0** / **+49,4** e l'equal-weight −19,5 / −21,0 / −14,2 / +53,0 / +59,1, con una divergenza YTD di +7,0 pp. Storia della divergenza: 145 punti confrontati con «vecchio valore + (cap vecchio − ETF)», scarto massimo 0,09 pp; il massimo dell'anno passa da +16,4 a +9,6 pp. Equal-weight e titoli sono identici a prima. La guida (#industrie), il README, la nota «Dati» della vista 5 e il tooltip descrivono la nuova regola. |
+| 2 | **chiuso** | `data/` del ramo diverso da `origin/main` solo in `industries.json`, `industry_members.json` e `capitulation.json`. In `capitulation.json` tutti i campi e tutte le serie sono identici a main tranne la serie SOXX. Nel browser i Cali forti di XLK dicono «allerta al 10/11/2026». La serie SOXX ricostruita torna con il mio ricalcolo: 35 cali, soglia 23, 5 sedute in 3 mesi, 3 episodi e 22 sedute in 12 mesi. |
+| 3 | **chiuso** | Rettificata del SOXX a 4 decimali: scarto massimo dal Yahoo di oggi 0,0023% su un prezzo e 0,0037% su un rendimento giornaliero, prima 0,21% e 0,33%. Episodi uguali al ricalcolo e al README della ricerca: trigger del 26/03/2009 +3,4 / +11,7 / +34,8; mediana dopo i trigger +3,4 / +11,7 / +20,3; DD all'ingresso del 30/09/2008 −41,0. Nelle date passate della Bottom Map il drawdown è uguale a Yahoo: 21/11/2008 −60,3, 07/10/2011 −24,2, 12/02/2016 −22,6. Cali forti, episodio del 02/10/2008: −44,6 / −38,3. Il mirino scrive i decimali veri (2,548; 3,866). Breadth: di nuovo 6.357 sedute su 6.357 uguali. Unico caso al limite: il peggior calo dopo il trigger del 2009 vale esattamente −5,850%; l'app scrive −5,8 e il mio script −5,9, solo per come si arrotonda il 5. |
+| 4 | **chiuso** | La guida dice «con un ordine quasi uguale sui due assi (correlazione di rango 0,98 in orizzontale e 0,95 in verticale)» e «XLC… probabilmente perché… non verificabile». Coincide con `ricerca/rrg-bloomberg/README.md`. Nessun'altra copia di «stesso ordine sui due assi» nel repository. |
+| 7 | **chiuso** | La nota dice «lista iShares letta il 11/11/2026». |
+| 9 | **chiuso** | Nella vista 5 del SOXX l'intestazione «Peso» ha il titolo «Peso nell'ETF SOXX». Il testo dice «grande quanto il suo peso nell'S&P 500 (per il SOXX, nell'ETF)». |
+| 5 | **declassato a minore** | Non era tra le correzioni. Nel `prices.json` di oggi il SOXX manca ancora, quindi rotazione e colonna Rotazione del Monitor sono vuote fino alla prossima corsa di `fetch_data.js`. L'ho verificato in un worktree a parte (`w9455`), senza toccare il ramo: `node scripts/fetch_data.js us` aggiunge il SOXX al gruppo dei settori, senza titoli mancanti; il prezzo coincide con Yahoo (0,0002%). Con quei dati la vista 2 mostra il SOXX Lagging 94,66 / 94,91 (medie semplici, settimanale contro SPY), uguale al mio ricalcolo indipendente (94,66 / 94,91; XLK 100,39 / 97,69 come la ricerca rrg-bloomberg). Il Monitor mostra la pillola. Resta un giorno senza SOXX nella rotazione dopo la pubblicazione: va controllato dopo la prima corsa notturna. |
+
+**Nient'altro è cambiato.** Ho ripetuto il confronto tra 1.8.0 e 1.9.0, con gli stessi dati, sugli 11 settori. Su 657 confronti cambiano solo le stesse 16 voci del primo controllo:
+- le aggiunte del SOXX;
+- le etichette spostate nella Bottom Map passata;
+- la scala della vista 5;
+- la nota «Dati» e la frase sulle bolle della vista 5, che ora hanno il testo nuovo.
+
+Sono invece uguali alla 1.8.0, per gli 11 settori:
+- righe e riquadri del Monitor;
+- punti e scie della Bottom Map a 8 date;
+- Situazione, grafici e Cali forti, 11 settori × 3 periodi;
+- 126 righe di episodi;
+- la vista 9.
+
+Per il SOXX:
+- Monitor, Situazione e breadth sono come prima (7/30, 23,3%; DD −32,8 e −32,9; 91° percentile);
+- nella Bottom Map gli stati alle crisi passate sono gli stessi, e cambia solo il decimale del drawdown, ora giusto;
+- lo zoom va dal 23/02/2005 al 28/09/2007 come prima;
+- console senza errori.
+
+---
+
+## Primo controllo (commit f1a5de9): rilievi originali
+
+(HEAD del ramo al momento del primo controllo: 2f79ee1, che rispetto a f1a5de9 aggiunge solo screenshot.)
+
+Verdetto del primo controllo: **NO-GO**
 
 | # | Gravità | Dove | Cosa succede | Come riprodurlo | Prova |
 |---|---|---|---|---|---|
@@ -60,5 +99,6 @@ Cartella `/tmp/claude-0/-home-user-rrg/d11a05ff-fe30-5458-88d7-bab1e13b8eb0/scra
 - `own.py`: drawdown, percentile, avvicinamento;
 - `fwd.py`, `pctl.py`, `cap.py`, `bias.py`, `capeq_check.py`, `hist_check.py`;
 - nel browser: `extract.cjs`, `epi.cjs` (1.8.0 contro 1.9.0), `cmp.py`, `graphs.cjs`, `zoom2.cjs`, `shots.cjs`, `cap3a.cjs`, `rrg.cjs`;
-- risultati in `out/`: `v180.json`, `v190.json`, `epi180.json`, `epi190.json`, `graphs.json`, `cmp.txt`;
+- ricontrollo: `recheck_cap.py`, `recheck_hist.py`, `recheck.cjs`, `rrg_check.py`, `rrg2.cjs`, `eng.mjs`; worktree `w9455` (9455c5d con `prices.json` rigenerato, solo per la prova del rilievo 5);
+- risultati in `out/`: `v180.json`, `v190.json`, `epi180.json`, `epi190.json`, `graphs.json`, `recheck.json`, `cmp2.txt` (ricontrollo; i file del primo controllo hanno il suffisso `_old`, più `cmp.txt`);
 - screenshot in `shots/`: viste 1, 3, 4 e 5 a 1440 scuro, 1280 chiaro, 390 scuro e 360 chiaro; Bottom Map a nov 2008 e apr 2025; zoom del SOXX; cali forti del SOXX MAX e 3A.
