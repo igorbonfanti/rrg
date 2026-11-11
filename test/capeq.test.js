@@ -173,6 +173,22 @@ test('buildSectorMembers: forma del file e numeri dei titoli', () => {
   assert.ok(a.d200 > 0);
 });
 
+test('buildSectorMembers: total false toglie solo la riga SPX (industrie), senza opzione come prima', () => {
+  const cal = sessions('2024-09-02', 540);
+  const members = [{ s: 'A', name: 'A', sector: 'SOXX', sub: '' }, { s: 'B', name: 'B', sector: 'SOXX', sub: '' }];
+  const px = { A: cal.map((_, t) => 100 + t), B: cal.map((_, t) => 200 - t / 10) };
+  const life = membership(members, [], {});
+  const base = { cal, members, life, px, qty: { A: 3, B: 1 }, sectors: ['SOXX'] };
+  const all = buildSectorMembers(base), ind = buildSectorMembers({ ...base, total: false });
+  assert.deepEqual(Object.keys(all.sectors), ['SOXX', 'SPX']);
+  assert.deepEqual(Object.keys(ind.sectors), ['SOXX']);
+  assert.deepEqual(Object.keys(ind.hist.sectors), ['SOXX']);
+  // tutto il resto identico
+  delete all.sectors.SPX; delete all.hist.sectors.SPX;
+  assert.deepEqual(ind, all);
+  assert.deepEqual(buildSectorMembers({ ...base, total: true }), buildSectorMembers(base));
+});
+
 test('data/sector_members.json: 11 settori, S&P 500 e titoli della lista', () => {
   const d = read('data/sector_members.json'), m = read('data/sp500_members.json');
   assert.equal(Object.keys(d.sectors).length, 12);

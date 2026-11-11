@@ -1,0 +1,21 @@
+﻿iShares Semiconductor ETF
+Fund Holdings as of,"Nov 10, 2026"
+Inception Date,"Jul 10, 2001"
+Shares Outstanding,"282,850,000.00"
+Stock,"-"
+Bond,"-"
+Cash,"-"
+Other,"-"
+ 
+Ticker,Name,Sector,Asset Class,Market Value,Weight (%),Notional Value,Quantity,Price,Location,Exchange,Currency,FX Rate,Market Currency,Accrual Date
+"AMD","ADVANCED MICRO DEVICES","Information Technology","Equity","4,172,121,119.84","10.11","4,172,121,119.84","8,097,904.00","515.21","United States","NASDAQ","USD","1.00","USD","-"
+"TSM","TAIWAN SEMICONDUCTOR MANUFACTURING","Information Technology","Equity","1,411,869,244.80","3.42","1,411,869,244.80","3,561,010.00","396.48","Taiwan","NYSE","USD","1.00","USD","-"
+"SKHY","SK HYNIX AMERICAN DEPOSITARY SHARE","Information Technology","Equity","1,149,058,070.76","2.78","1,149,058,070.76","8,862,086.00","129.66","Korea (South)","NASDAQ","USD","1.00","USD","-"
+"TST.B","TEST CLASS B (RIGA DI PROVA)","Information Technology","Equity","1,000.00","0.10","1,000.00","100.00","10.00","United States","NYSE","USD","1.00","USD","-"
+"TST.B","TEST CLASS B (RIGA DI PROVA)","Information Technology","Equity","500.00","0.05","500.00","50.00","10.00","United States","NYSE","USD","1.00","USD","-"
+"-","SENZA SIMBOLO","Information Technology","Equity","10.00","0.00","10.00","1.00","10.00","United States","NASDAQ","USD","1.00","USD","-"
+"USD","USD CASH","Cash and/or Derivatives","Cash","27,731,079.45","0.07","27,731,079.45","27,731,079.00","100.00","United States","-","USD","1.00","USD","-"
+"WFFUT","CASH COLLATERAL USD WFFUT","Cash and/or Derivatives","Cash Collateral and Margins","3,632,000.00","0.01","3,632,000.00","3,632,000.00","100.00","United States","-","USD","1.00","USD","Aug 23, 2017"
+"IXTZ6","EMINI TECHNOLOGY SELECT SECTOR DEC","Cash and/or Derivatives","Futures","0.00","0.00","45,085,920.00","132.00","3,415.60","-","Chicago Mercantile Exchange","USD","1.00","USD","-"
+ 
+"The content contained herein is owned or licensed by BlackRock (riga di chiusura ridotta per il test)."

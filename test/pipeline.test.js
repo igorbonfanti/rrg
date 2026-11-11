@@ -91,3 +91,28 @@ test('dati fermi: VIX3M e credito della 1.6.0 (file vecchio senza i campi: nessu
   assert.equal(p.length, 3, p.join(' | '));
   assert.ok(p.some((x) => /VIX3M\): fermo/.test(x)) && p.some((x) => /FRED VIX3M/.test(x)) && p.some((x) => /HYG\/IEF\): senza data/.test(x)));
 });
+
+test('dati fermi: industrie (SOXX), breadth e vista 5 come i settori, lista 14 giorni, holdings 10', () => {
+  const base = { breadth: { asOf: '2026-11-27' } };
+  const ind = (asOf, list) => ({ ...base, industries: { asOf, lists: { SOXX: { asOf: list } } } });
+  assert.deepEqual(staleData(ind('2026-11-27', '2026-11-30'), '2026-12-01'), []); // ponte di Thanksgiving
+  const p = staleData({ ...ind('2026-11-20', '2026-11-10'), industryMembers: { asOf: '2026-11-20', weightsAsOf: '2026-11-13' } }, '2026-12-01');
+  assert.equal(p.length, 4, p.join(' | '));
+  assert.ok(p.some((x) => /industries\.json \(industrie\): fermo al 2026-11-20/.test(x)) && p.some((x) => /lista SOXX: fermo al 2026-11-10/.test(x)));
+  assert.ok(p.some((x) => /^industry_members\.json: fermo/.test(x)) && p.some((x) => /holdings iShares\): fermo al 2026-11-13/.test(x)));
+  assert.deepEqual(staleData({ ...base, industryMembers: { asOf: '2026-11-27', weightsAsOf: '2026-11-26' } }, '2026-12-01'), []);
+  assert.deepEqual(staleData(base, '2026-12-01'), []); // file non ancora creati: nessun controllo
+  assert.deepEqual(staleData({ ...base, industries: null }, '2026-12-01'), ['industries.json (industrie): senza data']); // file illeggibile
+});
+
+test('corse di recupero: riprovano finché le industrie non hanno la seduta attesa', async () => {
+  const { needUpdate, RECOVERY } = await import('../scripts/need_update.js');
+  const all = { SPX: '2026-11-10', NDX: '2026-11-10', DJI: '2026-11-10', RUT: '2026-11-10' };
+  const done = { schedule: RECOVERY, expected: '2026-11-10', prices: '2026-11-10', breadth: '2026-11-10', indexLast: all };
+  assert.equal(needUpdate(done).run, false); // file delle industrie non ancora creato: non conta
+  assert.equal(needUpdate({ ...done, industries: '2026-11-10' }).run, false);
+  const r = needUpdate({ ...done, industries: '2026-11-09' });
+  assert.equal(r.run, true);
+  assert.match(r.why, /industrie/);
+  assert.equal(needUpdate({ ...done, industries: null }).run, true); // file senza data
+});
