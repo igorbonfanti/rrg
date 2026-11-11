@@ -1,8 +1,39 @@
-# Controllo codice e pipeline · versione 1.9.0 · commit f1a5de9
+# Controllo codice e pipeline · versione 1.9.0 · commit f1a5de9, ricontrollo su 9455c5d
+
+## Ricontrollo dopo 9455c5d
+
+Verdetto: **GO**. D1 e D2 sono corretti e non ci sono bloccanti. Restano minori: quelli già elencati sotto, più M11 e M12 nuovi; M4 è aggiornato.
+
+| # | Esito | Come l'ho rifatto | Risultato |
+|---|---|---|---|
+| D1 | corretto | `scen.sh csvCols2 … csvCols`; varianti nuove `csvQty` (solo «Quantity» rinominata) e `csvW` (solo «Weight (%)» rinominata), aggiunte a `mock.mjs`; backfill con `QA_SCEN=csvCols` (`S/run/bfcols`) | In tutti e 4 i casi: «pesi o azioni nulli nel CSV iShares», exit 1, i tre file identici byte per byte a quelli di prima. iShares giù o con «Asset Class» cambiata: come prima si tiene l'ultima lista buona, exit 0. |
+| D1 bis | verificato | `S/cap_etf.mjs`: ricalcolo dei rendimenti dalle chiusure di Yahoo nella cache, senza il modulo dell'app | Ora il cap-weighted del SOXX nella vista 5 è il prezzo dell'ETF: 20/20 rendimenti uguali al prezzo dell'ETF (entro 0,1), sia in `data/industry_members.json` del ramo sia nella mia ricostruzione. Quindi i pesi di riempimento non toccano più quella linea. |
+| capPx e settori | nessun cambio | `S/diff_equivalenza.mjs`; `S/capeq_stress.mjs`: `buildSectorMembers` di main contro quello del ramo su 60 universi casuali di 11 settori + SPX (titoli che entrano ed escono, prezzi mancanti, quotazioni tardive, titoli senza azioni) × 3 chiamate (senza `capPx` come `fetch_breadth.js`, con `capPx: null`, con `capPx` per un'altra chiave) | 180/180 JSON identici, 0 errori; anche il caso con i dati del SOXX è identico. `fetch_breadth.js` chiama `buildSectorMembers` senza `capPx`. Il controllo nuovo `cw[a] == null` non scatta mai per i settori, perché `sectorIndex` dà sempre numeri. Quindi `sector_members.json` non cambia. |
+| D2 alert | corretto | `S/run/AR2_date_rotte`, `AR2_senza_breadth`, `AR2_troncato` (`alert.sh`) | Avviso «dati dell'industria illeggibili», trigger XLU di prova inviato, `alerts.json` scritto, exit 0. Il `try` copre ogni struttura che ho provato: anche `gaps` sporchi, RLE vuoti, `a200` corta e `latest` mancante (`AR3_*`) lasciano inviare i settori. |
+| D2 browser | corretto per le strutture segnalate | `browser_rotto.cjs`, `browser_varianti.cjs` (10 varianti, log `S/browser_varianti_9455c5d.log`) | Con `dates` senza `d0`/`gaps`, o con la serie senza `breadth`, l'app resta con 11 settori, 11 punti nella mappa e nessun errore. Le altre 8 varianti si comportano come prima. |
+
+Altri controlli su 9455c5d:
+- `npm test` 171/171; `node --check` su tutti i file di `js/`, `scripts/` e `test/`.
+- Il backfill con il codice nuovo (`S/run/bf2`) tocca solo i 3 file e lascia identici gli altri 35. Il risultato coincide con i dati del ramo, tranne 120 prezzi su 6370 alla quarta cifra decimale (rumore di Yahoo tra due ore diverse, vedi M4).
+- Corsa serale da 3 sedute indietro: identica al backfill (`industries.json` cambia solo in `generated`, `industry_members.json` identico).
+- Ora `data/` del ramo differisce da main solo in `capitulation.json` (serie SOXX) e nei due file nuovi.
+
+Rilievi nuovi o aggiornati:
+
+| # | Gravità | Dove | Cosa succede | Come riprodurlo |
+|---|---|---|---|---|
+| M11 | minore | `js/industries.js` `industryKeys`, `js/bottom.js` `createBottom` | Il controllo nuovo guarda la forma del file, non il contenuto. Un `dates.gaps` con caratteri non validi (stringa sporca) fa ancora mostrare a tutta l'app «Impossibile caricare i dati». RLE vuoti o `a200` più corta mostrano il SOXX con «—%», «null/null» o «undefined/30» ed errori SVG (NaN) nel suo dettaglio, mentre i settori restano a posto. Nessuno script scrive file così (`packFile`/`encodeDates`), quindi serve un file guastato a mano. Correzione possibile in una riga: un `try` intorno a `mergeCalendar`/`industryBreadth` in `createBottom`, con ripiego su nessuna industria. | `node S/browser_rotto2.cjs` (varianti in `S/varianti/`) |
+| M12 | minore | `fetch_industries.js` (correzione D1) | Con pesi o azioni mancanti nel CSV si ferma tutta l'industria, breadth compresa: exit 1 ogni sera, «Esito» rosso, `check_fresh` dopo 4 giorni. Non si torna all'ultima lista buona, come succede invece con iShares giù. È una scelta prudente e va bene. Va solo detta nel README («se le holdings non hanno pesi o azioni i file restano fermi»). | `scen.sh csvCols2 2026-11-05 csvCols` |
+| M4 (agg.) | minore | `etfSeries` a 4 decimali | Con 4 decimali il rumore di Yahoo tra richieste fatte a ore diverse cambia 120 prezzi su 6370 (con 2 decimali era 1). Richieste consecutive restano identiche (`S/jitter4.mjs`). Quando il SOXX è indietro e la corsa gira senza sedute nuove, il file si riscrive con differenze alla quarta cifra. Si potrebbe tenere il valore pubblicato quando la differenza è entro 1e-4, come fa `fetch_emerging.js`. | `node S/confronta.mjs S/data_v2 S/run/bf2/data industries.json` |
+| M10 (agg.) | minore | test | Anche il controllo nuovo di D1 è dentro `updateIndustry` e `npm test` non lo copre: se lo tolgo, i test passano lo stesso (171/171). Le prove con il mock sopra lo coprono. | `S/mut/` |
+
+---
+
+## Primo controllo (commit f1a5de9)
 
 (Il ramo è poi passato a 2f79ee1, che aggiunge solo screenshot in `ricerca/soxx/shots/`: codice identico.)
 
-Verdetto: **NO-GO**, ma solo per due correzioni piccole (D1, D2). Nessun bloccante. Dopo le due correzioni, e un nuovo controllo dei due punti, è GO.
+Verdetto del primo controllo: **NO-GO**, ma solo per due correzioni piccole (D1, D2). Nessun bloccante. Le due correzioni sono arrivate in 9455c5d: vedi sopra.
 
 Script, copie e prove: `/tmp/claude-0/-home-user-rrg/d11a05ff-fe30-5458-88d7-bab1e13b8eb0/scratchpad/qa190-codice/` (sotto, `S/`). Prove sulla copia di `origin/main` (1ec509d) con i file dell'app e degli script del ramo (`S/main/`, senza `ricerca/`). Fonti finte: `S/mock.mjs` per iShares e Yahoo, che serve le risposte reali salvate dal backfill (`S/cache/`, `S/holdings.csv` del 10/11/2026), e `S/mock_tg.mjs` per Telegram.
 

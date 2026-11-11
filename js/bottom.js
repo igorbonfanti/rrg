@@ -58,9 +58,12 @@ export function createBottom(ctx) {
   // industrie accanto agli 11 settori (1.9.0, js/industries.js): stesso calendario, allungato all'indietro, e stesse
   // regole; conteggi «/ 11», statistiche citate nei testi e vista 9 restano sui soli settori
   const IND = ctx.industries || null, ICFG = (ctx.indConfig && ctx.indConfig.industries) || {};
-  const IKEYS = industryKeys(ctx.indConfig, IND), ALLK = [...SECTOR_KEYS, ...IKEYS];
+  let IKEYS = industryKeys(ctx.indConfig, IND), CAL;
+  // un file delle industrie illeggibile nel contenuto (date o conteggi rotti) non ferma i settori: niente industrie
+  try { CAL = mergeCalendar(S0, IND, IKEYS); for (const k of IKEYS) breadthSeries(industryBreadth(IND, k, CAL.indDates), k, CAL.dates); }
+  catch (e) { console.warn(`industrie non disponibili: ${e.message}`); IKEYS = []; CAL = mergeCalendar(S0, null, []); }
+  const ALLK = [...SECTOR_KEYS, ...IKEYS];
   const isInd = (s) => IKEYS.includes(s);
-  const CAL = mergeCalendar(S0, IND, IKEYS);
   const S = { ...S0, dates: CAL.dates, adjclose: CAL.adjclose };
   const DATES = S.dates;
   const NM = { ...NAMES, ...Object.fromEntries(IKEYS.map((k) => [k, ICFG[k].name])) };
