@@ -265,7 +265,7 @@
   <section id="btm">
     <h2>3 Bottom Map</h2>
     <a class="open" href="./#btm">Apri la Bottom Map →</a>
-    <p>Ogni settore è un punto, con la coda delle ultime 8 settimane:</p>
+    <p>Ogni settore è un punto, con la coda delle ultime 8 settimane; l'industria dei semiconduttori (<a href="#industrie">SOXX</a>) è un rombo:</p>
     <ul>
       <li><b>in orizzontale</b> la profondità del drawdown (percentile della storia del settore): più a sinistra, più profondo;</li>
       <li><b>in verticale</b> la distanza della breadth dal livello blu, in punti: sotto lo zero il settore è sotto il livello.</li>
@@ -422,7 +422,7 @@
   <section id="alr">
     <h2>9 Alert</h2>
     <a class="open" href="./#alr">Apri gli Alert →</a>
-    <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore.</p>
+    <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore. Gli alert su Telegram valgono anche per l'industria dei semiconduttori (SOXX), i cui eventi sono nel suo dettaglio: statistiche e registro di questa pagina restano dei soli 11 settori.</p>
     <ul>
       <li>I riquadri in alto riassumono quante zone blu, trigger e segnali falliti ci sono stati, con le mediane a 3 e 6 mesi e il confronto con una seduta qualsiasi e con SPY negli stessi giorni.</li>
       <li><b>Notifiche Telegram</b>: dopo ogni aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Le ultime sedute si ricalcolano a ogni aggiornamento: se un evento già inviato cambia data arriva una rettifica con le due date, se non risulta più arriva un messaggio di annullamento. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati, con le rettifiche.</li>
@@ -437,6 +437,7 @@
       <thead><tr><th>Scrivi</th><th>Cosa succede</th></tr></thead>
       <tbody>
         <tr><td><code>XLU</code></td><td>un ETF settoriale apre il suo dettaglio (vista 4)</td></tr>
+        <tr><td><code>SOXX</code>, <code>SEMI</code></td><td>l'industria dei semiconduttori nella vista 4 (<code>SOXX TIT</code> i suoi titoli)</td></tr>
         <tr><td><code>XLK TIT</code>, <code>XLU SEC</code></td><td>settore e vista insieme</td></tr>
         <tr><td><code>NVDA</code>, <code>SWDA</code>, <code>ORO</code>, <code>TESLA</code></td><td>un ticker (anche senza borsa), un nome breve o una parola del nome: lo evidenzia nella rotazione, cambiando universo se serve</td></tr>
         <tr><td><code>SPY</code>, <code>QQQ</code>, <code>PTF</code></td><td>un benchmark: la rotazione contro di lui</td></tr>

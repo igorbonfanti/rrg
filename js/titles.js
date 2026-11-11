@@ -120,7 +120,8 @@ export function createTitles(ctx) {
   // ---------- comandi ----------
   function renderControls() {
     const s = cur();
-    const chip = (k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}" title="${esc(ctx.names[k])}"${isInd(k) && !IOK.includes(k) ? ` disabled title="${esc(IWHY || 'titoli non disponibili')}"` : ''}>${ctx.stateCode ? `<span class="sd sd-${ctx.stateCode(k)}"></span>` : ''}${k}</button>`;
+    const off = (k) => isInd(k) && !IOK.includes(k);
+    const chip = (k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}" title="${esc(off(k) ? `${ctx.names[k]}: ${IWHY || 'titoli non disponibili'}` : ctx.names[k])}"${off(k) ? ' disabled' : ''}>${ctx.stateCode ? `<span class="sd sd-${ctx.stateCode(k)}"></span>` : ''}${k}</button>`;
     keepFocus($('titChips'), 'data-sym', SECTORS.map(chip).join('') + (IKEYS.length ? `<span class="chipgrp"><span class="chipsep" aria-hidden="true"></span><span class="chiplab">INDUSTRIA</span>${IKEYS.map(chip).join('')}</span>` : ''));
     $('titChips').querySelectorAll('button').forEach((b) => { b.onclick = () => pick(b.dataset.sym); });
     const press = (id, attr, v) => document.querySelectorAll(`#${id} button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset[attr] === v)));
@@ -130,8 +131,9 @@ export function createTitles(ctx) {
     $('titAx').querySelector('option[value="prev"]').disabled = !hasPrev;
     if (st.ax === 'prev' && !hasPrev) st.ax = 'd200';
     $('titAx').value = st.ax;
-    $('titMeta').textContent = `al ${dIT(D.asOf)} · ${PER_TEXT[st.per]}, dal ${dIT(D.starts[st.per][0])}`;
-    $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (IOK.length ? ` ${IOK.join(', ')}: pallino pieno = rendimento dell'ETF stesso (solo prezzo, con i suoi tetti e ribilanciamenti); equal-weight e bubble con i titoli di oggi e i pesi dell'ETF${D.indWeightsAsOf ? ` al ${dIT(D.indWeightsAsOf)}` : ''}, quindi su YTD e 1 anno l'equal-weight risulta più alto del vero.` : '') + (IWHY ? ` ${IWHY}.` : '') + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
+    const want = ctx.getSector();
+    $('titMeta').textContent = `al ${dIT(D.asOf)} · ${PER_TEXT[st.per]}, dal ${dIT(D.starts[st.per][0])}` + (want !== s ? ` · ${want}: titoli non ancora disponibili (${IWHY || 'dati mancanti'}), si vede ${s}` : '');
+    $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (IOK.length ? ` ${IOK.join(', ')}: pallino pieno = rendimento dell'ETF stesso (solo prezzo, con i suoi tetti e ribilanciamenti); equal-weight e bubble con i titoli di oggi e i pesi dell'ETF${D.indWeightsAsOf ? ` al ${dIT(D.indWeightsAsOf)}` : ''}, quindi su YTD e 1 anno l'equal-weight risulta più alto del vero.` : '') + (IWHY ? ` ${IWHY.charAt(0).toUpperCase() + IWHY.slice(1)}.` : '') + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
   }
   function pick(s) { ctx.setSector(s); st.hover = null; render(); }
   // gruppo mostrato: quello della vista 4; un'industria senza titoli uniti lascia il posto al suo settore

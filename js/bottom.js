@@ -97,7 +97,7 @@ export function createBottom(ctx) {
   // livelli blu salvati nel browser: solo settori noti e interi da 0 a 60
   function validBlue(v) {
     return Object.fromEntries(Object.entries(v && typeof v === 'object' ? v : {})
-      .filter(([k, x]) => ALLK.includes(k) && Number.isInteger(x) && x >= 0 && x <= 60));
+      .filter(([k, x]) => (ALLK.includes(k) || k in config.blue) && Number.isInteger(x) && x >= 0 && x <= 60));
   }
 
   function machine(s) {
@@ -234,7 +234,7 @@ export function createBottom(ctx) {
         <td class="num r c-blue" data-l="blu">${r.L}%${changed(r.s) ? '<span class="loc" title="modificato in questo browser">*</span>' : ''}</td>
         <td class="c-dd" data-l="drawdown"><span class="cellv num">${sgnP(r.dd)}</span><span class="bar" title="più profondo ${delPct(r.dp)} delle sedute; peggiore a 5 anni ${sgnP(r.worst)}"><i class="${r.dp >= 80 ? 'deep' : ''}" style="width:${ddw}%"></i><span class="mark" style="left:calc(${worst}% - 1px)"></span></span></td>
         ${ddpCell(r.s)}
-        <td class="c-rot">${r.rot ? qPill(r.rot.q, r.rot.heading) : ''}</td>
+        <td class="c-rot">${r.rot ? qPill(r.rot.q, r.rot.heading) : isInd(r.s) ? '<span class="muted" title="Prezzi per la rotazione non ancora disponibili: arrivano con l\'aggiornamento notturno">—</span>' : ''}</td>
         <td class="num r c-last" data-l="ultimo">${fmt(r.last, 2)}</td><td class="num r c-d1" data-l="1G">${pct(r.d1)}</td><td class="num r c-m1" data-l="1M">${pct(r.m1)}</td></tr>`;
     };
     const body = rows.map(tr).join('') + (irows.length ? `<tr class="grp"><td colspan="10">Industria · breadth ricostruita con i membri di oggi</td></tr>` + irows.map(tr).join('') : '');
@@ -286,7 +286,9 @@ export function createBottom(ctx) {
     if (weeks.at(-1) !== T) weeks.push(T); // l'ultima seduta, anche a settimana non finita
     const out = {};
     for (const s of ALLK) {
-      out[s] = weeks.slice(-9).filter((k) => BR[s].pct200[k] != null && PX[s].dp[k] != null)
+      // un'industria indietro di una seduta: a oggi la testa è la sua ultima seduta, come nel Monitor e nella lista
+      const ws = T === NOW && nowOf(s) !== NOW ? weeks.filter((k) => k < nowOf(s)).slice(-8).concat(nowOf(s)) : weeks.slice(-9);
+      out[s] = ws.filter((k) => BR[s].pct200[k] != null && PX[s].dp[k] != null)
         .map((k) => ({ x: PX[s].dp[k], y: BR[s].pct200[k] - st.blue[s], t: k }));
     }
     return out;
