@@ -143,8 +143,11 @@ async function main() {
     for (const k of Object.keys(indCfg)) {
       const at = (ind.latest && ind.latest[k] && ind.latest[k].asOf) || ind.asOf;
       if (!ind.series || !ind.series[k] || cfg.blue[k] == null || !at) { console.log(`::warning::${k}: industria senza serie o senza livello blu, nessun alert`); continue; }
-      const { dates, events } = collectIndustryEvents(ind, cfg, [k]);
-      groups.push({ keys: [k], industry: true, title: industryTitle(k, indCfg[k]), events: events.filter((e) => e.date <= at), dates, asOf: at });
+      // un file con la struttura sbagliata ferma solo gli alert di quell'industria, non quelli dei settori
+      try {
+        const { dates, events } = collectIndustryEvents(ind, cfg, [k]);
+        groups.push({ keys: [k], industry: true, title: industryTitle(k, indCfg[k]), events: events.filter((e) => e.date <= at), dates, asOf: at });
+      } catch (e) { console.log(`::warning::${k}: dati dell'industria illeggibili (${e.message}), nessun alert`); }
     }
   }
   const plan = planGroups(state, groups);

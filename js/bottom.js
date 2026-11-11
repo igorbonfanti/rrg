@@ -500,7 +500,7 @@ export function createBottom(ctx) {
     const N = nowOf(s), n = BR[s].n[N], mem = BR[s].members[N];
     const young = lt ? lt.members.filter((r) => r.d200 == null).map((r) => r.s) : [];
     const f0 = BR[s].pct200.findIndex((v) => v != null);
-    box.innerHTML = `<b>Come è costruita questa storia.</b> La breadth usa i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)} (lista iShares${list && list.asOf ? ` al ${dIT(list.asOf)}` : ''}) anche per il passato, dal ${dIT(DATES[f0])}: molti allora non erano quotati, quindi i titoli contati crescono nel tempo (oggi ${n}) e chi è uscito dall'indice non c'è. ` +
+    box.innerHTML = `<b>Come è costruita questa storia.</b> La breadth usa i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)} (lista iShares${list && list.asOf ? ` letta il ${dIT(list.asOf)}` : ''}) anche per il passato, dal ${dIT(DATES[f0])}: molti allora non erano quotati, quindi i titoli contati crescono nel tempo (oggi ${n}) e chi è uscito dall'indice non c'è. ` +
       `${esc(ICFG[s].note || '')} Con ${n} titoli uno vale ${fmt(100 / n)} punti: la breadth salta molto in pochi giorni. ` +
       (young.length ? `${young.join(', ')} ${young.length === 1 ? 'è quotato' : 'sono quotati'} da meno di 200 sedute e ${young.length === 1 ? 'conta' : 'contano'} come «sotto la media» finché non le ${young.length === 1 ? 'ha' : 'hanno'}. ` : '') +
       `Prezzo: ETF ${esc(ICFG[s].etf)} con i dividendi reinvestiti. Statistiche del livello blu e degli episodi indicative: <a href="guida.html#industrie" target="_blank" rel="noopener">guida</a>.`;

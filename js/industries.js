@@ -14,8 +14,10 @@ import { decodeDates } from './indexdata.js';
 
 /** Chiavi delle industrie con i dati: quelle della configurazione presenti nel file, nell'ordine della configurazione */
 export function industryKeys(cfg, data) {
-  if (!cfg || !cfg.industries || !data || !data.series || !data.dates) return [];
-  return Object.keys(cfg.industries).filter((k) => data.series[k] && Array.isArray(data.series[k].adjclose));
+  // file con la struttura sbagliata: nessuna industria, l'app resta quella dei settori
+  if (!cfg || !cfg.industries || !data || !data.series || !data.dates || typeof data.dates.d0 !== 'string' || typeof data.dates.gaps !== 'string') return [];
+  const ok = (x) => x && Array.isArray(x.adjclose) && x.breadth && Array.isArray(x.breadth.a200) && Array.isArray(x.breadth.n) && Array.isArray(x.breadth.members);
+  return Object.keys(cfg.industries).filter((k) => ok(data.series[k]));
 }
 
 /** Calendario dell'industria dal file */

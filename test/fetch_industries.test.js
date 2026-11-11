@@ -117,14 +117,14 @@ test('breadth del file: RLE, riallineamento per data, ricalcolo delle ultime sed
   assert.deepEqual(expandRLE(p.n, 4), [null, 29, 30, 30]);
 });
 
-test('prezzo dell\'ETF: chiusure rettificate a 2 decimali e max52 alla seduta della breadth', () => {
+test('prezzo dell\'ETF: chiusure rettificate a 4 decimali e max52 alla seduta della breadth', () => {
   const dates = weekdays('2025-06-02', 300);
   const close = dates.map((_, i) => 100 + (i === 200 ? 50 : i % 7));
   const res = { dates, close, adjclose: close.map((c, i) => c * (i < 250 ? 0.99 : 1) + 0.001), high: close.map((c) => c + 1) };
   const at = dates[280];
   const s = etfSeries(res, at);
   assert.equal(s.max52At, at);
-  assert.equal(s.adjclose[0], Math.round(res.adjclose[0] * 100) / 100);
+  assert.equal(s.adjclose[0], Math.round(res.adjclose[0] * 10000) / 10000);
   assert.deepEqual([s.max52.hi, s.max52.d, s.max52.ih, s.max52.id], [150, dates[200], 151, dates[200]]);
   assert.equal(s.max52.c, close[280]);
   assert.equal(s.max52.dv, 1); // una cedola nel periodo (cambio del fattore di rettifica alla seduta 250)
@@ -159,7 +159,7 @@ test('data/industries.json: calendario, breadth e fotografia coerenti, storia da
   for (const k of Object.keys(cfg)) {
     const s = f.series[k], b = s.breadth;
     assert.equal(s.adjclose.length, L, k);
-    assert.ok(s.adjclose.every((v) => v > 0 && Math.round(v * 100) / 100 === v), k);
+    assert.ok(s.adjclose.every((v) => v > 0 && Math.round(v * 10000) / 10000 === v), k);
     assert.ok(s.max52 && s.max52.hi >= s.max52.c && s.max52At <= dates.at(-1), k);
     const mem = expandRLE(b.members, L), n = expandRLE(b.n, L);
     for (const a of [b.a20, b.a50, b.a200]) assert.equal(a.length, L, k);

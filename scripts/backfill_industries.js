@@ -60,6 +60,7 @@ async function industry(key, conf, today, expected, cache) {
   if (r.problems.length) throw new Error(`${key}: lista iShares scartata (${r.problems.join('; ')})`);
   const info = h.rows.map((x) => ({ s: x.s, name: x.name, w: x.w }));
   const qty = Object.fromEntries(h.rows.filter((x) => x.q > 0).map((x) => [x.s, x.q]));
+  if (!info.some((x) => x.w > 0) || !Object.keys(qty).length) throw new Error(`${key}: pesi o azioni nulli nel CSV iShares`);
   const tickers = info.map((x) => x.s);
   console.log(`${key}: ${tickers.length} titoli nelle holdings del ${h.asOf}`);
 
@@ -90,7 +91,7 @@ async function industry(key, conf, today, expected, cache) {
 
   // 4. prezzo, fotografia, cali forti, vista 5
   const etf = etfSeries(res, asOf);
-  const im = industryMembers({ key, cal: dates.filter((d) => d <= asOf), info, px, qty, weightsAsOf: h.asOf });
+  const im = industryMembers({ key, cal: dates.filter((d) => d <= asOf), info, px, qty, weightsAsOf: h.asOf, etf: res });
   if (!im.out) throw new Error(`${key}: senza la chiusura del ${asOf}: ${im.noClose.join(' ')}`);
   return { dates, series: packSeries(etf, e), latest: { asOf, members: latestRows(info, px, asOf) }, list: listOut(r.out, conf.holdings), cap: capRows(tickers, px, done), members: im.out };
 }

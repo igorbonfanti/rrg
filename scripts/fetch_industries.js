@@ -55,12 +55,14 @@ export const SOURCE = 'Holdings iShares (lista, nomi, pesi e azioni); prezzi Yah
 export const readJSON = (f, d) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf-8')) : d);
 export const writeJSON = (f, o) => fs.writeFileSync(f, JSON.stringify(o));
 const r2 = (v) => (v == null ? null : Math.round(v * 100) / 100);
+// prezzo dell'ETF a 4 decimali: tra il 2002 e il 2009 il SOXX (rettificato) valeva 2-8 dollari e 2 decimali spostano i rendimenti
+const r4 = (v) => (v == null ? null : Math.round(v * 10000) / 10000);
 const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / DAY);
 
 // ---------- funzioni pure ----------
 
 /**
- * Prezzo dell'ETF come una serie di data/sectors.json: chiusure rettificate per i dividendi a 2 decimali e max52 (stesso
+ * Prezzo dell'ETF come una serie di data/sectors.json: chiusure rettificate per i dividendi a 4 decimali e max52 (stesso
  * calcolo di updateSectors in fetch_breadth.js) alla seduta `at` (quella della breadth) o alla precedente presente.
  * @param {{dates: string[], close: number[], adjclose: number[], high: number[]}} res serie di fetchDaily
  */
@@ -70,7 +72,7 @@ export function etfSeries(res, at) {
   while (at && iTo > 0 && dates[iTo] > at) iTo--;
   const from = dates[Math.max(0, iTo - 251)], to = dates[iTo];
   const p = closeHigh(dates, res.close.map(r2), from, to), ex = exDates(res, from, to);
-  return { dates, adjclose: res.adjclose.map(r2), max52At: to, max52: { ...p, dv: ex.length, da: p ? ex.filter((x) => x > p.d).length : 0, ...intradayHigh(res, from, to) } };
+  return { dates, adjclose: res.adjclose.map(r4), max52At: to, max52: { ...p, dv: ex.length, da: p ? ex.filter((x) => x > p.d).length : 0, ...intradayHigh(res, from, to) } };
 }
 
 // indice dell'ultima seduta del titolo fino a `d` compreso (-1 se nessuna)
@@ -187,7 +189,7 @@ export function capRows(members, px, dates) {
  * @param {{s: string, name: string}[]} info membri; qty {s: azioni detenute dall'ETF}
  * @returns {{out: object|null, noClose: string[]}} out null se qualche membro non ha la chiusura dell'ultima seduta
  */
-export function industryMembers({ key, cal, info, px, qty, weightsAsOf }) {
+export function industryMembers({ key, cal, info, px, qty, weightsAsOf, etf }) {
   const c = cal.slice(Math.max(0, cal.length - 1 - HISTORY));
   const N = c.length - 1, apx = {}, life = {};
   for (const m of info) {
@@ -197,7 +199,9 @@ export function industryMembers({ key, cal, info, px, qty, weightsAsOf }) {
   // senza la chiusura dell'ultima seduta pesi e rendimenti sarebbero falsati: resta il file di ieri
   const noClose = info.filter((m) => !apx[m.s] || apx[m.s][N] == null).map((m) => m.s);
   if (noClose.length) return { out: null, noClose };
-  const out = buildSectorMembers({ cal: c, members: info.map((m) => ({ s: m.s, name: m.name, sector: key, sub: '' })), life, px: apx, qty, sectors: [key], total: false });
+  // cap-weighted = l'ETF stesso (solo prezzo, come i rendimenti della vista 5): ha i suoi tetti e ribilanciamenti
+  const capPx = etf ? { [key]: align(c, etf.dates, etf.close) } : null;
+  const out = buildSectorMembers({ cal: c, members: info.map((m) => ({ s: m.s, name: m.name, sector: key, sub: '' })), life, px: apx, qty, sectors: [key], total: false, capPx });
   out.weightsAsOf = weightsAsOf || null;
   out.missing = info.filter((m) => !apx[m.s] || !apx[m.s].some((v) => v != null)).map((m) => m.s);
   return { out, noClose };
@@ -281,6 +285,8 @@ async function updateIndustry(key, conf, prev, today, expected) {
     qty = Object.fromEntries(holdings.rows.filter((x) => x.q > 0).map((x) => [x.s, x.q]));
     weightsAsOf = holdings.asOf;
     if (!info.length || info.length !== list.tickers.length || !by.size) throw new Error(`${key}: holdings incoerenti`);
+    // colonne dei pesi o delle azioni cambiate nel CSV: niente pesi di riempimento pubblicati come dati
+    if (!info.some((x) => x.w > 0) || !Object.keys(qty).length) throw new Error(`${key}: pesi o azioni nulli nel CSV iShares`);
   } else {
     if (!prevList) { console.log(`::warning::${key}: nessuna lista dei membri`); return null; }
     list = prevList;
@@ -323,7 +329,7 @@ async function updateIndustry(key, conf, prev, today, expected) {
   const latest = { asOf, members: latestRows(info, px, asOf) };
   const cap = capRows(tickers, px, done);
   const cal = dates.filter((d) => d <= asOf);
-  const im = industryMembers({ key, cal, info, px, qty, weightsAsOf });
+  const im = industryMembers({ key, cal, info, px, qty, weightsAsOf, etf: res });
   if (!im.out) console.log(`::warning::${key}: industry_members.json non aggiornato, senza la chiusura del ${asOf}: ${im.noClose.join(' ')}`);
   return { dates, series: packSeries(etf, e), latest, list: listOut(list, conf.holdings), cap, members: im.out };
 }

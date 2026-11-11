@@ -131,7 +131,7 @@ export function createTitles(ctx) {
     if (st.ax === 'prev' && !hasPrev) st.ax = 'd200';
     $('titAx').value = st.ax;
     $('titMeta').textContent = `al ${dIT(D.asOf)} · ${PER_TEXT[st.per]}, dal ${dIT(D.starts[st.per][0])}`;
-    $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (IOK.length ? ` ${IOK.join(', ')}: membri di oggi e pesi dell'ETF${D.indWeightsAsOf ? ` al ${dIT(D.indWeightsAsOf)}` : ''} (con i suoi tetti), quindi su YTD e 1 anno l'equal-weight risulta più alto del vero.` : '') + (IWHY ? ` ${IWHY}.` : '') + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
+    $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (IOK.length ? ` ${IOK.join(', ')}: pallino pieno = rendimento dell'ETF stesso (solo prezzo, con i suoi tetti e ribilanciamenti); equal-weight e bubble con i titoli di oggi e i pesi dell'ETF${D.indWeightsAsOf ? ` al ${dIT(D.indWeightsAsOf)}` : ''}, quindi su YTD e 1 anno l'equal-weight risulta più alto del vero.` : '') + (IWHY ? ` ${IWHY}.` : '') + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
   }
   function pick(s) { ctx.setSector(s); st.hover = null; render(); }
   // gruppo mostrato: quello della vista 4; un'industria senza titoli uniti lascia il posto al suo settore
@@ -244,7 +244,7 @@ export function createTitles(ctx) {
       r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span>${sgnP(p[0])} · ${sgnP(p[1])} · <span class="${p[1] - p[0] >= 0 ? 'q-lead-c' : 'q-imp-c'}">${pp(p[1] - p[0])}</span></span></div>` : '')).join('') +
       (D.hist && D.hist.sectors && D.hist.sectors[r.k] ? (() => { const z = leadStreak(D.hist.sectors[r.k][st.per]); return z.sign ? `<div class="row"><span>da quanto</span><span>${esc(streakText(z, D.hist.dates))}</span></div>` : ''; })() : '') +
       (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: la scia tiene l\'inizio al 31/12 e sposta solo la fine.</span>' : '') +
-      (isInd(r.k) ? '<span class="note-row">Industria: pallino pieno con i pesi dell\'ETF (e i suoi tetti), titoli di oggi.</span>' : '');
+      (isInd(r.k) ? '<span class="note-row">Industria: pallino pieno = rendimento dell\'ETF (solo prezzo); equal-weight con i titoli di oggi.</span>' : '');
     placeTip(tip, $('titSpreadWrap'), e);
     keepOnScreen(tip, e);
   }
@@ -447,7 +447,7 @@ export function createTitles(ctx) {
   }
   function drawList(rows, sec) {
     $('titPainMeta').textContent = `${sec} · ${st.per}`;
-    $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max 52s</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="Peso nell'S&amp;P 500">Peso</th></tr></thead><tbody>` +
+    $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max 52s</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="${isInd(sec) ? `Peso nell'ETF ${esc(sec)}` : "Peso nell'S&amp;P 500"}">Peso</th></tr></thead><tbody>` +
       rows.map((s, i) => `<tr data-s="${esc(s.s)}"${i < WORST ? ' class="worst"' : ''}><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
         `<td class="num r">${pct(s.r[st.per])}</td><td class="num r">${pct(s.dd)}</td><td class="num r">${s.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">—</span>' : pct(s.d200)}</td>` +
         `<td class="num r muted">${s.w == null ? '—' : fmt(s.w, 2) + '%'}</td></tr>`).join('') + '</tbody>';

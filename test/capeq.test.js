@@ -210,3 +210,19 @@ test('vista 7: da quante settimane guida il segno di oggi', async () => {
   assert.equal(leadStreak([1, 0]).sign, 0);
   assert.equal(leadStreak([3, 0, 2]).weeks, 1);
 });
+
+test('industrie: con capPx il cap-weighted è la serie data (prezzo dell\'ETF), l\'equal-weight non cambia', async () => {
+  const { buildSectorMembers } = await import('../scripts/lib/capeq.js');
+  const cal = [];
+  for (let t = Date.parse('2025-01-02'); cal.length < 400; t += 864e5) { const d = new Date(t); if (d.getUTCDay() % 6) cal.push(d.toISOString().slice(0, 10)); }
+  const px = { A: cal.map((_, i) => 10 + i / 10), B: cal.map((_, i) => 20 + Math.sin(i / 9)) };
+  const life = { A: { sector: 'K', spans: [['0000', '9999']] }, B: { sector: 'K', spans: [['0000', '9999']] } };
+  const members = [{ s: 'A', name: 'A', sector: 'K', sub: '' }, { s: 'B', name: 'B', sector: 'K', sub: '' }];
+  const etf = cal.map((_, i) => 50 * (1 + i / 1000));
+  const base = buildSectorMembers({ cal, members, life, px, qty: { A: 100, B: 100 }, sectors: ['K'], total: false });
+  const withEtf = buildSectorMembers({ cal, members, life, px, qty: { A: 100, B: 100 }, sectors: ['K'], total: false, capPx: { K: etf } });
+  const N = cal.length - 1, a = cal.indexOf(withEtf.starts['3M'][0]);
+  assert.equal(withEtf.sectors.K['3M'][0][0], Math.round((etf[N] / etf[a] - 1) * 1000) / 10);
+  assert.equal(withEtf.sectors.K['3M'][0][1], base.sectors.K['3M'][0][1]);
+  assert.ok(!('SPX' in withEtf.sectors));
+});

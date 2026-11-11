@@ -68,3 +68,7 @@ test('industrie: senza file restano solo i settori', () => {
   assert.equal(M.dates, S.dates);
   assert.equal(M.pad, 0);
 });
+
+test('industrie: un file con la struttura sbagliata lascia solo i settori', () => {
+  for (const bad of [{ dates: {}, series: { SOXX: {} } }, { dates: { d0: '2001-07-13', gaps: '' }, series: { SOXX: { adjclose: [] } } }, { dates: { d0: 1 }, series: {} }]) assert.deepEqual(industryKeys(C, bad), []);
+});
