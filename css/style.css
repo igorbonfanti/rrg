@@ -985,3 +985,9 @@ svg .zoomlab { fill: var(--ink); font: 600 10.5px var(--f-mono, monospace); poin
   .board-cards tr.grp td { padding: 0; border: 0; }
 }
 .cq .grplab { fill: var(--ink-3); font: 600 9.5px var(--f-mono); letter-spacing: .06em; }
+
+/* titoli esteri delle industrie (vista 5): anello e bandierina del paese (js/flags.js) */
+.bub .dot.ext { stroke: var(--ink); stroke-width: 1.6; stroke-opacity: .9; }
+.kd.kd-ext { background: transparent; box-shadow: inset 0 0 0 1.6px var(--ink); }
+svg.flag { vertical-align: -1px; display: inline-block; }
+.tip svg.flag { vertical-align: -2px; }
