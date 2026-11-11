@@ -1,6 +1,8 @@
 # Controllo usabilità, funzioni e testi · versione 1.9.0 · commit f1a5de9
 
-Verdetto: **NO-GO** (1 bloccante su f1a5de9, già risolto in 9455c5d; 3 «da correggere» ancora presenti in 9455c5d)
+Verdetto su f1a5de9: **NO-GO** (1 bloccante, già risolto in 9455c5d; 3 «da correggere»).
+
+**Verdetto dopo le correzioni (af82e2a): GO**: nessun bloccante e nessun «da correggere» aperto; restano solo minori (vedi «Ricontrollo su af82e2a» in fondo).
 
 Nota sul commit: durante il controllo il ramo è avanzato (2f79ee1, 9455c5d) e il server su 8791 serve la cartella di lavoro. Per controllare davvero f1a5de9 ho estratto quel commit (`git archive`) in una cartella a parte servita su 8793 e ho rifatto lì tutti i giri; per ogni rilievo dico se c'è ancora in 9455c5d (HEAD), guardando il codice e, dove indicato, rifacendo la prova su 8791.
 
@@ -44,3 +46,26 @@ Gravità: bloccante (numero sbagliato, dato mancante non dichiarato, pagina che 
 ## Script e screenshot
 
 `/tmp/claude-0/-home-user-rrg/d11a05ff-fe30-5458-88d7-bab1e13b8eb0/scratchpad/qa190-uso/`: `lib.cjs`, `tour.cjs`, `bm.cjs`, `sec.cjs`, `tit.cjs`, `bub.cjs`, `kbd.cjs`, `mobile.cjs`, `broken.cjs`, `lag.cjs`, `guide.cjs`; uscite `f1-*.out`; screenshot in `shots/`. Uso: `BASE=http://127.0.0.1:8793/ SITE=<cartella del sito> NODE_PATH=$(npm root -g) node <script>`. Copia di f1a5de9 in `site-f1a5de9/` (server su 8793), di origin/main in `site-main/` (server su 8794).
+
+## Ricontrollo su af82e2a (mirato, non tutto il giro)
+
+Server 8791 sulla cartella di lavoro, pulita, a af82e2a. Script `recheck.cjs` (27 OK; i 3 FAIL sono spiegati sotto: uno è un minore che resta, due sono errori del mio script).
+
+| # | Esito | Prova |
+|---|---|---|
+| 1 | risolto (già in 9455c5d); in più `createBottom` ora ignora un file delle industrie illeggibile nel contenuto | casi «breadth corta» e «prezzi null»: app aperta, console senza errori (prima 338 errori SVG con la breadth corta) |
+| 2 | risolto per la parte dell'app: la cella Rotazione del SOXX mostra «—» con il tooltip «Prezzi per la rotazione non ancora disponibili: arrivano con l'aggiornamento notturno», a 1440 e 390. I testi su guida, README e note restano: diventano veri dalla prima corsa notturna dopo la pubblicazione, e il coordinatore lo dirà all'utente | `shots/re-mon-soxx-1440.png`, `shots/re-mon-soxx-390.png` |
+| 3 | risolto: bottone SOXX disattivato con un solo `title` e il motivo («Semiconductors: titoli delle industrie al 09/11/2026, dei settori al 10/11/2026: si uniscono quando sono della stessa seduta»); in alto «SOXX: titoli non ancora disponibili (…), si vede XLK»; frase della nota con la maiuscola («Titoli delle industrie…», «Dati dei titoli…»), anche con `industry_members.json` mancante. A 1440 e 390 | `shots/re-tit-other-1440.png`, `shots/re-tit-other-390.png` |
+| 4 | risolto: con il SOXX indietro di una seduta il rombo è alla sua ultima seduta (09/11). Riquadro, lista delle distanze e Monitor sono ora coerenti: 26,7%, +23,7 pt, «al 09/11/2026». Il controllo automatico dell'altezza del rombo ha dato FAIL per un errore del mio script (leggeva anche le etichette dell'asse orizzontale). Sullo screenshot il rombo è a circa +24, tra +20 e +30 | `shots/re-bm-lag-1440.png` |
+| 5 | risolto (già in 9455c5d) | — |
+| 7 | in parte: la guida ora ha il rombo nella Bottom Map, `SOXX`/`SEMI` nei comandi e gli alert del SOXX nella vista 9. Restano «dal 2005» per MAX ed episodi della vista 4 e il link della guida rapida a `#sec` | diff della guida |
+| 9 | risolto: con `industries.json` o `config/industries.json` mancante (404), o con un file rotto, il livello del SOXX salvato resta (`{"XLU":7,"SOXX":4}`) | `re.out` |
+| 10 | in parte: la breadth corta ora non dà errori. Con i prezzi del SOXX tutti `null` (file malformato, la pipeline non lo pubblicherebbe) la vista 4 mostra ancora «i null titoli di oggi», «null/null · —%», «null° percentile», «Ultimo — al 13/07/2001». Nella Bottom Map compare la legenda del rombo, ma il rombo non c'è | `re.out`, prova a mano |
+
+Minori ancora aperti, da annotare in `docs/sviluppo.md`:
+
+- n. 6: il piè di pagina dice ancora «costituenti S&P 500 … composizione dell'epoca» e «200 LEVEL SETTORI»;
+- n. 7, in parte: vedi la tabella sopra;
+- n. 8: nomi iShares in maiuscolo e « · » appeso nel riquadro delle bolle;
+- n. 10: caso dei prezzi tutti `null`;
+- n. 11: freccia del collegamento a XLK che va a capo a 1440.
