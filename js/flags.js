@@ -24,10 +24,11 @@ const SHAPES = {
 };
 export const hasFlag = (c) => !!SHAPES[c];
 
-/** Bandierina SVG come testo HTML (riquadro dei valori, lista): larghezza w px */
-export function flagHTML(c, w = 16) {
+/** Bandierina SVG come testo HTML (riquadro dei valori, lista): larghezza w px; deco: accanto al nome del paese già scritto */
+export function flagHTML(c, w = 16, deco = false) {
   if (!SHAPES[c]) return '';
-  return `<svg class="flag" viewBox="0 0 30 20" width="${w}" height="${(w * 2) / 3}" role="img" aria-label="${COUNTRY_IT[c] || c}"><title>${COUNTRY_IT[c] || c}</title>${SHAPES[c]}<rect width="30" height="20" fill="none" stroke="rgba(127,127,127,.6)" stroke-width="1"/></svg>`;
+  const a11y = deco ? 'aria-hidden="true">' : `role="img" aria-label="${COUNTRY_IT[c] || c}"><title>${COUNTRY_IT[c] || c}</title>`;
+  return `<svg class="flag" viewBox="0 0 30 20" width="${w}" height="${(w * 2) / 3}" ${a11y}${SHAPES[c]}<rect width="30" height="20" fill="none" stroke="rgba(127,127,127,.6)" stroke-width="1"/></svg>`;
 }
 
 /** Bandierina dentro un SVG, con l'angolo in alto a sinistra in (x, y) e larghezza w */

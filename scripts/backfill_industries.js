@@ -30,7 +30,7 @@ import { clean, countDay } from './fetch_indices.js';
 import { expectedSession, isTradingDay } from '../js/calendar.js';
 import { mergeCap } from '../js/capitulation.js';
 import { DATA, FILES, RECOMPUTE, ETF_FROM, readJSON, writeJSON, etfSeries, publishableDays, latestRows, capRows, industryMembers,
-  mergeMembers, packSeries, packFile, listOut, fetchHoldings, setRows, lastBreadth } from './fetch_industries.js';
+  mergeMembers, packSeries, packFile, listOut, fetchHoldings, setRows, lastBreadth, countryCode } from './fetch_industries.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MEMBERS_FROM = 631152000; // 01/01/1990, come la ricerca
@@ -58,7 +58,7 @@ async function industry(key, conf, today, expected, cache) {
   const h = await fetchHoldings(conf.holdings);
   const r = nextList(h.rows.map((x) => x.s), null, conf, today);
   if (r.problems.length) throw new Error(`${key}: lista iShares scartata (${r.problems.join('; ')})`);
-  const info = h.rows.map((x) => ({ s: x.s, name: x.name, w: x.w }));
+  const info = h.rows.map((x) => ({ s: x.s, name: x.name, w: x.w, c: countryCode(x.location) }));
   const qty = Object.fromEntries(h.rows.filter((x) => x.q > 0).map((x) => [x.s, x.q]));
   if (!info.some((x) => x.w > 0) || !Object.keys(qty).length) throw new Error(`${key}: pesi o azioni nulli nel CSV iShares`);
   const tickers = info.map((x) => x.s);

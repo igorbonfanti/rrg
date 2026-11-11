@@ -446,6 +446,8 @@ export function createTitles(ctx) {
     const below = members.filter((s) => s.d200 != null && s.d200 < 0).length, off = members.length - list.length;
     $('titBubbleMeta').textContent = `${members.length} titoli · ${below} sotto la media 200 · ${st.per}` + (off ? ` · ${off} senza il dato dell'asse orizzontale, solo nella lista` : '');
     if ($('titFlagLeg')) $('titFlagLeg').hidden = !ext.length;
+    // industria: la bolla è il peso nell'ETF, che ha i tetti per titolo (non la capitalizzazione)
+    if ($('titSizeLeg')) $('titSizeLeg').hidden = !(isInd(sec) && st.size === 'w');
     if (st.hover) setHover(st.hover);
   }
   function placeLabel(p, boxes, x0, x1, y0, y1, extra = 0) {
@@ -497,10 +499,11 @@ export function createTitles(ctx) {
     const since = s.added ? `nell'indice dal ${dIT(s.added)}` : s.since ? `quotato dal ${dIT(s.since)}` : '';
     tip.innerHTML = `<div class="row"><b>${esc(s.s)}</b><span>${fmt(s.px, 2)} $</span></div>` +
       `<span class="note-row">${[esc(s.n), esc(s.sub || ''), since].filter(Boolean).join(' · ')}</span>` +
-      (s.c ? `<div class="row"><span>paese (iShares)</span><span>${hasFlag(s.c) ? flagHTML(s.c, 14) + ' ' : ''}${esc(COUNTRY_IT[s.c] || s.c)}</span></div>` : '') +
+      (s.c ? `<div class="row"><span>paese (iShares)</span><span>${hasFlag(s.c) ? flagHTML(s.c, 14, true) + ' ' : ''}${esc(COUNTRY_IT[s.c] || s.c)}</span></div>` : '') +
       [[`rendimento ${st.per}`, s.r[st.per]], ['periodo precedente', s.prev[st.per]], ['dal massimo 52s', s.dd], ['dalla media 200', s.d200], ['dalla media 50', s.d50]]
         .map(([k, v]) => `<div class="row"><span>${k}</span><span>${pct(v)}</span></div>`).join('') +
-      `<div class="row"><span>peso ${isInd(s.sec) ? `nell'ETF ${esc(s.sec)}` : "nell'S&amp;P 500"}</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>`;
+      `<div class="row"><span>peso ${isInd(s.sec) ? `nell'ETF ${esc(s.sec)}` : "nell'S&amp;P 500"}</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>` +
+      (isInd(s.sec) ? '<span class="note-row">Peso nell\'ETF, con i tetti per titolo dell\'indice: non è la capitalizzazione.</span>' : '');
     placeTip(tip, $('titBubbleWrap'), e);
     keepOnScreen(tip, e);
   }

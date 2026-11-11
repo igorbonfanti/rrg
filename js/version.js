@@ -5,9 +5,10 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.9.0';
+export const VERSION = '1.9.1';
 export const RELEASE = '2026-11-11';
 export const NOTES = [
+  'Titoli (vista 5) del SOXX: bandiera del paese e anello per i titoli esteri quotati negli Stati Uniti (TSMC, ASML, SK hynix…); spiegato che la bolla è il peso nell\'ETF, con i tetti dell\'indice, non la capitalizzazione',
   'Semiconduttori (SOXX) come industria accanto agli 11 settori: Monitor, Bottom Map (rombo), vista Settore (scrivi SOXX o SEMI), Titoli e rotazione; livello blu 3% di Massimo Rea, breadth con i membri di oggi, alert Telegram',
   'Guida: come confrontare la rotazione con Bloomberg e StockCharts (Medie semplici, settimanale)',
   'Zoom su un tratto nei grafici con il tempo (Performance relativa, Settore e Indici con i Cali forti, Emergenti, VIX): sul computer trascina sul grafico, sul telefono tocca prima la lente; si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo',

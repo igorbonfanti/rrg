@@ -34,6 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { parseISharesHoldings, nextList } from './lib/members.js';
 import { buildSectorMembers, align, HISTORY } from './lib/capeq.js';
+import { COUNTRY } from '../js/flags.js';
 import { parseCSV } from './fetch_breadth.js';
 import { clean, countDay } from './fetch_indices.js';
 import { expandRLE, encodeRLE } from '../js/signals.js';
@@ -57,6 +58,8 @@ export const writeJSON = (f, o) => fs.writeFileSync(f, JSON.stringify(o));
 const r2 = (v) => (v == null ? null : Math.round(v * 100) / 100);
 // prezzo dell'ETF a 4 decimali: tra il 2002 e il 2009 il SOXX (rettificato) valeva 2-8 dollari e 2 decimali spostano i rendimenti
 const r4 = (v) => (v == null ? null : Math.round(v * 10000) / 10000);
+/** Codice del paese dalla colonna Location di iShares (null se vuota; un paese senza codice resta col suo nome) */
+export const countryCode = (loc) => (!loc ? null : COUNTRY[loc] || loc);
 const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / DAY);
 
 // ---------- funzioni pure ----------
@@ -203,6 +206,9 @@ export function industryMembers({ key, cal, info, px, qty, weightsAsOf, etf }) {
   const capPx = etf ? { [key]: align(c, etf.dates, etf.close) } : null;
   const out = buildSectorMembers({ cal: c, members: info.map((m) => ({ s: m.s, name: m.name, sector: key, sub: '' })), life, px: apx, qty, sectors: [key], total: false, capPx });
   out.weightsAsOf = weightsAsOf || null;
+  // paese di ogni titolo (colonna Location di iShares, come codice: US, TW…) per le bandiere della vista 5
+  const cOf = new Map(info.map((m) => [m.s, m.c]));
+  for (const x of out.stocks) { const c = cOf.get(x.s); if (c) x.c = c; }
   out.missing = info.filter((m) => !apx[m.s] || !apx[m.s].some((v) => v != null)).map((m) => m.s);
   return { out, noClose };
 }
@@ -281,7 +287,7 @@ async function updateIndustry(key, conf, prev, today, expected) {
   let info, qty, weightsAsOf;
   if (list) {
     const by = new Map(holdings.rows.map((x) => [x.s, x]));
-    info = holdings.rows.filter((x) => list.tickers.includes(x.s)).map((x) => ({ s: x.s, name: x.name, w: x.w }));
+    info = holdings.rows.filter((x) => list.tickers.includes(x.s)).map((x) => ({ s: x.s, name: x.name, w: x.w, c: countryCode(x.location) }));
     qty = Object.fromEntries(holdings.rows.filter((x) => x.q > 0).map((x) => [x.s, x.q]));
     weightsAsOf = holdings.asOf;
     if (!info.length || info.length !== list.tickers.length || !by.size) throw new Error(`${key}: holdings incoerenti`);
@@ -291,7 +297,8 @@ async function updateIndustry(key, conf, prev, today, expected) {
     if (!prevList) { console.log(`::warning::${key}: nessuna lista dei membri`); return null; }
     list = prevList;
     const old = new Map(prevLatest.members.map((x) => [x.s, x]));
-    info = list.tickers.map((s) => ({ s, name: (old.get(s) || {}).name || s, w: (old.get(s) || {}).w ?? null })).sort((a, b) => (b.w ?? -1) - (a.w ?? -1));
+    const oldC = new Map(((prev.members && prev.members.stocks) || []).filter((x) => x.sec === key && x.c).map((x) => [x.s, x.c]));
+    info = list.tickers.map((s) => ({ s, name: (old.get(s) || {}).name || s, w: (old.get(s) || {}).w ?? null, c: oldC.get(s) || null })).sort((a, b) => (b.w ?? -1) - (a.w ?? -1));
     qty = Object.fromEntries(prevQ);
     weightsAsOf = prev.members && prev.members.weightsAsOf;
   }
