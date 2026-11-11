@@ -11,7 +11,13 @@
   "XLI": 5,
   "XLB": 10,
   "XLRE": 8,
-  "XLU": 5
+  "XLU": 5,
+  "SOXX": 3
+ },
+ "industries": {
+  "SOXX": {
+   "checkedThrough": "2026-11-10"
+  }
  },
  "log": [
   {
