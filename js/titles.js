@@ -9,6 +9,7 @@
  * Il settore scelto è lo stesso della vista 4 Settore.
  */
 import { esc, fmt, sgn, sgnP, pct, dIT, placeTip, chartWidth, keepFocus } from './format.js';
+import { drawFlag, flagHTML, hasFlag, COUNTRY_IT } from './flags.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 const PERIODS = ['1M', '3M', '6M', 'YTD', '1A'];
@@ -20,6 +21,9 @@ const AXES = {
   prev: { label: 'rendimento nel periodo precedente', short: 'periodo precedente', get: (s, p) => s.prev[p] },
 };
 const WORST = 8; // titoli in rosso, con etichetta
+const FLAG_W = 14; // bandierina dei titoli esteri (industrie), in unità del grafico
+// titolo estero: paese della colonna Location di iShares diverso dagli Stati Uniti (solo per le industrie, campo c)
+const foreign = (s) => !!s.c && s.c !== 'US';
 const LIST = 12; // righe della lista dei più in pena
 const tvStock = (sym) => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent(sym.replace('-', '.'))}`;
 
@@ -408,7 +412,7 @@ export function createTitles(ctx) {
       // fuori scala: la bolla resta tutta dentro il grafico, con lo spazio per la freccia verso il valore vero
       const pin = (v, lo, hi, out) => (out ? Math.min(hi - r - 9, Math.max(lo + r + 9, v)) : v);
       const x = pin(X(vx), L, W - R, dx), y = pin(Y(vy), T, H - B, dy);
-      el('circle', { class: `dot${worst.has(s.s) ? ' bad' : ''}`, 'data-s': s.s, cx: x, cy: y, r }, dots);
+      el('circle', { class: `dot${worst.has(s.s) ? ' bad' : ''}${foreign(s) ? ' ext' : ''}`, 'data-s': s.s, cx: x, cy: y, r }, dots);
       if (dx || dy) { // freccia verso il valore fuori scala
         const a = Math.atan2(dy, dx), ex = x + Math.cos(a) * (r + 2), ey = y + Math.sin(a) * (r + 2);
         const p = (ang, d) => `${(ex + Math.cos(ang) * d).toFixed(1)} ${(ey + Math.sin(ang) * d).toFixed(1)}`;
@@ -426,20 +430,28 @@ export function createTitles(ctx) {
       box(L + 4, T + 10, lw(`↑ rendimento ${st.per}`)),
     ];
     const heavy = [...list].sort((a, b) => (b.w || 0) - (a.w || 0)).slice(0, narrow ? 2 : 3);
-    for (const s of new Set([...order.slice(0, narrow ? 6 : WORST), ...heavy])) {
+    const ext = list.filter(foreign), labeled = new Map();
+    for (const s of new Set([...order.slice(0, narrow ? 6 : WORST), ...heavy, ...ext])) {
       const p = pos.find((q) => q.s === s);
       if (!p) continue; // senza valore sull'asse x: solo nella lista
-      const b = placeLabel(p, boxes, L, W - R, T, H - B);
-      if (b) text(labels, b[0], b[1], s.s, { class: `lab${worst.has(s.s) ? ' bad' : ''}` });
+      // con la bandiera l'etichetta è più larga: se non c'è posto si riprova senza, così il nome non si perde
+      let fw = foreign(s) && hasFlag(s.c) ? FLAG_W + 3 : 0, b = placeLabel(p, boxes, L, W - R, T, H - B, fw);
+      if (!b && fw) { fw = 0; b = placeLabel(p, boxes, L, W - R, T, H - B, 0); }
+      if (!b) continue;
+      if (fw) drawFlag(labels, s.c, b[0], b[1] - 9, FLAG_W);
+      labeled.set(s.s, text(labels, b[0] + fw, b[1], s.s, { class: `lab${worst.has(s.s) ? ' bad' : ''}` }));
     }
     const hoverLab = text(svg, -99, -99, '', { class: 'lab on' });
-    bub = { pos, hoverLab, boxes, bounds: [L, W - R, T, H - B], W };
+    bub = { pos, hoverLab, boxes, bounds: [L, W - R, T, H - B], W, labeled };
     const below = members.filter((s) => s.d200 != null && s.d200 < 0).length, off = members.length - list.length;
     $('titBubbleMeta').textContent = `${members.length} titoli · ${below} sotto la media 200 · ${st.per}` + (off ? ` · ${off} senza il dato dell'asse orizzontale, solo nella lista` : '');
+    if ($('titFlagLeg')) $('titFlagLeg').hidden = !ext.length;
+    // industria: la bolla è il peso nell'ETF, che ha i tetti per titolo (non la capitalizzazione)
+    if ($('titSizeLeg')) $('titSizeLeg').hidden = !(isInd(sec) && st.size === 'w');
     if (st.hover) setHover(st.hover);
   }
-  function placeLabel(p, boxes, x0, x1, y0, y1) {
-    const w = p.s.s.length * 6.9 + 6;
+  function placeLabel(p, boxes, x0, x1, y0, y1, extra = 0) {
+    const w = p.s.s.length * 6.9 + 6 + extra;
     const cands = [[p.x + p.r + 3, p.y + 4], [p.x - p.r - 3 - w, p.y + 4], [p.x - w / 2, p.y - p.r - 5], [p.x - w / 2, p.y + p.r + 12]];
     const free = ([x, y]) => x > x0 && x + w < x1 && y - 11 > y0 && y + 4 < y1 &&
       !boxes.some((b) => x < b.x + b.w && x + w > b.x && y - 11 < b.bottom && y + 4 > b.top);
@@ -450,7 +462,7 @@ export function createTitles(ctx) {
   function drawList(rows, sec) {
     $('titPainMeta').textContent = `${sec} · ${st.per}`;
     $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max 52s</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="${isInd(sec) ? `Peso nell'ETF ${esc(sec)}` : "Peso nell'S&amp;P 500"}">Peso</th></tr></thead><tbody>` +
-      rows.map((s, i) => `<tr data-s="${esc(s.s)}"${i < WORST ? ' class="worst"' : ''}><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
+      rows.map((s, i) => `<tr data-s="${esc(s.s)}"${i < WORST ? ' class="worst"' : ''}><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a>${foreign(s) ? ' ' + flagHTML(s.c, 14) : ''}<span class="nm">${esc(s.n)}</span></td>` +
         `<td class="num r">${pct(s.r[st.per])}</td><td class="num r">${pct(s.dd)}</td><td class="num r">${s.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">—</span>' : pct(s.d200)}</td>` +
         `<td class="num r muted">${s.w == null ? '—' : fmt(s.w, 2) + '%'}</td></tr>`).join('') + '</tbody>';
     $('titPain').querySelectorAll('tbody tr').forEach((tr) => {
@@ -469,7 +481,13 @@ export function createTitles(ctx) {
     if (!bub) return;
     $('titBubble').querySelectorAll('circle.dot').forEach((c) => c.classList.toggle('on', c.dataset.s === s));
     const p = s && bub.pos.find((q) => q.s.s === s);
-    if (p) {
+    // l'etichetta già scritta del titolo si accende (come quella al passaggio); le altre tornano normali
+    if (bub.labeled) for (const [k, t] of bub.labeled) t.classList.toggle('on', k === s);
+    if (p && bub.labeled && bub.labeled.has(s)) { // già con la sua etichetta: solo in primo piano
+      const c = $('titBubble').querySelector(`circle.dot[data-s="${CSS.escape(s)}"]`);
+      if (c) c.parentNode.appendChild(c);
+      bub.hoverLab.textContent = '';
+    } else if (p) {
       const c = $('titBubble').querySelector(`circle.dot[data-s="${CSS.escape(s)}"]`);
       if (c) c.parentNode.appendChild(c); // in primo piano
       const [x0, x1, y0, y1] = bub.bounds, w = s.length * 7 + 4;
@@ -482,10 +500,12 @@ export function createTitles(ctx) {
     const tip = $('titBubbleTip');
     const since = s.added ? `nell'indice dal ${dIT(s.added)}` : s.since ? `quotato dal ${dIT(s.since)}` : '';
     tip.innerHTML = `<div class="row"><b>${esc(s.s)}</b><span>${fmt(s.px, 2)} $</span></div>` +
-      `<span class="note-row">${esc(s.n)} · ${esc(s.sub)}${since ? ' · ' + since : ''}</span>` +
+      `<span class="note-row">${[esc(s.n), esc(s.sub || ''), since].filter(Boolean).join(' · ')}</span>` +
+      (s.c ? `<div class="row"><span>paese (iShares)</span><span>${hasFlag(s.c) ? flagHTML(s.c, 14, true) + ' ' : ''}${esc(COUNTRY_IT[s.c] || s.c)}</span></div>` : '') +
       [[`rendimento ${st.per}`, s.r[st.per]], ['periodo precedente', s.prev[st.per]], ['dal massimo 52s', s.dd], ['dalla media 200', s.d200], ['dalla media 50', s.d50]]
         .map(([k, v]) => `<div class="row"><span>${k}</span><span>${pct(v)}</span></div>`).join('') +
-      `<div class="row"><span>peso ${isInd(s.sec) ? `nell'ETF ${esc(s.sec)}` : "nell'S&amp;P 500"}</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>`;
+      `<div class="row"><span>peso ${isInd(s.sec) ? `nell'ETF ${esc(s.sec)}` : "nell'S&amp;P 500"}</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>` +
+      (isInd(s.sec) ? '<span class="note-row">Peso nell\'ETF, con i tetti per titolo dell\'indice: non è la capitalizzazione.</span>' : '');
     placeTip(tip, $('titBubbleWrap'), e);
     keepOnScreen(tip, e);
   }

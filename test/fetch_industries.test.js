@@ -196,3 +196,12 @@ test('data/industry_members.json e serie dei cali forti delle industrie', () => 
     assert.ok(c.dates.at(-1) >= f.asOf, k);
   }
 });
+
+test('paese dei titoli: codice dalla colonna Location di iShares, nei titoli della vista 5', async () => {
+  const { countryCode } = await import('../scripts/fetch_industries.js');
+  assert.equal(countryCode('Taiwan'), 'TW');
+  assert.equal(countryCode('Korea (South)'), 'KR');
+  assert.equal(countryCode('United States'), 'US');
+  assert.equal(countryCode('Atlantide'), 'Atlantide');
+  assert.equal(countryCode(''), null);
+});
