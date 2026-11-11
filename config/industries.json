@@ -1,0 +1,18 @@
+{
+  "_comment": "Industrie seguite accanto agli 11 settori (viste 1-5 e alert). Breadth ricostruita con i membri di oggi dell'ETF (lista iShares); il livello blu sta in config/thresholds.json. from: prima seduta della breadth (regola dell'app: almeno il 60% dei membri con 200 sedute). Ricerca: ricerca/soxx/.",
+  "industries": {
+    "SOXX": {
+      "name": "Semiconductors",
+      "label": "Semiconduttori",
+      "parent": "XLK",
+      "etf": "SOXX",
+      "tv": "NASDAQ:SOXX",
+      "holdings": "https://www.ishares.com/us/products/239705/x/latest-holdings.csv",
+      "min": 25,
+      "max": 35,
+      "from": "2001-08-01",
+      "blueSource": "Massimo Rea (quant-rea), «Analisi SOXX: Above/Below 200 MA & Drawdown», livello 3%",
+      "note": "Fino all'ottobre 2010 l'ETF seguiva l'S&P North American Technology-Semiconductors Index, poi il PHLX Semiconductor (SOX) fino al 21/06/2021, oggi il NYSE Semiconductor Index (date secondo fonti secondarie). Confrontata con le composizioni storiche del SOX, la breadth con i membri di oggi è stata in media da 0,7 punti più bassa a 4,9 più alta, vicino ai minimi tra −2 e +3 punti, con le stesse zone blu al 3%. Diversi titoli, ADR compresi, non sono nell'S&P 500."
+    }
+  }
+}

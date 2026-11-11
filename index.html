@@ -50,6 +50,9 @@
   <link rel="modulepreload" href="js/vix.js" />
   <link rel="modulepreload" href="js/vix-view.js" />
   <link rel="modulepreload" href="js/version.js" />
+  <link rel="modulepreload" href="js/industries.js" />
+  <link rel="preload" href="data/industries.json" as="fetch" crossorigin />
+  <link rel="preload" href="config/industries.json" as="fetch" crossorigin />
   <link rel="preload" href="config/thresholds.json" as="fetch" crossorigin />
   <link rel="preload" href="data/breadth_latest.json" as="fetch" crossorigin />
   <link rel="preload" href="config/indices.json" as="fetch" crossorigin />
@@ -320,6 +323,7 @@
           <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
           <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
           <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia del settore (livello blu + il suo calo forte in 10 sedute)</span>
+          <span id="bmIndLeg" hidden><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><path d="M7 1 L13 7 L7 13 L1 7 Z" fill="var(--ink-2)"/></svg>industria (SOXX, semiconduttori): breadth con i membri di oggi</span>
           <span class="muted">coda = ultime 8 settimane · il percorso di un bottom scende a sinistra, poi risale · clic per il dettaglio</span>
         </div>
       </div>
@@ -421,10 +425,10 @@
         </div>
         <div class="panel">
           <div class="ph"><h2>Situazione</h2></div>
-          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div></div>
+          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div><p class="note" id="secQuality" hidden></p></div>
         </div>
         <div class="panel">
-          <div class="ph"><h2>Titoli del settore</h2><span class="meta" id="memMeta"></span><button type="button" class="mini" id="toTit" title="Bubble dei titoli e confronto tra grandi e piccoli">5 Titoli →</button></div>
+          <div class="ph"><h2 id="memTitle">Titoli del settore</h2><span class="meta" id="memMeta"></span><button type="button" class="mini" id="toTit" title="Bubble dei titoli e confronto tra grandi e piccoli">5 Titoli →</button></div>
           <div class="tscroll members" tabindex="0" role="region" aria-label="Titoli del settore"><table class="t" id="memTable"></table></div>
         </div>
       </div>
@@ -826,7 +830,7 @@
       <p><b>Sector Monitor</b> segue due cose: i <b>possibili bottom dei settori S&amp;P 500</b>, cioè quanti titoli di ogni settore stanno sopra la media a 200 sedute rispetto a un livello blu, insieme al drawdown dell'ETF; e la <b>rotazione relativa</b> di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
       <h3>Le viste</h3>
       <ul>
-        <li><b>1 Monitor</b>: gli 11 settori ordinati per stato, con breadth, livello blu e drawdown; a destra i settori da osservare, perché e cosa manca al prossimo stato. In alto, se sei già passato con i dati di un altro giorno, cosa è cambiato da allora (stati e breadth mossa di almeno 5 punti). Clic su un settore per il dettaglio, dove il riquadro <b>Perché questo stato</b> elenca le condizioni della zona blu o del trigger con ✓ e ✗. Sul telefono le spiegazioni delle intestazioni si aprono toccandole.</li>
+        <li><b>1 Monitor</b>: gli 11 settori ordinati per stato, più i semiconduttori (SOXX) come industria, con breadth, livello blu e drawdown; a destra i settori da osservare, perché e cosa manca al prossimo stato. In alto, se sei già passato con i dati di un altro giorno, cosa è cambiato da allora (stati e breadth mossa di almeno 5 punti). Clic su un settore per il dettaglio, dove il riquadro <b>Perché questo stato</b> elenca le condizioni della zona blu o del trigger con ✓ e ✗. Sul telefono le spiegazioni delle intestazioni si aprono toccandole.</li>
         <li><b>2 Rotazione</b>: grafico di rotazione relativa con tabella e performance. Universi USA (settori, MAG7) e globali in euro: 1 Asset class, 2 Fattori, 3 Regioni, 4 Paesi, 6 Indici.</li>
         <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
         <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati e la scheda <b>Cali forti</b> (quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute: un'allerta di contesto, non un segnale).</li>
