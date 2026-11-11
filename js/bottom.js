@@ -527,7 +527,9 @@ export function createBottom(ctx) {
     const rows = lt.members.filter((m) => m.close != null).sort((a, b) => up(b) - up(a) || (b.d200 ?? -Infinity) - (a.d200 ?? -Infinity));
     const firstBelow = rows.findIndex((r) => !up(r));
     const nUp = rows.filter(up).length, young = rows.filter((r) => r.d200 == null).length;
-    $('memMeta').textContent = `${nUp} su ${rows.length} sopra la media 200 · al ${dIT(lt.asOf)}` + (young ? ` · ${young} con meno di 200 sedute` : '');
+    // la fotografia può essere di una seduta diversa da quella del resto della pagina: la data si vede
+    const other = lt.asOf !== DATES[nowOf(s)];
+    $('memMeta').innerHTML = `${nUp} su ${rows.length} sopra la media 200 · ${other ? `<b>al ${dIT(lt.asOf)}</b>, il resto della pagina al ${dIT(DATES[nowOf(s)])}` : `al ${dIT(lt.asOf)}`}` + (young ? ` · ${young} con meno di 200 sedute` : '');
     $('memTable').innerHTML = `<thead><tr><th>Titolo</th><th class="r" title="Peso nell'ETF ${esc(ICFG[s].etf)} (iShares)">Peso</th><th class="r">vs m.200</th><th class="r">vs m.50</th><th class="r">DD 52s</th></tr></thead><tbody>` +
       rows.map((r, i) => `<tr class="${i === firstBelow ? 'cut' : ''}"><td><a class="sym" href="${tvStock(r.s)}" target="_blank" rel="noopener" title="${esc(r.name || r.s)} · grafico su TradingView">${esc(r.s)}</a></td><td class="num r">${r.w == null ? '—' : fmt(r.w, 1) + '%'}</td><td class="num r">${r.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">n.d.</span>' : pct(r.d200)}</td><td class="num r">${pct(r.d50)}</td><td class="num r">${sgnP(r.dd)}</td></tr>`).join('') + '</tbody>';
   }
