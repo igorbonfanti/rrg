@@ -29,9 +29,10 @@ export const ZOOM = { xLo: 50, yMin: -15, yMax: 40 };
  *          states?: Record<string, string>, size?: number, clipId?: string, unit?: string, rings?: string[]}} p  states: stato attuale
  *   di ogni settore (colora il punto finale); clipId: id del ritaglio, diverso per ogni mappa della pagina; unit: «del settore»,
  *   «dell'indice»; rings: settori con l'anello tratteggiato dell'avvicinamento al livello blu; top: massimo dell'asse
- *   verticale fisso (per le date passate e il replay, così l'asse non cambia a ogni settimana)
+ *   verticale fisso (per le date passate e il replay, così l'asse non cambia a ogni settimana); shapes: forma del punto finale
+ *   per chiave ('diamond' per le industrie; di default il pallino)
  */
-export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore', rings = [], top: fixedTop = null, zoom = false }) {
+export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}, size, clipId = 'bmclip', unit = 'del settore', rings = [], top: fixedTop = null, zoom = false, shapes = {} }) {
   const W = size || SIZE, H = Math.round(W * 0.875), M = { l: 46, r: 14, t: 14, b: 42 };
   const PW = W - M.l - M.r, PH = H - M.t - M.b;
   let top = fixedTop ?? 60;
@@ -91,7 +92,9 @@ export function drawBottomMap(svg, { series, syms, focus, params: P, states = {}
     for (let i = 0; i < n; i++) el('circle', { cx: sx(pts[i].x), cy: sy(pts[i].y), r: 1.8, class: 'dot', 'fill-opacity': (0.25 + 0.6 * (i / Math.max(1, n))).toFixed(2) }, grp);
     const q = pts[n], hg = el('g', { class: grp.getAttribute('class') }, headsG);
     if (rings.includes(s)) el('circle', { cx: sxH(q.x), cy: syH(q.y), r: isFocus ? 12 : 10, class: 'appr-ring' }, hg);
-    el('circle', { cx: sxH(q.x), cy: syH(q.y), r: isFocus ? 7 : 5.5, class: `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}` }, hg);
+    const hc = `head headz-${STATE_ZONE[states[s]] || zoneOf(q.x, q.y, P)}`, hr = isFocus ? 7 : 5.5;
+    if (shapes[s] === 'diamond') { const x = sxH(q.x), y = syH(q.y), d = hr * 1.35; el('path', { d: `M${x} ${y - d} L${x + d} ${y} L${x} ${y + d} L${x - d} ${y} Z`, class: hc + ' diamond', 'data-sym': s }, hg); }
+    else el('circle', { cx: sxH(q.x), cy: syH(q.y), r: hr, class: hc }, hg);
     heads.push({ sym: s, label: s, px: sxH(q.x), py: syH(q.y), dim });
   }
   placeLabels(heads, { x1: M.l + 2, y1: M.t + 2, x2: M.l + PW - 2, y2: M.t + PH - 2 }, avoid);

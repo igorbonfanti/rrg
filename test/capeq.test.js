@@ -173,6 +173,22 @@ test('buildSectorMembers: forma del file e numeri dei titoli', () => {
   assert.ok(a.d200 > 0);
 });
 
+test('buildSectorMembers: total false toglie solo la riga SPX (industrie), senza opzione come prima', () => {
+  const cal = sessions('2024-09-02', 540);
+  const members = [{ s: 'A', name: 'A', sector: 'SOXX', sub: '' }, { s: 'B', name: 'B', sector: 'SOXX', sub: '' }];
+  const px = { A: cal.map((_, t) => 100 + t), B: cal.map((_, t) => 200 - t / 10) };
+  const life = membership(members, [], {});
+  const base = { cal, members, life, px, qty: { A: 3, B: 1 }, sectors: ['SOXX'] };
+  const all = buildSectorMembers(base), ind = buildSectorMembers({ ...base, total: false });
+  assert.deepEqual(Object.keys(all.sectors), ['SOXX', 'SPX']);
+  assert.deepEqual(Object.keys(ind.sectors), ['SOXX']);
+  assert.deepEqual(Object.keys(ind.hist.sectors), ['SOXX']);
+  // tutto il resto identico
+  delete all.sectors.SPX; delete all.hist.sectors.SPX;
+  assert.deepEqual(ind, all);
+  assert.deepEqual(buildSectorMembers({ ...base, total: true }), buildSectorMembers(base));
+});
+
 test('data/sector_members.json: 11 settori, S&P 500 e titoli della lista', () => {
   const d = read('data/sector_members.json'), m = read('data/sp500_members.json');
   assert.equal(Object.keys(d.sectors).length, 12);
@@ -193,4 +209,20 @@ test('vista 7: da quante settimane guida il segno di oggi', async () => {
   assert.deepEqual(leadStreak([2, null, 1]), { sign: 1, weeks: 1, start: 2, all: false }); // un buco interrompe
   assert.equal(leadStreak([1, 0]).sign, 0);
   assert.equal(leadStreak([3, 0, 2]).weeks, 1);
+});
+
+test('industrie: con capPx il cap-weighted è la serie data (prezzo dell\'ETF), l\'equal-weight non cambia', async () => {
+  const { buildSectorMembers } = await import('../scripts/lib/capeq.js');
+  const cal = [];
+  for (let t = Date.parse('2025-01-02'); cal.length < 400; t += 864e5) { const d = new Date(t); if (d.getUTCDay() % 6) cal.push(d.toISOString().slice(0, 10)); }
+  const px = { A: cal.map((_, i) => 10 + i / 10), B: cal.map((_, i) => 20 + Math.sin(i / 9)) };
+  const life = { A: { sector: 'K', spans: [['0000', '9999']] }, B: { sector: 'K', spans: [['0000', '9999']] } };
+  const members = [{ s: 'A', name: 'A', sector: 'K', sub: '' }, { s: 'B', name: 'B', sector: 'K', sub: '' }];
+  const etf = cal.map((_, i) => 50 * (1 + i / 1000));
+  const base = buildSectorMembers({ cal, members, life, px, qty: { A: 100, B: 100 }, sectors: ['K'], total: false });
+  const withEtf = buildSectorMembers({ cal, members, life, px, qty: { A: 100, B: 100 }, sectors: ['K'], total: false, capPx: { K: etf } });
+  const N = cal.length - 1, a = cal.indexOf(withEtf.starts['3M'][0]);
+  assert.equal(withEtf.sectors.K['3M'][0][0], Math.round((etf[N] / etf[a] - 1) * 1000) / 10);
+  assert.equal(withEtf.sectors.K['3M'][0][1], base.sectors.K['3M'][0][1]);
+  assert.ok(!('SPX' in withEtf.sectors));
 });

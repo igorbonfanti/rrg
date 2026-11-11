@@ -5,9 +5,11 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.8.0';
-export const RELEASE = '2026-11-10';
+export const VERSION = '1.9.0';
+export const RELEASE = '2026-11-11';
 export const NOTES = [
+  'Semiconduttori (SOXX) come industria accanto agli 11 settori: Monitor, Bottom Map (rombo), vista Settore (scrivi SOXX o SEMI), Titoli e rotazione; livello blu 3% di Massimo Rea, breadth con i membri di oggi, alert Telegram',
+  'Guida: come confrontare la rotazione con Bloomberg e StockCharts (Medie semplici, settimanale)',
   'Zoom su un tratto nei grafici con il tempo (Performance relativa, Settore e Indici con i Cali forti, Emergenti, VIX): sul computer trascina sul grafico, sul telefono tocca prima la lente; si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo',
   'VIX: nella tabella degli episodi il mini-grafico del VIX (salita, primo giorno, massimo, fine), «VIX massimo» con la data, l\'ultimo giorno alla soglia o più e le sedute; sotto il VIX il grafico dell\'indice scelto con gli episodi colorati',
   'VIX: i punti grandi dello scatter sono il primo giorno dell\'episodio alla soglia scelta nella tabella (prima sempre a 30); colonne «Primo giorno a X o più», «VIX quel giorno», «VIX massimo dell\'episodio» con la sua data; spiegato quanto dura un episodio e che i nomi delle crisi sono etichette di periodo',

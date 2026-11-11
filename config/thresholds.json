@@ -1,8 +1,9 @@
 {
-  "_comment": "Livelli blu (% di titoli sopra la media a 200 sedute) sotto i quali un settore entra in zona blu, e parametri della macchina a stati. Default dei livelli: quant-rea '200 LEVEL SETTORI' (Consumer Discretionary 8%). La GitHub Action usa questo file per gli alert; le modifiche fatte nell'app restano nel browser finché non le copi qui.",
+  "_comment": "Livelli blu (% di titoli sopra la media a 200 sedute) sotto i quali un settore entra in zona blu, e parametri della macchina a stati. Default dei livelli: quant-rea '200 LEVEL SETTORI' (Consumer Discretionary 8%); industria SOXX 3% dall'analisi SOXX di Massimo Rea (quant-rea). La GitHub Action usa questo file per gli alert; le modifiche fatte nell'app restano nel browser finché non le copi qui.",
   "blue": {
     "XLK": 6, "XLC": 5, "XLY": 8, "XLP": 11, "XLE": 1, "XLF": 6,
-    "XLV": 11, "XLI": 5, "XLB": 10, "XLRE": 8, "XLU": 5
+    "XLV": 11, "XLI": 5, "XLB": 10, "XLRE": 8, "XLU": 5,
+    "SOXX": 3
   },
   "params": {
     "watchBand": 10,

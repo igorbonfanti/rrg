@@ -17,7 +17,8 @@ const age = (from, to) => Math.round((Date.parse(to) - Date.parse(from)) / DAY);
 
 /**
  * @param {object} d {breadth, sectors, members, history, sectorMembers, indices, capitulation, indexMembers: {k: {asOf}},
- *   prices, pricesGlobal, pricesMacro, indexLast: {k: ultima seduta con la breadth}, capLast: {k: ultima seduta con i cali forti}}
+ *   prices, pricesGlobal, pricesMacro, indexLast: {k: ultima seduta con la breadth}, capLast: {k: ultima seduta con i cali forti},
+ *   industries, industryMembers (undefined = file non ancora creato: nessun controllo)}
  * @param {string} today data ISO di oggi
  * @returns {string[]} problemi
  */
@@ -59,6 +60,16 @@ export function staleData(d, today) {
       ['vix.json (VIX3M)', d.vix && d.vix.asOf && d.vix.asOf.vix3m, B, 4], ['vix.json (FRED VIX3M)', d.vix && d.vix.asOf && d.vix.asOf.fred3m, today, 6],
       ['vix.json (HYG/IEF)', d.vix && d.vix.asOf && d.vix.asOf.credit, B, 4]);
   }
+  // industrie (dalla 1.9.0, scripts/fetch_industries.js): breadth e vista 5 come i settori, lista come quelle degli indici,
+  // holdings iShares come IVV
+  if (d.industries !== undefined) {
+    checks.push(['industries.json (industrie)', d.industries && d.industries.asOf, B, 4]);
+    for (const [k, l] of Object.entries((d.industries && d.industries.lists) || {})) checks.push([`industries.json: lista ${k}`, l && l.asOf, today, 14]);
+  }
+  if (d.industryMembers !== undefined) {
+    checks.push(['industry_members.json', d.industryMembers && d.industryMembers.asOf, B, 4],
+      ['industry_members.json (holdings iShares)', d.industryMembers && d.industryMembers.weightsAsOf, B, 10]);
+  }
   // serie che non sono mai arrivate (prima corsa con qualche fonte giù): senza data, quindi segnalate
   for (const k of (d.emerging && d.emerging.missing) || []) checks.push([`emerging.json: ${k} (mancante)`, null, B, 6]);
   for (const [k, m] of Object.entries(d.indexMembers || {})) checks.push([`index_members/${k}.json`, m && m.asOf, today, 14]);
@@ -90,6 +101,7 @@ async function main() {
     prices: read('prices.json'), pricesGlobal: read('prices_global.json'), pricesMacro: read('prices_macro.json'), indexLast, capLast,
     emerging: em || undefined, emergingLast,
     vix: read('vix.json') || undefined,
+    industries: read('industries.json') || undefined, industryMembers: read('industry_members.json') || undefined,
     emergingFed: em && em.series ? Object.fromEntries(Object.entries(em.series).filter(([, x]) => x.fred).map(([k, x]) => [k, x.fred])) : {},
   }, new Date().toISOString().slice(0, 10));
   for (const p of problems) console.log(`::error::Dati non aggiornati: ${p}`);

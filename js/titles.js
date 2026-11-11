@@ -4,7 +4,8 @@
  *    (ogni titolo conta uguale) nel periodo, con la scia di 1 settimana, 1 mese e 3 mesi fa e la divergenza;
  *  - Titoli del settore: una bolla per titolo (rendimento del periodo contro distanza dalla media 200, dal
  *    massimo a 52 settimane o rendimento nel periodo precedente) e la lista dei più in pena.
- * Dati: data/sector_members.json (scripts/lib/capeq.js), caricato alla prima apertura della vista.
+ * Dati: data/sector_members.json (scripts/lib/capeq.js), caricato alla prima apertura della vista; le industrie (SOXX,
+ * 1.9.0) da data/industry_members.json, unite solo se hanno le stesse date dei settori (mergeTitles).
  * Il settore scelto è lo stesso della vista 4 Settore.
  */
 import { esc, fmt, sgn, sgnP, pct, dIT, placeTip, chartWidth, keepFocus } from './format.js';
@@ -56,13 +57,36 @@ export function leadStreak(a) {
 }
 
 /**
+ * Unisce i titoli delle industrie a quelli dei settori, solo se i due file sono della stessa seduta e hanno gli stessi
+ * periodi: altrimenti le industrie restano fuori, con il motivo. I titoli in più di un gruppo (NVDA in XLK e nel SOXX)
+ * restano righe distinte, separate dal campo sec.
+ * @returns {{data: object, ok: string[], why: string|null}}
+ */
+export function mergeTitles(sec, ind, keys) {
+  if (!ind || !ind.sectors || !Array.isArray(ind.stocks)) return { data: sec, ok: [], why: ind === undefined ? null : 'dati dei titoli delle industrie non disponibili' };
+  const same = ind.asOf === sec.asOf && JSON.stringify(ind.dates) === JSON.stringify(sec.dates) && JSON.stringify(ind.starts) === JSON.stringify(sec.starts);
+  if (!same) return { data: sec, ok: [], why: `titoli delle industrie al ${ind.asOf ? ind.asOf.split('-').reverse().join('/') : '—'}, dei settori al ${sec.asOf.split('-').reverse().join('/')}: si uniscono quando sono della stessa seduta` };
+  const ok = keys.filter((k) => ind.sectors[k]);
+  const out = { ...sec, sectors: { ...sec.sectors }, stocks: sec.stocks.concat(ind.stocks.filter((x) => ok.includes(x.sec))), indWeightsAsOf: ind.weightsAsOf };
+  for (const k of ok) out.sectors[k] = ind.sectors[k];
+  if (sec.hist && sec.hist.sectors && ind.hist && ind.hist.sectors && JSON.stringify(ind.hist.dates) === JSON.stringify(sec.hist.dates)) {
+    out.hist = { ...sec.hist, sectors: { ...sec.hist.sectors } };
+    for (const k of ok) if (ind.hist.sectors[k]) out.hist.sectors[k] = ind.hist.sectors[k];
+  }
+  return { data: out, ok, why: null };
+}
+
+/**
  * @param {{$: Function, store: {get: Function, set: Function}, load: () => Promise<object>, names: object,
  *          getSector: () => string, setSector: (s: string) => void, stateCode?: (s: string) => string}} ctx
  */
 export function createTitles(ctx) {
   const { $, store } = ctx;
-  const SECTORS = Object.keys(ctx.names);
-  let D = null, loading = null, failed = null;
+  // industrie (SOXX): righe sotto l'S&P 500 e chip dopo i settori; nomi in ctx.names
+  const IKEYS = ctx.industries || [];
+  const SECTORS = Object.keys(ctx.names).filter((k) => !IKEYS.includes(k));
+  let D = null, loading = null, failed = null, IOK = [], IWHY = null;
+  const isInd = (k) => IKEYS.includes(k);
   const st = {
     per: PERIODS.includes(store.get('titPer')) ? store.get('titPer') : '3M',
     trail: ['sel', 'all', 'off'].includes(store.get('titTrail')) ? store.get('titTrail') : 'all',
@@ -75,7 +99,11 @@ export function createTitles(ctx) {
 
   function ensure() {
     if (D || failed) return Promise.resolve();
-    if (!loading) loading = ctx.load().then((d) => { if (!d || !Array.isArray(d.stocks) || !d.sectors || !d.starts || !d.dates) throw new Error('file incompleto'); D = d; }).catch((e) => { failed = e; });
+    if (!loading) loading = Promise.all([ctx.load(), IKEYS.length && ctx.loadInd ? ctx.loadInd() : Promise.resolve(undefined)]).then(([d, ind]) => {
+      if (!d || !Array.isArray(d.stocks) || !d.sectors || !d.starts || !d.dates) throw new Error('file incompleto');
+      const m = IKEYS.length ? mergeTitles(d, ind, IKEYS) : { data: d, ok: [], why: null };
+      D = m.data; IOK = m.ok; IWHY = m.why;
+    }).catch((e) => { failed = e; });
     return loading;
   }
 
@@ -91,8 +119,10 @@ export function createTitles(ctx) {
 
   // ---------- comandi ----------
   function renderControls() {
-    const s = ctx.getSector();
-    keepFocus($('titChips'), 'data-sym', SECTORS.map((k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}" title="${esc(ctx.names[k])}">${ctx.stateCode ? `<span class="sd sd-${ctx.stateCode(k)}"></span>` : ''}${k}</button>`).join(''));
+    const s = cur();
+    const off = (k) => isInd(k) && !IOK.includes(k);
+    const chip = (k) => `<button type="button" class="chip" data-sym="${k}" aria-pressed="${k === s}" title="${esc(off(k) ? `${ctx.names[k]}: ${IWHY || 'titoli non disponibili'}` : ctx.names[k])}"${off(k) ? ' disabled' : ''}>${ctx.stateCode ? `<span class="sd sd-${ctx.stateCode(k)}"></span>` : ''}${k}</button>`;
+    keepFocus($('titChips'), 'data-sym', SECTORS.map(chip).join('') + (IKEYS.length ? `<span class="chipgrp"><span class="chipsep" aria-hidden="true"></span><span class="chiplab">INDUSTRIA</span>${IKEYS.map(chip).join('')}</span>` : ''));
     $('titChips').querySelectorAll('button').forEach((b) => { b.onclick = () => pick(b.dataset.sym); });
     const press = (id, attr, v) => document.querySelectorAll(`#${id} button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset[attr] === v)));
     press('titPerSeg', 'per', st.per); press('titTrailSeg', 'trail', st.trail); press('titSortSeg', 'sort', st.sort); press('titSizeSeg', 'size', st.size);
@@ -101,10 +131,16 @@ export function createTitles(ctx) {
     $('titAx').querySelector('option[value="prev"]').disabled = !hasPrev;
     if (st.ax === 'prev' && !hasPrev) st.ax = 'd200';
     $('titAx').value = st.ax;
-    $('titMeta').textContent = `al ${dIT(D.asOf)} · ${PER_TEXT[st.per]}, dal ${dIT(D.starts[st.per][0])}`;
-    $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
+    const want = ctx.getSector();
+    $('titMeta').textContent = `al ${dIT(D.asOf)} · ${PER_TEXT[st.per]}, dal ${dIT(D.starts[st.per][0])}` + (want !== s ? ` · ${want}: titoli non ancora disponibili (${IWHY || 'dati mancanti'}), si vede ${s}` : '');
+    $('titData').textContent = `Pesi IVV al ${dIT(D.weightsAsOf)}.` + (IOK.length ? ` ${IOK.join(', ')}: pallino pieno = rendimento dell'ETF stesso (solo prezzo, con i suoi tetti e ribilanciamenti); equal-weight e bubble con i titoli di oggi e i pesi dell'ETF${D.indWeightsAsOf ? ` al ${dIT(D.indWeightsAsOf)}` : ''}, quindi su YTD e 1 anno l'equal-weight risulta più alto del vero.` : '') + (IWHY ? ` ${IWHY.charAt(0).toUpperCase() + IWHY.slice(1)}.` : '') + (D.missing && D.missing.length ? ` Esclusi i titoli usciti dall'indice che non hanno più prezzi (acquisiti): ${D.missing.join(', ')}.` : '');
   }
   function pick(s) { ctx.setSector(s); st.hover = null; render(); }
+  // gruppo mostrato: quello della vista 4; un'industria senza titoli uniti lascia il posto al suo settore
+  function cur() {
+    const s = ctx.getSector();
+    return isInd(s) && !IOK.includes(s) ? (ctx.parent && ctx.parent(s)) || SECTORS[0] : s;
+  }
 
   // ---------- grandi contro piccoli ----------
   // Una riga per settore: pallino pieno = cap-weighted (pesano i grandi), vuoto = equal-weight (ogni titolo uguale),
@@ -121,19 +157,21 @@ export function createTitles(ctx) {
   const TRAIL_R = [0, 3.4, 2.6, 1.9]; // raggio dei segnaposto: 1 settimana, 1 mese, 3 mesi fa
   const TRAIL_O = [0, 0.75, 0.55, 0.4];
   function drawSpread() {
-    const svg = $('titSpread'), sel = ctx.getSector();
+    const svg = $('titSpread'), sel = cur();
     $('titSpreadTip').hidden = true;
     const W = chartWidth(svg, 1120), narrow = W < 640;
     const rows = SECTORS.filter((k) => D.sectors[k] && D.sectors[k][st.per][0]).map(rowOf); // settore senza titoli: fuori
     if (st.sort === 'div') rows.sort((a, b) => b.sp - a.sp);
     const top3 = new Set([...rows].sort((a, b) => Math.abs(b.sp) - Math.abs(a.sp)).slice(0, 3).map((r) => r.k));
-    const all = [...rows, rowOf('SPX')];
+    // industrie: sotto l'S&P 500, dopo un filetto con «INDUSTRIA», fuori dall'ordinamento e dalle tre divergenze più ampie
+    const irows = IOK.filter((k) => D.sectors[k] && D.sectors[k][st.per][0]).map(rowOf);
+    const all = [...rows, rowOf('SPX'), ...irows];
     const trail = (r) => st.trail === 'all' || (st.trail === 'sel' && (r.k === sel || r.k === 'SPX'));
     const vals = [0];
     for (const r of all) r.v.forEach((p, i) => { if (p && (i === 0 || trail(r))) vals.push(p[0], p[1]); });
     const sc = nice(Math.min(...vals), Math.max(...vals), narrow ? 4 : 8);
     const L = narrow ? 50 : 210, R = narrow ? 92 : 178, T = 22, RH = narrow ? 32 : 30;
-    const H = T + RH * (all.length + 0.6) + 6;
+    const H = T + RH * (all.length + 0.6 + (irows.length ? 0.9 : 0)) + 6;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
     svg.innerHTML = '';
     // sfumature delle frecce: verso destra (sale) verde, verso sinistra (scende) rosso; la coda è trasparente
@@ -151,9 +189,10 @@ export function createTitles(ctx) {
     text(svg, W - R + 24, 12, 'EW − CW');
     text(svg, W - 6, 12, narrow ? '1M' : 'in 1 mese', { 'text-anchor': 'end' });
     all.forEach((r, i) => {
-      const ref = r.k === 'SPX';
-      const y = T + RH * (i + 0.5) + (ref ? RH * 0.6 : 0);
+      const ref = r.k === 'SPX', ind = isInd(r.k), first = ind && r.k === irows[0].k;
+      const y = T + RH * (i + 0.5) + (ref ? RH * 0.6 : ind ? RH * 1.5 : 0);
       if (ref) el('line', { class: 'sep', x1: 0, x2: W, y1: y - RH * 0.8, y2: y - RH * 0.8 }, svg);
+      if (first) { el('line', { class: 'sep', x1: 0, x2: W, y1: y - RH * 0.95, y2: y - RH * 0.95 }, svg); text(svg, 8, y - RH * 0.95 + 11, 'INDUSTRIA', { class: 'grplab' }); }
       const cls = r.sp >= 0 ? 'b' : 'n';
       const g = el('g', { class: `row${r.k === sel ? ' sel' : ''}${ref ? ' ref' : ''}${top3.has(r.k) ? ' hot' : ''}`, 'data-k': r.k }, svg);
       el('rect', { class: 'rowbg', x: 0, y: y - RH / 2, width: W, height: RH }, g);
@@ -196,7 +235,7 @@ export function createTitles(ctx) {
       g.addEventListener('mousemove', (e) => spreadTip(e, r));
       g.addEventListener('mouseleave', () => { $('titSpreadTip').hidden = true; });
     });
-    const lead = rows.filter((r) => r.sp > 0).length;
+    const lead = rows.filter((r) => r.sp > 0).length; // solo gli 11 settori
     $('titSpreadNote').textContent = `Equal-weight davanti in ${lead} settori su 11. Ultima colonna: come è cambiata la divergenza rispetto a 1 mese fa ` +
       `(▲ verso l'equal-weight, ▼ verso i grandi). Clic su un settore per vederne i titoli.`;
   }
@@ -206,7 +245,8 @@ export function createTitles(ctx) {
       `<div class="row"><span>${PER_TEXT[st.per]}</span><span>cap · equal · diff.</span></div>` +
       r.v.map((p, i) => (p ? `<div class="row"><span>${OFF_TEXT[i]}</span><span>${sgnP(p[0])} · ${sgnP(p[1])} · <span class="${p[1] - p[0] >= 0 ? 'q-lead-c' : 'q-imp-c'}">${pp(p[1] - p[0])}</span></span></div>` : '')).join('') +
       (D.hist && D.hist.sectors && D.hist.sectors[r.k] ? (() => { const z = leadStreak(D.hist.sectors[r.k][st.per]); return z.sign ? `<div class="row"><span>da quanto</span><span>${esc(streakText(z, D.hist.dates))}</span></div>` : ''; })() : '') +
-      (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: la scia tiene l\'inizio al 31/12 e sposta solo la fine.</span>' : '');
+      (st.per === 'YTD' ? '<span class="note-row">Da inizio anno: la scia tiene l\'inizio al 31/12 e sposta solo la fine.</span>' : '') +
+      (isInd(r.k) ? '<span class="note-row">Industria: pallino pieno = rendimento dell\'ETF (solo prezzo); equal-weight con i titoli di oggi.</span>' : '');
     placeTip(tip, $('titSpreadWrap'), e);
     keepOnScreen(tip, e);
   }
@@ -233,7 +273,7 @@ export function createTitles(ctx) {
       return;
     }
     $('titHistTip').hidden = true;
-    const sec = ctx.getSector(), H = D.hist, dates = H.dates, n = dates.length;
+    const sec = cur(), H = D.hist, dates = H.dates, n = dates.length;
     const v = H.sectors[sec][st.per], ref = H.sectors.SPX ? H.sectors.SPX[st.per] : null;
     $('titHistTitle').textContent = `Storia della divergenza · ${sec} ${ctx.names[sec]}`;
     $('titHistMeta').textContent = `${st.per} · ultime ${n} settimane`;
@@ -314,7 +354,7 @@ export function createTitles(ctx) {
     return [...list].map((x) => ({ x, pain: (a.get(x.s) + b.get(x.s)) / 2 })).sort((p, q) => p.pain - q.pain).map((p) => p.x);
   }
   function drawBubble() {
-    const svg = $('titBubble'), sec = ctx.getSector(), ax = AXES[st.ax];
+    const svg = $('titBubble'), sec = cur(), ax = AXES[st.ax];
     const W = chartWidth(svg, 940), narrow = W < 640;
     const H = Math.round(Math.min(600, Math.max(340, W * (narrow ? 1.1 : 0.6))));
     const getX = (s) => ax.get(s, st.per);
@@ -409,7 +449,7 @@ export function createTitles(ctx) {
   }
   function drawList(rows, sec) {
     $('titPainMeta').textContent = `${sec} · ${st.per}`;
-    $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max 52s</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="Peso nell'S&amp;P 500">Peso</th></tr></thead><tbody>` +
+    $('titPain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r" title="Distanza dalla chiusura più alta delle 52 settimane">Dal max 52s</th><th class="r" title="Distanza dalla media a 200 sedute">M. 200</th><th class="r" title="${isInd(sec) ? `Peso nell'ETF ${esc(sec)}` : "Peso nell'S&amp;P 500"}">Peso</th></tr></thead><tbody>` +
       rows.map((s, i) => `<tr data-s="${esc(s.s)}"${i < WORST ? ' class="worst"' : ''}><td><a class="sym" href="${tvStock(s.s)}" target="_blank" rel="noopener" title="${esc(s.n)} · grafico su TradingView">${esc(s.s)}</a><span class="nm">${esc(s.n)}</span></td>` +
         `<td class="num r">${pct(s.r[st.per])}</td><td class="num r">${pct(s.dd)}</td><td class="num r">${s.d200 == null ? '<span class="muted" title="meno di 200 sedute di storia">—</span>' : pct(s.d200)}</td>` +
         `<td class="num r muted">${s.w == null ? '—' : fmt(s.w, 2) + '%'}</td></tr>`).join('') + '</tbody>';
@@ -445,7 +485,7 @@ export function createTitles(ctx) {
       `<span class="note-row">${esc(s.n)} · ${esc(s.sub)}${since ? ' · ' + since : ''}</span>` +
       [[`rendimento ${st.per}`, s.r[st.per]], ['periodo precedente', s.prev[st.per]], ['dal massimo 52s', s.dd], ['dalla media 200', s.d200], ['dalla media 50', s.d50]]
         .map(([k, v]) => `<div class="row"><span>${k}</span><span>${pct(v)}</span></div>`).join('') +
-      `<div class="row"><span>peso nell'S&amp;P 500</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>`;
+      `<div class="row"><span>peso ${isInd(s.sec) ? `nell'ETF ${esc(s.sec)}` : "nell'S&amp;P 500"}</span><span>${s.w == null ? '—' : fmt(s.w, 2) + '%'}</span></div>`;
     placeTip(tip, $('titBubbleWrap'), e);
     keepOnScreen(tip, e);
   }

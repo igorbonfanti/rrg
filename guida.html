@@ -117,7 +117,7 @@
     <h2>Per cominciare</h2>
     <p><b>Sector Monitor</b> fa due lavori, con dati di fine giornata:</p>
     <ul>
-      <li><b>cerca i possibili bottom</b> degli 11 settori S&amp;P 500 e di 22 indici azionari, mettendo insieme la <b>breadth</b> (quanti titoli stanno sopra la media a 200 sedute), un <b>livello blu</b> per ogni settore e il <b>drawdown</b> dell'ETF;</li>
+      <li><b>cerca i possibili bottom</b> degli 11 settori S&amp;P 500, dell'industria dei semiconduttori (SOXX) e di 22 indici azionari, mettendo insieme la <b>breadth</b> (quanti titoli stanno sopra la media a 200 sedute), un <b>livello blu</b> per ogni settore e il <b>drawdown</b> dell'ETF;</li>
       <li>mostra la <b>rotazione relativa</b> di settori, MAG7, ETF in euro (asset class, fattori, regioni, paesi, indici) e asset reali contro le grandezze macro.</li>
     </ul>
     <p>Un percorso tipico, dall'alto verso il basso:</p>
@@ -187,7 +187,7 @@
   <section id="mon">
     <h2>1 Monitor</h2>
     <a class="open" href="./#mon">Apri il Monitor →</a>
-    <p>La pagina di partenza: tutti gli 11 settori, ordinati dallo stato più vicino a un bottom.</p>
+    <p>La pagina di partenza: tutti gli 11 settori, ordinati dallo stato più vicino a un bottom, e sotto, in un gruppo a parte, l'industria dei semiconduttori (<a href="#industrie">SOXX</a>).</p>
     <h3>Cosa è cambiato dall'ultima visita</h3>
     <p>La striscia in alto confronta i dati di oggi con quelli della tua ultima visita fatta in un altro giorno di dati: cambi di stato (per esempio «XLU Zona blu → Trigger») e breadth che si sono mosse di almeno 5 punti. Ogni voce apre il settore. Ricaricando nello stesso giorno la striscia resta. La prima volta che apri l'app non compare: il browser deve prima salvare una fotografia.</p>
     <h3>Riquadri in alto</h3>
@@ -259,12 +259,13 @@
 
     <h3 id="formule">Le due formule</h3>
     <p>La <b>Nuova</b> (predefinita) usa medie esponenziali sul logaritmo della forza relativa, divise per la sua volatilità: tutti i titoli stanno sulla stessa scala e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> è la formula pubblica più vicina a quella delle piattaforme ufficiali: RS-Ratio = 100 × media a 10 barre ÷ media a 30 della forza relativa, RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Le due formule danno lo stesso quadrante circa tre volte su quattro; la nota «come si calcola» sotto il grafico le confronta.</p>
+    <p id="rrg-bloomberg"><b>Confronto con Bloomberg e StockCharts.</b> Per confrontare la rotazione dei settori con quella di Bloomberg (RRG) o di StockCharts scegli <b>Medie semplici</b> e il timeframe <b>Settimanale</b>, che come loro conta anche la settimana in corso. Nella prova dell'11/11/2026 (11 indici settoriali contro l'S&amp;P 500, settimanale) con le Medie semplici i nostri settori cadevano tutti e 11 nello stesso quadrante di Bloomberg, con un ordine quasi uguale sui due assi (correlazione di rango 0,98 in orizzontale e 0,95 in verticale); con la Nuova 10 su 11, con l'asse orizzontale circa 4 volte più stretto e un ordine diverso sul momentum, perché normalizza per la volatilità e pesa di più le ultime settimane. Restano piccole differenze per altri due motivi: noi usiamo gli ETF SPDR (XLK, XLF…) con i dividendi, le piattaforme gli indici di settore, e la differenza arriva a circa un punto (XLC è il caso più visibile, probabilmente perché l'ETF limita il peso dei titoli più grandi: non verificabile senza la storia degli indici di settore); il benchmark SPY al posto dell'indice S&amp;P 500 sposta tutti i settori di circa 0,2 punti di RS-Ratio. La formula di Bloomberg (JdK) non è pubblica: il confronto è sul risultato. Verifica in <span class="mono">ricerca/rrg-bloomberg/</span>.</p>
   </section>
 
   <section id="btm">
     <h2>3 Bottom Map</h2>
     <a class="open" href="./#btm">Apri la Bottom Map →</a>
-    <p>Ogni settore è un punto, con la coda delle ultime 8 settimane:</p>
+    <p>Ogni settore è un punto, con la coda delle ultime 8 settimane; l'industria dei semiconduttori (<a href="#industrie">SOXX</a>) è un rombo:</p>
     <ul>
       <li><b>in orizzontale</b> la profondità del drawdown (percentile della storia del settore): più a sinistra, più profondo;</li>
       <li><b>in verticale</b> la distanza della breadth dal livello blu, in punti: sotto lo zero il settore è sotto il livello.</li>
@@ -287,6 +288,16 @@
     <p>Il dettaglio di un settore: si sceglie dai bottoni in alto, da una riga del Monitor o scrivendo il ticker (per esempio <code>XLK</code>) nella barra dei comandi.</p>
     <h3>Grafico</h3>
     <p>Prezzo con la media 200, drawdown e breadth (a 200 e 50 sedute) sullo stesso asse del tempo, per 3 anni, 10 anni o dal 2005. Le bande blu sono le zone blu passate, i triangoli verdi i trigger; le bande blu a righe le sedute sotto il livello ma fuori dalla zona blu. Nel grafico della breadth la fascia gialla va dal livello blu a 10 punti sopra: è la parte della breadth che mette il settore in Attenzione (l'Attenzione scatta anche con un drawdown oltre l'85° percentile, che lì non si vede). La linea della breadth diventa gialla (ocra nel tema chiaro), con un pallino dove inizia ogni tratto, nelle sedute in cui il settore era in <a href="#avvicinamento">avvicinamento</a>: stato Normale e breadth sotto la soglia di quel giorno, calcolata solo sulla storia fino a lì (come nel replay della Bottom Map). Un pallino da solo è un avvicinamento di una seduta. Quando la breadth scende di colpo fin dentro la fascia gialla il settore passa subito in Attenzione e il tratto giallo non compare. Passando il mouse vedi tutti i valori di quella seduta, compresa la soglia di avvicinamento di quel giorno.</p>
+    <h3 id="industrie">Industrie: SOXX, semiconduttori</h3>
+    <p>Accanto agli 11 settori c'è un'industria, i <b>semiconduttori</b> dell'ETF iShares SOXX (dentro il settore Tecnologia, XLK): nel Monitor in un gruppo a parte sotto i settori, nella Bottom Map come rombo, nella vista Settore dopo i bottoni dei settori (scrivi <code>SOXX</code> o <code>SEMI</code>), nei Titoli sotto la riga dell'S&amp;P 500 e nella rotazione dei settori. Valgono le stesse regole e gli stessi alert su Telegram; i riquadri del Monitor («/ 11»), le statistiche dell'avvicinamento e la vista 9 restano sui soli settori.</p>
+    <ul>
+      <li><b>Breadth con i membri di oggi.</b> La percentuale di titoli sopra la media a 200 sedute usa i circa 30 titoli di oggi del SOXX (lista iShares) anche per il passato, dal 2001: molti allora non erano quotati (21 titoli contati nel 2002, 22 nel 2008) e chi è uscito non c'è. Rispetto alle composizioni storiche del PHLX SOX lo scarto medio è stato tra −0,7 e +4,9 punti, vicino ai minimi tra −2 e +3, con le stesse zone blu.</li>
+      <li><b>Livello blu 3%</b>, dall'analisi del SOXX di Massimo Rea (quant-rea). Con 30 titoli un titolo vale 3,3 punti: il 3% vuol dire <b>nessun titolo sopra la media 200</b>. Nella storia dal 2002 ha dato 7 zone blu in 6 crisi; il livello è scelto guardando questa stessa storia, quindi i numeri degli episodi sono indicativi.</li>
+      <li><b>Titoli appena quotati</b> contano come «sotto la media» finché non hanno 200 sedute; la nota nel dettaglio dice quali.</li>
+      <li><b>Indice cambiato</b>: l'ETF ha seguito tre indici (S&amp;P North American Technology-Semiconductors fino al 2010, PHLX SOX fino al 2021, oggi NYSE Semiconductor), date secondo fonti secondarie. Diversi titoli, ADR compresi (TSMC, ASML), non sono nell'S&amp;P 500.</li>
+      <li><b>Titoli</b> (vista 5): il pallino pieno è il rendimento dell'ETF SOXX stesso (solo prezzo), che ha i suoi tetti per titolo e i suoi ribilanciamenti; il pallino vuoto è l'equal-weight dei titoli di oggi, che su YTD e 1 anno risulta più alto del vero. Nella bubble le bolle sono grandi quanto il peso nell'ETF.</li>
+    </ul>
+    <p>Verifica e backtest in <span class="mono">ricerca/soxx/</span>.</p>
     <h3>Perché questo stato</h3>
     <p>Le condizioni della macchina a stati, con ✓ (soddisfatta) e ✗ (manca), calcolate con le stesse regole degli stati:</p>
     <ul>
@@ -411,7 +422,7 @@
   <section id="alr">
     <h2>9 Alert</h2>
     <a class="open" href="./#alr">Apri gli Alert →</a>
-    <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore.</p>
+    <p>Il registro dei cambi di stato di tutti i settori dal 2005 (gli ultimi 60, dal più recente): ingresso in zona blu, trigger, segnale fallito. Un clic sul ticker apre il settore. Gli alert su Telegram valgono anche per l'industria dei semiconduttori (SOXX), i cui eventi sono nel suo dettaglio: statistiche e registro di questa pagina restano dei soli 11 settori.</p>
     <ul>
       <li>I riquadri in alto riassumono quante zone blu, trigger e segnali falliti ci sono stati, con le mediane a 3 e 6 mesi e il confronto con una seduta qualsiasi e con SPY negli stessi giorni.</li>
       <li><b>Notifiche Telegram</b>: dopo ogni aggiornamento dei dati, un messaggio per ogni nuovo cambio di stato dei settori, con il link al settore. Un invio fallito si riprova per 5 sedute. Le ultime sedute si ricalcolano a ogni aggiornamento: se un evento già inviato cambia data arriva una rettifica con le due date, se non risulta più arriva un messaggio di annullamento. Il riquadro dice fino a quando sono stati controllati i dati e gli ultimi eventi inviati, con le rettifiche.</li>
@@ -426,6 +437,7 @@
       <thead><tr><th>Scrivi</th><th>Cosa succede</th></tr></thead>
       <tbody>
         <tr><td><code>XLU</code></td><td>un ETF settoriale apre il suo dettaglio (vista 4)</td></tr>
+        <tr><td><code>SOXX</code>, <code>SEMI</code></td><td>l'industria dei semiconduttori nella vista 4 (<code>SOXX TIT</code> i suoi titoli)</td></tr>
         <tr><td><code>XLK TIT</code>, <code>XLU SEC</code></td><td>settore e vista insieme</td></tr>
         <tr><td><code>NVDA</code>, <code>SWDA</code>, <code>ORO</code>, <code>TESLA</code></td><td>un ticker (anche senza borsa), un nome breve o una parola del nome: lo evidenzia nella rotazione, cambiando universo se serve</td></tr>
         <tr><td><code>SPY</code>, <code>QQQ</code>, <code>PTF</code></td><td>un benchmark: la rotazione contro di lui</td></tr>

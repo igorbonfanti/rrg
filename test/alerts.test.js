@@ -115,3 +115,47 @@ test('rettifiche Telegram: evento spostato dal ricalcolo o sparito', async () =>
   assert.equal(state.log[0].retracted, '2026-10-16');
   assert.equal(reconcile([], events, state, dates, '2026-10-16').length, 0);
 });
+
+test('alert del SOXX: stessi eventi della macchina dell\'app sul calendario di industries.json, nome e link nel messaggio', async () => {
+  const { collectIndustryEvents, industryTitle } = await import('../scripts/send_alerts.js');
+  const cfg = read('config/thresholds.json'), conf = read('config/industries.json').industries.SOXX;
+  const { dates, events } = collectIndustryEvents(read('data/industries.json'), cfg, ['SOXX']);
+  assert.equal(dates[0], '2001-07-13');
+  // le 7 zone blu al 3% della ricerca (ricerca/soxx/dati/risultati.json; controllo completo in ricerca/soxx/verifica_app.mjs)
+  const setups = events.filter((e) => e.code === 'setup' && e.date <= '2026-11-10').map((e) => e.date);
+  assert.deepEqual(setups, ['2002-07-22', '2008-01-08', '2008-09-30', '2011-08-05', '2015-08-25', '2022-10-12', '2025-03-27']);
+  assert.ok(events.every((e) => e.sector === 'SOXX'));
+  const title = industryTitle('SOXX', conf);
+  assert.equal(title, 'Semiconduttori (SOXX, industria)');
+  const msg = formatMessage({ date: '2025-03-27', sector: 'SOXX', code: 'setup', text: 'breadth 0% ≤ livello blu 3%' }, title);
+  assert.match(msg, /ZONA BLU<\/b> · Semiconduttori \(SOXX, industria\)\n27\/03\/2025/);
+  assert.match(msg, /#SOXX$/);
+});
+
+test('alert delle industrie: la prima volta si registra lo stato senza lo storico, poi gli eventi nuovi partono', async () => {
+  const { planGroups } = await import('../scripts/send_alerts.js');
+  const sDates = ['2026-11-04', '2026-11-05', '2026-11-06'], iDates = [...sDates, '2026-11-09', '2026-11-10'];
+  const sectors = { keys: ['XLU'], events: [], dates: sDates, asOf: '2026-11-06' };
+  const soxx = (events) => ({ keys: ['SOXX'], industry: true, title: 'Semiconduttori (SOXX, industria)', events, dates: iDates, asOf: '2026-11-10' });
+  const past = [{ date: '2025-03-27', sector: 'SOXX', code: 'setup' }, { date: '2026-11-09', sector: 'SOXX', code: 'setup' }];
+  const state = { checkedThrough: '2026-11-05', log: [{ date: '2026-11-05', sector: 'XLU', code: 'trig', telegram: true }] };
+  // prima sera con il SOXX: nessun messaggio, nemmeno per l'evento recente
+  const [s1, i1] = planGroups(state, [{ ...sectors, events: [{ date: '2026-11-05', sector: 'XLU', code: 'trig' }] }, soxx(past)]);
+  assert.equal(i1.first, true);
+  assert.deepEqual([i1.fresh, i1.cancelled, i1.retry], [[], [], []]);
+  assert.deepEqual([s1.fresh, s1.cancelled], [[], []]);
+  // la sera dopo: data di controllo del SOXX registrata, l'evento nuovo parte, quelli vecchi no
+  const st2 = { ...state, industries: { SOXX: { checkedThrough: '2026-11-09' } }, log: [...state.log] };
+  const now = [...past, { date: '2026-11-10', sector: 'SOXX', code: 'trig' }];
+  const [s2, i2] = planGroups(st2, [{ ...sectors, events: [{ date: '2026-11-05', sector: 'XLU', code: 'trig' }] }, soxx(now)]);
+  assert.equal(i2.first, false);
+  assert.deepEqual(i2.fresh.map((e) => `${e.date} ${e.code}`), ['2026-11-09 setup', '2026-11-10 trig']); // la zona blu del 09/11 cade nelle ultime sedute ricontrollate
+  assert.equal(s2.fresh.length, 0);
+  // gli eventi del SOXX nel registro non sono «spariti» per i settori, e viceversa: nessuna rettifica incrociata
+  const st3 = { ...st2, industries: { SOXX: { checkedThrough: '2026-11-10' } }, log: [...state.log, { date: '2026-11-10', sector: 'SOXX', code: 'trig', telegram: true }] };
+  const [s3, i3] = planGroups(st3, [{ ...sectors, events: [{ date: '2026-11-05', sector: 'XLU', code: 'trig' }] }, soxx(now)]);
+  assert.deepEqual([s3.cancelled, i3.cancelled], [[], []]);
+  assert.ok(!st3.log.some((e) => e.retracted));
+  // senza registro (prima esecuzione assoluta) nessun invio per nessuno
+  assert.ok(planGroups(null, [sectors, soxx(now)]).every((g) => !g.fresh.length));
+});

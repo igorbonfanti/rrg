@@ -80,6 +80,7 @@ const SHAPE = {
   'config/thresholds.json': ['blue', 'params'], 'data/breadth_latest.json': ['members'], 'data/alerts.json': ['log'],
   'config/indices.json': ['indices'], 'data/indices.json': ['series'], 'data/indices_more.json': ['series'], 'data/capitulation.json': ['series'],
   'data/sector_members.json': ['sectors', 'dates'], 'data/emerging.json': ['series', 'asOf'], 'data/vix.json': ['series', 'asOf'], 'config/emerging.json': ['indices', 'order'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
+  'data/industries.json': ['dates', 'series'], 'config/industries.json': ['industries'],
 };
 const getJSON = (url, optional, fresh) => fetch(url, fresh ? { cache: 'no-cache' } : undefined).catch(() => { throw new Error(`${url}: non raggiungibile`); }).then((r) => {
   if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
@@ -98,9 +99,10 @@ const loadExtras = () => extras || (extras = Promise.all([getJSON('data/prices_g
 Promise.all([
   getJSON('data/prices.json'), getJSON('data/sectors.json'), getJSON('data/breadth.json'), getJSON('config/thresholds.json'),
   getJSON('data/breadth_latest.json', true), getJSON('data/alerts.json', true), getJSON('config/indices.json', true), getJSON('config/emerging.json', true),
-]).then(([prices, sectors, breadth, config, latest, alertLog, indices, emerging]) => {
+  getJSON('data/industries.json', true), getJSON('config/industries.json', true),
+]).then(([prices, sectors, breadth, config, latest, alertLog, indices, emerging, industries, indConfig]) => {
   state.data = prices;
-  state.extra = { sectors, breadth, config, latest, alertLog, indices, emerging };
+  state.extra = { sectors, breadth, config, latest, alertLog, indices, emerging, industries, indConfig };
   const direct = /^#rrg/i.test(location.hash);
   return (direct ? loadExtras() : Promise.resolve(null)).then((ex) => {
     if (ex) setExtras(ex);
@@ -255,7 +257,7 @@ function init() {
   // cali forti (schede delle viste 4 e 6): un solo file per le due viste, scaricato alla prima apertura
   const cap = createCap({ store, load: () => getJSON('data/capitulation.json', false, true) });
   state.bottom = createBottom({
-    $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store, cap,
+    $, sectors: x.sectors, breadth: x.breadth, latest: x.latest, config: x.config, alertLog: x.alertLog, store, cap, industries: x.industries, indConfig: x.indConfig,
     rotation: sectorRotation, rotationNote: () => `vs SPY, settimanale, ${formulaText()} (la formula si sceglie nella pagina Rotazione)`,
     setView: (v, silent) => setView(v, silent), openRRG: focusSymbol,
   });
@@ -273,7 +275,9 @@ function init() {
   state.vix = createVix({ $, store, load: () => getJSON('data/vix.json', false, true) });
   // vista 5 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
-    $, store, names: SECTOR_NAMES, load: () => getJSON('data/sector_members.json', false, true),
+    $, store, names: Object.fromEntries([...Object.keys(SECTOR_NAMES), ...state.bottom.industries()].map((k) => [k, state.bottom.name(k)])), industries: state.bottom.industries(),
+    parent: (s) => (x.indConfig && x.indConfig.industries[s] ? x.indConfig.industries[s].parent : null),
+    load: () => getJSON('data/sector_members.json', false, true), loadInd: () => getJSON('data/industry_members.json', true, true),
     getSector: () => state.bottom.sector(), stateCode: (s) => state.bottom.stateCode(s),
     // scelta di un settore nella vista 5: nuova voce nella cronologia (#tit-XLK), come i settori della vista 4
     setSector: (s) => { state.bottom.selectSector(s); syncHash('tit', false, 'tit'); },
@@ -1014,6 +1018,9 @@ function bind() {
     if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }
     if (words[v]) { setView(words[v]); return; }
     if (state.bottom.isSector(v)) { state.bottom.openSector(v); return; }
+    // nomi comuni delle industrie: SEMI e SEMICONDUTTORI aprono il SOXX
+    const IND_ALIAS = { SEMI: 'SOXX', SEMICONDUTTORI: 'SOXX', SEMICONDUCTORS: 'SOXX' };
+    if (IND_ALIAS[v] && state.bottom.isSector(IND_ALIAS[v])) { state.bottom.openSector(IND_ALIAS[v]); return; }
     // settore + vista: XLK TIT apre i titoli di XLK, XLU SEC il suo dettaglio
     const [w1, w2, ...rest] = v.split(/\s+/);
     // indice emergente + EMG: KOSPI200 EMG (o KOSPI EMG, EMG KOSPI200) apre la vista 7 su quell'indice

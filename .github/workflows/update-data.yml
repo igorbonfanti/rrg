@@ -92,6 +92,15 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch_breadth.js
 
+      # industrie accanto ai settori (config/industries.json, oggi il SOXX): lista iShares, prezzi da Yahoo, breadth dei
+      # membri di oggi, cali forti e vista 5; passo separato, così un problema qui non ferma mai i settori; se qualcosa
+      # non arriva restano i file pubblicati e la corsa lo segnala
+      - name: Industrie (SOXX)
+        id: industries
+        continue-on-error: true
+        timeout-minutes: 8
+        run: node scripts/fetch_industries.js
+
       - name: Breadth degli indici (pagina Indici)
         id: indices
         continue-on-error: true
@@ -123,14 +132,17 @@ jobs:
             INDICES=$(node -p "(() => { try { return require('./data/indices.json').asOf } catch { return '' } })()")
             EMG=$(node -p "(() => { try { return require('./data/emerging.json').asOf.fx } catch { return '' } })()")
             VIX=$(node -p "(() => { try { return require('./data/vix.json').asOf.vix } catch { return '' } })()")
-            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?}, indici al ${INDICES:-?}, emergenti al ${EMG:-?}, VIX al ${VIX:-?})"
+            IND=$(node -p "(() => { try { return require('./data/industries.json').asOf } catch { return '' } })()")
+            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, industrie al ${IND:-?}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?}, indici al ${INDICES:-?}, emergenti al ${EMG:-?}, VIX al ${VIX:-?})"
             git pull --rebase
             git push
           fi
           # il token non resta nella configurazione di git per i passi dopo (Telegram)
           git remote set-url origin "https://github.com/${{ github.repository }}"
 
-      # Telegram dopo la pubblicazione dei dati: se il push fallisce, la corsa dopo non rimanda gli stessi messaggi
+      # Telegram dopo la pubblicazione dei dati: se il push fallisce, la corsa dopo non rimanda gli stessi messaggi.
+      # Settori e industrie (SOXX); gli eventi del SOXX si calcolano su data/industries.json come lo lascia il passo delle
+      # industrie (aggiornato o, se è fallito, quello pubblicato)
       - name: Alert (zona blu, trigger, segnali falliti)
         id: alerts
         if: steps.breadth.outcome == 'success' && steps.commit.outcome == 'success'
@@ -162,7 +174,7 @@ jobs:
         run: node scripts/check_fresh.js
 
       - name: Esito
-        if: steps.prices.outcome == 'failure' || steps.emerging.outcome == 'failure' || steps.vix.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.indices.outcome == 'failure' || steps.alerts.outcome == 'failure' || steps.fresh.outcome == 'failure'
+        if: steps.prices.outcome == 'failure' || steps.emerging.outcome == 'failure' || steps.vix.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.industries.outcome == 'failure' || steps.indices.outcome == 'failure' || steps.alerts.outcome == 'failure' || steps.fresh.outcome == 'failure'
         run: |
-          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, emergenti: ${{ steps.emerging.outcome }}, VIX: ${{ steps.vix.outcome }}, breadth: ${{ steps.breadth.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
+          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, emergenti: ${{ steps.emerging.outcome }}, VIX: ${{ steps.vix.outcome }}, breadth: ${{ steps.breadth.outcome }}, industrie: ${{ steps.industries.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
           exit 1

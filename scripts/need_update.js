@@ -4,9 +4,9 @@
  *
  * GitHub fa partire le corse programmate con ore di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte.
  * Per avere i dati della seduta il prima possibile ci sono corse di recupero ogni ora nelle prime ore del mattino
- * (RECOVERY). Quelle corse servono solo finché manca la seduta USA attesa: se prezzi, breadth e indici USA ce l'hanno
- * già, la corsa si ferma subito e non riscarica migliaia di titoli. Le corse principali, quelle lanciate a mano e
- * quelle con un altro orario partono sempre.
+ * (RECOVERY). Quelle corse servono solo finché manca la seduta USA attesa: se prezzi, breadth, indici USA e industrie
+ * (data/industries.json, se esiste) ce l'hanno già, la corsa si ferma subito e non riscarica migliaia di titoli.
+ * Le corse principali, quelle lanciate a mano e quelle con un altro orario partono sempre.
  * Scrive run=true|false in $GITHUB_OUTPUT.
  */
 import fs from 'node:fs';
@@ -20,14 +20,16 @@ export const RECOVERY = '10 1-6 * * 2-6';
 const US = ['SPX', 'NDX', 'DJI', 'RUT'];
 
 /**
- * @param {{schedule?: string, expected: string, prices?: string, breadth?: string, indexLast?: Record<string, string|null>}} s
+ * @param {{schedule?: string, expected: string, prices?: string, breadth?: string, indexLast?: Record<string, string|null>, industries?: string|null}} s
  *   schedule: cron della corsa (vuoto se lanciata a mano); expected: seduta USA attesa; prices/breadth: asOf dei file;
- *   indexLast: ultima seduta con la breadth per gli indici USA
+ *   indexLast: ultima seduta con la breadth per gli indici USA; industries: asOf di data/industries.json (undefined se il
+ *   file non esiste ancora: nessun controllo)
  * @returns {{run: boolean, why: string}}
  */
 export function needUpdate(s) {
   if (s.schedule !== RECOVERY) return { run: true, why: s.schedule ? `corsa programmata (${s.schedule})` : 'corsa lanciata a mano' };
-  const late = [['prezzi', s.prices], ['breadth', s.breadth], ...US.map((k) => [k, (s.indexLast || {})[k]])].filter(([, d]) => !d || d < s.expected);
+  const late = [['prezzi', s.prices], ['breadth', s.breadth], ...US.map((k) => [k, (s.indexLast || {})[k]]),
+    ...(s.industries !== undefined ? [['industrie', s.industries]] : [])].filter(([, d]) => !d || d < s.expected);
   return late.length
     ? { run: true, why: `manca la seduta ${s.expected} per ${late.map(([k]) => k).join(', ')}` }
     : { run: false, why: `dati USA già alla seduta ${s.expected}: niente da fare` };
@@ -54,6 +56,8 @@ async function check(schedule) {
   return needUpdate({
     schedule, expected: expectedSession(),
     prices: (read('prices.json') || {}).asOf, breadth: (read('breadth.json') || {}).asOf, indexLast,
+    // file mancante: nessun controllo; file illeggibile o senza data: la corsa riprova
+    ...(fs.existsSync(path.join(ROOT, 'data', 'industries.json')) ? { industries: (read('industries.json') || {}).asOf || null } : {}),
   });
 }
 

@@ -969,3 +969,19 @@ svg .zoomlab { fill: var(--ink); font: 600 10.5px var(--f-mono, monospace); poin
 @media print { .zlens { display: none; } .zchip button { display: none; } }
 @media (pointer: coarse) { .zlens { padding: 8px 11px; } .zchip { padding: 0 0 0 8px; } .zchip button { padding: 7px 11px; font-size: 15px; } }
 
+
+/* industrie accanto ai settori (1.9.0, SOXX): gruppo del Monitor, chip separati, rombo della Bottom Map, collegamenti */
+.indtag { display: inline-block; margin-left: 6px; font: 10px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; border: 1px solid var(--rule); padding: 0 4px; vertical-align: 1px; }
+.t tr.grp td { font: 600 10.5px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .05em; padding-top: 10px; border-bottom: 1px solid var(--rule); background: transparent; cursor: default; }
+.chipgrp { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.chipsep { display: inline-block; width: 1px; height: 18px; background: var(--rule); margin: 0 4px; }
+.chiplab { font: 600 9.5px var(--f-mono); color: var(--ink-3); letter-spacing: .06em; }
+.dia { color: var(--ink-2); margin-right: 3px; font-size: 10px; }
+.tvlinks a.rel { flex-basis: 100%; }
+#secQuality { margin-top: 10px; }
+.rrg .head.diamond { stroke-linejoin: round; }
+@media (max-width: 900px) {
+  .board-cards tr.grp { padding: 10px 10px 4px; border-bottom: 1px solid var(--rule); }
+  .board-cards tr.grp td { padding: 0; border: 0; }
+}
+.cq .grplab { fill: var(--ink-3); font: 600 9.5px var(--f-mono); letter-spacing: .06em; }

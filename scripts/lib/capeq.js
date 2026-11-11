@@ -191,11 +191,6 @@ export const simStart = (cal) => Math.max(0, cal.length - 1 - LEN['1A'] - OFFSET
 
 const r1 = (v) => (v == null || !Number.isFinite(v) ? null : Math.round(v * 1000) / 10);
 
-/**
- * File data/sector_members.json.
- * @param {object} o cal (sedute fino a asOf), members [{s, name, sector, sub}], life, px {s: allineati}, qty {s: azioni
- *   detenute da IVV, o salvate per chi è uscito} (anche parziale), sectors (11 chiavi)
- */
 /** Indici dell'ultima seduta di ogni settimana fino a N compreso (N chiude la settimana in corso). */
 export function weekEnds(cal, N) {
   const monday = (d) => { const t = Date.parse(d + 'T12:00:00Z'); return t - ((new Date(t).getUTCDay() + 6) % 7) * 864e5; };
@@ -204,7 +199,15 @@ export function weekEnds(cal, N) {
   return out;
 }
 
-export function buildSectorMembers({ cal, members, life, px, qty, sectors }) {
+/**
+ * File data/sector_members.json (e data/industry_members.json per le industrie).
+ * @param {object} o cal (sedute fino a asOf), members [{s, name, sector, sub}], life, px {s: allineati}, qty {s: azioni
+ *   detenute da IVV, o salvate per chi è uscito} (anche parziale), sectors (11 chiavi), total: false per non aggiungere
+ *   la riga dell'indice intero SPX (industrie: un «S&P 500» fatto dei soli membri dell'industria non avrebbe senso);
+ *   capPx {k: chiusure allineate a cal}: per quel gruppo il cap-weighted è questa serie (industrie: il prezzo dell'ETF,
+ *   che ha i suoi tetti e ribilanciamenti; le azioni di oggi tenute fisse lo falserebbero sui periodi lunghi)
+ */
+export function buildSectorMembers({ cal, members, life, px, qty, sectors, total = true, capPx = null }) {
   const N = cal.length - 1;
   const s0 = simStart(cal);
   const resets = resetDays(cal);
@@ -220,15 +223,17 @@ export function buildSectorMembers({ cal, members, life, px, qty, sectors }) {
   const weeks = weekEnds(cal, N).slice(-WEEKS);
   const out = { asOf: cal[N], dates: OFFSETS.map((k) => cal[N - k]), starts: {}, sectors: {}, hist: { dates: weeks.map((t) => cal[t]), sectors: {} }, stocks: [] };
   for (const p of PERIODS) out.starts[p] = OFFSETS.map((k) => { const w = windowOf(cal, p, N - k); return w ? cal[w[0]] : null; });
-  for (const k of [...sectors, 'SPX']) {
+  for (const k of total ? [...sectors, 'SPX'] : sectors) {
     const own = names.filter((s) => k === 'SPX' || life[s].sector === k);
-    const { cw, ew, n } = sectorIndex({ cal, s0, names: own, life, px, shares, resets });
+    const si = sectorIndex({ cal, s0, names: own, life, px, shares, resets }), { ew, n } = si;
+    const cw = capPx && capPx[k] ? capPx[k].slice(s0) : si.cw;
     // rendimenti cap ed equal nel periodo p che finisce alla seduta e (null se la finestra non è coperta)
     const pair = (p, e) => {
       const w = windowOf(cal, p, e);
       // senza titoli quotati in qualche seduta della finestra il rendimento non c'è (non 0%)
       if (!w || w[0] < s0 || n.slice(w[0] - s0 + 1, w[1] - s0 + 1).some((x) => !x)) return null;
       const [a, b] = w.map((t) => t - s0);
+      if (cw[a] == null || cw[b] == null) return null;
       return [r1(cw[b] / cw[a] - 1), r1(ew[b] / ew[a] - 1)];
     };
     out.sectors[k] = {};
