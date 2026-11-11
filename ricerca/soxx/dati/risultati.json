@@ -23,304 +23,405 @@
   {
    "ticker": "AMD",
    "nome": "ADVANCED MICRO DEVICES",
-   "peso": 10.11,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "AVGO",
    "nome": "BROADCOM INC",
-   "peso": 8.3,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2009-08-06",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 4343
+   "sedute": 4343,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "NVDA",
    "nome": "NVIDIA",
-   "peso": 7.11,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1999-01-22",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 6994
+   "sedute": 6994,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "MU",
    "nome": "MICRON TECHNOLOGY",
-   "peso": 6.99,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "INTC",
    "nome": "INTEL CORPORATION",
-   "peso": 6,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "TXN",
    "nome": "TEXAS INSTRUMENT",
-   "peso": 5.35,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "ADI",
    "nome": "ANALOG DEVICES",
-   "peso": 5.08,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "QCOM",
    "nome": "QUALCOMM",
-   "peso": 4.72,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1991-12-13",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 8789
+   "sedute": 8789,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "MPWR",
    "nome": "MONOLITHIC POWER SYSTEMS INC",
-   "peso": 4.12,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2004-11-19",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 5528
+   "sedute": 5528,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "KLAC",
    "nome": "KLA",
-   "peso": 4.04,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "NXPI",
    "nome": "NXP SEMICONDUCTORS NV",
-   "peso": 3.82,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2010-08-06",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 4091
+   "sedute": 4091,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "AMAT",
    "nome": "APPLIED MATERIAL INC",
-   "peso": 3.75,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "TSM",
    "nome": "TAIWAN SEMICONDUCTOR MANUFACTURING",
-   "peso": 3.42,
    "paese": "Taiwan",
    "borsa": "NYSE",
    "primaSeduta": "1997-10-09",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 7317
+   "sedute": 7317,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "LRCX",
    "nome": "LAM RESEARCH",
-   "peso": 3.41,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "MRVL",
    "nome": "MARVELL TECHNOLOGY",
-   "peso": 3.37,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2000-06-30",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 6630
+   "sedute": 6630,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "SKHY",
    "nome": "SK HYNIX AMERICAN DEPOSITARY SHARE",
-   "peso": 2.78,
    "paese": "Korea (South)",
    "borsa": "NASDAQ",
    "primaSeduta": "2026-07-10",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 87
+   "sedute": 87,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "TER",
    "nome": "TERADYNE",
-   "peso": 2.43,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1990-01-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 9283
+   "sedute": 9283,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "MCHP",
    "nome": "MICROCHIP TECHNOLOGY INC",
-   "peso": 2.09,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "1993-03-19",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 8470
+   "sedute": 8470,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "ALAB",
    "nome": "ASTERA LABS",
-   "peso": 1.96,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2024-03-20",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 664
+   "sedute": 664,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "ON",
    "nome": "ON SEMICONDUCTOR CORP",
-   "peso": 1.73,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2000-05-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 6672
+   "sedute": 6672,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "ASML",
    "nome": "ASML HOLDING ADR REPRESENTING",
-   "peso": 1.64,
    "paese": "Netherlands",
    "borsa": "NASDAQ",
    "primaSeduta": "1995-03-15",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 7968
+   "sedute": 7968,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "CRDO",
    "nome": "CREDO TECHNOLOGY GROUP HOLDING LTD",
-   "peso": 1.4,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2022-01-27",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 1202
+   "sedute": 1202,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "ENTG",
    "nome": "ENTEGRIS INC",
-   "peso": 1.36,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2000-07-11",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 6624
+   "sedute": 6624,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "MTSI",
    "nome": "MACOM TECHNOLOGY SOLUTIONS",
-   "peso": 1.03,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2012-03-15",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 3686
+   "sedute": 3686,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "TSEM",
    "nome": "TOWER SEMICONDUCTOR",
-   "peso": 0.99,
    "paese": "Israel",
    "borsa": "NASDAQ",
    "primaSeduta": "1994-10-26",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 8064
+   "sedute": 8064,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "ASX",
    "nome": "ASE TECHNOLOGY HOLDING ADR REPRESE",
-   "peso": 0.93,
    "paese": "Taiwan",
    "borsa": "NYSE",
    "primaSeduta": "2000-10-02",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 6566
+   "sedute": 6566,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "CBRS",
    "nome": "CEREBRAS SYSTEMS INC CLASS A",
-   "peso": 0.57,
    "paese": "United States",
    "borsa": "NASDAQ",
    "primaSeduta": "2026-05-14",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 125
+   "sedute": 125,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "UMC",
    "nome": "UNITED MICRO ELECTRONICS ADR REP",
-   "peso": 0.54,
    "paese": "Taiwan",
    "borsa": "NYSE",
    "primaSeduta": "2000-09-19",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 6575
+   "sedute": 6575,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "STM",
    "nome": "STMICROELECTRONICS ADR",
-   "peso": 0.48,
    "paese": "France",
    "borsa": "NYSE",
    "primaSeduta": "1994-12-08",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 8034
+   "sedute": 8034,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   },
   {
    "ticker": "ARM",
    "nome": "ARM HOLDINGS AMERICAN DEPOSITARY S",
-   "peso": 0.4,
    "paese": "United Kingdom",
    "borsa": "NASDAQ",
    "primaSeduta": "2023-09-14",
    "ultimaSeduta": "2026-11-10",
-   "sedute": 793
+   "sedute": 793,
+   "seduteSOXXMancanti": 0,
+   "esempiMancanti": [],
+   "chiusureTolteDaClean": 0,
+   "chiusureRiscalateDaClean": 0
   }
  ],
+ "calendario": {
+  "soxxSenzaSOX": [],
+  "soxSenzaSOXX": []
+ },
+ "soxx": {
+  "prima": "2001-07-13",
+  "ultima": "2026-11-10",
+  "sedute": 6370,
+  "saltiOltre25": [],
+  "rapportoRettificataPrimaSeduta": 0.82
+ },
  "disponibilita": [
   {
    "data": "2001-07-13",

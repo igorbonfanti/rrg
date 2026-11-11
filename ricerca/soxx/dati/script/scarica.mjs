@@ -4,7 +4,7 @@
  *
  *  - Holdings del SOXX dal CSV pubblico di iShares (https://www.ishares.com/us/products/239705/x/latest-holdings.csv,
  *    lo stesso tipo di file che l'app usa per IWM, EEM ed EWT): si tengono le righe "Equity" e si scrive
- *    ricerca/soxx/dati/membri_oggi.json (simbolo, nome, peso, paese, borsa).
+ *    ricerca/soxx/dati/membri_oggi.json (simbolo, nome, paese, borsa).
  *  - Chiusure giornaliere da Yahoo (endpoint chart, la funzione fetchDaily dell'app in scripts/lib/yahoo.js) dal
  *    01/01/1990 per: membri di oggi, membri delle fotografie Wikipedia del SOX (composizioni.json), SOXX, ^SOX e
  *    000660.KS (SK Hynix a Seul, solo per confronto). close = rettificata per gli split, adjclose = anche per i dividendi.
@@ -35,7 +35,7 @@ const asOf = (text.match(/Fund Holdings as of,"([^"]+)"/) || [])[1];
 const tickers = parseIShares(text, parseCSV); // stessa funzione dell'app (righe Equity, simboli con il trattino)
 const lines = text.replace(/^﻿/, '').split(/\r?\n/);
 const rows = parseCSV(lines.slice(lines.findIndex((l) => l.startsWith('Ticker,'))).join('\n')).filter((x) => x['Asset Class'] === 'Equity');
-const membri = rows.map((x) => ({ ticker: x.Ticker.trim(), nome: x.Name, peso: +x['Weight (%)'], paese: x.Location, borsa: x.Exchange }));
+const membri = rows.map((x) => ({ ticker: x.Ticker.trim(), nome: x.Name, paese: x.Location, borsa: x.Exchange })); // senza pesi né quantità: solo la lista, come data/index_members
 fs.writeFileSync(path.join(OUT, 'membri_oggi.json'), JSON.stringify({ fonte: URL, asOf, scaricato: new Date().toISOString().slice(0, 10), count: tickers.length, tickers, membri }, null, 1));
 console.log(`SOXX al ${asOf}: ${tickers.length} titoli`);
 

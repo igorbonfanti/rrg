@@ -323,6 +323,8 @@ for (const m of res.macchina.soxxRettificato) {
 }
 for (const k of ['soxxSoloPrezzo', 'indiceSOX']) for (const m of res.macchina[k]) console.log(k, m.livello, 'ZB', m.zoneBlu, 'trig', m.trigger, 'fail', m.falliti, m.episodi.map((e) => e.zonaBlu).join(' '));
 console.log('\ndrawdown oggi', JSON.stringify(res.drawdown.oggi), 'percentile dal', res.drawdown.percentileDaSeduta, 'soglie', JSON.stringify(res.drawdown.soglie));
+console.log('\ncopertura', JSON.stringify(res.calendario).slice(0, 300), JSON.stringify(res.soxx));
+for (const m of memberInfo) console.log(' ', m.ticker.padEnd(5), m.primaSeduta, m.sedute, 'mancanti', m.seduteSOXXMancanti, m.esempiMancanti.join(','), 'clean tolte', m.chiusureTolteDaClean, 'riscalate', m.chiusureRiscalateDaClean);
 console.log('\nbias');
 for (const a of availability) console.log(' ', a.data, `${a.conPrezzi}/${a.membri} con prezzi, ${a.con200Sedute} con 200 sedute; mancano: ${a.mancanti.join(', ')}`);
 for (const c of confronto) console.log(' ', c.fotografia, '→', c.fino, `${c.conPrezzi}/${c.elencati}`, 'scarto medio', c.scartoMedio, 'mediano', c.scartoMediano, `[${c.scartoMin}, ${c.scartoMax}]`, 'sotto20', c.seduteFotografiaSotto20, c.scartoMedioSotto20, 'min oggi', JSON.stringify(c.minimoMembriOggi), 'min foto', JSON.stringify(c.minimoFotografia), '≤3', c.seduteSotto3MembriOggi, c.seduteSotto3Fotografia);
