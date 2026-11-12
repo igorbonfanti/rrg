@@ -7,13 +7,13 @@ scarta la seduta in corso, ricalcola tutte le statistiche e le confronta con dat
 (date compatte in base 36 e differenze intere / ps) e lo confronta con le chiusure scaricate dal 2000-01-01.
 Seconda fonte: FRED (SP500, NASDAQ100, DCOILWTICO, CBBTCUSD) per l'ultima chiusura e il massimo dei 3 anni.
 
-Uso:  python3 -I ricerca/qa/1.10.0/numeri/verifica_ath.py [--cache]   (--cache: riusa i download in cache/)
+Uso:  python3 -I ricerca/qa/1.10.0/numeri/verifica_ath.py [--cache] [--root DIR]   (--cache: riusa i download in cache/; --root: altra copia del repository)
 """
 import datetime as dt, json, os, sys, time, urllib.request, csv, io
 from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, '..', '..', '..', '..'))
+ROOT = sys.argv[sys.argv.index('--root') + 1] if '--root' in sys.argv else os.path.abspath(os.path.join(HERE, '..', '..', '..', '..'))
 CACHE = os.path.join(HERE, 'cache')
 USE_CACHE = '--cache' in sys.argv
 NOW = time.time()
@@ -105,6 +105,18 @@ def fred(sid):
     rows = list(csv.reader(io.StringIO(txt)))[1:]
     return [(d, float(v)) for d, v in rows if v not in ('.', '')]
 
+def nasdaq(sym, ac):
+    f = os.path.join(CACHE, 'N_' + sym + '.json')
+    if not (USE_CACHE and os.path.exists(f)):
+        raise RuntimeError('scaricare prima con curl --http1.1 (vedi rapporto.md)')
+    j = json.load(open(f))
+    num = lambda x: float(x.replace(',', '').replace('$', ''))
+    out = []
+    for r in j['data']['tradesTable']['rows']:
+        m, d, y = r['date'].split('/')
+        out.append((f'{y}-{m}-{d}', num(r['close']), num(r['high'])))
+    return sorted(out)
+
 def main():
     cfg = json.load(open(os.path.join(ROOT, 'config/ath.json')))['markets']
     A = json.load(open(os.path.join(ROOT, 'data/ath.json')))
@@ -169,6 +181,23 @@ def main():
         mx = max(win, key=lambda x: x[1]); mxd = next(x for x in win if x[1] == mx[1])
         print(f"{sid:10s} ({note}): ultima {last[0]} {last[1]} (app {p['lastDate']} {p['last']}, diff {100*(last[1]/p['last']-1):+.3f}%);"
               f" massimo 3 anni {mxd[0]} {mx[1]} (app {p['refDate']} {p['ref']}, diff {100*(mx[1]/p['ref']-1):+.3f}%); distanza FRED {100*(last[1]/mx[1]-1):.2f}% (app {p['distPct']}%)")
+    print('\n--- Seconda fonte (api.nasdaq.com, chiusure e massimi della seduta) ---')
+    for sym, mid, ac in [('GLD', 'GOLD', 'etf'), ('SLV', 'SILVER', 'etf'), ('SOXX', 'SOXX', 'etf'), ('NDX', 'NDX', 'index')]:
+        try:
+            rows = nasdaq(sym, ac)
+        except Exception as e:
+            print(f'{sym}: non scaricato ({e})'); continue
+        p = pub[mid]['stats']
+        rows = [r for r in rows if r[0] <= p['lastDate']]
+        win = [r for r in rows if r[0] >= p['from']]
+        mx = max(r[1] for r in win); mxd = next(r[0] for r in win if r[1] == mx)
+        hi = max(r[2] for r in win); hid = next(r[0] for r in win if r[2] == hi)
+        after = [r for r in rows if r[0] > mxd]; lo = min(after, key=lambda r: r[1]) if after else None
+        yb = dict((d, cl) for d, cl, _ in mine[mid][0])
+        nd = sum(1 for r in win if r[0] not in yb); nv = sum(1 for r in win if r[0] in yb and abs(r[1] - yb[r[0]]) > 0.006 * (1 if r[1] < 1000 else 10))
+        print(f"{sym:5s}: chiusure di tutta la finestra confrontate con Yahoo: {len(win)}, date assenti in Yahoo {nd}, valori diversi oltre l'arrotondamento {nv}")
+        print(f"{sym:5s}: {len(win)} sedute nella finestra (dal {win[0][0]}); ultima {rows[-1][0]} {rows[-1][1]} (app {p['lastDate']} {p['last']}); massimo 3 anni {mxd} {mx} (app {p['refDate']} {p['ref']}, diff {100*(mx/p['ref']-1):+.3f}%);"
+              f" distanza {100*(rows[-1][1]/mx-1):.2f}% (app {p['distPct']}%); minimo dopo {lo[0]} {lo[1]} (app {p['cycleLowDate']} {p['cycleLow']}); massimo seduta {hid} {hi} (app {p['intradayRefDate']} {p['intradayRef']})")
     print(f'\nControlli: {checks} confronti, mercati con differenze o storico non coerente: {fails}')
     json.dump({k: v[1] for k, v in mine.items()}, open(os.path.join(HERE, 'ricalcolo.json'), 'w'), indent=1)
 

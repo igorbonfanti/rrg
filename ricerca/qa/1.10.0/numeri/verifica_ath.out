@@ -1,0 +1,46 @@
+data/ath.json generato 2026-11-12T15:28:42.947Z, asOf 2026-11-11, missing []
+
+[OK] BTC BTC-USD (UTC) ultima 2026-11-11 73964.4688  ref 124752.5312 2025-10-06  dist -40.71%  giorni 401  low 58558.8594 2026-06-30 (-53.06%)  da low 26.31%  ath 124752.5312 2025-10-06  intraday 126198.0703 2025-10-06
+     ath_history: 4439 chiusure dal 2014-09-17 al 2026-11-11, ps 100, errore massimo 0.005000, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] GOLD GLD (America/New_York) ultima 2026-11-11 365.17  ref 495.9 2026-01-29  dist -26.36%  giorni 286  low 355.78 2026-10-30 (-28.26%)  da low 2.64%  ath 495.9 2026-01-29  intraday 509.7 2026-01-29
+     ath_history: 5530 chiusure dal 2004-11-18 al 2026-11-11, ps 10000, errore massimo 0.000000, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] SILVER SLV (America/New_York) ultima 2026-11-11 46.65  ref 105.6 2026-01-28  dist -55.82%  giorni 287  low 44.6 2026-10-30 (-57.77%)  da low 4.6%  ath 105.6 2026-01-28  intraday 109.83 2026-01-29
+     ath_history: 5168 chiusure dal 2006-04-28 al 2026-11-11, ps 10000, errore massimo 0.000000, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] COPPER HG=F (America/New_York) ultima 2026-11-11 6.2745  ref 6.8035 2026-09-09  dist -7.78%  giorni 63  low 6.218 2026-11-06 (-8.61%)  da low 0.91%  ath 6.8035 2026-09-09  intraday 6.83 2026-09-22
+     ath_history: 6580 chiusure dal 2000-08-30 al 2026-11-11, ps 10000, errore massimo 0.000000, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] WTI CL=F (America/New_York) ultima 2026-11-11 86.53  ref 112.95 2026-04-07  dist -23.39%  giorni 218  low 68.55 2026-07-06 (-39.31%)  da low 26.23%  ath 145.29 2008-07-03  intraday 119.48 2026-03-09
+     ath_history: 6584 chiusure dal 2000-08-23 al 2026-11-11, ps 10000, errore massimo 0.000000, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] NDX ^NDX (America/New_York) ultima 2026-11-11 28374.25  ref 31224.4707 2026-10-06  dist -9.13%  giorni 36  low 26629.8105 2026-11-05 (-14.71%)  da low 6.55%  ath 31224.4707 2026-10-06  intraday 31361.3691 2026-10-06
+     ath_history: 6756 chiusure dal 2000-01-03 al 2026-11-11, ps 100, errore massimo 0.000900, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] SPX ^GSPC (America/New_York) ultima 2026-11-11 7619.3799  ref 7818.9302 2026-10-06  dist -2.55%  giorni 36  low 7353.73 2026-11-05 (-5.95%)  da low 3.61%  ath 7818.9302 2026-10-06  intraday 7844.52 2026-10-06
+     ath_history: 6756 chiusure dal 2000-01-03 al 2026-11-11, ps 100, errore massimo 0.000200, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] SOXX SOXX (America/New_York) ultima 2026-11-11 155.4  ref 218.3367 2026-06-22  dist -28.83%  giorni 142  low 131.9 2026-11-05 (-39.59%)  da low 17.82%  ath 218.3367 2026-06-22  intraday 218.65 2026-06-22
+     ath_history: 6371 chiusure dal 2001-07-13 al 2026-11-11, ps 10000, errore massimo 0.000000, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+[OK] KOSPI ^KS11 (Asia/Seoul) ultima 2026-11-11 5375.3599  ref 9114.5498 2026-06-22  dist -41.02%  giorni 142  low 5018.8501 2026-11-09 (-44.94%)  da low 7.1%  ath 9114.5498 2026-06-22  intraday 9385.5898 2026-06-19
+     ath_history: 6613 chiusure dal 2000-01-04 al 2026-11-11, ps 100, errore massimo 0.000500, fuori arrotondamento 0; ultima OK, massimo 3 anni OK, minimo OK, ultima data OK
+
+--- Seconda fonte (FRED) ---
+SP500      (stesso indice): ultima 2026-11-11 7619.38 (app 2026-11-11 7619.3799, diff +0.000%); massimo 3 anni 2026-10-06 7818.93 (app 2026-10-06 7818.9302, diff -0.000%); distanza FRED -2.55% (app -2.55%)
+NASDAQ100  (stesso indice): ultima 2026-11-11 28374.25 (app 2026-11-11 28374.25, diff +0.000%); massimo 3 anni 2026-10-06 31224.69 (app 2026-10-06 31224.4707, diff +0.001%); distanza FRED -9.13% (app -9.13%)
+DCOILWTICO (spot Cushing, non il future continuo): ultima 2026-11-03 99.64 (app 2026-11-11 86.53, diff +15.151%); massimo 3 anni 2026-04-07 114.58 (app 2026-04-07 112.95, diff +1.443%); distanza FRED -13.04% (app -23.39%)
+CBBTCUSD   (Coinbase, prezzo alle 00:00 UTC? (FRED: «daily»)): ultima 2026-11-11 73777.1 (app 2026-11-11 73964.4688, diff -0.253%); massimo 3 anni 2025-10-05 124720.09 (app 2025-10-06 124752.5313, diff -0.026%); distanza FRED -40.85% (app -40.71%)
+
+--- Seconda fonte (api.nasdaq.com, chiusure e massimi della seduta) ---
+GLD  : chiusure di tutta la finestra confrontate con Yahoo: 752, date assenti in Yahoo 0, valori diversi oltre l'arrotondamento 1
+GLD  : 752 sedute nella finestra (dal 2023-11-13); ultima 2026-11-11 365.17 (app 2026-11-11 365.17); massimo 3 anni 2026-01-29 495.9 (app 2026-01-29 495.9, diff +0.000%); distanza -26.36% (app -26.36%); minimo dopo 2026-10-30 355.78 (app 2026-10-30 355.78); massimo seduta 2026-01-29 509.7 (app 2026-01-29 509.7)
+SLV  : chiusure di tutta la finestra confrontate con Yahoo: 752, date assenti in Yahoo 0, valori diversi oltre l'arrotondamento 1
+SLV  : 752 sedute nella finestra (dal 2023-11-13); ultima 2026-11-11 46.65 (app 2026-11-11 46.65); massimo 3 anni 2026-01-28 105.6 (app 2026-01-28 105.6, diff +0.000%); distanza -55.82% (app -55.82%); minimo dopo 2026-10-30 44.6 (app 2026-10-30 44.6); massimo seduta 2026-01-29 109.83 (app 2026-01-29 109.83)
+SOXX : chiusure di tutta la finestra confrontate con Yahoo: 752, date assenti in Yahoo 0, valori diversi oltre l'arrotondamento 0
+SOXX : 752 sedute nella finestra (dal 2023-11-13); ultima 2026-11-11 155.4 (app 2026-11-11 155.4); massimo 3 anni 2026-06-22 218.3366 (app 2026-06-22 218.3367, diff -0.000%); distanza -28.83% (app -28.83%); minimo dopo 2026-11-05 131.9 (app 2026-11-05 131.9); massimo seduta 2026-06-22 218.65 (app 2026-06-22 218.65)
+NDX  : chiusure di tutta la finestra confrontate con Yahoo: 752, date assenti in Yahoo 0, valori diversi oltre l'arrotondamento 2
+NDX  : 752 sedute nella finestra (dal 2023-11-13); ultima 2026-11-11 28374.25 (app 2026-11-11 28374.25); massimo 3 anni 2026-10-06 31224.69 (app 2026-10-06 31224.4707, diff +0.001%); distanza -9.13% (app -9.13%); minimo dopo 2026-11-05 26629.81 (app 2026-11-05 26629.8105); massimo seduta 2026-10-06 31361.37 (app 2026-10-06 31361.3691)
+
+Controlli: 54959 confronti, mercati con differenze o storico non coerente: 0

@@ -112,6 +112,7 @@ async function checkChart(p, tag, id, opt = {}) {
   // titolo: «prezzo dal <anno della serie>»
   ok(G.title.startsWith(`${m.label}: prezzo dal ${H.d[0].slice(0, 4)}`), `${tag} ${id}: titolo «${G.title}»`);
   // riquadro dei valori in 6 punti (anche ai due bordi)
+  await p.locator('#athChart').scrollIntoViewIfNeeded();
   const box = await p.locator('#athChart').boundingBox();
   const sc = box.width / G.W, bad = [];
   let nTip = 0;
@@ -293,7 +294,7 @@ const realErrs = (errs) => errs.filter((e) => !/Failed to load resource.*404|sta
       ok(!miss.length, `${T} ${id}: dettaglio con i numeri del file ${miss.map((w) => `manca «${w}»`).join(' | ')}`);
       // controllo incrociato con la storia: ultima chiusura e massimo
       const H = HIST[id];
-      ok(Math.abs(H.c[H.c.length - 1] - s.last) < 1e-3 && H.d[H.d.length - 1] === s.lastDate && Math.abs(H.map.get(s.refDate) - s.ref) < 1e-3, `${T} ${id}: storia del grafico e file dei numeri coincidono su ultima chiusura e massimo`);
+      ok(Math.abs(H.c[H.c.length - 1] - s.last) <= 0.5 / HJ.series[id].ps + 1e-9 && H.d[H.d.length - 1] === s.lastDate && Math.abs(H.map.get(s.refDate) - s.ref) <= 0.5 / HJ.series[id].ps + 1e-9, `${T} ${id}: storia del grafico e file dei numeri coincidono su ultima chiusura e massimo`);
       for (const R of ['3A', '10A', 'MAX']) {
         await p.click(`#athRange button[data-range="${R}"]`); await p.waitForTimeout(200);
         const G = await checkChart(p, `${T} ${R}`, id);
@@ -372,7 +373,7 @@ const realErrs = (errs) => errs.filter((e) => !/Failed to load resource.*404|sta
     await p.evaluate(() => { location.hash = '#vix'; }); await p.waitForTimeout(900);
     const after = await chartGeom(p);
     const vxOk = await p.evaluate(() => !document.getElementById('v-vix').hidden);
-    ok(vxOk && after && !document.hidden && after.title === before.title && Math.abs(after.W - before.W) < 2 && (await p.$$('#athTable tr.athdet')).length === 1, `${T}: tornando alla vista VIX il pannello è coerente (titolo «${after && after.title}», larghezza ${after && after.W} contro ${before.W}, dettaglio aperto)`);
+    ok(vxOk && after && after.title === before.title && Math.abs(after.W - before.W) < 2 && (await p.$$('#athTable tr.athdet')).length === 1, `${T}: tornando alla vista VIX il pannello è coerente (titolo «${after && after.title}», larghezza ${after && after.W} contro ${before.W}, dettaglio aperto)`);
     if (after) await checkChart(p, `${T} dopo navigazione`, 'KOSPI');
     // ridimensionamento: il grafico si ridisegna alla nuova larghezza
     await p.setViewportSize({ width: vw === 1440 ? 1100 : 1440, height: 900 }); await p.waitForTimeout(900);
