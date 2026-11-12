@@ -82,7 +82,7 @@ async function main() {
   };
   fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
   fs.writeFileSync(OUT_H, JSON.stringify({ generated: out.generated, from: HIST_FROM, note: 'Chiusure giornaliere di Yahoo (solo prezzo) per il grafico del pannello; date compatte (d0, gaps) e valori in differenze intere (cd) divise per ps.', series: hist }) + '\n');
-  console.log(`data/ath.json: ${ok.length} mercati su ${rows.length}${missing.length ? ` (righe pubblicate: ${missing.join(', ')})` : ''}`);
+  console.log(`data/ath.json: ${ok.length} mercati su ${rows.length}${missing.length ? ` (non aggiornati: ${missing.join(', ')}; resta la riga pubblicata dove c'è)` : ''}`);
   for (const r of rows) if (r.stats) console.log(`  ${r.id.padEnd(7)} ${String(r.stats.distPct).padStart(7)}%  massimo dei 3 anni ${r.stats.refDate}  (di sempre ${r.stats.athDate})  ultima ${r.stats.lastDate}`);
   // un mercato non arrivato fa fallire il passo (come fetch_industries.js): l'Esito della corsa lo segnala subito, i file
   // sono già scritti con le righe pubblicate

@@ -516,7 +516,9 @@ export function createVix(ctx) {
     let lastY = Infinity, ticks = main.length >= 3 ? main : inR;
     // zoom stretto: meno di due valori tondi nel riquadro, si usano 5 livelli con 3 cifre significative
     if (ticks.length < 2) { ticks = []; for (let k = 0; k < 5; k++) { const v = Math.exp(lo + ((hi - lo) * (k + 0.5)) / 5), e = 10 ** (Math.floor(Math.log10(v)) - 2); ticks.push(Math.round(v / e) * e); } }
-    const lab = (v) => (v >= 1000 ? th(v / 1000, v % 1000 ? (v % 100 ? 2 : 1) : 0) + 'k' : th(v, v < 10 ? (v % 1 ? 2 : 0) : v % 1 ? 1 : 0));
+    // decimali solo se servono: 2,5 e 3 (non 2,50), 6,32k nello zoom stretto
+    const dec = (v) => (Number.isInteger(+v.toFixed(6)) ? 0 : Number.isInteger(+(v * 10).toFixed(6)) ? 1 : 2);
+    const lab = (v) => (v >= 1000 ? th(v / 1000, dec(v / 1000)) + 'k' : th(v, dec(v)));
     for (const v of ticks) { const yv = fy(v); if (lastY - yv < 20) continue; lastY = yv; el('line', { x1: L, x2: L + PW, y1: yv, y2: yv, class: 'gridl' }, svg); el('text', { x: L + PW + 4, y: yv + 3, class: 'axt' }, svg).textContent = lab(v); }
     let d = '', on = false;
     for (let i = 0; i < n; i++) { if (close[i] == null || close[i] <= 0 || !inWin(dates[i])) { on = false; continue; } d += (on ? 'L' : 'M') + x(dates[i]).toFixed(1) + ' ' + fy(close[i]).toFixed(1); on = true; }
