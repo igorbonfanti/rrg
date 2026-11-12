@@ -93,3 +93,7 @@ Ipotesi (NON verificate):
    C. Brown, «Technical Analysis for the Trading Professional», 1999. Le fonti online non concordano del tutto: da verificare sul libro.
 5. Detrended Price Oscillator, oscillatore di ciclo puro (prezzo meno una SMA centrata). Per un ciclo di circa 4 anni (n intorno a 48 mesi)
    va ricentrato e quindi ricalcola il passato: non è adatto a un segnale in tempo reale.
+
+## 5. Permesso dell'autore
+
+12/11/2026: Igor ha chiesto a Francesco Caruso il permesso di usare il Composite Momentum Oscillator nell'app e Caruso ha risposto di sì (riferito da Igor; il messaggio lo conserva lui). Nell'app il CMO va sempre attribuito a Francesco Caruso / Cicli&Mercati, con il link alla pagina della formula. Il permesso riguarda il CMO: il C-Wave resta fuori perché la formula non è pubblica.
