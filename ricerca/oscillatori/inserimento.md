@@ -93,6 +93,26 @@ oltre ~5 anni o se si vogliono segnali prima del 1995 (bear market del 1990). In
   `encodeDates` (`js/indexdata.js:20`) accetta salti fino a 35 giorni; tra due ultime sedute di mese si arriva a 33-35:
   per una serie mensile meglio un formato a mesi (`m0` + `cd`).
 
+### 1.6 Massimi e minimi del mese (servono al Composite Momentum)
+
+Secondo `identificazione.md` il Composite Momentum di Caruso usa `Stochastic[5,3]`, cioè **massimo e minimo** di ogni
+periodo, non solo la chiusura. **L'app non li ha**: `data/vix.json` tiene solo le chiusure, e `scripts/lib/yahoo.js`
+(`parse`, `:79-115`) restituisce `close`, `adjclose` e `high`, ma non `low`. Da `massimi_minimi.mjs`
+(`massimi_minimi.out.txt`):
+
+- Yahoo `^GSPC` giornaliero ha massimo e minimo veri (mai massimo = minimo) in tutte le 10.547 sedute dal 02/01/1985;
+- i massimi, i minimi e le chiusure mensili ricostruiti dalle sedute coincidono con le 503 barre mensili chiuse di Yahoo
+  (`interval=1mo`); diversa solo la barra del mese in corso, che Yahoo tiene in modo incoerente (massimo 7.647,20 e
+  minimo 7.571,88 contro 7.715,57 e 7.350,35 delle sedute di novembre): **i mesi vanno costruiti dalle sedute**, mai
+  dalla barra mensile di Yahoo;
+- una seconda fonte indipendente per massimi e minimi non c'è tra quelle usate dal progetto (Cboe `SPX_History.csv` e
+  FRED `SP500` hanno solo la chiusura): va detto, e il controllo si limita a sedute contro barre mensili della stessa
+  fonte.
+
+Il Composite Momentum ha finestre corte (WMA 4 e 12, somme a 5, EMA 3, stocastico 5,3): il riscaldamento è di circa
+20 mesi, ma l'autore lo dice sensibile al punto di partenza (EMA e somme ricorsive). Partire dal 1985 invece che dal
+1990 toglie il dubbio per i segnali dal 1996; va misurato confrontando le due partenze.
+
 ## 2. Inserimento nel codice
 
 ### 2.1 Come sono fatte le viste
@@ -106,7 +126,7 @@ oltre ~5 anni o se si vogliono segnali prima del 1995 (bear market del 1990). In
 - **Instradamento**: `routeHash` `js/app.js:309-318` (indirizzo `#vix`), `renderAll` `:382-393`, `setView` `:802-817`,
   `syncHash` `:821-825`.
 - **Barra dei comandi**: dizionario `words` a `js/app.js:1015` (VIX, VOLATILITA…).
-- **Guida rapida**: elenco delle viste `index.html:834-843`, tasti `index.html:876` («1–9 viste»); link alla guida
+- **Guida rapida**: elenco delle viste `index.html:833-843`, tasti `index.html:876` («1–9 viste»); link alla guida
   completa per vista `js/app.js:861` (`guida.html#` + id della vista).
 - **Guida completa**: indice `guida.html:90-100`, sezioni `id="vix"` `guida.html:392`, `id="alr"` `:422`, tasti `:452`.
 - **CSS delle schede**: `css/style.css:89-114`; tablet 5 colonne (`:101-105`), telefono 3 colonne (`:106-114`, commento
@@ -139,9 +159,17 @@ solo se si vogliono altri indici (usa `indices.ensureAll()` e `indices.snapshot(
 
 ### 2.3 Piano proposto
 
-**Dove calcolare: nel browser, dai dati che ci sono già** (`data/vix.json`, 253 KB, 79 KB compresso, già scaricato dalla
-vista VIX). Nessun passo nuovo nella Action finché la storia dal 1990 basta (§1.5). Le chiusure mensili si derivano
-dalle giornaliere in un modulo puro: un solo calcolo, provato dai test, uguale per app e ricerca.
+**Dove calcolare: gli oscillatori nel browser, in un modulo puro** (un solo calcolo, provato dai test, uguale per app e
+ricerca). I dati dipendono dalle formule:
+
+- **solo chiusure** (Coppock, KST, MACD, RSI…): bastano le chiusure giornaliere di `data/vix.json` (253 KB, 79 KB
+  compresso, già scaricato dalla vista VIX), da cui il browser costruisce i mesi. Nessun passo nuovo nella Action.
+- **anche massimi e minimi** (Composite Momentum, §1.6): serve la pipeline. Proposta: in `scripts/lib/yahoo.js` `parse`
+  aggiunge `low` accanto a `high` (campo in più, compatibile con chi lo usa); in `scripts/fetch_vix.js` una serie
+  facoltativa nuova, per esempio `series.SPXM` = barre mensili (massimo, minimo, chiusura, ultima seduta) dal 1985
+  costruite dalle sedute giornaliere di `^GSPC`, compreso il mese in corso con un campo `open: true`; nell'elenco
+  `OPTIONAL` (`:41`), così se manca la vista VIX non cambia. Circa 500 mesi × 3 valori: pochi KB. Test: le chiusure di
+  `SPXM` coincidono con l'ultima seduta di ogni mese di `series.SPX`.
 
 File nuovi:
 
@@ -173,7 +201,7 @@ File toccati:
   `words` (`:1015`: `OSC`, `OSCILLATORI`…); un caricatore condiviso di `data/vix.json` per non scaricarlo due volte
   (oggi `load: () => getJSON('data/vix.json', false, true)` a `:275` lo richiede a ogni chiamata).
 - `index.html`: nuova scheda e sezione `v-osc` (`:81-90`, dopo `:491`), Alert rinumerata (`10 Alert`, tasto 0), guida
-  rapida (`:834-843`, `:876` «1–9 e 0»).
+  rapida (`:833-843`, `:876` «1–9 e 0»).
 - `css/style.css`: classi del grafico; schede sul telefono (`:106-114`): con 10 schede la griglia a 3 colonne lascia una
   scheda sola sulla quarta riga; meglio 5 colonne × 2 righe con un nome corto («9 Oscill.» o un nome scelto
   dall'utente), da provare a 390 px.
@@ -182,8 +210,11 @@ File toccati:
 - `.github/workflows/update-data.yml`: **niente** con l'opzione browser; solo il commento del passo VIX (`:82-83`) se il
   file serve anche alla nuova vista.
 
-Se servisse la storia dal 1985 (§1.5): `scripts/fetch_vix.js` (serie facoltativa `SPXM`), `test/vix_struttura.test.js`
-o un test nuovo per `assemble`, `scripts/check_fresh.js:56-61` (età della serie), README.
+Se servono massimi e minimi (§1.6) o la storia dal 1985 (§1.5): `scripts/lib/yahoo.js` (`low`), `scripts/fetch_vix.js`
+(serie facoltativa `SPXM`, `OPTIONAL` a `:41`, `assemble` a `:109-133`), un test per `SPXM` e `assemble`,
+`test/yahoo_dates.test.js` se tocca `parse`, `scripts/check_fresh.js:56-61` (età della serie), il commento del passo
+VIX nella Action (`.github/workflows/update-data.yml:82-83`), README (Architettura). Nessun passo nuovo nella Action:
+una richiesta in più a Yahoo nel passo VIX.
 
 ### 2.4 Mese in corso: come mostrarlo onestamente
 
@@ -231,3 +262,4 @@ di fine mese in 44, 36 e 33 mesi su 394 per il Coppock (11,2%, 9,1%, 8,4%) e in 
 - `dati.mjs` (`node ricerca/oscillatori/dati.mjs [--offline]`) → `dati.out.txt`, `cache/spx_mensile.json` (mesi,
   chiusura, mese chiuso, massimo di chiusura del VIX nel mese), copie `cache/SPX_History.csv`, `cache/VIX_History.csv`.
 - `mese_in_corso.mjs` → `mese_in_corso.out.txt`.
+- `massimi_minimi.mjs [--offline]` → `massimi_minimi.out.txt`, copie `cache/gspc_1d.json`, `cache/gspc_1mo.json`.
