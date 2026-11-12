@@ -194,6 +194,16 @@ async function newCtx(b, opt, theme, extra) {
   const c = await b.newContext(opt);
   await c.addInitScript((t) => { try { if (!sessionStorage.getItem('qa')) { sessionStorage.setItem('qa', 1); localStorage.clear(); localStorage.setItem('antigravity-theme', t); localStorage.setItem('sm.introSeen', 'true'); } } catch {} }, theme);
   if (extra) await extra(c);
+  if (process.env.MUT) { // prova che i controlli possono fallire: file serviti con errori voluti
+    const X = JSON.parse(JSON.stringify(A));
+    X.markets.find((m) => m.id === 'BTC').stats.distPct = -40.17; // numero della tabella sbagliato
+    X.markets.find((m) => m.id === 'SPX').stats.ref *= 1.02; // linea del massimo ad altezza sbagliata
+    X.markets.find((m) => m.id === 'GOLD').stats.from = '2023-12-11'; // finestra dei 3 anni spostata
+    X.markets.find((m) => m.id === 'WTI').stats.cycleLowPct = -30; // tacca sbagliata
+    const Hx = JSON.parse(JSON.stringify(HJ)); const kc = Hx.series.KOSPI.cd; kc[kc.length - 200] += 5000; kc[kc.length - 199] -= 5000; // una chiusura sbagliata nel riquadro
+    await c.route('**/data/ath.json*', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(X) }));
+    await c.route('**/data/ath_history.json*', (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(Hx) }));
+  }
   const p = await c.newPage(); const errs = [];
   p.on('pageerror', (e) => errs.push('pageerror: ' + e.message));
   p.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') errs.push(`${m.type()}: ${m.text()}`); });
