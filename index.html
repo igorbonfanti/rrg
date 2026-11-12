@@ -474,6 +474,21 @@
       </div>
       <div class="legend" id="vxLegend"></div>
     </div>
+    <div class="panel" id="athPanel">
+      <div class="ph"><h2>Distanza dal massimo degli ultimi 3 anni · le bolle si sgonfiano a rotazione</h2><span class="ctl"><span class="seg" id="athSort" role="group" aria-label="Ordine delle righe"><button type="button" data-sort="dist" aria-pressed="true">per distanza</button><button type="button" data-sort="date" aria-pressed="false">per data del massimo</button></span></span></div>
+      <p class="note pb" id="athMiss" hidden></p>
+      <div class="tscroll"><table class="t ath" id="athTable"></table></div>
+      <div id="athChartBox" hidden>
+        <div class="ph sub"><h3 id="athChartTitle"></h3><span class="ctl"><span class="seg" id="athRange" role="group" aria-label="Periodo del grafico"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="athLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span><span class="zchip" id="athZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+        <p class="note pb" id="athChartMiss" hidden></p>
+        <div class="chart-wrap" id="athWrap">
+          <svg class="ts" id="athChart" role="img" aria-label="Prezzo del mercato scelto dal 2000, con il massimo di chiusura degli ultimi 3 anni"></svg>
+          <div class="tip" id="athTip" hidden></div>
+        </div>
+        <div class="legend" id="athLegend"></div>
+      </div>
+      <p class="note pb" id="athNote">Quanto ogni mercato è sotto il suo <b>massimo di chiusura degli ultimi 3 anni</b>, il picco dell'ultimo ciclo (il massimo di sempre, che per il petrolio è del 2008, è nel dettaglio), con i giorni passati dal massimo. La barra va da 0 a −60%; la tacca è il calo più profondo dopo il massimo. Solo prezzo, senza dividendi, nella valuta di quotazione (il KOSPI in won): per chi investe in euro il calo è un altro. Oro e argento con gli ETF fisici GLD e SLV, rame e petrolio con il future continuo. Clic o tocco su una riga per il dettaglio e il grafico dal 2000. <b>Solo contesto</b>: nessuna soglia e nessun segnale. Idea da una slide di Francesco Caruso (Cicli&amp;Mercati). Dati Yahoo Finance, ricalcolati ogni notte su tutta la storia; verifica in <span class="mono">ricerca/bolle-rotazione/</span> (ramo di sviluppo).</p>
+    </div>
     <div class="panel">
       <div class="ph"><h2>Come leggere il VIX</h2></div>
       <div class="emread">
