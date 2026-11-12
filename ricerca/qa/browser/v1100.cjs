@@ -79,7 +79,7 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
     const p = await c.newPage(), errs = [];
     p.on('pageerror', (e) => errs.push(e.message));
     await p.goto(BASE + '#vix'); await p.waitForSelector('#vxKpis .kpi', { timeout: 30000 }).catch(() => {}); await p.waitForTimeout(600);
-    const st = await p.evaluate(() => ({ miss: !document.getElementById('athMiss').hidden && document.getElementById('athMiss').textContent, rows: document.querySelectorAll('#athTable tr').length, kpis: document.querySelectorAll('#vxKpis .kpi').length }));
+    const st = await p.evaluate(() => ({ miss: !!document.getElementById('athMiss') && !document.getElementById('athMiss').hidden && document.getElementById('athMiss').textContent, rows: document.querySelectorAll('#athTable tr').length, kpis: document.querySelectorAll('#vxKpis .kpi').length }));
     ok(st.miss && /non disponibili/.test(st.miss) && st.rows === 0 && st.kpis > 0, `senza data/ath.json: messaggio nel pannello, vista VIX funzionante (${st.kpis} riquadri)`);
     ok(!errs.length, `senza data/ath.json: nessun errore ${errs.join(' | ')}`);
     await c.close();
