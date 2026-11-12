@@ -1,11 +1,11 @@
 {
-  "note": "Pannello «Distanza dal massimo storico» della vista 8 VIX (1.10.0, solo contesto). Serie scelte e verificate in ricerca/bolle-rotazione/sintesi.md. maxAge: giorni di calendario oltre i quali check_fresh segnala la serie ferma (rispetto all'ultima seduta della breadth).",
+  "note": "Pannello «Distanza dal massimo degli ultimi 3 anni» della vista 8 VIX (1.10.0, solo contesto). Serie scelte e verificate in ricerca/bolle-rotazione/sintesi.md. maxAge: giorni di calendario oltre i quali check_fresh segnala la serie ferma (rispetto all'ultima seduta della breadth).",
   "markets": [
     { "id": "BTC", "label": "Bitcoin", "symbol": "BTC-USD", "kind": "in dollari", "maxAge": 4, "note": "Quotato 7 giorni su 7: chiusura del giorno UTC (Yahoo), solo giorni già chiusi." },
     { "id": "GOLD", "label": "Oro", "symbol": "GLD", "kind": "ETF fisico", "maxAge": 4, "note": "ETF con oro fisico (GLD): segue il prezzo LBMA meno lo 0,40% annuo di commissioni, quindi da un massimo lontano la distanza è appena più ampia di quella dell'oro." },
     { "id": "SILVER", "label": "Argento", "symbol": "SLV", "kind": "ETF fisico", "maxAge": 4, "note": "ETF con argento fisico (SLV): segue il prezzo dell'argento meno lo 0,50% annuo di commissioni." },
     { "id": "COPPER", "label": "Rame", "symbol": "HG=F", "kind": "future continuo", "maxAge": 4, "note": "Future continuo del Comex (Yahoo): ai cambi di contratto il livello si sposta un po'." },
-    { "id": "WTI", "label": "Petrolio WTI", "symbol": "CL=F", "kind": "future continuo", "maxAge": 4, "note": "Future continuo del Nymex (Yahoo): ai cambi di contratto il livello si sposta un po'. Non si usa l'ETF USO, che a ogni rinnovo dei contratti perde valore e ha un massimo storico che non è quello del petrolio." },
+    { "id": "WTI", "label": "Petrolio WTI", "symbol": "CL=F", "kind": "future continuo", "maxAge": 4, "note": "Future continuo del Nymex (Yahoo): ai cambi di contratto il livello si sposta un po'. Non si usa l'ETF USO, che a ogni rinnovo dei contratti perde valore; il suo massimo non è quello del petrolio." },
     { "id": "NDX", "label": "Nasdaq-100", "symbol": "^NDX", "kind": "indice, solo prezzo", "maxAge": 4 },
     { "id": "SPX", "label": "S&P 500", "symbol": "^GSPC", "kind": "indice, solo prezzo", "maxAge": 4 },
     { "id": "SOXX", "label": "Semiconduttori", "symbol": "SOXX", "kind": "ETF, solo prezzo", "maxAge": 4, "note": "ETF iShares dei semiconduttori, senza i dividendi (la differenza è minima)." },

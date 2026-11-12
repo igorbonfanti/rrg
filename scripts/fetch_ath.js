@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /*
- * fetch_ath.js — dati del pannello «Distanza dal massimo storico» della vista 8 VIX (1.10.0, solo contesto).
- * Scrive data/ath.json.
+ * fetch_ath.js — dati del pannello «Distanza dal massimo» della vista 8 VIX (1.10.0, solo contesto).
+ * Scrive data/ath.json (valori della tabella) e data/ath_history.json (chiusure dal 2000 per il grafico, letto solo
+ * quando si apre il grafico di un mercato).
  *
  * Per ogni mercato di config/ath.json scarica da Yahoo tutta la storia giornaliera (barre chiuse, scripts/lib/yahoo.js)
- * e calcola con athStats (js/ath.js) il massimo di chiusura dall'inizio della serie, la distanza dell'ultima chiusura,
- * i giorni passati, il calo più profondo dopo il massimo, il massimo durante la seduta e quello a 52 settimane.
+ * e calcola con athStats (js/ath.js) il massimo di chiusura degli ultimi 3 anni (riferimento), la distanza dell'ultima
+ * chiusura, i giorni passati, il calo più profondo dopo il massimo, il massimo durante la seduta e quello di sempre.
  * Si ricalcola ogni notte dall'intera storia: nessun massimo «salvato», così una revisione di Yahoo entra da sola.
  * Scelte delle serie (ETF fisici per oro e argento, future continui per rame e petrolio, niente USO) e confronto con
  * seconde fonti: ricerca/bolle-rotazione/sintesi.md.
@@ -21,10 +22,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchDaily, mapLimit } from './lib/yahoo.js';
 import { athStats, daysBetween } from '../js/ath.js';
+import { pack } from './fetch_emerging.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'data/ath.json');
 const CFG = path.join(ROOT, 'config/ath.json');
+const OUT_H = path.join(ROOT, 'data/ath_history.json');
+export const HIST_FROM = '2000-01-01'; // il grafico parte dal 2000: il massimo di sempre resta nel dettaglio della riga
 const P1 = -2208988800; // 1900: tutta la storia che Yahoo ha
 
 /**
@@ -42,17 +46,23 @@ export function pickStats(fresh, prev) {
 
 async function main() {
   const cfg = JSON.parse(fs.readFileSync(CFG, 'utf-8')).markets;
-  let prev = null;
+  let prev = null, prevH = null;
   try { prev = JSON.parse(fs.readFileSync(OUT, 'utf-8')); } catch { /* prima corsa */ }
+  try { prevH = JSON.parse(fs.readFileSync(OUT_H, 'utf-8')); } catch { /* prima corsa */ }
+  const hist = {};
   const prevOf = (id) => (prev && Array.isArray(prev.markets) ? (prev.markets.find((m) => m.id === id) || {}).stats || null : null);
   const missing = [];
   const rows = await mapLimit(cfg, 3, async (c) => {
-    let fresh = null;
+    let fresh = null, h = null;
     try {
       const r = await fetchDaily(c.symbol, { period1: P1, raw: true });
       fresh = athStats(r.dates, r.close, r.high);
+      const i0 = r.dates.findIndex((d) => d >= HIST_FROM);
+      if (i0 >= 0) h = pack(r.dates.slice(i0), r.close.slice(i0).map((v) => Math.round(v * 10000) / 10000));
     } catch (e) { console.warn(`${c.id} (${c.symbol}): ${e.message}`); }
     const p = prevOf(c.id), pick = pickStats(fresh, p);
+    const ph = prevH && prevH.series ? prevH.series[c.id] || null : null;
+    if (pick.kept ? ph : h) hist[c.id] = pick.kept ? ph : h;
     if (pick.kept) { missing.push(c.id); console.warn(`${c.id}: tengo la riga pubblicata (${pick.why})`); }
     if (!pick.kept && p && fresh.ath < p.ath * 0.995) console.warn(`::warning::${c.id}: massimo sceso da ${p.ath} (${p.athDate}) a ${fresh.ath} (${fresh.athDate}): storia rivista da Yahoo?`);
     const { maxAge, ...meta } = c;
@@ -62,14 +72,15 @@ async function main() {
   if (!ok.length) { console.error('Nessun mercato disponibile: data/ath.json resta com\'è'); process.exitCode = 1; return; }
   const out = {
     generated: new Date().toISOString(),
-    method: 'Massimo di chiusura dall\'inizio della serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all\'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0).',
+    method: 'Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell\'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all\'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall\'inizio della serie.',
     asOf: ok.map((r) => r.stats.lastDate).sort().at(-1),
     missing,
     markets: rows,
   };
   fs.writeFileSync(OUT, JSON.stringify(out, null, 1) + '\n');
+  fs.writeFileSync(OUT_H, JSON.stringify({ generated: out.generated, from: HIST_FROM, note: 'Chiusure giornaliere di Yahoo (solo prezzo) per il grafico del pannello; date compatte (d0, gaps) e valori in differenze intere (cd) divise per ps.', series: hist }) + '\n');
   console.log(`data/ath.json: ${ok.length} mercati su ${rows.length}${missing.length ? ` (righe pubblicate: ${missing.join(', ')})` : ''}`);
-  for (const r of rows) if (r.stats) console.log(`  ${r.id.padEnd(7)} ${String(r.stats.distPct).padStart(7)}%  massimo ${r.stats.athDate}  ultima ${r.stats.lastDate}`);
+  for (const r of rows) if (r.stats) console.log(`  ${r.id.padEnd(7)} ${String(r.stats.distPct).padStart(7)}%  massimo dei 3 anni ${r.stats.refDate}  (di sempre ${r.stats.athDate})  ultima ${r.stats.lastDate}`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
