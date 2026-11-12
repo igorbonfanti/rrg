@@ -144,6 +144,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Vista Emergenti (05/11/2026, allora la 8, oggi la 7) | solo contesto: nessuna regola e nessun alert; i quattro elementi (stato, valuta, dollaro, forza relativa) tutti mostrati; scia della forza relativa solo per l'indice scelto; fasce «favorevole» sul grafico del dollaro |
 | Struttura a termine e credito nella vista 8 (09/11/2026) | solo contesto (il backtest non trova statistiche robuste); VIX/VIX3M al posto di VX1/VX2 (stessa lettura nel 91% delle sedute, niente salti di scadenza); soglia 1 per la backwardation; credito da HYG/IEF (HY OAS di ICE non ripubblicabile, BAA10Y con nota restrittiva di Moody's) come distanza dal massimo di 12 mesi; ultima seduta del VIX e del VIX3M dal file ufficiale di Cboe, Yahoo di riserva. Idea di Stefano Serafini (Morning Trading Show di BNP Paribas), senza data né link della puntata |
 | Vista 8 VIX (06/11/2026) | solo contesto; tabella dei regimi per episodi con tutte le soglie e solo il 40 segnato «robusto»; scatter in stile Rea con la didascalia giorni contro episodi; VIX contro realizzata con il premio; niente GARCH (riammesso solo per la verifica, scartato); rendimenti dalla chiusura della seduta dopo il segnale; Alert alla 9 |
+| Oscillatori mensili di Francesco Caruso (12/11/2026) | non si fa la pagina: il segnale «Composite Momentum e secondo oscillatore girano al ribasso da zona alta» sull'S&P 500 mensile non anticipa i cali più di un mese qualunque (solo CMO: 9 segnali su 30 seguiti da un calo ≥10% in 12 mesi, contro 125 mesi su 397 di base; 162 varianti con Coppock, KST e MACD/PPO, nessuna supera i criteri decisi prima). Il CMO si può usare con il permesso di Caruso (riferito dall'utente, 12/11/2026); il C-Wave non è pubblico. Ricerca in `ricerca/oscillatori/` |
 | Rendimenti degli episodi | indecisa: calcolarli dalla chiusura della seduta dopo il segnale invece che dal giorno stesso (cambio di regola, da decidere con l'utente) |
 
 ## 6. Ricerca svolta (`ricerca/`, ramo di sviluppo)
@@ -160,6 +161,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `indici-breadth50/` | breadth a 50 sedute per gli alert degli indici: nessun pattern regge |
 | `vix/` | regimi del VIX, implicita contro realizzata contro GARCH, dati e inserimento della vista 8 (`sintesi.md`); `struttura/` dati, backtest e piano della struttura a termine e del credito (1.6.0) |
 | `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
+| `oscillatori/` | Composite Momentum (Caruso) e C-Wave: identificazione, dati, backtest e ricalcolo indipendente in Python; verdetto: scartato come allarme |
 | `qa/` | script Playwright e server per le verifiche nel browser |
 
 ## 7. Stato attuale (1.9.0)

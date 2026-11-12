@@ -282,3 +282,7 @@ danno un segnale (CMO 39,1 in discesa). Finora, al 10/11/2026: calo massimo −3
   `../ricalcolo/oscillatori_py.json` se c'è.
 - `backtest.out.txt`: uscita completa. `risultati.json`: eventi, base, tutte le varianti con criteri e segnali, base
   casuale, confronto con Caruso, crisi. `valori_mensili.json`: barre e oscillatori mese per mese.
+
+## Decisione dell'utente (12/11/2026)
+
+Verdetto accettato: niente pagina. La ricerca resta qui, rifacibile dagli script. Controllo indipendente fatto prima della decisione: dai valori del ricalcolo in Python, «solo CMO, inizio di DOWN» dà 32 segnali e 9 su 30 seguiti da un calo ≥10% entro 12 mesi, come il backtest; base 125 mesi (397 o 398 secondo se si include l'ultimo mese con 12 mesi completi).
