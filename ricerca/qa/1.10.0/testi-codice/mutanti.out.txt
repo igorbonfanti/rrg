@@ -1,0 +1,28 @@
+Base senza mutanti: passa
+| Mutante | File | Esito |
+|---|---|---|
+| parità: ultima data invece della prima | js/ath.js | preso (i test falliscono) |
+| finestra: il primo giorno escluso (> invece di >=) | js/ath.js | **SOPRAVVIVE** (i test passano) |
+| finestra ignorata (massimo di sempre come riferimento) | js/ath.js | preso (i test falliscono) |
+| finestra di 2 anni | js/ath.js | preso (i test falliscono) |
+| finestra di 4 anni | js/ath.js | preso (i test falliscono) |
+| sotto zero: < 0 invece di <= 0 | js/ath.js | **SOPRAVVIVE** (i test passano) |
+| minimo che include il giorno del massimo | js/ath.js | preso (i test falliscono) |
+| calo calcolato anche con una chiusura sotto zero | js/ath.js | preso (i test falliscono) |
+| 29/02 non corretto | js/ath.js | preso (i test falliscono) |
+| giorni contati fino all'ultima riga e non all'ultima chiusura | js/ath.js | **SOPRAVVIVE** (i test passano) |
+| ultima chiusura nulla non saltata | js/ath.js | **SOPRAVVIVE** (i test passano) |
+| massimo durante la seduta = chiusura | js/ath.js | preso (i test falliscono) |
+| massimo durante la seduta su tutta la storia | js/ath.js | **SOPRAVVIVE** (i test passano) |
+| massimo di sempre: parità sull'ultima data | js/ath.js | **SOPRAVVIVE** (i test passano) |
+| risalita dal minimo calcolata rispetto al massimo | js/ath.js | preso (i test falliscono) |
+| senza arrotondamento a 2 decimali | js/ath.js | preso (i test falliscono) |
+| ordine: mercati senza dati in testa | js/ath.js | preso (i test falliscono) |
+| ordine per data rovesciato | js/ath.js | preso (i test falliscono) |
+| parità di ordine non stabile (ordine del file rovesciato) | js/ath.js | preso (i test falliscono) |
+| storia accorciata non controllata | scripts/fetch_ath.js | preso (i test falliscono) |
+| riga più vecchia accettata | scripts/fetch_ath.js | preso (i test falliscono) |
+| limite del KOSPI ignorato | scripts/check_fresh.js | preso (i test falliscono) |
+| mercato senza dati non segnalato | scripts/check_fresh.js | preso (i test falliscono) |
+
+17 presi su 23
