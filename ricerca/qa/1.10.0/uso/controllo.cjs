@@ -211,6 +211,7 @@ async function openRow(p, id, touch) {
   await p.waitForTimeout(150);
 }
 async function dragZoom(p, f0, f1) {
+  await p.locator('#athChart').scrollIntoViewIfNeeded();
   const G = await chartGeom(p), box = await p.locator('#athChart').boundingBox(), sc = box.width / G.W;
   const X = (f) => box.x + (G.F.x + f * G.F.w) * sc, Y = box.y + (G.F.y + G.F.h * 0.4) * sc;
   await p.mouse.move(X(f0), Y); await p.mouse.down(); await p.mouse.move(X((f0 + f1) / 2), Y, { steps: 4 }); await p.mouse.move(X(f1), Y, { steps: 4 }); await p.mouse.up();
@@ -238,7 +239,7 @@ const clipped = (p) => p.evaluate(() => {
   const ts = document.querySelector('#athPanel .tscroll'); if (ts && ts.scrollWidth > ts.clientWidth + 1) out.push(`tabella con scorrimento orizzontale ${ts.scrollWidth}/${ts.clientWidth}`);
   return out;
 });
-const realErrs = (errs) => errs.filter((e) => !/Failed to load resource.*404|status of 404/.test(e));
+const realErrs = (errs) => errs.filter((e) => !/Failed to load resource.*404|status of 404|HTTP 404/.test(e));
 
 (async () => {
   const b = await chromium.launch();
@@ -493,7 +494,7 @@ const realErrs = (errs) => errs.filter((e) => !/Failed to load resource.*404|sta
         ok(msg2 && /non disponibile/.test(msg2), `${lab}: anche su un altro mercato «${msg2}»`);
         await p.locator('#athPanel').screenshot({ path: path.join(SHOTS, `miss-${lab}.png`) });
       } else if (lab === 'storia-lenta') {
-        await openRow(p, 'BTC', false);
+        await p.click('#athTable tr.athr[data-id="BTC"]'); await p.waitForTimeout(150);
         const m1 = await p.$eval('#athChartMiss', (x) => (x.hidden ? null : x.textContent));
         ok(/Caricamento/.test(m1 || ''), `${lab}: durante il caricamento «${m1}»`);
         // cambio mercato durante il caricamento
