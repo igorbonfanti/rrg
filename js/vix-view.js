@@ -8,7 +8,7 @@
 import * as V from './vix.js';
 import { esc, fmt, sgnP, pct, dIT, placeTip, bindTip, chartWidth } from './format.js';
 import { zoomGroup, timeTicks } from './zoom.js';
-import { athRows } from './ath.js';
+import { athRows, daysBetween } from './ath.js';
 import { decodeDates, deltaDecode } from './indexdata.js';
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -433,15 +433,17 @@ export function createVix(ctx) {
     $('athMiss').hidden = true;
     const rows = athRows(ath.markets, st.athSort);
     const newest = rows.filter((m) => m.stats).map((m) => m.stats.lastDate).sort().at(-1);
+    // giorni dal massimo contati fino a oggi (la data del computer), non fino all'ultima chiusura
+    const today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
     T.innerHTML = `<thead><tr><th>Mercato</th><th title="Ultima chiusura contro il massimo di chiusura degli ultimi 3 anni. Barra da 0 a −60%; la tacca è il calo più profondo dopo il massimo">Distanza dal massimo dei 3 anni <span class="muted">· tacca: calo più profondo</span></th><th>Massimo dei 3 anni</th><th class="r" title="Il punto più basso di chiusura dopo il massimo, rispetto al massimo">Calo più profondo</th><th>Ultima chiusura</th></tr></thead><tbody>` +
       rows.map((m) => {
         const s = m.stats, open = athOpen === m.id;
         if (!s) return `<tr class="athr" data-id="${esc(m.id)}"><td class="nm"><b>${esc(m.label)}</b><small>${esc(m.symbol)} · ${esc(m.kind)}</small></td><td><span class="dv zero">—</span><span class="muted">dati non disponibili</span></td><td class="c-max">—</td><td class="r c-low">—</td><td class="c-last">—</td></tr>`;
-        const z = s.distPct === 0, d = s.days, ago = d === 0 ? 'all\'ultima seduta' : d === 1 ? '1 giorno prima' : `${th(d, 0)} giorni fa`;
+        const z = s.distPct === 0, d = Math.max(s.days, daysBetween(s.refDate, today)), ago = d === 0 ? 'oggi' : d === 1 ? '1 giorno fa' : `${th(d, 0)} giorni fa`;
         const mark = s.cycleLowPct != null && s.cycleLowPct < 0 ? `<span class="mark" style="right:${barW(s.cycleLowPct).toFixed(2)}%"></span>` : '';
         const low = s.belowZero ? '<span class="muted" title="Dopo il massimo ha chiuso sotto zero: il calo più profondo non si calcola">sotto zero</span>' : s.cycleLowPct == null ? '<span class="muted">—</span>' : p2(s.cycleLowPct);
-        const old = s.lastDate < newest ? ' muted' : '';
-        return `<tr class="athr${open ? ' on' : ''}" data-id="${esc(m.id)}" tabindex="0" role="button" aria-expanded="${open}" title="Clic per i dettagli e il grafico"><td class="nm"><b>${esc(m.label)}</b><small>${esc(m.symbol)} · ${esc(m.kind)}</small></td>` +
+        const old = daysBetween(s.lastDate, newest) > 3 ? ' muted' : '';
+        return `<tr class="athr${open ? ' on' : ''}" data-id="${esc(m.id)}" tabindex="0" role="button" aria-expanded="${open}" aria-controls="athChartBox" title="Clic per i dettagli e il grafico"><td class="nm"><b>${esc(m.label)}</b><small>${esc(m.symbol)} · ${esc(m.kind)}</small></td>` +
           `<td><span class="dv${z ? ' zero' : ''}">${z ? '0,00%' : p2(s.distPct)}</span><span class="athbar" role="img" aria-label="${esc(m.label)}: ${z ? 'al massimo' : p2(s.distPct) + ' dal massimo dei 3 anni'}"><i style="width:${barW(s.distPct).toFixed(2)}%"></i>${mark}</span>` +
           `<span class="athmob">massimo il ${dIT(s.refDate)} · ${ago} · calo più profondo ${s.belowZero ? 'non calcolabile' : s.cycleLowPct == null ? '—' : p2(s.cycleLowPct)} · al ${dIT(s.lastDate)}</span></td>` +
           `<td class="c-max mono">${dIT(s.refDate)} <span class="muted">· ${ago}</span></td><td class="r c-low mono">${low}</td><td class="c-last mono${old}">${dIT(s.lastDate)}</td></tr>` +
@@ -460,24 +462,33 @@ export function createVix(ctx) {
   }
 
   // grafico dello storico del mercato aperto: chiusure dal 2000 (data/ath_history.json, letto alla prima apertura)
-  let athHist = null, athHistLoad = null, athZoom = null;
+  let athHist = null, athHistLoad = null, athHistDone = false, athZoom = null;
   function renderAthChart() {
     const box = $('athChartBox'), m = athOpen && ath && ath.markets.find((x) => x.id === athOpen);
     if (!m || !m.stats) { box.hidden = true; return; }
     box.hidden = false;
     document.querySelectorAll('#athRange button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.athRange)));
     $('athChartTitle').textContent = `${m.label}: prezzo, scala logaritmica`;
+    const showChart = (on) => { $('athWrap').hidden = !on; $('athRange').hidden = !on; $('athLens').hidden = !on; if (!on) $('athZoom').hidden = true; };
     if (!athHistLoad) {
-      $('athChartMiss').hidden = false; $('athChartMiss').textContent = 'Caricamento dello storico…';
-      athHistLoad = (ctx.loadAthHist ? ctx.loadAthHist() : Promise.resolve(null)).then((d) => { athHist = d; }).catch(() => { athHist = null; }).finally(() => { if (!$('v-vix').hidden) renderAthChart(); });
+      showChart(false); $('athChartMiss').hidden = false; $('athChartMiss').textContent = 'Caricamento dello storico…';
+      athHistLoad = (ctx.loadAthHist ? ctx.loadAthHist() : Promise.resolve(null)).then((d) => { athHist = d; }).catch(() => { athHist = null; }).finally(() => { athHistDone = true; if (!$('v-vix').hidden) renderAthChart(); });
       return;
     }
     const svg = $('athChart'), H0 = athHist && athHist.series && athHist.series[m.id];
     svg.innerHTML = ''; $('athLegend').innerHTML = '';
-    if (!H0) { $('athChartMiss').hidden = false; $('athChartMiss').textContent = athHist ? 'Storico di questo mercato non disponibile.' : (athHistLoad && athHist === null ? 'Storico non disponibile (data/ath_history.json).' : 'Caricamento dello storico…'); return; }
-    $('athChartMiss').hidden = true;
-    const s = m.stats, dates = decodeDates(H0.d0, H0.gaps), close = deltaDecode(H0.cd, H0.ps), n = dates.length;
-    $('athChartTitle').textContent = `${m.label}: prezzo dal ${dates[0].slice(0, 4)}, scala logaritmica`;
+    // serie nel formato atteso (date compatte e valori in differenze), altrimenti il messaggio
+    let dates = null, close = null;
+    try { if (H0 && typeof H0.d0 === 'string' && Array.isArray(H0.cd)) { dates = decodeDates(H0.d0, H0.gaps); close = deltaDecode(H0.cd, H0.ps || 1); } } catch { dates = null; }
+    if (!dates || !dates.length || !close || close.length !== dates.length) {
+      showChart(false); $('athChartMiss').hidden = false;
+      $('athChartMiss').textContent = !athHistDone ? 'Caricamento dello storico…' : athHist ? 'Storico di questo mercato non disponibile.' : 'Storico non disponibile (data/ath_history.json): il grafico tornerà dopo il prossimo aggiornamento.';
+      return;
+    }
+    $('athChartMiss').hidden = true; showChart(true);
+    const s = m.stats, n = dates.length;
+    $('athChartTitle').textContent = `${m.label}: prezzo (serie dal ${dates[0].slice(0, 4)}), scala logaritmica`;
+    svg.setAttribute('aria-label', `Prezzo di ${m.label} dal ${dIT(dates[0])}, con il massimo di chiusura degli ultimi 3 anni`); svg.dataset.zlabel = svg.getAttribute('aria-label');
     const W = chartWidth(svg, 1600), narrow = W < 560, L = 8, R = 52, T = 22, PH = narrow ? 200 : 260, B = 20, PW = W - L - R, H = T + PH + B;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
     const tEnd = Date.parse(dates[n - 1]), span = st.athRange === '3A' ? 3 : st.athRange === '10A' ? 10 : null;
@@ -502,8 +513,11 @@ export function createVix(ctx) {
     // prezzi: 1, 2, 5 × 10^k distanti almeno 20 px; se troppo poche, anche 1,5 2,5 3 4 6 8
     const vals = []; for (let k = Math.floor(lo / Math.LN10) - 1; k <= Math.ceil(hi / Math.LN10) + 1; k++) for (const mm of [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8]) vals.push(mm * 10 ** k);
     const inR = vals.filter((v) => Math.log(v) > lo && Math.log(v) < hi), main = inR.filter((v) => [1, 2, 5].includes(+(v / 10 ** Math.floor(Math.log10(v))).toFixed(2)));
-    let lastY = Infinity;
-    for (const v of (main.length >= 3 ? main : inR)) { const yv = fy(v); if (lastY - yv < 20) continue; lastY = yv; el('line', { x1: L, x2: L + PW, y1: yv, y2: yv, class: 'gridl' }, svg); el('text', { x: L + PW + 4, y: yv + 3, class: 'axt' }, svg).textContent = v >= 1000 ? th(v / 1000, v % 1000 ? 1 : 0) + 'k' : fmt(v, v < 10 ? (v % 1 ? 1 : 0) : 0); }
+    let lastY = Infinity, ticks = main.length >= 3 ? main : inR;
+    // zoom stretto: meno di due valori tondi nel riquadro, si usano 5 livelli con 3 cifre significative
+    if (ticks.length < 2) { ticks = []; for (let k = 0; k < 5; k++) { const v = Math.exp(lo + ((hi - lo) * (k + 0.5)) / 5), e = 10 ** (Math.floor(Math.log10(v)) - 2); ticks.push(Math.round(v / e) * e); } }
+    const lab = (v) => (v >= 1000 ? th(v / 1000, v % 1000 ? (v % 100 ? 2 : 1) : 0) + 'k' : th(v, v < 10 ? (v % 1 ? 2 : 0) : v % 1 ? 1 : 0));
+    for (const v of ticks) { const yv = fy(v); if (lastY - yv < 20) continue; lastY = yv; el('line', { x1: L, x2: L + PW, y1: yv, y2: yv, class: 'gridl' }, svg); el('text', { x: L + PW + 4, y: yv + 3, class: 'axt' }, svg).textContent = lab(v); }
     let d = '', on = false;
     for (let i = 0; i < n; i++) { if (close[i] == null || close[i] <= 0 || !inWin(dates[i])) { on = false; continue; } d += (on ? 'L' : 'M') + x(dates[i]).toFixed(1) + ' ' + fy(close[i]).toFixed(1); on = true; }
     el('path', { d, class: 'athpx' }, svg);
@@ -513,9 +527,6 @@ export function createVix(ctx) {
       if (yr >= T && yr <= T + PH) {
         el('line', { x1: xa, x2: L + PW, y1: yr, y2: yr, class: 'athref' }, svg);
         if (inWin(s.refDate)) el('circle', { cx: x(s.refDate), cy: yr, r: 3.5, class: 'athtop' }, svg);
-        const lb = el('text', { x: L + PW - 4, y: yr - 5 < T + 10 ? yr + 13 : yr - 5, class: 'axt athreft', 'text-anchor': 'end' }, svg);
-        lb.textContent = `massimo dei 3 anni ${pv(s.ref)} (${dIT(s.refDate)})`;
-        if (lb.getComputedTextLength() > PW * 0.6) lb.textContent = `massimo ${pv(s.ref)}`;
       }
     }
     if (s.cycleLowDate && inWin(s.cycleLowDate)) el('circle', { cx: x(s.cycleLowDate), cy: fy(s.cycleLow), r: 3, class: 'athlow' }, svg);
@@ -538,8 +549,8 @@ export function createVix(ctx) {
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('athTip').hidden = true; });
     if (athZoom) athZoom.geo(svg, { L, PW, top: T, bottom: T + PH, t0, t1, dates });
-    $('athLegend').innerHTML = `<span><span class="kl athk-px"></span>${esc(m.label)} (${esc(m.symbol)}), chiusure</span><span><span class="kb athk-win"></span>ultimi 3 anni</span><span><span class="kl athk-ref"></span>massimo di chiusura dei 3 anni</span>` +
-      (s.cycleLowDate ? '<span><span class="kd athk-low"></span>minimo dopo il massimo</span>' : '') + (s.athDate !== s.refDate ? `<span>massimo di sempre: ${pv(s.ath)} il ${dIT(s.athDate)}${s.athDate < dates[0] ? ', prima del 2000' : ''}</span>` : '');
+    $('athLegend').innerHTML = `<span><span class="kl athk-px"></span>${esc(m.label)} (${esc(m.symbol)}), chiusure</span><span><span class="kb athk-win"></span>ultimi 3 anni (dal ${dIT(s.from)})</span><span class="athleg-ref"><span class="kl athk-ref"></span><span class="kd athk-top"></span>massimo di chiusura dei 3 anni: ${pv(s.ref)} il ${dIT(s.refDate)}</span>` +
+      (s.cycleLowDate ? `<span><span class="kd athk-low"></span>minimo dopo il massimo: ${pv(s.cycleLow)} il ${dIT(s.cycleLowDate)}</span>` : '') + `<span><span class="kd athk-last"></span>ultima chiusura: ${pv(s.last)} il ${dIT(s.lastDate)}</span>` + (s.athDate !== s.refDate ? `<span>massimo di sempre: ${pv(s.ath)} il ${dIT(s.athDate)}${s.athDate < dates[0] ? ', prima del 2000' : ''}</span>` : '');
   }
 
   function bind() {

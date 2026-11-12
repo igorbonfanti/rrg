@@ -1033,3 +1033,7 @@ svg.flag { vertical-align: -1px; display: inline-block; }
 .legend .athk-win { background: var(--blue-soft); }
 .legend .athk-low { background: var(--bg); border: 1.5px solid var(--ink-2); }
 #athChartBox { margin-top: 6px; border-top: 1px solid var(--rule); }
+.legend .athk-top { background: var(--down); }
+.legend .athk-last { background: var(--amber); }
+@media (max-width: 600px) { .t.ath tr, .t.ath td { box-sizing: border-box; } }
+.t.ath td.nm { margin-left: 0; color: inherit; }

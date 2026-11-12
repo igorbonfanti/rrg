@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 11/11/2026, versione 1.9.0.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 12/11/2026, versione 1.10.0.
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -164,7 +164,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `vix/` | regimi del VIX, implicita contro realizzata contro GARCH, dati e inserimento della vista 8 (`sintesi.md`); `struttura/` dati, backtest e piano della struttura a termine e del credito (1.6.0) |
 | `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
 | `oscillatori/` | Composite Momentum (Caruso) e C-Wave: identificazione, dati, backtest e ricalcolo indipendente in Python; verdetto: scartato come allarme |
-| `bolle-rotazione/` | distanza dal massimo storico: serie, seconde fonti, confronto con la slide di Caruso, prototipo e piano (1.10.0) |
+| `bolle-rotazione/` | distanza dal massimo (degli ultimi 3 anni dalla scelta dell'utente; prima il massimo di sempre): serie, seconde fonti, confronto con la slide di Caruso, prototipo e piano (1.10.0) |
 | `credito-soglia/` | spread high yield a 350 pb e soglie su HYG/IEF: resta contesto |
 | `petrolio/` | petrolio come innesco dei cali dell'S&P 500 dal 1950: solo contesto (legame con le recessioni) |
 | `qa/` | script Playwright e server per le verifiche nel browser |

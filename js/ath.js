@@ -62,11 +62,11 @@ export function athStats(dates, close, high, years = YEARS) {
   }
   const lowOk = iLow >= 0 && below == null;
   // massimo durante la seduta nella finestra (parità: prima data)
-  const hv = (i) => (high && high[i] != null ? high[i] : close[i]);
+  const hv = (i) => (close[i] == null ? null : high && high[i] != null ? high[i] : close[i]); // solo sedute con la chiusura
   let iHi = -1;
   for (let i = 0; i <= iLast; i++) if (dates[i] >= from && hv(i) != null && (iHi < 0 || hv(i) > hv(iHi))) iHi = i;
   return {
-    start: dates[0], from, last: r4(last), lastDate: dates[iLast],
+    start: dates[close.findIndex((c) => c != null)], from, last: r4(last), lastDate: dates[iLast],
     ref: r4(ref), refDate: dates[iRef], distPct: pctOf(last, ref), days: daysBetween(dates[iRef], dates[iLast]),
     cycleLow: lowOk ? r4(close[iLow]) : null, cycleLowDate: lowOk ? dates[iLow] : null, cycleLowPct: lowOk ? pctOf(close[iLow], ref) : null,
     fromLowPct: lowOk ? pctOf(last, close[iLow]) : null, belowZero: below,

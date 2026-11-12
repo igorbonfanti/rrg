@@ -87,9 +87,9 @@ jobs:
         timeout-minutes: 8
         run: node scripts/fetch_vix.js
 
-      # vista 8 VIX, pannello «Distanza dal massimo storico» (solo contesto): 9 mercati di config/ath.json da Yahoo, tutta
+      # vista 8 VIX, pannello «Distanza dal massimo degli ultimi 3 anni» (solo contesto): 9 mercati di config/ath.json da Yahoo, tutta
       # la storia ricalcolata ogni notte; se un mercato non risponde resta la sua riga pubblicata e la corsa lo segnala
-      - name: Distanza dal massimo storico (vista VIX)
+      - name: Distanza dal massimo dei 3 anni (vista VIX)
         id: ath
         continue-on-error: true
         timeout-minutes: 5
@@ -142,7 +142,7 @@ jobs:
             VIX=$(node -p "(() => { try { return require('./data/vix.json').asOf.vix } catch { return '' } })()")
             IND=$(node -p "(() => { try { return require('./data/industries.json').asOf } catch { return '' } })()")
             ATH=$(node -p "(() => { try { return require('./data/ath.json').asOf } catch { return '' } })()")
-            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, industrie al ${IND:-?}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?}, indici al ${INDICES:-?}, emergenti al ${EMG:-?}, VIX al ${VIX:-?}, massimi storici al ${ATH:-?})"
+            git commit -m "chore: dati al ${ASOF:-?} (breadth al ${BREADTH}, industrie al ${IND:-?}, globali al ${GLOBAL:-?}, asset reali al ${MACRO:-?}, indici al ${INDICES:-?}, emergenti al ${EMG:-?}, VIX al ${VIX:-?}, massimi dei 3 anni al ${ATH:-?})"
             git pull --rebase
             git push
           fi
@@ -185,5 +185,5 @@ jobs:
       - name: Esito
         if: steps.prices.outcome == 'failure' || steps.emerging.outcome == 'failure' || steps.vix.outcome == 'failure' || steps.ath.outcome == 'failure' || steps.breadth.outcome == 'failure' || steps.industries.outcome == 'failure' || steps.indices.outcome == 'failure' || steps.alerts.outcome == 'failure' || steps.fresh.outcome == 'failure'
         run: |
-          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, emergenti: ${{ steps.emerging.outcome }}, VIX: ${{ steps.vix.outcome }}, massimi storici: ${{ steps.ath.outcome }}, breadth: ${{ steps.breadth.outcome }}, industrie: ${{ steps.industries.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
+          echo "::error::Aggiornamento incompleto (prezzi: ${{ steps.prices.outcome }}, emergenti: ${{ steps.emerging.outcome }}, VIX: ${{ steps.vix.outcome }}, massimi dei 3 anni: ${{ steps.ath.outcome }}, breadth: ${{ steps.breadth.outcome }}, industrie: ${{ steps.industries.outcome }}, indici: ${{ steps.indices.outcome }}, alert: ${{ steps.alerts.outcome }}, freschezza: ${{ steps.fresh.outcome }})"
           exit 1

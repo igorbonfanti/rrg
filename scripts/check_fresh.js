@@ -70,7 +70,7 @@ export function staleData(d, today) {
     checks.push(['industry_members.json', d.industryMembers && d.industryMembers.asOf, B, 4],
       ['industry_members.json (holdings iShares)', d.industryMembers && d.industryMembers.weightsAsOf, B, 10]);
   }
-  // distanza dal massimo storico (dalla 1.10.0, scripts/fetch_ath.js): ogni mercato con il suo limite (config/ath.json,
+  // distanza dal massimo dei 3 anni (dalla 1.10.0, scripts/fetch_ath.js): ogni mercato con il suo limite (config/ath.json,
   // maxAge: 4 giorni come gli altri prezzi, 12 per il KOSPI per le feste coreane); un mercato senza dati è segnalato
   if (d.ath !== undefined) {
     const lim = d.athMaxAge || {};
@@ -109,7 +109,8 @@ async function main() {
     emerging: em || undefined, emergingLast,
     vix: read('vix.json') || undefined,
     industries: read('industries.json') || undefined, industryMembers: read('industry_members.json') || undefined,
-    ath: read('ath.json') || undefined,
+    // ath.json: assente = non ancora creato (nessun controllo); presente ma illeggibile = segnalato
+    ath: read('ath.json') || (fs.existsSync(path.join(ROOT, 'data', 'ath.json')) ? {} : undefined),
     athMaxAge: (() => { try { return Object.fromEntries(JSON.parse(fs.readFileSync(path.join(ROOT, 'config/ath.json'), 'utf-8')).markets.map((m) => [m.id, m.maxAge])); } catch { return {}; } })(),
     emergingFed: em && em.series ? Object.fromEntries(Object.entries(em.series).filter(([, x]) => x.fred).map(([k, x]) => [k, x.fred])) : {},
   }, new Date().toISOString().slice(0, 10));

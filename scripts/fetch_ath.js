@@ -51,8 +51,7 @@ async function main() {
   try { prevH = JSON.parse(fs.readFileSync(OUT_H, 'utf-8')); } catch { /* prima corsa */ }
   const hist = {};
   const prevOf = (id) => (prev && Array.isArray(prev.markets) ? (prev.markets.find((m) => m.id === id) || {}).stats || null : null);
-  const missing = [];
-  const rows = await mapLimit(cfg, 3, async (c) => {
+  const res = await mapLimit(cfg, 3, async (c) => {
     let fresh = null, h = null;
     try {
       const r = await fetchDaily(c.symbol, { period1: P1, raw: true });
@@ -61,13 +60,17 @@ async function main() {
       if (i0 >= 0) h = pack(r.dates.slice(i0), r.close.slice(i0).map((v) => Math.round(v * 10000) / 10000));
     } catch (e) { console.warn(`${c.id} (${c.symbol}): ${e.message}`); }
     const p = prevOf(c.id), pick = pickStats(fresh, p);
-    const ph = prevH && prevH.series ? prevH.series[c.id] || null : null;
-    if (pick.kept ? ph : h) hist[c.id] = pick.kept ? ph : h;
-    if (pick.kept) { missing.push(c.id); console.warn(`${c.id}: tengo la riga pubblicata (${pick.why})`); }
     if (!pick.kept && p && fresh.ath < p.ath * 0.995) console.warn(`::warning::${c.id}: massimo sceso da ${p.ath} (${p.athDate}) a ${fresh.ath} (${fresh.athDate}): storia rivista da Yahoo?`);
+    const ph = prevH && prevH.series ? prevH.series[c.id] || null : null;
+    const hh = pick.kept ? (pick.stats ? ph : null) : h; // senza riga (mai arrivato) niente storico vecchio
+    if (pick.kept) console.warn(`${c.id}: ${pick.stats ? `tengo la riga pubblicata (${pick.why})` : 'non arrivato e nessuna riga pubblicata: «—»'}`);
     const { maxAge, ...meta } = c;
-    return { ...meta, stats: pick.stats };
+    return { row: { ...meta, stats: pick.stats }, hist: hh, kept: pick.kept };
   }, 300);
+  // tutto nell'ordine di config/ath.json, non in quello di arrivo delle risposte: due corse senza sedute nuove scrivono
+  // file identici e keep_unchanged.js non li ripubblica
+  const rows = res.map((x) => x.row), missing = cfg.filter((c, k) => res[k].kept).map((c) => c.id);
+  for (const [k, c] of cfg.entries()) if (res[k].hist) hist[c.id] = res[k].hist;
   const ok = rows.filter((r) => r.stats);
   if (!ok.length) { console.error('Nessun mercato disponibile: data/ath.json resta com\'è'); process.exitCode = 1; return; }
   const out = {
@@ -81,6 +84,9 @@ async function main() {
   fs.writeFileSync(OUT_H, JSON.stringify({ generated: out.generated, from: HIST_FROM, note: 'Chiusure giornaliere di Yahoo (solo prezzo) per il grafico del pannello; date compatte (d0, gaps) e valori in differenze intere (cd) divise per ps.', series: hist }) + '\n');
   console.log(`data/ath.json: ${ok.length} mercati su ${rows.length}${missing.length ? ` (righe pubblicate: ${missing.join(', ')})` : ''}`);
   for (const r of rows) if (r.stats) console.log(`  ${r.id.padEnd(7)} ${String(r.stats.distPct).padStart(7)}%  massimo dei 3 anni ${r.stats.refDate}  (di sempre ${r.stats.athDate})  ultima ${r.stats.lastDate}`);
+  // un mercato non arrivato fa fallire il passo (come fetch_industries.js): l'Esito della corsa lo segnala subito, i file
+  // sono già scritti con le righe pubblicate
+  if (missing.length) { console.error(`Mercati non aggiornati: ${missing.join(', ')}`); process.exitCode = 1; }
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

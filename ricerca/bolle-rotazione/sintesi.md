@@ -1,5 +1,7 @@
 # Distanza dal massimo storico («le bolle che si sgonfiano a rotazione») · fase 1
 
+> **Aggiornamento del 12/11/2026 (decisione dell'utente):** nell'app il riferimento è il **massimo di chiusura degli ultimi 3 anni** (il picco dell'ultimo ciclo), non il massimo di sempre descritto qui sotto; il massimo di sempre resta nel dettaglio della riga. Confronto tra le definizioni in `riferimento/confronto.mjs` e `riferimento/confronto.json`. Il resto della nota (serie, seconde fonti, casi limite) vale com'è.
+
 Verifica preliminare del 12/11/2026, sola lettura sull'app. Idea dell'utente da una slide di Francesco Caruso (Cicli&Mercati), usata solo come controllo esterno.
 
 - **Script**: `ricerca/bolle-rotazione/dati.mjs` (scarica in `cache/`, esclusa da git, e scrive `risultati.json`).

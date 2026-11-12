@@ -60,7 +60,7 @@ test('massimo dei 3 anni: valori reali uguali agli script della ricerca (S&P 500
   assert.equal(s.fromLowPct, r.fromCycleLowPct); assert.equal(s.intradayRef, r.intradayAth); assert.equal(s.intradayRefDate, r.intradayAthDate);
 });
 
-test('massimo storico: ordine per distanza o per data del massimo, mercati senza dati in fondo', () => {
+test('massimo dei 3 anni: ordine per distanza o per data del massimo, mercati senza dati in fondo', () => {
   const m = [
     { id: 'A', stats: { distPct: -5, refDate: '2026-10-01' } }, { id: 'B', stats: null },
     { id: 'C', stats: { distPct: -40, refDate: '2024-07-03' } }, { id: 'D', stats: { distPct: -5, refDate: '2025-10-06' } },
@@ -70,7 +70,7 @@ test('massimo storico: ordine per distanza o per data del massimo, mercati senza
   assert.deepEqual(athRows(null, 'dist'), []);
 });
 
-test('massimo storico: riga pubblicata tenuta se il mercato non arriva, è più vecchio o ha la storia accorciata', () => {
+test('massimo dei 3 anni: riga pubblicata tenuta se il mercato non arriva, è più vecchio o ha la storia accorciata', () => {
   const prev = { start: '2000-08-23', lastDate: '2026-11-10', ath: 145.29 };
   assert.deepEqual(pickStats(null, prev), { stats: prev, kept: true, why: 'non arrivato' });
   assert.equal(pickStats(null, null).stats, null);
@@ -93,7 +93,7 @@ test('dati fermi: ogni mercato della distanza dal massimo con il suo limite (KOS
   assert.deepEqual(staleData(base, '2026-11-12'), []); // file non ancora creato: nessun controllo
 });
 
-test('massimo storico: configurazione e file dei dati coerenti', { skip: !fs.existsSync(new URL('../data/ath.json', import.meta.url)) && 'data/ath.json assente' }, () => {
+test('massimo dei 3 anni: configurazione e file dei dati coerenti', { skip: !fs.existsSync(new URL('../data/ath.json', import.meta.url)) && 'data/ath.json assente' }, () => {
   const C = read('config/ath.json').markets, A = read('data/ath.json');
   assert.deepEqual(A.markets.map((m) => m.id), C.map((m) => m.id));
   assert.ok(C.every((m) => m.id && m.label && m.symbol && m.kind && m.maxAge > 0));
@@ -104,4 +104,22 @@ test('massimo storico: configurazione e file dei dati coerenti', { skip: !fs.exi
     assert.equal(s.days, daysBetween(s.refDate, s.lastDate), m.id);
     assert.equal(s.from, windowStart(s.lastDate), m.id);
   }
+});
+
+test('massimo dei 3 anni: bordi della finestra, chiusura a zero, valori mancanti, massimo durante la seduta', () => {
+  // il primo giorno della finestra è dentro, quello prima è fuori
+  assert.equal(athStats(['2023-01-08', '2026-01-08'], [200, 100]).refDate, '2023-01-08');
+  assert.equal(athStats(['2023-01-07', '2026-01-08'], [200, 100]).refDate, '2026-01-08');
+  // una chiusura esattamente a zero dopo il massimo: calo più profondo non calcolato
+  assert.equal(athStats(D, [50, 60, 0, 20, 30]).belowZero, '2026-01-06');
+  // chiusure mancanti in coda e in testa: ultima e prima seduta con la chiusura
+  const t = athStats(D, [null, 120, 90, null, null], [500, 121, 95, 999, 999]);
+  assert.equal(t.lastDate, '2026-01-06'); assert.equal(t.days, 1); assert.equal(t.start, '2026-01-05');
+  assert.equal(t.intradayRef, 121); // i massimi delle sedute senza chiusura non contano
+  // massimo durante la seduta cercato solo nella finestra dei 3 anni
+  const w = athStats(['2010-01-04', '2026-01-05', '2026-01-06'], [100, 50, 60], [500, 55, 61]);
+  assert.equal(w.intradayRef, 61); assert.equal(w.intradayRefDate, '2026-01-06'); assert.equal(w.ath, 100);
+  // parità del massimo di sempre: la prima data
+  const a = athStats(['2010-01-04', '2015-01-05', '2026-01-05', '2026-01-06'], [120, 100, 120, 110]);
+  assert.equal(a.athDate, '2010-01-04'); assert.equal(a.refDate, '2026-01-05');
 });

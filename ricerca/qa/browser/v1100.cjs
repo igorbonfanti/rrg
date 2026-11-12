@@ -53,15 +53,15 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
     ok(det.includes(`degli ultimi 3 anni (dal ${dIT(spx.from)})`) && det.includes(`serie dal ${dIT(spx.start)}`) && det.includes('durante la seduta') && det.includes(dIT(spx.refDate)), `${name}: dettaglio S&P 500 «${det.slice(0, 90)}…»`);
     // grafico del prezzo sotto la tabella: linea, finestra dei 3 anni, massimo di riferimento; periodi
     await p.waitForSelector('#athChart path.athpx', { timeout: 15000 }).catch(() => {});
-    const ch = await p.evaluate(() => ({ box: !!document.getElementById('athChartBox') && !document.getElementById('athChartBox').hidden, t: (document.getElementById('athChartTitle') || {}).textContent || '', px: !!document.querySelector('#athChart path.athpx'), win: !!document.querySelector('#athChart .athwin'), ref: !!document.querySelector('#athChart .athref'), lbl: [...document.querySelectorAll('#athChart .athreft')].map((x) => x.textContent).join(' ') }));
-    ok(ch.box && /^S&P 500: prezzo dal \d{4}/.test(ch.t) && ch.px && ch.win && ch.ref && /massimo/.test(ch.lbl), `${name}: grafico dello S&P 500 «${ch.t}» con finestra e massimo (${ch.lbl})`);
+    const ch = await p.evaluate(() => ({ box: !!document.getElementById('athChartBox') && !document.getElementById('athChartBox').hidden, t: (document.getElementById('athChartTitle') || {}).textContent || '', px: !!document.querySelector('#athChart path.athpx'), win: !!document.querySelector('#athChart .athwin'), ref: !!document.querySelector('#athChart .athref'), lbl: (document.querySelector('#athLegend .athleg-ref') || {}).textContent || '' }));
+    ok(ch.box && /^S&P 500: prezzo \(serie dal \d{4}/.test(ch.t) && ch.px && ch.win && ch.ref && /massimo di chiusura dei 3 anni: [0-9.]+,[0-9]+ il [0-9]{2}\/[0-9]{2}\/[0-9]{4}/.test(ch.lbl), `${name}: grafico dello S&P 500 «${ch.t}» con finestra e massimo (${ch.lbl})`);
     await tap(p.locator('#athRange button[data-range="MAX"]')); await p.waitForTimeout(300);
     ok((await p.getAttribute('#athRange button[data-range="MAX"]', 'aria-pressed', { timeout: 5000 }).catch(() => null)) === 'true' && !!(await p.$('#athChart path.athpx')), `${name}: periodo MAX del grafico`);
     await tap(p.locator('#athTable tr.athr[data-id="WTI"]')); await p.waitForTimeout(200);
     const wti = await p.$eval('#athTable tr.athdet', (t) => t.textContent).catch(() => '');
     const wtiS = (ms.find((m) => m.id === 'WTI') || {}).stats || { athDate: '1900-01-01', refDate: '1900-01-01', from: '1800-01-01' };
     ok(wti.includes('massimo di sempre') && wti.includes(dIT(wtiS.athDate)) && wti.includes(dIT(wtiS.refDate)) && /USO/.test(wti) && wtiS.athDate < wtiS.from, `${name}: dettaglio WTI con il massimo dei 3 anni, quello di sempre (${wtiS.athDate}) e la nota su USO`);
-    ok(/^Petrolio WTI: prezzo dal/.test(await p.$eval('#athChartTitle', (x) => x.textContent).catch(() => '')), `${name}: il grafico passa al petrolio`);
+    ok(/^Petrolio WTI: prezzo \(serie dal/.test(await p.$eval('#athChartTitle', (x) => x.textContent).catch(() => '')), `${name}: il grafico passa al petrolio`);
     ok((await p.$$('#athTable tr.athdet')).length === 1, `${name}: un solo dettaglio aperto`);
     await tap(p.locator('#athTable tr.athr[data-id="WTI"]')); await p.waitForTimeout(200);
     ok((await p.$$('#athTable tr.athdet')).length === 0 && (await p.$eval('#athChartBox', (x) => x.hidden).catch(() => false)), `${name}: secondo clic chiude dettaglio e grafico`);
