@@ -474,6 +474,12 @@
       </div>
       <div class="legend" id="vxLegend"></div>
     </div>
+    <div class="panel" id="athPanel">
+      <div class="ph"><h2>Distanza dal massimo storico · le bolle si sgonfiano a rotazione</h2><span class="ctl"><span class="seg" id="athSort" role="group" aria-label="Ordine delle righe"><button type="button" data-sort="dist" aria-pressed="true">per distanza</button><button type="button" data-sort="date" aria-pressed="false">per data del massimo</button></span></span></div>
+      <p class="note pb" id="athMiss" hidden></p>
+      <div class="tscroll"><table class="t ath" id="athTable"></table></div>
+      <p class="note pb" id="athNote">Quanto ogni mercato è sotto il suo <b>massimo di chiusura</b> dall'inizio della serie disponibile (il «dal …» è nel dettaglio di ogni riga), con i giorni passati dal massimo. La barra va da 0 a −60%; la tacca è il calo più profondo dopo il massimo. Solo prezzo, senza dividendi, nella valuta di quotazione (il KOSPI in won): per chi investe in euro il calo è un altro. Oro e argento con gli ETF fisici GLD e SLV, rame e petrolio con il future continuo. Clic o tocco su una riga per i dettagli. <b>Solo contesto</b>: nessuna soglia e nessun segnale. Idea da una slide di Francesco Caruso (Cicli&amp;Mercati). Dati Yahoo Finance, ricalcolati ogni notte su tutta la storia; verifica in <span class="mono">ricerca/bolle-rotazione/</span> (ramo di sviluppo).</p>
+    </div>
     <div class="panel">
       <div class="ph"><h2>Come leggere il VIX</h2></div>
       <div class="emread">

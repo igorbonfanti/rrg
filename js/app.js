@@ -79,7 +79,7 @@ const SHAPE = {
   'data/prices.json': ['dates', 'tickers', 'groups'], 'data/sectors.json': ['dates', 'adjclose'], 'data/breadth.json': ['dates', 'series'],
   'config/thresholds.json': ['blue', 'params'], 'data/breadth_latest.json': ['members'], 'data/alerts.json': ['log'],
   'config/indices.json': ['indices'], 'data/indices.json': ['series'], 'data/indices_more.json': ['series'], 'data/capitulation.json': ['series'],
-  'data/sector_members.json': ['sectors', 'dates'], 'data/emerging.json': ['series', 'asOf'], 'data/vix.json': ['series', 'asOf'], 'config/emerging.json': ['indices', 'order'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
+  'data/sector_members.json': ['sectors', 'dates'], 'data/emerging.json': ['series', 'asOf'], 'data/vix.json': ['series', 'asOf'], 'data/ath.json': ['markets'], 'config/emerging.json': ['indices', 'order'], 'data/prices_global.json': ['dates', 'tickers', 'groups'], 'data/prices_macro.json': ['dates', 'tickers', 'groups'],
   'data/industries.json': ['dates', 'series'], 'config/industries.json': ['industries'],
 };
 const getJSON = (url, optional, fresh) => fetch(url, fresh ? { cache: 'no-cache' } : undefined).catch(() => { throw new Error(`${url}: non raggiungibile`); }).then((r) => {
@@ -272,7 +272,7 @@ function init() {
   }) : null;
   if (!state.emerging) $('tab-emg').hidden = true;
   // vista 8 VIX: dati alla prima apertura (solo contesto)
-  state.vix = createVix({ $, store, load: () => getJSON('data/vix.json', false, true) });
+  state.vix = createVix({ $, store, load: () => getJSON('data/vix.json', false, true), loadAth: () => getJSON('data/ath.json', true, true) });
   // vista 5 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
     $, store, names: Object.fromEntries([...Object.keys(SECTOR_NAMES), ...state.bottom.industries()].map((k) => [k, state.bottom.name(k)])), industries: state.bottom.industries(),

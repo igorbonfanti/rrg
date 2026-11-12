@@ -8,6 +8,7 @@
 import * as V from './vix.js';
 import { esc, fmt, sgnP, pct, dIT, placeTip, bindTip, chartWidth } from './format.js';
 import { zoomGroup, timeTicks } from './zoom.js';
+import { athRows } from './ath.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 function el(tag, attrs, parent) {
@@ -20,7 +21,7 @@ const DAY = 86400000;
 const IXN = { SPX: 'S&P 500', NDX: 'Nasdaq-100' };
 const HL = { 21: '1 mese', 63: '3 mesi', 126: '6 mesi', 252: '12 mesi' };
 
-/** @param {{$: Function, store: object, load: () => Promise<object>}} ctx */
+/** @param {{$: Function, store: object, load: () => Promise<object>, loadAth?: () => Promise<object|null>}} ctx */
 export function createVix(ctx) {
   const { $, store } = ctx;
   let data = null, loading = null, failed = null, model = null;
@@ -28,10 +29,16 @@ export function createVix(ctx) {
   let selG = null, zoom = null;
   const st = { ix: ['SPX', 'NDX'].includes(store.get('vxIx')) ? store.get('vxIx') : 'SPX', thr: V.XS.includes(store.get('vxThr')) ? store.get('vxThr') : 40, range: ['3A', '10A', 'MAX'].includes(store.get('vxRange')) ? store.get('vxRange') : '10A' };
 
+  // distanza dal massimo storico (1.10.0): file a parte e facoltativo, se manca il pannello lo dice e il resto funziona
+  let ath = null, athOpen = null;
+  st.athSort = store.get('athSort') === 'date' ? 'date' : 'dist';
   function ensure() {
     if (!loading) {
       $('vxLoading').hidden = false;
-      loading = ctx.load().then((d) => { data = d; }).catch((e) => { failed = e; }).finally(() => { $('vxLoading').hidden = true; });
+      loading = Promise.all([
+        ctx.load().then((d) => { data = d; }).catch((e) => { failed = e; }),
+        (ctx.loadAth ? ctx.loadAth() : Promise.resolve(null)).then((d) => { ath = d; }).catch(() => { ath = null; }),
+      ]).finally(() => { $('vxLoading').hidden = true; });
     }
     return loading;
   }
@@ -59,7 +66,7 @@ export function createVix(ctx) {
     }
     if (!model) model = build();
     $('vxMiss').hidden = true; $('vxBody').hidden = false;
-    renderKpis(); renderTable(); renderScatter(); renderChart();
+    renderKpis(); renderTable(); renderScatter(); renderChart(); renderAth();
     document.querySelectorAll('#vxIx button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.ix === st.ix)));
     document.querySelectorAll('#vxRange button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === st.range)));
   }
@@ -394,7 +401,59 @@ export function createVix(ctx) {
       (hasC ? '<span><span class="kl vxk-cr"></span>HYG/IEF: distanza dal massimo di 12 mesi</span>' : '');
   }
 
+  // ---------- distanza dal massimo storico (solo contesto) ----------
+  const p2 = (x) => sgnP(x, 2);
+  const W60 = 60; // scala fissa della barra: da 0 a −60%
+  const barW = (x) => Math.max(0, Math.min(100, (-x / W60) * 100));
+  // numero con il punto delle migliaia (12.345,67): i prezzi vanno da 6 (rame) a 124.752 (bitcoin)
+  const th = (x, d) => { const t = fmt(x, d), i = t.indexOf(','), n = i < 0 ? t : t.slice(0, i); return n.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (i < 0 ? '' : t.slice(i)); };
+  function athDetail(m) {
+    const s = m.stats, cur = m.id === 'KOSPI' ? ' won' : '';
+    const v = (x) => th(x, Math.abs(x) < 10 ? 3 : 2);
+    const parts = [
+      `<b>${esc(m.label)}</b> · ${esc(m.symbol)} (${esc(m.kind)})`,
+      `ultima chiusura ${v(s.last)}${cur} il ${dIT(s.lastDate)}`,
+      `massimo di chiusura ${v(s.ath)}${cur} il ${dIT(s.athDate)}, <b>dal ${dIT(s.start)}</b> (inizio della serie)`,
+      s.intradayAth != null && s.intradayAthDate ? `massimo durante la seduta ${v(s.intradayAth)} il ${dIT(s.intradayAthDate)}` : null,
+      s.belowZero ? `dopo il massimo ha chiuso sotto zero (${dIT(s.belowZero)}): il calo più profondo non si calcola` : s.cycleLow != null ? `calo più profondo dopo il massimo ${p2(s.cycleLowPct)} il ${dIT(s.cycleLowDate)}, da lì ${p2(s.fromLowPct)}` : 'nessun calo dopo il massimo',
+      s.max52w != null && s.max52wDate !== s.athDate ? `massimo delle ultime 52 settimane ${v(s.max52w)} il ${dIT(s.max52wDate)} (${p2(s.dist52wPct)})` : null,
+    ].filter(Boolean);
+    return parts.join(' · ') + (m.note ? `. ${esc(m.note)}` : '.');
+  }
+  function renderAth() {
+    const T = $('athTable');
+    document.querySelectorAll('#athSort button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.sort === st.athSort)));
+    if (!ath || !Array.isArray(ath.markets) || !ath.markets.length) {
+      T.innerHTML = ''; $('athMiss').hidden = false;
+      $('athMiss').textContent = 'Dati della distanza dal massimo storico non disponibili (data/ath.json): il pannello tornerà dopo il prossimo aggiornamento.';
+      return;
+    }
+    $('athMiss').hidden = true;
+    const rows = athRows(ath.markets, st.athSort);
+    const newest = rows.filter((m) => m.stats).map((m) => m.stats.lastDate).sort().at(-1);
+    T.innerHTML = `<thead><tr><th>Mercato</th><th title="Ultima chiusura contro il massimo di chiusura dall'inizio della serie. Barra da 0 a −60%; la tacca è il calo più profondo dopo il massimo">Distanza dal massimo <span class="muted">· tacca: calo più profondo</span></th><th>Massimo di chiusura</th><th class="r" title="Il punto più basso di chiusura dopo il massimo, rispetto al massimo">Calo più profondo</th><th>Ultima chiusura</th></tr></thead><tbody>` +
+      rows.map((m) => {
+        const s = m.stats, open = athOpen === m.id;
+        if (!s) return `<tr class="athr" data-id="${esc(m.id)}"><td class="nm"><b>${esc(m.label)}</b><small>${esc(m.symbol)} · ${esc(m.kind)}</small></td><td><span class="dv zero">—</span><span class="muted">dati non disponibili</span></td><td class="c-max">—</td><td class="r c-low">—</td><td class="c-last">—</td></tr>`;
+        const z = s.distPct === 0, d = s.days, ago = d === 0 ? 'all\'ultima seduta' : d === 1 ? '1 giorno prima' : `${th(d, 0)} giorni fa`;
+        const mark = s.cycleLowPct != null && s.cycleLowPct < 0 ? `<span class="mark" style="right:${barW(s.cycleLowPct).toFixed(2)}%"></span>` : '';
+        const low = s.belowZero ? '<span class="muted" title="Dopo il massimo ha chiuso sotto zero: il calo più profondo non si calcola">sotto zero</span>' : s.cycleLowPct == null ? '<span class="muted">—</span>' : p2(s.cycleLowPct);
+        const old = s.lastDate < newest ? ' muted' : '';
+        return `<tr class="athr${open ? ' on' : ''}" data-id="${esc(m.id)}" tabindex="0" role="button" aria-expanded="${open}" title="Clic per i dettagli"><td class="nm"><b>${esc(m.label)}</b><small>${esc(m.symbol)} · ${esc(m.kind)}</small></td>` +
+          `<td><span class="dv${z ? ' zero' : ''}">${z ? '0,00%' : p2(s.distPct)}</span><span class="athbar" role="img" aria-label="${esc(m.label)}: ${z ? 'al massimo' : p2(s.distPct) + ' dal massimo'}"><i style="width:${barW(s.distPct).toFixed(2)}%"></i>${mark}</span>` +
+          `<span class="athmob">massimo il ${dIT(s.athDate)} · ${ago} · calo più profondo ${s.belowZero ? 'non calcolabile' : s.cycleLowPct == null ? '—' : p2(s.cycleLowPct)} · al ${dIT(s.lastDate)}</span></td>` +
+          `<td class="c-max mono">${dIT(s.athDate)} <span class="muted">· ${ago}</span></td><td class="r c-low mono">${low}</td><td class="c-last mono${old}">${dIT(s.lastDate)}</td></tr>` +
+          (open ? `<tr class="athdet"><td colspan="5">${athDetail(m)}</td></tr>` : '');
+      }).join('') + '</tbody>';
+    T.querySelectorAll('tr.athr[tabindex]').forEach((tr) => {
+      const go = () => { athOpen = athOpen === tr.dataset.id ? null : tr.dataset.id; renderAth(); const n = $('athTable').querySelector(`tr.athr[data-id="${tr.dataset.id}"]`); if (n) n.focus(); };
+      tr.onclick = go;
+      tr.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+    });
+  }
+
   function bind() {
+    document.querySelectorAll('#athSort button').forEach((b) => b.onclick = () => { st.athSort = b.dataset.sort; store.set('athSort', st.athSort); if (model) renderAth(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && selG && !$('v-vix').hidden) select(null); });
     document.querySelectorAll('#vxIx button').forEach((b) => b.onclick = () => { st.ix = b.dataset.ix; store.set('vxIx', st.ix); if (model) render(); });
     // un pulsante del periodo, anche quello già scelto, toglie lo zoom; SPX/NDX e la soglia lo lasciano

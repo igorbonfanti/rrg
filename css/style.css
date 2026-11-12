@@ -991,3 +991,32 @@ svg .zoomlab { fill: var(--ink); font: 600 10.5px var(--f-mono, monospace); poin
 .kd.kd-ext { background: transparent; box-shadow: inset 0 0 0 1.6px var(--ink); }
 svg.flag { vertical-align: -1px; display: inline-block; }
 .tip svg.flag { vertical-align: -2px; }
+
+/* 1.10.0 vista 8: distanza dal massimo storico (solo contesto) */
+.t.ath td { white-space: nowrap; vertical-align: middle; }
+.t.ath tr.athr { cursor: pointer; }
+.t.ath tr.athr:hover td, .t.ath tr.athr:focus-visible td, .t.ath tr.athr.on td { background: var(--row-hi); }
+.t.ath tr.athr:hover .athbar, .t.ath tr.athr:focus-visible .athbar, .t.ath tr.athr.on .athbar { background: var(--rule); }
+.t.ath .nm b { font-weight: 600; color: var(--ink); }
+.t.ath .nm small { display: block; color: var(--ink-3); font-size: 11px; }
+.t.ath .dv { display: inline-block; width: 66px; text-align: right; margin-right: 10px; font-family: var(--f-mono); color: var(--down); font-weight: 600; }
+.t.ath .dv.zero { color: var(--ink-2); }
+.athbar { position: relative; display: inline-block; vertical-align: middle; height: 11px; width: 260px; background: var(--panel-2); }
+.athbar i { position: absolute; top: 0; bottom: 0; right: 0; background: var(--bar-fill); }
+.athbar .mark { position: absolute; top: -3px; bottom: -3px; width: 2px; margin-right: -1px; background: var(--ink-3); }
+.t.ath .mono { font-family: var(--f-mono); }
+.t.ath .muted { color: var(--ink-3); }
+.t.ath tr.athdet td { white-space: normal; color: var(--ink-2); font-size: 12px; background: var(--panel); padding-top: 6px; padding-bottom: 8px; }
+.t.ath tr.athdet b { color: var(--ink); }
+.t.ath .athmob { display: none; }
+@media (max-width: 1100px) { .athbar { width: 180px; } }
+@media (max-width: 600px) {
+  .t.ath thead { display: none; }
+  .t.ath, .t.ath tbody, .t.ath tr, .t.ath td { display: block; width: 100%; }
+  .t.ath tr.athr { padding: 6px 0 4px; border-bottom: 1px solid var(--grid); }
+  .t.ath tr.athr td { border: 0; padding: 2px 8px; }
+  .t.ath td.c-max, .t.ath td.c-low, .t.ath td.c-last { display: none; }
+  .t.ath .athmob { display: block; color: var(--ink-3); font-size: 11.5px; margin-top: 3px; white-space: normal; }
+  .t.ath .nm small { display: inline; margin-left: 6px; }
+  .athbar { width: calc(100% - 80px); }
+}
