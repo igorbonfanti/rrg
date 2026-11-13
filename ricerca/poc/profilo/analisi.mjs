@@ -47,7 +47,8 @@ import { parse } from '../../../scripts/lib/yahoo.js';
 import { windowStart } from '../../../js/ath.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
-const CACHE = path.join(HERE, '..', 'cache');
+// POC_CACHE: un'altra cartella con le risposte grezze nello stesso formato (confronto_app.mjs, 1.11.0)
+const CACHE = process.env.POC_CACHE ? path.resolve(process.env.POC_CACHE) : path.join(HERE, '..', 'cache');
 const r4 = (x) => (x == null || !isFinite(x) ? null : Math.round(x * 10000) / 10000);
 const r6 = (x) => (x == null || !isFinite(x) ? null : Math.round(x * 1e6) / 1e6);
 const median = (a) => { const s = a.filter((x) => x != null && isFinite(x)).sort((x, y) => x - y); const n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : null; };
@@ -63,7 +64,7 @@ function raw(kind, sym) {
   RAW.set(k, v);
   return v;
 }
-const chartDaily = (sym) => { const r = raw('d', sym); return parse(r.res, { nowSec: r.fetchedSec }); };
+export const chartDaily = (sym) => { const r = raw('d', sym); return parse(r.res, { nowSec: r.fetchedSec }); };
 const FMT = {};
 function localDate(ts, tz) {
   const f = FMT[tz] || (FMT[tz] = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23' }));
@@ -99,8 +100,8 @@ const closeMap = (b) => { const m = new Map(); for (const x of b) m.set(x.s, x.c
  * @param {{chart:string, vol:string, scale?:string, contract?:string}} o
  * @returns {{daily: object[], hourly: object[], info: object}}
  */
-function mapped(o, from, to, withHourly = true) {
-  const volD = bars('d', o.vol), volH = bars('h', o.vol);
+export function mapped(o, from, to, withHourly = true) {
+  const volD = bars('d', o.vol), volH = bars('h', o.vol) || []; // senza barre orarie (confronto_app.mjs): regola giornaliero/orario non applicata
   const target = o.scale === 'contract' ? closeMap(bars('c', o.contract)) : closeMap(bars('d', o.chart));
   const vm = closeMap(volD);
   const factor = (s) => (target.has(s) && vm.has(s) ? target.get(s) / vm.get(s) : null);
@@ -153,7 +154,7 @@ function mapped(o, from, to, withHourly = true) {
 }
 
 // ------------------------------------------------------------------ profili
-const logEdges = (lo, hi, n) => Array.from({ length: n + 1 }, (_, i) => Math.exp(Math.log(lo) + ((Math.log(hi) - Math.log(lo)) * i) / n));
+export const logEdges = (lo, hi, n) => Array.from({ length: n + 1 }, (_, i) => Math.exp(Math.log(lo) + ((Math.log(hi) - Math.log(lo)) * i) / n));
 function binOf(e, p) {
   if (p <= e[0]) return 0;
   if (p >= e[e.length - 1]) return e.length - 2;
@@ -161,7 +162,7 @@ function binOf(e, p) {
   while (b - a > 1) { const m = (a + b) >> 1; if (e[m] <= p) a = m; else b = m; }
   return a;
 }
-function profile(items, mode, e) {
+export function profile(items, mode, e) {
   const v = new Float64Array(e.length - 1);
   for (const x of items) {
     if (!(x.v > 0)) continue;
@@ -189,7 +190,7 @@ function overlap(p, q) {
   let s = 0; for (let i = 0; i < n; i++) s += Math.min(a[i], b[i]);
   return s;
 }
-const rangeOf = (items) => [Math.min(...items.map((x) => x.l)), Math.max(...items.map((x) => x.h))];
+export const rangeOf = (items) => [Math.min(...items.map((x) => x.l)), Math.max(...items.map((x) => x.h))];
 // secondo picco: la fascia più piena ad almeno il 3% dalla più piena, in quota della più piena (informativo)
 function secondPeak(v, e) {
   let p = 0; for (let i = 1; i < v.length; i++) if (v[i] > v[p]) p = i;
@@ -280,6 +281,17 @@ function analyse(M) {
   };
 }
 
+/** profilo come lo pubblicherebbe la pipeline, senza le prove (confronto_app.mjs) */
+export function appProfile(chart, vol) {
+  const ch = chartDaily(chart), to = ch.dates[ch.dates.length - 1], from = windowStart(to, 1);
+  const m = mapped({ chart, vol }, from, to, false);
+  const [la, ha] = rangeOf(m.daily), ea = logEdges(la, ha, 100), va0 = profile(m.daily, 'spread', ea), tot = va0.reduce((a, b) => a + b, 0);
+  return { vol, from, to, sessions: m.daily.length, lo: la, hi: ha, n: 100, bp: Array.from(va0, (x) => Math.round((x / tot) * 10000)), info: m.info };
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+
+function main() {
 const rows = [], app = {};
 for (const M of MARKETS) { const r = analyse(M); rows.push(r.row); app[M.id] = r.app; }
 const out = { generated: new Date().toISOString(), note: 'Scritto da ricerca/poc/profilo/analisi.mjs dai dati in ricerca/poc/cache/ (Yahoo Finance). Criterio e metodo in testa allo script e in sintesi.md.', criterion: { vaSpreadMaxPct: 2, minOverlap: 0.85, minDay2Day: 0.9, main: 'b100 (giornaliero spalmato, 100 fasce logaritmiche)', set: ['b50', 'b100', 'b200', 'c250', 'c2100', 'c2200'] }, markets: rows };
@@ -294,3 +306,4 @@ for (const r of rows) {
   console.log(`        VA b100 ${r.va.b100.val}–${r.va.b100.vah}  picco ${r.va.b100.peak}  2° picco ${JSON.stringify(r.secondPeak)}  dati ${JSON.stringify(r.data)}  info ${JSON.stringify(r.info)}`);
 }
 console.log('profilo_app.json', size);
+}

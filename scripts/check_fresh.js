@@ -77,6 +77,14 @@ export function staleData(d, today) {
     if (!d.ath || !Array.isArray(d.ath.markets)) out.push('ath.json: illeggibile o senza mercati');
     else for (const m of d.ath.markets) checks.push([`ath.json: ${m.id}`, m.stats ? m.stats.lastDate : null, B, lim[m.id] || 4]);
   }
+  // profilo dei volumi degli ultimi 12 mesi (dalla 1.11.0, `profiles` di ath_history.json): fetch_ath.js tiene il profilo
+  // pubblicato quando lo strumento dei volumi non arriva e non fallisce mai per questo; qui, oltre lo stesso limite del
+  // mercato, un profilo fermo o mancante (null) fa fallire il passo. athProfiles: {id: data di fine | null}, solo i mercati
+  // con `profile` in config/ath.json; undefined = file non ancora con i profili (nessun controllo)
+  if (d.athProfiles !== undefined) {
+    const lim = d.athMaxAge || {};
+    for (const [k, to] of Object.entries(d.athProfiles)) checks.push([`ath_history.json: profilo dei volumi ${k}`, to, B, lim[k] || 4]);
+  }
   // serie che non sono mai arrivate (prima corsa con qualche fonte giù): senza data, quindi segnalate
   for (const k of (d.emerging && d.emerging.missing) || []) checks.push([`emerging.json: ${k} (mancante)`, null, B, 6]);
   for (const [k, m] of Object.entries(d.indexMembers || {})) checks.push([`index_members/${k}.json`, m && m.asOf, today, 14]);
@@ -111,6 +119,11 @@ async function main() {
     industries: read('industries.json') || undefined, industryMembers: read('industry_members.json') || undefined,
     // ath.json: assente = non ancora creato (nessun controllo); presente ma illeggibile = segnalato
     ath: read('ath.json') || (fs.existsSync(path.join(ROOT, 'data', 'ath.json')) ? {} : undefined),
+    athProfiles: (() => {
+      const h = read('ath_history.json');
+      if (!h || !h.profiles) return undefined;
+      try { return Object.fromEntries(JSON.parse(fs.readFileSync(path.join(ROOT, 'config/ath.json'), 'utf-8')).markets.filter((m) => m.profile).map((m) => [m.id, h.profiles[m.id] ? h.profiles[m.id].to || null : null])); } catch { return undefined; }
+    })(),
     athMaxAge: (() => { try { return Object.fromEntries(JSON.parse(fs.readFileSync(path.join(ROOT, 'config/ath.json'), 'utf-8')).markets.map((m) => [m.id, m.maxAge])); } catch { return {}; } })(),
     emergingFed: em && em.series ? Object.fromEntries(Object.entries(em.series).filter(([, x]) => x.fred).map(([k, x]) => [k, x.fred])) : {},
   }, new Date().toISOString().slice(0, 10));
