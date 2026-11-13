@@ -1025,6 +1025,14 @@ svg.flag { vertical-align: -1px; display: inline-block; }
 .ts .athref { stroke: var(--down); stroke-width: 1.2; stroke-dasharray: 5 4; }
 .ts .athreft { fill: var(--down); paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
 .ts .athwin + text, .ts text.athwint { paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+/* profilo dei volumi degli ultimi 12 mesi accanto al grafico dei massimi (1.11.0): barre grigie, quella sotto il puntatore in ambra */
+.ts .vpbar { fill: var(--ink-3); opacity: .5; }
+.ts .vpbar.on { fill: var(--amber); opacity: .9; }
+.ts .vpcol { fill: none; stroke: var(--rule); }
+.ts .vpwin { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; }
+.legend .vpk-bar { background: var(--ink-3); opacity: .5; }
+.legend .vpk-win { width: 0; height: 10px; border-left: 1px dashed var(--ink-3); background: none; }
+.legend .vpwarn, .tip .vpwarn { color: var(--amber); }
 .ts .athtop { fill: var(--down); }
 .ts .athlow { fill: var(--bg); stroke: var(--ink-2); stroke-width: 1.5; }
 .ts .athlast { fill: var(--amber); }

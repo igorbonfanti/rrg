@@ -88,11 +88,13 @@ jobs:
         run: node scripts/fetch_vix.js
 
       # vista 8 VIX, pannello «Distanza dal massimo degli ultimi 3 anni» (solo contesto): 9 mercati di config/ath.json da Yahoo, tutta
-      # la storia ricalcolata ogni notte; se un mercato non risponde resta la sua riga pubblicata e la corsa lo segnala
+      # la storia ricalcolata ogni notte; se un mercato non risponde resta la sua riga pubblicata e la corsa lo segnala. Dalla 1.11.0
+      # anche il profilo dei volumi degli ultimi 12 mesi (5 richieste in più: SPY, QQQ, 069500.KS giornalieri, SI=F e HG=F orari,
+      # ~1,4 MB): se non arriva resta quello pubblicato (solo avviso), un profilo fermo oltre maxAge lo segnala check_fresh.js
       - name: Distanza dal massimo dei 3 anni (vista VIX)
         id: ath
         continue-on-error: true
-        timeout-minutes: 5
+        timeout-minutes: 8
         run: node scripts/fetch_ath.js
 
       - name: Breadth settoriale S&P 500 e storia ETF
