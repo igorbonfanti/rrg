@@ -88,7 +88,7 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
   const g = await (await fetch(BASE + 'guida.html')).text();
   ok(/id="massimi"/.test(g) && /massimo di chiusura degli ultimi 3 anni/.test(g) && /id="credito-petrolio"/.test(g) && /350 punti base/.test(g) && /280 mesi su 910/.test(g), 'guida: distanza dal massimo dei 3 anni, spread a 350 pb e petrolio');
   const v = await (await fetch(BASE + 'version.json')).json();
-  ok(v.version === '1.10.0', `version.json ${v.version}`);
+  ok(/^1\.(1[0-9])\./.test(v.version), `version.json ${v.version}`);
   await b.close();
   console.log(`${fail} FAIL`);
   process.exit(fail ? 1 : 0);

@@ -44,13 +44,19 @@ export function pickStats(fresh, prev) {
   return { stats: fresh, kept: false, why: null };
 }
 
+/** Riga pubblicata dello stesso mercato e dello stesso simbolo (null se la serie è cambiata o manca) */
+export const prevRowOf = (prev, c) => (prev && Array.isArray(prev.markets) ? prev.markets.find((m) => m.id === c.id && m.symbol === c.symbol) || null : null);
+
 async function main() {
   const cfg = JSON.parse(fs.readFileSync(CFG, 'utf-8')).markets;
   let prev = null, prevH = null;
   try { prev = JSON.parse(fs.readFileSync(OUT, 'utf-8')); } catch { /* prima corsa */ }
   try { prevH = JSON.parse(fs.readFileSync(OUT_H, 'utf-8')); } catch { /* prima corsa */ }
   const hist = {};
-  const prevOf = (id) => (prev && Array.isArray(prev.markets) ? (prev.markets.find((m) => m.id === id) || {}).stats || null : null);
+  // riga pubblicata dello stesso mercato e dello stesso simbolo: se la serie cambia (oro e argento dagli ETF ai future,
+  // 1.10.1) la riga vecchia non vale più
+  const prevRow = (c) => prevRowOf(prev, c);
+  const prevOf = (c) => (prevRow(c) || {}).stats || null;
   const res = await mapLimit(cfg, 3, async (c) => {
     let fresh = null, h = null;
     try {
@@ -59,9 +65,9 @@ async function main() {
       const i0 = r.dates.findIndex((d) => d >= HIST_FROM);
       if (i0 >= 0) h = pack(r.dates.slice(i0), r.close.slice(i0).map((v) => Math.round(v * 10000) / 10000));
     } catch (e) { console.warn(`${c.id} (${c.symbol}): ${e.message}`); }
-    const p = prevOf(c.id), pick = pickStats(fresh, p);
+    const p = prevOf(c), pick = pickStats(fresh, p);
     if (!pick.kept && p && fresh.ath < p.ath * 0.995) console.warn(`::warning::${c.id}: massimo sceso da ${p.ath} (${p.athDate}) a ${fresh.ath} (${fresh.athDate}): storia rivista da Yahoo?`);
-    const ph = prevH && prevH.series ? prevH.series[c.id] || null : null;
+    const ph = prevRow(c) && prevH && prevH.series ? prevH.series[c.id] || null : null;
     const hh = pick.kept ? (pick.stats ? ph : null) : h; // senza riga (mai arrivato) niente storico vecchio
     if (pick.kept) console.warn(`${c.id}: ${pick.stats ? `tengo la riga pubblicata (${pick.why})` : 'non arrivato e nessuna riga pubblicata: «—»'}`);
     const { maxAge, ...meta } = c;
