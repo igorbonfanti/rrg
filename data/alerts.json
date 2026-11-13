@@ -1,5 +1,5 @@
 {
- "checkedThrough": "2026-11-11",
+ "checkedThrough": "2026-11-12",
  "thresholds": {
   "XLK": 6,
   "XLC": 5,
@@ -16,7 +16,7 @@
  },
  "industries": {
   "SOXX": {
-   "checkedThrough": "2026-11-11"
+   "checkedThrough": "2026-11-12"
   }
  },
  "log": [
