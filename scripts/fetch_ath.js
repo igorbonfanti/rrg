@@ -8,7 +8,7 @@
  * e calcola con athStats (js/ath.js) il massimo di chiusura degli ultimi 3 anni (riferimento), la distanza dell'ultima
  * chiusura, i giorni passati, il calo più profondo dopo il massimo, il massimo durante la seduta e quello di sempre.
  * Si ricalcola ogni notte dall'intera storia: nessun massimo «salvato», così una revisione di Yahoo entra da sola.
- * Scelte delle serie (ETF fisici per oro e argento, future continui per rame e petrolio, niente USO) e confronto con
+ * Scelte delle serie (future continui per oro, argento, rame e petrolio dalla 1.10.1, prima ETF fisici per oro e argento; niente USO) e confronto con
  * seconde fonti: ricerca/bolle-rotazione/sintesi.md.
  *
  * Regole: un mercato che non risponde, arriva più vecchio della riga pubblicata o con la storia accorciata (inizio più

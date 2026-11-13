@@ -3,7 +3,7 @@
 Ricerca del 13/11/2026, sola lettura sull'app (nessun file di `js/`, `css/`, `data/`, `scripts/`, `config/`, `test/`, `index.html`, `guida.html` toccato). Dati Yahoo Finance fino all'ultima seduta chiusa (12/11/2026; KOSPI 13/11/2026).
 
 - **Script**:
-  - `ricerca/poc/dati.mjs` scarica le risposte grezze di Yahoo in `ricerca/poc/cache/` (esclusa da git con la riga `ricerca/poc/cache/` in `.gitignore`), più i settlement CME delle ultime sedute;
+  - `ricerca/poc/dati.mjs` scarica le risposte grezze di Yahoo in `ricerca/poc/cache/` (esclusa da git con la riga `ricerca/poc/cache/` in `.gitignore`), più (fino al 13/11/2026) i settlement CME delle ultime sedute: quella richiesta è stata tolta perché l'indirizzo è interno al sito CME, le cui condizioni vietano l'accesso automatico, e i valori non sono nel repository; resta la conclusione;
   - `ricerca/poc/analisi.mjs` fa tutti i calcoli e scrive `ricerca/poc/risultati.json`;
   - `ricerca/poc/grafico.mjs` disegna le due immagini di prova.
 - **Ricalcolo indipendente**: `ricerca/poc/verifica.py` (Python, solo libreria standard, codice proprio, nessun import dagli script Node). Rifà le 23 varianti × 15 POC, le value area, la parte A e il volume degli indici. Risultato in `verifica.json`: **tutto coincide** (scarto massimo dovuto solo agli arrotondamenti a 4 decimali del JSON).

@@ -103,27 +103,13 @@ async function main() {
     fs.writeFileSync(path.join(CACHE, 'membri.json'), JSON.stringify({ spx, ndx }));
     for (const s of [...new Set([...spx, ...ndx])]) jobs.push(['m', s.replace(/\./g, '-'), `range=1mo&interval=1d`]);
   }
-  // seconde fonti pubbliche per l'argento (LBMA, settlement CME): si registra solo se rispondono (nessuno scraping)
+  // seconde fonti per l'argento: LBMA (risponde 403). La richiesta ai settlement CME fatta il 13/11/2026 è stata tolta:
+  // l'indirizzo è interno al sito CME, le cui condizioni vietano l'accesso automatico (rilievo del controllo della 1.10.1).
+  // Nei risultati resta solo la conclusione (chiusure di Yahoo = settlement nelle 4 sedute viste), non i valori.
   if (want('f')) {
-    const probe = {};
-    for (const [k, u] of [['LBMA silver', 'https://prices.lbma.org.uk/json/silver.json'], ['CME settlement SI', 'https://www.cmegroup.com/CmeWS/mvc/Settlements/Futures/Settlements/458/FUT?tradeDate=01/26/2026']]) {
+    const probe = {}, cme = {};
+    for (const [k, u] of [['LBMA silver', 'https://prices.lbma.org.uk/json/silver.json']]) {
       try { const r = await fetch(u, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor research)' }, signal: AbortSignal.timeout(20000) }); probe[k] = { url: u, status: r.status }; } catch (e) { probe[k] = { url: u, error: e.message }; }
-    }
-    // settlement CME (JSON della pagina pubblica dei settlement): CME tiene solo le ultime sedute, quindi il 26/01/2026
-    // torna vuoto; le ultime sedute servono a capire quale contratto e quale prezzo Yahoo mette nel future continuo
-    const cme = {}, days = [];
-    for (let t = Date.now() - 86400000; days.length < 4; t -= 86400000) { const d = new Date(t); if (d.getUTCDay() % 6) days.push(d); }
-    const us = (d) => `${String(d.getUTCMonth() + 1).padStart(2, '0')}/${String(d.getUTCDate()).padStart(2, '0')}/${d.getUTCFullYear()}`;
-    for (const [k, id] of [['SI', 458], ['GC', 437], ['HG', 438], ['CL', 425]]) {
-      cme[k] = {};
-      for (const td of ['01/26/2026', ...days.map(us)]) {
-        try {
-          const r = await fetch(`https://www.cmegroup.com/CmeWS/mvc/Settlements/Futures/Settlements/${id}/FUT?tradeDate=${td}`, { headers: { 'User-Agent': 'Mozilla/5.0 (sector-monitor research)' }, signal: AbortSignal.timeout(20000) });
-          const j = await r.json();
-          cme[k][td] = { status: r.status, empty: j.empty, settlements: (j.settlements || []).slice(0, 6).map((x) => ({ month: x.month, settle: x.settle, volume: x.volume })) };
-        } catch (e) { cme[k][td] = { error: e.message }; }
-        await sleep(400);
-      }
     }
     // limite delle barre orarie di Yahoo: 729 giorni sì, 731 no
     const nowS = Math.floor(Date.now() / 1000), hourlyLimit = {};

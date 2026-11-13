@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T07:40:35.122Z",
+ "generated": "2026-11-13T07:50:36.077Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
  "asOf": "2026-11-13",
  "missing": [],
@@ -36,7 +36,7 @@
    "label": "Oro",
    "symbol": "GC=F",
    "kind": "future continuo",
-   "note": "Future continuo del Comex (Yahoo, GC=F): la chiusura è il prezzo di regolamento delle 13:30 di New York, non le 16:00 degli indici. A ogni cambio di contratto (ogni due mesi) il livello si sposta, di solito verso l'alto: da un massimo lontano il calo risulta un po' più piccolo di quello dell'oro fisico (scelta dell'utente del 13/11/2026: prima si usava l'ETF GLD).",
+   "note": "Future continuo del Comex (Yahoo, GC=F): la chiusura è il prezzo di regolamento, verso le 13:30 di New York, non le 16:00 degli indici. A ogni cambio di contratto (ogni due mesi) il livello si sposta, di solito verso l'alto: da un massimo lontano il calo risulta un po' più piccolo di quello dell'oro fisico (scelta dell'utente del 13/11/2026: prima si usava l'ETF GLD).",
    "stats": {
     "start": "2000-08-30",
     "from": "2023-11-12",
@@ -63,7 +63,7 @@
    "label": "Argento",
    "symbol": "SI=F",
    "kind": "future continuo",
-   "note": "Future continuo del Comex (Yahoo, SI=F), contratto del mese più vicino: la chiusura è il prezzo di regolamento delle 13:30 di New York. Il 26/01/2026, giorno del massimo, l'argento è crollato nel pomeriggio: l'ETF SLV, che chiude alle 16:00, ha il massimo il 28/01. A ogni cambio di contratto (ogni mese) il livello si sposta un po' (scelta dell'utente del 13/11/2026: prima si usava l'ETF SLV).",
+   "note": "Future continuo del Comex (Yahoo, SI=F), contratto del mese più vicino (si scambia poco, ma il prezzo è quello ufficiale): la chiusura è il prezzo di regolamento, verso le 13:30 di New York. Il 26/01/2026, giorno del massimo, l'argento è crollato nel pomeriggio: l'ETF SLV, che chiude alle 16:00, ha il massimo il 28/01. A ogni cambio di contratto (ogni mese) il livello si sposta un po' (scelta dell'utente del 13/11/2026: prima si usava l'ETF SLV).",
    "stats": {
     "start": "2000-08-30",
     "from": "2023-11-12",
