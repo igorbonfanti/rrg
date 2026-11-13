@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-12T16:18:40.696Z",
+ "generated": "2026-11-13T02:54:42.041Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
- "asOf": "2026-11-11",
+ "asOf": "2026-11-12",
  "missing": [],
  "markets": [
   {
@@ -39,23 +39,23 @@
    "note": "ETF con oro fisico (GLD): segue il prezzo LBMA meno lo 0,40% annuo di commissioni, quindi da un massimo lontano la distanza è appena più ampia di quella dell'oro.",
    "stats": {
     "start": "2004-11-18",
-    "from": "2023-11-11",
-    "last": 365.17,
-    "lastDate": "2026-11-11",
+    "from": "2023-11-12",
+    "last": 354.89,
+    "lastDate": "2026-11-12",
     "ref": 495.9,
     "refDate": "2026-01-29",
-    "distPct": -26.36,
-    "days": 286,
-    "cycleLow": 355.78,
-    "cycleLowDate": "2026-10-30",
-    "cycleLowPct": -28.26,
-    "fromLowPct": 2.64,
+    "distPct": -28.44,
+    "days": 287,
+    "cycleLow": 354.89,
+    "cycleLowDate": "2026-11-12",
+    "cycleLowPct": -28.44,
+    "fromLowPct": 0,
     "belowZero": null,
     "intradayRef": 509.7,
     "intradayRefDate": "2026-01-29",
     "ath": 495.9,
     "athDate": "2026-01-29",
-    "athDistPct": -26.36
+    "athDistPct": -28.44
    }
   },
   {
@@ -66,23 +66,23 @@
    "note": "ETF con argento fisico (SLV): segue il prezzo dell'argento meno lo 0,50% annuo di commissioni.",
    "stats": {
     "start": "2006-04-28",
-    "from": "2023-11-11",
-    "last": 46.65,
-    "lastDate": "2026-11-11",
+    "from": "2023-11-12",
+    "last": 45.12,
+    "lastDate": "2026-11-12",
     "ref": 105.6,
     "refDate": "2026-01-28",
-    "distPct": -55.82,
-    "days": 287,
+    "distPct": -57.27,
+    "days": 288,
     "cycleLow": 44.6,
     "cycleLowDate": "2026-10-30",
     "cycleLowPct": -57.77,
-    "fromLowPct": 4.6,
+    "fromLowPct": 1.17,
     "belowZero": null,
     "intradayRef": 109.83,
     "intradayRefDate": "2026-01-29",
     "ath": 105.6,
     "athDate": "2026-01-28",
-    "athDistPct": -55.82
+    "athDistPct": -57.27
    }
   },
   {
@@ -146,23 +146,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1985-10-01",
-    "from": "2023-11-11",
-    "last": 28374.25,
-    "lastDate": "2026-11-11",
+    "from": "2023-11-12",
+    "last": 28289.1875,
+    "lastDate": "2026-11-12",
     "ref": 31224.4707,
     "refDate": "2026-10-06",
-    "distPct": -9.13,
-    "days": 36,
+    "distPct": -9.4,
+    "days": 37,
     "cycleLow": 26629.8105,
     "cycleLowDate": "2026-11-05",
     "cycleLowPct": -14.71,
-    "fromLowPct": 6.55,
+    "fromLowPct": 6.23,
     "belowZero": null,
     "intradayRef": 31361.3691,
     "intradayRefDate": "2026-10-06",
     "ath": 31224.4707,
     "athDate": "2026-10-06",
-    "athDistPct": -9.13
+    "athDistPct": -9.4
    }
   },
   {
@@ -172,23 +172,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1927-12-30",
-    "from": "2023-11-11",
-    "last": 7619.3799,
-    "lastDate": "2026-11-11",
+    "from": "2023-11-12",
+    "last": 7592.3999,
+    "lastDate": "2026-11-12",
     "ref": 7818.9302,
     "refDate": "2026-10-06",
-    "distPct": -2.55,
-    "days": 36,
+    "distPct": -2.9,
+    "days": 37,
     "cycleLow": 7353.73,
     "cycleLowDate": "2026-11-05",
     "cycleLowPct": -5.95,
-    "fromLowPct": 3.61,
+    "fromLowPct": 3.25,
     "belowZero": null,
     "intradayRef": 7844.52,
     "intradayRefDate": "2026-10-06",
     "ath": 7818.9302,
     "athDate": "2026-10-06",
-    "athDistPct": -2.55
+    "athDistPct": -2.9
    }
   },
   {
@@ -199,23 +199,23 @@
    "note": "ETF iShares dei semiconduttori, senza i dividendi (la differenza è minima).",
    "stats": {
     "start": "2001-07-13",
-    "from": "2023-11-11",
-    "last": 155.4,
-    "lastDate": "2026-11-11",
+    "from": "2023-11-12",
+    "last": 154.99,
+    "lastDate": "2026-11-12",
     "ref": 218.3367,
     "refDate": "2026-06-22",
-    "distPct": -28.83,
-    "days": 142,
+    "distPct": -29.01,
+    "days": 143,
     "cycleLow": 131.9,
     "cycleLowDate": "2026-11-05",
     "cycleLowPct": -39.59,
-    "fromLowPct": 17.82,
+    "fromLowPct": 17.51,
     "belowZero": null,
     "intradayRef": 218.65,
     "intradayRefDate": "2026-06-22",
     "ath": 218.3367,
     "athDate": "2026-06-22",
-    "athDistPct": -28.83
+    "athDistPct": -29.01
    }
   },
   {
@@ -226,23 +226,23 @@
    "note": "Indice KOSPI intero, in won: per chi investe in euro o in dollari il calo è diverso (conta anche il cambio). Le feste coreane possono fermarlo fino a 11 giorni.",
    "stats": {
     "start": "1996-12-11",
-    "from": "2023-11-11",
-    "last": 5375.3599,
-    "lastDate": "2026-11-11",
+    "from": "2023-11-12",
+    "last": 5342.73,
+    "lastDate": "2026-11-12",
     "ref": 9114.5498,
     "refDate": "2026-06-22",
-    "distPct": -41.02,
-    "days": 142,
+    "distPct": -41.38,
+    "days": 143,
     "cycleLow": 5018.8501,
     "cycleLowDate": "2026-11-09",
     "cycleLowPct": -44.94,
-    "fromLowPct": 7.1,
+    "fromLowPct": 6.45,
     "belowZero": null,
     "intradayRef": 9385.5898,
     "intradayRefDate": "2026-06-19",
     "ath": 9114.5498,
     "athDate": "2026-06-22",
-    "athDistPct": -41.02
+    "athDistPct": -41.38
    }
   }
  ]
