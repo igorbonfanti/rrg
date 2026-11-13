@@ -39,7 +39,9 @@ const P1 = -2208988800; // 1900: tutta la storia che Yahoo ha
  */
 export function pickStats(fresh, prev) {
   if (!fresh) return { stats: prev || null, kept: true, why: 'non arrivato' };
-  if (prev && fresh.lastDate < prev.lastDate) return { stats: prev, kept: true, why: `ultima seduta ${fresh.lastDate}, più vecchia della pubblicata (${prev.lastDate})` };
+  // Yahoo a volte ridà una seduta in meno (KOSPI il 13/11/2026 alle 18:42 UTC): si tiene la riga pubblicata, ma non è un
+  // errore (soft): se resta indietro per giorni lo segnala check_fresh.js con il limite del mercato
+  if (prev && fresh.lastDate < prev.lastDate) return { stats: prev, kept: true, soft: true, why: `ultima seduta ${fresh.lastDate}, più vecchia della pubblicata (${prev.lastDate})` };
   if (prev && daysBetween(prev.start, fresh.start) > 30) return { stats: prev, kept: true, why: `storia accorciata (dal ${fresh.start} invece che dal ${prev.start})` };
   return { stats: fresh, kept: false, why: null };
 }
@@ -71,11 +73,12 @@ async function main() {
     const hh = pick.kept ? (pick.stats ? ph : null) : h; // senza riga (mai arrivato) niente storico vecchio
     if (pick.kept) console.warn(`${c.id}: ${pick.stats ? `tengo la riga pubblicata (${pick.why})` : 'non arrivato e nessuna riga pubblicata: «—»'}`);
     const { maxAge, ...meta } = c;
-    return { row: { ...meta, stats: pick.stats }, hist: hh, kept: pick.kept };
+    return { row: { ...meta, stats: pick.stats }, hist: hh, kept: pick.kept, soft: !!pick.soft };
   }, 300);
   // tutto nell'ordine di config/ath.json, non in quello di arrivo delle risposte: due corse senza sedute nuove scrivono
   // file identici e keep_unchanged.js non li ripubblica
   const rows = res.map((x) => x.row), missing = cfg.filter((c, k) => res[k].kept).map((c) => c.id);
+  const failed = cfg.filter((c, k) => res[k].kept && !res[k].soft).map((c) => c.id); // non arrivati o con la storia accorciata
   for (const [k, c] of cfg.entries()) if (res[k].hist) hist[c.id] = res[k].hist;
   const ok = rows.filter((r) => r.stats);
   if (!ok.length) { console.error('Nessun mercato disponibile: data/ath.json resta com\'è'); process.exitCode = 1; return; }
@@ -90,9 +93,10 @@ async function main() {
   fs.writeFileSync(OUT_H, JSON.stringify({ generated: out.generated, from: HIST_FROM, note: 'Chiusure giornaliere di Yahoo (solo prezzo) per il grafico del pannello; date compatte (d0, gaps) e valori in differenze intere (cd) divise per ps.', series: hist }) + '\n');
   console.log(`data/ath.json: ${ok.length} mercati su ${rows.length}${missing.length ? ` (non aggiornati: ${missing.join(', ')}; resta la riga pubblicata dove c'è)` : ''}`);
   for (const r of rows) if (r.stats) console.log(`  ${r.id.padEnd(7)} ${String(r.stats.distPct).padStart(7)}%  massimo dei 3 anni ${r.stats.refDate}  (di sempre ${r.stats.athDate})  ultima ${r.stats.lastDate}`);
-  // un mercato non arrivato fa fallire il passo (come fetch_industries.js): l'Esito della corsa lo segnala subito, i file
+  // un mercato non arrivato (o con la storia accorciata) fa fallire il passo (come fetch_industries.js): l'Esito della corsa lo segnala subito, i file
   // sono già scritti con le righe pubblicate
-  if (missing.length) { console.error(`Mercati non aggiornati: ${missing.join(', ')}`); process.exitCode = 1; }
+  if (failed.length) { console.error(`Mercati non aggiornati: ${failed.join(', ')}`); process.exitCode = 1; }
+  else if (missing.length) console.log(`::warning::Seduta più vecchia della pubblicata, tenuta la riga pubblicata: ${missing.join(', ')}`);
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
