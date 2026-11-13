@@ -208,3 +208,15 @@ test('profilo dei volumi: configurazione e file dei dati coerenti', { skip: !fs.
     assert.equal(p.source, c.profile.hourly ? 'orarie' : 'giornaliere', c.id);
   }
 });
+
+test('profilo dei volumi: un buco nei volumi oltre il 5% delle sedute del grafico non dà profilo (controllo indipendente 1.11.0)', async () => {
+  const { buildProfile } = await import('../scripts/lib/volprofile.js');
+  const dates = [], close = [];
+  for (let t = Date.parse('2026-01-05'), k = 0; k < 100; t += 86400000) { const d = new Date(t); if (d.getUTCDay() % 6) { dates.push(d.toISOString().slice(0, 10)); close.push(100 + (k % 7)); k++; } }
+  const vol = (keep) => ({ dates: dates.filter((_, i) => keep(i)), close: close.filter((_, i) => keep(i)), high: close.filter((_, i) => keep(i)).map((c) => c + 1), low: close.filter((_, i) => keep(i)).map((c) => c - 1), volume: close.filter((_, i) => keep(i)).map((_, i) => 1000 + i) });
+  const o = { chart: { dates, close }, from: dates[0], to: dates.at(-1) };
+  assert.ok(buildProfile({ ...o, vol: vol(() => true) }).profile, 'copertura piena');
+  const r = buildProfile({ ...o, vol: vol((i) => i < 40 || i >= 52) }); // 12 sedute su 100 senza volumi
+  assert.equal(r.profile, null); assert.match(r.why, /mancano oltre il 5%/);
+  assert.ok(buildProfile({ ...o, vol: vol((i) => i !== 50 && i !== 51) }).profile, '2 sedute su 100: profilo');
+});

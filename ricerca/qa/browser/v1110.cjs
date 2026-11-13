@@ -16,7 +16,7 @@ let fail = 0, okn = 0;
 const ok = (c, m) => { if (!c) { console.log(`FAIL ${m}`); fail++; } else { okn++; if (process.env.VERBOSE) console.log(`OK   ${m}`); } };
 const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
 const UNSTABLE = ['GOLD', 'NDX', 'KOSPI'];
-const WARN = 'profilo poco stabile: con barre giornaliere e orarie le zone principali non coincidono (due zone di volume quasi uguali); leggere con cautela';
+const WARN = 'profilo poco stabile: con metodi di calcolo diversi (barre giornaliere o orarie, 50, 100 o 200 fasce) le zone principali si spostano di oltre il 2% (due zone di volume quasi uguali); leggere con cautela';
 // valore di un'etichetta dell'asse: «6,5k», «7.000», «2,5», «105k»
 const labVal = (t) => { const k = /k$/.test(t); const v = parseFloat(t.replace(/k$/, '').replace(/\./g, '').replace(',', '.')); return k ? v * 1000 : v; };
 
@@ -128,8 +128,8 @@ const labVal = (t) => { const k = /k$/.test(t); const v = parseFloat(t.replace(/
       }
       await tap(p.locator(`#athTable tr.athr[data-id="${id}"]`)); await p.waitForTimeout(100); // chiude
     }
-    const note = await p.$eval('#athNote', (x) => x.textContent).catch(() => '');
-    ok(/profilo dei volumi degli ultimi 12 mesi/.test(note) && /6 mercati su 9/.test(note) && /13\/11\/2026/.test(note) && /ricerca\/poc\/profilo\//.test(note), `${name}: nota del pannello`);
+    const note = await p.$eval('#athNoteVp', (x) => x.textContent).catch(() => '');
+    ok(/profilo dei volumi degli ultimi 12 mesi/.test(note) && /poco stabile/.test(note) && /oro, Nasdaq-100 e KOSPI/.test(note) && /ricerca\/poc\/profilo\//.test(note), `${name}: nota del pannello`);
     if (SHOTS && vw === '1440') await p.locator('#athNote').screenshot({ path: path.join(SHOTS, `nota-${name}.png`) });
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     await c.close();

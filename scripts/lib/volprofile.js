@@ -105,8 +105,8 @@ export function volumeProfile(bars, n = N_BINS) {
   if (!(lo > 0) || !(hi > lo)) return null;
   const e = logEdges(lo, hi, n), v = spread(bars, e), tot = v.reduce((a, b) => a + b, 0);
   if (!(tot > 0)) return null;
-  // lo e hi con 8 cifre significative: bastano ai due decimali del riquadro anche per il bitcoin (105.297,12)
-  return { lo: +lo.toPrecision(8), hi: +hi.toPrecision(8), n, bp: Array.from(v, (x) => Math.round((x / tot) * 10000)), loExact: lo, hiExact: hi };
+  // lo e hi con 10 cifre significative: con 8 il bitcoin (decine di migliaia di dollari) sbagliava a volte il secondo decimale
+  return { lo: +lo.toPrecision(10), hi: +hi.toPrecision(10), n, bp: Array.from(v, (x) => Math.round((x / tot) * 10000)), loExact: lo, hiExact: hi };
 }
 
 /**
@@ -122,6 +122,10 @@ export function buildProfile(o) {
     return { profile: null, why: `barre orarie dal ${info.firstHourly || '—'}, oltre ${LIMITS.hourlyLagDays} giorni dopo l'inizio della finestra (${from})`, info };
   if (!info.candidates || !bars.length) return { profile: null, why: 'nessuna seduta nella finestra', info };
   if (info.skipped / info.candidates > LIMITS.maxSkipped) return { profile: null, why: `${info.skipped} sedute su ${info.candidates} senza chiusura comune con il grafico (oltre il 5%)`, info };
+  // copertura: le sedute del grafico nella finestra devono avere quasi tutte una barra dei volumi (un buco di settimane in
+  // SPY o nelle barre orarie farebbe un profilo con le date piene ma senza una parte dell'anno)
+  const chartN = o.chart.dates.filter((d, i) => d >= from && d <= to && o.chart.close[i] != null).length;
+  if (chartN && bars.length < (1 - LIMITS.maxSkipped) * chartN) return { profile: null, why: `${bars.length} sedute con i volumi su ${chartN} del grafico nella finestra (mancano oltre il 5%)`, info };
   if (info.noVolume / bars.length > LIMITS.maxNoVolume) return { profile: null, why: `${info.noVolume} sedute su ${bars.length} senza volume (oltre il 10%)`, info };
   if (bars.some((b) => !(b.l > 0) || !(b.c > 0))) return { profile: null, why: 'prezzi ≤ 0 nella finestra: fasce logaritmiche impossibili', info };
   const p = volumeProfile(bars);

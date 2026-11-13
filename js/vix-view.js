@@ -464,7 +464,7 @@ export function createVix(ctx) {
   // grafico dello storico del mercato aperto: chiusure dal 2000 (data/ath_history.json, letto alla prima apertura)
   let athHist = null, athHistLoad = null, athHistDone = false, athZoom = null;
   // profilo dei volumi del mercato (profiles di data/ath_history.json, dalla 1.11.0) nel formato atteso, altrimenti null
-  const VP_NOTE = 'profilo poco stabile: con barre giornaliere e orarie le zone principali non coincidono (due zone di volume quasi uguali); leggere con cautela';
+  const VP_NOTE = 'profilo poco stabile: con metodi di calcolo diversi (barre giornaliere o orarie, 50, 100 o 200 fasce) le zone principali si spostano di oltre il 2% (due zone di volume quasi uguali); leggere con cautela';
   const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
   function vpOf(h, id) {
     const p = h && h.profiles && h.profiles[id];

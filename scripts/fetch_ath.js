@@ -67,7 +67,7 @@ export function pickStats(fresh, prev) {
 
 /** Avvertenza per i mercati che non passano il criterio di stabilità (ricerca/poc/profilo/sintesi.md), mostrati per scelta
  * dell'utente del 13/11/2026 */
-export const UNSTABLE_NOTE = 'profilo poco stabile: con barre giornaliere e orarie le zone principali non coincidono (due zone di volume quasi uguali); leggere con cautela';
+export const UNSTABLE_NOTE = 'profilo poco stabile: con metodi di calcolo diversi (barre giornaliere o orarie, 50, 100 o 200 fasce) le zone principali si spostano di oltre il 2% (due zone di volume quasi uguali); leggere con cautela';
 
 /**
  * Profilo dei volumi nuovo o quello pubblicato (come pickStats).
