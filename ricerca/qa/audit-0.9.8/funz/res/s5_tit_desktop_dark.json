@@ -1,0 +1,227 @@
+[
+ {
+  "id": "T1",
+  "area": "titoli",
+  "test": "desktop apertura",
+  "ok": "OK",
+  "detail": "{\"body\":true,\"chips\":11,\"sel\":\"XLU\",\"meta\":\"al 19/10/2026 · ultimi 3 mesi, dal 21/07/2026\",\"rows\":12,\"bub\":31,\"pain\":12,\"hist\":true,\"h\":\"#tit-XLU\"}",
+  "shot": "shots/t-desktop-0.png",
+  "sev": ""
+ },
+ {
+  "id": "T2",
+  "area": "titoli",
+  "test": "desktop chip XLK",
+  "ok": "OK",
+  "detail": "{\"sel\":\"XLK\",\"h\":\"#tit-XLK\",\"bt\":\"Titoli · XLK Technology\",\"ht\":\"Storia della divergenza · XLK Technology\",\"focus\":\"XLK\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T2",
+  "area": "titoli",
+  "test": "desktop chip XLE",
+  "ok": "OK",
+  "detail": "{\"sel\":\"XLE\",\"h\":\"#tit-XLE\",\"bt\":\"Titoli · XLE Energy\",\"ht\":\"Storia della divergenza · XLE Energy\",\"focus\":\"XLE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T2",
+  "area": "titoli",
+  "test": "desktop chip XLRE",
+  "ok": "OK",
+  "detail": "{\"sel\":\"XLRE\",\"h\":\"#tit-XLRE\",\"bt\":\"Titoli · XLRE Real Estate\",\"ht\":\"Storia della divergenza · XLRE Real Estate\",\"focus\":\"XLRE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T3",
+  "area": "titoli",
+  "test": "desktop Indietro torna al settore precedente",
+  "ok": "OK",
+  "detail": "{\"h\":\"#tit-XLE\",\"sel\":\"XLE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "desktop periodo 1M",
+  "ok": "OK",
+  "detail": "{\"p\":[\"1M\"],\"meta\":\"al 19/10/2026 · ultimo mese, dal 18/09/2026\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "desktop periodo 6M",
+  "ok": "OK",
+  "detail": "{\"p\":[\"6M\"],\"meta\":\"al 19/10/2026 · ultimi 6 mesi, dal 20/04/2026\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "desktop periodo YTD",
+  "ok": "OK",
+  "detail": "{\"p\":[\"YTD\"],\"meta\":\"al 19/10/2026 · da inizio anno, dal 31/12/2025\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "desktop periodo 1A",
+  "ok": "OK",
+  "detail": "{\"p\":[\"1A\"],\"meta\":\"al 19/10/2026 · ultimi 12 mesi, dal 16/10/2025\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T4",
+  "area": "titoli",
+  "test": "desktop periodo 3M",
+  "ok": "OK",
+  "detail": "{\"p\":[\"3M\"],\"meta\":\"al 19/10/2026 · ultimi 3 mesi, dal 21/07/2026\",\"ax\":\"d200\",\"prevDis\":false}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T5",
+  "area": "titoli",
+  "test": "desktop scia sel",
+  "ok": "OK",
+  "detail": "cerchi=39",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T5",
+  "area": "titoli",
+  "test": "desktop scia off",
+  "ok": "OK",
+  "detail": "cerchi=27",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T5",
+  "area": "titoli",
+  "test": "desktop scia all",
+  "ok": "OK",
+  "detail": "cerchi=99",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T6",
+  "area": "titoli",
+  "test": "desktop ordine Settore vs Divergenza cambia l'ordine",
+  "ok": "OK",
+  "detail": "sec=XLK,XLC,XLY,XLP,XLE,XLF,XLV,XLI,XLB,XLRE,XLU,SPX,S&P 500 | div=XLV,XLK,XLI,XLU,XLRE,XLF,XLB,XLY,XLE,XLP,XLC,SPX,S&P 500",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T7",
+  "area": "titoli",
+  "test": "desktop asse dd",
+  "ok": "OK",
+  "detail": "{\"v\":\"dd\",\"ls\":\"\\\"dd\\\"\",\"lbl\":\"distanza dal massimo a 52 settimane → | ↑ rendimento 3M\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T7",
+  "area": "titoli",
+  "test": "desktop asse prev",
+  "ok": "OK",
+  "detail": "{\"v\":\"prev\",\"ls\":\"\\\"prev\\\"\",\"lbl\":\"rendimento nel periodo precedente → | ↑ rendimento 3M\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T7",
+  "area": "titoli",
+  "test": "desktop asse d200",
+  "ok": "OK",
+  "detail": "{\"v\":\"d200\",\"ls\":\"\\\"d200\\\"\",\"lbl\":\"distanza dalla media a 200 sedute → | ↑ rendimento 3M\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T8",
+  "area": "titoli",
+  "test": "desktop bolle Uguali",
+  "ok": "OK",
+  "detail": "peso: 28 raggi diversi, uguali: 1",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T9",
+  "area": "titoli",
+  "test": "desktop scelte restano dopo la ricarica",
+  "ok": "OK",
+  "detail": "{\"per\":\"6M\",\"trail\":\"sel\",\"ax\":\"dd\",\"sel\":\"XLRE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T10",
+  "area": "tooltip",
+  "test": "desktop tooltip riga dumbbell",
+  "ok": "OK",
+  "detail": "XLK Technology ultimi 6 mesi cap · equal · diff. oggi +17,7% · +23,9% · +6,2 pp 1 settimana fa +30,8% · +38,3% · +7,5 pp 1 mese fa +33,4% · +38,2% · +4,8 pp 3 mesi fa +19,0% · +29,5% · +10,5 pp da quanto davanti l'equal-weight da 41 settimane (dal 16/01/2026)",
+  "shot": "shots/t-desktop-spreadtip.png",
+  "sev": ""
+ },
+ {
+  "id": "T11",
+  "area": "titoli",
+  "test": "desktop passaggio su «I più in pena» evidenzia la bolla",
+  "ok": "OK",
+  "detail": "{\"txt\":\"CSGPCoStar Group −20,6% −59,3% −16,4% 0,02%\",\"sym\":\"CSGP\"} evidenziati=1",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "T12",
+  "area": "tooltip",
+  "test": "desktop tooltip bolla",
+  "ok": "OK",
+  "detail": "tip: WELL 233,51 $ Welltower · Health Care REITs rendimento 6M +11,5% periodo precedente +21,7% dal massimo 52s −7,4% dalla media 200 +7,9% dalla media 50 +0,1% peso nell'S&P 500 0,25% · riga pena: ",
+  "shot": "shots/t-desktop-bubtip.png",
+  "sev": ""
+ },
+ {
+  "id": "T13",
+  "area": "tooltip",
+  "test": "desktop tooltip storia della divergenza: ultimo punto = «oggi» della nota",
+  "ok": "OK",
+  "detail": "tip: Settimana al 19/10/2026 6M XLRE equal − cap −0,6 pp S&P 500 −3,5 pp davanti il cap-weighted: guidano i grandi · nota: Guidano i grandi da 41 settimane (dal 16/01/2026) sul periodo 6M: oggi −0,6 pp · nell'anno da −6,1 pp (13/03/2026) a −0,2 pp (16/10/2026)",
+  "shot": "shots/t-desktop-histtip.png",
+  "sev": ""
+ },
+ {
+  "id": "T14",
+  "area": "titoli",
+  "test": "desktop ticker dei più in pena aprono TradingView in nuova scheda",
+  "ok": "OK",
+  "detail": "https://www.tradingview.com/chart/?symbol=CSGP _blank | https://www.tradingview.com/chart/?symbol=WY _blank | https://www.tradingview.com/chart/?symbol=ARE _blank",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "desktop nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

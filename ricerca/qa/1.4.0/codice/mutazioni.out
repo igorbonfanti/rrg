@@ -1,0 +1,27 @@
+0	soglia di «in calo forte» 1 → 1,5	COLTA	emergenti: stato della valuta in parole
+1	F: distanza dal massimo 0,5 → 0,3 sd	NON COLTA	
+2	F: soglia z 1 → 1,5	NON COLTA	
+3	F: ultime 126 → 63 sedute	NON COLTA	
+4	deviazione standard su 756 → 500 sedute	NON COLTA	
+5	variazione del cambio a 63 → 42 sedute	NON COLTA	
+6	D: sotto la media → sopra	NON COLTA	
+7	D: senza la condizione «in calo a 63 sedute»	NON COLTA	
+8	D: media 200 → 100	NON COLTA	
+9	pulizia: soglia 3% → 5%	NON COLTA	
+10	pulizia CNY/HKD: rientro 0,3% → 1%	NON COLTA	
+11	buchi: 10 → 30 giorni	NON COLTA	
+12	onDates riempie i giorni mancanti	COLTA	emergenti: valori sulle date dell'indice senza riempimento, indice in dollari e variazioni
+13	inUsd moltiplica invece di dividere	COLTA	emergenti: valori sulle date dell'indice senza riempimento, indice in dollari e variazioni
+14	change: h-1 sedute	COLTA	emergenti: valori sulle date dell'indice senza riempimento, indice in dollari e variazioni
+15	F: senza la distanza dal massimo	NON COLTA	
+16	F guarda 5 sedute avanti (dato futuro)	COLTA	emergenti: nessun dato futuro (il valore a t sulla serie intera è uguale a quello sulla serie tagliata a t)
+17	sd: finestra di 757 sedute	NON COLTA	
+18	forza relativa: ETF e ACWI scambiati	NON COLTA	
+19	forza relativa: date al contrario	NON COLTA	
+20	pickSeries: confronto invertito	COLTA	emergenti: pacchetto delle serie, andata e ritorno; FRED giornaliero con i «.»
+21	pack: 2 decimali già sopra 50 (INR a circa 90)	NON COLTA	
+22	lastLongGap 35 → 10 giorni	NON COLTA	
+23	freschezza FRED 14 → 7 giorni	COLTA	dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni
+24	freschezza cambi 4 → 40 giorni	COLTA	dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni
+25	parseFredDaily accetta «.»	NON COLTA	
+colte 8 su 26

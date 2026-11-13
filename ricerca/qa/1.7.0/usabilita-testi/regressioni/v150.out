@@ -1,0 +1,110 @@
+OK   360: ordine delle schede
+OK   360: nessuno scorrimento orizzontale (360/360)
+OK   360: righe di schede 3
+OK   390: ordine delle schede
+OK   390: nessuno scorrimento orizzontale (390/390)
+OK   390: righe di schede 3
+OK   600: ordine delle schede
+OK   600: nessuno scorrimento orizzontale (600/600)
+OK   600: righe di schede 3
+OK   601: ordine delle schede
+OK   601: nessuno scorrimento orizzontale (601/601)
+OK   601: righe di schede 2
+OK   768: ordine delle schede
+OK   768: nessuno scorrimento orizzontale (768/768)
+OK   768: righe di schede 2
+OK   820: ordine delle schede
+OK   820: nessuno scorrimento orizzontale (820/820)
+OK   820: righe di schede 2
+OK   860: ordine delle schede
+OK   860: nessuno scorrimento orizzontale (860/860)
+OK   860: righe di schede 2
+OK   861: ordine delle schede
+OK   861: nessuno scorrimento orizzontale (861/861)
+OK   861: righe di schede 1
+OK   1024: ordine delle schede
+OK   1024: nessuno scorrimento orizzontale (1024/1024)
+OK   1024: righe di schede 1
+OK   1100: ordine delle schede
+OK   1100: nessuno scorrimento orizzontale (1100/1100)
+OK   1100: righe di schede 1
+OK   1280: ordine delle schede
+OK   1280: nessuno scorrimento orizzontale (1280/1280)
+OK   1280: righe di schede 1
+OK   1440: ordine delle schede
+OK   1440: nessuno scorrimento orizzontale (1440/1440)
+OK   1440: righe di schede 1
+OK   1440-scuro: data/vix.json non scaricato prima di aprire la vista
+OK   1440-scuro: indirizzo #vix
+OK   1440-scuro: almeno 4 riquadri
+OK   1440-scuro: tabella con la base e 5 soglie
+OK   1440-scuro: solo il 40 «robusto»
+OK   1440-scuro: positivi a 12 mesi come i calcoli (S&P 500)
+OK   1440-scuro: clic sulla soglia 30 mostra i suoi episodi
+OK   1440-scuro: episodi della soglia 30
+OK   1440-scuro: Nasdaq-100
+OK   1440-scuro: positivi a 12 mesi come i calcoli (Nasdaq-100)
+OK   1440-scuro: scatter con 734 sedute e 20 inizi di episodio
+OK   1440-scuro: didascalia giorni contro episodi
+OK   1440-scuro: grafico VIX, realizzata e premio
+OK   1440-scuro: riquadro dei valori
+OK   1440-scuro: nessuno scorrimento orizzontale nella vista
+OK   1440-scuro: idea citata
+OK   1440-scuro: console 
+OK   1280-chiaro: data/vix.json non scaricato prima di aprire la vista
+OK   1280-chiaro: indirizzo #vix
+OK   1280-chiaro: almeno 4 riquadri
+OK   1280-chiaro: tabella con la base e 5 soglie
+OK   1280-chiaro: solo il 40 «robusto»
+OK   1280-chiaro: positivi a 12 mesi come i calcoli (S&P 500)
+OK   1280-chiaro: clic sulla soglia 30 mostra i suoi episodi
+OK   1280-chiaro: episodi della soglia 30
+OK   1280-chiaro: Nasdaq-100
+OK   1280-chiaro: positivi a 12 mesi come i calcoli (Nasdaq-100)
+OK   1280-chiaro: scatter con 734 sedute e 20 inizi di episodio
+OK   1280-chiaro: didascalia giorni contro episodi
+OK   1280-chiaro: grafico VIX, realizzata e premio
+OK   1280-chiaro: riquadro dei valori
+OK   1280-chiaro: nessuno scorrimento orizzontale nella vista
+OK   1280-chiaro: idea citata
+OK   1280-chiaro: console 
+OK   390-scuro: data/vix.json non scaricato prima di aprire la vista
+OK   390-scuro: indirizzo #vix
+OK   390-scuro: almeno 4 riquadri
+OK   390-scuro: tabella con la base e 5 soglie
+OK   390-scuro: solo il 40 «robusto»
+OK   390-scuro: positivi a 12 mesi come i calcoli (S&P 500)
+OK   390-scuro: clic sulla soglia 30 mostra i suoi episodi
+OK   390-scuro: episodi della soglia 30
+OK   390-scuro: Nasdaq-100
+OK   390-scuro: positivi a 12 mesi come i calcoli (Nasdaq-100)
+OK   390-scuro: scatter con 734 sedute e 20 inizi di episodio
+OK   390-scuro: didascalia giorni contro episodi
+OK   390-scuro: grafico VIX, realizzata e premio
+OK   390-scuro: riquadro dei valori
+OK   390-scuro: nessuno scorrimento orizzontale nella vista
+OK   390-scuro: idea citata
+OK   390-scuro: console 
+OK   360-chiaro: data/vix.json non scaricato prima di aprire la vista
+OK   360-chiaro: indirizzo #vix
+OK   360-chiaro: almeno 4 riquadri
+OK   360-chiaro: tabella con la base e 5 soglie
+OK   360-chiaro: solo il 40 «robusto»
+OK   360-chiaro: positivi a 12 mesi come i calcoli (S&P 500)
+OK   360-chiaro: clic sulla soglia 30 mostra i suoi episodi
+OK   360-chiaro: episodi della soglia 30
+OK   360-chiaro: Nasdaq-100
+OK   360-chiaro: positivi a 12 mesi come i calcoli (Nasdaq-100)
+OK   360-chiaro: scatter con 734 sedute e 20 inizi di episodio
+OK   360-chiaro: didascalia giorni contro episodi
+OK   360-chiaro: grafico VIX, realizzata e premio
+OK   360-chiaro: riquadro dei valori
+OK   360-chiaro: nessuno scorrimento orizzontale nella vista
+OK   360-chiaro: idea citata
+OK   360-chiaro: console 
+OK   tasto 9: Alert
+OK   comando VIX
+OK   file mancante: messaggio e nessun errore
+OK   file mancante: le altre viste funzionano
+0 FAIL
+v150 exit 0

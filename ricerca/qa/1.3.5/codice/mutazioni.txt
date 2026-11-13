@@ -1,0 +1,8 @@
+0 nessuna mutazione: test falliti 0 
+1 cache non per fuso: test falliti 0 
+2 senza try\/catch: test falliti 0 
+3 barra aperta con il gmtoffset: test falliti 0 
+4 fillLast con il gmtoffset: test falliti 0 
+5 fuso ignorato: test falliti 2 (Yahoo: cambi (Europe/London) datati con l'ora legale della barra, qualunque sia il giorno del download|Yahoo: DX-Y.NYB (America/New_York, barre a mezzanotte) senza date doppie né spostate|)
+6 ripiego in UTC: test falliti 1 (Yahoo: senza exchangeTimezoneName si usa ancora il gmtoffset|)
+7 giorno e mese invertiti: test falliti 2 (Yahoo: cambi (Europe/London) datati con l'ora legale della barra, qualunque sia il giorno del download|Yahoo: DX-Y.NYB (America/New_York, barre a mezzanotte) senza date doppie né spostate|)

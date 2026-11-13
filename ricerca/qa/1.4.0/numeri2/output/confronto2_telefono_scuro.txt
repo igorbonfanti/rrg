@@ -1,0 +1,3 @@
+HSI RS 2026-11-04 ratio 99.5271 mom 100.9654 Improving
+EEM RS 2026-11-04 ratio 99.2792 mom 98.3733 Lagging
+controlli uguali 228621, diversi 0, riquadri letti 36457

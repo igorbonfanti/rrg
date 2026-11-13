@@ -1,0 +1,855 @@
+OK   1440-scuro: tema dark
+INFO 1440-scuro: griglia a 1 colonne, larghezze 1382/1382
+OK   1440-scuro: nessuno scorrimento orizzontale (1440/1440)
+OK   1440-scuro scatter SPX: 734 punti, attesi 734
+OK   1440-scuro scatter SPX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1440-scuro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.019 punti %)
+OK   1440-scuro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1440-scuro scatter SPX: punti che sporgono dal riquadro 17
+OK   1440-scuro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1440-scuro scatter SPX: soglie verticali 40,50 e zero 0
+OK   1440-scuro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 1440-scuro scatter SPX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1440-scuro scatter SPX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1440-scuro tip scatter SPX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +57,1%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 S&P 500 dopo 12 mesi +57,1% Episodio iniziato il 27/02/2020»
+OK   1440-scuro tip scatter SPX 2007-11-12: data 12/11/2007, VIX 31,09, rend. −42,5%, episodio 15/08/2007 → «12/11/2007 2007-09 crisi finanziaria VIX 31,09 S&P 500 dopo 12 mesi −42,5% Episodio iniziato il 15/08/2007»
+OK   1440-scuro tip scatter SPX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −11,7%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 S&P 500 dopo 12 mesi −11,7% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il punto»
+OK   1440-scuro scatter NDX: 734 punti, attesi 734
+OK   1440-scuro scatter NDX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1440-scuro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.028 punti %)
+OK   1440-scuro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1440-scuro scatter NDX: punti che sporgono dal riquadro 18
+OK   1440-scuro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1440-scuro scatter NDX: soglie verticali 40,50 e zero 0
+OK   1440-scuro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 1440-scuro scatter NDX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1440-scuro scatter NDX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1440-scuro tip scatter NDX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +76,6%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 Nasdaq-100 dopo 12 mesi +76,6% Episodio iniziato il 27/02/2020»
+OK   1440-scuro tip scatter NDX 2000-10-12: data 12/10/2000, VIX 30,51, rend. −58,9%, episodio 12/10/2000 → «12/10/2000 2000-03 bolla internet VIX 30,51 Nasdaq-100 dopo 12 mesi −58,9% Episodio iniziato il 12/10/2000 Primo giorno dell'episodio (il pu»
+OK   1440-scuro tip scatter NDX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −48,1%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 Nasdaq-100 dopo 12 mesi −48,1% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il pu»
+OK   1440-scuro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 1541.0 contro 1541)
+INFO 1440-scuro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   1440-scuro 3A: pannello 1 parte da 0 (0.000)
+OK   1440-scuro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1440-scuro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   1440-scuro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1440-scuro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   1440-scuro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.04 g (toll. 0.04)
+OK   1440-scuro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1440-scuro 3A: linea dello zero del premio a -0.000
+OK   1440-scuro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   1440-scuro 3A: bande dentro il pannello del premio
+INFO 1440-scuro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 1440-scuro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   1440-scuro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1440-scuro 3A: viewBox 1587x404, a schermo 1380x351
+OK   1440-scuro 3A tip a 0.2%: 07/11/2023 | 14,81 | 15,1 | −0,3 | 11° S&P 4378 → «07/11/2023 S&P 500 4378 VIX 14,81 Realizzata 21 sedute 15,1 Premio per la paura −0,3 Percentile del premio 11°»
+OK   1440-scuro 3A tip a 25.0%: 05/08/2024 | 38,57 | 19,0 | +19,5 | 100° S&P 5186 → «05/08/2024 S&P 500 5186 VIX 38,57 Realizzata 21 sedute 19,0 Premio per la paura +19,5 Percentile del premio 100°»
+OK   1440-scuro 3A tip a 50.0%: 06/05/2025 | 24,76 | 39,7 | −14,9 | 1° S&P 5607 → «06/05/2025 S&P 500 5607 VIX 24,76 Realizzata 21 sedute 39,7 Premio per la paura −14,9 Percentile del premio 1°»
+OK   1440-scuro 3A tip a 77.0%: 25/02/2026 | 17,93 | 12,8 | +5,1 | 60° S&P 6946 → «25/02/2026 S&P 500 6946 VIX 17,93 Realizzata 21 sedute 12,8 Premio per la paura +5,1 Percentile del premio 60°»
+OK   1440-scuro 3A tip a 99.9%: 03/11/2026 | 20,83 | 11,4 | +9,5 | 92° S&P 7569 → «03/11/2026 S&P 500 7569 VIX 20,83 Realizzata 21 sedute 11,4 Premio per la paura +9,5 Percentile del premio 92°»
+INFO 1440-scuro 3A: seduta mostrata contro seduta più vicina al cursore 2023-11-07/2023-11-07 ; 2024-08-05/2024-08-05 ; 2025-05-06/2025-05-06 ; 2026-02-25/2026-02-26 ; 2026-11-03/2026-11-04
+OK   1440-scuro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 1541.0 contro 1541)
+INFO 1440-scuro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2018,2020,2022,2024,2026
+OK   1440-scuro 10A: pannello 1 parte da 0 (-0.000)
+OK   1440-scuro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1440-scuro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1440-scuro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1440-scuro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1440-scuro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.12 g (toll. 0.14)
+OK   1440-scuro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1440-scuro 10A: linea dello zero del premio a 0.000
+OK   1440-scuro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   1440-scuro 10A: bande dentro il pannello del premio
+INFO 1440-scuro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 1440-scuro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   1440-scuro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1440-scuro 10A: viewBox 1587x404, a schermo 1380x351
+OK   1440-scuro 10A tip a 0.2%: 11/11/2016 | 14,17 | 10,3 | +3,9 | 44° S&P 2164 → «11/11/2016 S&P 500 2164 VIX 14,17 Realizzata 21 sedute 10,3 Premio per la paura +3,9 Percentile del premio 44°»
+OK   1440-scuro 10A tip a 25.0%: 06/05/2019 | 15,44 | 7,0 | +8,4 | 89° S&P 2932 → «06/05/2019 S&P 500 2932 VIX 15,44 Realizzata 21 sedute 7,0 Premio per la paura +8,4 Percentile del premio 89°»
+OK   1440-scuro 10A tip a 50.0%: 04/11/2021 | 15,44 | 8,4 | +7,1 | 80° S&P 4680 → «04/11/2021 S&P 500 4680 VIX 15,44 Realizzata 21 sedute 8,4 Premio per la paura +7,1 Percentile del premio 80°»
+OK   1440-scuro 10A tip a 77.0%: 17/07/2024 | 14,48 | 9,0 | +5,5 | 65° S&P 5588 → «17/07/2024 S&P 500 5588 VIX 14,48 Realizzata 21 sedute 9,0 Premio per la paura +5,5 Percentile del premio 65°»
+OK   1440-scuro 10A tip a 99.9%: 30/10/2026 | 19,42 | 11,8 | +7,6 | 83° S&P 7580 → «30/10/2026 S&P 500 7580 VIX 19,42 Realizzata 21 sedute 11,8 Premio per la paura +7,6 Percentile del premio 83°»
+INFO 1440-scuro 10A: seduta mostrata contro seduta più vicina al cursore 2016-11-11/2016-11-11 ; 2019-05-06/2019-05-07 ; 2021-11-04/2021-11-05 ; 2024-07-17/2024-07-18 ; 2026-10-30/2026-11-02
+OK   1440-scuro: colori della legenda = colori delle linee (rgb(255, 160, 40)/rgb(255, 160, 40), rgb(127, 166, 255)/rgb(127, 166, 255), rgb(180, 180, 180)/rgb(180, 180, 180))
+INFO 1440-scuro: banda nel grafico rgb(239, 68, 68) fill-opacity 0.12; nella legenda rgb(239, 68, 68) opacity 0.45; sfondo pannello rgb(0, 0, 0)
+OK   1440-scuro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 1541.0 contro 1541)
+INFO 1440-scuro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 1994,1998,2002,2006,2010,2014,2018,2022,2026
+OK   1440-scuro MAX: pannello 1 parte da 0 (-0.000)
+OK   1440-scuro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.53)
+OK   1440-scuro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1440-scuro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.53)
+OK   1440-scuro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1440-scuro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 0.44 g (toll. 0.53)
+OK   1440-scuro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1440-scuro MAX: linea dello zero del premio a -0.000
+OK   1440-scuro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   1440-scuro MAX: bande dentro il pannello del premio
+INFO 1440-scuro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 1440-scuro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   1440-scuro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1440-scuro MAX: viewBox 1587x404, a schermo 1380x351
+OK   1440-scuro MAX tip a 0.2%: 26/01/1990 | 26,28 | — | — | — S&P 326 → «26/01/1990 S&P 500 326 VIX 26,28 Realizzata 21 sedute — Premio per la paura — Percentile del premio —»
+OK   1440-scuro MAX tip a 25.0%: 19/03/1999 | 24,32 | 17,2 | +7,1 | 76° S&P 1299 → «19/03/1999 S&P 500 1299 VIX 24,32 Realizzata 21 sedute 17,2 Premio per la paura +7,1 Percentile del premio 76°»
+OK   1440-scuro MAX tip a 50.0%: 04/06/2008 | 20,80 | 13,5 | +7,3 | 81° S&P 1377 → «04/06/2008 S&P 500 1377 VIX 20,80 Realizzata 21 sedute 13,5 Premio per la paura +7,3 Percentile del premio 81°»
+OK   1440-scuro MAX tip a 77.0%: 16/05/2018 | 13,42 | 11,0 | +2,5 | 27° S&P 2722 → «16/05/2018 S&P 500 2722 VIX 13,42 Realizzata 21 sedute 11,0 Premio per la paura +2,5 Percentile del premio 27°»
+OK   1440-scuro MAX tip a 99.9%: 22/10/2026 | 19,03 | 9,7 | +9,3 | 91° S&P 7663 → «22/10/2026 S&P 500 7663 VIX 19,03 Realizzata 21 sedute 9,7 Premio per la paura +9,3 Percentile del premio 91°»
+INFO 1440-scuro MAX: seduta mostrata contro seduta più vicina al cursore 1990-01-26/1990-01-29 ; 1999-03-19/1999-03-19 ; 2008-06-04/2008-06-04 ; 2018-05-16/2018-05-16 ; 2026-10-22/2026-10-23
+OK   1440-scuro: console senza errori 
+OK   1440-chiaro: tema light
+INFO 1440-chiaro: griglia a 1 colonne, larghezze 1382/1382
+OK   1440-chiaro: nessuno scorrimento orizzontale (1440/1440)
+OK   1440-chiaro scatter SPX: 734 punti, attesi 734
+OK   1440-chiaro scatter SPX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1440-chiaro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.019 punti %)
+OK   1440-chiaro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1440-chiaro scatter SPX: punti che sporgono dal riquadro 17
+OK   1440-chiaro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1440-chiaro scatter SPX: soglie verticali 40,50 e zero 0
+OK   1440-chiaro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 1440-chiaro scatter SPX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1440-chiaro scatter SPX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1440-chiaro tip scatter SPX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +57,1%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 S&P 500 dopo 12 mesi +57,1% Episodio iniziato il 27/02/2020»
+OK   1440-chiaro tip scatter SPX 2007-11-12: data 12/11/2007, VIX 31,09, rend. −42,5%, episodio 15/08/2007 → «12/11/2007 2007-09 crisi finanziaria VIX 31,09 S&P 500 dopo 12 mesi −42,5% Episodio iniziato il 15/08/2007»
+OK   1440-chiaro tip scatter SPX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −11,7%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 S&P 500 dopo 12 mesi −11,7% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il punto»
+OK   1440-chiaro scatter NDX: 734 punti, attesi 734
+OK   1440-chiaro scatter NDX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1440-chiaro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.028 punti %)
+OK   1440-chiaro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1440-chiaro scatter NDX: punti che sporgono dal riquadro 18
+OK   1440-chiaro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1440-chiaro scatter NDX: soglie verticali 40,50 e zero 0
+OK   1440-chiaro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 1440-chiaro scatter NDX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1440-chiaro scatter NDX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1440-chiaro tip scatter NDX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +76,6%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 Nasdaq-100 dopo 12 mesi +76,6% Episodio iniziato il 27/02/2020»
+OK   1440-chiaro tip scatter NDX 2000-10-12: data 12/10/2000, VIX 30,51, rend. −58,9%, episodio 12/10/2000 → «12/10/2000 2000-03 bolla internet VIX 30,51 Nasdaq-100 dopo 12 mesi −58,9% Episodio iniziato il 12/10/2000 Primo giorno dell'episodio (il pu»
+OK   1440-chiaro tip scatter NDX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −48,1%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 Nasdaq-100 dopo 12 mesi −48,1% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il pu»
+OK   1440-chiaro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 1541.0 contro 1541)
+INFO 1440-chiaro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   1440-chiaro 3A: pannello 1 parte da 0 (0.000)
+OK   1440-chiaro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1440-chiaro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   1440-chiaro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1440-chiaro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   1440-chiaro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.04 g (toll. 0.04)
+OK   1440-chiaro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1440-chiaro 3A: linea dello zero del premio a -0.000
+OK   1440-chiaro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   1440-chiaro 3A: bande dentro il pannello del premio
+INFO 1440-chiaro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 1440-chiaro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   1440-chiaro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1440-chiaro 3A: viewBox 1587x404, a schermo 1380x351
+OK   1440-chiaro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 1541.0 contro 1541)
+INFO 1440-chiaro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2018,2020,2022,2024,2026
+OK   1440-chiaro 10A: pannello 1 parte da 0 (-0.000)
+OK   1440-chiaro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1440-chiaro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1440-chiaro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1440-chiaro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1440-chiaro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.12 g (toll. 0.14)
+OK   1440-chiaro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1440-chiaro 10A: linea dello zero del premio a 0.000
+OK   1440-chiaro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   1440-chiaro 10A: bande dentro il pannello del premio
+INFO 1440-chiaro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 1440-chiaro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   1440-chiaro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1440-chiaro 10A: viewBox 1587x404, a schermo 1380x351
+OK   1440-chiaro: colori della legenda = colori delle linee (rgb(154, 74, 0)/rgb(154, 74, 0), rgb(31, 90, 214)/rgb(31, 90, 214), rgb(58, 58, 58)/rgb(58, 58, 58))
+INFO 1440-chiaro: banda nel grafico rgb(194, 39, 39) fill-opacity 0.12; nella legenda rgb(194, 39, 39) opacity 0.45; sfondo pannello rgb(255, 255, 255)
+OK   1440-chiaro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 1541.0 contro 1541)
+INFO 1440-chiaro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 1994,1998,2002,2006,2010,2014,2018,2022,2026
+OK   1440-chiaro MAX: pannello 1 parte da 0 (-0.000)
+OK   1440-chiaro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.53)
+OK   1440-chiaro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1440-chiaro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.53)
+OK   1440-chiaro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1440-chiaro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 0.44 g (toll. 0.53)
+OK   1440-chiaro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1440-chiaro MAX: linea dello zero del premio a -0.000
+OK   1440-chiaro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   1440-chiaro MAX: bande dentro il pannello del premio
+INFO 1440-chiaro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 1440-chiaro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   1440-chiaro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1440-chiaro MAX: viewBox 1587x404, a schermo 1380x351
+OK   1440-chiaro: console senza errori 
+OK   1280-scuro: tema dark
+INFO 1280-scuro: griglia a 1 colonne, larghezze 1222/1222
+OK   1280-scuro: nessuno scorrimento orizzontale (1280/1280)
+OK   1280-scuro scatter SPX: 734 punti, attesi 734
+OK   1280-scuro scatter SPX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1280-scuro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.019 punti %)
+OK   1280-scuro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1280-scuro scatter SPX: punti che sporgono dal riquadro 17
+OK   1280-scuro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1280-scuro scatter SPX: soglie verticali 40,50 e zero 0
+OK   1280-scuro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 1280-scuro scatter SPX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1280-scuro scatter SPX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1280-scuro scatter NDX: 734 punti, attesi 734
+OK   1280-scuro scatter NDX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1280-scuro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.028 punti %)
+OK   1280-scuro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1280-scuro scatter NDX: punti che sporgono dal riquadro 18
+OK   1280-scuro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1280-scuro scatter NDX: soglie verticali 40,50 e zero 0
+OK   1280-scuro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 1280-scuro scatter NDX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1280-scuro scatter NDX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1280-scuro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 1357.0 contro 1357)
+INFO 1280-scuro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   1280-scuro 3A: pannello 1 parte da 0 (0.000)
+OK   1280-scuro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.05)
+OK   1280-scuro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   1280-scuro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.05)
+OK   1280-scuro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   1280-scuro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.04 g (toll. 0.05)
+OK   1280-scuro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1280-scuro 3A: linea dello zero del premio a -0.000
+OK   1280-scuro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   1280-scuro 3A: bande dentro il pannello del premio
+INFO 1280-scuro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 1280-scuro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   1280-scuro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1280-scuro 3A: viewBox 1403x404, a schermo 1220x351
+OK   1280-scuro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 1357.0 contro 1357)
+INFO 1280-scuro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2018,2020,2022,2024,2026
+OK   1280-scuro 10A: pannello 1 parte da 0 (-0.000)
+OK   1280-scuro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.14 g (toll. 0.16)
+OK   1280-scuro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1280-scuro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.14 g (toll. 0.16)
+OK   1280-scuro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1280-scuro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.14 g (toll. 0.16)
+OK   1280-scuro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1280-scuro 10A: linea dello zero del premio a 0.000
+OK   1280-scuro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   1280-scuro 10A: bande dentro il pannello del premio
+INFO 1280-scuro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 1280-scuro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   1280-scuro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1280-scuro 10A: viewBox 1403x404, a schermo 1220x351
+OK   1280-scuro: colori della legenda = colori delle linee (rgb(255, 160, 40)/rgb(255, 160, 40), rgb(127, 166, 255)/rgb(127, 166, 255), rgb(180, 180, 180)/rgb(180, 180, 180))
+INFO 1280-scuro: banda nel grafico rgb(239, 68, 68) fill-opacity 0.12; nella legenda rgb(239, 68, 68) opacity 0.45; sfondo pannello rgb(0, 0, 0)
+OK   1280-scuro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 1357.0 contro 1357)
+INFO 1280-scuro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 1994,1998,2002,2006,2010,2014,2018,2022,2026
+OK   1280-scuro MAX: pannello 1 parte da 0 (-0.000)
+OK   1280-scuro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.50 g (toll. 0.60)
+OK   1280-scuro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1280-scuro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.50 g (toll. 0.60)
+OK   1280-scuro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1280-scuro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 0.50 g (toll. 0.60)
+OK   1280-scuro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1280-scuro MAX: linea dello zero del premio a -0.000
+OK   1280-scuro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   1280-scuro MAX: bande dentro il pannello del premio
+INFO 1280-scuro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 1280-scuro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   1280-scuro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1280-scuro MAX: viewBox 1403x404, a schermo 1220x351
+OK   1280-scuro: console senza errori 
+OK   1280-chiaro: tema light
+INFO 1280-chiaro: griglia a 1 colonne, larghezze 1222/1222
+OK   1280-chiaro: nessuno scorrimento orizzontale (1280/1280)
+OK   1280-chiaro scatter SPX: 734 punti, attesi 734
+OK   1280-chiaro scatter SPX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1280-chiaro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.019 punti %)
+OK   1280-chiaro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1280-chiaro scatter SPX: punti che sporgono dal riquadro 17
+OK   1280-chiaro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1280-chiaro scatter SPX: soglie verticali 40,50 e zero 0
+OK   1280-chiaro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 1280-chiaro scatter SPX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1280-chiaro scatter SPX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1280-chiaro scatter NDX: 734 punti, attesi 734
+OK   1280-chiaro scatter NDX: ascissa = VIX (scarto massimo 0.004 punti, mezza cifra di arrotondamento 0.004)
+OK   1280-chiaro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.028 punti %)
+OK   1280-chiaro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1280-chiaro scatter NDX: punti che sporgono dal riquadro 18
+OK   1280-chiaro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1280-chiaro scatter NDX: soglie verticali 40,50 e zero 0
+OK   1280-chiaro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 1280-chiaro scatter NDX: etichette senza sovrapposizioni (90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1280-chiaro scatter NDX: viewBox 900x380, a schermo 900x380 (scala 1.00)
+OK   1280-chiaro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 1357.0 contro 1357)
+INFO 1280-chiaro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   1280-chiaro 3A: pannello 1 parte da 0 (0.000)
+OK   1280-chiaro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.05)
+OK   1280-chiaro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   1280-chiaro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.05)
+OK   1280-chiaro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   1280-chiaro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.04 g (toll. 0.05)
+OK   1280-chiaro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1280-chiaro 3A: linea dello zero del premio a -0.000
+OK   1280-chiaro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   1280-chiaro 3A: bande dentro il pannello del premio
+INFO 1280-chiaro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 1280-chiaro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   1280-chiaro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1280-chiaro 3A: viewBox 1403x404, a schermo 1220x351
+OK   1280-chiaro 3A tip a 0.2%: 07/11/2023 | 14,81 | 15,1 | −0,3 | 11° S&P 4378 → «07/11/2023 S&P 500 4378 VIX 14,81 Realizzata 21 sedute 15,1 Premio per la paura −0,3 Percentile del premio 11°»
+OK   1280-chiaro 3A tip a 25.0%: 05/08/2024 | 38,57 | 19,0 | +19,5 | 100° S&P 5186 → «05/08/2024 S&P 500 5186 VIX 38,57 Realizzata 21 sedute 19,0 Premio per la paura +19,5 Percentile del premio 100°»
+OK   1280-chiaro 3A tip a 50.0%: 06/05/2025 | 24,76 | 39,7 | −14,9 | 1° S&P 5607 → «06/05/2025 S&P 500 5607 VIX 24,76 Realizzata 21 sedute 39,7 Premio per la paura −14,9 Percentile del premio 1°»
+OK   1280-chiaro 3A tip a 77.0%: 25/02/2026 | 17,93 | 12,8 | +5,1 | 60° S&P 6946 → «25/02/2026 S&P 500 6946 VIX 17,93 Realizzata 21 sedute 12,8 Premio per la paura +5,1 Percentile del premio 60°»
+OK   1280-chiaro 3A tip a 99.9%: 03/11/2026 | 20,83 | 11,4 | +9,5 | 92° S&P 7569 → «03/11/2026 S&P 500 7569 VIX 20,83 Realizzata 21 sedute 11,4 Premio per la paura +9,5 Percentile del premio 92°»
+INFO 1280-chiaro 3A: seduta mostrata contro seduta più vicina al cursore 2023-11-07/2023-11-07 ; 2024-08-05/2024-08-05 ; 2025-05-06/2025-05-06 ; 2026-02-25/2026-02-26 ; 2026-11-03/2026-11-04
+OK   1280-chiaro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 1357.0 contro 1357)
+INFO 1280-chiaro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2018,2020,2022,2024,2026
+OK   1280-chiaro 10A: pannello 1 parte da 0 (-0.000)
+OK   1280-chiaro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.14 g (toll. 0.16)
+OK   1280-chiaro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1280-chiaro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.14 g (toll. 0.16)
+OK   1280-chiaro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1280-chiaro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.14 g (toll. 0.16)
+OK   1280-chiaro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1280-chiaro 10A: linea dello zero del premio a 0.000
+OK   1280-chiaro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   1280-chiaro 10A: bande dentro il pannello del premio
+INFO 1280-chiaro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 1280-chiaro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   1280-chiaro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1280-chiaro 10A: viewBox 1403x404, a schermo 1220x351
+OK   1280-chiaro 10A tip a 0.2%: 11/11/2016 | 14,17 | 10,3 | +3,9 | 44° S&P 2164 → «11/11/2016 S&P 500 2164 VIX 14,17 Realizzata 21 sedute 10,3 Premio per la paura +3,9 Percentile del premio 44°»
+OK   1280-chiaro 10A tip a 25.0%: 06/05/2019 | 15,44 | 7,0 | +8,4 | 89° S&P 2932 → «06/05/2019 S&P 500 2932 VIX 15,44 Realizzata 21 sedute 7,0 Premio per la paura +8,4 Percentile del premio 89°»
+OK   1280-chiaro 10A tip a 50.0%: 04/11/2021 | 15,44 | 8,4 | +7,1 | 80° S&P 4680 → «04/11/2021 S&P 500 4680 VIX 15,44 Realizzata 21 sedute 8,4 Premio per la paura +7,1 Percentile del premio 80°»
+OK   1280-chiaro 10A tip a 77.0%: 17/07/2024 | 14,48 | 9,0 | +5,5 | 65° S&P 5588 → «17/07/2024 S&P 500 5588 VIX 14,48 Realizzata 21 sedute 9,0 Premio per la paura +5,5 Percentile del premio 65°»
+OK   1280-chiaro 10A tip a 99.9%: 30/10/2026 | 19,42 | 11,8 | +7,6 | 83° S&P 7580 → «30/10/2026 S&P 500 7580 VIX 19,42 Realizzata 21 sedute 11,8 Premio per la paura +7,6 Percentile del premio 83°»
+INFO 1280-chiaro 10A: seduta mostrata contro seduta più vicina al cursore 2016-11-11/2016-11-11 ; 2019-05-06/2019-05-07 ; 2021-11-04/2021-11-05 ; 2024-07-17/2024-07-18 ; 2026-10-30/2026-11-02
+OK   1280-chiaro: colori della legenda = colori delle linee (rgb(154, 74, 0)/rgb(154, 74, 0), rgb(31, 90, 214)/rgb(31, 90, 214), rgb(58, 58, 58)/rgb(58, 58, 58))
+INFO 1280-chiaro: banda nel grafico rgb(194, 39, 39) fill-opacity 0.12; nella legenda rgb(194, 39, 39) opacity 0.45; sfondo pannello rgb(255, 255, 255)
+OK   1280-chiaro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 1357.0 contro 1357)
+INFO 1280-chiaro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 1994,1998,2002,2006,2010,2014,2018,2022,2026
+OK   1280-chiaro MAX: pannello 1 parte da 0 (-0.000)
+OK   1280-chiaro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.50 g (toll. 0.60)
+OK   1280-chiaro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1280-chiaro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.50 g (toll. 0.60)
+OK   1280-chiaro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1280-chiaro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 0.50 g (toll. 0.60)
+OK   1280-chiaro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1280-chiaro MAX: linea dello zero del premio a -0.000
+OK   1280-chiaro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   1280-chiaro MAX: bande dentro il pannello del premio
+INFO 1280-chiaro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 1280-chiaro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   1280-chiaro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1280-chiaro MAX: viewBox 1403x404, a schermo 1220x351
+OK   1280-chiaro MAX tip a 0.2%: 26/01/1990 | 26,28 | — | — | — S&P 326 → «26/01/1990 S&P 500 326 VIX 26,28 Realizzata 21 sedute — Premio per la paura — Percentile del premio —»
+OK   1280-chiaro MAX tip a 25.0%: 19/03/1999 | 24,32 | 17,2 | +7,1 | 76° S&P 1299 → «19/03/1999 S&P 500 1299 VIX 24,32 Realizzata 21 sedute 17,2 Premio per la paura +7,1 Percentile del premio 76°»
+OK   1280-chiaro MAX tip a 50.0%: 04/06/2008 | 20,80 | 13,5 | +7,3 | 81° S&P 1377 → «04/06/2008 S&P 500 1377 VIX 20,80 Realizzata 21 sedute 13,5 Premio per la paura +7,3 Percentile del premio 81°»
+OK   1280-chiaro MAX tip a 77.0%: 16/05/2018 | 13,42 | 11,0 | +2,5 | 27° S&P 2722 → «16/05/2018 S&P 500 2722 VIX 13,42 Realizzata 21 sedute 11,0 Premio per la paura +2,5 Percentile del premio 27°»
+OK   1280-chiaro MAX tip a 99.9%: 22/10/2026 | 19,03 | 9,7 | +9,3 | 91° S&P 7663 → «22/10/2026 S&P 500 7663 VIX 19,03 Realizzata 21 sedute 9,7 Premio per la paura +9,3 Percentile del premio 91°»
+INFO 1280-chiaro MAX: seduta mostrata contro seduta più vicina al cursore 1990-01-26/1990-01-29 ; 1999-03-19/1999-03-19 ; 2008-06-04/2008-06-04 ; 2018-05-16/2018-05-16 ; 2026-10-22/2026-10-23
+OK   1280-chiaro: console senza errori 
+OK   1700-scuro: tema dark
+INFO 1700-scuro: griglia a 2 colonne, larghezze 815/627
+OK   1700-scuro: nessuno scorrimento orizzontale (1700/1700)
+OK   1700-scuro scatter SPX: 734 punti, attesi 734
+OK   1700-scuro scatter SPX: ascissa = VIX (scarto massimo 0.005 punti, mezza cifra di arrotondamento 0.005)
+OK   1700-scuro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.027 punti %)
+OK   1700-scuro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1700-scuro scatter SPX: punti che sporgono dal riquadro 25
+OK   1700-scuro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1700-scuro scatter SPX: soglie verticali 40,50 e zero 0
+OK   1700-scuro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 1700-scuro scatter SPX: etichette senza sovrapposizioni (80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1700-scuro scatter SPX: viewBox 625x281, a schermo 625x281 (scala 1.00)
+OK   1700-scuro scatter NDX: 734 punti, attesi 734
+OK   1700-scuro scatter NDX: ascissa = VIX (scarto massimo 0.005 punti, mezza cifra di arrotondamento 0.005)
+OK   1700-scuro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.039 punti %)
+OK   1700-scuro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1700-scuro scatter NDX: punti che sporgono dal riquadro 26
+OK   1700-scuro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1700-scuro scatter NDX: soglie verticali 40,50 e zero 0
+OK   1700-scuro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 1700-scuro scatter NDX: etichette senza sovrapposizioni (80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1700-scuro scatter NDX: viewBox 625x281, a schermo 625x281 (scala 1.00)
+OK   1700-scuro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 1554.0 contro 1554)
+INFO 1700-scuro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   1700-scuro 3A: pannello 1 parte da 0 (0.000)
+OK   1700-scuro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1700-scuro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   1700-scuro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1700-scuro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   1700-scuro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.04 g (toll. 0.04)
+OK   1700-scuro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1700-scuro 3A: linea dello zero del premio a -0.000
+OK   1700-scuro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   1700-scuro 3A: bande dentro il pannello del premio
+INFO 1700-scuro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 1700-scuro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   1700-scuro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1700-scuro 3A: viewBox 1600x404, a schermo 1452x367
+OK   1700-scuro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 1554.0 contro 1554)
+INFO 1700-scuro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2018,2020,2022,2024,2026
+OK   1700-scuro 10A: pannello 1 parte da 0 (-0.000)
+OK   1700-scuro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1700-scuro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1700-scuro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1700-scuro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1700-scuro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.12 g (toll. 0.14)
+OK   1700-scuro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1700-scuro 10A: linea dello zero del premio a 0.000
+OK   1700-scuro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   1700-scuro 10A: bande dentro il pannello del premio
+INFO 1700-scuro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 1700-scuro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   1700-scuro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1700-scuro 10A: viewBox 1600x404, a schermo 1452x367
+OK   1700-scuro: colori della legenda = colori delle linee (rgb(255, 160, 40)/rgb(255, 160, 40), rgb(127, 166, 255)/rgb(127, 166, 255), rgb(180, 180, 180)/rgb(180, 180, 180))
+INFO 1700-scuro: banda nel grafico rgb(239, 68, 68) fill-opacity 0.12; nella legenda rgb(239, 68, 68) opacity 0.45; sfondo pannello rgb(0, 0, 0)
+OK   1700-scuro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 1554.0 contro 1554)
+INFO 1700-scuro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 1994,1998,2002,2006,2010,2014,2018,2022,2026
+OK   1700-scuro MAX: pannello 1 parte da 0 (-0.000)
+OK   1700-scuro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.52)
+OK   1700-scuro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1700-scuro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.52)
+OK   1700-scuro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1700-scuro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 0.44 g (toll. 0.52)
+OK   1700-scuro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1700-scuro MAX: linea dello zero del premio a -0.000
+OK   1700-scuro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   1700-scuro MAX: bande dentro il pannello del premio
+INFO 1700-scuro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 1700-scuro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   1700-scuro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1700-scuro MAX: viewBox 1600x404, a schermo 1452x367
+OK   1700-scuro: console senza errori 
+OK   1700-chiaro: tema light
+INFO 1700-chiaro: griglia a 2 colonne, larghezze 815/627
+OK   1700-chiaro: nessuno scorrimento orizzontale (1700/1700)
+OK   1700-chiaro scatter SPX: 734 punti, attesi 734
+OK   1700-chiaro scatter SPX: ascissa = VIX (scarto massimo 0.005 punti, mezza cifra di arrotondamento 0.005)
+OK   1700-chiaro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.027 punti %)
+OK   1700-chiaro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1700-chiaro scatter SPX: punti che sporgono dal riquadro 25
+OK   1700-chiaro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1700-chiaro scatter SPX: soglie verticali 40,50 e zero 0
+OK   1700-chiaro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 1700-chiaro scatter SPX: etichette senza sovrapposizioni (80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1700-chiaro scatter SPX: viewBox 625x281, a schermo 625x281 (scala 1.00)
+OK   1700-chiaro scatter NDX: 734 punti, attesi 734
+OK   1700-chiaro scatter NDX: ascissa = VIX (scarto massimo 0.005 punti, mezza cifra di arrotondamento 0.005)
+OK   1700-chiaro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.039 punti %)
+OK   1700-chiaro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 1700-chiaro scatter NDX: punti che sporgono dal riquadro 26
+OK   1700-chiaro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   1700-chiaro scatter NDX: soglie verticali 40,50 e zero 0
+OK   1700-chiaro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 1700-chiaro scatter NDX: etichette senza sovrapposizioni (80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 1700-chiaro scatter NDX: viewBox 625x281, a schermo 625x281 (scala 1.00)
+OK   1700-chiaro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 1554.0 contro 1554)
+INFO 1700-chiaro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   1700-chiaro 3A: pannello 1 parte da 0 (0.000)
+OK   1700-chiaro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1700-chiaro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   1700-chiaro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.04 g (toll. 0.04)
+OK   1700-chiaro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   1700-chiaro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.04 g (toll. 0.04)
+OK   1700-chiaro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1700-chiaro 3A: linea dello zero del premio a -0.000
+OK   1700-chiaro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   1700-chiaro 3A: bande dentro il pannello del premio
+INFO 1700-chiaro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 1700-chiaro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   1700-chiaro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1700-chiaro 3A: viewBox 1600x404, a schermo 1452x367
+FAIL 1700-chiaro 3A tip 0.002: non visibile
+FAIL 1700-chiaro 3A tip 0.25: non visibile
+FAIL 1700-chiaro 3A tip 0.5: non visibile
+FAIL 1700-chiaro 3A tip 0.77: non visibile
+FAIL 1700-chiaro 3A tip 0.999: non visibile
+INFO 1700-chiaro 3A: seduta mostrata contro seduta più vicina al cursore 
+OK   1700-chiaro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 1554.0 contro 1554)
+INFO 1700-chiaro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2018,2020,2022,2024,2026
+OK   1700-chiaro 10A: pannello 1 parte da 0 (-0.000)
+OK   1700-chiaro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1700-chiaro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1700-chiaro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.12 g (toll. 0.14)
+OK   1700-chiaro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1700-chiaro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.12 g (toll. 0.14)
+OK   1700-chiaro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1700-chiaro 10A: linea dello zero del premio a 0.000
+OK   1700-chiaro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   1700-chiaro 10A: bande dentro il pannello del premio
+INFO 1700-chiaro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 1700-chiaro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   1700-chiaro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1700-chiaro 10A: viewBox 1600x404, a schermo 1452x367
+OK   1700-chiaro 10A tip a 0.2%: 11/11/2016 | 14,17 | 10,3 | +3,9 | 44° S&P 2164 → «11/11/2016 S&P 500 2164 VIX 14,17 Realizzata 21 sedute 10,3 Premio per la paura +3,9 Percentile del premio 44°»
+OK   1700-chiaro 10A tip a 25.0%: 06/05/2019 | 15,44 | 7,0 | +8,4 | 89° S&P 2932 → «06/05/2019 S&P 500 2932 VIX 15,44 Realizzata 21 sedute 7,0 Premio per la paura +8,4 Percentile del premio 89°»
+OK   1700-chiaro 10A tip a 50.0%: 04/11/2021 | 15,44 | 8,4 | +7,1 | 80° S&P 4680 → «04/11/2021 S&P 500 4680 VIX 15,44 Realizzata 21 sedute 8,4 Premio per la paura +7,1 Percentile del premio 80°»
+OK   1700-chiaro 10A tip a 77.0%: 17/07/2024 | 14,48 | 9,0 | +5,5 | 65° S&P 5588 → «17/07/2024 S&P 500 5588 VIX 14,48 Realizzata 21 sedute 9,0 Premio per la paura +5,5 Percentile del premio 65°»
+OK   1700-chiaro 10A tip a 99.9%: 30/10/2026 | 19,42 | 11,8 | +7,6 | 83° S&P 7580 → «30/10/2026 S&P 500 7580 VIX 19,42 Realizzata 21 sedute 11,8 Premio per la paura +7,6 Percentile del premio 83°»
+INFO 1700-chiaro 10A: seduta mostrata contro seduta più vicina al cursore 2016-11-11/2016-11-11 ; 2019-05-06/2019-05-07 ; 2021-11-04/2021-11-05 ; 2024-07-17/2024-07-18 ; 2026-10-30/2026-11-02
+OK   1700-chiaro: colori della legenda = colori delle linee (rgb(154, 74, 0)/rgb(154, 74, 0), rgb(31, 90, 214)/rgb(31, 90, 214), rgb(58, 58, 58)/rgb(58, 58, 58))
+INFO 1700-chiaro: banda nel grafico rgb(194, 39, 39) fill-opacity 0.12; nella legenda rgb(194, 39, 39) opacity 0.45; sfondo pannello rgb(255, 255, 255)
+OK   1700-chiaro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 1554.0 contro 1554)
+INFO 1700-chiaro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 1994,1998,2002,2006,2010,2014,2018,2022,2026
+OK   1700-chiaro MAX: pannello 1 parte da 0 (-0.000)
+OK   1700-chiaro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.52)
+OK   1700-chiaro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   1700-chiaro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.44 g (toll. 0.52)
+OK   1700-chiaro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   1700-chiaro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 0.44 g (toll. 0.52)
+OK   1700-chiaro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   1700-chiaro MAX: linea dello zero del premio a -0.000
+OK   1700-chiaro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   1700-chiaro MAX: bande dentro il pannello del premio
+INFO 1700-chiaro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 1700-chiaro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   1700-chiaro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 1700-chiaro MAX: viewBox 1600x404, a schermo 1452x367
+OK   1700-chiaro MAX tip a 0.2%: 26/01/1990 | 26,28 | — | — | — S&P 326 → «26/01/1990 S&P 500 326 VIX 26,28 Realizzata 21 sedute — Premio per la paura — Percentile del premio —»
+OK   1700-chiaro MAX tip a 25.0%: 19/03/1999 | 24,32 | 17,2 | +7,1 | 76° S&P 1299 → «19/03/1999 S&P 500 1299 VIX 24,32 Realizzata 21 sedute 17,2 Premio per la paura +7,1 Percentile del premio 76°»
+OK   1700-chiaro MAX tip a 50.0%: 04/06/2008 | 20,80 | 13,5 | +7,3 | 81° S&P 1377 → «04/06/2008 S&P 500 1377 VIX 20,80 Realizzata 21 sedute 13,5 Premio per la paura +7,3 Percentile del premio 81°»
+OK   1700-chiaro MAX tip a 77.0%: 16/05/2018 | 13,42 | 11,0 | +2,5 | 27° S&P 2722 → «16/05/2018 S&P 500 2722 VIX 13,42 Realizzata 21 sedute 11,0 Premio per la paura +2,5 Percentile del premio 27°»
+OK   1700-chiaro MAX tip a 99.9%: 22/10/2026 | 19,03 | 9,7 | +9,3 | 91° S&P 7663 → «22/10/2026 S&P 500 7663 VIX 19,03 Realizzata 21 sedute 9,7 Premio per la paura +9,3 Percentile del premio 91°»
+INFO 1700-chiaro MAX: seduta mostrata contro seduta più vicina al cursore 1990-01-26/1990-01-29 ; 1999-03-19/1999-03-19 ; 2008-06-04/2008-06-04 ; 2018-05-16/2018-05-16 ; 2026-10-22/2026-10-23
+OK   1700-chiaro: console senza errori 
+OK   390-scuro: tema dark
+INFO 390-scuro: griglia a 1 colonne, larghezze 332/332
+OK   390-scuro: nessuno scorrimento orizzontale (390/390)
+OK   390-scuro scatter SPX: 734 punti, attesi 734
+OK   390-scuro scatter SPX: ascissa = VIX (scarto massimo 0.011 punti, mezza cifra di arrotondamento 0.011)
+OK   390-scuro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.033 punti %)
+OK   390-scuro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 390-scuro scatter SPX: punti che sporgono dal riquadro 46
+OK   390-scuro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   390-scuro scatter SPX: soglie verticali 40,50 e zero 0
+OK   390-scuro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 390-scuro scatter SPX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 390-scuro scatter SPX: viewBox 330x240, a schermo 330x240 (scala 1.00)
+OK   390-scuro tip scatter SPX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +57,1%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 S&P 500 dopo 12 mesi +57,1% Episodio iniziato il 27/02/2020»
+OK   390-scuro tip scatter SPX 2007-11-12: data 12/11/2007, VIX 31,09, rend. −42,5%, episodio 15/08/2007 → «12/11/2007 2007-09 crisi finanziaria VIX 31,09 S&P 500 dopo 12 mesi −42,5% Episodio iniziato il 15/08/2007»
+OK   390-scuro tip scatter SPX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −11,7%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 S&P 500 dopo 12 mesi −11,7% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il punto»
+OK   390-scuro scatter NDX: 734 punti, attesi 734
+OK   390-scuro scatter NDX: ascissa = VIX (scarto massimo 0.011 punti, mezza cifra di arrotondamento 0.011)
+OK   390-scuro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.047 punti %)
+OK   390-scuro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 390-scuro scatter NDX: punti che sporgono dal riquadro 46
+OK   390-scuro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   390-scuro scatter NDX: soglie verticali 40,50 e zero 0
+OK   390-scuro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 390-scuro scatter NDX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 390-scuro scatter NDX: viewBox 330x240, a schermo 330x240 (scala 1.00)
+OK   390-scuro tip scatter NDX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +76,6%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 Nasdaq-100 dopo 12 mesi +76,6% Episodio iniziato il 27/02/2020»
+OK   390-scuro tip scatter NDX 2000-10-12: data 12/10/2000, VIX 30,51, rend. −58,9%, episodio 12/10/2000 → «12/10/2000 2000-03 bolla internet VIX 30,51 Nasdaq-100 dopo 12 mesi −58,9% Episodio iniziato il 12/10/2000 Primo giorno dell'episodio (il pu»
+OK   390-scuro tip scatter NDX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −48,1%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 Nasdaq-100 dopo 12 mesi −48,1% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il pu»
+OK   390-scuro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 284.0 contro 284)
+INFO 390-scuro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   390-scuro 3A: pannello 1 parte da 0 (0.000)
+OK   390-scuro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.20 g (toll. 0.24)
+OK   390-scuro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   390-scuro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.20 g (toll. 0.24)
+OK   390-scuro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   390-scuro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.20 g (toll. 0.24)
+OK   390-scuro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   390-scuro 3A: linea dello zero del premio a -0.000
+OK   390-scuro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   390-scuro 3A: bande dentro il pannello del premio
+INFO 390-scuro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 390-scuro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   390-scuro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 390-scuro 3A: viewBox 330x404, a schermo 330x404
+OK   390-scuro 3A tip a 0.2%: 07/11/2023 | 14,81 | 15,1 | −0,3 | 11° S&P 4378 → «07/11/2023 S&P 500 4378 VIX 14,81 Realizzata 21 sedute 15,1 Premio per la paura −0,3 Percentile del premio 11°»
+OK   390-scuro 3A tip a 25.0%: 05/08/2024 | 38,57 | 19,0 | +19,5 | 100° S&P 5186 → «05/08/2024 S&P 500 5186 VIX 38,57 Realizzata 21 sedute 19,0 Premio per la paura +19,5 Percentile del premio 100°»
+OK   390-scuro 3A tip a 50.0%: 06/05/2025 | 24,76 | 39,7 | −14,9 | 1° S&P 5607 → «06/05/2025 S&P 500 5607 VIX 24,76 Realizzata 21 sedute 39,7 Premio per la paura −14,9 Percentile del premio 1°»
+OK   390-scuro 3A tip a 77.0%: 25/02/2026 | 17,93 | 12,8 | +5,1 | 60° S&P 6946 → «25/02/2026 S&P 500 6946 VIX 17,93 Realizzata 21 sedute 12,8 Premio per la paura +5,1 Percentile del premio 60°»
+OK   390-scuro 3A tip a 99.9%: 03/11/2026 | 20,83 | 11,4 | +9,5 | 92° S&P 7569 → «03/11/2026 S&P 500 7569 VIX 20,83 Realizzata 21 sedute 11,4 Premio per la paura +9,5 Percentile del premio 92°»
+INFO 390-scuro 3A: seduta mostrata contro seduta più vicina al cursore 2023-11-07/2023-11-07 ; 2024-08-05/2024-08-05 ; 2025-05-06/2025-05-06 ; 2026-02-25/2026-02-26 ; 2026-11-03/2026-11-04
+OK   390-scuro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 284.0 contro 284)
+INFO 390-scuro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2019,2022,2025
+OK   390-scuro 10A: pannello 1 parte da 0 (-0.000)
+OK   390-scuro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.66 g (toll. 0.79)
+OK   390-scuro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   390-scuro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.66 g (toll. 0.79)
+OK   390-scuro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   390-scuro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.66 g (toll. 0.79)
+OK   390-scuro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   390-scuro 10A: linea dello zero del premio a 0.000
+OK   390-scuro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   390-scuro 10A: bande dentro il pannello del premio
+INFO 390-scuro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 390-scuro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   390-scuro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 390-scuro 10A: viewBox 330x404, a schermo 330x404
+OK   390-scuro 10A tip a 0.2%: 11/11/2016 | 14,17 | 10,3 | +3,9 | 44° S&P 2164 → «11/11/2016 S&P 500 2164 VIX 14,17 Realizzata 21 sedute 10,3 Premio per la paura +3,9 Percentile del premio 44°»
+OK   390-scuro 10A tip a 25.0%: 06/05/2019 | 15,44 | 7,0 | +8,4 | 89° S&P 2932 → «06/05/2019 S&P 500 2932 VIX 15,44 Realizzata 21 sedute 7,0 Premio per la paura +8,4 Percentile del premio 89°»
+OK   390-scuro 10A tip a 50.0%: 04/11/2021 | 15,44 | 8,4 | +7,1 | 80° S&P 4680 → «04/11/2021 S&P 500 4680 VIX 15,44 Realizzata 21 sedute 8,4 Premio per la paura +7,1 Percentile del premio 80°»
+OK   390-scuro 10A tip a 77.0%: 17/07/2024 | 14,48 | 9,0 | +5,5 | 65° S&P 5588 → «17/07/2024 S&P 500 5588 VIX 14,48 Realizzata 21 sedute 9,0 Premio per la paura +5,5 Percentile del premio 65°»
+OK   390-scuro 10A tip a 99.9%: 30/10/2026 | 19,42 | 11,8 | +7,6 | 83° S&P 7580 → «30/10/2026 S&P 500 7580 VIX 19,42 Realizzata 21 sedute 11,8 Premio per la paura +7,6 Percentile del premio 83°»
+INFO 390-scuro 10A: seduta mostrata contro seduta più vicina al cursore 2016-11-11/2016-11-11 ; 2019-05-06/2019-05-07 ; 2021-11-04/2021-11-05 ; 2024-07-17/2024-07-18 ; 2026-10-30/2026-11-02
+OK   390-scuro: colori della legenda = colori delle linee (rgb(255, 160, 40)/rgb(255, 160, 40), rgb(127, 166, 255)/rgb(127, 166, 255), rgb(180, 180, 180)/rgb(180, 180, 180))
+INFO 390-scuro: banda nel grafico rgb(239, 68, 68) fill-opacity 0.12; nella legenda rgb(239, 68, 68) opacity 0.45; sfondo pannello rgb(0, 0, 0)
+OK   390-scuro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 284.0 contro 284)
+INFO 390-scuro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2000,2010,2020
+OK   390-scuro MAX: pannello 1 parte da 0 (-0.000)
+OK   390-scuro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.44 g (toll. 2.93)
+OK   390-scuro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   390-scuro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.44 g (toll. 2.93)
+OK   390-scuro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   390-scuro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 2.44 g (toll. 2.93)
+OK   390-scuro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   390-scuro MAX: linea dello zero del premio a -0.000
+OK   390-scuro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   390-scuro MAX: bande dentro il pannello del premio
+INFO 390-scuro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 390-scuro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   390-scuro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 390-scuro MAX: viewBox 330x404, a schermo 330x404
+OK   390-scuro MAX tip a 0.2%: 26/01/1990 | 26,28 | — | — | — S&P 326 → «26/01/1990 S&P 500 326 VIX 26,28 Realizzata 21 sedute — Premio per la paura — Percentile del premio —»
+OK   390-scuro MAX tip a 25.0%: 19/03/1999 | 24,32 | 17,2 | +7,1 | 76° S&P 1299 → «19/03/1999 S&P 500 1299 VIX 24,32 Realizzata 21 sedute 17,2 Premio per la paura +7,1 Percentile del premio 76°»
+OK   390-scuro MAX tip a 50.0%: 04/06/2008 | 20,80 | 13,5 | +7,3 | 81° S&P 1377 → «04/06/2008 S&P 500 1377 VIX 20,80 Realizzata 21 sedute 13,5 Premio per la paura +7,3 Percentile del premio 81°»
+OK   390-scuro MAX tip a 77.0%: 16/05/2018 | 13,42 | 11,0 | +2,5 | 27° S&P 2722 → «16/05/2018 S&P 500 2722 VIX 13,42 Realizzata 21 sedute 11,0 Premio per la paura +2,5 Percentile del premio 27°»
+OK   390-scuro MAX tip a 99.9%: 22/10/2026 | 19,03 | 9,7 | +9,3 | 91° S&P 7663 → «22/10/2026 S&P 500 7663 VIX 19,03 Realizzata 21 sedute 9,7 Premio per la paura +9,3 Percentile del premio 91°»
+INFO 390-scuro MAX: seduta mostrata contro seduta più vicina al cursore 1990-01-26/1990-01-29 ; 1999-03-19/1999-03-19 ; 2008-06-04/2008-06-04 ; 2018-05-16/2018-05-16 ; 2026-10-22/2026-10-23
+OK   390-scuro: console senza errori 
+OK   390-chiaro: tema light
+INFO 390-chiaro: griglia a 1 colonne, larghezze 332/332
+OK   390-chiaro: nessuno scorrimento orizzontale (390/390)
+OK   390-chiaro scatter SPX: 734 punti, attesi 734
+OK   390-chiaro scatter SPX: ascissa = VIX (scarto massimo 0.011 punti, mezza cifra di arrotondamento 0.011)
+OK   390-chiaro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.033 punti %)
+OK   390-chiaro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 390-chiaro scatter SPX: punti che sporgono dal riquadro 46
+OK   390-chiaro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   390-chiaro scatter SPX: soglie verticali 40,50 e zero 0
+OK   390-chiaro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 390-chiaro scatter SPX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 390-chiaro scatter SPX: viewBox 330x240, a schermo 330x240 (scala 1.00)
+OK   390-chiaro scatter NDX: 734 punti, attesi 734
+OK   390-chiaro scatter NDX: ascissa = VIX (scarto massimo 0.011 punti, mezza cifra di arrotondamento 0.011)
+OK   390-chiaro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.047 punti %)
+OK   390-chiaro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 390-chiaro scatter NDX: punti che sporgono dal riquadro 46
+OK   390-chiaro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   390-chiaro scatter NDX: soglie verticali 40,50 e zero 0
+OK   390-chiaro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 390-chiaro scatter NDX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 390-chiaro scatter NDX: viewBox 330x240, a schermo 330x240 (scala 1.00)
+OK   390-chiaro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 284.0 contro 284)
+INFO 390-chiaro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   390-chiaro 3A: pannello 1 parte da 0 (0.000)
+OK   390-chiaro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.20 g (toll. 0.24)
+OK   390-chiaro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   390-chiaro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.20 g (toll. 0.24)
+OK   390-chiaro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   390-chiaro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.20 g (toll. 0.24)
+OK   390-chiaro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   390-chiaro 3A: linea dello zero del premio a -0.000
+OK   390-chiaro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   390-chiaro 3A: bande dentro il pannello del premio
+INFO 390-chiaro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 390-chiaro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   390-chiaro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 390-chiaro 3A: viewBox 330x404, a schermo 330x404
+OK   390-chiaro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 284.0 contro 284)
+INFO 390-chiaro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2019,2022,2025
+OK   390-chiaro 10A: pannello 1 parte da 0 (-0.000)
+OK   390-chiaro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.66 g (toll. 0.79)
+OK   390-chiaro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   390-chiaro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.66 g (toll. 0.79)
+OK   390-chiaro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   390-chiaro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.66 g (toll. 0.79)
+OK   390-chiaro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   390-chiaro 10A: linea dello zero del premio a 0.000
+OK   390-chiaro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   390-chiaro 10A: bande dentro il pannello del premio
+INFO 390-chiaro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 390-chiaro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   390-chiaro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 390-chiaro 10A: viewBox 330x404, a schermo 330x404
+OK   390-chiaro: colori della legenda = colori delle linee (rgb(154, 74, 0)/rgb(154, 74, 0), rgb(31, 90, 214)/rgb(31, 90, 214), rgb(58, 58, 58)/rgb(58, 58, 58))
+INFO 390-chiaro: banda nel grafico rgb(194, 39, 39) fill-opacity 0.12; nella legenda rgb(194, 39, 39) opacity 0.45; sfondo pannello rgb(255, 255, 255)
+OK   390-chiaro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 284.0 contro 284)
+INFO 390-chiaro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2000,2010,2020
+OK   390-chiaro MAX: pannello 1 parte da 0 (-0.000)
+OK   390-chiaro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.44 g (toll. 2.93)
+OK   390-chiaro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   390-chiaro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.44 g (toll. 2.93)
+OK   390-chiaro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   390-chiaro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 2.44 g (toll. 2.93)
+OK   390-chiaro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   390-chiaro MAX: linea dello zero del premio a -0.000
+OK   390-chiaro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   390-chiaro MAX: bande dentro il pannello del premio
+INFO 390-chiaro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 390-chiaro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   390-chiaro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 390-chiaro MAX: viewBox 330x404, a schermo 330x404
+OK   390-chiaro: console senza errori 
+OK   360-scuro: tema dark
+INFO 360-scuro: griglia a 1 colonne, larghezze 302/302
+OK   360-scuro: nessuno scorrimento orizzontale (360/360)
+OK   360-scuro scatter SPX: 734 punti, attesi 734
+OK   360-scuro scatter SPX: ascissa = VIX (scarto massimo 0.012 punti, mezza cifra di arrotondamento 0.012)
+OK   360-scuro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.033 punti %)
+OK   360-scuro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 360-scuro scatter SPX: punti che sporgono dal riquadro 54
+OK   360-scuro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   360-scuro scatter SPX: soglie verticali 40,50 e zero 0
+OK   360-scuro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 360-scuro scatter SPX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 360-scuro scatter SPX: viewBox 300x240, a schermo 300x240 (scala 1.00)
+OK   360-scuro scatter NDX: 734 punti, attesi 734
+OK   360-scuro scatter NDX: ascissa = VIX (scarto massimo 0.012 punti, mezza cifra di arrotondamento 0.012)
+OK   360-scuro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.047 punti %)
+OK   360-scuro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 360-scuro scatter NDX: punti che sporgono dal riquadro 54
+OK   360-scuro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   360-scuro scatter NDX: soglie verticali 40,50 e zero 0
+OK   360-scuro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 360-scuro scatter NDX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 360-scuro scatter NDX: viewBox 300x240, a schermo 300x240 (scala 1.00)
+OK   360-scuro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 254.0 contro 254)
+INFO 360-scuro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   360-scuro 3A: pannello 1 parte da 0 (0.000)
+OK   360-scuro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.22 g (toll. 0.27)
+OK   360-scuro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   360-scuro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.22 g (toll. 0.27)
+OK   360-scuro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   360-scuro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.22 g (toll. 0.27)
+OK   360-scuro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   360-scuro 3A: linea dello zero del premio a -0.000
+OK   360-scuro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   360-scuro 3A: bande dentro il pannello del premio
+INFO 360-scuro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 360-scuro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   360-scuro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 360-scuro 3A: viewBox 300x404, a schermo 300x404
+OK   360-scuro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 254.0 contro 254)
+INFO 360-scuro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2019,2022,2025
+OK   360-scuro 10A: pannello 1 parte da 0 (-0.000)
+OK   360-scuro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.74 g (toll. 0.89)
+OK   360-scuro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   360-scuro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.74 g (toll. 0.89)
+OK   360-scuro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   360-scuro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.74 g (toll. 0.89)
+OK   360-scuro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   360-scuro 10A: linea dello zero del premio a 0.000
+OK   360-scuro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   360-scuro 10A: bande dentro il pannello del premio
+INFO 360-scuro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 360-scuro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   360-scuro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 360-scuro 10A: viewBox 300x404, a schermo 300x404
+OK   360-scuro: colori della legenda = colori delle linee (rgb(255, 160, 40)/rgb(255, 160, 40), rgb(127, 166, 255)/rgb(127, 166, 255), rgb(180, 180, 180)/rgb(180, 180, 180))
+INFO 360-scuro: banda nel grafico rgb(239, 68, 68) fill-opacity 0.12; nella legenda rgb(239, 68, 68) opacity 0.45; sfondo pannello rgb(0, 0, 0)
+OK   360-scuro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 254.0 contro 254)
+INFO 360-scuro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2000,2010,2020
+OK   360-scuro MAX: pannello 1 parte da 0 (-0.000)
+OK   360-scuro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.73 g (toll. 3.28)
+OK   360-scuro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   360-scuro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.73 g (toll. 3.28)
+OK   360-scuro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   360-scuro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 2.73 g (toll. 3.28)
+OK   360-scuro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   360-scuro MAX: linea dello zero del premio a -0.000
+OK   360-scuro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   360-scuro MAX: bande dentro il pannello del premio
+INFO 360-scuro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 360-scuro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   360-scuro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 360-scuro MAX: viewBox 300x404, a schermo 300x404
+OK   360-scuro: console senza errori 
+OK   360-chiaro: tema light
+INFO 360-chiaro: griglia a 1 colonne, larghezze 302/302
+OK   360-chiaro: nessuno scorrimento orizzontale (360/360)
+OK   360-chiaro scatter SPX: 734 punti, attesi 734
+OK   360-chiaro scatter SPX: ascissa = VIX (scarto massimo 0.012 punti, mezza cifra di arrotondamento 0.012)
+OK   360-chiaro scatter SPX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.033 punti %)
+OK   360-chiaro scatter SPX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 360-chiaro scatter SPX: punti che sporgono dal riquadro 54
+OK   360-chiaro scatter SPX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   360-chiaro scatter SPX: soglie verticali 40,50 e zero 0
+OK   360-chiaro scatter SPX: assi coprono i dati (x 30.0,90.0, y -50.0,80.0; dati VIX max 82.69, rend. -42.5..74.8)
+FAIL 360-chiaro scatter SPX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 360-chiaro scatter SPX: viewBox 300x240, a schermo 300x240 (scala 1.00)
+OK   360-chiaro tip scatter SPX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +57,1%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 S&P 500 dopo 12 mesi +57,1% Episodio iniziato il 27/02/2020»
+OK   360-chiaro tip scatter SPX 2007-11-12: data 12/11/2007, VIX 31,09, rend. −42,5%, episodio 15/08/2007 → «12/11/2007 2007-09 crisi finanziaria VIX 31,09 S&P 500 dopo 12 mesi −42,5% Episodio iniziato il 15/08/2007»
+OK   360-chiaro tip scatter SPX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −11,7%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 S&P 500 dopo 12 mesi −11,7% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il punto»
+OK   360-chiaro scatter NDX: 734 punti, attesi 734
+OK   360-chiaro scatter NDX: ascissa = VIX (scarto massimo 0.012 punti, mezza cifra di arrotondamento 0.012)
+OK   360-chiaro scatter NDX: ordinata = rendimento 252 sedute dalla seduta dopo (scarto massimo 0.047 punti %)
+OK   360-chiaro scatter NDX: primi giorni degli episodi (classe start 0 errori, raggio 0)
+INFO 360-chiaro scatter NDX: punti che sporgono dal riquadro 54
+OK   360-chiaro scatter NDX: un colore per episodio (20 episodi con punti; misti 0, consecutivi uguali 0)
+OK   360-chiaro scatter NDX: soglie verticali 40,50 e zero 0
+OK   360-chiaro scatter NDX: assi coprono i dati (x 30.0,90.0, y -60.0,130.0; dati VIX max 82.69, rend. -58.9..126.4)
+FAIL 360-chiaro scatter NDX: etichette senza sovrapposizioni (70|VIX alla chiusura ; 80|VIX alla chiusura ; 90|VIX alla chiusura) né tagli (VIX alla chiusura)
+INFO 360-chiaro scatter NDX: viewBox 300x240, a schermo 300x240 (scala 1.00)
+OK   360-chiaro tip scatter NDX 2020-03-16: data 16/03/2020, VIX 82,69, rend. +76,6%, episodio 27/02/2020 → «16/03/2020 2020 Covid VIX 82,69 Nasdaq-100 dopo 12 mesi +76,6% Episodio iniziato il 27/02/2020»
+OK   360-chiaro tip scatter NDX 2000-10-12: data 12/10/2000, VIX 30,51, rend. −58,9%, episodio 12/10/2000 → «12/10/2000 2000-03 bolla internet VIX 30,51 Nasdaq-100 dopo 12 mesi −58,9% Episodio iniziato il 12/10/2000 Primo giorno dell'episodio (il pu»
+OK   360-chiaro tip scatter NDX 2000-04-14: data 14/04/2000, VIX 33,49, rend. −48,1%, episodio 14/04/2000 → «14/04/2000 2000-03 bolla internet VIX 33,49 Nasdaq-100 dopo 12 mesi −48,1% Episodio iniziato il 14/04/2000 Primo giorno dell'episodio (il pu»
+OK   360-chiaro 3A: bordi del periodo (sinistra 8.0 contro 8, destra 254.0 contro 254)
+INFO 360-chiaro 3A: etichette pannello 1 20,30,40,50; pannello 2 -10,0,+10,+20; anni 2024,2025,2026
+OK   360-chiaro 3A: pannello 1 parte da 0 (0.000)
+OK   360-chiaro 3A vxvix: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.22 g (toll. 0.27)
+OK   360-chiaro 3A vxvix: linea dentro il pannello (y 28.8..199.9, pannello 20..250)
+OK   360-chiaro 3A vxrv: 753 vertici (attesi 753, 1 tratti); scarto valore 0.012 (tolleranza 0.014), data 0.22 g (toll. 0.27)
+OK   360-chiaro 3A vxrv: linea dentro il pannello (y 41.7..227.1, pannello 20..250)
+OK   360-chiaro 3A vxprem: 753 vertici (attesi 753, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.22 g (toll. 0.27)
+OK   360-chiaro 3A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   360-chiaro 3A: linea dello zero del premio a -0.000
+OK   360-chiaro 3A: bande del premio ≥ 80° percentile 37 (attese 37, fuori posto 0)
+OK   360-chiaro 3A: bande dentro il pannello del premio
+INFO 360-chiaro 3A: premio da -26.4 a 21.1; etichette -10,0,10,20
+FAIL 360-chiaro 3A: etichette del premio coprono la scala (spazio senza etichette sotto 16.4, sopra 1.1 punti)
+OK   360-chiaro 3A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 360-chiaro 3A: viewBox 300x404, a schermo 300x404
+OK   360-chiaro 3A tip a 0.2%: 07/11/2023 | 14,81 | 15,1 | −0,3 | 11° S&P 4378 → «07/11/2023 S&P 500 4378 VIX 14,81 Realizzata 21 sedute 15,1 Premio per la paura −0,3 Percentile del premio 11°»
+OK   360-chiaro 3A tip a 25.0%: 05/08/2024 | 38,57 | 19,0 | +19,5 | 100° S&P 5186 → «05/08/2024 S&P 500 5186 VIX 38,57 Realizzata 21 sedute 19,0 Premio per la paura +19,5 Percentile del premio 100°»
+OK   360-chiaro 3A tip a 50.0%: 06/05/2025 | 24,76 | 39,7 | −14,9 | 1° S&P 5607 → «06/05/2025 S&P 500 5607 VIX 24,76 Realizzata 21 sedute 39,7 Premio per la paura −14,9 Percentile del premio 1°»
+OK   360-chiaro 3A tip a 77.0%: 25/02/2026 | 17,93 | 12,8 | +5,1 | 60° S&P 6946 → «25/02/2026 S&P 500 6946 VIX 17,93 Realizzata 21 sedute 12,8 Premio per la paura +5,1 Percentile del premio 60°»
+OK   360-chiaro 3A tip a 99.9%: 03/11/2026 | 20,83 | 11,4 | +9,5 | 92° S&P 7569 → «03/11/2026 S&P 500 7569 VIX 20,83 Realizzata 21 sedute 11,4 Premio per la paura +9,5 Percentile del premio 92°»
+INFO 360-chiaro 3A: seduta mostrata contro seduta più vicina al cursore 2023-11-07/2023-11-07 ; 2024-08-05/2024-08-05 ; 2025-05-06/2025-05-06 ; 2026-02-25/2026-02-26 ; 2026-11-03/2026-11-04
+OK   360-chiaro 10A: bordi del periodo (sinistra 8.0 contro 8, destra 254.0 contro 254)
+INFO 360-chiaro 10A: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2019,2022,2025
+OK   360-chiaro 10A: pannello 1 parte da 0 (-0.000)
+OK   360-chiaro 10A vxvix: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.74 g (toll. 0.89)
+OK   360-chiaro 10A vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   360-chiaro 10A vxrv: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 0.74 g (toll. 0.89)
+OK   360-chiaro 10A vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   360-chiaro 10A vxprem: 2513 vertici (attesi 2513, 1 tratti); scarto valore 0.034 (tolleranza 0.041), data 0.74 g (toll. 0.89)
+OK   360-chiaro 10A vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   360-chiaro 10A: linea dello zero del premio a 0.000
+OK   360-chiaro 10A: bande del premio ≥ 80° percentile 118 (attese 118, fuori posto 0)
+OK   360-chiaro 10A: bande dentro il pannello del premio
+INFO 360-chiaro 10A: premio da -52.3 a 22.4; etichette -10,0,10,20
+FAIL 360-chiaro 10A: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 2.4 punti)
+OK   360-chiaro 10A: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 360-chiaro 10A: viewBox 300x404, a schermo 300x404
+OK   360-chiaro 10A tip a 0.2%: 11/11/2016 | 14,17 | 10,3 | +3,9 | 44° S&P 2164 → «11/11/2016 S&P 500 2164 VIX 14,17 Realizzata 21 sedute 10,3 Premio per la paura +3,9 Percentile del premio 44°»
+OK   360-chiaro 10A tip a 25.0%: 06/05/2019 | 15,44 | 7,0 | +8,4 | 89° S&P 2932 → «06/05/2019 S&P 500 2932 VIX 15,44 Realizzata 21 sedute 7,0 Premio per la paura +8,4 Percentile del premio 89°»
+OK   360-chiaro 10A tip a 50.0%: 04/11/2021 | 15,44 | 8,4 | +7,1 | 80° S&P 4680 → «04/11/2021 S&P 500 4680 VIX 15,44 Realizzata 21 sedute 8,4 Premio per la paura +7,1 Percentile del premio 80°»
+OK   360-chiaro 10A tip a 77.0%: 17/07/2024 | 14,48 | 9,0 | +5,5 | 65° S&P 5588 → «17/07/2024 S&P 500 5588 VIX 14,48 Realizzata 21 sedute 9,0 Premio per la paura +5,5 Percentile del premio 65°»
+OK   360-chiaro 10A tip a 99.9%: 30/10/2026 | 19,42 | 11,8 | +7,6 | 83° S&P 7580 → «30/10/2026 S&P 500 7580 VIX 19,42 Realizzata 21 sedute 11,8 Premio per la paura +7,6 Percentile del premio 83°»
+INFO 360-chiaro 10A: seduta mostrata contro seduta più vicina al cursore 2016-11-11/2016-11-11 ; 2019-05-06/2019-05-07 ; 2021-11-04/2021-11-05 ; 2024-07-17/2024-07-18 ; 2026-10-30/2026-11-02
+OK   360-chiaro: colori della legenda = colori delle linee (rgb(154, 74, 0)/rgb(154, 74, 0), rgb(31, 90, 214)/rgb(31, 90, 214), rgb(58, 58, 58)/rgb(58, 58, 58))
+INFO 360-chiaro: banda nel grafico rgb(194, 39, 39) fill-opacity 0.12; nella legenda rgb(194, 39, 39) opacity 0.45; sfondo pannello rgb(255, 255, 255)
+OK   360-chiaro MAX: bordi del periodo (sinistra 8.0 contro 8, destra 254.0 contro 254)
+INFO 360-chiaro MAX: etichette pannello 1 20,30,40,50,60,80; pannello 2 -10,0,+10,+20; anni 2000,2010,2020
+OK   360-chiaro MAX: pannello 1 parte da 0 (-0.000)
+OK   360-chiaro MAX vxvix: 9277 vertici (attesi 9277, 4 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.73 g (toll. 3.28)
+OK   360-chiaro MAX vxvix: linea dentro il pannello (y 62.5..229.3, pannello 20..250)
+OK   360-chiaro MAX vxrv: 9259 vertici (attesi 9259, 1 tratti); scarto valore 0.022 (tolleranza 0.026), data 2.73 g (toll. 3.28)
+OK   360-chiaro MAX vxrv: linea dentro il pannello (y 28.8..242.1, pannello 20..250)
+OK   360-chiaro MAX vxprem: 9256 vertici (attesi 9256, 4 tratti); scarto valore 0.035 (tolleranza 0.042), data 2.73 g (toll. 3.28)
+OK   360-chiaro MAX vxprem: linea dentro il pannello (y 272.0..382.0, pannello 272..382)
+OK   360-chiaro MAX: linea dello zero del premio a -0.000
+OK   360-chiaro MAX: bande del premio ≥ 80° percentile 375 (attese 375, fuori posto 0)
+OK   360-chiaro MAX: bande dentro il pannello del premio
+INFO 360-chiaro MAX: premio da -52.3 a 24.4; etichette -10,0,10,20
+FAIL 360-chiaro MAX: etichette del premio coprono la scala (spazio senza etichette sotto 42.3, sopra 4.4 punti)
+OK   360-chiaro MAX: etichette senza sovrapposizioni (-) né tagli (-)
+INFO 360-chiaro MAX: viewBox 300x404, a schermo 300x404
+OK   360-chiaro MAX tip a 0.2%: 26/01/1990 | 26,28 | — | — | — S&P 326 → «26/01/1990 S&P 500 326 VIX 26,28 Realizzata 21 sedute — Premio per la paura — Percentile del premio —»
+OK   360-chiaro MAX tip a 25.0%: 19/03/1999 | 24,32 | 17,2 | +7,1 | 76° S&P 1299 → «19/03/1999 S&P 500 1299 VIX 24,32 Realizzata 21 sedute 17,2 Premio per la paura +7,1 Percentile del premio 76°»
+OK   360-chiaro MAX tip a 50.0%: 04/06/2008 | 20,80 | 13,5 | +7,3 | 81° S&P 1377 → «04/06/2008 S&P 500 1377 VIX 20,80 Realizzata 21 sedute 13,5 Premio per la paura +7,3 Percentile del premio 81°»
+OK   360-chiaro MAX tip a 77.0%: 16/05/2018 | 13,42 | 11,0 | +2,5 | 27° S&P 2722 → «16/05/2018 S&P 500 2722 VIX 13,42 Realizzata 21 sedute 11,0 Premio per la paura +2,5 Percentile del premio 27°»
+OK   360-chiaro MAX tip a 99.9%: 22/10/2026 | 19,03 | 9,7 | +9,3 | 91° S&P 7663 → «22/10/2026 S&P 500 7663 VIX 19,03 Realizzata 21 sedute 9,7 Premio per la paura +9,3 Percentile del premio 91°»
+INFO 360-chiaro MAX: seduta mostrata contro seduta più vicina al cursore 1990-01-26/1990-01-29 ; 1999-03-19/1999-03-19 ; 2008-06-04/2008-06-04 ; 2018-05-16/2018-05-16 ; 2026-10-22/2026-10-23
+OK   360-chiaro: console senza errori 
+634 OK, 55 FAIL

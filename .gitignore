@@ -3,3 +3,19 @@ node_modules/
 Thumbs.db
 *.log
 __pycache__/
+ricerca/qa/1.3.4/prezzi/
+ricerca/qa/*/*/shots/
+
+# dati ICE (HY OAS): licenza che non permette la ripubblicazione, restano solo in locale
+ricerca/vix/struttura/*/cache/BAMLH0A0HYM2*
+ricerca/vix/struttura/inserimento/shots/
+ricerca/qa/1.6.0/*/src/
+ricerca/qa/1.6.0/*/mut/
+ricerca/qa/1.6.0/*/wt/
+ricerca/rrg-bloomberg/cache/
+ricerca/oscillatori/cache/
+ricerca/bolle-rotazione/cache/
+ricerca/credito-soglia/cache/
+ricerca/petrolio/cache/
+ricerca/qa/1.10.0/numeri/cache/
+ricerca/poc/cache/

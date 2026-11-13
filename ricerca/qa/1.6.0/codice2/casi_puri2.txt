@@ -1,0 +1,26 @@
+OK   VIX Cboe 1990-01-02→2026-11-06 (9311 sedute): scartate 0 []; salto max ×2.156 il 2018-02-05, min ×0.642 il 2025-04-09
+OK   VIX3M Cboe 2009-09-18→2026-11-06 (4311 sedute): scartate 0 []; salto max ×1.652 il 2018-02-05, min ×0.721 il 2025-04-09
+OK   05/02/2018 (×2,16) tenuto: {"dates":["2018-02-02","2018-02-05","2018-02-06"],"val":[17.31,37.32,29.98],"dropped":[]}
+OK   oltre ×3 scartato, la seduta dopo confrontata con l'ultima buona: {"dates":["a","c"],"val":[20,30],"dropped":["b 60.01"]}
+OK   esattamente ×3 tenuto (soglia «più del triplo»): ["a","b"]
+OK   6,6 su 20 (sotto un terzo, 6,67): scartato {"dates":[],"val":[],"dropped":["b 6.6"]}
+OK   6,7 su 20 (sopra un terzo): tenuto {"dates":["b"],"val":[6.7],"dropped":[]}
+OK   6,5 su 20 (sotto un terzo) scartato: {"dates":[],"val":[],"dropped":["b 6.5"]}
+OK   date ≤ fredLast non controllate (le sostituisce FRED in splice): {"dates":["0","a","b"],"val":[900,21,22],"dropped":[]}
+OK   data ripetuta in fondo: una sola, ultima riga
+OK   data ripetuta in mezzo: una sola
+OK   righe in disordine: ordinate
+OK   mergeTail(Cboe vuoto, nessun Yahoo) = null (si passa alla coda pubblicata)
+OK   lastSource: ultima ≤ FRED → FRED
+OK   lastSource: serie vuota → FRED
+FAIL rapporti < 1 che si leggono «1,00…» o ≥ 1 che si leggono «0,9…»: 3 [2009-02-06 0.999769479022591 1,000,2018-02-21 0.9995007488766849 1,000,2018-12-04 0.9995180722891566 1,000]; con tre decimali 89 sedute (es. 2026-03-13 0,997)
+   (controllo che può fallire) con 2 decimali fissi: 43 sedute < 1 lette «1,00»
+   fr(0.9995) = 1,000 contango
+   fr(0.99951) = 1,000 contango
+   fr(0.99999) = 1,000 contango
+   fr(0.995) = 0,99 contango
+   fr(0.99499) = 0,99 contango
+   fr(1.0049) = 1,005 backwardation
+   fr(1.005) = 1,005 backwardation
+
+16 controlli, 1 FAIL

@@ -1,0 +1,598 @@
+{
+ "problemi": [],
+ "controlli": 176,
+ "misure": [
+  [
+   "390 light",
+   {
+    "tops": 2,
+    "sw": 390,
+    "cw": 390,
+    "btnH": 34,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 161.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100",
+      118.890625
+     ],
+     [
+      "% SOPRA MEDIA 200 · BLU 14%",
+      195.17901611328125
+     ],
+     [
+      "CNY PER DOLLARO · SU = PIÙ DEBOLE",
+      236.703125
+     ],
+     [
+      "DOLLARO VS EMERGENTI (FRED)",
+      195.109375
+     ]
+    ],
+    "W": 330,
+    "ticks": []
+   }
+  ],
+  [
+   "390 light",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 238.640625,
+    "bottom": 359.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "24/12/2025 KOSPI200 · normale Prezzo 4109 In dollari (base 100) 147,6 Sopra media 200 81,0% KRW per dollaro 1443,62 Valuta Ha smesso di scendere Dollaro vs emergenti 130,20"
+   },
+   226.653125
+  ],
+  [
+   "390 light",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 649.640625,
+    "bottom": 770.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "24/12/2025 KOSPI200 · normale Prezzo 4109 In dollari (base 100) 147,6 Sopra media 200 81,0% KRW per dollaro 1443,62 Valuta Ha smesso di scendere Dollaro vs emergenti 130,20"
+   },
+   637.653125
+  ],
+  [
+   "390 light",
+   "quadrante",
+   {
+    "W": 330,
+    "o": [],
+    "cw": 310
+   }
+  ],
+  [
+   "390 light",
+   "errori",
+   []
+  ],
+  [
+   "390 dark",
+   {
+    "tops": 2,
+    "sw": 390,
+    "cw": 390,
+    "btnH": 34,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 161.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100",
+      118.890625
+     ],
+     [
+      "% SOPRA MEDIA 200 · BLU 14%",
+      195.17901611328125
+     ],
+     [
+      "CNY PER DOLLARO · SU = PIÙ DEBOLE",
+      236.703125
+     ],
+     [
+      "DOLLARO VS EMERGENTI (FRED)",
+      195.109375
+     ]
+    ],
+    "W": 330,
+    "ticks": []
+   }
+  ],
+  [
+   "390 dark",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 238.640625,
+    "bottom": 359.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "24/12/2025 KOSPI200 · normale Prezzo 4109 In dollari (base 100) 147,6 Sopra media 200 81,0% KRW per dollaro 1443,62 Valuta Ha smesso di scendere Dollaro vs emergenti 130,20"
+   },
+   226.653125
+  ],
+  [
+   "390 dark",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 649.640625,
+    "bottom": 770.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "24/12/2025 KOSPI200 · normale Prezzo 4109 In dollari (base 100) 147,6 Sopra media 200 81,0% KRW per dollaro 1443,62 Valuta Ha smesso di scendere Dollaro vs emergenti 130,20"
+   },
+   637.653125
+  ],
+  [
+   "390 dark",
+   "quadrante",
+   {
+    "W": 330,
+    "o": [],
+    "cw": 310
+   }
+  ],
+  [
+   "390 dark",
+   "errori",
+   []
+  ],
+  [
+   "360 light",
+   {
+    "tops": 2,
+    "sw": 360,
+    "cw": 360,
+    "btnH": 34,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 161.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100",
+      118.890625
+     ],
+     [
+      "% SOPRA MEDIA 200 · BLU 14%",
+      195.17901611328125
+     ],
+     [
+      "CNY PER DOLLARO · SU = PIÙ DEBOLE",
+      236.703125
+     ],
+     [
+      "DOLLARO VS EMERGENTI (FRED)",
+      195.109375
+     ]
+    ],
+    "W": 300,
+    "ticks": []
+   }
+  ],
+  [
+   "360 light",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 238.640625,
+    "bottom": 359.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "09/01/2026 KOSPI200 · normale Prezzo 4586 In dollari (base 100) 163,1 Sopra media 200 67,0% KRW per dollaro 1458,61 Valuta Normale Dollaro vs emergenti 130,26"
+   },
+   226.653125
+  ],
+  [
+   "360 light",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 506.640625,
+    "bottom": 627.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "09/01/2026 KOSPI200 · normale Prezzo 4586 In dollari (base 100) 163,1 Sopra media 200 67,0% KRW per dollaro 1458,61 Valuta Normale Dollaro vs emergenti 130,26"
+   },
+   637.653125
+  ],
+  [
+   "360 light",
+   "quadrante",
+   {
+    "W": 300,
+    "o": [],
+    "cw": 280
+   }
+  ],
+  [
+   "360 light",
+   "errori",
+   []
+  ],
+  [
+   "360 dark",
+   {
+    "tops": 2,
+    "sw": 360,
+    "cw": 360,
+    "btnH": 34,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 161.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100",
+      118.890625
+     ],
+     [
+      "% SOPRA MEDIA 200 · BLU 14%",
+      195.17901611328125
+     ],
+     [
+      "CNY PER DOLLARO · SU = PIÙ DEBOLE",
+      236.703125
+     ],
+     [
+      "DOLLARO VS EMERGENTI (FRED)",
+      195.109375
+     ]
+    ],
+    "W": 300,
+    "ticks": []
+   }
+  ],
+  [
+   "360 dark",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 238.640625,
+    "bottom": 359.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "09/01/2026 KOSPI200 · normale Prezzo 4586 In dollari (base 100) 163,1 Sopra media 200 67,0% KRW per dollaro 1458,61 Valuta Normale Dollaro vs emergenti 130,26"
+   },
+   226.653125
+  ],
+  [
+   "360 dark",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 506.640625,
+    "bottom": 627.640625,
+    "left": 34,
+    "right": 261.203125,
+    "text": "09/01/2026 KOSPI200 · normale Prezzo 4586 In dollari (base 100) 163,1 Sopra media 200 67,0% KRW per dollaro 1458,61 Valuta Normale Dollaro vs emergenti 130,26"
+   },
+   637.653125
+  ],
+  [
+   "360 dark",
+   "quadrante",
+   {
+    "W": 300,
+    "o": [],
+    "cw": 280
+   }
+  ],
+  [
+   "360 dark",
+   "errori",
+   []
+  ],
+  [
+   "820 light",
+   {
+    "tops": 2,
+    "sw": 820,
+    "cw": 820,
+    "btnH": 35,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 114.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+      340.640625
+     ],
+     [
+      "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 14%",
+      319.9183349609375
+     ],
+     [
+      "CAMBIO CNY PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+      333.71875
+     ],
+     [
+      "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS",
+      368.359375
+     ]
+    ],
+    "W": 760,
+    "ticks": []
+   }
+  ],
+  [
+   "820 light",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 168.46875,
+    "bottom": 289.46875,
+    "left": 500,
+    "right": 727.203125,
+    "text": "02/10/2025 KOSPI200 · normale Prezzo 3549 In dollari (base 100) 130,9 Sopra media 200 74,4% KRW per dollaro 1406,72 Valuta Normale Dollaro vs emergenti 131,67"
+   },
+   156.48125
+  ],
+  [
+   "820 light",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 579.46875,
+    "bottom": 700.46875,
+    "left": 500,
+    "right": 727.203125,
+    "text": "02/10/2025 KOSPI200 · normale Prezzo 3549 In dollari (base 100) 130,9 Sopra media 200 74,4% KRW per dollaro 1406,72 Valuta Normale Dollaro vs emergenti 131,67"
+   },
+   567.48125
+  ],
+  [
+   "820 light",
+   "quadrante",
+   {
+    "W": 360,
+    "o": [],
+    "cw": 740
+   }
+  ],
+  [
+   "820 light",
+   "errori",
+   []
+  ],
+  [
+   "820 dark",
+   {
+    "tops": 2,
+    "sw": 820,
+    "cw": 820,
+    "btnH": 35,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 114.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+      340.640625
+     ],
+     [
+      "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 14%",
+      319.9183349609375
+     ],
+     [
+      "CAMBIO CNY PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+      333.71875
+     ],
+     [
+      "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS",
+      368.359375
+     ]
+    ],
+    "W": 760,
+    "ticks": []
+   }
+  ],
+  [
+   "820 dark",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 168.46875,
+    "bottom": 289.46875,
+    "left": 500,
+    "right": 727.203125,
+    "text": "02/10/2025 KOSPI200 · normale Prezzo 3549 In dollari (base 100) 130,9 Sopra media 200 74,4% KRW per dollaro 1406,72 Valuta Normale Dollaro vs emergenti 131,67"
+   },
+   156.48125
+  ],
+  [
+   "820 dark",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 579.46875,
+    "bottom": 700.46875,
+    "left": 500,
+    "right": 727.203125,
+    "text": "02/10/2025 KOSPI200 · normale Prezzo 3549 In dollari (base 100) 130,9 Sopra media 200 74,4% KRW per dollaro 1406,72 Valuta Normale Dollaro vs emergenti 131,67"
+   },
+   567.48125
+  ],
+  [
+   "820 dark",
+   "quadrante",
+   {
+    "W": 360,
+    "o": [],
+    "cw": 740
+   }
+  ],
+  [
+   "820 dark",
+   "errori",
+   []
+  ],
+  [
+   "768 light",
+   {
+    "tops": 2,
+    "sw": 768,
+    "cw": 768,
+    "btnH": 35,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 114.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+      340.640625
+     ],
+     [
+      "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 14%",
+      319.9183349609375
+     ],
+     [
+      "CAMBIO CNY PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+      333.71875
+     ],
+     [
+      "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS",
+      368.359375
+     ]
+    ],
+    "W": 708,
+    "ticks": []
+   }
+  ],
+  [
+   "768 light",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 168.46875,
+    "bottom": 367.6875,
+    "left": 468.796875,
+    "right": 718.796875,
+    "text": "13/10/2025 KOSPI200 · normale Prezzo 3585 In dollari (base 100) — Sopra media 200 69,8% KRW per dollaro — Valuta — Dollaro vs emergenti — FRED: nessun valore per questa data (festa negli Stati Uniti, "
+   },
+   156.48125
+  ],
+  [
+   "768 light",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 579.46875,
+    "bottom": 778.6875,
+    "left": 468.796875,
+    "right": 718.796875,
+    "text": "13/10/2025 KOSPI200 · normale Prezzo 3585 In dollari (base 100) — Sopra media 200 69,8% KRW per dollaro — Valuta — Dollaro vs emergenti — FRED: nessun valore per questa data (festa negli Stati Uniti, "
+   },
+   567.48125
+  ],
+  [
+   "768 light",
+   "quadrante",
+   {
+    "W": 360,
+    "o": [],
+    "cw": 688
+   }
+  ],
+  [
+   "768 light",
+   "errori",
+   []
+  ],
+  [
+   "768 dark",
+   {
+    "tops": 2,
+    "sw": 768,
+    "cw": 768,
+    "btnH": 35,
+    "tabsText": [],
+    "rangeH": 34,
+    "rowH": 114.5,
+    "tableOverflow": 0,
+    "overflowEls": [],
+    "titles": [
+     [
+      "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+      340.640625
+     ],
+     [
+      "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 14%",
+      319.9183349609375
+     ],
+     [
+      "CAMBIO CNY PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+      333.71875
+     ],
+     [
+      "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS",
+      368.359375
+     ]
+    ],
+    "W": 708,
+    "ticks": []
+   }
+  ],
+  [
+   "768 dark",
+   "pannello del prezzo",
+   {
+    "hidden": false,
+    "top": 168.46875,
+    "bottom": 367.6875,
+    "left": 468.796875,
+    "right": 718.796875,
+    "text": "13/10/2025 KOSPI200 · normale Prezzo 3585 In dollari (base 100) — Sopra media 200 69,8% KRW per dollaro — Valuta — Dollaro vs emergenti — FRED: nessun valore per questa data (festa negli Stati Uniti, "
+   },
+   156.48125
+  ],
+  [
+   "768 dark",
+   "pannello del dollaro",
+   {
+    "hidden": false,
+    "top": 579.46875,
+    "bottom": 778.6875,
+    "left": 468.796875,
+    "right": 718.796875,
+    "text": "13/10/2025 KOSPI200 · normale Prezzo 3585 In dollari (base 100) — Sopra media 200 69,8% KRW per dollaro — Valuta — Dollaro vs emergenti — FRED: nessun valore per questa data (festa negli Stati Uniti, "
+   },
+   567.48125
+  ],
+  [
+   "768 dark",
+   "quadrante",
+   {
+    "W": 360,
+    "o": [],
+    "cw": 688
+   }
+  ],
+  [
+   "768 dark",
+   "errori",
+   []
+  ]
+ ]
+}

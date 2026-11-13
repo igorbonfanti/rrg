@@ -1,0 +1,12 @@
+FAIL 1440 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «1,000 contango», riquadro dei valori «1,000 contango», atteso «0,999 contango»; console pulita
+FAIL 390 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «1,000 contango», riquadro dei valori «1,000 contango», atteso «0,999 contango»; console pulita
+FAIL 1440 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «1,000 contango», riquadro dei valori «1,000 contango», atteso «0,999 contango»; console pulita
+FAIL 390 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «1,000 contango», riquadro dei valori «1,000 contango», atteso «0,999 contango»; console pulita
+FAIL 320 light MAX: [{"w":109.9,"label":null},{"w":112.1,"label":null}]; testi oltre il bordo 0; console pulita
+FAIL 320 dark MAX: [{"w":109.9,"label":null},{"w":112.1,"label":null}]; testi oltre il bordo 0; console pulita
+FAIL 360 light MAX: [{"w":119.6,"label":null},{"w":122,"label":null}]; testi oltre il bordo 0; console pulita
+FAIL 360 dark MAX: [{"w":119.6,"label":null},{"w":122,"label":null}]; testi oltre il bordo 0; console pulita
+FAIL 390 light MAX: [{"w":134.2,"label":"VIX3M dal 04/12/2007","x0":12.1,"x1":138.1,"inside":true},{"w":136.8,"label":null}]; testi oltre il bordo 0; console pulita
+FAIL 390 dark MAX: [{"w":134.2,"label":"VIX3M dal 04/12/2007","x0":12.1,"x1":138.1,"inside":true},{"w":136.8,"label":null}]; testi oltre il bordo 0; console pulita
+
+21 controlli, 10 FAIL

@@ -1,0 +1,76 @@
+{
+ "fx": {
+  "CSI300": {
+   "prove": 1949,
+   "diversi": 0,
+   "elenco": []
+  },
+  "NIFTY50": {
+   "prove": 1949,
+   "diversi": 0,
+   "elenco": []
+  },
+  "IBOV": {
+   "prove": 1949,
+   "diversi": 0,
+   "elenco": []
+  },
+  "KOSPI200": {
+   "prove": 1949,
+   "diversi": 0,
+   "elenco": []
+  },
+  "TWN": {
+   "prove": 1948,
+   "diversi": 0,
+   "elenco": []
+  },
+  "HSI": {
+   "prove": 1949,
+   "diversi": 0,
+   "elenco": []
+  }
+ },
+ "dollar": {
+  "prove": 1741,
+  "diversi": 0,
+  "elenco": []
+ },
+ "rs": {
+  "CSI300": {
+   "prove": 325,
+   "diversi": 0,
+   "elenco": []
+  },
+  "NIFTY50": {
+   "prove": 371,
+   "diversi": 0,
+   "elenco": []
+  },
+  "IBOV": {
+   "prove": 471,
+   "diversi": 0,
+   "elenco": []
+  },
+  "KOSPI200": {
+   "prove": 471,
+   "diversi": 0,
+   "elenco": []
+  },
+  "TWN": {
+   "prove": 471,
+   "diversi": 0,
+   "elenco": []
+  },
+  "HSI": {
+   "prove": 471,
+   "diversi": 0,
+   "elenco": []
+  },
+  "EEM": {
+   "prove": 471,
+   "diversi": 0,
+   "elenco": []
+  }
+ }
+}

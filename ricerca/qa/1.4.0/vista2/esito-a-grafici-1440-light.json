@@ -1,0 +1,847 @@
+{
+ "problemi": [],
+ "controlli": 5941,
+ "dettagli": [
+  [
+   "CSI300 3A",
+   "2026-11-03",
+   "03/11/2026 CSI300 · attenzione | Prezzo 4,092 | In dollari (base 100) 120,9 | Sopra media 200 22,2% | CNY per dollaro 6,6480 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "CSI300 3A",
+   "2026-11-02",
+   "02/11/2026 CSI300 · attenzione | Prezzo 4,085 | In dollari (base 100) 120,5 | Sopra media 200 19,5% | CNY per dollaro 6,6610 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "CSI300 3A",
+   "2026-10-29",
+   "29/10/2026 CSI300 · attenzione | Prezzo 4,111 | In dollari (base 100) 121,2 | Sopra media 200 18,5% | CNY per dollaro 6,6604 | Valuta Normale | Dollaro vs emergenti 130,89"
+  ],
+  [
+   "CSI300 3A",
+   "2024-02-23",
+   "23/02/2024 CSI300 · trigger | Prezzo 3,478 | In dollari (base 100) 94,9 | Sopra media 200 32,9% | CNY per dollaro 7,1970 | Valuta Normale | Dollaro vs emergenti 128,03"
+  ],
+  [
+   "CSI300 3A",
+   "2024-09-24",
+   "24/09/2024 CSI300 · normale | Prezzo 3,427 | In dollari (base 100) 95,7 | Sopra media 200 36,6% | CNY per dollaro 7,0318 | Valuta Normale | Dollaro vs emergenti 131,68"
+  ],
+  [
+   "CSI300 3A",
+   "2025-05-07",
+   "07/05/2025 CSI300 · normale | Prezzo 3,927 | In dollari (base 100) 106,8 | Sopra media 200 48,7% | CNY per dollaro 7,2250 | Valuta Ha smesso di scendere | Dollaro vs emergenti 134,11"
+  ],
+  [
+   "CSI300 3A",
+   "2025-12-08",
+   "08/12/2025 CSI300 · normale | Prezzo 4,732 | In dollari (base 100) 131,4 | Sopra media 200 58,4% | CNY per dollaro 7,0710 | Valuta Normale | Dollaro vs emergenti 131,48"
+  ],
+  [
+   "CSI300 3A",
+   "2026-07-15",
+   "15/07/2026 CSI300 · attenzione | Prezzo 4,838 | In dollari (base 100) 140,4 | Sopra media 200 23,5% | CNY per dollaro 6,7682 | Valuta Normale | Dollaro vs emergenti 128,96"
+  ],
+  [
+   "CSI300 10A",
+   "2026-11-03",
+   "03/11/2026 CSI300 · attenzione | Prezzo 4,092 | In dollari (base 100) 121,7 | Sopra media 200 22,2% | CNY per dollaro 6,6480 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "CSI300 10A",
+   "2026-11-02",
+   "02/11/2026 CSI300 · attenzione | Prezzo 4,085 | In dollari (base 100) 121,2 | Sopra media 200 19,5% | CNY per dollaro 6,6610 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "CSI300 10A",
+   "2026-10-29",
+   "29/10/2026 CSI300 · attenzione | Prezzo 4,111 | In dollari (base 100) 122,0 | Sopra media 200 18,5% | CNY per dollaro 6,6604 | Valuta Normale | Dollaro vs emergenti 130,89"
+  ],
+  [
+   "CSI300 10A",
+   "2017-10-31",
+   "31/10/2017 CSI300 · normale | Prezzo 4,062 | In dollari (base 100) 121,1 | Sopra media 200 69,7% | CNY per dollaro 6,6328 | Valuta Normale | Dollaro vs emergenti 117,74"
+  ],
+  [
+   "CSI300 10A",
+   "2019-10-31",
+   "31/10/2019 CSI300 · normale | Prezzo 3,945 | In dollari (base 100) 110,8 | Sopra media 200 54,4% | CNY per dollaro 7,0379 | Valuta Ha smesso di scendere | Dollaro vs emergenti 123,55"
+  ],
+  [
+   "CSI300 10A",
+   "2021-11-01",
+   "01/11/2021 CSI300 · normale | Prezzo 4,965 | In dollari (base 100) 153,4 | Sopra media 200 46,6% | CNY per dollaro 6,3972 | Valuta Normale | Dollaro vs emergenti 124,87"
+  ],
+  [
+   "CSI300 10A",
+   "2023-10-30",
+   "30/10/2023 CSI300 · attenzione | Prezzo 3,652 | In dollari (base 100) 98,7 | Sopra media 200 23,5% | CNY per dollaro 7,3133 | Valuta Normale | Dollaro vs emergenti 130,26"
+  ],
+  [
+   "CSI300 10A",
+   "2025-10-31",
+   "31/10/2025 CSI300 · normale | Prezzo 4,756 | In dollari (base 100) 132,1 | Sopra media 200 71,5% | CNY per dollaro 7,1169 | Valuta Normale | Dollaro vs emergenti 131,96"
+  ],
+  [
+   "CSI300 MAX",
+   "2026-11-03",
+   "03/11/2026 CSI300 · attenzione | Prezzo 4,092 | In dollari (base 100) 143,0 | Sopra media 200 22,2% | CNY per dollaro 6,6480 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "CSI300 MAX",
+   "2026-11-02",
+   "02/11/2026 CSI300 · attenzione | Prezzo 4,085 | In dollari (base 100) 142,5 | Sopra media 200 19,5% | CNY per dollaro 6,6610 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "CSI300 MAX",
+   "2026-10-29",
+   "29/10/2026 CSI300 · attenzione | Prezzo 4,111 | In dollari (base 100) 143,4 | Sopra media 200 18,5% | CNY per dollaro 6,6604 | Valuta Normale | Dollaro vs emergenti 130,89"
+  ],
+  [
+   "CSI300 MAX",
+   "2013-11-04",
+   "04/11/2013 CSI300 · normale | Prezzo 2,434 | In dollari (base 100) 92,7 | Sopra media 200 47,2% | CNY per dollaro 6,0980 | Valuta Normale | Dollaro vs emergenti 96,74"
+  ],
+  [
+   "CSI300 MAX",
+   "2016-09-12",
+   "12/09/2016 CSI300 · normale | Prezzo 3,317 | In dollari (base 100) 115,4 | Sopra media 200 49,5% | CNY per dollaro 6,6788 | Valuta Normale | Dollaro vs emergenti 118,15"
+  ],
+  [
+   "CSI300 MAX",
+   "2019-08-05",
+   "05/08/2019 CSI300 · normale | Prezzo 3,735 | In dollari (base 100) 123,1 | Sopra media 200 55,2% | CNY per dollaro 7,0481 | Valuta In calo forte | Dollaro vs emergenti 124,57"
+  ],
+  [
+   "CSI300 MAX",
+   "2022-06-28",
+   "28/06/2022 CSI300 · cooldown | Prezzo 4,513 | In dollari (base 100) 156,3 | Sopra media 200 40,8% | CNY per dollaro 6,7070 | Valuta In calo forte | Dollaro vs emergenti 127,74"
+  ],
+  [
+   "CSI300 MAX",
+   "2025-05-22",
+   "22/05/2025 CSI300 · normale | Prezzo 4,017 | In dollari (base 100) 129,5 | Sopra media 200 48,3% | CNY per dollaro 7,2037 | Valuta Ha smesso di scendere | Dollaro vs emergenti 133,36"
+  ],
+  [
+   "NIFTY50 3A",
+   "2026-11-04",
+   "04/11/2026 NIFTY50 · normale | Prezzo 23961 | In dollari (base 100) 108,4 | Sopra media 200 46,0% | INR per dollaro 94,75 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "NIFTY50 3A",
+   "2026-11-03",
+   "03/11/2026 NIFTY50 · normale | Prezzo 23811 | In dollari (base 100) 107,7 | Sopra media 200 42,0% | INR per dollaro 94,73 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "NIFTY50 3A",
+   "2026-10-30",
+   "30/10/2026 NIFTY50 · normale | Prezzo 23053 | In dollari (base 100) 104,1 | Sopra media 200 32,0% | INR per dollaro 94,94 | Valuta Ha smesso di scendere | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "NIFTY50 3A",
+   "2024-02-22",
+   "22/02/2024 NIFTY50 · normale | Prezzo 22217 | In dollari (base 100) 114,9 | Sopra media 200 84,0% | INR per dollaro 82,86 | Valuta Normale | Dollaro vs emergenti 128,04"
+  ],
+  [
+   "NIFTY50 3A",
+   "2024-10-01",
+   "01/10/2024 NIFTY50 · normale | Prezzo 25797 | In dollari (base 100) 131,9 | Sopra media 200 100,0% | INR per dollaro 83,81 | Valuta Normale | Dollaro vs emergenti 132,32"
+  ],
+  [
+   "NIFTY50 3A",
+   "2025-05-09",
+   "09/05/2025 NIFTY50 · normale | Prezzo 24008 | In dollari (base 100) 120,5 | Sopra media 200 44,0% | INR per dollaro 85,38 | Valuta Ha smesso di scendere | Dollaro vs emergenti 133,92"
+  ],
+  [
+   "NIFTY50 3A",
+   "2025-12-09",
+   "09/12/2025 NIFTY50 · normale | Prezzo 25840 | In dollari (base 100) 123,2 | Sopra media 200 68,0% | INR per dollaro 89,90 | Valuta In calo forte | Dollaro vs emergenti 131,33"
+  ],
+  [
+   "NIFTY50 3A",
+   "2026-07-20",
+   "20/07/2026 NIFTY50 · normale | Prezzo 24239 | In dollari (base 100) 107,7 | Sopra media 200 50,0% | INR per dollaro 96,45 | Valuta In calo forte | Dollaro vs emergenti 129,14"
+  ],
+  [
+   "NIFTY50 10A",
+   "2026-11-04",
+   "04/11/2026 NIFTY50 · normale | Prezzo 23961 | In dollari (base 100) 200,2 | Sopra media 200 46,0% | INR per dollaro 94,75 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "NIFTY50 10A",
+   "2026-11-03",
+   "03/11/2026 NIFTY50 · normale | Prezzo 23811 | In dollari (base 100) 198,9 | Sopra media 200 42,0% | INR per dollaro 94,73 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "NIFTY50 10A",
+   "2026-10-30",
+   "30/10/2026 NIFTY50 · normale | Prezzo 23053 | In dollari (base 100) 192,2 | Sopra media 200 32,0% | INR per dollaro 94,94 | Valuta Ha smesso di scendere | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "NIFTY50 10A",
+   "2017-11-01",
+   "01/11/2017 NIFTY50 · normale | Prezzo 10441 | In dollari (base 100) 128,0 | Sopra media 200 80,4% | INR per dollaro 64,56 | Valuta Normale | Dollaro vs emergenti 117,51"
+  ],
+  [
+   "NIFTY50 10A",
+   "2019-11-11",
+   "11/11/2019 NIFTY50 · normale | Prezzo 11913 | In dollari (base 100) — | Sopra media 200 66,0% | INR per dollaro — | Valuta — | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "NIFTY50 10A",
+   "2021-11-08",
+   "08/11/2021 NIFTY50 · normale | Prezzo 18069 | In dollari (base 100) 193,5 | Sopra media 200 93,9% | INR per dollaro 73,91 | Valuta Normale | Dollaro vs emergenti 123,80"
+  ],
+  [
+   "NIFTY50 10A",
+   "2023-11-02",
+   "02/11/2023 NIFTY50 · normale | Prezzo 19133 | In dollari (base 100) 182,0 | Sopra media 200 80,0% | INR per dollaro 83,22 | Valuta Normale | Dollaro vs emergenti 129,12"
+  ],
+  [
+   "NIFTY50 10A",
+   "2025-11-03",
+   "03/11/2025 NIFTY50 · normale | Prezzo 25763 | In dollari (base 100) 229,7 | Sopra media 200 76,0% | INR per dollaro 88,78 | Valuta Normale | Dollaro vs emergenti 131,92"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2026-11-04",
+   "04/11/2026 NIFTY50 · normale | Prezzo 23961 | In dollari (base 100) 228,0 | Sopra media 200 46,0% | INR per dollaro 94,75 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2026-11-03",
+   "03/11/2026 NIFTY50 · normale | Prezzo 23811 | In dollari (base 100) 226,6 | Sopra media 200 42,0% | INR per dollaro 94,73 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2026-10-30",
+   "30/10/2026 NIFTY50 · normale | Prezzo 23053 | In dollari (base 100) 218,9 | Sopra media 200 32,0% | INR per dollaro 94,94 | Valuta Ha smesso di scendere | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2009-08-19",
+   "19/08/2009 NIFTY50 · normale | Prezzo 4394 | In dollari (base 100) 81,3 | Sopra media 200 97,6% | INR per dollaro 48,70 | Valuta Normale | Dollaro vs emergenti 100,25"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2013-06-19",
+   "19/06/2013 NIFTY50 · normale | Prezzo 5822 | In dollari (base 100) 89,4 | Sopra media 200 51,2% | INR per dollaro 58,70 | Valuta In calo forte | Dollaro vs emergenti 96,44"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2017-04-28",
+   "28/04/2017 NIFTY50 · normale | Prezzo 9304 | In dollari (base 100) 130,5 | Sopra media 200 73,3% | INR per dollaro 64,27 | Valuta Ha smesso di scendere | Dollaro vs emergenti 118,91"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2021-02-19",
+   "19/02/2021 NIFTY50 · normale | Prezzo 14982 | In dollari (base 100) 186,3 | Sopra media 200 93,8% | INR per dollaro 72,50 | Valuta Normale | Dollaro vs emergenti 122,71"
+  ],
+  [
+   "NIFTY50 MAX",
+   "2024-12-10",
+   "10/12/2024 NIFTY50 · normale | Prezzo 24610 | In dollari (base 100) 261,5 | Sopra media 200 56,0% | INR per dollaro 84,84 | Valuta Normale | Dollaro vs emergenti 136,98"
+  ],
+  [
+   "IBOV 3A",
+   "2026-11-04",
+   "04/11/2026 IBOV · attenzione | Prezzo 167563 | In dollari (base 100) 126,1 | Sopra media 200 18,4% | BRL per dollaro 5,4870 Yahoo, provvisorio | Valuta In calo forte | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "IBOV 3A",
+   "2026-11-03",
+   "03/11/2026 IBOV · attenzione | Prezzo 165529 | In dollari (base 100) 125,7 | Sopra media 200 15,8% | BRL per dollaro 5,4363 Yahoo, provvisorio | Valuta In calo forte | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "IBOV 3A",
+   "2026-10-29",
+   "29/10/2026 IBOV · attenzione | Prezzo 169186 | In dollari (base 100) 129,5 | Sopra media 200 17,1% | BRL per dollaro 5,3945 | Valuta In calo forte | Dollaro vs emergenti 130,89"
+  ],
+  [
+   "IBOV 3A",
+   "2024-02-26",
+   "26/02/2024 IBOV · normale | Prezzo 129609 | In dollari (base 100) 107,3 | Sopra media 200 58,7% | BRL per dollaro 4,9890 | Valuta Normale | Dollaro vs emergenti 128,14"
+  ],
+  [
+   "IBOV 3A",
+   "2024-09-26",
+   "26/09/2024 IBOV · normale | Prezzo 133010 | In dollari (base 100) 101,1 | Sopra media 200 44,0% | BRL per dollaro 5,4332 | Valuta Ha smesso di scendere | Dollaro vs emergenti 131,73"
+  ],
+  [
+   "IBOV 3A",
+   "2025-05-08",
+   "08/05/2025 IBOV · normale | Prezzo 136232 | In dollari (base 100) 99,0 | Sopra media 200 57,3% | BRL per dollaro 5,6798 | Valuta Ha smesso di scendere | Dollaro vs emergenti 134,30"
+  ],
+  [
+   "IBOV 3A",
+   "2025-12-05",
+   "05/12/2025 IBOV · normale | Prezzo 157369 | In dollari (base 100) 120,1 | Sopra media 200 73,7% | BRL per dollaro 5,4108 | Valuta Normale | Dollaro vs emergenti 131,39"
+  ],
+  [
+   "IBOV 3A",
+   "2026-07-17",
+   "17/07/2026 IBOV · normale | Prezzo 173714 | In dollari (base 100) 140,4 | Sopra media 200 31,6% | BRL per dollaro 5,1080 | Valuta Normale | Dollaro vs emergenti 129,44"
+  ],
+  [
+   "IBOV 10A",
+   "2026-11-04",
+   "04/11/2026 IBOV · attenzione | Prezzo 167563 | In dollari (base 100) 160,7 | Sopra media 200 18,4% | BRL per dollaro 5,4870 Yahoo, provvisorio | Valuta In calo forte | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "IBOV 10A",
+   "2026-11-03",
+   "03/11/2026 IBOV · attenzione | Prezzo 165529 | In dollari (base 100) 160,2 | Sopra media 200 15,8% | BRL per dollaro 5,4363 Yahoo, provvisorio | Valuta In calo forte | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "IBOV 10A",
+   "2026-10-29",
+   "29/10/2026 IBOV · attenzione | Prezzo 169186 | In dollari (base 100) 165,0 | Sopra media 200 17,1% | BRL per dollaro 5,3945 | Valuta In calo forte | Dollaro vs emergenti 130,89"
+  ],
+  [
+   "IBOV 10A",
+   "2017-11-03",
+   "03/11/2017 IBOV · normale | Prezzo 73915 | In dollari (base 100) 117,6 | Sopra media 200 69,4% | BRL per dollaro 3,3075 | Valuta Normale | Dollaro vs emergenti 117,88"
+  ],
+  [
+   "IBOV 10A",
+   "2019-11-06",
+   "06/11/2019 IBOV · normale | Prezzo 108336 | In dollari (base 100) 140,5 | Sopra media 200 78,8% | BRL per dollaro 4,0582 | Valuta Ha smesso di scendere | Dollaro vs emergenti 123,26"
+  ],
+  [
+   "IBOV 10A",
+   "2021-11-12",
+   "12/11/2021 IBOV · attenzione | Prezzo 106312 | In dollari (base 100) 102,9 | Sopra media 200 19,2% | BRL per dollaro 5,4341 | Valuta Ha smesso di scendere | Dollaro vs emergenti 124,01"
+  ],
+  [
+   "IBOV 10A",
+   "2023-11-08",
+   "08/11/2023 IBOV · normale | Prezzo 119099 | In dollari (base 100) 128,1 | Sopra media 200 65,3% | BRL per dollaro 4,8905 | Valuta Normale | Dollaro vs emergenti 128,14"
+  ],
+  [
+   "IBOV 10A",
+   "2025-10-31",
+   "31/10/2025 IBOV · normale | Prezzo 149540 | In dollari (base 100) 146,1 | Sopra media 200 71,1% | BRL per dollaro 5,3858 | Valuta Normale | Dollaro vs emergenti 131,96"
+  ],
+  [
+   "IBOV MAX",
+   "2026-11-04",
+   "04/11/2026 IBOV · attenzione | Prezzo 167563 | In dollari (base 100) 325,6 | Sopra media 200 18,4% | BRL per dollaro 5,4870 Yahoo, provvisorio | Valuta In calo forte | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "IBOV MAX",
+   "2026-11-03",
+   "03/11/2026 IBOV · attenzione | Prezzo 165529 | In dollari (base 100) 324,6 | Sopra media 200 15,8% | BRL per dollaro 5,4363 Yahoo, provvisorio | Valuta In calo forte | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "IBOV MAX",
+   "2026-10-29",
+   "29/10/2026 IBOV · attenzione | Prezzo 169186 | In dollari (base 100) 334,4 | Sopra media 200 17,1% | BRL per dollaro 5,3945 | Valuta In calo forte | Dollaro vs emergenti 130,89"
+  ],
+  [
+   "IBOV MAX",
+   "2002-09-10",
+   "10/09/2002 IBOV | Prezzo 9960 | In dollari (base 100) 33,7 | Sopra media 200 — | BRL per dollaro 3,1510 | Valuta — | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "IBOV MAX",
+   "2008-01-22",
+   "22/01/2008 IBOV | Prezzo 56097 | In dollari (base 100) 332,0 | Sopra media 200 — | BRL per dollaro 1,8013 | Valuta Normale | Dollaro vs emergenti 93,32"
+  ],
+  [
+   "IBOV MAX",
+   "2013-06-12",
+   "12/06/2013 IBOV · normale | Prezzo 49181 | In dollari (base 100) 244,2 | Sopra media 200 23,7% | BRL per dollaro 2,1470 | Valuta In calo forte | Dollaro vs emergenti 96,26"
+  ],
+  [
+   "IBOV MAX",
+   "2018-10-23",
+   "23/10/2018 IBOV · normale | Prezzo 85300 | In dollari (base 100) 245,5 | Sopra media 200 59,4% | BRL per dollaro 3,7040 | Valuta Ha smesso di scendere | Dollaro vs emergenti 123,09"
+  ],
+  [
+   "IBOV MAX",
+   "2024-03-07",
+   "07/03/2024 IBOV · normale | Prezzo 128340 | In dollari (base 100) 277,4 | Sopra media 200 53,3% | BRL per dollaro 4,9319 | Valuta Normale | Dollaro vs emergenti 127,28"
+  ],
+  [
+   "KOSPI200 3A",
+   "2026-11-04",
+   "04/11/2026 KOSPI200 · zona blu | Prezzo 5684 | In dollari (base 100) 219,5 | Sopra media 200 17,5% | KRW per dollaro 1342,90 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "KOSPI200 3A",
+   "2026-11-03",
+   "03/11/2026 KOSPI200 · zona blu | Prezzo 5649 | In dollari (base 100) 217,9 | Sopra media 200 16,0% | KRW per dollaro 1344,81 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "KOSPI200 3A",
+   "2026-10-30",
+   "30/10/2026 KOSPI200 · zona blu | Prezzo 5731 | In dollari (base 100) 222,8 | Sopra media 200 15,0% | KRW per dollaro 1333,99 | Valuta Ha smesso di scendere | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "KOSPI200 3A",
+   "2024-02-21",
+   "21/02/2024 KOSPI200 · normale | Prezzo 2653 | In dollari (base 100) 103,1 | Sopra media 200 60,8% | KRW per dollaro 1334,95 | Valuta Normale | Dollaro vs emergenti 127,91"
+  ],
+  [
+   "KOSPI200 3A",
+   "2024-09-26",
+   "26/09/2024 KOSPI200 · normale | Prezzo 2672 | In dollari (base 100) 105,4 | Sopra media 200 55,8% | KRW per dollaro 1314,78 | Valuta Ha smesso di scendere | Dollaro vs emergenti 131,73"
+  ],
+  [
+   "KOSPI200 3A",
+   "2025-05-08",
+   "08/05/2025 KOSPI200 · normale | Prezzo 2579 | In dollari (base 100) 95,3 | Sopra media 200 51,0% | KRW per dollaro 1403,61 | Valuta Ha smesso di scendere | Dollaro vs emergenti 134,30"
+  ],
+  [
+   "KOSPI200 3A",
+   "2025-12-09",
+   "09/12/2025 KOSPI200 · normale | Prezzo 4144 | In dollari (base 100) 146,3 | Sopra media 200 81,5% | KRW per dollaro 1469,48 | Valuta In calo forte | Dollaro vs emergenti 131,33"
+  ],
+  [
+   "KOSPI200 3A",
+   "2026-07-16",
+   "16/07/2026 KOSPI200 · attenzione | Prezzo 6821 | In dollari (base 100) 239,3 | Sopra media 200 37,0% | KRW per dollaro 1478,20 | Valuta Ha smesso di scendere | Dollaro vs emergenti 129,04"
+  ],
+  [
+   "KOSPI200 10A",
+   "2026-11-04",
+   "04/11/2026 KOSPI200 · zona blu | Prezzo 5684 | In dollari (base 100) 244,0 | Sopra media 200 17,5% | KRW per dollaro 1342,90 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "KOSPI200 10A",
+   "2026-11-03",
+   "03/11/2026 KOSPI200 · zona blu | Prezzo 5649 | In dollari (base 100) 242,2 | Sopra media 200 16,0% | KRW per dollaro 1344,81 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "KOSPI200 10A",
+   "2026-10-30",
+   "30/10/2026 KOSPI200 · zona blu | Prezzo 5731 | In dollari (base 100) 247,7 | Sopra media 200 15,0% | KRW per dollaro 1333,99 | Valuta Ha smesso di scendere | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "KOSPI200 10A",
+   "2017-11-06",
+   "06/11/2017 KOSPI200 · normale | Prezzo 2549 | In dollari (base 100) 132,4 | Sopra media 200 58,9% | KRW per dollaro 1110,09 | Valuta Normale | Dollaro vs emergenti 117,58"
+  ],
+  [
+   "KOSPI200 10A",
+   "2019-11-06",
+   "06/11/2019 KOSPI200 · normale | Prezzo 2144 | In dollari (base 100) 106,9 | Sopra media 200 26,1% | KRW per dollaro 1156,73 | Valuta Ha smesso di scendere | Dollaro vs emergenti 123,26"
+  ],
+  [
+   "KOSPI200 10A",
+   "2021-11-01",
+   "01/11/2021 KOSPI200 · normale | Prezzo 2979 | In dollari (base 100) 145,8 | Sopra media 200 41,2% | KRW per dollaro 1177,73 | Valuta Ha smesso di scendere | Dollaro vs emergenti 124,87"
+  ],
+  [
+   "KOSPI200 10A",
+   "2023-10-27",
+   "27/10/2023 KOSPI200 · normale | Prezzo 2303 | In dollari (base 100) 98,0 | Sopra media 200 28,5% | KRW per dollaro 1355,15 | Valuta In calo forte | Dollaro vs emergenti 130,40"
+  ],
+  [
+   "KOSPI200 10A",
+   "2025-11-03",
+   "03/11/2025 KOSPI200 · normale | Prezzo 4222 | In dollari (base 100) 170,1 | Sopra media 200 77,9% | KRW per dollaro 1430,65 | Valuta Normale | Dollaro vs emergenti 131,92"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2026-11-04",
+   "04/11/2026 KOSPI200 · zona blu | Prezzo 5684 | In dollari (base 100) 448,6 | Sopra media 200 17,5% | KRW per dollaro 1342,90 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2026-11-03",
+   "03/11/2026 KOSPI200 · zona blu | Prezzo 5649 | In dollari (base 100) 445,2 | Sopra media 200 16,0% | KRW per dollaro 1344,81 Yahoo, provvisorio | Valuta Ha smesso di scendere | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2026-10-30",
+   "30/10/2026 KOSPI200 · zona blu | Prezzo 5731 | In dollari (base 100) 455,3 | Sopra media 200 15,0% | KRW per dollaro 1333,99 | Valuta Ha smesso di scendere | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2002-09-17",
+   "17/09/2002 KOSPI200 | Prezzo 726,80 | In dollari (base 100) 63,2 | Sopra media 200 — | KRW per dollaro 1218,60 | Valuta — | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2008-01-22",
+   "22/01/2008 KOSPI200 · attenzione | Prezzo 1609 | In dollari (base 100) 180,1 | Sopra media 200 20,5% | KRW per dollaro 946,90 | Valuta In calo forte | Dollaro vs emergenti 93,32"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2013-05-09",
+   "09/05/2013 KOSPI200 · normale | Prezzo 1979 | In dollari (base 100) 192,3 | Sopra media 200 55,7% | KRW per dollaro 1091,12 | Valuta Ha smesso di scendere | Dollaro vs emergenti 93,14"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2018-10-01",
+   "01/10/2018 KOSPI200 · normale | Prezzo 2339 | In dollari (base 100) 222,8 | Sopra media 200 34,5% | KRW per dollaro 1112,53 | Valuta Ha smesso di scendere | Dollaro vs emergenti 121,34"
+  ],
+  [
+   "KOSPI200 MAX",
+   "2024-02-14",
+   "14/02/2024 KOSPI200 · normale | Prezzo 2620 | In dollari (base 100) 208,0 | Sopra media 200 56,2% | KRW per dollaro 1335,06 | Valuta Normale | Dollaro vs emergenti 127,96"
+  ],
+  [
+   "TWN 3A",
+   "2026-11-04",
+   "04/11/2026 TWN · normale | Prezzo 42949 | In dollari (base 100) 253,0 | Sopra media 200 68,9% | TWD per dollaro 32,73 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "TWN 3A",
+   "2026-11-03",
+   "03/11/2026 TWN · normale | Prezzo 43308 | In dollari (base 100) 256,2 | Sopra media 200 71,6% | TWD per dollaro 32,59 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "TWN 3A",
+   "2026-10-30",
+   "30/10/2026 TWN · normale | Prezzo 45212 | In dollari (base 100) 267,5 | Sopra media 200 74,3% | TWD per dollaro 32,59 | Valuta Normale | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "TWN 3A",
+   "2024-02-26",
+   "26/02/2024 TWN · normale | Prezzo 18948 | In dollari (base 100) 115,7 | Sopra media 200 65,8% | TWD per dollaro 31,57 | Valuta Normale | Dollaro vs emergenti 128,14"
+  ],
+  [
+   "TWN 3A",
+   "2024-09-26",
+   "26/09/2024 TWN · normale | Prezzo 22859 | In dollari (base 100) 139,2 | Sopra media 200 65,8% | TWD per dollaro 31,66 | Valuta Ha smesso di scendere | Dollaro vs emergenti 131,73"
+  ],
+  [
+   "TWN 3A",
+   "2025-05-09",
+   "09/05/2025 TWN · trigger | Prezzo 20915 | In dollari (base 100) 133,6 | Sopra media 200 27,0% | TWD per dollaro 30,19 | Valuta Ha smesso di scendere | Dollaro vs emergenti 133,92"
+  ],
+  [
+   "TWN 3A",
+   "2025-12-05",
+   "05/12/2025 TWN · normale | Prezzo 27981 | In dollari (base 100) 172,6 | Sopra media 200 66,2% | TWD per dollaro 31,26 | Valuta Normale | Dollaro vs emergenti 131,39"
+  ],
+  [
+   "TWN 3A",
+   "2026-07-17",
+   "17/07/2026 TWN · normale | Prezzo 42671 | In dollari (base 100) 254,2 | Sopra media 200 91,9% | TWD per dollaro 32,37 | Valuta Normale | Dollaro vs emergenti 129,44"
+  ],
+  [
+   "TWN 10A",
+   "2026-11-04",
+   "04/11/2026 TWN · normale | Prezzo 42949 | In dollari (base 100) 456,4 | Sopra media 200 68,9% | TWD per dollaro 32,73 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "TWN 10A",
+   "2026-11-03",
+   "03/11/2026 TWN · normale | Prezzo 43308 | In dollari (base 100) 462,3 | Sopra media 200 71,6% | TWD per dollaro 32,59 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "TWN 10A",
+   "2026-10-30",
+   "30/10/2026 TWN · normale | Prezzo 45212 | In dollari (base 100) 482,5 | Sopra media 200 74,3% | TWD per dollaro 32,59 | Valuta Normale | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "TWN 10A",
+   "2017-11-02",
+   "02/11/2017 TWN · normale | Prezzo 10789 | In dollari (base 100) 124,3 | Sopra media 200 66,7% | TWD per dollaro 30,19 | Valuta Normale | Dollaro vs emergenti 117,29"
+  ],
+  [
+   "TWN 10A",
+   "2019-11-04",
+   "04/11/2019 TWN · normale | Prezzo 11557 | In dollari (base 100) 132,1 | Sopra media 200 76,7% | TWD per dollaro 30,42 | Valuta Ha smesso di scendere | Dollaro vs emergenti 123,29"
+  ],
+  [
+   "TWN 10A",
+   "2021-11-01",
+   "01/11/2021 TWN · normale | Prezzo 17068 | In dollari (base 100) 213,2 | Sopra media 200 60,3% | TWD per dollaro 27,85 | Valuta Normale | Dollaro vs emergenti 124,87"
+  ],
+  [
+   "TWN 10A",
+   "2023-10-31",
+   "31/10/2023 TWN · normale | Prezzo 16001 | In dollari (base 100) 171,4 | Sopra media 200 46,6% | TWD per dollaro 32,47 | Valuta Normale | Dollaro vs emergenti 130,42"
+  ],
+  [
+   "TWN 10A",
+   "2025-10-31",
+   "31/10/2025 TWN · normale | Prezzo 28233 | In dollari (base 100) 319,3 | Sopra media 200 68,9% | TWD per dollaro 30,75 | Valuta Normale | Dollaro vs emergenti 131,96"
+  ],
+  [
+   "TWN MAX",
+   "2026-11-04",
+   "04/11/2026 TWN · normale | Prezzo 42949 | In dollari (base 100) 458,5 | Sopra media 200 68,9% | TWD per dollaro 32,73 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "TWN MAX",
+   "2026-11-03",
+   "03/11/2026 TWN · normale | Prezzo 43308 | In dollari (base 100) 464,4 | Sopra media 200 71,6% | TWD per dollaro 32,59 Yahoo, provvisorio | Valuta Normale | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "TWN MAX",
+   "2026-10-30",
+   "30/10/2026 TWN · normale | Prezzo 45212 | In dollari (base 100) 484,8 | Sopra media 200 74,3% | TWD per dollaro 32,59 | Valuta Normale | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "TWN MAX",
+   "2002-09-09",
+   "09/09/2002 TWN | Prezzo 4533 | In dollari (base 100) 46,3 | Sopra media 200 — | TWD per dollaro 34,24 | Valuta — | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "TWN MAX",
+   "2007-12-31",
+   "31/12/2007 TWN · normale | Prezzo 8506 | In dollari (base 100) 91,7 | Sopra media 200 35,0% | TWD per dollaro 32,43 | Valuta Normale | Dollaro vs emergenti 93,47"
+  ],
+  [
+   "TWN MAX",
+   "2013-05-03",
+   "03/05/2013 TWN · normale | Prezzo 8135 | In dollari (base 100) 96,3 | Sopra media 200 72,5% | TWD per dollaro 29,53 | Valuta Ha smesso di scendere | Dollaro vs emergenti 93,57"
+  ],
+  [
+   "TWN MAX",
+   "2018-09-13",
+   "13/09/2018 TWN · normale | Prezzo 10727 | In dollari (base 100) 121,7 | Sopra media 200 46,6% | TWD per dollaro 30,79 | Valuta In calo forte | Dollaro vs emergenti 121,88"
+  ],
+  [
+   "TWN MAX",
+   "2024-02-19",
+   "19/02/2024 TWN · normale | Prezzo 18636 | In dollari (base 100) — | Sopra media 200 69,9% | TWD per dollaro — | Valuta — | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI 3A",
+   "2026-11-04",
+   "04/11/2026 HSI · normale | Prezzo 23920 | In dollari (base 100) 132,7 | Sopra media 200 35,3% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI 3A",
+   "2026-11-03",
+   "03/11/2026 HSI · normale | Prezzo 23526 | In dollari (base 100) 130,5 | Sopra media 200 30,6% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI 3A",
+   "2026-10-30",
+   "30/10/2026 HSI · normale | Prezzo 23294 | In dollari (base 100) 129,2 | Sopra media 200 28,2% | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "HSI 3A",
+   "2024-02-22",
+   "22/02/2024 HSI · normale | Prezzo 16743 | In dollari (base 100) 93,2 | Sopra media 200 32,1% | Dollaro vs emergenti 128,04"
+  ],
+  [
+   "HSI 3A",
+   "2024-09-27",
+   "27/09/2024 HSI · normale | Prezzo 20632 | In dollari (base 100) 115,5 | Sopra media 200 84,5% | Dollaro vs emergenti 131,79"
+  ],
+  [
+   "HSI 3A",
+   "2025-05-12",
+   "12/05/2025 HSI · normale | Prezzo 23549 | In dollari (base 100) 131,5 | Sopra media 200 76,5% | Dollaro vs emergenti 134,42"
+  ],
+  [
+   "HSI 3A",
+   "2025-12-09",
+   "09/12/2025 HSI · normale | Prezzo 25434 | In dollari (base 100) 142,2 | Sopra media 200 65,9% | Dollaro vs emergenti 131,33"
+  ],
+  [
+   "HSI 3A",
+   "2026-07-21",
+   "21/07/2026 HSI · normale | Prezzo 25132 | In dollari (base 100) 139,5 | Sopra media 200 35,3% | Dollaro vs emergenti 129,03"
+  ],
+  [
+   "HSI 10A",
+   "2026-11-04",
+   "04/11/2026 HSI · normale | Prezzo 23920 | In dollari (base 100) 104,4 | Sopra media 200 35,3% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI 10A",
+   "2026-11-03",
+   "03/11/2026 HSI · normale | Prezzo 23526 | In dollari (base 100) 102,7 | Sopra media 200 30,6% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI 10A",
+   "2026-10-30",
+   "30/10/2026 HSI · normale | Prezzo 23294 | In dollari (base 100) 101,7 | Sopra media 200 28,2% | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "HSI 10A",
+   "2017-11-02",
+   "02/11/2017 HSI · normale | Prezzo 28519 | In dollari (base 100) 125,2 | Sopra media 200 81,0% | Dollaro vs emergenti 117,29"
+  ],
+  [
+   "HSI 10A",
+   "2019-11-04",
+   "04/11/2019 HSI · normale | Prezzo 27547 | In dollari (base 100) 120,4 | Sopra media 200 47,1% | Dollaro vs emergenti 123,29"
+  ],
+  [
+   "HSI 10A",
+   "2021-11-02",
+   "02/11/2021 HSI · normale | Prezzo 25100 | In dollari (base 100) 110,5 | Sopra media 200 23,8% | Dollaro vs emergenti 124,73"
+  ],
+  [
+   "HSI 10A",
+   "2023-11-02",
+   "02/11/2023 HSI · attenzione | Prezzo 17231 | In dollari (base 100) 75,4 | Sopra media 200 16,7% | Dollaro vs emergenti 129,12"
+  ],
+  [
+   "HSI 10A",
+   "2025-11-04",
+   "04/11/2025 HSI · normale | Prezzo 25952 | In dollari (base 100) 114,3 | Sopra media 200 72,9% | Dollaro vs emergenti 132,34"
+  ],
+  [
+   "HSI MAX",
+   "2026-11-04",
+   "04/11/2026 HSI · normale | Prezzo 23920 | In dollari (base 100) 136,5 | Sopra media 200 35,3% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI MAX",
+   "2026-11-03",
+   "03/11/2026 HSI · normale | Prezzo 23526 | In dollari (base 100) 134,2 | Sopra media 200 30,6% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI MAX",
+   "2026-10-30",
+   "30/10/2026 HSI · normale | Prezzo 23294 | In dollari (base 100) 132,9 | Sopra media 200 28,2% | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "HSI MAX",
+   "2002-09-11",
+   "11/09/2002 HSI | Prezzo 9882 | In dollari (base 100) 56,7 | Sopra media 200 — | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "HSI MAX",
+   "2008-01-15",
+   "15/01/2008 HSI | Prezzo 25838 | In dollari (base 100) 148,3 | Sopra media 200 — | Dollaro vs emergenti 92,82"
+  ],
+  [
+   "HSI MAX",
+   "2013-05-29",
+   "29/05/2013 HSI · normale | Prezzo 22555 | In dollari (base 100) 130,1 | Sopra media 200 67,8% | Dollaro vs emergenti 95,55"
+  ],
+  [
+   "HSI MAX",
+   "2018-10-10",
+   "10/10/2018 HSI · attenzione | Prezzo 26193 | In dollari (base 100) 149,6 | Sopra media 200 16,4% | Dollaro vs emergenti 122,62"
+  ],
+  [
+   "HSI MAX",
+   "2024-02-23",
+   "23/02/2024 HSI · normale | Prezzo 16726 | In dollari (base 100) 95,7 | Sopra media 200 31,0% | Dollaro vs emergenti 128,03"
+  ],
+  [
+   "EEM 3A",
+   "2026-11-04",
+   "04/11/2026 EEM · normale | Prezzo 61,62 | Sopra media 200 30,2% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "EEM 3A",
+   "2026-11-03",
+   "03/11/2026 EEM · normale | Prezzo 61,10 | Sopra media 200 28,3% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "EEM 3A",
+   "2026-10-30",
+   "30/10/2026 EEM · normale | Prezzo 61,04 | Sopra media 200 26,4% | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "EEM 3A",
+   "2024-02-26",
+   "26/02/2024 EEM · normale | Prezzo 40,42 | Sopra media 200 52,3% | Dollaro vs emergenti 128,14"
+  ],
+  [
+   "EEM 3A",
+   "2024-09-30",
+   "30/09/2024 EEM · normale | Prezzo 45,86 | Sopra media 200 80,6% | Dollaro vs emergenti 132,01"
+  ],
+  [
+   "EEM 3A",
+   "2025-05-07",
+   "07/05/2025 EEM · normale | Prezzo 44,64 | Sopra media 200 56,6% | Dollaro vs emergenti 134,11"
+  ],
+  [
+   "EEM 3A",
+   "2025-12-10",
+   "10/12/2025 EEM · normale | Prezzo 55,14 | Sopra media 200 69,8% | Dollaro vs emergenti 131,46"
+  ],
+  [
+   "EEM 3A",
+   "2026-07-20",
+   "20/07/2026 EEM · normale | Prezzo 63,56 | Sopra media 200 45,5% | Dollaro vs emergenti 129,14"
+  ],
+  [
+   "EEM 10A",
+   "2026-11-04",
+   "04/11/2026 EEM · normale | Prezzo 61,62 | Sopra media 200 30,2% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "EEM 10A",
+   "2026-11-03",
+   "03/11/2026 EEM · normale | Prezzo 61,10 | Sopra media 200 28,3% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "EEM 10A",
+   "2026-10-30",
+   "30/10/2026 EEM · normale | Prezzo 61,04 | Sopra media 200 26,4% | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "EEM 10A",
+   "2017-11-03",
+   "03/11/2017 EEM · normale | Prezzo 46,34 | Sopra media 200 67,1% | Dollaro vs emergenti 117,88"
+  ],
+  [
+   "EEM 10A",
+   "2019-11-04",
+   "04/11/2019 EEM · normale | Prezzo 43,65 | Sopra media 200 54,7% | Dollaro vs emergenti 123,29"
+  ],
+  [
+   "EEM 10A",
+   "2021-11-02",
+   "02/11/2021 EEM · normale | Prezzo 50,86 | Sopra media 200 53,1% | Dollaro vs emergenti 124,73"
+  ],
+  [
+   "EEM 10A",
+   "2023-11-01",
+   "01/11/2023 EEM · normale | Prezzo 37,04 | Sopra media 200 39,6% | Dollaro vs emergenti 130,22"
+  ],
+  [
+   "EEM 10A",
+   "2025-11-03",
+   "03/11/2025 EEM · normale | Prezzo 55,65 | Sopra media 200 77,9% | Dollaro vs emergenti 131,92"
+  ],
+  [
+   "EEM MAX",
+   "2026-11-04",
+   "04/11/2026 EEM · normale | Prezzo 61,62 | Sopra media 200 30,2% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "EEM MAX",
+   "2026-11-03",
+   "03/11/2026 EEM · normale | Prezzo 61,10 | Sopra media 200 28,3% | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "EEM MAX",
+   "2026-10-30",
+   "30/10/2026 EEM · normale | Prezzo 61,04 | Sopra media 200 26,4% | Dollaro vs emergenti 130,86"
+  ],
+  [
+   "EEM MAX",
+   "2005-08-18",
+   "18/08/2005 EEM | Prezzo 25,61 | Sopra media 200 — | Dollaro vs emergenti — | FRED: nessun valore per questa data (festa negli Stati Uniti, oppure dato non ancora pubblicato: FRED aggiorna la serie una volta alla settimana)"
+  ],
+  [
+   "EEM MAX",
+   "2010-05-06",
+   "06/05/2010 EEM | Prezzo 37,99 | Sopra media 200 — | Dollaro vs emergenti 98,31"
+  ],
+  [
+   "EEM MAX",
+   "2015-01-22",
+   "22/01/2015 EEM · normale | Prezzo 41,07 | Sopra media 200 68,4% | Dollaro vs emergenti 104,21"
+  ],
+  [
+   "EEM MAX",
+   "2019-10-07",
+   "07/10/2019 EEM · normale | Prezzo 40,63 | Sopra media 200 45,1% | Dollaro vs emergenti 125,19"
+  ],
+  [
+   "EEM MAX",
+   "2024-06-25",
+   "25/06/2024 EEM · normale | Prezzo 42,57 | Sopra media 200 58,1% | Dollaro vs emergenti 132,20"
+  ]
+ ],
+ "errori": []
+}

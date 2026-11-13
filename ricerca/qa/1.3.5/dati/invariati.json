@@ -1,0 +1,97 @@
+{
+ "gruppi": {
+  "USA prices.json": {
+   "simboli": 22,
+   "barre": 27588,
+   "diversi": 0
+  },
+  "globali": {
+   "simboli": 46,
+   "barre": 57363,
+   "diversi": 0
+  },
+  "macro": {
+   "simboli": 10,
+   "barre": 13112,
+   "diversi": 0
+  },
+  "indici (prezzo)": {
+   "simboli": 22,
+   "barre": 27493,
+   "diversi": 0
+  },
+  "membri": {
+   "simboli": 78,
+   "barre": 93837,
+   "diversi": 0
+  },
+  "controllo (deve cambiare)": {
+   "simboli": 2,
+   "barre": 2555,
+   "diversi": 2
+  },
+  "membri via spark (1y)": {
+   "simboli": 77,
+   "barre": 18932,
+   "diversi": 0
+  }
+ },
+ "diversi": [
+  {
+   "g": "controllo (deve cambiare)",
+   "sym": "EURUSD=X",
+   "barreVecchie": 1299,
+   "barreNuove": 1299
+  },
+  {
+   "g": "controllo (deve cambiare)",
+   "sym": "DX-Y.NYB",
+   "barreVecchie": 1256,
+   "barreNuove": 1256
+  }
+ ],
+ "senzaFuso": [],
+ "fusi": {
+  "America/New_York": 73,
+  "Europe/Rome": 34,
+  "Europe/Berlin": 20,
+  "UTC": 2,
+  "Europe/Paris": 8,
+  "Europe/Madrid": 6,
+  "Europe/Amsterdam": 1,
+  "Asia/Tokyo": 5,
+  "Europe/Zurich": 7,
+  "Europe/London": 8,
+  "America/Toronto": 5,
+  "Asia/Hong_Kong": 7,
+  "Asia/Shanghai": 13,
+  "Asia/Seoul": 9,
+  "Asia/Taipei": 9,
+  "Asia/Kolkata": 7,
+  "Australia/Sydney": 5,
+  "America/Sao_Paulo": 7,
+  "Asia/Riyadh": 2,
+  "Africa/Johannesburg": 2,
+  "America/Mexico_City": 2,
+  "Europe/Warsaw": 2,
+  "Asia/Bangkok": 2,
+  "Asia/Dubai": 2,
+  "Europe/Istanbul": 2,
+  "Europe/Athens": 2,
+  "Europe/Moscow": 1,
+  "Asia/Jakarta": 2,
+  "America/Santiago": 2,
+  "Asia/Kuwait": 2,
+  "Asia/Qatar": 2,
+  "Africa/Cairo": 2,
+  "Europe/Budapest": 2,
+  "Europe/Lisbon": 2
+ },
+ "nonScaricati": [
+  "532483.BO",
+  "AC.PS",
+  "ADCB.AD",
+  "AMBANK.KL",
+  "BAAKOMB.PR"
+ ]
+}

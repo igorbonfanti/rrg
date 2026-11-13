@@ -1,0 +1,34 @@
+{
+ "regole": {
+  "A. soglia su tutta la storia": {
+   "allarmi": 342,
+   "quotaArrivano": 47,
+   "anticipoMediano": 20,
+   "tocchiAvvisati": "93/132"
+  },
+  "B. soglia fino a quel giorno": {
+   "allarmi": 342,
+   "quotaArrivano": 46,
+   "anticipoMediano": 18,
+   "tocchiAvvisati": "91/132"
+  },
+  "C. B + stato Normale (app)": {
+   "allarmi": 330,
+   "quotaArrivano": 40,
+   "anticipoMediano": 27,
+   "tocchiAvvisati": "83/132"
+  },
+  "D. C oppure Attenzione": {
+   "allarmi": 367,
+   "quotaArrivano": 40,
+   "anticipoMediano": 23,
+   "tocchiAvvisati": "89/132"
+  },
+  "E. solo Attenzione": {
+   "allarmi": 304,
+   "quotaArrivano": 50,
+   "anticipoMediano": 13,
+   "tocchiAvvisati": "83/132"
+  }
+ }
+}

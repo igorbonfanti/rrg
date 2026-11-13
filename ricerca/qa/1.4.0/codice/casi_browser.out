@@ -1,0 +1,26 @@
+OK   A apertura della vista 8 (desktop, rete locale): 530 ms
+OK   A ridisegno al cambio di periodo: mediana 22 ms, massimo 46 ms (36 cambi)
+OK   A nodi del grafico stabili dopo 36 ridisegni (97 → 97)
+OK   A selezione di una riga (ridisegno di tutta la vista): mediana 27 ms
+OK   A ascoltatori pointerdown sul documento dopo i ridisegni: 1
+OK   A livello blu cambiato nella vista 6 (#idx) letto dalla vista 8: «9%*»
+OK   A nessun errore nella console ()
+OK   A2 telefono (CPU 4×, 6 Mbit/s): vista 8 pronta dall'indirizzo in 4628 ms
+OK   A2 telefono: ridisegno MAX 273 ms
+OK   A2 #emg-KOSPI200 apre KOSPI200
+OK   A2 nessun errore ()
+OK   B emerging.json 404: «Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli stati degli indici restano nella vista 6.», corpo nascosto true
+OK   B nessuna eccezione ()
+OK   C KRW=X mancante: valuta «—», 3 mesi in $ «—»
+OK   C ACWI mancante: forza relativa «—» per tutti (—,—,—,—,—,—,—)
+OK   C FRED mancante: riquadro «FRED non disponibile»
+OK   C nessuna eccezione ()
+OK   C riquadro dei valori senza FRED e senza cambio ()
+OK   D righe KOSPI200,EEM; avviso «Senza dati della vista 6: CSI300, NIFTY50, IBOV, TWN, HSI (file degli altri indici non arrivato).»
+OK   D nessuna eccezione ()
+OK   E config assente: scheda nascosta true, Monitor aperto true (#mon)
+OK   E nessuna eccezione ()
+OK   F #emg-FOO: vista 8 aperta con CSI300, indirizzo #emg-CSI300
+OK   F comando «TWN EMG»
+OK   F nessuna eccezione (), dopo Indietro #emg-CSI300
+CONTROLLI 25, falliti 0

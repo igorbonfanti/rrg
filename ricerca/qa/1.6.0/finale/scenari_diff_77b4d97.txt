@@ -1,0 +1,13 @@
+# scenari.mjs (87 corse del primo giro) rifatto su 77b4d97 contro scenari.txt di 6fc67a1: righe diverse
+136c136
+<    asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":null,"spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":null} missing ["VIX3M","HYGIEF"] vs prev {"VIX":"≠","SPX":"=","NDX":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+---
+>    asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":null,"vix3mSrc":null,"spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":null} missing ["VIX3M","HYGIEF"] vs prev {"VIX":"≠","SPX":"=","NDX":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+166c166
+<    asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":null,"spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":null} missing ["VIX3M","HYGIEF"] vs prev {"VIX":"≠","SPX":"=","NDX":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+---
+>    asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":null,"vix3mSrc":null,"spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":null} missing ["VIX3M","HYGIEF"] vs prev {"VIX":"≠","SPX":"=","NDX":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+221c221
+<    asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":"Cboe","vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"≠","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-04/2026-11-05",25.55]
+---
+>    asOf {"vix":"2026-11-06","fred":"2026-11-05","vixSrc":null,"vix3mSrc":"FRED","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"≠","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-04/2026-11-05",25.55]

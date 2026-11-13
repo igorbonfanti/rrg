@@ -1,0 +1,3182 @@
+[
+ {
+  "id": "m390-dark.bar",
+  "ok": true,
+  "what": "barra 3×3, nessuna scheda tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "perRow": [
+    3,
+    3,
+    3
+   ],
+   "clipped": [],
+   "hs": [
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34
+   ],
+   "ws": [
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 105,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "m390-dark.target",
+  "ok": false,
+  "what": "schede alte almeno 44 px (bersaglio del tocco)",
+  "detail": {
+   "min": 34,
+   "barH": 105
+  }
+ },
+ {
+  "id": "m390-dark.lazy",
+  "ok": true,
+  "what": "vix.json non scaricato all'avvio"
+ },
+ {
+  "id": "m390-dark.tap8",
+  "ok": true,
+  "what": "tocco su 8 VIX apre la vista, nessuno scorrimento orizzontale della pagina",
+  "detail": {
+   "hash": "#vix",
+   "body": true,
+   "hs": 0,
+   "kpis": [
+    [
+     30,
+     360,
+     false
+    ],
+    [
+     30,
+     360,
+     false
+    ],
+    [
+     30,
+     360,
+     false
+    ],
+    [
+     30,
+     360,
+     false
+    ]
+   ],
+   "ms": 240
+  }
+ },
+ {
+  "id": "m390-dark.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori dentro lo schermo, testo non tagliato",
+  "detail": [
+   [
+    30,
+    360,
+    false
+   ],
+   [
+    30,
+    360,
+    false
+   ],
+   [
+    30,
+    360,
+    false
+   ],
+   [
+    30,
+    360,
+    false
+   ]
+  ]
+ },
+ {
+  "id": "m390-dark.tablecols",
+  "ok": false,
+  "what": "tabella dei regimi: colonne ridotte, entra senza scorrere",
+  "detail": {
+   "cols": [
+    "VIX CHIUDE SOPRA",
+    "EPISODI",
+    "3 MESI POSITIVI · MEDIANA",
+    "12 MESI POSITIVI · MEDIANA",
+    "CALO DOPO MEDIANA"
+   ],
+   "ov": [
+    176,
+    69
+   ]
+  }
+ },
+ {
+  "id": "m390-dark.epsfit",
+  "ok": false,
+  "what": "tabella degli episodi: entra senza scorrere di lato",
+  "detail": [
+   176,
+   69
+  ]
+ },
+ {
+  "id": "m390-dark.rowtap",
+  "ok": true,
+  "what": "tocco sulla riga 25: episodi della soglia 25",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 658,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-dark.epsvisible",
+  "ok": true,
+  "what": "dopo il tocco il titolo degli episodi è visibile senza scorrere",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 658,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-dark.ndx",
+  "ok": true,
+  "what": "tocco su Nasdaq-100",
+  "detail": {
+   "p": "NDX",
+   "t": "Episodi con il VIX sopra 25 · Nasdaq-100",
+   "bh": 21
+  }
+ },
+ {
+  "id": "m390-dark.segtarget",
+  "ok": false,
+  "what": "pulsanti S&P 500 / Nasdaq-100 abbastanza alti per il dito (≥ 32 px)",
+  "detail": 21
+ },
+ {
+  "id": "m390-dark.sctap",
+  "ok": true,
+  "what": "scatter: tocco su un punto mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "03/04/2025 | 2025 dazi | VIX | 30,02 | S&P 500 dopo 12 mesi | +33,7% | Episodio iniziato il | 03/04/2025 | Primo giorno dell'episodio (il punto grande).",
+   "l": 88,
+   "r": 338,
+   "b": 505,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-dark.sctaphide",
+  "ok": true,
+  "what": "scatter: tocco fuori chiude il riquadro"
+ },
+ {
+  "id": "m390-dark.chtap",
+  "ok": true,
+  "what": "grafico: tocco mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "18/09/2026 | S&P 500 7651 | VIX | 14,81 | Realizzata 21 sedute | 9,6 | Premio per la paura | +5,2 | Percentile del premio | 60°",
+   "l": 101,
+   "r": 300,
+   "b": 465,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-dark.fonts",
+  "ok": true,
+  "what": "testo degli assi di almeno 9 px sullo schermo, titoli dei pannelli dentro il grafico",
+  "detail": {
+   "chart": 10.5,
+   "scatter": 10.5,
+   "titles": [
+    "VIX E REALIZZATA (21 SEDUTE)",
+    "PREMIO PER LA PAURA"
+   ],
+   "titleOverflow": [
+    -128,
+    -190
+   ]
+  }
+ },
+ {
+  "id": "m390-dark.legend",
+  "ok": true,
+  "what": "legenda del grafico senza scorrimento",
+  "detail": {
+   "ov": 0
+  }
+ },
+ {
+  "id": "m390-dark.landscape",
+  "ok": true,
+  "what": "telefono girato: niente scorrimento, grafico ridisegnato alla nuova larghezza",
+  "detail": {
+   "hs": 0,
+   "chartW": 784,
+   "vb": 784,
+   "rows": 2
+  }
+ },
+ {
+  "id": "m390-dark.view-mon",
+  "ok": true,
+  "what": "vista 1 mon al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-mon"
+  }
+ },
+ {
+  "id": "m390-dark.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-rrg"
+  }
+ },
+ {
+  "id": "m390-dark.view-btm",
+  "ok": true,
+  "what": "vista 3 btm al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-btm"
+  }
+ },
+ {
+  "id": "m390-dark.view-sec",
+  "ok": true,
+  "what": "vista 4 sec al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-sec"
+  }
+ },
+ {
+  "id": "m390-dark.view-tit",
+  "ok": true,
+  "what": "vista 5 tit al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-tit"
+  }
+ },
+ {
+  "id": "m390-dark.view-idx",
+  "ok": true,
+  "what": "vista 6 idx al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-idx"
+  }
+ },
+ {
+  "id": "m390-dark.view-emg",
+  "ok": true,
+  "what": "vista 7 emg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-emg"
+  }
+ },
+ {
+  "id": "m390-dark.view-vix",
+  "ok": true,
+  "what": "vista 8 vix al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-vix"
+  }
+ },
+ {
+  "id": "m390-dark.view-alr",
+  "ok": true,
+  "what": "vista 9 alr al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-alr"
+  }
+ },
+ {
+  "id": "m390-dark.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "m390-light.bar",
+  "ok": true,
+  "what": "barra 3×3, nessuna scheda tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "perRow": [
+    3,
+    3,
+    3
+   ],
+   "clipped": [],
+   "hs": [
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34
+   ],
+   "ws": [
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118,
+    118
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 105,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "m390-light.target",
+  "ok": false,
+  "what": "schede alte almeno 44 px (bersaglio del tocco)",
+  "detail": {
+   "min": 34,
+   "barH": 105
+  }
+ },
+ {
+  "id": "m390-light.lazy",
+  "ok": true,
+  "what": "vix.json non scaricato all'avvio"
+ },
+ {
+  "id": "m390-light.tap8",
+  "ok": true,
+  "what": "tocco su 8 VIX apre la vista, nessuno scorrimento orizzontale della pagina",
+  "detail": {
+   "hash": "#vix",
+   "body": true,
+   "hs": 0,
+   "kpis": [
+    [
+     30,
+     360,
+     false
+    ],
+    [
+     30,
+     360,
+     false
+    ],
+    [
+     30,
+     360,
+     false
+    ],
+    [
+     30,
+     360,
+     false
+    ]
+   ],
+   "ms": 241
+  }
+ },
+ {
+  "id": "m390-light.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori dentro lo schermo, testo non tagliato",
+  "detail": [
+   [
+    30,
+    360,
+    false
+   ],
+   [
+    30,
+    360,
+    false
+   ],
+   [
+    30,
+    360,
+    false
+   ],
+   [
+    30,
+    360,
+    false
+   ]
+  ]
+ },
+ {
+  "id": "m390-light.tablecols",
+  "ok": false,
+  "what": "tabella dei regimi: colonne ridotte, entra senza scorrere",
+  "detail": {
+   "cols": [
+    "VIX CHIUDE SOPRA",
+    "EPISODI",
+    "3 MESI POSITIVI · MEDIANA",
+    "12 MESI POSITIVI · MEDIANA",
+    "CALO DOPO MEDIANA"
+   ],
+   "ov": [
+    176,
+    69
+   ]
+  }
+ },
+ {
+  "id": "m390-light.epsfit",
+  "ok": false,
+  "what": "tabella degli episodi: entra senza scorrere di lato",
+  "detail": [
+   176,
+   69
+  ]
+ },
+ {
+  "id": "m390-light.rowtap",
+  "ok": true,
+  "what": "tocco sulla riga 25: episodi della soglia 25",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 658,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-light.epsvisible",
+  "ok": true,
+  "what": "dopo il tocco il titolo degli episodi è visibile senza scorrere",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 658,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-light.ndx",
+  "ok": true,
+  "what": "tocco su Nasdaq-100",
+  "detail": {
+   "p": "NDX",
+   "t": "Episodi con il VIX sopra 25 · Nasdaq-100",
+   "bh": 21
+  }
+ },
+ {
+  "id": "m390-light.segtarget",
+  "ok": false,
+  "what": "pulsanti S&P 500 / Nasdaq-100 abbastanza alti per il dito (≥ 32 px)",
+  "detail": 21
+ },
+ {
+  "id": "m390-light.sctap",
+  "ok": true,
+  "what": "scatter: tocco su un punto mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "03/04/2025 | 2025 dazi | VIX | 30,02 | S&P 500 dopo 12 mesi | +33,7% | Episodio iniziato il | 03/04/2025 | Primo giorno dell'episodio (il punto grande).",
+   "l": 88,
+   "r": 338,
+   "b": 505,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-light.sctaphide",
+  "ok": true,
+  "what": "scatter: tocco fuori chiude il riquadro"
+ },
+ {
+  "id": "m390-light.chtap",
+  "ok": true,
+  "what": "grafico: tocco mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "18/09/2026 | S&P 500 7651 | VIX | 14,81 | Realizzata 21 sedute | 9,6 | Premio per la paura | +5,2 | Percentile del premio | 60°",
+   "l": 101,
+   "r": 300,
+   "b": 465,
+   "vh": 844
+  }
+ },
+ {
+  "id": "m390-light.fonts",
+  "ok": true,
+  "what": "testo degli assi di almeno 9 px sullo schermo, titoli dei pannelli dentro il grafico",
+  "detail": {
+   "chart": 10.5,
+   "scatter": 10.5,
+   "titles": [
+    "VIX E REALIZZATA (21 SEDUTE)",
+    "PREMIO PER LA PAURA"
+   ],
+   "titleOverflow": [
+    -128,
+    -190
+   ]
+  }
+ },
+ {
+  "id": "m390-light.legend",
+  "ok": true,
+  "what": "legenda del grafico senza scorrimento",
+  "detail": {
+   "ov": 0
+  }
+ },
+ {
+  "id": "m390-light.landscape",
+  "ok": true,
+  "what": "telefono girato: niente scorrimento, grafico ridisegnato alla nuova larghezza",
+  "detail": {
+   "hs": 0,
+   "chartW": 784,
+   "vb": 784,
+   "rows": 2
+  }
+ },
+ {
+  "id": "m390-light.view-mon",
+  "ok": true,
+  "what": "vista 1 mon al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-mon"
+  }
+ },
+ {
+  "id": "m390-light.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-rrg"
+  }
+ },
+ {
+  "id": "m390-light.view-btm",
+  "ok": true,
+  "what": "vista 3 btm al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-btm"
+  }
+ },
+ {
+  "id": "m390-light.view-sec",
+  "ok": true,
+  "what": "vista 4 sec al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-sec"
+  }
+ },
+ {
+  "id": "m390-light.view-tit",
+  "ok": true,
+  "what": "vista 5 tit al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-tit"
+  }
+ },
+ {
+  "id": "m390-light.view-idx",
+  "ok": true,
+  "what": "vista 6 idx al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-idx"
+  }
+ },
+ {
+  "id": "m390-light.view-emg",
+  "ok": true,
+  "what": "vista 7 emg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-emg"
+  }
+ },
+ {
+  "id": "m390-light.view-vix",
+  "ok": true,
+  "what": "vista 8 vix al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-vix"
+  }
+ },
+ {
+  "id": "m390-light.view-alr",
+  "ok": true,
+  "what": "vista 9 alr al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-alr"
+  }
+ },
+ {
+  "id": "m390-light.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "m360-dark.bar",
+  "ok": true,
+  "what": "barra 3×3, nessuna scheda tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "perRow": [
+    3,
+    3,
+    3
+   ],
+   "clipped": [],
+   "hs": [
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34
+   ],
+   "ws": [
+    108,
+    108,
+    108,
+    108,
+    108,
+    108,
+    108,
+    108,
+    108
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 105,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "m360-dark.target",
+  "ok": false,
+  "what": "schede alte almeno 44 px (bersaglio del tocco)",
+  "detail": {
+   "min": 34,
+   "barH": 105
+  }
+ },
+ {
+  "id": "m360-dark.lazy",
+  "ok": true,
+  "what": "vix.json non scaricato all'avvio"
+ },
+ {
+  "id": "m360-dark.tap8",
+  "ok": true,
+  "what": "tocco su 8 VIX apre la vista, nessuno scorrimento orizzontale della pagina",
+  "detail": {
+   "hash": "#vix",
+   "body": true,
+   "hs": 0,
+   "kpis": [
+    [
+     30,
+     330,
+     false
+    ],
+    [
+     30,
+     330,
+     false
+    ],
+    [
+     30,
+     330,
+     false
+    ],
+    [
+     30,
+     330,
+     false
+    ]
+   ],
+   "ms": 271
+  }
+ },
+ {
+  "id": "m360-dark.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori dentro lo schermo, testo non tagliato",
+  "detail": [
+   [
+    30,
+    330,
+    false
+   ],
+   [
+    30,
+    330,
+    false
+   ],
+   [
+    30,
+    330,
+    false
+   ],
+   [
+    30,
+    330,
+    false
+   ]
+  ]
+ },
+ {
+  "id": "m360-dark.tablecols",
+  "ok": false,
+  "what": "tabella dei regimi: colonne ridotte, entra senza scorrere",
+  "detail": {
+   "cols": [
+    "VIX CHIUDE SOPRA",
+    "EPISODI",
+    "3 MESI POSITIVI · MEDIANA",
+    "12 MESI POSITIVI · MEDIANA",
+    "CALO DOPO MEDIANA"
+   ],
+   "ov": [
+    206,
+    99
+   ]
+  }
+ },
+ {
+  "id": "m360-dark.epsfit",
+  "ok": false,
+  "what": "tabella degli episodi: entra senza scorrere di lato",
+  "detail": [
+   206,
+   99
+  ]
+ },
+ {
+  "id": "m360-dark.rowtap",
+  "ok": true,
+  "what": "tocco sulla riga 25: episodi della soglia 25",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 626,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-dark.epsvisible",
+  "ok": true,
+  "what": "dopo il tocco il titolo degli episodi è visibile senza scorrere",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 626,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-dark.ndx",
+  "ok": true,
+  "what": "tocco su Nasdaq-100",
+  "detail": {
+   "p": "NDX",
+   "t": "Episodi con il VIX sopra 25 · Nasdaq-100",
+   "bh": 21
+  }
+ },
+ {
+  "id": "m360-dark.segtarget",
+  "ok": false,
+  "what": "pulsanti S&P 500 / Nasdaq-100 abbastanza alti per il dito (≥ 32 px)",
+  "detail": 21
+ },
+ {
+  "id": "m360-dark.sctap",
+  "ok": true,
+  "what": "scatter: tocco su un punto mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "03/04/2025 | 2025 dazi | VIX | 30,02 | S&P 500 dopo 12 mesi | +33,7% | Episodio iniziato il | 03/04/2025 | Primo giorno dell'episodio (il punto grande).",
+   "l": 34,
+   "r": 284,
+   "b": 473,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-dark.sctaphide",
+  "ok": true,
+  "what": "scatter: tocco fuori chiude il riquadro"
+ },
+ {
+  "id": "m360-dark.chtap",
+  "ok": true,
+  "what": "grafico: tocco mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "05/11/2026 | S&P 500 7354 | VIX | 28,18 | Realizzata 21 sedute | 19,7 | Premio per la paura | +8,5 | Percentile del premio | 88°",
+   "l": 75,
+   "r": 275,
+   "b": 432,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-dark.fonts",
+  "ok": true,
+  "what": "testo degli assi di almeno 9 px sullo schermo, titoli dei pannelli dentro il grafico",
+  "detail": {
+   "chart": 10.5,
+   "scatter": 10.5,
+   "titles": [
+    "VIX E REALIZZATA (21 SEDUTE)",
+    "PREMIO PER LA PAURA"
+   ],
+   "titleOverflow": [
+    -98,
+    -160
+   ]
+  }
+ },
+ {
+  "id": "m360-dark.legend",
+  "ok": true,
+  "what": "legenda del grafico senza scorrimento",
+  "detail": {
+   "ov": 0
+  }
+ },
+ {
+  "id": "m360-dark.landscape",
+  "ok": true,
+  "what": "telefono girato: niente scorrimento, grafico ridisegnato alla nuova larghezza",
+  "detail": {
+   "hs": 0,
+   "chartW": 720,
+   "vb": 720,
+   "rows": 2
+  }
+ },
+ {
+  "id": "m360-dark.view-mon",
+  "ok": true,
+  "what": "vista 1 mon al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-mon"
+  }
+ },
+ {
+  "id": "m360-dark.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-rrg"
+  }
+ },
+ {
+  "id": "m360-dark.view-btm",
+  "ok": true,
+  "what": "vista 3 btm al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-btm"
+  }
+ },
+ {
+  "id": "m360-dark.view-sec",
+  "ok": true,
+  "what": "vista 4 sec al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-sec"
+  }
+ },
+ {
+  "id": "m360-dark.view-tit",
+  "ok": true,
+  "what": "vista 5 tit al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-tit"
+  }
+ },
+ {
+  "id": "m360-dark.view-idx",
+  "ok": true,
+  "what": "vista 6 idx al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-idx"
+  }
+ },
+ {
+  "id": "m360-dark.view-emg",
+  "ok": true,
+  "what": "vista 7 emg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-emg"
+  }
+ },
+ {
+  "id": "m360-dark.view-vix",
+  "ok": true,
+  "what": "vista 8 vix al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-vix"
+  }
+ },
+ {
+  "id": "m360-dark.view-alr",
+  "ok": true,
+  "what": "vista 9 alr al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-alr"
+  }
+ },
+ {
+  "id": "m360-dark.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "m360-light.bar",
+  "ok": true,
+  "what": "barra 3×3, nessuna scheda tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "perRow": [
+    3,
+    3,
+    3
+   ],
+   "clipped": [],
+   "hs": [
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34
+   ],
+   "ws": [
+    108,
+    108,
+    108,
+    108,
+    108,
+    108,
+    108,
+    108,
+    108
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 105,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "m360-light.target",
+  "ok": false,
+  "what": "schede alte almeno 44 px (bersaglio del tocco)",
+  "detail": {
+   "min": 34,
+   "barH": 105
+  }
+ },
+ {
+  "id": "m360-light.lazy",
+  "ok": true,
+  "what": "vix.json non scaricato all'avvio"
+ },
+ {
+  "id": "m360-light.tap8",
+  "ok": true,
+  "what": "tocco su 8 VIX apre la vista, nessuno scorrimento orizzontale della pagina",
+  "detail": {
+   "hash": "#vix",
+   "body": true,
+   "hs": 0,
+   "kpis": [
+    [
+     30,
+     330,
+     false
+    ],
+    [
+     30,
+     330,
+     false
+    ],
+    [
+     30,
+     330,
+     false
+    ],
+    [
+     30,
+     330,
+     false
+    ]
+   ],
+   "ms": 273
+  }
+ },
+ {
+  "id": "m360-light.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori dentro lo schermo, testo non tagliato",
+  "detail": [
+   [
+    30,
+    330,
+    false
+   ],
+   [
+    30,
+    330,
+    false
+   ],
+   [
+    30,
+    330,
+    false
+   ],
+   [
+    30,
+    330,
+    false
+   ]
+  ]
+ },
+ {
+  "id": "m360-light.tablecols",
+  "ok": false,
+  "what": "tabella dei regimi: colonne ridotte, entra senza scorrere",
+  "detail": {
+   "cols": [
+    "VIX CHIUDE SOPRA",
+    "EPISODI",
+    "3 MESI POSITIVI · MEDIANA",
+    "12 MESI POSITIVI · MEDIANA",
+    "CALO DOPO MEDIANA"
+   ],
+   "ov": [
+    206,
+    99
+   ]
+  }
+ },
+ {
+  "id": "m360-light.epsfit",
+  "ok": false,
+  "what": "tabella degli episodi: entra senza scorrere di lato",
+  "detail": [
+   206,
+   99
+  ]
+ },
+ {
+  "id": "m360-light.rowtap",
+  "ok": true,
+  "what": "tocco sulla riga 25: episodi della soglia 25",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 626,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-light.epsvisible",
+  "ok": true,
+  "what": "dopo il tocco il titolo degli episodi è visibile senza scorrere",
+  "detail": {
+   "sel": "25",
+   "title": "Episodi con il VIX sopra 25 · S&P 500",
+   "n": 23,
+   "nTab": 23,
+   "titleTop": 626,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-light.ndx",
+  "ok": true,
+  "what": "tocco su Nasdaq-100",
+  "detail": {
+   "p": "NDX",
+   "t": "Episodi con il VIX sopra 25 · Nasdaq-100",
+   "bh": 21
+  }
+ },
+ {
+  "id": "m360-light.segtarget",
+  "ok": false,
+  "what": "pulsanti S&P 500 / Nasdaq-100 abbastanza alti per il dito (≥ 32 px)",
+  "detail": 21
+ },
+ {
+  "id": "m360-light.sctap",
+  "ok": true,
+  "what": "scatter: tocco su un punto mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "03/04/2025 | 2025 dazi | VIX | 30,02 | S&P 500 dopo 12 mesi | +33,7% | Episodio iniziato il | 03/04/2025 | Primo giorno dell'episodio (il punto grande).",
+   "l": 34,
+   "r": 284,
+   "b": 473,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-light.sctaphide",
+  "ok": true,
+  "what": "scatter: tocco fuori chiude il riquadro"
+ },
+ {
+  "id": "m360-light.chtap",
+  "ok": true,
+  "what": "grafico: tocco mostra il riquadro dei valori dentro lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "05/11/2026 | S&P 500 7354 | VIX | 28,18 | Realizzata 21 sedute | 19,7 | Premio per la paura | +8,5 | Percentile del premio | 88°",
+   "l": 75,
+   "r": 275,
+   "b": 432,
+   "vh": 780
+  }
+ },
+ {
+  "id": "m360-light.fonts",
+  "ok": true,
+  "what": "testo degli assi di almeno 9 px sullo schermo, titoli dei pannelli dentro il grafico",
+  "detail": {
+   "chart": 10.5,
+   "scatter": 10.5,
+   "titles": [
+    "VIX E REALIZZATA (21 SEDUTE)",
+    "PREMIO PER LA PAURA"
+   ],
+   "titleOverflow": [
+    -98,
+    -160
+   ]
+  }
+ },
+ {
+  "id": "m360-light.legend",
+  "ok": true,
+  "what": "legenda del grafico senza scorrimento",
+  "detail": {
+   "ov": 0
+  }
+ },
+ {
+  "id": "m360-light.landscape",
+  "ok": true,
+  "what": "telefono girato: niente scorrimento, grafico ridisegnato alla nuova larghezza",
+  "detail": {
+   "hs": 0,
+   "chartW": 720,
+   "vb": 720,
+   "rows": 2
+  }
+ },
+ {
+  "id": "m360-light.view-mon",
+  "ok": true,
+  "what": "vista 1 mon al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-mon"
+  }
+ },
+ {
+  "id": "m360-light.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-rrg"
+  }
+ },
+ {
+  "id": "m360-light.view-btm",
+  "ok": true,
+  "what": "vista 3 btm al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-btm"
+  }
+ },
+ {
+  "id": "m360-light.view-sec",
+  "ok": true,
+  "what": "vista 4 sec al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-sec"
+  }
+ },
+ {
+  "id": "m360-light.view-tit",
+  "ok": true,
+  "what": "vista 5 tit al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-tit"
+  }
+ },
+ {
+  "id": "m360-light.view-idx",
+  "ok": true,
+  "what": "vista 6 idx al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-idx"
+  }
+ },
+ {
+  "id": "m360-light.view-emg",
+  "ok": true,
+  "what": "vista 7 emg al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-emg"
+  }
+ },
+ {
+  "id": "m360-light.view-vix",
+  "ok": true,
+  "what": "vista 8 vix al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-vix"
+  }
+ },
+ {
+  "id": "m360-light.view-alr",
+  "ok": true,
+  "what": "vista 9 alr al tocco: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "sel": "tab-alr"
+  }
+ },
+ {
+  "id": "m360-light.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "w820-dark.bar",
+  "ok": true,
+  "what": "barra a 820px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+   ],
+   "ws": [
+    156,
+    156,
+    156,
+    156,
+    156,
+    156,
+    156,
+    156,
+    156
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 72,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w820-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35
+  ]
+ },
+ {
+  "id": "w820-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    77,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w820-dark.rowtap",
+  "ok": true,
+  "what": "tablet: tocco sulla riga 50"
+ },
+ {
+  "id": "w820-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w820-light.bar",
+  "ok": true,
+  "what": "barra a 820px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+   ],
+   "ws": [
+    156,
+    156,
+    156,
+    156,
+    156,
+    156,
+    156,
+    156,
+    156
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 72,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w820-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35
+  ]
+ },
+ {
+  "id": "w820-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    77,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w820-light.rowtap",
+  "ok": true,
+  "what": "tablet: tocco sulla riga 50"
+ },
+ {
+  "id": "w820-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w768-dark.bar",
+  "ok": true,
+  "what": "barra a 768px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+   ],
+   "ws": [
+    146,
+    146,
+    146,
+    146,
+    146,
+    146,
+    146,
+    146,
+    146
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 72,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w768-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35
+  ]
+ },
+ {
+  "id": "w768-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    129,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w768-dark.rowtap",
+  "ok": true,
+  "what": "tablet: tocco sulla riga 50"
+ },
+ {
+  "id": "w768-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w768-light.bar",
+  "ok": true,
+  "what": "barra a 768px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+   ],
+   "ws": [
+    146,
+    146,
+    146,
+    146,
+    146,
+    146,
+    146,
+    146,
+    146
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 72,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w768-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35,
+   35
+  ]
+ },
+ {
+  "id": "w768-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    129,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w768-light.rowtap",
+  "ok": true,
+  "what": "tablet: tocco sulla riga 50"
+ },
+ {
+  "id": "w768-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w600-dark.bar",
+  "ok": true,
+  "what": "barra a 600px: righe [3,3,3], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    3,
+    3,
+    3
+   ],
+   "clipped": [],
+   "hs": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "ws": [
+    188,
+    188,
+    188,
+    188,
+    188,
+    188,
+    188,
+    188,
+    188
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 93,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w600-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   30,
+   30,
+   30,
+   30,
+   30,
+   30,
+   30,
+   30,
+   30
+  ]
+ },
+ {
+  "id": "w600-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w600-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w600-light.bar",
+  "ok": true,
+  "what": "barra a 600px: righe [3,3,3], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    3,
+    3,
+    3
+   ],
+   "clipped": [],
+   "hs": [
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "ws": [
+    188,
+    188,
+    188,
+    188,
+    188,
+    188,
+    188,
+    188,
+    188
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 93,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w600-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   30,
+   30,
+   30,
+   30,
+   30,
+   30,
+   30,
+   30,
+   30
+  ]
+ },
+ {
+  "id": "w600-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w600-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w601-dark.bar",
+  "ok": true,
+  "what": "barra a 601px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 60,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w601-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w601-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    296,
+    100
+   ]
+  }
+ },
+ {
+  "id": "w601-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w601-light.bar",
+  "ok": true,
+  "what": "barra a 601px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113,
+    113
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 60,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w601-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w601-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    296,
+    100
+   ]
+  }
+ },
+ {
+  "id": "w601-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w860-dark.bar",
+  "ok": true,
+  "what": "barra a 860px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    164,
+    164,
+    164,
+    164,
+    164,
+    164,
+    164,
+    164,
+    164
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 60,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w860-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w860-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    37,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w860-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w860-light.bar",
+  "ok": true,
+  "what": "barra a 860px: righe [5,4], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    5,
+    4
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    164,
+    164,
+    164,
+    164,
+    164,
+    164,
+    164,
+    164,
+    164
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 60,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w860-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w860-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    37,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w860-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w861-dark.bar",
+  "ok": true,
+  "what": "barra a 861px: righe [9], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    83,
+    97,
+    104,
+    83,
+    76,
+    76,
+    97,
+    54,
+    68
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 30,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w861-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w861-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    36,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w861-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w861-light.bar",
+  "ok": true,
+  "what": "barra a 861px: righe [9], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    83,
+    97,
+    104,
+    83,
+    76,
+    76,
+    97,
+    54,
+    68
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 30,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w861-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w861-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    36,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w861-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w1024-dark.bar",
+  "ok": true,
+  "what": "barra a 1024px: righe [9], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    83,
+    97,
+    104,
+    83,
+    76,
+    76,
+    97,
+    54,
+    68
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 30,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w1024-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w1024-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w1024-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w1024-light.bar",
+  "ok": true,
+  "what": "barra a 1024px: righe [9], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    83,
+    97,
+    104,
+    83,
+    76,
+    76,
+    97,
+    54,
+    68
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 30,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w1024-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w1024-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w1024-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w1100-dark.bar",
+  "ok": true,
+  "what": "barra a 1100px: righe [9], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    83,
+    97,
+    104,
+    83,
+    76,
+    76,
+    97,
+    54,
+    68
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 30,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w1100-dark.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w1100-dark.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w1100-dark.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "w1100-light.bar",
+  "ok": true,
+  "what": "barra a 1100px: righe [9], nessuna scheda tagliata, nessuno scorrimento",
+  "detail": {
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "hs": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+   ],
+   "ws": [
+    83,
+    97,
+    104,
+    83,
+    76,
+    76,
+    97,
+    54,
+    68
+   ],
+   "lines": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+   ],
+   "barH": 30,
+   "hscroll": 0
+  }
+ },
+ {
+  "id": "w1100-light.even",
+  "ok": true,
+  "what": "schede della stessa altezza (nessuna etichetta che va a capo da sola)",
+  "detail": [
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29,
+   29
+  ]
+ },
+ {
+  "id": "w1100-light.vix",
+  "ok": true,
+  "what": "apertura diretta su #vix, nessuno scorrimento orizzontale",
+  "detail": {
+   "body": true,
+   "hs": 0,
+   "ov": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "w1100-light.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ },
+ {
+  "id": "miss-404-1440.msg",
+  "ok": true,
+  "what": "file 404: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: HTTP 404).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: HTTP 404)."
+  }
+ },
+ {
+  "id": "miss-404-1440.others",
+  "ok": true,
+  "what": "file 404: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-404-1440.noerr",
+  "ok": true,
+  "what": "file 404: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  }
+ },
+ {
+  "id": "miss-404-390.msg",
+  "ok": true,
+  "what": "file 404: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: HTTP 404).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: HTTP 404)."
+  }
+ },
+ {
+  "id": "miss-404-390.others",
+  "ok": true,
+  "what": "file 404: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-404-390.noerr",
+  "ok": true,
+  "what": "file 404: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  }
+ },
+ {
+  "id": "miss-rete-1440.msg",
+  "ok": true,
+  "what": "file rete: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: non raggiungibile).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: non raggiungibile)."
+  }
+ },
+ {
+  "id": "miss-rete-1440.others",
+  "ok": true,
+  "what": "file rete: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-rete-1440.noerr",
+  "ok": true,
+  "what": "file rete: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": [
+    "error: Failed to load resource: net::ERR_FAILED"
+   ]
+  }
+ },
+ {
+  "id": "miss-rete-390.msg",
+  "ok": true,
+  "what": "file rete: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: non raggiungibile).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: non raggiungibile)."
+  }
+ },
+ {
+  "id": "miss-rete-390.others",
+  "ok": true,
+  "what": "file rete: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-rete-390.noerr",
+  "ok": true,
+  "what": "file rete: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": [
+    "error: Failed to load resource: net::ERR_FAILED"
+   ]
+  }
+ },
+ {
+  "id": "miss-incompleto-1440.msg",
+  "ok": true,
+  "what": "file incompleto: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: file incompleto (manca series)).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: file incompleto (manca series))."
+  }
+ },
+ {
+  "id": "miss-incompleto-1440.others",
+  "ok": true,
+  "what": "file incompleto: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-incompleto-1440.noerr",
+  "ok": true,
+  "what": "file incompleto: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": []
+  }
+ },
+ {
+  "id": "miss-incompleto-390.msg",
+  "ok": true,
+  "what": "file incompleto: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: file incompleto (manca series)).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: file incompleto (manca series))."
+  }
+ },
+ {
+  "id": "miss-incompleto-390.others",
+  "ok": true,
+  "what": "file incompleto: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-incompleto-390.noerr",
+  "ok": true,
+  "what": "file incompleto: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": []
+  }
+ },
+ {
+  "id": "miss-illeggibile-1440.msg",
+  "ok": true,
+  "what": "file illeggibile: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: file illeggibile).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: file illeggibile)."
+  }
+ },
+ {
+  "id": "miss-illeggibile-1440.others",
+  "ok": true,
+  "what": "file illeggibile: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-illeggibile-1440.noerr",
+  "ok": true,
+  "what": "file illeggibile: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": []
+  }
+ },
+ {
+  "id": "miss-illeggibile-390.msg",
+  "ok": true,
+  "what": "file illeggibile: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": true,
+   "text": "Dati del VIX non disponibili (data/vix.json: file illeggibile).",
+   "body": false,
+   "loading": false,
+   "vis": "Dati del VIX non disponibili (data/vix.json: file illeggibile)."
+  }
+ },
+ {
+  "id": "miss-illeggibile-390.others",
+  "ok": true,
+  "what": "file illeggibile: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-illeggibile-390.noerr",
+  "ok": true,
+  "what": "file illeggibile: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": true,
+    "loading": false
+   },
+   "consoleAll": []
+  }
+ },
+ {
+  "id": "miss-serie-vuote-1440.msg",
+  "ok": true,
+  "what": "file serie-vuote: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": false,
+   "text": "",
+   "body": true,
+   "loading": false,
+   "vis": "INDICE\nS&P 500\nNasdaq-100\nDOPO I PICCHI DEL VIX\n\nOgni riga conta gli episodi: la prima chiusura del VIX sopra la soglia dopo almeno 63 sedute sotto. «Positivi» è quanti episodi avevano l'indice più al"
+  }
+ },
+ {
+  "id": "miss-serie-vuote-1440.others",
+  "ok": true,
+  "what": "file serie-vuote: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-serie-vuote-1440.noerr",
+  "ok": true,
+  "what": "file serie-vuote: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": false,
+    "loading": false
+   },
+   "consoleAll": []
+  }
+ },
+ {
+  "id": "miss-serie-vuote-390.msg",
+  "ok": true,
+  "what": "file serie-vuote: messaggio chiaro, niente numeri finti",
+  "detail": {
+   "miss": false,
+   "text": "",
+   "body": true,
+   "loading": false,
+   "vis": "INDICE\nS&P 500\nNasdaq-100\nDOPO I PICCHI DEL VIX\n\nOgni riga conta gli episodi: la prima chiusura del VIX sopra la soglia dopo almeno 63 sedute sotto. «Positivi» è quanti episodi avevano l'indice più al"
+  }
+ },
+ {
+  "id": "miss-serie-vuote-390.others",
+  "ok": true,
+  "what": "file serie-vuote: le altre 8 viste funzionano",
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "id": "miss-serie-vuote-390.noerr",
+  "ok": true,
+  "what": "file serie-vuote: nessun errore JavaScript non gestito, «Caricamento» non resta acceso",
+  "detail": {
+   "pageErr": [],
+   "m2": {
+    "miss": false,
+    "loading": false
+   },
+   "consoleAll": []
+  }
+ },
+ {
+  "id": "slow.loading",
+  "ok": true,
+  "what": "file lento: «Caricamento dei dati del VIX…» visibile",
+  "detail": {
+   "loading": true,
+   "text": "Caricamento dei dati del VIX…",
+   "body": false
+  }
+ },
+ {
+  "id": "slow.after",
+  "ok": true,
+  "what": "file lento: Nasdaq-100 scelto durante il caricamento viene applicato, nessun doppio disegno",
+  "detail": {
+   "loading": false,
+   "body": true,
+   "ix": "NDX",
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "nKpi": 4
+  }
+ },
+ {
+  "id": "slow.console",
+  "ok": true,
+  "what": "console senza errori",
+  "detail": []
+ }
+]

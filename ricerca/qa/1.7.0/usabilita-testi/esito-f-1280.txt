@@ -1,0 +1,26 @@
+http://127.0.0.1:8808/ 1280 20 {"sw":1254,"cw":1220,"fuori":["calo dopo"]}
+http://127.0.0.1:8808/ 1280 40 {"sw":1262,"cw":1220,"fuori":["calo dopo"]}
+http://127.0.0.1:8808/ 1366 20 {"sw":1306,"cw":1306,"fuori":[]}
+http://127.0.0.1:8808/ 1366 40 {"sw":1306,"cw":1306,"fuori":[]}
+http://127.0.0.1:8808/ 1440 20 {"sw":1380,"cw":1380,"fuori":[]}
+http://127.0.0.1:8808/ 1440 40 {"sw":1380,"cw":1380,"fuori":[]}
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.waitForSelector: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#vxEps tbody tr') to be visible[22m
+
+    at /home/user/rrg/ricerca/qa/1.7.0/usabilita-testi/f-1280.cjs:9:68 {
+  log: [ "  - waiting for locator('#vxEps tbody tr') to be visible" ],
+  name: 'TimeoutError'
+}
+
+Node.js v22.22.0
+http://127.0.0.1:8809/ 1280 20 {"sw":1220,"cw":1220,"fuori":[]}
+http://127.0.0.1:8809/ 1280 40 {"sw":1220,"cw":1220,"fuori":[]}
+http://127.0.0.1:8809/ 1366 20 {"sw":1306,"cw":1306,"fuori":[]}
+http://127.0.0.1:8809/ 1366 40 {"sw":1306,"cw":1306,"fuori":[]}
+http://127.0.0.1:8809/ 1440 20 {"sw":1380,"cw":1380,"fuori":[]}
+http://127.0.0.1:8809/ 1440 40 {"sw":1380,"cw":1380,"fuori":[]}

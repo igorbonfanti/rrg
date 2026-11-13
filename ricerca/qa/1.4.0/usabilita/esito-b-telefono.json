@@ -1,0 +1,1618 @@
+[
+ {
+  "name": "[390 dark] 8 schede su due righe",
+  "ok": true,
+  "detail": [
+   171,
+   206
+  ]
+ },
+ {
+  "name": "[390 dark] quattro schede per riga",
+  "ok": true,
+  "detail": [
+   "1 Monitor@171",
+   "2 Rotazione@171",
+   "3 Bottom Map@171",
+   "4 Settore@171",
+   "5 Alert@206",
+   "6 Indici@206",
+   "7 Titoli@206",
+   "8 Emergenti@206"
+  ]
+ },
+ {
+  "name": "[390 dark] testo delle schede non tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 dark] ogni scheda su una riga di testo",
+  "ok": true,
+  "detail": [
+   {
+    "t": "1 Monitor",
+    "lines": 1
+   },
+   {
+    "t": "2 Rotazione",
+    "lines": 1
+   },
+   {
+    "t": "3 Bottom Map",
+    "lines": 1
+   },
+   {
+    "t": "4 Settore",
+    "lines": 1
+   },
+   {
+    "t": "5 Alert",
+    "lines": 1
+   },
+   {
+    "t": "6 Indici",
+    "lines": 1
+   },
+   {
+    "t": "7 Titoli",
+    "lines": 1
+   },
+   {
+    "t": "8 Emergenti",
+    "lines": 1
+   }
+  ]
+ },
+ {
+  "name": "[390 dark] schede alte almeno 32 px",
+  "ok": true,
+  "detail": [
+   34,
+   34,
+   34,
+   34,
+   34,
+   34,
+   34,
+   34
+  ]
+ },
+ {
+  "name": "[390 dark] intestazione + schede entro il 30% dello schermo",
+  "ok": true,
+  "detail": {
+   "navBottom": 241,
+   "head": 154
+  }
+ },
+ {
+  "name": "[390 dark] vista 8 senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 390,
+   "cw": 390,
+   "over": []
+  }
+ },
+ {
+  "name": "[390 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 330,
+   "cw": 330
+  }
+ },
+ {
+  "name": "[390 dark] tabellone a schede (intestazione nascosta)",
+  "ok": true,
+  "detail": "none"
+ },
+ {
+  "name": "[390 dark] celle delle schede dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 dark] schede alte almeno 44 px (bersaglio del tocco)",
+  "ok": true,
+  "detail": [
+   "CSI300:162",
+   "NIFTY50:138",
+   "IBOV:162",
+   "KOSPI200:162",
+   "TWN:138",
+   "HSI:138",
+   "EEM:162"
+  ]
+ },
+ {
+  "name": "[390 dark] nessun testo tagliato nella vista 8",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 dark] scheda KOSPI200 con le etichette dei valori",
+  "ok": true,
+  "detail": [
+   "none KOSPI200KOSPI 200",
+   "none ZONA BLU",
+   "breadth 17,5%",
+   "blu 15%",
+   "drawdown −37,6%",
+   "valuta HA SMESSO DI SCENDERE",
+   "3 mesi −13,8%",
+   "in $ −8,8%",
+   "vs ACWI LAGGING"
+  ]
+ },
+ {
+  "name": "[390 dark] riquadri dentro lo schermo",
+  "ok": true,
+  "detail": [
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   }
+  ]
+ },
+ {
+  "name": "[390 dark] tocco sulla riga KOSPI200 apre il dettaglio (#emg-KOSPI200)",
+  "ok": true,
+  "detail": {
+   "y": 861,
+   "titleTop": 1050,
+   "vh": 844,
+   "hash": "#emg-KOSPI200"
+  }
+ },
+ {
+  "name": "[390 dark] dopo il tocco il titolo del dettaglio è visibile senza scorrere",
+  "ok": false,
+  "detail": {
+   "y": 861,
+   "titleTop": 1050,
+   "vh": 844,
+   "hash": "#emg-KOSPI200",
+   "y0": 0
+  }
+ },
+ {
+  "name": "[390 dark] grafico largo quanto lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 30,
+   "y": 147.5625,
+   "width": 330,
+   "height": 548
+  }
+ },
+ {
+  "name": "[390 dark] tocco sul grafico mostra il riquadro dei valori",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "11/08/2025 KOSPI200 · normale Prezzo 3207 In dollari (base 100) 120,8 Sopra media 200 80,9% KRW per dollaro 1387,81 Valuta Normale Dollaro vs emergenti 132,00"
+  }
+ },
+ {
+  "name": "[390 dark] riquadro dei valori dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "11/08/2025 KOSPI200 · normale Prezzo 3207 In dollari (base 100) 120,8 Sopra media 200 80,9% KRW per dollaro 1387,81 Valuta Normale Dollaro vs emergenti 132,00"
+  }
+ },
+ {
+  "name": "[390 dark] testo del grafico ≥ 9 px reali",
+  "ok": true,
+  "detail": {
+   "scale": 1,
+   "small": []
+  }
+ },
+ {
+  "name": "[390 dark] titoli dei pannelli dentro il grafico",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 dark] tocco fuori chiude il riquadro",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[390 dark] pulsanti periodo e «Apri nella vista 6» alti almeno 32 px",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 350,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[390 dark] «Apri nella vista 6» dentro lo schermo e non tagliato",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 350,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[390 dark] quadrante dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 40,
+   "y": 256.625,
+   "width": 310,
+   "height": 330
+  }
+ },
+ {
+  "name": "[390 dark] [WCAG 2.5.8] bersagli dei punti del quadrante ≥ 24×24 px",
+  "ok": false,
+  "detail": [
+   "CSI300 32×13",
+   "NIFTY50 32×13",
+   "IBOV 26×13",
+   "KOSPI200 27×13",
+   "TWN 26×13",
+   "HSI 26×13",
+   "EEM 26×13"
+  ]
+ },
+ {
+  "name": "[390 dark] punti del quadrante distanti almeno 24 px tra loro",
+  "ok": true,
+  "detail": {
+   "min": 28,
+   "pair": "KOSPI200/EEM"
+  }
+ },
+ {
+  "name": "[390 dark] tocco sul punto INDA seleziona NIFTY50",
+  "ok": true,
+  "detail": "#emg-NIFTY50"
+ },
+ {
+  "name": "[390 dark] [esplorativo] tocco a 6 px dal punto EWT seleziona TWN",
+  "ok": true,
+  "detail": "#emg-TWN"
+ },
+ {
+  "name": "[390 dark] dopo il tocco nel quadrante il dettaglio cambiato è visibile",
+  "ok": false,
+  "detail": {
+   "titleTop": -824,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[390 dark] ancora nessuno scroll orizzontale alla fine",
+  "ok": true,
+  "detail": {
+   "sw": 390,
+   "cw": 390,
+   "over": []
+  }
+ },
+ {
+  "name": "[390 dark] voci della legenda dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 dark] [confronto] nella vista 6 il tocco su una riga porta al dettaglio",
+  "ok": true,
+  "detail": {
+   "titleTop": 193,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[390 dark] console senza errori",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 light] 8 schede su due righe",
+  "ok": true,
+  "detail": [
+   171,
+   206
+  ]
+ },
+ {
+  "name": "[390 light] quattro schede per riga",
+  "ok": true,
+  "detail": [
+   "1 Monitor@171",
+   "2 Rotazione@171",
+   "3 Bottom Map@171",
+   "4 Settore@171",
+   "5 Alert@206",
+   "6 Indici@206",
+   "7 Titoli@206",
+   "8 Emergenti@206"
+  ]
+ },
+ {
+  "name": "[390 light] testo delle schede non tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 light] ogni scheda su una riga di testo",
+  "ok": true,
+  "detail": [
+   {
+    "t": "1 Monitor",
+    "lines": 1
+   },
+   {
+    "t": "2 Rotazione",
+    "lines": 1
+   },
+   {
+    "t": "3 Bottom Map",
+    "lines": 1
+   },
+   {
+    "t": "4 Settore",
+    "lines": 1
+   },
+   {
+    "t": "5 Alert",
+    "lines": 1
+   },
+   {
+    "t": "6 Indici",
+    "lines": 1
+   },
+   {
+    "t": "7 Titoli",
+    "lines": 1
+   },
+   {
+    "t": "8 Emergenti",
+    "lines": 1
+   }
+  ]
+ },
+ {
+  "name": "[390 light] schede alte almeno 32 px",
+  "ok": true,
+  "detail": [
+   34,
+   34,
+   34,
+   34,
+   34,
+   34,
+   34,
+   34
+  ]
+ },
+ {
+  "name": "[390 light] intestazione + schede entro il 30% dello schermo",
+  "ok": true,
+  "detail": {
+   "navBottom": 241,
+   "head": 154
+  }
+ },
+ {
+  "name": "[390 light] vista 8 senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 390,
+   "cw": 390,
+   "over": []
+  }
+ },
+ {
+  "name": "[390 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 330,
+   "cw": 330
+  }
+ },
+ {
+  "name": "[390 light] tabellone a schede (intestazione nascosta)",
+  "ok": true,
+  "detail": "none"
+ },
+ {
+  "name": "[390 light] celle delle schede dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 light] schede alte almeno 44 px (bersaglio del tocco)",
+  "ok": true,
+  "detail": [
+   "CSI300:162",
+   "NIFTY50:138",
+   "IBOV:162",
+   "KOSPI200:162",
+   "TWN:138",
+   "HSI:138",
+   "EEM:162"
+  ]
+ },
+ {
+  "name": "[390 light] nessun testo tagliato nella vista 8",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 light] scheda KOSPI200 con le etichette dei valori",
+  "ok": true,
+  "detail": [
+   "none KOSPI200KOSPI 200",
+   "none ZONA BLU",
+   "breadth 17,5%",
+   "blu 15%",
+   "drawdown −37,6%",
+   "valuta HA SMESSO DI SCENDERE",
+   "3 mesi −13,8%",
+   "in $ −8,8%",
+   "vs ACWI LAGGING"
+  ]
+ },
+ {
+  "name": "[390 light] riquadri dentro lo schermo",
+  "ok": true,
+  "detail": [
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   },
+   {
+    "w": 330,
+    "x": 30,
+    "sw": 330,
+    "cw": 330
+   }
+  ]
+ },
+ {
+  "name": "[390 light] tocco sulla riga KOSPI200 apre il dettaglio (#emg-KOSPI200)",
+  "ok": true,
+  "detail": {
+   "y": 861,
+   "titleTop": 1050,
+   "vh": 844,
+   "hash": "#emg-KOSPI200"
+  }
+ },
+ {
+  "name": "[390 light] dopo il tocco il titolo del dettaglio è visibile senza scorrere",
+  "ok": false,
+  "detail": {
+   "y": 861,
+   "titleTop": 1050,
+   "vh": 844,
+   "hash": "#emg-KOSPI200",
+   "y0": 0
+  }
+ },
+ {
+  "name": "[390 light] grafico largo quanto lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 30,
+   "y": 147.5625,
+   "width": 330,
+   "height": 548
+  }
+ },
+ {
+  "name": "[390 light] tocco sul grafico mostra il riquadro dei valori",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "11/08/2025 KOSPI200 · normale Prezzo 3207 In dollari (base 100) 120,8 Sopra media 200 80,9% KRW per dollaro 1387,81 Valuta Normale Dollaro vs emergenti 132,00"
+  }
+ },
+ {
+  "name": "[390 light] riquadro dei valori dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "11/08/2025 KOSPI200 · normale Prezzo 3207 In dollari (base 100) 120,8 Sopra media 200 80,9% KRW per dollaro 1387,81 Valuta Normale Dollaro vs emergenti 132,00"
+  }
+ },
+ {
+  "name": "[390 light] testo del grafico ≥ 9 px reali",
+  "ok": true,
+  "detail": {
+   "scale": 1,
+   "small": []
+  }
+ },
+ {
+  "name": "[390 light] titoli dei pannelli dentro il grafico",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 light] tocco fuori chiude il riquadro",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[390 light] pulsanti periodo e «Apri nella vista 6» alti almeno 32 px",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 350,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[390 light] «Apri nella vista 6» dentro lo schermo e non tagliato",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 350,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[390 light] quadrante dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 40,
+   "y": 256.625,
+   "width": 310,
+   "height": 330
+  }
+ },
+ {
+  "name": "[390 light] [WCAG 2.5.8] bersagli dei punti del quadrante ≥ 24×24 px",
+  "ok": false,
+  "detail": [
+   "CSI300 32×13",
+   "NIFTY50 32×13",
+   "IBOV 26×13",
+   "KOSPI200 27×13",
+   "TWN 26×13",
+   "HSI 26×13",
+   "EEM 26×13"
+  ]
+ },
+ {
+  "name": "[390 light] punti del quadrante distanti almeno 24 px tra loro",
+  "ok": true,
+  "detail": {
+   "min": 28,
+   "pair": "KOSPI200/EEM"
+  }
+ },
+ {
+  "name": "[390 light] tocco sul punto INDA seleziona NIFTY50",
+  "ok": true,
+  "detail": "#emg-NIFTY50"
+ },
+ {
+  "name": "[390 light] [esplorativo] tocco a 6 px dal punto EWT seleziona TWN",
+  "ok": true,
+  "detail": "#emg-TWN"
+ },
+ {
+  "name": "[390 light] dopo il tocco nel quadrante il dettaglio cambiato è visibile",
+  "ok": false,
+  "detail": {
+   "titleTop": -824,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[390 light] ancora nessuno scroll orizzontale alla fine",
+  "ok": true,
+  "detail": {
+   "sw": 390,
+   "cw": 390,
+   "over": []
+  }
+ },
+ {
+  "name": "[390 light] voci della legenda dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 light] [confronto] nella vista 6 il tocco su una riga porta al dettaglio",
+  "ok": true,
+  "detail": {
+   "titleTop": 195,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[390 light] console senza errori",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 dark] 8 schede su due righe",
+  "ok": true,
+  "detail": [
+   171,
+   220
+  ]
+ },
+ {
+  "name": "[360 dark] quattro schede per riga",
+  "ok": true,
+  "detail": [
+   "1 Monitor@171",
+   "2 Rotazione@171",
+   "3 Bottom Map@171",
+   "4 Settore@171",
+   "5 Alert@220",
+   "6 Indici@220",
+   "7 Titoli@220",
+   "8 Emergenti@220"
+  ]
+ },
+ {
+  "name": "[360 dark] testo delle schede non tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 dark] ogni scheda su una riga di testo",
+  "ok": false,
+  "detail": [
+   {
+    "t": "1 Monitor",
+    "lines": 2
+   },
+   {
+    "t": "2 Rotazione",
+    "lines": 2
+   },
+   {
+    "t": "3 Bottom Map",
+    "lines": 2
+   },
+   {
+    "t": "4 Settore",
+    "lines": 2
+   },
+   {
+    "t": "5 Alert",
+    "lines": 1
+   },
+   {
+    "t": "6 Indici",
+    "lines": 1
+   },
+   {
+    "t": "7 Titoli",
+    "lines": 1
+   },
+   {
+    "t": "8 Emergenti",
+    "lines": 1
+   }
+  ]
+ },
+ {
+  "name": "[360 dark] schede alte almeno 32 px",
+  "ok": true,
+  "detail": [
+   48,
+   48,
+   48,
+   48,
+   34,
+   34,
+   34,
+   34
+  ]
+ },
+ {
+  "name": "[360 dark] intestazione + schede entro il 30% dello schermo",
+  "ok": false,
+  "detail": {
+   "navBottom": 255,
+   "head": 154
+  }
+ },
+ {
+  "name": "[360 dark] vista 8 senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 360,
+   "cw": 360,
+   "over": []
+  }
+ },
+ {
+  "name": "[360 dark] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 300,
+   "cw": 300
+  }
+ },
+ {
+  "name": "[360 dark] tabellone a schede (intestazione nascosta)",
+  "ok": true,
+  "detail": "none"
+ },
+ {
+  "name": "[360 dark] celle delle schede dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 dark] schede alte almeno 44 px (bersaglio del tocco)",
+  "ok": true,
+  "detail": [
+   "CSI300:162",
+   "NIFTY50:162",
+   "IBOV:162",
+   "KOSPI200:162",
+   "TWN:162",
+   "HSI:162",
+   "EEM:162"
+  ]
+ },
+ {
+  "name": "[360 dark] nessun testo tagliato nella vista 8",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 dark] scheda KOSPI200 con le etichette dei valori",
+  "ok": true,
+  "detail": [
+   "none KOSPI200KOSPI 200",
+   "none ZONA BLU",
+   "breadth 17,5%",
+   "blu 15%",
+   "drawdown −37,6%",
+   "valuta HA SMESSO DI SCENDERE",
+   "3 mesi −13,8%",
+   "in $ −8,8%",
+   "vs ACWI LAGGING"
+  ]
+ },
+ {
+  "name": "[360 dark] riquadri dentro lo schermo",
+  "ok": true,
+  "detail": [
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   }
+  ]
+ },
+ {
+  "name": "[360 dark] tocco sulla riga KOSPI200 apre il dettaglio (#emg-KOSPI200)",
+  "ok": true,
+  "detail": {
+   "y": 898,
+   "titleTop": 1114,
+   "vh": 844,
+   "hash": "#emg-KOSPI200"
+  }
+ },
+ {
+  "name": "[360 dark] dopo il tocco il titolo del dettaglio è visibile senza scorrere",
+  "ok": false,
+  "detail": {
+   "y": 898,
+   "titleTop": 1114,
+   "vh": 844,
+   "hash": "#emg-KOSPI200",
+   "y0": 0
+  }
+ },
+ {
+  "name": "[360 dark] grafico largo quanto lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 30,
+   "y": 148.453125,
+   "width": 300,
+   "height": 548
+  }
+ },
+ {
+  "name": "[360 dark] tocco sul grafico mostra il riquadro dei valori",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "22/08/2025 KOSPI200 · normale Prezzo 3169 In dollari (base 100) 118,3 Sopra media 200 77,4% KRW per dollaro 1399,61 Valuta Normale Dollaro vs emergenti 131,79"
+  }
+ },
+ {
+  "name": "[360 dark] riquadro dei valori dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "22/08/2025 KOSPI200 · normale Prezzo 3169 In dollari (base 100) 118,3 Sopra media 200 77,4% KRW per dollaro 1399,61 Valuta Normale Dollaro vs emergenti 131,79"
+  }
+ },
+ {
+  "name": "[360 dark] testo del grafico ≥ 9 px reali",
+  "ok": true,
+  "detail": {
+   "scale": 1,
+   "small": []
+  }
+ },
+ {
+  "name": "[360 dark] titoli dei pannelli dentro il grafico",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 dark] tocco fuori chiude il riquadro",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[360 dark] pulsanti periodo e «Apri nella vista 6» alti almeno 32 px",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 320,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[360 dark] «Apri nella vista 6» dentro lo schermo e non tagliato",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 320,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[360 dark] quadrante dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 40,
+   "y": 271.90625,
+   "width": 280,
+   "height": 300
+  }
+ },
+ {
+  "name": "[360 dark] [WCAG 2.5.8] bersagli dei punti del quadrante ≥ 24×24 px",
+  "ok": false,
+  "detail": [
+   "CSI300 31×13",
+   "NIFTY50 31×13",
+   "IBOV 26×13",
+   "KOSPI200 27×13",
+   "TWN 26×13",
+   "HSI 25×13",
+   "EEM 25×13"
+  ]
+ },
+ {
+  "name": "[360 dark] punti del quadrante distanti almeno 24 px tra loro",
+  "ok": true,
+  "detail": {
+   "min": 25,
+   "pair": "KOSPI200/EEM"
+  }
+ },
+ {
+  "name": "[360 dark] tocco sul punto INDA seleziona NIFTY50",
+  "ok": true,
+  "detail": "#emg-NIFTY50"
+ },
+ {
+  "name": "[360 dark] [esplorativo] tocco a 6 px dal punto EWT seleziona TWN",
+  "ok": true,
+  "detail": "#emg-TWN"
+ },
+ {
+  "name": "[360 dark] dopo il tocco nel quadrante il dettaglio cambiato è visibile",
+  "ok": false,
+  "detail": {
+   "titleTop": -867,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[360 dark] ancora nessuno scroll orizzontale alla fine",
+  "ok": true,
+  "detail": {
+   "sw": 360,
+   "cw": 360,
+   "over": []
+  }
+ },
+ {
+  "name": "[360 dark] voci della legenda dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 dark] [confronto] nella vista 6 il tocco su una riga porta al dettaglio",
+  "ok": true,
+  "detail": {
+   "titleTop": 193,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[360 dark] console senza errori",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 light] 8 schede su due righe",
+  "ok": true,
+  "detail": [
+   171,
+   220
+  ]
+ },
+ {
+  "name": "[360 light] quattro schede per riga",
+  "ok": true,
+  "detail": [
+   "1 Monitor@171",
+   "2 Rotazione@171",
+   "3 Bottom Map@171",
+   "4 Settore@171",
+   "5 Alert@220",
+   "6 Indici@220",
+   "7 Titoli@220",
+   "8 Emergenti@220"
+  ]
+ },
+ {
+  "name": "[360 light] testo delle schede non tagliato",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 light] ogni scheda su una riga di testo",
+  "ok": false,
+  "detail": [
+   {
+    "t": "1 Monitor",
+    "lines": 2
+   },
+   {
+    "t": "2 Rotazione",
+    "lines": 2
+   },
+   {
+    "t": "3 Bottom Map",
+    "lines": 2
+   },
+   {
+    "t": "4 Settore",
+    "lines": 2
+   },
+   {
+    "t": "5 Alert",
+    "lines": 1
+   },
+   {
+    "t": "6 Indici",
+    "lines": 1
+   },
+   {
+    "t": "7 Titoli",
+    "lines": 1
+   },
+   {
+    "t": "8 Emergenti",
+    "lines": 1
+   }
+  ]
+ },
+ {
+  "name": "[360 light] schede alte almeno 32 px",
+  "ok": true,
+  "detail": [
+   48,
+   48,
+   48,
+   48,
+   34,
+   34,
+   34,
+   34
+  ]
+ },
+ {
+  "name": "[360 light] intestazione + schede entro il 30% dello schermo",
+  "ok": false,
+  "detail": {
+   "navBottom": 255,
+   "head": 154
+  }
+ },
+ {
+  "name": "[360 light] vista 8 senza scroll orizzontale",
+  "ok": true,
+  "detail": {
+   "sw": 360,
+   "cw": 360,
+   "over": []
+  }
+ },
+ {
+  "name": "[360 light] tabellone senza scroll orizzontale interno",
+  "ok": true,
+  "detail": {
+   "sw": 300,
+   "cw": 300
+  }
+ },
+ {
+  "name": "[360 light] tabellone a schede (intestazione nascosta)",
+  "ok": true,
+  "detail": "none"
+ },
+ {
+  "name": "[360 light] celle delle schede dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 light] schede alte almeno 44 px (bersaglio del tocco)",
+  "ok": true,
+  "detail": [
+   "CSI300:162",
+   "NIFTY50:162",
+   "IBOV:162",
+   "KOSPI200:162",
+   "TWN:162",
+   "HSI:162",
+   "EEM:162"
+  ]
+ },
+ {
+  "name": "[360 light] nessun testo tagliato nella vista 8",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 light] scheda KOSPI200 con le etichette dei valori",
+  "ok": true,
+  "detail": [
+   "none KOSPI200KOSPI 200",
+   "none ZONA BLU",
+   "breadth 17,5%",
+   "blu 15%",
+   "drawdown −37,6%",
+   "valuta HA SMESSO DI SCENDERE",
+   "3 mesi −13,8%",
+   "in $ −8,8%",
+   "vs ACWI LAGGING"
+  ]
+ },
+ {
+  "name": "[360 light] riquadri dentro lo schermo",
+  "ok": true,
+  "detail": [
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   },
+   {
+    "w": 300,
+    "x": 30,
+    "sw": 300,
+    "cw": 300
+   }
+  ]
+ },
+ {
+  "name": "[360 light] tocco sulla riga KOSPI200 apre il dettaglio (#emg-KOSPI200)",
+  "ok": true,
+  "detail": {
+   "y": 898,
+   "titleTop": 1114,
+   "vh": 844,
+   "hash": "#emg-KOSPI200"
+  }
+ },
+ {
+  "name": "[360 light] dopo il tocco il titolo del dettaglio è visibile senza scorrere",
+  "ok": false,
+  "detail": {
+   "y": 898,
+   "titleTop": 1114,
+   "vh": 844,
+   "hash": "#emg-KOSPI200",
+   "y0": 0
+  }
+ },
+ {
+  "name": "[360 light] grafico largo quanto lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 30,
+   "y": 148.453125,
+   "width": 300,
+   "height": 548
+  }
+ },
+ {
+  "name": "[360 light] tocco sul grafico mostra il riquadro dei valori",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "22/08/2025 KOSPI200 · normale Prezzo 3169 In dollari (base 100) 118,3 Sopra media 200 77,4% KRW per dollaro 1399,61 Valuta Normale Dollaro vs emergenti 131,79"
+  }
+ },
+ {
+  "name": "[360 light] riquadro dei valori dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "l": 34,
+   "r": 261,
+   "txt": "22/08/2025 KOSPI200 · normale Prezzo 3169 In dollari (base 100) 118,3 Sopra media 200 77,4% KRW per dollaro 1399,61 Valuta Normale Dollaro vs emergenti 131,79"
+  }
+ },
+ {
+  "name": "[360 light] testo del grafico ≥ 9 px reali",
+  "ok": true,
+  "detail": {
+   "scale": 1,
+   "small": []
+  }
+ },
+ {
+  "name": "[360 light] titoli dei pannelli dentro il grafico",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 light] tocco fuori chiude il riquadro",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[360 light] pulsanti periodo e «Apri nella vista 6» alti almeno 32 px",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 320,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[360 light] «Apri nella vista 6» dentro lo schermo e non tagliato",
+  "ok": true,
+  "detail": [
+   {
+    "t": "3A",
+    "w": 38,
+    "h": 34,
+    "r": 134,
+    "sw": 38,
+    "cw": 38
+   },
+   {
+    "t": "10A",
+    "w": 46,
+    "h": 34,
+    "r": 180,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "MAX",
+    "w": 46,
+    "h": 34,
+    "r": 226,
+    "sw": 45,
+    "cw": 45
+   },
+   {
+    "t": "Apri KOSPI200 nella vista 6 →",
+    "w": 224,
+    "h": 34,
+    "r": 320,
+    "sw": 222,
+    "cw": 222
+   }
+  ]
+ },
+ {
+  "name": "[360 light] quadrante dentro lo schermo",
+  "ok": true,
+  "detail": {
+   "x": 40,
+   "y": 271.90625,
+   "width": 280,
+   "height": 300
+  }
+ },
+ {
+  "name": "[360 light] [WCAG 2.5.8] bersagli dei punti del quadrante ≥ 24×24 px",
+  "ok": false,
+  "detail": [
+   "CSI300 31×13",
+   "NIFTY50 31×13",
+   "IBOV 26×13",
+   "KOSPI200 27×13",
+   "TWN 26×13",
+   "HSI 25×13",
+   "EEM 25×13"
+  ]
+ },
+ {
+  "name": "[360 light] punti del quadrante distanti almeno 24 px tra loro",
+  "ok": true,
+  "detail": {
+   "min": 25,
+   "pair": "KOSPI200/EEM"
+  }
+ },
+ {
+  "name": "[360 light] tocco sul punto INDA seleziona NIFTY50",
+  "ok": true,
+  "detail": "#emg-NIFTY50"
+ },
+ {
+  "name": "[360 light] [esplorativo] tocco a 6 px dal punto EWT seleziona TWN",
+  "ok": true,
+  "detail": "#emg-TWN"
+ },
+ {
+  "name": "[360 light] dopo il tocco nel quadrante il dettaglio cambiato è visibile",
+  "ok": false,
+  "detail": {
+   "titleTop": -867,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[360 light] ancora nessuno scroll orizzontale alla fine",
+  "ok": true,
+  "detail": {
+   "sw": 360,
+   "cw": 360,
+   "over": []
+  }
+ },
+ {
+  "name": "[360 light] voci della legenda dentro lo schermo",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 light] [confronto] nella vista 6 il tocco su una riga porta al dettaglio",
+  "ok": true,
+  "detail": {
+   "titleTop": 195,
+   "vh": 844
+  }
+ },
+ {
+  "name": "[360 light] console senza errori",
+  "ok": true,
+  "detail": []
+ }
+]

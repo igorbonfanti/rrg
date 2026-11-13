@@ -1,0 +1,881 @@
+
+> test
+> node --test
+
+TAP version 13
+# Seduta d2 non ancora pubblicabile: prezzi per 2/3 membri
+# Seduta d2 saltata: prezzi per 1/3 membri ma le sedute successive sono complete (buco nei dati della fonte)
+# Seduta 2026-09-24 non ancora pubblicabile: prezzi per 300/304 membri, fino a 2 mancanti in un settore
+# Subtest: eventi storici e messaggio Telegram
+ok 1 - eventi storici e messaggio Telegram
+  ---
+  duration_ms: 92.606305
+  type: 'test'
+  ...
+# Subtest: CSV con virgolette e validazione della lista
+ok 2 - CSV con virgolette e validazione della lista
+  ---
+  duration_ms: 1.283354
+  type: 'test'
+  ...
+# Subtest: lista dei membri: riclassificazione GICS accettata, cambi anomali scartati
+ok 3 - lista dei membri: riclassificazione GICS accettata, cambi anomali scartati
+  ---
+  duration_ms: 6.169243
+  type: 'test'
+  ...
+# Subtest: si pubblicano solo sedute complete
+ok 4 - si pubblicano solo sedute complete
+  ---
+  duration_ms: 1.171322
+  type: 'test'
+  ...
+# Subtest: una seduta saltata per un buco nei dati si inserisce al suo posto
+ok 5 - una seduta saltata per un buco nei dati si inserisce al suo posto
+  ---
+  duration_ms: 0.687206
+  type: 'test'
+  ...
+# Subtest: alert: un evento comparso con il ricalcolo delle ultime sedute non va perso
+ok 6 - alert: un evento comparso con il ricalcolo delle ultime sedute non va perso
+  ---
+  duration_ms: 0.316309
+  type: 'test'
+  ...
+# Subtest: breadth: due membri che non quotano più non bloccano la pubblicazione
+ok 7 - breadth: due membri che non quotano più non bloccano la pubblicazione
+  ---
+  duration_ms: 7.497275
+  type: 'test'
+  ...
+# Subtest: rettifiche Telegram: evento spostato dal ricalcolo o sparito
+ok 8 - rettifiche Telegram: evento spostato dal ricalcolo o sparito
+  ---
+  duration_ms: 1.492931
+  type: 'test'
+  ...
+# Subtest: festività NYSE 2026
+ok 9 - festività NYSE 2026
+  ---
+  duration_ms: 1.611679
+  type: 'test'
+  ...
+# Subtest: festività spostate e Capodanno di sabato
+ok 10 - festività spostate e Capodanno di sabato
+  ---
+  duration_ms: 0.438576
+  type: 'test'
+  ...
+# Subtest: sedute e seduta attesa
+ok 11 - sedute e seduta attesa
+  ---
+  duration_ms: 17.587054
+  type: 'test'
+  ...
+# Subtest: seduta attesa con ora di pubblicazione oltre la mezzanotte (orari della GitHub Action)
+ok 12 - seduta attesa con ora di pubblicazione oltre la mezzanotte (orari della GitHub Action)
+  ---
+  duration_ms: 1.881716
+  type: 'test'
+  ...
+# Subtest: tabella dei cambi di Wikipedia: date, ticker, nomi e righe con la data sopra
+ok 13 - tabella dei cambi di Wikipedia: date, ticker, nomi e righe con la data sopra
+  ---
+  duration_ms: 4.513219
+  type: 'test'
+  ...
+# Subtest: appartenenza: ingressi, uscite con settore, ticker cambiato dopo l'ingresso
+ok 14 - appartenenza: ingressi, uscite con settore, ticker cambiato dopo l'ingresso
+  ---
+  duration_ms: 6.108744
+  type: 'test'
+  ...
+# Subtest: appartenenza: entrato e uscito nella finestra, uscito e rientrato
+ok 15 - appartenenza: entrato e uscito nella finestra, uscito e rientrato
+  ---
+  duration_ms: 0.296674
+  type: 'test'
+  ...
+# Subtest: ribilanciamenti: 3° venerdì (giovedì se festivo) con la data di riferimento
+ok 16 - ribilanciamenti: 3° venerdì (giovedì se festivo) con la data di riferimento
+  ---
+  duration_ms: 0.452663
+  type: 'test'
+  ...
+# Subtest: prezzi allineati: avanti nelle sedute senza scambi, null dopo l'ultima quotazione
+ok 17 - prezzi allineati: avanti nelle sedute senza scambi, null dopo l'ultima quotazione
+  ---
+  duration_ms: 0.178191
+  type: 'test'
+  ...
+# Subtest: indici simulati: cap a buy-and-hold, equal ribilanciato, ingressi e uscite
+ok 18 - indici simulati: cap a buy-and-hold, equal ribilanciato, ingressi e uscite
+  ---
+  duration_ms: 1.95446
+  type: 'test'
+  ...
+# Subtest: finestre dei periodi: YTD parte dall'ultima seduta dell'anno prima
+ok 19 - finestre dei periodi: YTD parte dall'ultima seduta dell'anno prima
+  ---
+  duration_ms: 0.557742
+  type: 'test'
+  ...
+# Subtest: holdings di IVV: valore di mercato, azioni e data
+ok 20 - holdings di IVV: valore di mercato, azioni e data
+  ---
+  duration_ms: 0.530558
+  type: 'test'
+  ...
+# Subtest: buildSectorMembers: forma del file e numeri dei titoli
+ok 21 - buildSectorMembers: forma del file e numeri dei titoli
+  ---
+  duration_ms: 9.935213
+  type: 'test'
+  ...
+# Subtest: data/sector_members.json: 11 settori, S&P 500 e titoli della lista
+ok 22 - data/sector_members.json: 11 settori, S&P 500 e titoli della lista
+  ---
+  duration_ms: 3.012784
+  type: 'test'
+  ...
+# Subtest: vista 7: da quante settimane guida il segno di oggi
+ok 23 - vista 7: da quante settimane guida il segno di oggi
+  ---
+  duration_ms: 2.107713
+  type: 'test'
+  ...
+# Subtest: conteggi in stringa: piccoli, grandi e sedute mancanti tornano uguali
+ok 24 - conteggi in stringa: piccoli, grandi e sedute mancanti tornano uguali
+  ---
+  duration_ms: 0.973226
+  type: 'test'
+  ...
+# Subtest: cali di una seduta: soglie, errori di stampa e crolli impossibili
+ok 25 - cali di una seduta: soglie, errori di stampa e crolli impossibili
+  ---
+  duration_ms: 1.494639
+  type: 'test'
+  ...
+# Subtest: rendimenti dei membri: seduta precedente vicina e chiusura rettificata per gli eventi straordinari
+ok 26 - rendimenti dei membri: seduta precedente vicina e chiusura rettificata per gli eventi straordinari
+  ---
+  duration_ms: 0.261331
+  type: 'test'
+  ...
+# Subtest: somme su N sedute, in conteggi o in percentuale dei membri
+ok 27 - somme su N sedute, in conteggi o in percentuale dei membri
+  ---
+  duration_ms: 0.261468
+  type: 'test'
+  ...
+# Subtest: soglia di allerta: solo le sedute precedenti, dopo il riscaldamento
+ok 28 - soglia di allerta: solo le sedute precedenti, dopo il riscaldamento
+  ---
+  duration_ms: 0.229306
+  type: 'test'
+  ...
+# Subtest: episodi: sedute in allerta raggruppate, sedute in allerta contate, situazione di oggi
+ok 29 - episodi: sedute in allerta raggruppate, sedute in allerta contate, situazione di oggi
+  ---
+  duration_ms: 0.45443
+  type: 'test'
+  ...
+# Subtest: dopo l episodio: calo dal massimo a 52 settimane, ulteriore calo, rendimenti e confronto
+ok 30 - dopo l episodio: calo dal massimo a 52 settimane, ulteriore calo, rendimenti e confronto
+  ---
+  duration_ms: 2.620586
+  type: 'test'
+  ...
+# Subtest: aggiornamento del file: sedute nuove in ordine, sedute presenti sostituite
+ok 31 - aggiornamento del file: sedute nuove in ordine, sedute presenti sostituite
+  ---
+  duration_ms: 0.576054
+  type: 'test'
+  ...
+# Subtest: sera: cali forti per settore e S&P 500 dalle chiusure dei membri
+ok 32 - sera: cali forti per settore e S&P 500 dalle chiusure dei membri
+  ---
+  duration_ms: 6.025673
+  type: 'test'
+  ...
+# Subtest: esiti degli episodi: senza il prezzo quel giorno i valori mancano, non sono NaN
+ok 33 - esiti degli episodi: senza il prezzo quel giorno i valori mancano, non sono NaN
+  ---
+  duration_ms: 0.615542
+  type: 'test'
+  ...
+# Subtest: emergenti: configurazione coerente con la vista 6
+ok 34 - emergenti: configurazione coerente con la vista 6
+  ---
+  duration_ms: 1.922703
+  type: 'test'
+  ...
+# Subtest: emergenti: pulizia di un errore di stampa isolato, non di un salto vero
+ok 35 - emergenti: pulizia di un errore di stampa isolato, non di un salto vero
+  ---
+  duration_ms: 0.723996
+  type: 'test'
+  ...
+# Subtest: emergenti: stato della valuta in parole
+ok 36 - emergenti: stato della valuta in parole
+  ---
+  duration_ms: 0.273319
+  type: 'test'
+  ...
+# Subtest: emergenti: valori sulle date dell'indice senza riempimento, indice in dollari e variazioni
+ok 37 - emergenti: valori sulle date dell'indice senza riempimento, indice in dollari e variazioni
+  ---
+  duration_ms: 0.512773
+  type: 'test'
+  ...
+# Subtest: emergenti: pacchetto delle serie, andata e ritorno; FRED giornaliero con i «.»
+ok 38 - emergenti: pacchetto delle serie, andata e ritorno; FRED giornaliero con i «.»
+  ---
+  duration_ms: 0.988199
+  type: 'test'
+  ...
+# Subtest: emergenti: nessun dato futuro (il valore a t sulla serie intera è uguale a quello sulla serie tagliata a t)
+ok 39 - emergenti: nessun dato futuro (il valore a t sulla serie intera è uguale a quello sulla serie tagliata a t)
+  ---
+  duration_ms: 176.985086
+  type: 'test'
+  ...
+# Subtest: emergenti: file dei dati completo e ordinato
+ok 40 - emergenti: file dei dati completo e ordinato
+  ---
+  duration_ms: 20.324825
+  type: 'test'
+  ...
+# Subtest: emergenti: forza relativa con la formula della rotazione, quadrante coerente
+ok 41 - emergenti: forza relativa con la formula della rotazione, quadrante coerente
+  ---
+  duration_ms: 19.034475
+  type: 'test'
+  ...
+# Subtest: emergenti: valori «d'oro» delle definizioni (cambi della Fed 2012-2020, ricalcolo indipendente in Python)
+ok 42 - emergenti: valori «d'oro» delle definizioni (cambi della Fed 2012-2020, ricalcolo indipendente in Python)
+  ---
+  duration_ms: 9.943894
+  type: 'test'
+  ...
+# Subtest: emergenti: giunzione Fed + Yahoo e serie invariate
+ok 43 - emergenti: giunzione Fed + Yahoo e serie invariate
+  ---
+  duration_ms: 0.575861
+  type: 'test'
+  ...
+# Subtest: formula nuova: un trend più forte finisce più a destra
+ok 44 - formula nuova: un trend più forte finisce più a destra
+  ---
+  duration_ms: 1.956136
+  type: 'test'
+  ...
+# Subtest: formula nuova: nessun valore prima del riscaldamento, poi sempre definito
+ok 45 - formula nuova: nessun valore prima del riscaldamento, poi sempre definito
+  ---
+  duration_ms: 0.330495
+  type: 'test'
+  ...
+# Subtest: medie semplici: 100·SMA10/SMA30 della forza relativa e momentum 100·RS-Ratio/SMA9
+ok 46 - medie semplici: 100·SMA10/SMA30 della forza relativa e momentum 100·RS-Ratio/SMA9
+  ---
+  duration_ms: 2.021151
+  type: 'test'
+  ...
+# Subtest: medie semplici: un trend relativo costante dà RS-Ratio fermo e momentum a 100
+ok 47 - medie semplici: un trend relativo costante dà RS-Ratio fermo e momentum a 100
+  ---
+  duration_ms: 0.304791
+  type: 'test'
+  ...
+# Subtest: formula classica invariata rispetto alla prima versione (XLU al 22/09/2026)
+ok 48 - formula classica invariata rispetto alla prima versione (XLU al 22/09/2026)
+  ---
+  duration_ms: 2.26926
+  type: 'test'
+  ...
+# Subtest: direzione in gradi bussola e quadranti
+ok 49 - direzione in gradi bussola e quadranti
+  ---
+  duration_ms: 0.219408
+  type: 'test'
+  ...
+# Subtest: campionamento settimanale e settimana provvisoria
+ok 50 - campionamento settimanale e settimana provvisoria
+  ---
+  duration_ms: 1.131344
+  type: 'test'
+  ...
+# Subtest: dati reali: tutti i settori hanno valori finiti dall'inizio valido in poi
+ok 51 - dati reali: tutti i settori hanno valori finiti dall'inizio valido in poi
+  ---
+  duration_ms: 14.256413
+  type: 'test'
+  ...
+# Subtest: un punto esiste solo quando RS-Ratio e RS-Momentum sono entrambi definiti (anche con la classica e la semplice)
+ok 52 - un punto esiste solo quando RS-Ratio e RS-Momentum sono entrambi definiti (anche con la classica e la semplice)
+  ---
+  duration_ms: 5.598543
+  type: 'test'
+  ...
+# Subtest: asOf = ultima data comune, esclusi i ticker fermi da giorni
+ok 53 - asOf = ultima data comune, esclusi i ticker fermi da giorni
+  ---
+  duration_ms: 2.705863
+  type: 'test'
+  ...
+# Subtest: allineamento: niente code ricopiate, lacune interne riempite
+ok 54 - allineamento: niente code ricopiate, lacune interne riempite
+  ---
+  duration_ms: 0.856298
+  type: 'test'
+  ...
+# Subtest: universe.json: sezione macro coerente, errori riconosciuti
+ok 55 - universe.json: sezione macro coerente, errori riconosciuti
+  ---
+  duration_ms: 0.778709
+  type: 'test'
+  ...
+# Subtest: CSV di FRED: mesi con valore, quelli vuoti saltati
+ok 56 - CSV di FRED: mesi con valore, quelli vuoti saltati
+  ---
+  duration_ms: 0.418526
+  type: 'test'
+  ...
+# Subtest: CPI a gradini dal giorno di pubblicazione, senza guardare avanti
+ok 57 - CPI a gradini dal giorno di pubblicazione, senza guardare avanti
+  ---
+  duration_ms: 7.273673
+  type: 'test'
+  ...
+# Subtest: date di uscita del CPI (seme ALFRED): nel mese successivo, in ordine, senza ottobre 2025
+ok 58 - date di uscita del CPI (seme ALFRED): nel mese successivo, in ordine, senza ottobre 2025
+  ---
+  duration_ms: 0.646134
+  type: 'test'
+  ...
+# Subtest: benchmark «senza dollaro»: inverso del dollar index
+ok 59 - benchmark «senza dollaro»: inverso del dollar index
+  ---
+  duration_ms: 0.273829
+  type: 'test'
+  ...
+# Subtest: chiusure senza rettifica: la pubblicata divisa per il fattore di Yahoo di quel giorno
+ok 60 - chiusure senza rettifica: la pubblicata divisa per il fattore di Yahoo di quel giorno
+  ---
+  duration_ms: 0.926402
+  type: 'test'
+  ...
+# Subtest: massimo a 52 settimane: stesse sedute del drawdown rettificato, i due valori cambiano solo per la cedola
+ok 61 - massimo a 52 settimane: stesse sedute del drawdown rettificato, i due valori cambiano solo per la cedola
+  ---
+  duration_ms: 2.160972
+  type: 'test'
+  ...
+# Subtest: criptovalute: contano tutti i giorni, anche i fine settimana fuori dal calendario del file
+ok 62 - criptovalute: contano tutti i giorni, anche i fine settimana fuori dal calendario del file
+  ---
+  duration_ms: 1.065842
+  type: 'test'
+  ...
+# Subtest: Yahoo: chiusura europea ancora vuota presa dalla quotazione, a seduta finita
+ok 63 - Yahoo: chiusura europea ancora vuota presa dalla quotazione, a seduta finita
+  ---
+  duration_ms: 3.496823
+  type: 'test'
+  ...
+# Subtest: Yahoo: massimo della seduta accanto alle chiusure (quello mancante o sotto la chiusura vale la chiusura)
+ok 64 - Yahoo: massimo della seduta accanto alle chiusure (quello mancante o sotto la chiusura vale la chiusura)
+  ---
+  duration_ms: 0.304531
+  type: 'test'
+  ...
+# Subtest: Yahoo: per le criptovalute si tiene la barra del giorno in corso
+ok 65 - Yahoo: per le criptovalute si tiene la barra del giorno in corso
+  ---
+  duration_ms: 0.217746
+  type: 'test'
+  ...
+# Subtest: calendario di Borsa Italiana
+ok 66 - calendario di Borsa Italiana
+  ---
+  duration_ms: 13.108321
+  type: 'test'
+  ...
+# Subtest: calendario globale e allineamento: Ferragosto e fine settimana esclusi, bitcoin all'ultimo prezzo
+ok 67 - calendario globale e allineamento: Ferragosto e fine settimana esclusi, bitcoin all'ultimo prezzo
+  ---
+  duration_ms: 0.506872
+  type: 'test'
+  ...
+# Subtest: data di pubblicazione con il calendario di Milano
+ok 68 - data di pubblicazione con il calendario di Milano
+  ---
+  duration_ms: 0.276959
+  type: 'test'
+  ...
+# Subtest: prezzi anomali: si corregge il salto isolato che rientra, non i movimenti veri
+ok 69 - prezzi anomali: si corregge il salto isolato che rientra, non i movimenti veri
+  ---
+  duration_ms: 5.520763
+  type: 'test'
+  ...
+# Subtest: portafoglio sintetico ribilanciato a fine mese
+ok 70 - portafoglio sintetico ribilanciato a fine mese
+  ---
+  duration_ms: 0.479903
+  type: 'test'
+  ...
+# Subtest: portafoglio: pesi di oggi e data dell'ultimo ribilanciamento
+ok 71 - portafoglio: pesi di oggi e data dell'ultimo ribilanciamento
+  ---
+  duration_ms: 0.372037
+  type: 'test'
+  ...
+# Subtest: portafoglio: un peso a zero esclude la componente senza segnalarla come mancante
+ok 72 - portafoglio: un peso a zero esclude la componente senza segnalarla come mancante
+  ---
+  duration_ms: 0.575464
+  type: 'test'
+  ...
+# Subtest: portafoglio personalizzato: pesi salvati nel browser validati
+ok 73 - portafoglio personalizzato: pesi salvati nel browser validati
+  ---
+  duration_ms: 0.364929
+  type: 'test'
+  ...
+# Subtest: portafoglio personalizzato: «Porta a 100%» mantiene le proporzioni in numeri interi
+ok 74 - portafoglio personalizzato: «Porta a 100%» mantiene le proporzioni in numeri interi
+  ---
+  duration_ms: 0.359096
+  type: 'test'
+  ...
+# Subtest: universe.json: universi globali coerenti
+ok 75 - universe.json: universi globali coerenti
+  ---
+  duration_ms: 1.219299
+  type: 'test'
+  ...
+# Subtest: prezzi anomali: un vero crollo a V di tutto il mercato non si corregge
+ok 76 - prezzi anomali: un vero crollo a V di tutto il mercato non si corregge
+  ---
+  duration_ms: 10.883851
+  type: 'test'
+  ...
+# Subtest: niente barre della seduta in corso, tranne le criptovalute
+ok 77 - niente barre della seduta in corso, tranne le criptovalute
+  ---
+  duration_ms: 0.404998
+  type: 'test'
+  ...
+# Subtest: una lacuna nuova di Yahoo non cancella un prezzo già pubblicato (riscalato alle rettifiche)
+ok 78 - una lacuna nuova di Yahoo non cancella un prezzo già pubblicato (riscalato alle rettifiche)
+  ---
+  duration_ms: 0.26717
+  type: 'test'
+  ...
+# Subtest: calendario globale: la seduta che manca alla maggior parte degli ETF si toglie per tutti
+ok 79 - calendario globale: la seduta che manca alla maggior parte degli ETF si toglie per tutti
+  ---
+  duration_ms: 0.25426
+  type: 'test'
+  ...
+# Subtest: prezzi tenuti: nomi, etichette e gruppi arrivano comunque da universe.json
+ok 80 - prezzi tenuti: nomi, etichette e gruppi arrivano comunque da universe.json
+  ---
+  duration_ms: 0.420152
+  type: 'test'
+  ...
+# Subtest: storia allungata con un proxy: stessa scala al raccordo, poi solo l'ETF
+ok 81 - storia allungata con un proxy: stessa scala al raccordo, poi solo l'ETF
+  ---
+  duration_ms: 0.591424
+  type: 'test'
+  ...
+# Subtest: barre segnaposto di Yahoo scartate, prezzi ricopiati segnati, rendimenti del Monitor che li usano
+ok 82 - barre segnaposto di Yahoo scartate, prezzi ricopiati segnati, rendimenti del Monitor che li usano
+  ---
+  duration_ms: 1.312654
+  type: 'test'
+  ...
+# Subtest: Yahoo: senza orario di contrattazione la barra di oggi si scarta solo a seduta probabilmente aperta
+ok 83 - Yahoo: senza orario di contrattazione la barra di oggi si scarta solo a seduta probabilmente aperta
+  ---
+  duration_ms: 0.306091
+  type: 'test'
+  ...
+# Subtest: Yahoo: la chiusura di una borsa appena chiusa è provvisoria per un'ora
+ok 84 - Yahoo: la chiusura di una borsa appena chiusa è provvisoria per un'ora
+  ---
+  duration_ms: 0.166022
+  type: 'test'
+  ...
+# Subtest: date compresse: andata e ritorno
+ok 85 - date compresse: andata e ritorno
+  ---
+  duration_ms: 1.727826
+  type: 'test'
+  ...
+# Subtest: data/indices.json e indices_more.json: ogni indice ha prezzo e breadth coerenti, i principali nel primo file
+ok 86 - data/indices.json e indices_more.json: ogni indice ha prezzo e breadth coerenti, i principali nel primo file
+  ---
+  duration_ms: 74.254745
+  type: 'test'
+  ...
+# Subtest: formato compatto: differenze senza perdita, nulls e file vecchi
+ok 87 - formato compatto: differenze senza perdita, nulls e file vecchi
+  ---
+  duration_ms: 0.545417
+  type: 'test'
+  ...
+# Subtest: tabelle di Wikipedia: colonna dei ticker
+ok 88 - tabelle di Wikipedia: colonna dei ticker
+  ---
+  duration_ms: 1.291062
+  type: 'test'
+  ...
+# Subtest: CSV Nikkei, holdings EXSA e API Nasdaq
+ok 89 - CSV Nikkei, holdings EXSA e API Nasdaq
+  ---
+  duration_ms: 1.132207
+  type: 'test'
+  ...
+# Subtest: lista nuova: numero di titoli e sovrapposizione con l'ultima buona
+ok 90 - lista nuova: numero di titoli e sovrapposizione con l'ultima buona
+  ---
+  duration_ms: 0.418594
+  type: 'test'
+  ...
+# Subtest: spark: si riscaricano i titoli con sedute mancanti o indietro
+ok 91 - spark: si riscaricano i titoli con sedute mancanti o indietro
+  ---
+  duration_ms: 0.504849
+  type: 'test'
+  ...
+# Subtest: pulizia degli errori di scala
+ok 92 - pulizia degli errori di scala
+  ---
+  duration_ms: 0.213859
+  type: 'test'
+  ...
+# Subtest: conteggi di una seduta e aggiornamento del file
+ok 93 - conteggi di una seduta e aggiornamento del file
+  ---
+  duration_ms: 1.16352
+  type: 'test'
+  ...
+# Subtest: indici con limiti: holdings iShares, B3 e tabelle di Wikipedia
+ok 94 - indici con limiti: holdings iShares, B3 e tabelle di Wikipedia
+  ---
+  duration_ms: 1.145562
+  type: 'test'
+  ...
+# Subtest: version.json e js/version.js hanno la stessa versione
+ok 95 - version.json e js/version.js hanno la stessa versione
+  ---
+  duration_ms: 0.657816
+  type: 'test'
+  ...
+# Subtest: errori di scala: uno split non registrato si riporta, la riapertura dopo una sospensione resta
+ok 96 - errori di scala: uno split non registrato si riporta, la riapertura dopo una sospensione resta
+  ---
+  duration_ms: 0.35654
+  type: 'test'
+  ...
+# Subtest: drawdown dal massimo mobile
+ok 97 - drawdown dal massimo mobile
+  ---
+  duration_ms: 1.617969
+  type: 'test'
+  ...
+# Subtest: percentile di profondità usa solo la storia passata
+ok 98 - percentile di profondità usa solo la storia passata
+  ---
+  duration_ms: 0.252499
+  type: 'test'
+  ...
+# Subtest: metriche a fine serie
+ok 99 - metriche a fine serie
+  ---
+  duration_ms: 1.848515
+  type: 'test'
+  ...
+# Subtest: chiusura più alta nel periodo e ultima chiusura; massimo intraday a parte
+ok 100 - chiusura più alta nel periodo e ultima chiusura; massimo intraday a parte
+  ---
+  duration_ms: 0.3195
+  type: 'test'
+  ...
+# Subtest: date di stacco: dove cambia il fattore di rettifica, solo dentro il periodo
+ok 101 - date di stacco: dove cambia il fattore di rettifica, solo dentro il periodo
+  ---
+  duration_ms: 0.18243
+  type: 'test'
+  ...
+# Subtest: nota del solo prezzo: di cedole si parla solo per chi ne paga
+ok 102 - nota del solo prezzo: di cedole si parla solo per chi ne paga
+  ---
+  duration_ms: 0.879078
+  type: 'test'
+  ...
+# Subtest: commit dei dati: un file che cambia solo per l'ora di generazione non si pubblica
+ok 103 - commit dei dati: un file che cambia solo per l'ora di generazione non si pubblica
+  ---
+  duration_ms: 0.798157
+  type: 'test'
+  ...
+# Subtest: dati fermi: ogni fonte con il suo limite, i ponti festivi passano
+ok 104 - dati fermi: ogni fonte con il suo limite, i ponti festivi passano
+  ---
+  duration_ms: 1.493748
+  type: 'test'
+  ...
+# Subtest: alert: un invio fallito si riprova per 5 sedute
+ok 105 - alert: un invio fallito si riprova per 5 sedute
+  ---
+  duration_ms: 0.151356
+  type: 'test'
+  ...
+# Subtest: dati fermi: file dei prezzi e ogni indice o serie dei cali forti, con le feste lunghe delle borse asiatiche
+ok 106 - dati fermi: file dei prezzi e ogni indice o serie dei cali forti, con le feste lunghe delle borse asiatiche
+  ---
+  duration_ms: 0.219316
+  type: 'test'
+  ...
+# Subtest: corse di recupero: si fermano solo se la seduta USA attesa c'è già ovunque
+ok 107 - corse di recupero: si fermano solo se la seduta USA attesa c'è già ovunque
+  ---
+  duration_ms: 1.567148
+  type: 'test'
+  ...
+# Subtest: corse di recupero: lo stesso cron nel workflow e nello script
+ok 108 - corse di recupero: lo stesso cron nel workflow e nello script
+  ---
+  duration_ms: 0.443578
+  type: 'test'
+  ...
+# Subtest: dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni
+ok 109 - dati fermi: vista Emergenti, cambi ed ETF come gli altri prezzi, FRED settimanale fino a 14 giorni
+  ---
+  duration_ms: 0.34635
+  type: 'test'
+  ...
+# Subtest: dati fermi: vista VIX, VIX e indici come gli altri prezzi, FRED fino a 6 giorni
+ok 110 - dati fermi: vista VIX, VIX e indici come gli altri prezzi, FRED fino a 6 giorni
+  ---
+  duration_ms: 0.24411
+  type: 'test'
+  ...
+# Subtest: dati fermi: VIX3M e credito della 1.6.0 (file vecchio senza i campi: nessun controllo)
+ok 111 - dati fermi: VIX3M e credito della 1.6.0 (file vecchio senza i campi: nessun controllo)
+  ---
+  duration_ms: 0.32067
+  type: 'test'
+  ...
+# Subtest: RLE andata e ritorno
+ok 112 - RLE andata e ritorno
+  ---
+  duration_ms: 2.206397
+  type: 'test'
+  ...
+# Subtest: breadth ricostruita coincide con i valori pubblicati di SUTH
+ok 113 - breadth ricostruita coincide con i valori pubblicati di SUTH
+  ---
+  duration_ms: 3.62994
+  type: 'test'
+  ...
+# Subtest: configurazione: livello blu per tutti gli 11 settori, Consumer Discretionary all'8%
+ok 114 - configurazione: livello blu per tutti gli 11 settori, Consumer Discretionary all'8%
+  ---
+  duration_ms: 0.280572
+  type: 'test'
+  ...
+# Subtest: macchina a stati: zona blu nel crollo, trigger nella ripresa, poi cooldown
+ok 115 - macchina a stati: zona blu nel crollo, trigger nella ripresa, poi cooldown
+  ---
+  duration_ms: 2.111694
+  type: 'test'
+  ...
+# Subtest: dati reali: Utilities in attenzione al 21/09/2026, zona blu nel 2008, 2020 e 2022
+ok 116 - dati reali: Utilities in attenzione al 21/09/2026, zona blu nel 2008, 2020 e 2022
+  ---
+  duration_ms: 15.182835
+  type: 'test'
+  ...
+# Subtest: segnale fallito tardivo: prezzo sotto il minimo e breadth sotto il livello prima del riarmo
+ok 117 - segnale fallito tardivo: prezzo sotto il minimo e breadth sotto il livello prima del riarmo
+  ---
+  duration_ms: 9.537316
+  type: 'test'
+  ...
+# Subtest: soglia di avvicinamento: livello + calo forte in 10 sedute
+ok 118 - soglia di avvicinamento: livello + calo forte in 10 sedute
+  ---
+  duration_ms: 0.666407
+  type: 'test'
+  ...
+# Subtest: soglia di avvicinamento seduta per seduta: uguale a quella calcolata con la storia tagliata a quel giorno
+ok 119 - soglia di avvicinamento seduta per seduta: uguale a quella calcolata con la storia tagliata a quel giorno
+  ---
+  duration_ms: 322.129512
+  type: 'test'
+  ...
+# Subtest: perché questo stato: la lista non contraddice mai la macchina
+ok 120 - perché questo stato: la lista non contraddice mai la macchina
+  ---
+  duration_ms: 304.553849
+  type: 'test'
+  ...
+# Subtest: episodi a confronto: trigger, zona blu, seduta qualsiasi e benchmark negli stessi giorni
+ok 121 - episodi a confronto: trigger, zona blu, seduta qualsiasi e benchmark negli stessi giorni
+  ---
+  duration_ms: 1.771322
+  type: 'test'
+  ...
+# Subtest: dopo il segnale fallito il minimo della zona blu comprende la chiusura del giorno del fallimento
+ok 122 - dopo il segnale fallito il minimo della zona blu comprende la chiusura del giorno del fallimento
+  ---
+  duration_ms: 0.446761
+  type: 'test'
+  ...
+# Subtest: «Perché questo stato» riporta il vero minimo del prezzo della zona blu
+ok 123 - «Perché questo stato» riporta il vero minimo del prezzo della zona blu
+  ---
+  duration_ms: 0.272426
+  type: 'test'
+  ...
+# Subtest: indicatore Pine: zone blu, trigger e falliti dalle sedute della macchina a stati
+ok 124 - indicatore Pine: zone blu, trigger e falliti dalle sedute della macchina a stati
+  ---
+  duration_ms: 2.457104
+  type: 'test'
+  ...
+# Subtest: sintassi di tutti i file in js/
+ok 125 - sintassi di tutti i file in js/
+  ---
+  duration_ms: 568.506581
+  type: 'test'
+  ...
+# Subtest: vix: episodi solo dopo 63 sedute di quiete, rendimenti dalla chiusura del giorno dopo
+ok 126 - vix: episodi solo dopo 63 sedute di quiete, rendimenti dalla chiusura del giorno dopo
+  ---
+  duration_ms: 1.221645
+  type: 'test'
+  ...
+# Subtest: vix: tabella dei regimi sul campione 1990-2025 (valori verificati con lo script di ricerca)
+ok 127 - vix: tabella dei regimi sul campione 1990-2025 (valori verificati con lo script di ricerca)
+  ---
+  duration_ms: 131.10661
+  type: 'test'
+  ...
+# Subtest: vix: data del massimo dell'episodio (un episodio a 20 può comprendere più crisi)
+ok 128 - vix: data del massimo dell'episodio (un episodio a 20 può comprendere più crisi)
+  ---
+  duration_ms: 9.781619
+  type: 'test'
+  ...
+# Subtest: vix: realizzata, percentili sulla storia fino a quel giorno, fasce, scatter
+ok 129 - vix: realizzata, percentili sulla storia fino a quel giorno, fasce, scatter
+  ---
+  duration_ms: 19.977807
+  type: 'test'
+  ...
+# Subtest: vix: solo sedute dell'indice e nessun dato futuro nella lettura di oggi
+ok 130 - vix: solo sedute dell'indice e nessun dato futuro nella lettura di oggi
+  ---
+  duration_ms: 22.45855
+  type: 'test'
+  ...
+# Subtest: vix: file dei dati completo e ordinato
+ok 131 - vix: file dei dati completo e ordinato
+  ---
+  duration_ms: 14.077157
+  type: 'test'
+  ...
+# Subtest: vix: dettagli degli episodi, nessun riempimento e seduta provvisoria
+ok 132 - vix: dettagli degli episodi, nessun riempimento e seduta provvisoria
+  ---
+  duration_ms: 5.50844
+  type: 'test'
+  ...
+# Subtest: struttura a termine: rapporto, stato, nessun riempimento
+ok 133 - struttura a termine: rapporto, stato, nessun riempimento
+  ---
+  duration_ms: 1.471585
+  type: 'test'
+  ...
+# Subtest: credito: distanza dal massimo e variazione sulle osservazioni valide, i buchi restano buchi
+ok 134 - credito: distanza dal massimo e variazione sulle osservazioni valide, i buchi restano buchi
+  ---
+  duration_ms: 0.366087
+  type: 'test'
+  ...
+# Subtest: contesto: oggi, seduta provvisoria, VIX3M mancante, file senza le serie nuove, nessun dato futuro
+ok 135 - contesto: oggi, seduta provvisoria, VIX3M mancante, file senza le serie nuove, nessun dato futuro
+  ---
+  duration_ms: 13.823469
+  type: 'test'
+  ...
+# Subtest: fetch_vix: file di Cboe, coda Cboe + Yahoo, rapporto HYG/IEF
+ok 136 - fetch_vix: file di Cboe, coda Cboe + Yahoo, rapporto HYG/IEF
+  ---
+  duration_ms: 0.71565
+  type: 'test'
+  ...
+# Subtest: fetch_vix: fonte dell'ultima seduta e sedute provvisorie non plausibili
+ok 137 - fetch_vix: fonte dell'ultima seduta e sedute provvisorie non plausibili
+  ---
+  duration_ms: 0.219505
+  type: 'test'
+  ...
+# Subtest: fetch_vix: VIX3M e credito facoltativi, VIX, S&P 500 e Nasdaq-100 obbligatori
+ok 138 - fetch_vix: VIX3M e credito facoltativi, VIX, S&P 500 e Nasdaq-100 obbligatori
+  ---
+  duration_ms: 0.599727
+  type: 'test'
+  ...
+# Subtest: vix.json: VIX3M e HYG/IEF completi e solo nelle sedute dell'S&P 500
+ok 139 - vix.json: VIX3M e HYG/IEF completi e solo nelle sedute dell'S&P 500
+  ---
+  duration_ms: 37.72471
+  type: 'test'
+  ...
+# Subtest: Yahoo: cambi (Europe/London) datati con l'ora legale della barra, qualunque sia il giorno del download
+ok 140 - Yahoo: cambi (Europe/London) datati con l'ora legale della barra, qualunque sia il giorno del download
+  ---
+  duration_ms: 11.942739
+  type: 'test'
+  ...
+# Subtest: Yahoo: DX-Y.NYB (America/New_York, barre a mezzanotte) senza date doppie né spostate
+ok 141 - Yahoo: DX-Y.NYB (America/New_York, barre a mezzanotte) senza date doppie né spostate
+  ---
+  duration_ms: 0.469586
+  type: 'test'
+  ...
+# Subtest: Yahoo: senza exchangeTimezoneName si usa ancora il gmtoffset
+ok 142 - Yahoo: senza exchangeTimezoneName si usa ancora il gmtoffset
+  ---
+  duration_ms: 1.009311
+  type: 'test'
+  ...
+# Subtest: Yahoo: un fuso sconosciuto non perde il simbolo (ripiego sul gmtoffset), anche alla seconda serie
+ok 143 - Yahoo: un fuso sconosciuto non perde il simbolo (ripiego sul gmtoffset), anche alla seconda serie
+  ---
+  duration_ms: 0.33217
+  type: 'test'
+  ...
+# Subtest: Yahoo: lo stesso istante vicino alla mezzanotte ha date diverse in fusi diversi (una cache per fuso)
+ok 144 - Yahoo: lo stesso istante vicino alla mezzanotte ha date diverse in fusi diversi (una cache per fuso)
+  ---
+  duration_ms: 0.37924
+  type: 'test'
+  ...
+1..144
+# tests 144
+# suites 0
+# pass 144
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1390.680072

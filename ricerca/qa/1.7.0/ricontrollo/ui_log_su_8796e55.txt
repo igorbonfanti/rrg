@@ -1,0 +1,347 @@
+OK   1440-chiaro SPX 20: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro SPX 20: intestazione «Massimo»
+OK   1440-chiaro SPX 25: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro SPX 25: intestazione «Massimo»
+OK   1440-chiaro SPX 30: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro SPX 30: intestazione «Massimo»
+OK   1440-chiaro SPX 40: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro SPX 40: intestazione «Massimo»
+OK   1440-chiaro SPX 50: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro SPX 50: intestazione «Massimo»
+OK   1440-chiaro NDX 20: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro NDX 20: intestazione «Massimo»
+OK   1440-chiaro NDX 25: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro NDX 25: intestazione «Massimo»
+OK   1440-chiaro NDX 30: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro NDX 30: intestazione «Massimo»
+OK   1440-chiaro NDX 40: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro NDX 40: intestazione «Massimo»
+OK   1440-chiaro NDX 50: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-chiaro NDX 50: intestazione «Massimo»
+OK   1440-chiaro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1440-chiaro: riga di legenda del mini-grafico visibile
+OK   1440-chiaro: nessuno scorrimento orizzontale della pagina (1440/1440)
+OK   1440-chiaro: console 
+OK   1440-scuro SPX 20: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro SPX 20: intestazione «Massimo»
+OK   1440-scuro SPX 25: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro SPX 25: intestazione «Massimo»
+OK   1440-scuro SPX 30: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro SPX 30: intestazione «Massimo»
+OK   1440-scuro SPX 40: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro SPX 40: intestazione «Massimo»
+OK   1440-scuro SPX 50: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro SPX 50: intestazione «Massimo»
+OK   1440-scuro NDX 20: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro NDX 20: intestazione «Massimo»
+OK   1440-scuro NDX 25: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro NDX 25: intestazione «Massimo»
+OK   1440-scuro NDX 30: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro NDX 30: intestazione «Massimo»
+OK   1440-scuro NDX 40: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro NDX 40: intestazione «Massimo»
+OK   1440-scuro NDX 50: tabella degli episodi intera (1380/1380), «calo dopo» visibile
+FAIL 1440-scuro NDX 50: intestazione «Massimo»
+OK   1440-scuro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1440-scuro: riga di legenda del mini-grafico visibile
+OK   1440-scuro: nessuno scorrimento orizzontale della pagina (1440/1440)
+OK   1440-scuro: console 
+OK   1410-chiaro SPX 20: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro SPX 20: intestazione «Massimo»
+OK   1410-chiaro SPX 25: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro SPX 25: intestazione «Massimo»
+OK   1410-chiaro SPX 30: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro SPX 30: intestazione «Massimo»
+OK   1410-chiaro SPX 40: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro SPX 40: intestazione «Massimo»
+OK   1410-chiaro SPX 50: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro SPX 50: intestazione «Massimo»
+OK   1410-chiaro NDX 20: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro NDX 20: intestazione «Massimo»
+OK   1410-chiaro NDX 25: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro NDX 25: intestazione «Massimo»
+OK   1410-chiaro NDX 30: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro NDX 30: intestazione «Massimo»
+OK   1410-chiaro NDX 40: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro NDX 40: intestazione «Massimo»
+OK   1410-chiaro NDX 50: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-chiaro NDX 50: intestazione «Massimo»
+OK   1410-chiaro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1410-chiaro: riga di legenda del mini-grafico visibile
+OK   1410-chiaro: nessuno scorrimento orizzontale della pagina (1410/1410)
+OK   1410-chiaro: console 
+OK   1410-scuro SPX 20: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro SPX 20: intestazione «Massimo»
+OK   1410-scuro SPX 25: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro SPX 25: intestazione «Massimo»
+OK   1410-scuro SPX 30: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro SPX 30: intestazione «Massimo»
+OK   1410-scuro SPX 40: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro SPX 40: intestazione «Massimo»
+OK   1410-scuro SPX 50: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro SPX 50: intestazione «Massimo»
+OK   1410-scuro NDX 20: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro NDX 20: intestazione «Massimo»
+OK   1410-scuro NDX 25: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro NDX 25: intestazione «Massimo»
+OK   1410-scuro NDX 30: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro NDX 30: intestazione «Massimo»
+OK   1410-scuro NDX 40: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro NDX 40: intestazione «Massimo»
+OK   1410-scuro NDX 50: tabella degli episodi intera (1350/1350), «calo dopo» visibile
+FAIL 1410-scuro NDX 50: intestazione «Massimo»
+OK   1410-scuro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1410-scuro: riga di legenda del mini-grafico visibile
+OK   1410-scuro: nessuno scorrimento orizzontale della pagina (1410/1410)
+OK   1410-scuro: console 
+OK   1366-chiaro SPX 20: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro SPX 20: intestazione «Massimo»
+OK   1366-chiaro SPX 25: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro SPX 25: intestazione «Massimo»
+OK   1366-chiaro SPX 30: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro SPX 30: intestazione «Massimo»
+OK   1366-chiaro SPX 40: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro SPX 40: intestazione «Massimo»
+OK   1366-chiaro SPX 50: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro SPX 50: intestazione «Massimo»
+OK   1366-chiaro NDX 20: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro NDX 20: intestazione «Massimo»
+OK   1366-chiaro NDX 25: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro NDX 25: intestazione «Massimo»
+OK   1366-chiaro NDX 30: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro NDX 30: intestazione «Massimo»
+OK   1366-chiaro NDX 40: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro NDX 40: intestazione «Massimo»
+OK   1366-chiaro NDX 50: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-chiaro NDX 50: intestazione «Massimo»
+OK   1366-chiaro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1366-chiaro: riga di legenda del mini-grafico visibile
+OK   1366-chiaro: nessuno scorrimento orizzontale della pagina (1366/1366)
+OK   1366-chiaro: console 
+OK   1366-scuro SPX 20: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro SPX 20: intestazione «Massimo»
+OK   1366-scuro SPX 25: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro SPX 25: intestazione «Massimo»
+OK   1366-scuro SPX 30: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro SPX 30: intestazione «Massimo»
+OK   1366-scuro SPX 40: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro SPX 40: intestazione «Massimo»
+OK   1366-scuro SPX 50: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro SPX 50: intestazione «Massimo»
+OK   1366-scuro NDX 20: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro NDX 20: intestazione «Massimo»
+OK   1366-scuro NDX 25: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro NDX 25: intestazione «Massimo»
+OK   1366-scuro NDX 30: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro NDX 30: intestazione «Massimo»
+OK   1366-scuro NDX 40: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro NDX 40: intestazione «Massimo»
+OK   1366-scuro NDX 50: tabella degli episodi intera (1306/1306), «calo dopo» visibile
+FAIL 1366-scuro NDX 50: intestazione «Massimo»
+OK   1366-scuro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1366-scuro: riga di legenda del mini-grafico visibile
+OK   1366-scuro: nessuno scorrimento orizzontale della pagina (1366/1366)
+OK   1366-scuro: console 
+FAIL 1280-chiaro SPX 20: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-chiaro SPX 20: intestazione «Massimo»
+FAIL 1280-chiaro SPX 25: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-chiaro SPX 25: intestazione «Massimo»
+FAIL 1280-chiaro SPX 30: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-chiaro SPX 30: intestazione «Massimo»
+FAIL 1280-chiaro SPX 40: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-chiaro SPX 40: intestazione «Massimo»
+FAIL 1280-chiaro SPX 50: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-chiaro SPX 50: intestazione «Massimo»
+FAIL 1280-chiaro NDX 20: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-chiaro NDX 20: intestazione «Massimo»
+FAIL 1280-chiaro NDX 25: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-chiaro NDX 25: intestazione «Massimo»
+FAIL 1280-chiaro NDX 30: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-chiaro NDX 30: intestazione «Massimo»
+FAIL 1280-chiaro NDX 40: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-chiaro NDX 40: intestazione «Massimo»
+FAIL 1280-chiaro NDX 50: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-chiaro NDX 50: intestazione «Massimo»
+OK   1280-chiaro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1280-chiaro: riga di legenda del mini-grafico visibile
+OK   1280-chiaro: nessuno scorrimento orizzontale della pagina (1280/1280)
+OK   1280-chiaro: console 
+FAIL 1280-scuro SPX 20: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-scuro SPX 20: intestazione «Massimo»
+FAIL 1280-scuro SPX 25: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-scuro SPX 25: intestazione «Massimo»
+FAIL 1280-scuro SPX 30: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-scuro SPX 30: intestazione «Massimo»
+FAIL 1280-scuro SPX 40: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-scuro SPX 40: intestazione «Massimo»
+FAIL 1280-scuro SPX 50: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-scuro SPX 50: intestazione «Massimo»
+FAIL 1280-scuro NDX 20: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-scuro NDX 20: intestazione «Massimo»
+FAIL 1280-scuro NDX 25: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-scuro NDX 25: intestazione «Massimo»
+FAIL 1280-scuro NDX 30: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-scuro NDX 30: intestazione «Massimo»
+FAIL 1280-scuro NDX 40: tabella degli episodi intera (1262/1220), «calo dopo» visibile
+FAIL 1280-scuro NDX 40: intestazione «Massimo»
+FAIL 1280-scuro NDX 50: tabella degli episodi intera (1254/1220), «calo dopo» visibile
+FAIL 1280-scuro NDX 50: intestazione «Massimo»
+OK   1280-scuro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1280-scuro: riga di legenda del mini-grafico visibile
+OK   1280-scuro: nessuno scorrimento orizzontale della pagina (1280/1280)
+OK   1280-scuro: console 
+FAIL 1100-chiaro SPX 20: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-chiaro SPX 20: intestazione «Massimo»
+FAIL 1100-chiaro SPX 25: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-chiaro SPX 25: intestazione «Massimo»
+FAIL 1100-chiaro SPX 30: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-chiaro SPX 30: intestazione «Massimo»
+FAIL 1100-chiaro SPX 40: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-chiaro SPX 40: intestazione «Massimo»
+FAIL 1100-chiaro SPX 50: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-chiaro SPX 50: intestazione «Massimo»
+FAIL 1100-chiaro NDX 20: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-chiaro NDX 20: intestazione «Massimo»
+FAIL 1100-chiaro NDX 25: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-chiaro NDX 25: intestazione «Massimo»
+FAIL 1100-chiaro NDX 30: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-chiaro NDX 30: intestazione «Massimo»
+FAIL 1100-chiaro NDX 40: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-chiaro NDX 40: intestazione «Massimo»
+FAIL 1100-chiaro NDX 50: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-chiaro NDX 50: intestazione «Massimo»
+OK   1100-chiaro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1100-chiaro: riga di legenda del mini-grafico visibile
+OK   1100-chiaro: nessuno scorrimento orizzontale della pagina (1100/1100)
+OK   1100-chiaro: console 
+FAIL 1100-scuro SPX 20: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-scuro SPX 20: intestazione «Massimo»
+FAIL 1100-scuro SPX 25: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-scuro SPX 25: intestazione «Massimo»
+FAIL 1100-scuro SPX 30: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-scuro SPX 30: intestazione «Massimo»
+FAIL 1100-scuro SPX 40: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-scuro SPX 40: intestazione «Massimo»
+FAIL 1100-scuro SPX 50: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-scuro SPX 50: intestazione «Massimo»
+FAIL 1100-scuro NDX 20: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-scuro NDX 20: intestazione «Massimo»
+FAIL 1100-scuro NDX 25: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-scuro NDX 25: intestazione «Massimo»
+FAIL 1100-scuro NDX 30: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-scuro NDX 30: intestazione «Massimo»
+FAIL 1100-scuro NDX 40: tabella degli episodi intera (1262/1040), «calo dopo» visibile
+FAIL 1100-scuro NDX 40: intestazione «Massimo»
+FAIL 1100-scuro NDX 50: tabella degli episodi intera (1254/1040), «calo dopo» visibile
+FAIL 1100-scuro NDX 50: intestazione «Massimo»
+OK   1100-scuro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1100-scuro: riga di legenda del mini-grafico visibile
+OK   1100-scuro: nessuno scorrimento orizzontale della pagina (1100/1100)
+OK   1100-scuro: console 
+FAIL 1024-chiaro SPX 20: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-chiaro SPX 20: intestazione «Massimo»
+FAIL 1024-chiaro SPX 25: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-chiaro SPX 25: intestazione «Massimo»
+FAIL 1024-chiaro SPX 30: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-chiaro SPX 30: intestazione «Massimo»
+FAIL 1024-chiaro SPX 40: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-chiaro SPX 40: intestazione «Massimo»
+FAIL 1024-chiaro SPX 50: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-chiaro SPX 50: intestazione «Massimo»
+FAIL 1024-chiaro NDX 20: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-chiaro NDX 20: intestazione «Massimo»
+FAIL 1024-chiaro NDX 25: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-chiaro NDX 25: intestazione «Massimo»
+FAIL 1024-chiaro NDX 30: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-chiaro NDX 30: intestazione «Massimo»
+FAIL 1024-chiaro NDX 40: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-chiaro NDX 40: intestazione «Massimo»
+FAIL 1024-chiaro NDX 50: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-chiaro NDX 50: intestazione «Massimo»
+OK   1024-chiaro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1024-chiaro: riga di legenda del mini-grafico visibile
+OK   1024-chiaro: nessuno scorrimento orizzontale della pagina (1024/1024)
+OK   1024-chiaro: console 
+FAIL 1024-scuro SPX 20: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-scuro SPX 20: intestazione «Massimo»
+FAIL 1024-scuro SPX 25: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-scuro SPX 25: intestazione «Massimo»
+FAIL 1024-scuro SPX 30: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-scuro SPX 30: intestazione «Massimo»
+FAIL 1024-scuro SPX 40: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-scuro SPX 40: intestazione «Massimo»
+FAIL 1024-scuro SPX 50: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-scuro SPX 50: intestazione «Massimo»
+FAIL 1024-scuro NDX 20: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-scuro NDX 20: intestazione «Massimo»
+FAIL 1024-scuro NDX 25: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-scuro NDX 25: intestazione «Massimo»
+FAIL 1024-scuro NDX 30: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-scuro NDX 30: intestazione «Massimo»
+FAIL 1024-scuro NDX 40: tabella degli episodi intera (1262/964), «calo dopo» visibile
+FAIL 1024-scuro NDX 40: intestazione «Massimo»
+FAIL 1024-scuro NDX 50: tabella degli episodi intera (1254/964), «calo dopo» visibile
+FAIL 1024-scuro NDX 50: intestazione «Massimo»
+OK   1024-scuro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 1024-scuro: riga di legenda del mini-grafico visibile
+OK   1024-scuro: nessuno scorrimento orizzontale della pagina (1024/1024)
+OK   1024-scuro: console 
+FAIL 820-chiaro SPX 20: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro SPX 20: intestazione «Massimo»
+FAIL 820-chiaro SPX 25: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro SPX 25: intestazione «Massimo»
+FAIL 820-chiaro SPX 30: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro SPX 30: intestazione «Massimo»
+FAIL 820-chiaro SPX 40: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro SPX 40: intestazione «Massimo»
+FAIL 820-chiaro SPX 50: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro SPX 50: intestazione «Massimo»
+FAIL 820-chiaro NDX 20: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro NDX 20: intestazione «Massimo»
+FAIL 820-chiaro NDX 25: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro NDX 25: intestazione «Massimo»
+FAIL 820-chiaro NDX 30: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro NDX 30: intestazione «Massimo»
+FAIL 820-chiaro NDX 40: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro NDX 40: intestazione «Massimo»
+FAIL 820-chiaro NDX 50: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-chiaro NDX 50: intestazione «Massimo»
+OK   820-chiaro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 820-chiaro: riga di legenda del mini-grafico visibile
+OK   820-chiaro: nessuno scorrimento orizzontale della pagina (820/820)
+OK   820-chiaro: console 
+FAIL 820-scuro SPX 20: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro SPX 20: intestazione «Massimo»
+FAIL 820-scuro SPX 25: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro SPX 25: intestazione «Massimo»
+FAIL 820-scuro SPX 30: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro SPX 30: intestazione «Massimo»
+FAIL 820-scuro SPX 40: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro SPX 40: intestazione «Massimo»
+FAIL 820-scuro SPX 50: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro SPX 50: intestazione «Massimo»
+FAIL 820-scuro NDX 20: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro NDX 20: intestazione «Massimo»
+FAIL 820-scuro NDX 25: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro NDX 25: intestazione «Massimo»
+FAIL 820-scuro NDX 30: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro NDX 30: intestazione «Massimo»
+FAIL 820-scuro NDX 40: tablet, tabella larga 1262 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro NDX 40: intestazione «Massimo»
+FAIL 820-scuro NDX 50: tablet, tabella larga 1254 in 760 (1.6.2: 944-951 in 760; scorre nel suo riquadro)
+FAIL 820-scuro NDX 50: intestazione «Massimo»
+OK   820-scuro: 162 mini-grafici non deformati (rapporto 3.947–3.947, viewBox 3.947; misure 150x38.0)
+FAIL 820-scuro: riga di legenda del mini-grafico visibile
+OK   820-scuro: nessuno scorrimento orizzontale della pagina (820/820)
+OK   820-scuro: console 
+FAIL 390-chiaro SPX 20: massimo, fine e sedute sotto la crisi in 0/24 righe
+FAIL 390-chiaro SPX 20: corpo del riassunto nullpx
+/home/user/rrg/ricerca/qa/1.7.0/ricontrollo/ui_ricontrollo.cjs:16
+const rgbOf = (s) => { const m = s.match(/[\d.]+/g).map(Number); return m.slice(0, 3); };
+                                   ^
+
+TypeError: Cannot read properties of null (reading 'match')
+    at rgbOf (/home/user/rrg/ricerca/qa/1.7.0/ricontrollo/ui_ricontrollo.cjs:16:36)
+    at /home/user/rrg/ricerca/qa/1.7.0/ricontrollo/ui_ricontrollo.cjs:97:29
+
+Node.js v22.22.0

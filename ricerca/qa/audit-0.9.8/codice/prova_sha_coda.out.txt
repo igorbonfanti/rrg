@@ -1,0 +1,5 @@
+Auto-merging data/prices.json
+CONFLICT (content): Merge conflict in data/prices.json
+ESITO: git pull --rebase fallisce (uscita 1): hint: Resolve all conflicts manually, mark them as resolved with
+Nel workflow il passo «Commit dati aggiornati» non ha continue-on-error: il job si ferma, alert e check_fresh non partono, la corsa è rossa e GitHub manda la mail.
+Con 'ref: main' nel checkout (o 'git fetch && git reset --hard origin/main' all'inizio) R2 partirebbe dai dati di R1 e il gate la fermerebbe.

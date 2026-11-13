@@ -1,0 +1,18 @@
+== corsa 1 contro corsa 2 (stesse sedute)
+CNY=X       A 5958 2003-12-01 B 5958 2003-12-01 soloB 0 soloA 0 diversi 0 maxrel 0.00e+0 
+INR=X       A 5946 2003-12-01 B 5946 2003-12-01 soloB 0 soloA 0 diversi 0 maxrel 0.00e+0 
+BRL=X       A 5337 2006-03-24 B 5337 2006-03-24 soloB 0 soloA 0 diversi 0 maxrel 0.00e+0 
+KRW=X       A 5947 2003-12-01 B 5947 2003-12-01 soloB 0 soloA 0 diversi 0 maxrel 0.00e+0 
+TWD=X       A 5308 2006-05-16 B 5308 2006-05-16 soloB 0 soloA 0 diversi 0 maxrel 0.00e+0 
+HKD=X       A 5949 2003-12-01 B 5949 2003-12-01 soloB 0 soloA 0 diversi 0 maxrel 0.00e+0 
+ASHR        A 3268 2013-11-06 B 3268 2013-11-06 soloB 0 soloA 0 diversi 34 maxrel 6.63e-6 2014-06-18 15.0916 15.0917
+INDA        A 3685 2012-02-03 B 3685 2012-02-03 soloB 0 soloA 0 diversi 77 maxrel 5.36e-6 2012-05-14 18.6664 18.6665
+EWZ         A 5999 2003-01-02 B 5999 2003-01-02 soloB 0 soloA 0 diversi 185 maxrel 1.74e-5 2003-10-07 5.7421 5.742
+EWY         A 5999 2003-01-02 B 5999 2003-01-02 soloB 0 soloA 0 diversi 198 maxrel 7.54e-6 2003-05-28 13.2539 13.254
+EWT         A 5999 2003-01-02 B 5999 2003-01-02 soloB 0 soloA 0 diversi 85 maxrel 1.25e-5 2008-12-16 7.998 7.9981
+EWH         A 5999 2003-01-02 B 5999 2003-01-02 soloB 0 soloA 0 diversi 96 maxrel 1.72e-5 2005-01-05 5.8253 5.8252
+EEM         A 5929 2003-04-14 B 5929 2003-04-14 soloB 0 soloA 0 diversi 219 maxrel 1.29e-5 2003-05-16 7.7766 7.7767
+ACWI        A 4682 2008-03-28 B 4682 2008-03-28 soloB 0 soloA 0 diversi 275 maxrel 5.39e-6 2009-02-26 18.554 18.5541
+DTWEXEMEGS  A 5222 2006-01-02 B 5222 2006-01-02 soloB 0 soloA 0 diversi 0 maxrel 0.00e+0 
+== keep_unchanged dopo la corsa 2 (rispetto al file del commit)
+ M data/emerging.json

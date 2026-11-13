@@ -1,0 +1,14 @@
+{
+ "checks": 4361,
+ "fail": 0,
+ "stats": {
+  "rows": 162,
+  "sparkVerts": 33300,
+  "hiVerts": 11612,
+  "bands": 244,
+  "ixVerts": 125480,
+  "ticks": 135,
+  "tips": 90
+ },
+ "issues": []
+}

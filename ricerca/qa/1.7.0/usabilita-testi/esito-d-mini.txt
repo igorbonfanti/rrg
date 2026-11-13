@@ -1,0 +1,16 @@
+1440-chiaro 40 24/08/2015 VIX da 26/05/2015: 14,1; primo giorno a 40 o più il 24/08/2015 (40,7); massimo 40,7 il 24/08/2015; ultimo giorno a 40 o più il 24/08/2015; poi fino al 23/09/2015: 22,1
+1440-chiaro 40 28/10/2020 VIX da 30/07/2020: 24,8; primo giorno a 40 o più il 28/10/2020 (40,3); massimo 40,3 il 28/10/2020; ultimo giorno a 40 o più il 28/10/2020; poi fino al 27/11/2020: 20,8
+1440-chiaro 40 04/04/2025 VIX da 02/01/2025: 17,9; primo giorno a 40 o più il 04/04/2025 (45,3); massimo 52,3 il 08/04/2025; ultimo giorno a 40 o più il 10/04/2025; poi fino al 12/05/2025: 18,4
+1440-chiaro 40 29/09/2008 VIX da 30/06/2008: 23,9; primo giorno a 40 o più il 29/09/2008 (46,7); massimo 80,9 il 20/11/2008; ultimo giorno a 40 o più il 07/04/2009; poi fino al 07/05/2009: 33,4
+1440-chiaro 20 02/11/2026 VIX da 04/08/2026: 16,5; primo giorno a 20 o più il 02/11/2026 (21,1); massimo 28,2 il 05/11/2026; ultimo giorno a 20 o più il 06/11/2026; poi fino al 06/11/2026: 25,6
+1440-chiaro 20 12/12/1996 VIX da 13/09/1996: 15,2; primo giorno a 20 o più il 12/12/1996 (20,4); massimo 45,7 il 08/10/1998; ultimo giorno a 20 o più il 02/10/2003; poi fino al 31/10/2003: 16,1
+1440-chiaro 20 02/08/2024 VIX da 02/05/2024: 14,7; primo giorno a 20 o più il 02/08/2024 (23,4); massimo 52,3 il 08/04/2025; ultimo giorno a 20 o più il 29/07/2026; poi fino al 27/08/2026: 14,5
+1440-chiaro 25 05/11/2026 VIX da 07/08/2026: 14,9; primo giorno a 25 o più il 05/11/2026 (28,2); massimo 28,2 il 05/11/2026; ultimo giorno a 25 o più il 06/11/2026; poi fino al 06/11/2026: 25,6
+390-scuro 40 24/08/2015 VIX da 26/05/2015: 14,1; primo giorno a 40 o più il 24/08/2015 (40,7); massimo 40,7 il 24/08/2015; ultimo giorno a 40 o più il 24/08/2015; poi fino al 23/09/2015: 22,1
+390-scuro 40 28/10/2020 VIX da 30/07/2020: 24,8; primo giorno a 40 o più il 28/10/2020 (40,3); massimo 40,3 il 28/10/2020; ultimo giorno a 40 o più il 28/10/2020; poi fino al 27/11/2020: 20,8
+390-scuro 40 04/04/2025 VIX da 02/01/2025: 17,9; primo giorno a 40 o più il 04/04/2025 (45,3); massimo 52,3 il 08/04/2025; ultimo giorno a 40 o più il 10/04/2025; poi fino al 12/05/2025: 18,4
+390-scuro 40 29/09/2008 VIX da 30/06/2008: 23,9; primo giorno a 40 o più il 29/09/2008 (46,7); massimo 80,9 il 20/11/2008; ultimo giorno a 40 o più il 07/04/2009; poi fino al 07/05/2009: 33,4
+390-scuro 20 02/11/2026 VIX da 04/08/2026: 16,5; primo giorno a 20 o più il 02/11/2026 (21,1); massimo 28,2 il 05/11/2026; ultimo giorno a 20 o più il 06/11/2026; poi fino al 06/11/2026: 25,6
+390-scuro 20 12/12/1996 VIX da 13/09/1996: 15,2; primo giorno a 20 o più il 12/12/1996 (20,4); massimo 45,7 il 08/10/1998; ultimo giorno a 20 o più il 02/10/2003; poi fino al 31/10/2003: 16,1
+390-scuro 20 02/08/2024 VIX da 02/05/2024: 14,7; primo giorno a 20 o più il 02/08/2024 (23,4); massimo 52,3 il 08/04/2025; ultimo giorno a 20 o più il 29/07/2026; poi fino al 27/08/2026: 14,5
+390-scuro 25 05/11/2026 VIX da 07/08/2026: 14,9; primo giorno a 25 o più il 05/11/2026 (28,2); massimo 28,2 il 05/11/2026; ultimo giorno a 25 o più il 06/11/2026; poi fino al 06/11/2026: 25,6

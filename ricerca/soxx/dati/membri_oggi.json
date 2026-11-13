@@ -1,0 +1,220 @@
+{
+ "fonte": "https://www.ishares.com/us/products/239705/x/latest-holdings.csv",
+ "asOf": "Nov 10, 2026",
+ "scaricato": "2026-11-11",
+ "count": 30,
+ "tickers": [
+  "AMD",
+  "AVGO",
+  "NVDA",
+  "MU",
+  "INTC",
+  "TXN",
+  "ADI",
+  "QCOM",
+  "MPWR",
+  "KLAC",
+  "NXPI",
+  "AMAT",
+  "TSM",
+  "LRCX",
+  "MRVL",
+  "SKHY",
+  "TER",
+  "MCHP",
+  "ALAB",
+  "ON",
+  "ASML",
+  "CRDO",
+  "ENTG",
+  "MTSI",
+  "TSEM",
+  "ASX",
+  "CBRS",
+  "UMC",
+  "STM",
+  "ARM"
+ ],
+ "membri": [
+  {
+   "ticker": "AMD",
+   "nome": "ADVANCED MICRO DEVICES",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "AVGO",
+   "nome": "BROADCOM INC",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "NVDA",
+   "nome": "NVIDIA",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "MU",
+   "nome": "MICRON TECHNOLOGY",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "INTC",
+   "nome": "INTEL CORPORATION",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "TXN",
+   "nome": "TEXAS INSTRUMENT",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "ADI",
+   "nome": "ANALOG DEVICES",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "QCOM",
+   "nome": "QUALCOMM",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "MPWR",
+   "nome": "MONOLITHIC POWER SYSTEMS INC",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "KLAC",
+   "nome": "KLA",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "NXPI",
+   "nome": "NXP SEMICONDUCTORS NV",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "AMAT",
+   "nome": "APPLIED MATERIAL INC",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "TSM",
+   "nome": "TAIWAN SEMICONDUCTOR MANUFACTURING",
+   "paese": "Taiwan",
+   "borsa": "NYSE"
+  },
+  {
+   "ticker": "LRCX",
+   "nome": "LAM RESEARCH",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "MRVL",
+   "nome": "MARVELL TECHNOLOGY",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "SKHY",
+   "nome": "SK HYNIX AMERICAN DEPOSITARY SHARE",
+   "paese": "Korea (South)",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "TER",
+   "nome": "TERADYNE",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "MCHP",
+   "nome": "MICROCHIP TECHNOLOGY INC",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "ALAB",
+   "nome": "ASTERA LABS",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "ON",
+   "nome": "ON SEMICONDUCTOR CORP",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "ASML",
+   "nome": "ASML HOLDING ADR REPRESENTING",
+   "paese": "Netherlands",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "CRDO",
+   "nome": "CREDO TECHNOLOGY GROUP HOLDING LTD",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "ENTG",
+   "nome": "ENTEGRIS INC",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "MTSI",
+   "nome": "MACOM TECHNOLOGY SOLUTIONS",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "TSEM",
+   "nome": "TOWER SEMICONDUCTOR",
+   "paese": "Israel",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "ASX",
+   "nome": "ASE TECHNOLOGY HOLDING ADR REPRESE",
+   "paese": "Taiwan",
+   "borsa": "NYSE"
+  },
+  {
+   "ticker": "CBRS",
+   "nome": "CEREBRAS SYSTEMS INC CLASS A",
+   "paese": "United States",
+   "borsa": "NASDAQ"
+  },
+  {
+   "ticker": "UMC",
+   "nome": "UNITED MICRO ELECTRONICS ADR REP",
+   "paese": "Taiwan",
+   "borsa": "NYSE"
+  },
+  {
+   "ticker": "STM",
+   "nome": "STMICROELECTRONICS ADR",
+   "paese": "France",
+   "borsa": "NYSE"
+  },
+  {
+   "ticker": "ARM",
+   "nome": "ARM HOLDINGS AMERICAN DEPOSITARY S",
+   "paese": "United Kingdom",
+   "borsa": "NASDAQ"
+  }
+ ]
+}

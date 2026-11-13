@@ -1,0 +1,122 @@
+{
+ "390": {
+  "kpis": [
+   {
+    "text": "VIX 25,64 paura · al 06/11/2026 · provvisorio",
+    "title": "Volatilità implicita dell'S&P 500 per i prossimi 30 giorni (Cboe, da FRED). Fasce: sotto 15 calmo, 15-20 normale, 20-25 nervoso, 25-30 paura, 30-40 paura forte, 40-50 panico, oltre 50 panico estremo."
+   },
+   {
+    "text": "PERCENTILE DEL VIX 84° nella storia dal 02/01/1990",
+    "title": "Quota delle chiusure del VIX fino a oggi minori o uguali a quella di oggi (solo storia passata)."
+   },
+   {
+    "text": "VOLATILITÀ REALIZZATA 19,8 S&P 500, 21 sedute al 06/11/2026, annualizzata",
+    "title": "Deviazione standard dei rendimenti logaritmici giornalieri delle ultime 21 sedute, ×√252."
+   },
+   {
+    "text": "PREMIO PER LA PAURA +5,8 VIX − realizzata · 68° percentile",
+    "title": "Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (vedi «Come leggere»)."
+   },
+   {
+    "text": "VIX / VIX3M 1,04 backwardation VIX 25,64 / VIX3M 24,60 · al 06/11/2026 · 95° percentile · provvisorio",
+    "title": "Rapporto tra il VIX (paura per i prossimi 30 giorni) e il VIX3M (prossimi 3 mesi), dal 04/12/2007. Sotto 1 «contango», la situazione normale; da 1 in su «backwardation»: la paura è per i prossimi giorni, succede nei ribassi bruschi. Percentile sulla storia fino a quel giorno. Solo contesto."
+   },
+   {
+    "text": "CREDITO HIGH YIELD −3,1% HYG/IEF dal massimo di 12 mesi · −2,5% in un mese · 57° percentile · al 06/11/2026",
+    "title": "Rapporto tra gli ETF HYG (obbligazioni societarie high yield) e IEF (titoli di Stato USA a 7-10 anni), con i dividendi reinvestiti: quanto ha perso dal massimo delle ultime 252 sedute. Vicino a 0 il credito è calmo; molto sotto zero il mercato teme i fallimenti. Il percentile dice quanto è profondo il calo rispetto alla storia fino a quel giorno (alto = più profondo). Non è uno spread ufficiale. Solo contesto."
+   }
+  ],
+  "meta": "VIX al 06/11/2026 (FRED al 05/11/2026, poi Cboe provvisorio) · VIX3M al 06/11/2026 (FRED al 05/11/2026, poi Cboe provvisorio) · HYG/IEF al 06/11/2026 · S&P 500 al 06/11/2026 · Nasdaq-100 al 06/11/2026",
+  "legend": "VIX (implicita, prossimi 30 giorni) realizzata delle ultime 21 sedute premio per la paura premio oltre l'80° percentile della sua storia VIX / VIX3M backwardation (VIX ≥ VIX3M) HYG/IEF: distanza dal massimo di 12 mesi",
+  "panelTitles": [
+   "VIX E REALIZZATA (21 SEDUTE)",
+   "PREMIO PER LA PAURA",
+   "CREDITO: HYG/IEF DAL MASSIMO"
+  ],
+  "nodata": [],
+  "h2": [
+   "Dopo i picchi del VIX",
+   "VIX e rendimento a 12 mesi",
+   "VIX, struttura a termine e credito · S&P 500",
+   "Come leggere il VIX"
+  ],
+  "tips": [
+   "15/07/2022 S&P 500 3.863 VIX 24,23 Realizzata 21 sedute 23,3 Premio per la paura +1,0 Percentile del premio 16° VIX3M 27,08 VIX / VIX3M 0,89 contango HYG/IEF dal massimo 12 mesi −5,2%",
+   "15/07/2022 S&P 500 3.863 VIX 24,23 Realizzata 21 sedute 23,3 Premio per la paura +1,0 Percentile del premio 16° VIX3M 27,08 VIX / VIX3M 0,89 contango HYG/IEF dal massimo 12 mesi −5,2%",
+   "15/07/2022 S&P 500 3.863 VIX 24,23 Realizzata 21 sedute 23,3 Premio per la paura +1,0 Percentile del premio 16° VIX3M 27,08 VIX / VIX3M 0,89 contango HYG/IEF dal massimo 12 mesi −5,2%",
+   "15/07/2022 S&P 500 3.863 VIX 24,23 Realizzata 21 sedute 23,3 Premio per la paura +1,0 Percentile del premio 16° VIX3M 27,08 VIX / VIX3M 0,89 contango HYG/IEF dal massimo 12 mesi −5,2%",
+   "06/11/2026 S&P 500 7.377 VIX 25,64 provv. Realizzata 21 sedute 19,8 Premio per la paura +5,8 Percentile del premio 68° VIX3M 24,60 provv. VIX / VIX3M 1,04 backwardation HYG/IEF dal massimo 12 mesi −3,1%",
+   "06/11/2026 S&P 500 7.377 VIX 25,64 provv. Realizzata 21 sedute 19,8 Premio per la paura +5,8 Percentile del premio 68° VIX3M 24,60 provv. VIX / VIX3M 1,04 backwardation HYG/IEF dal massimo 12 mesi −3,1%",
+   "06/11/2026 S&P 500 7.377 VIX 25,64 provv. Realizzata 21 sedute 19,8 Premio per la paura +5,8 Percentile del premio 68° VIX3M 24,60 provv. VIX / VIX3M 1,04 backwardation HYG/IEF dal massimo 12 mesi −3,1%",
+   "06/11/2026 S&P 500 7.377 VIX 25,64 provv. Realizzata 21 sedute 19,8 Premio per la paura +5,8 Percentile del premio 68° VIX3M 24,60 provv. VIX / VIX3M 1,04 backwardation HYG/IEF dal massimo 12 mesi −3,1%"
+  ],
+  "nodataMax": [
+   "VIX3M dal 04/12/2007",
+   "HYG/IEF dal 09/04/2008"
+  ],
+  "tipMax1990": "20/02/1991 S&P 500 365 VIX 22,26 Realizzata 21 sedute 16,6 Premio per la paura +5,6 Percentile del premio 31° VIX3M — VIX / VIX3M — HYG/IEF dal massimo 12 mesi —",
+  "errors": []
+ },
+ "1440": {
+  "kpis": [
+   {
+    "text": "VIX 25,64 paura · al 06/11/2026 · provvisorio",
+    "title": "Volatilità implicita dell'S&P 500 per i prossimi 30 giorni (Cboe, da FRED). Fasce: sotto 15 calmo, 15-20 normale, 20-25 nervoso, 25-30 paura, 30-40 paura forte, 40-50 panico, oltre 50 panico estremo."
+   },
+   {
+    "text": "PERCENTILE DEL VIX 84° nella storia dal 02/01/1990",
+    "title": "Quota delle chiusure del VIX fino a oggi minori o uguali a quella di oggi (solo storia passata)."
+   },
+   {
+    "text": "VOLATILITÀ REALIZZATA 19,8 S&P 500, 21 sedute al 06/11/2026, annualizzata",
+    "title": "Deviazione standard dei rendimenti logaritmici giornalieri delle ultime 21 sedute, ×√252."
+   },
+   {
+    "text": "PREMIO PER LA PAURA +5,8 VIX − realizzata · 68° percentile",
+    "title": "Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (vedi «Come leggere»)."
+   },
+   {
+    "text": "VIX / VIX3M 1,04 backwardation VIX 25,64 / VIX3M 24,60 · al 06/11/2026 · 95° percentile · provvisorio",
+    "title": "Rapporto tra il VIX (paura per i prossimi 30 giorni) e il VIX3M (prossimi 3 mesi), dal 04/12/2007. Sotto 1 «contango», la situazione normale; da 1 in su «backwardation»: la paura è per i prossimi giorni, succede nei ribassi bruschi. Percentile sulla storia fino a quel giorno. Solo contesto."
+   },
+   {
+    "text": "CREDITO HIGH YIELD −3,1% HYG/IEF dal massimo di 12 mesi · −2,5% in un mese · 57° percentile · al 06/11/2026",
+    "title": "Rapporto tra gli ETF HYG (obbligazioni societarie high yield) e IEF (titoli di Stato USA a 7-10 anni), con i dividendi reinvestiti: quanto ha perso dal massimo delle ultime 252 sedute. Vicino a 0 il credito è calmo; molto sotto zero il mercato teme i fallimenti. Il percentile dice quanto è profondo il calo rispetto alla storia fino a quel giorno (alto = più profondo). Non è uno spread ufficiale. Solo contesto."
+   }
+  ],
+  "meta": "VIX al 06/11/2026 (FRED al 05/11/2026, poi Cboe provvisorio) · VIX3M al 06/11/2026 (FRED al 05/11/2026, poi Cboe provvisorio) · HYG/IEF al 06/11/2026 · S&P 500 al 06/11/2026 · Nasdaq-100 al 06/11/2026",
+  "legend": "VIX (implicita, prossimi 30 giorni) realizzata delle ultime 21 sedute premio per la paura premio oltre l'80° percentile della sua storia VIX / VIX3M backwardation (VIX ≥ VIX3M) HYG/IEF: distanza dal massimo di 12 mesi",
+  "panelTitles": [
+   "VIX E VOLATILITÀ REALIZZATA DELL'S&P 500 (21 SEDUTE, ANNUALIZZATA)",
+   "PREMIO PER LA PAURA (VIX − REALIZZATA)",
+   "STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)",
+   "CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)"
+  ],
+  "nodata": [],
+  "h2": [
+   "Dopo i picchi del VIX",
+   "VIX e rendimento a 12 mesi",
+   "VIX, struttura a termine e credito · S&P 500",
+   "Come leggere il VIX"
+  ],
+  "tips": [
+   "21/12/2021 S&P 500 4.649 VIX 21,01 Realizzata 21 sedute 20,2 Premio per la paura +0,8 Percentile del premio 15° VIX3M 25,00 VIX / VIX3M 0,84 contango HYG/IEF dal massimo 12 mesi −1,2%",
+   "21/12/2021 S&P 500 4.649 VIX 21,01 Realizzata 21 sedute 20,2 Premio per la paura +0,8 Percentile del premio 15° VIX3M 25,00 VIX / VIX3M 0,84 contango HYG/IEF dal massimo 12 mesi −1,2%",
+   "21/12/2021 S&P 500 4.649 VIX 21,01 Realizzata 21 sedute 20,2 Premio per la paura +0,8 Percentile del premio 15° VIX3M 25,00 VIX / VIX3M 0,84 contango HYG/IEF dal massimo 12 mesi −1,2%",
+   "21/12/2021 S&P 500 4.649 VIX 21,01 Realizzata 21 sedute 20,2 Premio per la paura +0,8 Percentile del premio 15° VIX3M 25,00 VIX / VIX3M 0,84 contango HYG/IEF dal massimo 12 mesi −1,2%",
+   "02/11/2026 S&P 500 7.541 VIX 21,15 Realizzata 21 sedute 11,6 Premio per la paura +9,6 Percentile del premio 92° VIX3M 21,60 VIX / VIX3M 0,98 contango HYG/IEF dal massimo 12 mesi −3,1%",
+   "02/11/2026 S&P 500 7.541 VIX 21,15 Realizzata 21 sedute 11,6 Premio per la paura +9,6 Percentile del premio 92° VIX3M 21,60 VIX / VIX3M 0,98 contango HYG/IEF dal massimo 12 mesi −3,1%",
+   "02/11/2026 S&P 500 7.541 VIX 21,15 Realizzata 21 sedute 11,6 Premio per la paura +9,6 Percentile del premio 92° VIX3M 21,60 VIX / VIX3M 0,98 contango HYG/IEF dal massimo 12 mesi −3,1%",
+   "02/11/2026 S&P 500 7.541 VIX 21,15 Realizzata 21 sedute 11,6 Premio per la paura +9,6 Percentile del premio 92° VIX3M 21,60 VIX / VIX3M 0,98 contango HYG/IEF dal massimo 12 mesi −3,1%"
+  ],
+  "nodataMax": [
+   "VIX3M dal 04/12/2007",
+   "HYG/IEF dal 09/04/2008"
+  ],
+  "tipMax1990": "20/09/1991 S&P 500 388 VIX 17,08 Realizzata 21 sedute 8,3 Premio per la paura +8,8 Percentile del premio 79° VIX3M — VIX / VIX3M — HYG/IEF dal massimo 12 mesi —",
+  "errors": []
+ },
+ "guida": "8 VIX\nApri il VIX →\n\nIl VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&P 500 nei prossimi 30 giorni: sale quando c'è paura. La vista è solo contesto: non cambia stati, regole né alert Telegram. L'idea viene dalle analisi di Massimo Rea (quant-rea); i calcoli sono nostri, su dati pubblici.\n\nRiquadri\n\nIl VIX di oggi con la sua fascia (sotto 15 calmo, 15-20 normale, 20-25 nervoso, 25-30 paura, 30-40 paura forte, 40-50 panico, oltre 50 panico estremo) e il percentile nella storia dal 1990; la volatilità realizzata dell'S&P 500 nelle ultime 21 sedute; il premio per la paura, cioè quanto il VIX sta sopra la realizzata, con il suo percentile; il rapporto VIX / VIX3M (struttura a termine) e il credito high yield (vedi sotto). I percentili usano solo la storia fino a quel giorno.\n\nDopo i picchi del VIX\n\nPer S&P 500 o Nasdaq-100 (pulsanti in alto): come sono andati dopo che il VIX ha chiuso sopra 20, 25, 30, 40 o 50. Si contano gli episodi, non i giorni: un episodio è la prima chiusura sopra la soglia dopo almeno 63 sedute sotto. Per ogni periodo (1, 3, 6, 12 mesi) quanti episodi avevano l'indice più alto e il rendimento mediano; poi il calo successivo mediano (il punto più basso entro 12 mesi rispetto all'ingresso) e dopo quante sedute arriva il minimo. La prima riga è una seduta qualsiasi, per confronto. Un clic su una riga mostra i suoi episodi.\n\nNella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia 40 lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto». Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte. Il 40 ha 10 episodi: numeri indicativi.\nDopo un VIX sopra 25 o 30 il ribasso spesso era appena cominciato: guarda il calo successivo.\nIl rendimento parte dalla chiusura della seduta dopo il segnale: il VIX chiude alle 16:15 di New York, l'indice alle 16:00, e così non si usa quel quarto d'ora.\nScatter\n\nCome il grafico di Rea: ogni punto è una seduta con il VIX sopra 30, in orizzontale il VIX, in verticale il rendimento dell'indice nei 12 mesi dopo. Un colore per episodio, il punto grande è il primo giorno. Sotto, quante sedute ci sono e da quanti episodi vengono: le crisi lunghe mettono tanti punti e fanno sembrare il risultato più solido di quanto sia.\n\nVIX contro volatilità realizzata\n\nIl VIX e la realizzata dell'S&P 500 nel tempo (3, 10 anni o tutta la storia), e sotto il premio per la paura, rosso dove supera l'80° percentile della sua storia. Dal 2005 il VIX è stato sopra la volatilità poi realizzata nell'83% delle sedute, in media di 3,4 punti; il VIX sale insieme ai ribassi, non prima, e dal 2005 il premio alto si è acceso 204 volte, e solo in 12 entro 21 sedute è arrivato un picco della volatilità (la realizzata sopra il suo 90° percentile). Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.\n\nStruttura a termine e credito\n\nSotto il premio, altri due pannelli, solo come contesto. L'idea viene da un grafico di Stefano Serafini (Swiss Capital School) al Morning Trading Show di BNP Paribas, che usa i futures sul VIX e lo spread delle obbligazioni high yield; qui ci sono due misure equivalenti con dati che si possono ripubblicare.\n\nVIX / VIX3M (dal 04/12/2007): il VIX misura la paura per i prossimi 30 giorni, il VIX3M per i prossimi 3 mesi. Di solito il rapporto sta sotto 1 (contango): chi si assicura paga di più per le scadenze lunghe. Da 1 in su (backwardation, fasce colorate) la paura è per i prossimi giorni: succede nei ribassi bruschi. Il punto sull'ultimo valore è pieno quando oggi è in backwardation. Dice quasi sempre la stessa cosa del primo contro il secondo future sul VIX, senza i salti alle scadenze. Se all'ultima seduta manca il VIX3M il riquadro mostra «—» e il valore della seduta prima con la sua data.\nCredito high yield (dal 2007): il rapporto tra l'ETF delle obbligazioni societarie più rischiose (HYG) e quello dei titoli di Stato a 7-10 anni (IEF), con i dividendi reinvestiti, e quanto ha perso dal massimo delle ultime 252 sedute. Vicino a 0 il credito è calmo; se il VIX sale e il credito resta vicino a 0 la paura è solo in borsa, se scende anche il credito il mercato teme i fallimenti (2008: −41%, 2020: −29%). Il riquadro dà anche la variazione dell'ultimo mese e il percentile della profondità del calo (alto = più profondo della storia). Non è uno spread ufficiale: lo spread dell'high yield (ICE) su FRED ha solo gli ultimi 3 anni e la licenza non permette di ripubblicarlo.\nNella verifica nessuna delle due aggiunge una statistica affidabile: dal 2008 tutti gli episodi del VIX sopra 30 erano già in backwardation, il ritorno al contango non è stato un ingresso migliore del segnale del VIX, e i casi con il credito in tensione sono troppo pochi.\n\nFonti: VIX di chiusura di Cboe da FRED (dal 1990) e VIX3M di Cboe da FRED (dal 04/12/2007); l'ultima seduta, che FRED pubblica la mattina dopo, viene dal file ufficiale di Cboe (o da Yahoo se Cboe non l'ha ancora pubblicata) ed è provvisoria. HYG e IEF da Yahoo, rettificati per i dividendi. S&P 500 e Nasdaq-100 di solo prezzo da Yahoo (senza dividendi: sull'S&P 500 circa 2 punti l'anno in meno; per il Nasdaq-100 la versione con i dividendi non è disponibile). Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi.",
+ "guidaDati": "DATI E AGGIORNAMENTI\nChiusure di fine giornata da Yahoo Finance, aggiornate da un processo automatico su GitHub: parte dopo la chiusura USA (alle 00:40 ora italiana con l'ora legale, alle 23:40 con l'ora solare), riprova ogni ora nelle prime ore del mattino finché non trova la seduta e passa di nuovo a metà giornata. GitHub fa partire queste corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. Dopo le 2:30 circa (ora italiana), finché la seduta non arriva, il badge in alto dice «1 seduta indietro». In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.\nLa breadth dei settori è calcolata sui costituenti dell'S&P 500, con lo storico dal 2005 ricostruito sulla composizione di allora; i pesi della vista 5 vengono dalle holdings dell'ETF iShares IVV.\nLa breadth degli indici è calcolata a ogni aggiornamento sui loro membri (circa 4.600 titoli).\nVista Emergenti: cambi della Federal Reserve da FRED (gli ultimi giorni, non ancora pubblicati, da Yahoo Finance, provvisori); ETF in dollari da Yahoo Finance; il dollaro contro le valute emergenti da FRED, che lo pubblica una volta alla settimana con qualche giorno di ritardo.\nVista VIX: VIX e VIX3M di chiusura di Cboe da FRED (l'ultima seduta dal file di Cboe, o da Yahoo Finance, provvisoria), S&P 500 e Nasdaq-100 da Yahoo Finance dal 1990, HYG e IEF da Yahoo Finance dal 2007.\nLe scelte personali (livelli blu provati, pesi del portafoglio, universo, indici mostrati, tema) restano solo nel tuo browser.",
+ "version": "VIX: struttura a termine (VIX / VIX3M, backwardation da 1 in su) e credito high yield (HYG contro IEF, distanza dal massimo di 12 mesi), solo contesto, idea di Stefano Serafini; l'ultima seduta del VIX ora dal file ufficiale di Cboe"
+}

@@ -1,0 +1,101 @@
+[
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (404): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (404): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (404): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «Peggior calo sono nascoste. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (data/capitulation.jso» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (data/capitulation.json: HTTP 404) PIÙ VICINO AL LIVELLO B»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (troncato): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (troncato): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (troncato): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «Peggior calo sono nascoste. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (Unterminated string i» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Unterminated string in JSON at position 400 (line 1 colum»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (vuoto): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (vuoto): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D4",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json (vuoto): l'app dice che il dato manca",
+  "ok": "OK",
+  "detail": "sec: «Peggior calo sono nascoste. CALI FORTI · CAPITOLAZIONE dati non disponibili Dati dei cali forti non disponibili (Failed to execute 'js» | idx: «IN ATTENZIONE 1 / 10 KOSPI200 CALI FORTI IN ALLERTA — dati non disponibili (Failed to execute 'json' on 'Response': Unexpected end of»",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D2",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json ({}): nessun errore JavaScript non gestito",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "D3",
+  "area": "dati mancanti",
+  "test": "phone/light data/capitulation.json ({}): niente NaN/undefined, nessuna vista vuota o in caricamento per sempre",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]
