@@ -463,6 +463,15 @@ export function createVix(ctx) {
 
   // grafico dello storico del mercato aperto: chiusure dal 2000 (data/ath_history.json, letto alla prima apertura)
   let athHist = null, athHistLoad = null, athHistDone = false, athZoom = null;
+  // profilo dei volumi del mercato (profiles di data/ath_history.json, dalla 1.11.0) nel formato atteso, altrimenti null
+  const VP_NOTE = 'profilo poco stabile: con metodi di calcolo diversi (barre giornaliere o orarie, 50, 100 o 200 fasce) le zone principali si spostano di oltre il 2% (due zone di volume quasi uguali); leggere con cautela';
+  const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+  function vpOf(h, id) {
+    const p = h && h.profiles && h.profiles[id];
+    if (!p || !Array.isArray(p.bp) || !(p.n > 0) || p.bp.length !== p.n || !(p.lo > 0) || !(p.hi > p.lo) || typeof p.from !== 'string' || typeof p.to !== 'string') return null;
+    if (!p.bp.every((v) => Number.isFinite(v) && v >= 0) || !(p.bp.reduce((a, b) => a + b, 0) > 0)) return null;
+    return p;
+  }
   function renderAthChart() {
     const box = $('athChartBox'), m = athOpen && ath && ath.markets.find((x) => x.id === athOpen);
     if (!m || !m.stats) { box.hidden = true; return; }
@@ -488,19 +497,25 @@ export function createVix(ctx) {
     $('athChartMiss').hidden = true; showChart(true);
     const s = m.stats, n = dates.length;
     $('athChartTitle').textContent = `${m.label}: prezzo (serie dal ${dates[0].slice(0, 4)}), scala logaritmica`;
-    svg.setAttribute('aria-label', `Prezzo di ${m.label} dal ${dIT(dates[0])}, con il massimo di chiusura degli ultimi 3 anni`); svg.dataset.zlabel = svg.getAttribute('aria-label');
-    const W = chartWidth(svg, 1600), narrow = W < 560, L = 8, R = 52, T = 22, PH = narrow ? 200 : 260, B = 20, PW = W - L - R, H = T + PH + B;
+    const W = chartWidth(svg, 1600), narrow = W < 560, L = 8, R = 52, T = 22, PH = narrow ? 200 : 260, B = 20, H = T + PH + B;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
     const tEnd = Date.parse(dates[n - 1]), span = st.athRange === '3A' ? 3 : st.athRange === '10A' ? 10 : null;
     let t0 = span ? Math.max(Date.parse(dates[0]), tEnd - span * 365.25 * DAY) : Date.parse(dates[0]), t1 = tEnd;
     const zw = athZoom ? athZoom.time(t0, t1, dates) : null;
     if (zw) [t0, t1] = zw;
+    // profilo dei volumi degli ultimi 12 mesi (1.11.0): colonna stretta tra il riquadro del prezzo e i valori dell'asse, solo
+    // quando il tratto mostrato arriva alla fine del profilo (con uno zoom più vecchio la colonna si toglie e la scala resta
+    // quella del tratto)
+    const vp = vpOf(athHist, m.id), showVp = !!vp && t1 >= Date.parse(vp.to);
+    const GAP = 6, PRW = showVp ? Math.round(Math.max(44, Math.min(110, W * 0.08))) : 0, PW = W - L - R - (showVp ? PRW + GAP : 0), XC = L + PW + GAP;
+    svg.setAttribute('aria-label', `Prezzo di ${m.label} dal ${dIT(dates[0])}, con il massimo di chiusura degli ultimi 3 anni${showVp ? ' e il profilo dei volumi degli ultimi 12 mesi' : ''}`); svg.dataset.zlabel = svg.getAttribute('aria-label');
     const inWin = (d) => { const t = Date.parse(d); return t >= t0 && t <= t1; };
     const x = (d) => L + ((Date.parse(d) - t0) / (t1 - t0)) * PW;
     const vis = []; for (let i = 0; i < n; i++) if (close[i] != null && close[i] > 0 && inWin(dates[i])) vis.push(close[i]);
     if (!vis.length) return;
     const showRef = inWin(s.refDate) || Date.parse(s.refDate) < t0;
-    const lo = Math.log(Math.min(...vis)) - 0.03, hi = Math.log(Math.max(...vis, ...(showRef && Date.parse(s.refDate) <= t1 ? [s.ref] : []))) + 0.03;
+    // con il profilo la scala comprende anche il minimo e il massimo delle sedute dei 12 mesi (poco oltre le chiusure)
+    const lo = Math.log(Math.min(...vis, ...(showVp ? [vp.lo] : []))) - 0.03, hi = Math.log(Math.max(...vis, ...(showRef && Date.parse(s.refDate) <= t1 ? [s.ref] : []), ...(showVp ? [vp.hi] : []))) + 0.03;
     const fy = (v) => T + ((hi - Math.log(v)) / (hi - lo)) * PH;
     el('rect', { x: L, y: T, width: PW, height: PH, class: 'frame' }, svg);
     // finestra degli ultimi 3 anni (dove si cerca il massimo di riferimento)
@@ -519,7 +534,8 @@ export function createVix(ctx) {
     // decimali solo se servono: 2,5 e 3 (non 2,50), 6,32k nello zoom stretto
     const dec = (v) => (Number.isInteger(+v.toFixed(6)) ? 0 : Number.isInteger(+(v * 10).toFixed(6)) ? 1 : 2);
     const lab = (v) => (v >= 1000 ? th(v / 1000, dec(v / 1000)) + 'k' : th(v, dec(v)));
-    for (const v of ticks) { const yv = fy(v); if (lastY - yv < 20) continue; lastY = yv; el('line', { x1: L, x2: L + PW, y1: yv, y2: yv, class: 'gridl' }, svg); el('text', { x: L + PW + 4, y: yv + 3, class: 'axt' }, svg).textContent = lab(v); }
+    // le righe della griglia attraversano anche la colonna del profilo: i valori a destra valgono per tutte e due
+    for (const v of ticks) { const yv = fy(v); if (lastY - yv < 20) continue; lastY = yv; el('line', { x1: L, x2: L + PW + (showVp ? GAP + PRW : 0), y1: yv, y2: yv, class: 'gridl' }, svg); el('text', { x: W - R + 4, y: yv + 3, class: 'axt' }, svg).textContent = lab(v); }
     let d = '', on = false;
     for (let i = 0; i < n; i++) { if (close[i] == null || close[i] <= 0 || !inWin(dates[i])) { on = false; continue; } d += (on ? 'L' : 'M') + x(dates[i]).toFixed(1) + ' ' + fy(close[i]).toFixed(1); on = true; }
     el('path', { d, class: 'athpx' }, svg);
@@ -533,13 +549,43 @@ export function createVix(ctx) {
     }
     if (s.cycleLowDate && inWin(s.cycleLowDate)) el('circle', { cx: x(s.cycleLowDate), cy: fy(s.cycleLow), r: 3, class: 'athlow' }, svg);
     if (inWin(s.lastDate) && close[n - 1] > 0) el('circle', { cx: x(dates[n - 1]), cy: fy(close[n - 1]), r: 3, class: 'athlast' }, svg);
-    // riquadro dei valori
+    // profilo dei volumi: le 100 fasce si uniscono a gruppi (divisori di n) finché ogni barra è alta almeno 3 px; barre grigie
+    // lunghe quanto la quota (la più lunga occupa la colonna); nessun livello e nessuna fascia evidenziata
+    const bars = [];
+    if (showVp) {
+      if (inWin(vp.from)) el('line', { x1: x(vp.from), x2: x(vp.from), y1: T, y2: T + PH, class: 'vpwin' }, svg);
+      el('rect', { x: XC, y: T, width: PRW, height: PH, class: 'vpcol' }, svg);
+      el('text', { x: XC + 2, y: T - 6, class: 'axt' }, svg).textContent = PRW >= 70 ? 'volumi 12 mesi' : 'vol. 12m';
+      const lr = Math.log(vp.hi / vp.lo), pxBin = (lr / vp.n / (hi - lo)) * PH, tot = vp.bp.reduce((a, b) => a + b, 0);
+      const k = [...Array(vp.n).keys()].map((i) => i + 1).find((g) => vp.n % g === 0 && g * pxBin >= 3) || vp.n;
+      const edge = (i) => vp.lo * Math.exp((lr * i * k) / vp.n);
+      for (let g = 0; g < vp.n / k; g++) { let sh = 0; for (let i = g * k; i < (g + 1) * k; i++) sh += vp.bp[i]; bars.push({ a: edge(g), b: edge(g + 1), sh: (sh / tot) * 100 }); }
+      const mx = Math.max(...bars.map((b) => b.sh)), gap = k * pxBin >= 4 ? 0.8 : 0.3;
+      for (const b of bars) {
+        b.y1 = fy(b.b); b.y2 = fy(b.a);
+        b.el = el('rect', { x: XC + 1, y: b.y1.toFixed(1), width: Math.max(0, (b.sh / mx) * (PRW - 4)).toFixed(1), height: Math.max(0.6, b.y2 - b.y1 - gap).toFixed(1), class: 'vpbar' }, svg);
+      }
+      svg.dataset.vpMerge = k;
+    } else delete svg.dataset.vpMerge;
+    const lit = (b) => { for (const z of bars) z.el.classList.toggle('on', z === b); };
+    // riquadro dei valori: sul prezzo la seduta, sulla colonna la fascia indicata
     let i0 = 0; while (i0 < n - 1 && !inWin(dates[i0])) i0++;
     const xh = el('line', { x1: 0, x2: 0, y1: T, y2: T + PH, class: 'xhair', visibility: 'hidden' }, svg);
-    const hit = el('rect', { x: L, y: T, width: PW + R, height: PH, fill: 'transparent' }, svg);
+    const hit = el('rect', { x: L, y: T, width: showVp ? W - L : PW + R, height: PH, fill: 'transparent' }, svg);
     const show = (e) => {
       const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
       const q = pt.matrixTransform(svg.getScreenCTM().inverse());
+      if (showVp && q.x >= XC - GAP / 2) {
+        xh.setAttribute('visibility', 'hidden');
+        const b = bars.find((z) => q.y >= z.y1 && q.y <= z.y2);
+        lit(b || null);
+        if (!b) { $('athTip').hidden = true; return; }
+        $('athTip').innerHTML = `<div class="row"><b>Volume degli ultimi 12 mesi</b></div><div class="row"><span>Prezzi da ${pv(b.a)} a ${pv(b.b)}</span><b>${th(b.sh, 1)}%</b></div>` +
+          `<div class="note-row">del volume scambiato dal ${dIT(vp.from)} al ${dIT(vp.to)} (${esc(vp.text || vp.vol)})</div>` + (vp.stable === false ? `<div class="note-row vpwarn">${esc(cap(vp.stableNote || VP_NOTE))}</div>` : '');
+        placeTip($('athTip'), $('athWrap'), e, 12);
+        return;
+      }
+      lit(null);
       const tq = t0 + ((Math.max(L, Math.min(L + PW, q.x)) - L) / PW) * (t1 - t0);
       let i = i0; while (i + 1 < n && Date.parse(dates[i + 1]) <= tq) i++;
       if (i + 1 < n && Date.parse(dates[i + 1]) <= t1 && Date.parse(dates[i + 1]) - tq < tq - Date.parse(dates[i])) i++;
@@ -549,10 +595,13 @@ export function createVix(ctx) {
         (after ? `<div class="row"><span>Dal massimo dei 3 anni (${dIT(s.refDate)})</span><b>${p2((c / s.ref - 1) * 100)}</b></div>` : '');
       placeTip($('athTip'), $('athWrap'), e, 12);
     };
-    bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('athTip').hidden = true; });
+    bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('athTip').hidden = true; lit(null); });
     if (athZoom) athZoom.geo(svg, { L, PW, top: T, bottom: T + PH, t0, t1, dates });
+    const vpLeg = showVp ? `<span><span class="kb vpk-bar"></span>a destra: volume per fascia di prezzo, dal ${dIT(vp.from)} al ${dIT(vp.to)} (${esc(vp.text || vp.vol)})</span><span><span class="kb vpk-win"></span>inizio dei 12 mesi</span>` +
+        (vp.stable === false ? `<span class="vpwarn">${esc(vp.stableNote || VP_NOTE)}</span>` : '')
+      : vp ? '<span class="muted">profilo dei volumi nascosto: lo zoom non arriva all\'ultima seduta</span>' : '<span class="muted">profilo dei volumi non disponibile</span>';
     $('athLegend').innerHTML = `<span><span class="kl athk-px"></span>${esc(m.label)} (${esc(m.symbol)}), chiusure</span><span><span class="kb athk-win"></span>ultimi 3 anni (dal ${dIT(s.from)})</span><span class="athleg-ref"><span class="kl athk-ref"></span><span class="kd athk-top"></span>massimo di chiusura dei 3 anni: ${pv(s.ref)} il ${dIT(s.refDate)}</span>` +
-      (s.cycleLowDate ? `<span><span class="kd athk-low"></span>minimo dopo il massimo: ${pv(s.cycleLow)} il ${dIT(s.cycleLowDate)}</span>` : '') + `<span><span class="kd athk-last"></span>ultima chiusura: ${pv(s.last)} il ${dIT(s.lastDate)}</span>` + (s.athDate !== s.refDate ? `<span>massimo di sempre: ${pv(s.ath)} il ${dIT(s.athDate)}${s.athDate < dates[0] ? ', prima del 2000' : ''}</span>` : '');
+      (s.cycleLowDate ? `<span><span class="kd athk-low"></span>minimo dopo il massimo: ${pv(s.cycleLow)} il ${dIT(s.cycleLowDate)}</span>` : '') + `<span><span class="kd athk-last"></span>ultima chiusura: ${pv(s.last)} il ${dIT(s.lastDate)}</span>` + (s.athDate !== s.refDate ? `<span>massimo di sempre: ${pv(s.ath)} il ${dIT(s.athDate)}${s.athDate < dates[0] ? ', prima del 2000' : ''}</span>` : '') + vpLeg;
   }
 
   function bind() {

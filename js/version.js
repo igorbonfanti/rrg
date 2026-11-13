@@ -5,9 +5,10 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.10.2';
+export const VERSION = '1.11.0';
 export const RELEASE = '2026-11-13';
 export const NOTES = [
+  'VIX (vista 8), distanza dal massimo: accanto al grafico del prezzo il profilo dei volumi degli ultimi 12 mesi (dove si è scambiato di più), solo la forma, con un riquadro al passaggio del mouse o al tocco; per oro, Nasdaq-100 e KOSPI con l\'avvertenza «profilo poco stabile»',
   'Aggiornamento notturno: un mercato del pannello dei massimi che Yahoo ridà con una seduta in meno non fa più risultare fallita la corsa (si tiene la riga pubblicata, con un avviso)',
   'VIX (vista 8), distanza dal massimo: oro e argento con i future (GC=F, SI=F) invece degli ETF GLD e SLV; chiusura al prezzo di regolamento verso le 13:30 di New York, spiegato nel dettaglio e nella guida',
   'VIX (vista 8): nuovo pannello «Distanza dal massimo degli ultimi 3 anni», solo contesto: Bitcoin, oro, argento, rame, petrolio, Nasdaq-100, S&P 500, semiconduttori e KOSPI, quanto sono sotto il picco dell\'ultimo ciclo, da quando e il calo più profondo; ordinabile per distanza o per data del massimo; al clic il dettaglio e il grafico del prezzo dal 2000. Idea da una slide di Francesco Caruso (Cicli&Mercati)',

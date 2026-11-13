@@ -42,12 +42,24 @@ function barDate(ts, meta) {
 
 /**
  * @param {string} symbol
- * @param {{range?: string, period1?: number, period2?: number, interval?: string, retries?: number}} [opt]
+ * @param {{range?: string, period1?: number, period2?: number, interval?: string, retries?: number, withVolume?: boolean}} [opt]
  * @returns {Promise<{dates: string[], close: number[], adjclose: number[], high: number[], meta: object}>}
- *   close e high rettificati solo per gli split, adjclose anche per i dividendi
+ *   close e high rettificati solo per gli split, adjclose anche per i dividendi; con withVolume anche low e volume
  */
 export async function fetchDaily(symbol, opt = {}) {
-  const { range = '5y', period1, period2, interval = '1d', retries = 3, raw = false, fillLast = false, keepOpenCrypto = false, dropStale = false } = opt;
+  const { fillLast = false, keepOpenCrypto = false, dropStale = false, withVolume = false } = opt;
+  return parse(await fetchChart(symbol, opt), { fillLast, keepOpenCrypto, dropStale, withVolume });
+}
+
+/**
+ * Risposta grezza dell'endpoint chart (result[0]), con gli stessi tentativi di fetchDaily. Serve alle barre orarie
+ * (interval: '60m', parseHourly) del profilo dei volumi (1.11.0).
+ * @param {string} symbol
+ * @param {{range?: string, period1?: number, period2?: number, interval?: string, retries?: number, raw?: boolean}} [opt]
+ * @returns {Promise<object>}
+ */
+export async function fetchChart(symbol, opt = {}) {
+  const { range = '5y', period1, period2, interval = '1d', retries = 3, raw = false } = opt;
   const q = period1 != null ? `period1=${period1}&period2=${period2 ?? Math.floor(Date.now() / 1000)}` : `range=${range}`;
   let lastErr;
   for (let attempt = 0; attempt <= retries; attempt++) {
@@ -60,7 +72,7 @@ export async function fetchDaily(symbol, opt = {}) {
       const j = await r.json();
       const res = j.chart && j.chart.result && j.chart.result[0];
       if (!res || !res.timestamp) throw new Error('nessun dato');
-      return parse(res, { fillLast, keepOpenCrypto, dropStale });
+      return res;
     } catch (e) {
       lastErr = e;
       if (!e.retry && !(e instanceof TypeError) && e.name !== 'TimeoutError') break; // TypeError = errore di rete; TimeoutError = 30 s senza risposta
@@ -74,9 +86,11 @@ export async function fetchDaily(symbol, opt = {}) {
  * Barre giornaliere dalla risposta di Yahoo (chart v8).
  * dropStale: scarta le barre «segnaposto» (volume 0, apertura = massimo = minimo = chiusura = chiusura precedente):
  * Yahoo le mette quando non ha la seduta (Milano 13–20/09/2022, Xetra 04–06/12/2023) e sembrano sedute ferme.
+ * withVolume (1.11.0, profilo dei volumi): restituisce anche low (minimo della seduta; se manca o è sopra la chiusura vale
+ * la chiusura) e volume (null se manca). Senza l'opzione l'uscita resta quella di prima.
  */
 const SETTLE = 3600;
-export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale = false, nowSec = Date.now() / 1000 } = {}) {
+export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale = false, withVolume = false, nowSec = Date.now() / 1000 } = {}) {
   const meta = res.meta || {};
   const ts = res.timestamp;
   const quote = res.indicators.quote[0] || {};
@@ -84,6 +98,7 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale
   const reg = meta.currentTradingPeriod && meta.currentTradingPeriod.regular;
   const keepOpen = keepOpenCrypto && meta.instrumentType === 'CRYPTOCURRENCY';
   const out = { dates: [], close: [], adjclose: [], high: [], meta };
+  if (withVolume) { out.low = []; out.volume = []; }
   for (let i = 0; i < ts.length; i++) {
     let c = quote.close ? quote.close[i] : null;
     let a = adj[i];
@@ -104,12 +119,46 @@ export function parse(res, { fillLast = false, keepOpenCrypto = false, dropStale
         out.close.length && out.close[out.close.length - 1] === c) continue;
     // massimo della seduta; se manca (o è sotto la chiusura, dato sporco) vale la chiusura
     const hi = h != null && h > c ? h : c;
+    let lo = null, vol = null;
+    if (withVolume) {
+      const l = quote.low ? quote.low[i] : null, v = quote.volume ? quote.volume[i] : null;
+      lo = l != null && l < c ? l : c; vol = v == null ? null : v;
+    }
     if (out.dates.length && out.dates[out.dates.length - 1] === d) {
       // barra duplicata per la stessa data: tieni l'ultima
       out.close[out.close.length - 1] = c; out.adjclose[out.adjclose.length - 1] = a; out.high[out.high.length - 1] = hi;
+      if (withVolume) { out.low[out.low.length - 1] = lo; out.volume[out.volume.length - 1] = vol; }
       continue;
     }
     out.dates.push(d); out.close.push(c); out.adjclose.push(a); out.high.push(hi);
+    if (withVolume) { out.low.push(lo); out.volume.push(vol); }
+  }
+  return out;
+}
+
+/**
+ * Barre orarie (interval 60m) dalla risposta di Yahoo, per il profilo dei volumi (1.11.0): {t, s, h, l, c, v} con la
+ * seduta s nel fuso della borsa (ora legale di quel giorno). Per i future una barra dalle 18 locali in poi è della seduta
+ * del giorno dopo (Globex riapre alle 18 di New York). Barre senza chiusura scartate; massimo e minimo comprendono la
+ * chiusura; volume mancante = 0. Nessun filtro sulla barra in corso: chi le usa tiene solo le sedute già chiuse del
+ * grafico (s <= ultima seduta). Stessa regola di bars() in ricerca/poc/profilo/analisi.mjs.
+ * @param {object} res risposta grezza (fetchChart)
+ * @returns {{t: number, s: string, h: number, l: number, c: number, v: number}[]}
+ */
+const HOUR_FMT = {};
+export function parseHourly(res) {
+  const meta = res.meta || {}, tz = meta.exchangeTimezoneName || 'UTC', q = (res.indicators && res.indicators.quote && res.indicators.quote[0]) || {};
+  const fut = meta.instrumentType === 'FUTURE';
+  const f = HOUR_FMT[tz] || (HOUR_FMT[tz] = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', hourCycle: 'h23' }));
+  const out = [], ts = res.timestamp || [];
+  for (let i = 0; i < ts.length; i++) {
+    const c = q.close ? q.close[i] : null;
+    if (c == null) continue;
+    const p = Object.fromEntries(f.formatToParts(ts[i] * 1000).map((x) => [x.type, x.value]));
+    let s = `${p.year}-${p.month}-${p.day}`;
+    if (fut && +p.hour >= 18) s = new Date(Date.parse(s) + 86400000).toISOString().slice(0, 10);
+    const hh = q.high ? q.high[i] : null, ll = q.low ? q.low[i] : null;
+    out.push({ t: ts[i], s, h: hh != null ? Math.max(hh, c) : c, l: ll != null ? Math.min(ll, c) : c, c, v: (q.volume && q.volume[i]) || 0 });
   }
   return out;
 }
