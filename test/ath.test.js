@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { athStats, athRows, daysBetween, windowStart } from '../js/ath.js';
-import { pickStats } from '../scripts/fetch_ath.js';
+import { pickStats, prevRowOf } from '../scripts/fetch_ath.js';
 import { staleData } from '../scripts/check_fresh.js';
 import { decodeDates } from '../js/indexdata.js';
 
@@ -122,4 +122,13 @@ test('massimo dei 3 anni: bordi della finestra, chiusura a zero, valori mancanti
   // parità del massimo di sempre: la prima data
   const a = athStats(['2010-01-04', '2015-01-05', '2026-01-05', '2026-01-06'], [120, 100, 120, 110]);
   assert.equal(a.athDate, '2010-01-04'); assert.equal(a.refDate, '2026-01-05');
+});
+
+test('massimo dei 3 anni: con un simbolo nuovo la riga pubblicata non vale (oro e argento dagli ETF ai future, 1.10.1)', () => {
+  const prev = { markets: [{ id: 'GOLD', symbol: 'GLD', stats: { lastDate: '2026-11-12' } }, { id: 'SPX', symbol: '^GSPC', stats: { lastDate: '2026-11-12' } }] };
+  assert.equal(prevRowOf(prev, { id: 'GOLD', symbol: 'GC=F' }), null);
+  assert.equal(prevRowOf(prev, { id: 'SPX', symbol: '^GSPC' }).stats.lastDate, '2026-11-12');
+  assert.equal(prevRowOf(null, { id: 'SPX', symbol: '^GSPC' }), null);
+  const C = read('config/ath.json').markets;
+  assert.deepEqual(C.filter((m) => ['GOLD', 'SILVER'].includes(m.id)).map((m) => m.symbol), ['GC=F', 'SI=F']);
 });
