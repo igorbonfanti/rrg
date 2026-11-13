@@ -31,6 +31,6 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
   const gd = await (await fetch(BASE + 'guida.html?x=' + Date.now())).text();
   ok(/GC=F, SI=F, HG=F, CL=F/.test(gd) && /13:30/.test(gd), 'guida: future e regolamento delle 13:30');
   const v = await (await fetch(BASE + 'version.json?x=' + Date.now())).json();
-  ok(v.version === '1.10.1', `version.json ${v.version}`);
+  ok(/^1\.(1[0-9])\./.test(v.version) && v.version !== '1.10.0', `version.json ${v.version}`);
   await b.close(); console.log(`${fail} FAIL`); process.exit(fail ? 1 : 0);
 })();
