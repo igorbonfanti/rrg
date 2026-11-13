@@ -75,6 +75,8 @@ test('massimo dei 3 anni: riga pubblicata tenuta se il mercato non arriva, è pi
   assert.deepEqual(pickStats(null, prev), { stats: prev, kept: true, why: 'non arrivato' });
   assert.equal(pickStats(null, null).stats, null);
   assert.equal(pickStats({ start: '2000-08-23', lastDate: '2026-11-07' }, prev).kept, true);
+  assert.equal(pickStats({ start: '2000-08-23', lastDate: '2026-11-07' }, prev).soft, true); // seduta più vecchia: riga tenuta, nessun errore
+  assert.ok(!pickStats(null, prev).soft && !pickStats({ start: '2010-01-04', lastDate: '2026-11-11' }, prev).soft); // non arrivato o accorciato: errore
   assert.equal(pickStats({ start: '2010-01-04', lastDate: '2026-11-11' }, prev).kept, true);
   const fresh = { start: '2000-08-23', lastDate: '2026-11-11' };
   assert.deepEqual(pickStats(fresh, prev), { stats: fresh, kept: false, why: null });
