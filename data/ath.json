@@ -1,10 +1,8 @@
 {
- "generated": "2026-11-13T18:43:04.492Z",
+ "generated": "2026-11-14T02:41:44.711Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
  "asOf": "2026-11-13",
- "missing": [
-  "KOSPI"
- ],
+ "missing": [],
  "markets": [
   {
    "id": "BTC",
@@ -148,23 +146,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1985-10-01",
-    "from": "2023-11-12",
-    "last": 28289.1895,
-    "lastDate": "2026-11-12",
+    "from": "2023-11-13",
+    "last": 27943.7363,
+    "lastDate": "2026-11-13",
     "ref": 31224.4707,
     "refDate": "2026-10-06",
-    "distPct": -9.4,
-    "days": 37,
+    "distPct": -10.51,
+    "days": 38,
     "cycleLow": 26629.8105,
     "cycleLowDate": "2026-11-05",
     "cycleLowPct": -14.71,
-    "fromLowPct": 6.23,
+    "fromLowPct": 4.93,
     "belowZero": null,
     "intradayRef": 31361.3691,
     "intradayRefDate": "2026-10-06",
     "ath": 31224.4707,
     "athDate": "2026-10-06",
-    "athDistPct": -9.4
+    "athDistPct": -10.51
    }
   },
   {
@@ -174,23 +172,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1927-12-30",
-    "from": "2023-11-12",
-    "last": 7592.3999,
-    "lastDate": "2026-11-12",
+    "from": "2023-11-13",
+    "last": 7561.6699,
+    "lastDate": "2026-11-13",
     "ref": 7818.9302,
     "refDate": "2026-10-06",
-    "distPct": -2.9,
-    "days": 37,
+    "distPct": -3.29,
+    "days": 38,
     "cycleLow": 7353.73,
     "cycleLowDate": "2026-11-05",
     "cycleLowPct": -5.95,
-    "fromLowPct": 3.25,
+    "fromLowPct": 2.83,
     "belowZero": null,
     "intradayRef": 7844.52,
     "intradayRefDate": "2026-10-06",
     "ath": 7818.9302,
     "athDate": "2026-10-06",
-    "athDistPct": -2.9
+    "athDistPct": -3.29
    }
   },
   {
@@ -201,23 +199,23 @@
    "note": "ETF iShares dei semiconduttori, senza i dividendi (la differenza è minima).",
    "stats": {
     "start": "2001-07-13",
-    "from": "2023-11-12",
-    "last": 154.99,
-    "lastDate": "2026-11-12",
+    "from": "2023-11-13",
+    "last": 149.3,
+    "lastDate": "2026-11-13",
     "ref": 218.3367,
     "refDate": "2026-06-22",
-    "distPct": -29.01,
-    "days": 143,
+    "distPct": -31.62,
+    "days": 144,
     "cycleLow": 131.9,
     "cycleLowDate": "2026-11-05",
     "cycleLowPct": -39.59,
-    "fromLowPct": 17.51,
+    "fromLowPct": 13.19,
     "belowZero": null,
     "intradayRef": 218.65,
     "intradayRefDate": "2026-06-22",
     "ath": 218.3367,
     "athDate": "2026-06-22",
-    "athDistPct": -29.01
+    "athDistPct": -31.62
    }
   },
   {
