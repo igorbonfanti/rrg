@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-19T19:36:47.354Z",
+ "generated": "2026-11-20T03:44:08.152Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
- "asOf": "2026-11-18",
+ "asOf": "2026-11-19",
  "missing": [],
  "markets": [
   {
@@ -146,23 +146,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1985-10-01",
-    "from": "2023-11-18",
-    "last": 27116.2598,
-    "lastDate": "2026-11-18",
+    "from": "2023-11-19",
+    "last": 26517.0508,
+    "lastDate": "2026-11-19",
     "ref": 31224.4707,
     "refDate": "2026-10-06",
-    "distPct": -13.16,
-    "days": 43,
-    "cycleLow": 26629.8105,
-    "cycleLowDate": "2026-11-05",
-    "cycleLowPct": -14.71,
-    "fromLowPct": 1.83,
+    "distPct": -15.08,
+    "days": 44,
+    "cycleLow": 26517.0508,
+    "cycleLowDate": "2026-11-19",
+    "cycleLowPct": -15.08,
+    "fromLowPct": 0,
     "belowZero": null,
     "intradayRef": 31361.3691,
     "intradayRefDate": "2026-10-06",
     "ath": 31224.4707,
     "athDate": "2026-10-06",
-    "athDistPct": -13.16
+    "athDistPct": -15.08
    }
   },
   {
@@ -172,23 +172,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1927-12-30",
-    "from": "2023-11-18",
-    "last": 7323.6299,
-    "lastDate": "2026-11-18",
+    "from": "2023-11-19",
+    "last": 7175.8301,
+    "lastDate": "2026-11-19",
     "ref": 7818.9302,
     "refDate": "2026-10-06",
-    "distPct": -6.33,
-    "days": 43,
-    "cycleLow": 7323.6299,
-    "cycleLowDate": "2026-11-18",
-    "cycleLowPct": -6.33,
+    "distPct": -8.22,
+    "days": 44,
+    "cycleLow": 7175.8301,
+    "cycleLowDate": "2026-11-19",
+    "cycleLowPct": -8.22,
     "fromLowPct": 0,
     "belowZero": null,
     "intradayRef": 7844.52,
     "intradayRefDate": "2026-10-06",
     "ath": 7818.9302,
     "athDate": "2026-10-06",
-    "athDistPct": -6.33
+    "athDistPct": -8.22
    }
   },
   {
@@ -199,23 +199,23 @@
    "note": "ETF iShares dei semiconduttori, senza i dividendi (la differenza è minima).",
    "stats": {
     "start": "2001-07-13",
-    "from": "2023-11-18",
-    "last": 141.85,
-    "lastDate": "2026-11-18",
+    "from": "2023-11-19",
+    "last": 137.95,
+    "lastDate": "2026-11-19",
     "ref": 218.3367,
     "refDate": "2026-06-22",
-    "distPct": -35.03,
-    "days": 149,
+    "distPct": -36.82,
+    "days": 150,
     "cycleLow": 131.9,
     "cycleLowDate": "2026-11-05",
     "cycleLowPct": -39.59,
-    "fromLowPct": 7.54,
+    "fromLowPct": 4.59,
     "belowZero": null,
     "intradayRef": 218.65,
     "intradayRefDate": "2026-06-22",
     "ath": 218.3367,
     "athDate": "2026-06-22",
-    "athDistPct": -35.03
+    "athDistPct": -36.82
    }
   },
   {
@@ -226,23 +226,23 @@
    "note": "Indice KOSPI intero, in won: per chi investe in euro o in dollari il calo è diverso (conta anche il cambio). Le feste coreane possono fermarlo fino a 11 giorni.",
    "stats": {
     "start": "1996-12-11",
-    "from": "2023-11-18",
-    "last": 5067.4399,
-    "lastDate": "2026-11-18",
+    "from": "2023-11-19",
+    "last": 5137.8901,
+    "lastDate": "2026-11-19",
     "ref": 9114.5498,
     "refDate": "2026-06-22",
-    "distPct": -44.4,
-    "days": 149,
+    "distPct": -43.63,
+    "days": 150,
     "cycleLow": 4968.48,
     "cycleLowDate": "2026-11-17",
     "cycleLowPct": -45.49,
-    "fromLowPct": 1.99,
+    "fromLowPct": 3.41,
     "belowZero": null,
     "intradayRef": 9385.5898,
     "intradayRefDate": "2026-06-19",
     "ath": 9114.5498,
     "athDate": "2026-06-22",
-    "athDistPct": -44.4
+    "athDistPct": -43.63
    }
   }
  ]
