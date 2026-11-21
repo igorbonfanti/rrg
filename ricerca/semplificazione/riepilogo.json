@@ -1,0 +1,136 @@
+{
+ "Testata, piè di pagina, guida rapida": {
+  "voci": 39,
+  "parole_oggi": 2044,
+  "parole_dopo": 655,
+  "parole_tooltip": 0,
+  "ACCORCIARE": 14,
+  "visibili_oggi": 116,
+  "visibili_dopo": 61,
+  "TOGLIERE": 2,
+  "TENERE": 21,
+  "guida_rapida_oggi": 1791,
+  "guida_rapida_dopo": 572,
+  "GUIDA": 2
+ },
+ "1 Monitor": {
+  "voci": 11,
+  "parole_oggi": 443,
+  "parole_dopo": 137,
+  "parole_tooltip": 0,
+  "TENERE": 7,
+  "TOGLIERE": 1,
+  "visibili_oggi": 440,
+  "visibili_dopo": 134,
+  "ACCORCIARE": 3
+ },
+ "2 Rotazione": {
+  "voci": 26,
+  "parole_oggi": 1158,
+  "parole_dopo": 140,
+  "parole_tooltip": 69,
+  "TOOLTIP": 3,
+  "visibili_oggi": 361,
+  "visibili_dopo": 140,
+  "TENERE": 15,
+  "ACCORCIARE": 5,
+  "GUIDA": 3,
+  "parole_piegate_oggi": 745
+ },
+ "3 Bottom Map": {
+  "voci": 12,
+  "parole_oggi": 135,
+  "parole_dopo": 44,
+  "parole_tooltip": 29,
+  "TOOLTIP": 1,
+  "visibili_oggi": 135,
+  "visibili_dopo": 44,
+  "TENERE": 8,
+  "ACCORCIARE": 3
+ },
+ "4 Settore": {
+  "voci": 32,
+  "parole_oggi": 801,
+  "parole_dopo": 279,
+  "parole_tooltip": 0,
+  "ACCORCIARE": 8,
+  "parole_piegate_oggi": 478,
+  "TENERE": 24,
+  "visibili_oggi": 323,
+  "visibili_dopo": 131
+ },
+ "5 Titoli": {
+  "voci": 29,
+  "parole_oggi": 854,
+  "parole_dopo": 162,
+  "parole_tooltip": 52,
+  "TENERE": 20,
+  "ACCORCIARE": 3,
+  "visibili_oggi": 812,
+  "visibili_dopo": 130,
+  "TOOLTIP": 2,
+  "TOGLIERE": 2,
+  "GUIDA": 2
+ },
+ "6 Indici": {
+  "voci": 46,
+  "parole_oggi": 777,
+  "parole_dopo": 295,
+  "parole_tooltip": 32,
+  "TENERE": 36,
+  "ACCORCIARE": 9,
+  "visibili_oggi": 377,
+  "visibili_dopo": 183,
+  "TOOLTIP": 1,
+  "parole_piegate_oggi": 395
+ },
+ "7 Emergenti": {
+  "voci": 24,
+  "parole_oggi": 755,
+  "parole_dopo": 149,
+  "parole_tooltip": 40,
+  "TENERE": 15,
+  "ACCORCIARE": 3,
+  "visibili_oggi": 750,
+  "visibili_dopo": 144,
+  "GUIDA": 2,
+  "TOGLIERE": 2,
+  "TOOLTIP": 2
+ },
+ "8 VIX": {
+  "voci": 36,
+  "parole_oggi": 1588,
+  "parole_dopo": 262,
+  "parole_tooltip": 30,
+  "TENERE": 20,
+  "visibili_oggi": 1580,
+  "visibili_dopo": 254,
+  "ACCORCIARE": 8,
+  "TOGLIERE": 2,
+  "TOOLTIP": 1,
+  "GUIDA": 5
+ },
+ "9 Alert": {
+  "voci": 5,
+  "parole_oggi": 116,
+  "parole_dopo": 84,
+  "parole_tooltip": 0,
+  "ACCORCIARE": 2,
+  "visibili_oggi": 82,
+  "visibili_dopo": 50,
+  "TENERE": 3,
+  "parole_piegate_oggi": 34
+ },
+ "_bolle (oggi dentro 8 VIX)": {
+  "parole_oggi": 333,
+  "parole_dopo": 88
+ },
+ "_totale": {
+  "voci": 260,
+  "parole_oggi": 8671,
+  "parole_dopo": 2207,
+  "visibili_oggi": 4976,
+  "visibili_dopo": 1271,
+  "parole_tooltip": 252
+ }
+}

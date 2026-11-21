@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <base href="../../../" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sector Monitor</title>
+  <meta name="description" content="Breadth dei settori S&amp;P 500 contro un livello blu, drawdown e rotazione relativa di settori, MAG7 ed ETF in euro. Dati di fine giornata, strumento di studio." />
+  <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <!-- anteprima del link su Discord, Telegram, WhatsApp… -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Sector Monitor" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:title" content="Sector Monitor · bottom settoriali e rotazione relativa" />
+  <meta property="og:description" content="Breadth dei settori S&amp;P 500 contro un livello blu, drawdown e rotazione relativa di settori, MAG7 ed ETF in euro. Dati di fine giornata, strumento di studio." />
+  <meta property="og:url" content="https://igorbonfanti.github.io/rrg/" />
+  <meta property="og:image" content="https://igorbonfanti.github.io/rrg/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Grafico di rotazione relativa dei settori S&amp;P 500 in Sector Monitor" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- prima del CSS: tema (chiave condivisa con le altre app del sito: antigravity-theme) e colori per daltonici, senza lampi -->
+  <script>(function(){try{var d=document.documentElement,t=localStorage.getItem('antigravity-theme')==='light'?'light':'dark';d.setAttribute('data-theme',t);if(t==='light')document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');if(localStorage.getItem('sm.cvd')==='true')d.classList.add('cvd');}catch(e){}})();</script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="ricerca/semplificazione/prototipo/proto.css" />
+  <link rel="preload" href="fonts/ibm-plex-mono-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/ibm-plex-mono-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/ibm-plex-sans-condensed-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="modulepreload" href="js/app.js" />
+  <link rel="modulepreload" href="js/engine.js" />
+  <link rel="modulepreload" href="js/bottom.js" />
+  <link rel="modulepreload" href="js/signals.js" />
+  <link rel="modulepreload" href="js/metrics.js" />
+  <link rel="modulepreload" href="js/calendar.js" />
+  <link rel="modulepreload" href="js/portfolio.js" />
+  <link rel="modulepreload" href="js/format.js" />
+  <link rel="modulepreload" href="js/rrg-chart.js" />
+  <link rel="modulepreload" href="js/perf-chart.js" />
+  <link rel="modulepreload" href="js/bottom-map.js" />
+  <link rel="modulepreload" href="js/sector-chart.js" />
+  <link rel="preload" href="data/prices.json" as="fetch" crossorigin />
+  <link rel="preload" href="data/sectors.json" as="fetch" crossorigin />
+  <link rel="preload" href="data/breadth.json" as="fetch" crossorigin />
+  <link rel="modulepreload" href="js/indices.js" />
+  <link rel="modulepreload" href="js/indexdata.js" />
+  <link rel="modulepreload" href="js/titles.js" />
+  <link rel="modulepreload" href="js/emerging.js" />
+  <link rel="modulepreload" href="js/emerging-view.js" />
+  <link rel="modulepreload" href="js/vix.js" />
+  <link rel="modulepreload" href="js/vix-view.js" />
+  <link rel="modulepreload" href="js/version.js" />
+  <link rel="modulepreload" href="js/industries.js" />
+  <link rel="preload" href="data/industries.json" as="fetch" crossorigin />
+  <link rel="preload" href="config/industries.json" as="fetch" crossorigin />
+  <link rel="preload" href="config/thresholds.json" as="fetch" crossorigin />
+  <link rel="preload" href="data/breadth_latest.json" as="fetch" crossorigin />
+  <link rel="preload" href="config/indices.json" as="fetch" crossorigin />
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="hatchOff" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" style="fill:var(--blue);opacity:.08"/><line x1="0" y1="0" x2="0" y2="6" style="stroke:var(--blue);stroke-width:2;opacity:.4"/></pattern></defs></svg>
+<div class="term" id="term">
+  <header class="cmdbar">
+    <h1 class="brand">SECTOR·MON</h1>
+    <span class="ver" id="verTag"></span>
+    <button type="button" class="newver" id="newVer" hidden></button>
+    <form class="cmd" id="cmdForm" autocomplete="off">
+      <span class="prompt">&gt;</span>
+      <input id="cmd" name="cmd" spellcheck="false" aria-label="Comando" placeholder="Ticker o nome: XLU, ORO, HELP" />
+      <button class="go" type="submit">GO</button>
+    </form>
+    <span class="clock" id="clock"></span>
+    <span class="tools">
+      <button type="button" class="tool" id="helpBtn" aria-haspopup="dialog" title="Guida e scorciatoie (tasto ?)">? Guida</button>
+      <button type="button" class="tool" id="cvdBtn" aria-pressed="false" title="Colori per daltonici: su/giù in blu/rosso">CVD</button>
+      <button type="button" class="tool theme-sw" id="themeBtn" role="switch" aria-checked="false" aria-label="Tema chiaro" title="Tema chiaro: fondo bianco, stessi colori per i dati"><span class="sw" aria-hidden="true"></span>Chiaro</button>
+    </span>
+  </header>
+
+  <nav aria-label="Viste">
+  <div class="fnkeys" role="tablist" aria-label="Viste">
+    <button type="button" role="tab" id="tab-mon" data-view="mon" aria-controls="v-mon" aria-selected="true">1 Monitor</button>
+    <button type="button" role="tab" id="tab-rrg" data-view="rrg" aria-controls="v-rrg" aria-selected="false" tabindex="-1">2 Rotazione</button>
+    <button type="button" role="tab" id="tab-btm" data-view="btm" aria-controls="v-btm" aria-selected="false" tabindex="-1">3 Bottom Map</button>
+    <button type="button" role="tab" id="tab-sec" data-view="sec" aria-controls="v-sec" aria-selected="false" tabindex="-1">4 Settore</button>
+    <button type="button" role="tab" id="tab-tit" data-view="tit" aria-controls="v-tit" aria-selected="false" tabindex="-1">5 Titoli</button>
+    <button type="button" role="tab" id="tab-idx" data-view="idx" aria-controls="v-idx" aria-selected="false" tabindex="-1">6 Indici</button>
+    <button type="button" role="tab" id="tab-emg" data-view="emg" aria-controls="v-emg" aria-selected="false" tabindex="-1">7 Emergenti</button>
+    <button type="button" role="tab" id="tab-vix" data-view="vix" aria-controls="v-vix" aria-selected="false" tabindex="-1">8 VIX</button>
+    <button type="button" role="tab" id="tab-alr" data-view="alr" aria-controls="v-alr" aria-selected="false" tabindex="-1">9 Alert</button>
+    <button type="button" role="tab" id="tab-ath" data-proto-view="ath" aria-controls="v-ath" aria-selected="false" tabindex="-1">0 Massimi</button>
+  </div>
+  </nav>
+
+  <main>
+
+  <div class="filters" id="filters" hidden>
+    <label class="ctl" for="groupSel">Universo <select id="groupSel"></select></label><span class="fresh stale" id="grpWarn" hidden></span>
+    <label class="ctl" for="benchSel">Benchmark <select id="benchSel"></select></label>
+    <span class="ctl">Timeframe
+      <span class="seg" id="tfSeg" role="group" aria-label="Timeframe">
+        <button type="button" data-tf="weekly" aria-pressed="true">Settimanale</button>
+        <button type="button" data-tf="daily" aria-pressed="false">Giornaliero</button>
+      </span></span>
+    <span class="ctl">Formula
+      <span class="seg" id="formulaSeg" role="group" aria-label="Formula">
+        <button type="button" data-formula="nuova" aria-pressed="true" title="Nostra formula: medie esponenziali a 10 e 30 barre sul logaritmo della forza relativa, divise per la sua volatilità. Tutti i titoli sulla stessa scala, di solito entro 3 punti da 100">Nuova</button>
+        <button type="button" data-formula="semplice" aria-pressed="false" title="Come StockCharts: RS-Ratio = 100 × media semplice a 10 barre ÷ media a 30 della forza relativa; RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. Distanza da 100 in punti percentuali">Medie semplici</button>
+      </span></span>
+  </div>
+
+  <!-- 1 MONITOR -->
+  <section class="view" id="v-mon" role="tabpanel" aria-labelledby="tab-mon">
+    <p class="note loading" id="loadingNote">Caricamento dei dati…</p>
+    <div class="intro" id="intro" hidden>
+      <p><b>Sector Monitor</b> cerca i possibili bottom dei settori S&amp;P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
+      <ol>
+        <li>Leggi il <b>Monitor</b>: lo stato di ogni settore e, accanto (sul telefono sopra), quelli da osservare con il motivo.</li>
+        <li>Clic su un settore per il <b>dettaglio</b>: prova il livello blu con + e −.</li>
+        <li>Apri <b>2 Rotazione</b> e scegli un universo in euro: Asset class, Fattori, Regioni, Paesi o Indici.</li>
+      </ol>
+      <div class="intro-btns"><button type="button" class="mini" id="introClose">Ho capito</button><button type="button" class="mini" id="introHelp">Apri la guida</button></div>
+    </div>
+    <div class="changes" id="changes" hidden></div>
+    <div class="kpis" id="boardKpis"></div>
+    <div class="grid-side">
+      <div class="panel">
+        <div class="ph"><h2>Settori S&amp;P 500 · stato dei bottom</h2><span class="meta" id="boardMeta"></span></div>
+        <div class="tscroll"><table class="t board-cards" id="boardTable"></table></div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
+          <span><span class="kb" style="background:var(--blue);width:2px"></span>livello blu del settore</span>
+          <span><span class="kb" style="background:var(--bar-mark);width:2px"></span>un mese fa</span>
+          <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia del settore</span>
+          <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
+        </div>
+        <p class="note pb">Il drawdown conta i dividendi come reinvestiti: è la perdita di chi ha tenuto l'ETF e la base dei segnali. «Solo prezzo» è lo stesso calcolo senza i dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo.</p>
+      </div>
+      <div class="stack mon-side">
+        <div class="panel watch-panel">
+          <div class="ph"><h2>Settori da osservare</h2><span class="meta" id="activeMeta"></span></div>
+          <div class="pb" id="activeList"></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Come si legge lo stato</h2></div>
+          <div class="pb states" id="stateLegend"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 RRG -->
+  <section class="view" id="v-rrg" role="tabpanel" aria-labelledby="tab-rrg" hidden>
+    <div class="grid-2">
+      <div class="stack">
+      <div class="panel">
+        <div class="ph"><h2 id="rrgTitle">Rotazione relativa</h2><span class="meta" id="rrgMeta"></span></div>
+        <p class="ptf-line" id="ptfLine" hidden></p>
+        <div class="controls">
+          <span class="ctl">Coda
+            <span class="seg" id="tailSeg" role="group" aria-label="Coda">
+              <button type="button" data-tail="4" aria-pressed="false">4</button>
+              <button type="button" data-tail="10" aria-pressed="true">10</button>
+              <button type="button" data-tail="16" aria-pressed="false">16</button>
+              <button type="button" data-tail="26" aria-pressed="false">26</button>
+            </span></span>
+          <span class="ctl">Scala
+            <span class="seg" id="scaleSeg" role="group" aria-label="Scala">
+              <button type="button" data-scale="fit" aria-pressed="true" title="Adatta la scala alle code visibili">Adatta</button>
+              <button type="button" data-scale="max" aria-pressed="false" title="Scala fissa su tutto il periodo: utile per l'animazione">Massima</button>
+            </span></span>
+        </div>
+        <div class="controls">
+          <button class="play" id="playBtn" type="button">▶ PLAY</button>
+          <div class="scrub"><input type="range" id="frame" aria-label="Periodo visualizzato" /><span class="date" id="frameDate"></span></div>
+        </div>
+        <div class="chart-wrap" id="rrgWrap">
+          <svg class="rrg" id="rrg" role="img" aria-label="Grafico di rotazione relativa"></svg>
+          <div class="tip" id="rrgTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--q-imp)"></span>Improving</span>
+          <span><span class="kb" style="background:var(--q-lead)"></span>Leading</span>
+          <span><span class="kb" style="background:var(--q-weak)"></span>Weakening</span>
+          <span><span class="kb" style="background:var(--q-lag)"></span>Lagging</span>
+          <span class="muted">colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo</span>
+          <span class="muted" id="provNote" hidden>punto vuoto = settimana in corso, provvisorio</span>
+        </div>
+        <!-- come si calcola la formula scelta e cosa cambia con l'altra -->
+        <details class="fx" id="fxBox">
+          <summary id="fxSum">Come si calcolano le due formule</summary>
+          <div class="fx-cols">
+            <div class="fx-col" data-f="nuova">
+              <h3>Nuova <span>· nostra, predefinita</span></h3>
+              <ul>
+                <li>Forza relativa in logaritmo: ln(prezzo ÷ benchmark).</li>
+                <li><b>RS-Ratio</b>: differenza tra la media esponenziale a 10 barre e quella a 30, divisa per la volatilità della forza relativa (emivita 26 barre) e riportata attorno a 100.</li>
+                <li><b>RS-Momentum</b>: scarto dell'RS-Ratio dalla sua media esponenziale a 8 barre, sulla stessa scala.</li>
+                <li>Dividendo per la volatilità, tutti i titoli stanno sulla stessa scala: un settore tranquillo e uno agitato con un trend ugualmente solido stanno alla stessa distanza dal centro, di solito entro 3 punti da 100.</li>
+                <li>Le medie esponenziali non fanno saltare il valore quando un dato vecchio esce dal calcolo.</li>
+              </ul>
+            </div>
+            <div class="fx-col" data-f="semplice">
+              <h3>Medie semplici <span>· come StockCharts</span></h3>
+              <ul>
+                <li>Forza relativa: prezzo ÷ benchmark.</li>
+                <li><b>RS-Ratio</b> = 100 × media semplice a 10 barre ÷ media semplice a 30.</li>
+                <li><b>RS-Momentum</b> = 100 × RS-Ratio ÷ sua media semplice a 9 barre.</li>
+                <li>Nessuna normalizzazione: la distanza da 100 è in punti percentuali, quindi i titoli più volatili vanno più lontano e disegnano code più lunghe (sui settori di solito entro 10 punti).</li>
+                <li>Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts (verificato su 11 letture del 25/09/2026). Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso, per via dei dividendi.</li>
+              </ul>
+            </div>
+          </div>
+          <p class="note">In pratica si leggono allo stesso modo: RS-Ratio sopra 100 = più forte del benchmark, RS-Momentum sopra 100 = forza in aumento. Sui settori USA dal 2022 le due formule danno lo stesso quadrante circa tre volte su quattro; le differenze stanno soprattutto vicino a 100. Le medie semplici servono per confrontarsi con le piattaforme ufficiali; la nuova per confrontare asset con volatilità molto diverse, come le asset class.</p>
+        </details>
+      </div>
+      <!-- composizione del portafoglio di riferimento, solo negli universi che ne hanno uno -->
+      <div class="panel" id="ptfPanel" hidden>
+        <div class="ph"><h2>Portafoglio di riferimento</h2><span class="meta" id="ptfMeta"></span></div>
+        <div class="pb ptf-box">
+          <p class="note" id="ptfWhat"></p>
+          <div class="tscroll"><table class="t ptf" id="ptfTable"></table></div>
+          <div class="ptf-actions">
+            <span class="note warn" id="ptfTotNote" hidden></span>
+            <button type="button" class="mini" id="ptfNorm" hidden>Porta a 100%</button>
+            <button type="button" class="mini" id="ptfReset" disabled>Ripristina l'esempio</button>
+          </div>
+          <p class="note" id="ptfFoot"></p>
+          <details class="fx" id="ptfHow">
+            <summary><b>Il tuo portafoglio</b> · <span class="fx-open">come adattare i pesi e cosa cambia nel grafico</span></summary>
+            <ul class="fx-list">
+              <li>Sposta i cursori, oppure scrivi il numero nella casella accanto, per dare a ogni componente il peso che ha nel tuo portafoglio di lungo periodo. Con la tastiera, sul cursore le frecce cambiano il peso di un punto e Pagina su/giù di dieci.</li>
+              <li>A 0% una componente esce dal portafoglio ma resta sul grafico, confrontata con il resto. Le componenti sono fisse: se hai un'attività che qui non c'è, dai il suo peso a quella più simile.</li>
+              <li>Il totale dovrebbe fare 100%. Se non torna, i pesi valgono in proporzione: con 60 e 60, per esempio, ciascuna componente conta per metà. «Porta a 100%» riscrive i numeri mantenendo le proporzioni.</li>
+              <li>Il portafoglio viene ricalcolato su tutta la storia con i nuovi pesi, come se li avessi sempre avuti, e riportato ai pesi scelti alla chiusura dell'ultima seduta di ogni mese. «Oggi» mostra i pesi dopo i movimenti dei prezzi dall'ultimo ribilanciamento.</li>
+              <li>Ogni punto del grafico confronta una componente con il tuo portafoglio: a destra del centro fa meglio del portafoglio, in alto la sua forza relativa migliora. Così vedi quali parti lo trainano e quali lo frenano. Tabella e performance relativa si aggiornano insieme al grafico.</li>
+              <li>I cursori contano quando il benchmark è il portafoglio: con liquidità o MSCI World il confronto resta con quell'indice.</li>
+              <li>I pesi restano salvati in questo browser: non li vede nessun altro e non cambiano gli altri universi. «Ripristina l'esempio» torna al portafoglio di partenza.</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      <!-- asset reali: cosa mostra ogni benchmark (clic su una riga per sceglierlo) -->
+      <div class="panel" id="mxPanel" hidden>
+        <div class="ph"><h2>Come leggere i benchmark</h2><span class="meta" id="mxMeta"></span></div>
+        <div class="pb mx-box">
+          <p class="note" id="mxNow"></p>
+          <div class="tscroll"><table class="t mx" id="mxTable">
+            <thead><tr><th>Benchmark</th><th>Cosa mostra il grafico</th></tr></thead>
+            <tbody>
+              <tr data-b="BIL" tabindex="0"><td><b>Liquidità in dollari</b><span class="tk">BIL</span></td><td>A destra chi rende più dei T-bill a 1-3 mesi: in pratica il trend assoluto di ogni asset. Vale anche come confronto con il tasso Fed, che si muove con i T-bill.</td></tr>
+              <tr data-b="CPI" tabindex="0"><td><b>Inflazione USA</b><span class="tk">CPI</span></td><td>A destra chi guadagna potere d'acquisto. Il CPI sale lento e regolare, quindi il grafico somiglia molto a quello contro la liquidità; ogni mese entra dal giorno in cui è pubblicato.</td></tr>
+              <tr data-b="DXY_INV" tabindex="0"><td><b>Senza dollaro</b><span class="tk">1/DXY</span></td><td>Prezzi nelle valute del paniere del dollar index (euro, yen, sterlina e altre): toglie l'effetto del dollaro. A destra chi sale anche per chi non ragiona in dollari.</td></tr>
+              <tr data-b="IEF" tabindex="0"><td><b>Treasury 7-10 anni</b><span class="tk">IEF</span></td><td>Reale contro nominale: a destra chi fa meglio dei titoli di Stato USA a medio termine.</td></tr>
+              <tr data-b="SPY" tabindex="0"><td><b>Azioni USA</b><span class="tk">SPY</span></td><td>A destra chi fa meglio della Borsa americana: materie prime contro azioni.</td></tr>
+              <tr data-b="GLD" tabindex="0"><td><b>Oro</b><span class="tk">GLD</span></td><td>Tutto misurato in oro: a destra chi batte il bene rifugio.</td></tr>
+            </tbody>
+          </table></div>
+          <details class="fx" id="mxHow">
+            <summary><b>Da sapere</b> · <span class="fx-open">dati, limiti e come usare questo universo</span></summary>
+            <ul class="fx-list">
+              <li>Contro liquidità e inflazione il grafico legge soprattutto il trend assoluto: sono serie che crescono piano e con regolarità, quindi spostano il centro più che la rotazione. Le informazioni in più vengono dai benchmark che oscillano: dollaro, Treasury, azioni e oro.</li>
+              <li>Tassi e rendimenti non sono prezzi, quindi non stanno al denominatore: entrano come investimenti (liquidità BIL, Treasury IEF, TIPS indicizzati all'inflazione).</li>
+              <li>Il dollar index diretto conterebbe due volte il movimento del dollaro: per togliere il dollaro si usa il suo inverso.</li>
+              <li>Il CPI (BLS, via FRED) è mensile: ogni valore entra dal giorno in cui è stato pubblicato, così il grafico non usa un mese prima che fosse noto (i valori sono quelli rivisti di oggi, le date quelle della prima uscita). Ottobre 2025 non è mai uscito, per lo shutdown del governo USA.</li>
+              <li>Bitcoin quota sempre e il dollar index quasi 24 ore: si usa il loro ultimo prezzo a ogni seduta di New York.</li>
+              <li>Gli ETF sono indicatori in dollari, non strumenti consigliati. Chi investe in euro trova oro, materie prime e bitcoin contro la liquidità in euro nell'universo 1 · Asset class; tra gli equivalenti quotati in Europa ci sono SGLD (oro), PHAG (argento), COPA (rame), CRUD (petrolio) e CMOD (materie prime).</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2 id="tableTitle">Tabella di rotazione</h2><span class="meta push" id="rotMeta"></span>
+            <span class="seg" id="tableSeg" role="group" aria-label="Tabella">
+              <button type="button" data-mode="rot" aria-pressed="true">Rotazione</button>
+              <button type="button" data-mode="px" aria-pressed="false">Prezzi</button>
+            </span></div>
+          <div class="tscroll" id="rotWrap"><table class="t" id="rotTable"></table></div>
+          <div class="tscroll" id="pxWrap" hidden><table class="t" id="monTable"></table></div>
+          <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.<span class="only-phone"> Sul telefono Vel., Dist., Prima e le variazioni sono nascoste: ruotalo o usa un computer per vederle.</span></p>
+          <p class="note pb" id="pxNote" hidden>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni (nel Monitor il percentile usa la storia dal 2004, quindi lo stesso ETF può essere rosso in una tabella e no nell'altra); il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Clic su un'intestazione per ordinare.<span id="pxCopied"></span></p>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Performance relativa</h2>
+            <span class="seg" id="perfSeg" role="group" aria-label="Periodo della performance">
+              <button type="button" data-days="63" aria-pressed="false">3M</button>
+              <button type="button" data-days="126" aria-pressed="true">6M</button>
+              <button type="button" data-days="252" aria-pressed="false">1A</button>
+              <button type="button" data-days="504" aria-pressed="false">2A</button>
+            </span><button type="button" class="zlens" id="perfLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><span class="zchip" id="perfZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+          <div class="chart-wrap" id="perfWrap">
+            <svg class="perf" id="perf" role="img" aria-label="Performance base 100 dei titoli e del benchmark"></svg>
+            <div class="tip" id="perfTip" hidden></div>
+          </div>
+          <div class="legend" id="perfLegend"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 BOTTOM MAP -->
+  <section class="view" id="v-btm" role="tabpanel" aria-labelledby="tab-btm" hidden>
+    <div class="grid-2">
+      <div class="panel">
+        <div class="ph"><h2>Bottom Map · drawdown e breadth</h2><span class="meta" id="bmMeta"></span></div>
+        <div class="controls bm-ctl">
+          <button class="play" id="bmPlay" type="button" title="Rivedi le settimane una dopo l'altra fino a oggi">▶ PLAY</button>
+          <div class="scrub"><input type="range" id="bmDate" step="1" aria-label="Data della Bottom Map" /><span class="date" id="bmDateVal"></span></div>
+          <button type="button" class="mini" id="bmToday" hidden>Oggi</button>
+          <button type="button" class="mini" id="bmZoom" aria-pressed="false" title="Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano">Zoom sulla zona</button>
+        </div>
+        <div class="controls bm-jumps"><span class="ctl">Crisi passate</span><div class="chips" id="bmJumps"></div></div>
+        <div class="chart-wrap" id="bmWrap">
+          <svg class="rrg" id="bm" role="img" aria-label="Bottom Map: drawdown e breadth dei settori rispetto al livello blu"></svg>
+          <div class="tip" id="bmTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--blue)"></span>zona blu: breadth sotto il livello e drawdown profondo</span>
+          <span><span class="kb" style="background:var(--q-weak)"></span>attenzione</span>
+          <span><span class="kb" style="background:var(--st-trig)"></span>trigger</span>
+          <span><span class="kb" style="background:var(--down)"></span>fallito</span>
+          <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
+          <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
+          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia del settore (livello blu + il suo calo forte in 10 sedute)</span>
+          <span id="bmIndLeg" hidden><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><path d="M7 1 L13 7 L7 13 L1 7 Z" fill="var(--ink-2)"/></svg>industria (SOXX, semiconduttori): breadth con i membri di oggi</span>
+          <span class="muted">coda = ultime 8 settimane · il percorso di un bottom scende a sinistra, poi risale · clic per il dettaglio</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="dist" id="distList"></div>
+        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nei settori piccoli (Energy, Communication Services, Materials, Real Estate, Utilities: 21-31 titoli) uno solo sposta la breadth di 3–5 punti.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 SETTORE -->
+  <section class="view" id="v-sec" role="tabpanel" aria-labelledby="tab-sec" hidden>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="controls">
+        <div class="chips" id="secChips"></div>
+        <span class="ctl push">Periodo
+          <span class="seg" id="rangeSeg" role="group" aria-label="Periodo">
+            <button type="button" data-range="3A" aria-pressed="true">3A</button>
+            <button type="button" data-range="10A" aria-pressed="false">10A</button>
+            <button type="button" data-range="MAX" aria-pressed="false">MAX</button>
+          </span><button type="button" class="zlens" id="secLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span>
+      </div>
+    </div>
+    <div class="grid-side">
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2 id="secTitle"></h2><span id="secBadge"></span><span class="zchip" id="secZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+          <div class="chart-wrap" id="tsWrap">
+            <svg class="ts" id="ts" role="img" aria-label="Prezzo, drawdown e breadth del settore"></svg>
+            <div class="tip" id="tsTip" hidden></div>
+          </div>
+          <div class="legend">
+            <span><span class="kl" style="background:var(--ink)"></span>prezzo</span>
+            <span><span class="kl" style="background:var(--amber)"></span>media 200</span>
+            <span><span class="kl" style="background:var(--down)"></span>drawdown</span>
+            <span><span class="kl" style="background:var(--ink-2)"></span>% sopra media 200</span>
+            <span><span class="kl" style="background:var(--key-br50)"></span>% sopra media 50</span>
+            <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
+            <span><span class="kb kb-watch"></span>fascia di attenzione (fino a 10 punti sopra il livello)</span>
+            <span><span class="kl appr"></span>breadth in avvicinamento</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.45"></span>zona blu</span>
+            <span><span class="kb kb-hatch"></span>sotto il livello, fuori dalla zona blu (a righe)</span>
+            <span><span class="kb" style="background:var(--st-trig)"></span>trigger</span>
+          </div>
+        </div>
+        <details class="panel fold" id="secEpiBox" data-keep="secEpi">
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="epiMeta"></span></summary>
+          <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu"><table class="t" id="epiTable"></table></div>
+          <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni.</p>
+          <div class="tscroll" tabindex="0" role="region" aria-label="Episodi a confronto con una seduta qualsiasi e con SPY"><table class="t ctx" id="epiCtx"></table></div>
+          <p class="note pb">Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
+        </details>
+        <details class="panel capcard fold" id="secCap" data-keep="secCap">
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="secCapMeta"></span></summary>
+          <div class="pb" id="secCapBody">
+            <div class="controls capctl" id="secCapCtl"></div>
+            <p class="note" id="secCapNow"></p>
+<span class="zchip zcap" id="secCapZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span>
+            <div class="chart-wrap" id="secCapWrap">
+              <svg class="ts" id="secCapSvg" role="img" aria-label="Cali forti dei titoli del settore e prezzo"></svg>
+              <div class="tip" id="secCapTip" hidden></div>
+            </div>
+            <div class="legend" id="secCapLegend">
+              <span><span class="kl" style="background:var(--ink)"></span>prezzo</span>
+              <span><span class="kb" style="background:var(--down);opacity:.45"></span>cali forti</span>
+              <span><span class="kl dash" style="border-color:var(--amber)"></span>soglia di allerta</span>
+              <span><span class="kb kb-capband"></span>allerta</span>
+            </div>
+            <div class="tscroll" tabindex="0" role="region" aria-label="Episodi di allerta" id="secCapScroll"><table class="t" id="secCapTable"></table></div>
+            <p class="note" id="secCapBase"></p>
+            <p class="note" id="secCapNote"></p>
+          </div>
+        </details>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Perché questo stato</h2><span class="meta">e cosa manca al prossimo</span></div>
+          <div class="pb" id="secCheck"></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Livello blu</h2><span class="meta">% titoli sopra media 200</span></div>
+          <div class="pb blue-box">
+            <div class="blue-row">
+              <span class="stepper"><button type="button" id="blueMinus" aria-label="Abbassa il livello blu">−</button><output id="blueVal"></output><button type="button" id="bluePlus" aria-label="Alza il livello blu">+</button></span>
+              <button type="button" class="mini" id="blueReset" hidden>Ripristina</button>
+            </div>
+            <p class="note" id="blueSrc"></p>
+            <p class="note" id="blueInfo"></p>
+            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+            <details class="owner">
+              <summary>Per chi gestisce il repository</summary>
+              <p class="note">Gli alert Telegram usano config/thresholds.json del repository. Per portarci i livelli provati qui:</p>
+              <button type="button" class="mini" id="copyCfg">Copia configurazione</button>
+              <p class="note" id="copyMsg"></p>
+              <textarea id="cfgText" class="cfgtext" rows="6" hidden aria-label="Configurazione da copiare"></textarea>
+            </details>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Situazione</h2></div>
+          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div><p class="note" id="secQuality" hidden></p></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2 id="memTitle">Titoli del settore</h2><span class="meta" id="memMeta"></span><button type="button" class="mini" id="toTit" title="Bubble dei titoli e confronto tra grandi e piccoli">5 Titoli →</button></div>
+          <div class="tscroll members" tabindex="0" role="region" aria-label="Titoli del settore"><table class="t" id="memTable"></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 VIX -->
+  <section class="view" id="v-vix" role="tabpanel" aria-labelledby="tab-vix" hidden>
+    <p class="note loading" id="vxLoading" hidden>Caricamento dei dati del VIX…</p>
+    <p class="note pb" id="vxMiss" hidden></p>
+    <div id="vxBody" hidden>
+    <div class="kpis" id="vxKpis"></div>
+    <p class="note pb vxmeta"><b>Solo contesto</b>: non cambia stati né alert · <span id="vxMeta"></span></p>
+    <div class="controls vxctl">
+      <span class="ctl">Indice <span class="seg" id="vxIx" role="group" aria-label="Indice della tabella, dello scatter e del pannello del prezzo nel grafico in fondo"><button type="button" data-ix="SPX" aria-pressed="true">S&amp;P 500</button><button type="button" data-ix="NDX" aria-pressed="false">Nasdaq-100</button></span></span>
+    </div>
+    <div class="vix-grid">
+      <div class="panel">
+        <div class="ph"><h2>Dopo i picchi del VIX</h2><button type="button" class="info" aria-label="Spiegazione: Dopo i picchi del VIX" aria-expanded="false" data-src="vxTabHelp" data-guide="vix">i</button><span class="meta" id="vxTableMeta"></span></div>
+        <div class="tscroll"><table class="t vxtable" id="vxTable"></table></div>
+        <p class="note pb">Conta gli episodi, non i giorni. Clic su una riga per i suoi episodi.</p>
+        <div hidden id="vxTabHelp"><p>Ogni riga conta gli <b>episodi</b>: un episodio inizia con la prima chiusura del VIX alla soglia o più dopo almeno 63 sedute sotto, e finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila (in mezzo può scendere sotto: alle soglie basse un episodio può durare anni e comprendere più crisi, per questo accanto al massimo c'è la sua data). «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato. Clic (o tocco) su una riga per i suoi episodi.</p></div>
+        <div class="ph sub"><h3 id="vxEpsTitle"></h3></div>
+        <div class="tscroll"><table class="t vxeps" id="vxEps"></table></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>VIX e rendimento a 12 mesi</h2><button type="button" class="info" aria-label="Spiegazione: VIX e rendimento a 12 mesi" aria-expanded="false" data-src="vxScHelp" data-guide="vix">i</button><span class="meta" id="vxScMeta"></span></div>
+        <div class="chart-wrap" id="vxScWrap">
+          <svg class="ts vxsc" id="vxScatter" role="img" aria-label="Sedute con il VIX a 30 o più: VIX contro rendimento dell'indice nei 12 mesi successivi"></svg>
+          <div class="tip" id="vxScTip" hidden></div>
+        </div>
+        <div class="vxcrises" id="vxCrises" role="group" aria-label="Crisi: clic per evidenziarne i punti"></div>
+        <p class="note pb vxepsnone" id="vxEpsNone" hidden></p>
+        <p class="note pb" id="vxScNote"></p>
+        <div hidden id="vxScHelp"><p>Un colore per crisi: ogni seduta va con la crisi dell'elenco in cui cade, altrimenti con quella del suo episodio («Altro episodio» se neanche quello è in una crisi). Il punto grande è <span id="vxScBig">il primo giorno con il VIX sopra la soglia della tabella</span>. I nomi delle crisi sono etichette di periodo scelte a mano, non date d'inizio calcolate. Clic o tocco su un punto, su una crisi qui sopra o su una riga colorata della tabella degli episodi: l'alone racchiude tutti i punti di quella crisi e la tabella ne colora le righe. Per togliere: clic o tocco su un punto vuoto, di nuovo sulla stessa crisi nell'elenco o sulla stessa riga (Esc sul computer). Le linee verticali sono le soglie 40 e 50.</p></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h2>VIX e indice nel tempo · struttura a termine e credito</h2><span class="ctl"><span class="seg" id="vxRange" role="group" aria-label="Periodo"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="vxLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span><span class="zchip" id="vxZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+      <div class="chart-wrap" id="vxWrap">
+        <svg class="ts" id="vxChart" role="img" aria-label="VIX, volatilità realizzata dell'S&amp;P 500, prezzo dell'indice scelto con gli episodi, premio per la paura, rapporto VIX/VIX3M e credito high yield nel tempo"></svg>
+        <div class="tip" id="vxTip" hidden></div>
+      </div>
+      <div class="legend" id="vxLegend"></div>
+    </div>
+    <p class="note pb srcline">VIX e VIX3M © Cboe, da FRED · idea di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>); struttura a termine e credito da Stefano Serafini (Swiss Capital School) · <a href="guida.html#vix" target="_blank" rel="noopener">Fonti e note ↗</a></p>
+    </div>
+  </section>
+
+  <!-- 0 MASSIMI (prototipo) -->
+  <section class="view" id="v-ath" role="tabpanel" aria-labelledby="tab-ath" hidden>
+    <p class="note pb vxmeta"><b>Le bolle si sgonfiano a rotazione</b>: quanto ogni mercato è sotto il massimo di chiusura degli ultimi 3 anni. Solo contesto, nessun segnale. Clic su una riga per il grafico.</p>
+    <div class="panel" id="athPanel">
+      <div class="ph"><h2>Distanza dal massimo degli ultimi 3 anni</h2><button type="button" class="info" aria-label="Spiegazione: Distanza dal massimo" aria-expanded="false" data-src="athHelp" data-guide="massimi">i</button><span class="ctl"><span class="seg" id="athSort" role="group" aria-label="Ordine delle righe"><button type="button" data-sort="dist" aria-pressed="true">per distanza</button><button type="button" data-sort="date" aria-pressed="false">per data del massimo</button></span></span></div>
+      <p class="note pb" id="athMiss" hidden></p>
+      <div class="tscroll"><table class="t ath" id="athTable"></table></div>
+      <div id="athChartBox" hidden>
+        <div class="ph sub"><h3 id="athChartTitle"></h3><button type="button" class="info" aria-label="Spiegazione: Grafico e profilo dei volumi" aria-expanded="false" data-src="athVpHelp" data-guide="profilo-volumi">i</button><span class="ctl"><span class="seg" id="athRange" role="group" aria-label="Periodo del grafico"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="athLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span><span class="zchip" id="athZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+        <p class="note pb" id="athChartMiss" hidden></p>
+        <div class="chart-wrap" id="athWrap">
+          <svg class="ts" id="athChart" role="img" aria-label="Prezzo del mercato scelto dal 2000, con il massimo di chiusura degli ultimi 3 anni"></svg>
+          <div class="tip" id="athTip" hidden></div>
+        </div>
+        <div class="legend" id="athLegend"></div>
+      </div>
+      </div>
+    <div hidden id="athHelp"><p id="athNote">Quanto ogni mercato è sotto il suo <b>massimo di chiusura degli ultimi 3 anni</b>, il picco dell'ultimo ciclo (il massimo di sempre, che per il petrolio è del 2008, è nel dettaglio), con i giorni passati dal massimo. La barra va da 0 a −60%; la tacca è il calo più profondo dopo il massimo. Solo prezzo, senza dividendi, nella valuta di quotazione (il KOSPI in won): per chi investe in euro il calo è un altro. Oro, argento, rame e petrolio con il future continuo (chiusura al prezzo di regolamento, che per oro e argento è verso le 13:30 di New York; ai cambi di contratto il livello si sposta un po'). Clic o tocco su una riga per il dettaglio e il grafico dal 2000. <b>Solo contesto</b>: nessuna soglia e nessun segnale. Idea da una slide di Francesco Caruso (Cicli&amp;Mercati).</p></div><div hidden id="athVpHelp"><p id="athNoteVp">Accanto al grafico, a destra, il <b>profilo dei volumi degli ultimi 12 mesi</b>: la parte del volume dell'anno scambiata a ogni livello di prezzo (barre lunghe = prezzi dove si è scambiato di più); non è un livello né un segnale. Per S&amp;P 500, Nasdaq-100 e KOSPI i volumi sono degli ETF SPY, QQQ e KODEX 200 (069500.KS, che segue il KOSPI 200), riportati sulla scala dell'indice; per argento e rame dalle barre orarie del future. Per oro, Nasdaq-100 e KOSPI il profilo è poco stabile (con metodi di calcolo diversi le zone principali si spostano di oltre il 2%): è mostrato con un'avvertenza. Dati Yahoo Finance, ricalcolati ogni notte su tutta la storia; verifica in <span class="mono">ricerca/bolle-rotazione/</span> e, per oro e argento con i future, <span class="mono">ricerca/poc/</span>, per il profilo dei volumi <span class="mono">ricerca/poc/profilo/</span> (ramo di sviluppo).</p>
+    </div>
+    <p class="note pb srcline">Idea da una slide di Francesco Caruso (Cicli&amp;Mercati) · prezzi Yahoo Finance, solo prezzo nella valuta di quotazione · <a href="guida.html#massimi" target="_blank" rel="noopener">Fonti e note ↗</a></p>
+  </section>
+  <!-- 9 ALERT -->
+  <section class="view" id="v-alr" role="tabpanel" aria-labelledby="tab-alr" hidden>
+    <div class="kpis" id="alertStats"></div>
+    <div class="grid-side">
+      <div class="panel">
+        <div class="ph"><h2>Registro dei cambi di stato</h2><span class="meta" id="alertCount"></span></div>
+        <ul class="alist" id="alertLog"></ul>
+        <p class="note pb">Calcolato nel browser con i livelli blu attuali su tutta la storia dal 2005 (ricostruita). Serve a vedere come si comporta il sistema, non è un backtest validato.</p>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Notifiche Telegram</h2></div>
+          <div class="pb">
+            <p class="note" id="sentInfo"></p>
+            <p class="note">Le notifiche arrivano a chi gestisce il repository: la GitHub Action invia solo i nuovi cambi di stato dopo ogni aggiornamento dei dati (di solito tra la notte e la mattina).</p>
+            <details class="owner">
+              <summary>Per chi gestisce il repository</summary>
+              <p class="note">Crea un bot con @BotFather, avvia una chat con il bot e aggiungi al repository (Settings → Secrets and variables → Actions) i segreti <span class="mono">TELEGRAM_BOT_TOKEN</span> e <span class="mono">TELEGRAM_CHAT_ID</span>.</p>
+            </details>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Regole</h2></div>
+          <div class="pb"><ul class="rules" id="rulesList"></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 INDICI -->
+  <section class="view" id="v-idx" role="tabpanel" aria-labelledby="tab-idx" hidden>
+    <p class="note loading" id="ixLoading" hidden>Caricamento dei dati degli indici…</p>
+    <div id="ixBody" hidden>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="ph"><h2>Indici mostrati</h2><span class="meta" id="ixPickMeta"></span></div>
+      <div class="controls ixpick">
+        <div id="ixPick" role="group" aria-label="Indici da mostrare in tabellone, Bottom Map e schede"></div>
+        <span class="ctl push"><span class="seg"><button type="button" id="ixPickMain" aria-pressed="false">Principali</button><button type="button" id="ixPickAll" aria-pressed="false">Tutti</button></span></span>
+      </div>
+    </div>
+    <div class="kpis" id="ixKpis"></div>
+    <div class="panel">
+      <div class="ph"><h2>Indici · stato dei bottom</h2><span class="meta" id="ixMeta"></span></div>
+      <div class="tscroll"><table class="t board-cards" id="ixTable"></table></div>
+      <div class="legend">
+        <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
+        <span><span class="kb" style="background:var(--blue);width:2px"></span>livello blu dell'indice</span>
+        <span><span class="kb" style="background:var(--bar-mark);width:2px"></span>un mese fa</span>
+        <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia</span>
+        <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
+      </div>
+      <p class="note pb">Stessa analisi dei settori sugli indici: quanti titoli dell'indice stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown dell'indice (solo prezzo, nella valuta dell'indice; per l'MSCI Emerging l'ETF EEM in dollari). «Storia» dice come è ricostruito il passato: con la composizione di ogni data, o con i membri di oggi. La rotazione di 9 di questi indici (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), con ETF in euro, è in <b>2 Rotazione</b>, universo <b>6 · Indici</b>.</p>
+    </div>
+    <div class="grid-2" style="margin-top:12px">
+      <div class="panel">
+        <div class="ph"><h2>Bottom Map degli indici</h2><span class="meta" id="ixMapMeta"></span></div>
+        <div class="controls bm-ctl">
+          <button class="play" id="ixPlay" type="button" title="Rivedi le settimane una dopo l'altra fino a oggi">▶ PLAY</button>
+          <div class="scrub"><input type="range" id="ixDate" step="1" aria-label="Data della Bottom Map degli indici" /><span class="date" id="ixDateVal"></span></div>
+          <button type="button" class="mini" id="ixToday" hidden>Oggi</button>
+          <button type="button" class="mini" id="ixZoom" aria-pressed="false" title="Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano">Zoom sulla zona</button>
+        </div>
+        <div class="controls bm-jumps"><span class="ctl">Crisi passate</span><div class="chips" id="ixJumps"></div></div>
+        <div class="chart-wrap" id="ixMapWrap">
+          <svg class="rrg" id="ixMap" role="img" aria-label="Bottom Map: drawdown e breadth degli indici rispetto al livello blu"></svg>
+          <div class="tip" id="ixMapTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kb" style="background:var(--blue)"></span>zona blu: breadth sotto il livello e drawdown profondo</span>
+          <span><span class="kb" style="background:var(--q-weak)"></span>attenzione</span>
+          <span><span class="kb" style="background:var(--st-trig)"></span>trigger</span>
+          <span><span class="kb" style="background:var(--down)"></span>fallito</span>
+          <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
+          <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
+          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute)</span>
+          <span class="muted">coda = ultime 8 settimane · clic per il dettaglio</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="dist" id="ixDist"></div>
+        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nello SMI (20 titoli) uno solo sposta la breadth di 5 punti, nello STOXX 600 di meno di 0,2.</p>
+      </div>
+    </div>
+    <div class="panel" id="ixDetail" style="margin:12px 0">
+      <div class="controls">
+        <div class="chips" id="ixChips"></div>
+        <span class="ctl push">Periodo
+          <span class="seg" id="ixRange" role="group" aria-label="Periodo">
+            <button type="button" data-range="3A" aria-pressed="true">3A</button>
+            <button type="button" data-range="10A" aria-pressed="false">10A</button>
+            <button type="button" data-range="MAX" aria-pressed="false">MAX</button>
+          </span><button type="button" class="zlens" id="ixLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span>
+      </div>
+    </div>
+    <div class="grid-side">
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2 id="ixTitle"></h2><span id="ixBadge"></span><span class="zchip" id="ixTsZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+          <div class="chart-wrap" id="ixTsWrap">
+            <svg class="ts" id="ixTs" role="img" aria-label="Prezzo, drawdown e breadth dell'indice"></svg>
+            <div class="tip" id="ixTsTip" hidden></div>
+          </div>
+          <div class="legend">
+            <span><span class="kl" style="background:var(--ink)"></span>prezzo</span>
+            <span><span class="kl" style="background:var(--amber)"></span>media 200</span>
+            <span><span class="kl" style="background:var(--down)"></span>drawdown</span>
+            <span><span class="kl" style="background:var(--ink-2)"></span>% sopra media 200</span>
+            <span><span class="kl" style="background:var(--key-br50)"></span>% sopra media 50</span>
+            <span><span class="kl" style="background:var(--blue)"></span>livello blu</span>
+            <span><span class="kb" style="background:var(--blue);opacity:.45"></span>zona blu</span>
+            <span><span class="kb kb-hatch"></span>sotto il livello, fuori dalla zona blu (a righe)</span>
+            <span><span class="kb" style="background:var(--st-trig)"></span>trigger</span>
+          </div>
+        </div>
+        <details class="panel fold" id="ixEpiBox" data-keep="ixEpi">
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="ixEpiMeta"></span></summary>
+          <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu dell'indice"><table class="t" id="ixEpiTable"></table></div>
+          <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.</p>
+          <div class="tscroll" tabindex="0" role="region" aria-label="Episodi dell'indice a confronto con una seduta qualsiasi"><table class="t ctx" id="ixEpiCtx"></table></div>
+          <p class="note pb">Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
+        </details>
+        <details class="panel capcard fold" id="ixCap" data-keep="ixCap">
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="ixCapMeta"></span></summary>
+          <div class="pb" id="ixCapBody">
+            <div class="controls capctl" id="ixCapCtl"></div>
+            <p class="note" id="ixCapNow"></p>
+<span class="zchip zcap" id="ixCapZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span>
+            <div class="chart-wrap" id="ixCapWrap">
+              <svg class="ts" id="ixCapSvg" role="img" aria-label="Cali forti dei titoli dell'indice e prezzo"></svg>
+              <div class="tip" id="ixCapTip" hidden></div>
+            </div>
+            <div class="legend" id="ixCapLegend">
+              <span><span class="kl" style="background:var(--ink)"></span>prezzo</span>
+              <span><span class="kb" style="background:var(--down);opacity:.45"></span>cali forti</span>
+              <span><span class="kl dash" style="border-color:var(--amber)"></span>soglia di allerta</span>
+              <span><span class="kb kb-capband"></span>allerta</span>
+            </div>
+            <div class="tscroll" tabindex="0" role="region" aria-label="Episodi di allerta" id="ixCapScroll"><table class="t" id="ixCapTable"></table></div>
+            <p class="note" id="ixCapBase"></p>
+            <p class="note" id="ixCapNote"></p>
+          </div>
+        </details>
+      </div>
+      <div class="stack">
+        <div class="panel">
+          <div class="ph"><h2>Perché questo stato</h2><span class="meta">e cosa manca al prossimo</span></div>
+          <div class="pb" id="ixCheck"></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Livello blu</h2><span class="meta">% titoli sopra media 200</span></div>
+          <div class="pb blue-box">
+            <div class="blue-row">
+              <span class="stepper"><button type="button" id="ixBlueMinus" aria-label="Abbassa il livello blu dell'indice">−</button><output id="ixBlueVal"></output><button type="button" id="ixBluePlus" aria-label="Alza il livello blu dell'indice">+</button></span>
+              <button type="button" class="mini" id="ixBlueReset" hidden>Ripristina</button>
+            </div>
+            <p class="note" id="ixBlueSrc"></p>
+            <p class="note" id="ixBlueInfo"></p>
+            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Situazione</h2></div>
+          <div class="pb"><dl class="facts" id="ixFacts"></dl><p class="note" id="ixQuality"></p><div class="tvlinks" id="ixLinks"></div></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 7 TITOLI -->
+  <section class="view" id="v-tit" role="tabpanel" aria-labelledby="tab-tit" hidden>
+    <p class="note loading" id="titLoading" hidden>Caricamento dei dati dei titoli…</p>
+    <div id="titBody" hidden>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="controls">
+        <div class="chips" id="titChips" role="group" aria-label="Settore"></div>
+        <span class="ctl push">Periodo
+          <span class="seg" id="titPerSeg" role="group" aria-label="Periodo">
+            <button type="button" data-per="1M" aria-pressed="false">1M</button>
+            <button type="button" data-per="3M" aria-pressed="true">3M</button>
+            <button type="button" data-per="6M" aria-pressed="false">6M</button>
+            <button type="button" data-per="YTD" aria-pressed="false">YTD</button>
+            <button type="button" data-per="1A" aria-pressed="false">1A</button>
+          </span></span>
+      </div>
+    </div>
+    <div class="panel" style="margin-bottom:12px">
+      <div class="ph"><h2>Grandi contro piccoli · cap-weighted vs equal-weight</h2><button type="button" class="info" aria-label="Spiegazione: Grandi contro piccoli" aria-expanded="false" data-src="titHowBig" data-guide="tit">i</button><span class="meta" id="titMeta"></span></div>
+      <div class="controls tit-ctl">
+        <span class="ctl">Scia
+          <span class="seg" id="titTrailSeg" role="group" aria-label="Scia">
+            <button type="button" data-trail="all" aria-pressed="true">Tutti</button>
+            <button type="button" data-trail="sel" aria-pressed="false" title="Scia del settore scelto e dell'S&amp;P 500">Settore scelto</button>
+            <button type="button" data-trail="off" aria-pressed="false">No</button>
+          </span></span>
+        <span class="ctl">Ordine
+          <span class="seg" id="titSortSeg" role="group" aria-label="Ordine dei settori">
+            <button type="button" data-sort="div" aria-pressed="true">Divergenza</button>
+            <button type="button" data-sort="sec" aria-pressed="false">Settore</button>
+          </span></span>
+      </div>
+      <div class="chart-wrap" id="titSpreadWrap">
+        <svg class="cq" id="titSpread" role="img" aria-label="Rendimento cap-weighted ed equal-weight di ogni settore nel periodo"></svg>
+        <div class="tip" id="titSpreadTip" hidden></div>
+      </div>
+      <div class="legend">
+        <span><span class="kd"></span>cap-weighted · pesano i grandi</span>
+        <span><span class="kd o"></span>equal-weight · ogni titolo conta uguale</span>
+        <span><span class="kl" style="background:var(--q-lead);height:4px"></span>davanti l'equal-weight · movimento largo</span>
+        <span><span class="kl" style="background:var(--q-imp);height:4px"></span>davanti il cap-weighted · guidano i grandi</span>
+        <span title="Scia: dove erano i due pallini 3 mesi, 1 mese e 1 settimana fa; freccia: movimento dell'ultima settimana, verde (blu con CVD) se sale, rossa se scende"><svg class="ka" width="58" viewBox="0 0 58 10" aria-hidden="true"><circle cx="4" cy="5" r="1.9" fill="var(--chart-trail)" opacity=".4"/><circle cx="14" cy="5" r="2.6" fill="var(--chart-trail)" opacity=".55"/><circle cx="26" cy="5" r="3.4" fill="var(--chart-trail)" opacity=".75"/><defs><linearGradient id="kArrUp"><stop offset="0" stop-color="var(--up)" stop-opacity=".08"/><stop offset="1" stop-color="var(--up)"/></linearGradient></defs><rect x="26" y="3.8" width="18" height="2.4" fill="url(#kArrUp)"/><path d="M49 5 L43.5 1.4 L43.5 8.6 Z" fill="var(--up)"/><circle cx="53" cy="5" r="4.2" fill="var(--ink)"/></svg>scia: 3 mesi, 1 mese, 1 settimana fa · freccia: ultima settimana</span>
+        <span><svg class="ka" width="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--amber)" stroke-width="1.5"/></svg>le 3 divergenze più ampie</span>
+      </div>
+      <p class="note pb" id="titSpreadNote"></p>
+    </div>
+    <div class="panel" id="titHistPanel" style="margin-bottom:12px" hidden>
+      <div class="ph"><h2 id="titHistTitle"></h2><button type="button" class="info" aria-label="Spiegazione: Storia della divergenza" aria-expanded="false" data-info="Ogni punto è la divergenza (equal-weight meno cap-weighted, in punti) alla fine di quella settimana sul periodo scelto. Con YTD riparte da zero a gennaio.">i</button><span class="meta" id="titHistMeta"></span></div>
+      <p class="note pb tit-streak" id="titHistNote"></p>
+      <div class="chart-wrap" id="titHistWrap">
+        <svg class="cq hist" id="titHist" role="img" aria-label="Divergenza tra equal-weight e cap-weighted del settore scelto nelle ultime 52 settimane"></svg>
+        <div class="tip" id="titHistTip" hidden></div>
+      </div>
+      <div class="legend">
+        <span><span class="kb" style="background:var(--q-lead);opacity:.5"></span>sopra lo zero: davanti l'equal-weight</span>
+        <span><span class="kb" style="background:var(--q-imp);opacity:.5"></span>sotto lo zero: guidano i grandi</span>
+        <span><span class="kl" style="background:var(--ink-3)"></span>S&amp;P 500, per confronto</span>
+      </div>
+      </div>
+    <div class="grid-tit">
+      <div class="panel">
+        <div class="ph"><h2 id="titBubbleTitle"></h2><button type="button" class="info" aria-label="Spiegazione: Titoli del settore" aria-expanded="false" data-src="titHowBub" data-guide="tit">i</button><span class="meta" id="titBubbleMeta"></span></div>
+        <div class="controls tit-ctl">
+          <label class="ctl" for="titAx">Asse orizzontale <select id="titAx">
+            <option value="d200">Distanza da media 200</option>
+            <option value="dd">Distanza dal massimo 52 sett.</option>
+            <option value="prev">Rendimento nel periodo precedente</option>
+          </select></label>
+          <span class="ctl">Bolle
+            <span class="seg" id="titSizeSeg" role="group" aria-label="Grandezza delle bolle">
+              <button type="button" data-size="w" aria-pressed="true" title="Area proporzionale al peso nell'S&amp;P 500 (per il SOXX nell'ETF). Pesi dalle holdings di IVV; chi non è nelle holdings (uscito, appena entrato) pesa come un titolo piccolo del settore: una stima">Peso</button>
+              <button type="button" data-size="eq" aria-pressed="false">Uguali</button>
+            </span></span>
+        </div>
+        <div class="chart-wrap" id="titBubbleWrap">
+          <svg class="bub" id="titBubble" role="img" aria-label="Titoli del settore: rendimento del periodo e distanza"></svg>
+          <div class="tip" id="titBubbleTip" hidden></div>
+        </div>
+        <div class="legend">
+          <span><span class="kd" style="background:var(--down)"></span>gli 8 più in pena (segnati nella lista)</span>
+          <span><span class="kd" style="background:var(--ink-3);opacity:.6"></span>altri titoli</span>
+          <span><span class="kl kl-dash"></span>settore equal-weight</span>
+          <span><span class="kl kl-dot"></span>settore cap-weighted</span>
+          <span><span class="kb" style="background:var(--down);opacity:.15"></span>sotto zero su entrambi gli assi</span>
+          <span id="titSizeLeg" hidden><span class="kd" style="background:var(--ink-3);opacity:.6"></span>bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione</span>
+          <span id="titFlagLeg" hidden><span class="kd kd-ext"></span>titolo estero quotato negli Stati Uniti (ADR o azioni quotate a New York), con la bandiera del paese secondo iShares</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>I più in pena</h2><button type="button" class="info" aria-label="Spiegazione: I più in pena" aria-expanded="false" data-info="Ordine: media della posizione nel settore per rendimento del periodo e per distanza dal massimo a 52 settimane. Chi è in pena non è per forza a sconto. Clic sul ticker per il grafico su TradingView.">i</button><span class="meta" id="titPainMeta"></span></div>
+        <div class="tscroll" tabindex="0" role="region" aria-label="I titoli più in pena del settore"><table class="t pain" id="titPain"></table></div>
+        </div>
+    </div>
+    <div hidden id="titHowBig"><p><b>Grandi contro piccoli.</b> Per ogni settore il rendimento dell'indice pesato per capitalizzazione (pallino pieno, pesano i grandi) e dello stesso settore con ogni titolo a peso uguale (pallino vuoto, pesano i medi e i piccoli). La barra è la divergenza: verde acqua se vanno meglio i titoli medi (il movimento è largo), viola se guidano i grandi. Le tre divergenze più ampie hanno un anello sul pallino di chi è davanti. La scia, in grigio, segna dove erano i due pallini 3 mesi, 1 mese e 1 settimana fa (sulla stessa durata del periodo), con la stessa forma e sempre più grandi man mano che si avvicinano a oggi; la freccia sottile è il movimento dell'ultima settimana, verde (blu con CVD) se sale e rossa se scende, sfumata da 1 settimana fa a oggi. Così si vede chi si è mosso per primo e in che direzione. Al passaggio del mouse tutti i valori.</p><p><a href="guida.html#faq" target="_blank" rel="noopener">Perché i numeri possono differire dal grafico di Rea ↗</a></p></div><div hidden id="titHowBub"><p><b>Titoli del settore.</b> Una bolla per titolo, grande quanto il suo peso nell'S&amp;P 500 (per il SOXX, nell'ETF). In alto il rendimento del periodo; le linee tratteggiate sono il settore equal e cap-weighted. In basso a sinistra i titoli che scendono e stanno sotto la media 200 (o lontani dal massimo). Con «periodo precedente» si separano i deboli da tempo (in basso a sinistra) dai cedimenti recenti (in basso a destra). Valori estremi fermati al bordo con una freccia.</p></div>
+    <p class="note pb srcline">Calcoli nostri sui costituenti, prezzi senza dividendi, membri di ogni data. <span id="titData"></span> <a href="guida.html#tit" target="_blank" rel="noopener">Fonti e note ↗</a></p>
+    </div>
+  </section>
+
+  <section class="view" id="v-emg" role="tabpanel" aria-labelledby="tab-emg" hidden>
+    <p class="note loading" id="emLoading" hidden>Caricamento dei dati degli emergenti…</p>
+    <div id="emBody" hidden>
+    <div class="kpis" id="emKpis"></div>
+    <div class="emg-grid">
+      <div class="emg-main">
+        <div class="panel">
+          <div class="ph"><h2>Emergenti · stato e contesto</h2><span class="meta" id="emMeta"></span></div>
+          <p class="note pb" id="emMiss" hidden></p>
+          <div class="tscroll"><table class="t board-cards" id="emTable"></table></div>
+          <p class="note pb">Lo stato e la breadth sono quelli della vista <b>6 Indici</b>, con gli stessi livelli blu (anche se modificati in questo browser). Valuta, dollaro e forza relativa sono <b>solo contesto</b>: non cambiano lo stato e non mandano alert. Clic (o tocco) su una riga per il dettaglio.</p>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2 id="emTitle"></h2><span class="meta"><span id="emState"></span> <span id="emDMeta"></span></span><span class="zchip" id="emZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+          <div class="controls">
+            <span class="ctl">Periodo <span class="seg" id="emRange"><button type="button" data-range="3A" aria-pressed="true">3A</button><button type="button" data-range="10A" aria-pressed="false">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="emLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span>
+            <span class="ctl push"><button type="button" class="mini" id="emOpenIx"></button></span>
+          </div>
+          <div class="chart-wrap" id="emWrap">
+            <svg class="ts" id="emChart" role="img" aria-label="Prezzo, breadth, cambio e dollaro contro gli emergenti sullo stesso asse del tempo"></svg>
+            <div class="tip" id="emTip" hidden></div>
+          </div>
+          <div class="legend" id="emLegend"></div>
+          <p class="note pb"><span id="emChartMeta"></span>. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).</p>
+          <ul class="emnotes" id="emNotes"></ul>
+        </div>
+      </div>
+      <div class="emg-side">
+        <div class="panel">
+          <div class="ph"><h2>Forza relativa</h2><span class="meta" id="emRSMeta"></span></div>
+          <div class="pb" id="emRSWrap"><svg class="emrs" id="emRS" role="img" aria-label="Forza relativa degli ETF dei paesi contro ACWI"></svg>
+            <p class="note">ETF in dollari contro ACWI, settimanale, formula «Nuova» della rotazione (vista 2); scia di 10 settimane solo per l'indice selezionato. ASHR (CSI 300), INDA, EWZ, EWY, EWT, EWH (Hong Kong), EEM. RS-Ratio in orizzontale, RS-Momentum in verticale. Clic (o tocco) su un punto per sceglierlo.</p></div>
+        </div>
+        <div class="panel">
+          <div class="ph"><h2>Come leggere il contesto</h2></div>
+          <div class="emread">
+            <p><b>Solo contesto, non un segnale.</b> Lo stato è quello della vista 6 (breadth e livello blu). Valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert. Valuta e dollaro, nella verifica sui dati, non hanno migliorato i segnali della breadth; la forza relativa non è stata provata.</p>
+            <p><b>La valuta «ha smesso di scendere»</b>: dopo un calo forte (variazione in 13 settimane oltre 1 deviazione standard delle sue variazioni negli ultimi 3 anni), il cambio è sceso di almeno mezza deviazione standard dal massimo delle ultime 13 settimane. Nel campione, su 17 cali di borsa oltre il 25% dal massimo storico (5 indici con il cambio), si era già accesa nei sei mesi prima del minimo in 15, e poi la borsa era scesa ancora (uno dei 15 è il calo del KOSPI in corso, con il minimo del 26/10/2026 ancora provvisorio): non è un segnale d'ingresso.</p>
+            <p><b>Dollaro contro gli emergenti</b> (FRED, indice della Federal Reserve): il dollaro debole è arrivato in genere mesi dopo il minimo delle borse (mediana 110 sedute in 19 cali oltre il 25% dal massimo storico; nel ventesimo, il KOSPI in corso, non ancora). Conferma, non anticipa. È una serie giornaliera che FRED pubblica una volta alla settimana: conta la data dell'ultimo valore.</p>
+            <p><b>Cina e India</b>: cambio gestito dalla banca centrale, si muove poco. <b>Hong Kong</b>: dollaro agganciato, il cambio non dice nulla. <b>EEM</b>: è già in dollari.</p>
+            <p class="muted">Numeri del campione: cali oltre il 25% dal massimo storico (non il drawdown a 52 settimane della tabella); 5 indici con il cambio per la valuta, 7 per il dollaro; breadth con i membri di oggi; poche crisi indipendenti (indicativi). Ricalcolo: <span class="mono">ricerca/emergenti/backtest/</span> (ramo di sviluppo del repository).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="note pb">Fonti: cambi in valuta locale per un dollaro della Federal Reserve (FRED H.10, dal 2000; il cambio della Fed è quello di mezzogiorno di New York dello stesso giorno: per l'Asia qualche ora dopo la chiusura della borsa, per il Brasile qualche ora prima); per gli ultimi giorni, che la Fed non ha ancora pubblicato, il cambio di Yahoo Finance, provvisorio (è in pratica il prezzo della sera prima, a mezzanotte di Londra) e sostituito da quello della Fed quando esce; dollaro contro le valute emergenti FRED DTWEXEMEGS (Federal Reserve H.10, serie giornaliera pubblicata una volta alla settimana, con qualche giorno di ritardo); ETF Yahoo Finance con i dividendi. L'indice in dollari è il prezzo della vista 6 diviso per il cambio dello stesso giorno: per il CSI 300 il prezzo è l'ETF 510300 in yuan, per il KOSPI 200 il KOSPI intero, per Taiwan il TAIEX. Gli ETF della forza relativa sono rettificati per i dividendi, gli indici no. Storie più corte: ASHR dal 2013, INDA dal 2012, ACWI dal 2008, DTWEXEMEGS dal 2006. Un probabile errore di stampa nei giorni di Yahoo (un salto che si annulla il giorno dopo) diventa un giorno mancante; l'ultimo giorno non si può ancora controllare. FRED a volte rivede DTWEXEMEGS (fino allo 0,6% nelle versioni 2024-2026): le fasce passate del dollaro usano i valori rivisti. Dove manca un dato si mostra «—».</p>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="statusline">
+    <span id="srcLine">Dati di fine giornata (Yahoo Finance e altre fonti: <a href="guida.html#dati" target="_blank" rel="noopener">Fonti e note ↗</a>) · livelli blu e idee di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>), dove trovate gli studi completi: i numeri di questa app possono differire.</span>
+    <span class="discl">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento. I rendimenti passati non indicano quelli futuri.</span>
+    <span id="genLine"></span>
+  </footer>
+</div>
+
+<dialog class="modal-card" id="helpModal" aria-labelledby="helpTitle">
+    <div class="ph"><h2 id="helpTitle">Guida</h2><button type="button" class="modal-close" id="helpClose" aria-label="Chiudi">×</button></div>
+    <div class="pb help">
+      <p class="guide-link"><a class="mini" id="guideLink" href="guida.html" target="_blank" rel="noopener">Guida completa ↗</a> <span class="muted">ogni vista e ogni funzione spiegata passo per passo</span></p>
+      <p><b>Sector Monitor</b> segue due cose: i <b>possibili bottom dei settori S&amp;P 500</b>, cioè quanti titoli di ogni settore stanno sopra la media a 200 sedute rispetto a un livello blu, insieme al drawdown dell'ETF; e la <b>rotazione relativa</b> di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
+      <h3>Le viste</h3>
+      <ul>
+        <li><b>1 Monitor</b>: gli 11 settori ordinati per stato, più i semiconduttori (SOXX) come industria, con breadth, livello blu e drawdown; a destra i settori da osservare, perché e cosa manca al prossimo stato. In alto, se sei già passato con i dati di un altro giorno, cosa è cambiato da allora (stati e breadth mossa di almeno 5 punti). Clic su un settore per il dettaglio, dove il riquadro <b>Perché questo stato</b> elenca le condizioni della zona blu o del trigger con ✓ e ✗. Sul telefono le spiegazioni delle intestazioni si aprono toccandole.</li>
+        <li><b>2 Rotazione</b>: grafico di rotazione relativa con tabella e performance. Universi USA (settori, MAG7) e globali in euro: 1 Asset class, 2 Fattori, 3 Regioni, 4 Paesi, 6 Indici.</li>
+        <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
+        <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati e la scheda <b>Cali forti</b> (quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute: un'allerta di contesto, non un segnale).</li>
+        <li><b>5 Titoli</b>: dentro i settori. In alto «grandi contro piccoli»: per ogni settore il rendimento pesato per capitalizzazione e quello con ogni titolo a peso uguale (1, 3, 6 mesi, da inizio anno, 12 mesi), con la scia di 3 mesi, 1 mese e 1 settimana fa e la freccia dell'ultima settimana. Sotto, le bolle dei titoli del settore scelto e la lista dei più in pena. Il settore è lo stesso della vista 4. I numeri sono il rendimento di indici simulati con i membri di ogni data e possono differire da quelli del grafico di Rea: il motivo è nel riquadro «Come si legge».</li>
+        <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari. Di partenza si vedono i 10 principali (S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, KOSPI 200, MSCI Emerging Markets); gli altri si aggiungono o si tolgono con un clic nel riquadro «Indici mostrati», e la scelta resta nel browser. Tutti gli indici: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets e Ibovespa. Tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia. «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione. Anche qui l'anello tratteggiato e la voce «Avvicinamento» segnano gli indici sotto la loro soglia di avvicinamento (sulla storia di ciascuno dei 22 indici, la più lunga dal 2001, nel campione: insieme all'Attenzione 89 tocchi del livello su 132 avvisati, contro 83 della sola Attenzione; l'avvicinamento da solo 83). La colonna e la scheda <b>Cali forti</b> contano i titoli che perdono almeno il 7% in una seduta, sommati su 5 sedute (preset di Rea): allerta sopra il 99° percentile della storia dell'indice. Un'allerta che si ripete per settimane segnala vendite forti e diffuse sotto la superficie; è contesto, non cambia stati né alert.</li>
+        <li><b>7 Emergenti</b>: CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM con lo stato della vista 6 e, accanto, la valuta contro il dollaro, il dollaro contro le valute emergenti (FRED) e la forza relativa dell'ETF del paese contro ACWI. Solo contesto: non cambia lo stato e non manda alert.</li>
+        <li><b>8 VIX</b>: come sono andati S&amp;P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi), lo scatter delle sedute con il VIX a 30 o più, il VIX contro la volatilità realizzata, la struttura a termine (VIX/VIX3M) e il credito high yield (HYG/IEF). Solo contesto.</li>
+        <li><b>9 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
+      </ul>
+      <h3>Stati dei settori</h3>
+      <ul>
+        <li><b>Avvicinamento</b> (anello tratteggiato sulla Bottom Map): breadth sotto la soglia di avvicinamento del settore, cioè il livello blu più il calo forte della sua breadth in 10 sedute. In un calo deciso il livello blu è a circa due settimane: è il momento di mettere il settore in osservazione. Dal 2005 (XLC dal 2019, XLRE dal 2016), insieme all'Attenzione ha avvisato 50 tocchi del livello su 63, 7 più della sola Attenzione (43); da solo ne ha avvisati 33. È un promemoria, non un segnale per comprare o vendere: <a href="guida.html#avvicinamento" target="_blank" rel="noopener">come usarlo</a>. Circa un avvicinamento su tre arriva al livello entro sei mesi. Sono numeri <b>nel campione</b>: la regola è stata scelta guardando questa stessa storia, quindi dal vivo ci si deve aspettare qualcosa di meno. Non cambia lo stato e non manda alert.</li>
+        <li><b>Attenzione</b>: breadth entro 10 punti dal livello blu o drawdown molto profondo; anche sotto il livello da una sola chiusura.</li>
+        <li><b>Zona blu</b>: breadth al livello blu o sotto per 2 chiusure e drawdown oltre il 70° percentile della storia del settore. Lì si formano spesso i bottom, di solito in anticipo.</li>
+        <li><b>Trigger</b>: la breadth risale di almeno 5 punti sopra il livello (o 2 titoli, se valgono di più) e di almeno 2 titoli sopra il minimo della zona blu, con una conferma (due dopo un fallimento o una zona blu lunga): spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V (breadth di nuovo sopra il più alto tra 40% e livello + 25) basta da solo.</li>
+        <li><b>Fallito</b>: il prezzo chiude sotto il minimo della zona blu, con un piccolo margine, entro 20 sedute dal trigger; oppure più tardi, finché la breadth non è tornata sopra il livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali. Nel grafico le bande blu a righe sono le sedute con la breadth sotto il livello ma fuori dalla zona blu: il motivo è nel riquadro al passaggio del mouse.</li>
+      </ul>
+      <h3>Rotazione relativa</h3>
+      <p>Ogni titolo è confrontato con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>
+      <ul>
+        <li><b class="q-imp-c">Improving</b> (alto a sinistra): più debole del benchmark ma lo slancio migliora.</li>
+        <li><b class="q-lead-c">Leading</b> (alto a destra): più forte e con slancio.</li>
+        <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
+        <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
+      </ul>
+      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento, con i cursori per adattare i pesi al tuo portafoglio; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti; <b>6 Indici</b> gli ETF in euro su 9 indici della pagina Indici (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), sempre con l'MSCI ACWI. <b>5 Asset reali</b>, in dollari, confronta oro, argento, rame, petrolio, materie prime, bitcoin e TIPS con liquidità, inflazione USA, dollaro, Treasury, azioni o oro: sotto il grafico, cosa mostra ogni benchmark. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.</p>
+      <h3>Dati</h3>
+      <p>Chiusure di Yahoo Finance, aggiornate da una GitHub Action dopo la chiusura USA, con corse di recupero ogni ora nelle prime ore del mattino e una a metà giornata. GitHub fa partire le corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione. La breadth è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.</p>
+      <h3>Glossario</h3>
+      <dl class="gloss">
+        <dt>Breadth</dt><dd>% dei titoli del settore che chiudono sopra la propria media a 200 sedute, come SUTH o SKTH su TradingView.</dd>
+        <dt>Livello blu</dt><dd>soglia di breadth del settore sotto cui cercare un bottom.</dd>
+        <dt>Drawdown e percentile</dt><dd>calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati), la base dei segnali; il percentile dice quanto è profondo rispetto alla storia del settore (90° = più profondo del 90% delle sedute).</dd>
+        <dt>Solo prezzo</dt><dd>lo stesso calcolo sul prezzo senza dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo, e per chi non ne paga (oro, bitcoin) è uguale. Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday: dopo una seduta con un forte rovescio sta più in alto della chiusura (GLD il 29/01/2026: 509,70 contro 495,90).</dd>
+        <dt>RS-Ratio</dt><dd>forza relativa rispetto al benchmark: sopra 100 più forte.</dd>
+        <dt>RS-Momentum</dt><dd>come sta cambiando la forza relativa: sopra 100 in miglioramento.</dd>
+        <dt>Direzione</dt><dd>verso dell'ultimo spostamento sul grafico, in gradi bussola: 0° in su, 90° a destra (verso Leading).</dd>
+        <dt>Tema</dt><dd>l'interruttore Chiaro in alto passa al fondo bianco, con le stesse regole di colore; la scelta resta salvata nel browser e vale anche per le altre app del sito.</dd>
+      </dl>
+      <h3>Comandi e tasti</h3>
+      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, TIT, IDX, EMG, VIX, ALRT, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>9</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie lo zoom, poi l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Nei grafici grandi con il tempo, trascina da una data all'altra per lo zoom su un tratto (sul telefono prima la lente).</p>
+      <label class="kbopt"><input type="checkbox" id="kbToggle" checked /> Scorciatoie da un tasto attive (toglile se usi un lettore di schermo o la dettatura)</label>
+      <p class="note">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</p>
+      <p class="note">La versione in uso è accanto al nome in alto (passa il mouse per le novità). Se compare «Nuova versione: ricarica», il browser sta usando file vecchi: clic sul pulsante, oppure Ctrl+F5 (su Mac Cmd+Maiusc+R).</p>
+      <p class="note">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri. I livelli blu di default vengono dalla tabella «200 LEVEL SETTORI» di quant-rea; le regole di zona blu, trigger e cooldown sono di questa app. "Relative Rotation Graphs" è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente.</p>
+    </div>
+</dialog>
+
+<script type="module" src="js/app.js"></script>
+<script src="ricerca/semplificazione/prototipo/proto.js"></script>
+</body>
+</html>

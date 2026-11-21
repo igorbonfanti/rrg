@@ -1,0 +1,66 @@
+{
+ "stateLegend": [
+  {
+   "words": 67,
+   "text": "Avvicinamentobreadth sotto la soglia di avvicinamento: livello blu più il calo forte del settore in 10 sedute. Non è uno stato e non manda alert. Nel campione degli 11 settori, circa un avvicinamento su tre tocca il livello entro sei mesi; con l'Attenzione avvisa 50 tocchi del livello su 63, 7 più della sola Attenzione. È un promemoria, non un segnale per comprare o vendere: come usarlo."
+  },
+  {
+   "words": 28,
+   "text": "Attenzionebreadth entro 10 punti dal livello blu, oppure drawdown più profondo dell'85% della storia del settore. Sotto il livello blu per meno di 2 chiusure si resta qui."
+  },
+  {
+   "words": 28,
+   "text": "Zona blubreadth sotto il livello blu per 2 chiusure e drawdown oltre il 70° percentile. Qui si formano spesso i bottom, di solito in anticipo: ci si prepara."
+  },
+  {
+   "words": 74,
+   "text": "Triggerla breadth risale sopra il livello blu di almeno 5 punti (o 2 titoli, se valgono di più) e di almeno 2 titoli sopra il minimo della zona blu, con una conferma (due se la zona blu dura più di 60 sedute o dopo un fallimento): spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V, cioè la breadth di nuovo sopra max(40%, livello + 25), basta da solo."
+  },
+  {
+   "words": 42,
+   "text": "Fallitoil prezzo chiude sotto il minimo della zona blu, meno un'escursione media giornaliera, entro 20 sedute dal trigger; oppure più tardi, prima del riarmo, con la breadth di nuovo sotto il livello blu. Si torna in zona blu con regole più severe."
+  },
+  {
+   "words": 12,
+   "text": "Cooldownper 63 sedute dopo un trigger nessun nuovo alert sullo stesso settore."
+  }
+ ],
+ "changes": [
+  {
+   "words": 0,
+   "text": ""
+  }
+ ],
+ "rules": [
+  {
+   "words": 13,
+   "text": "Alert solo sui cambi di stato: ingresso in zona blu, trigger, segnale fallito."
+  },
+  {
+   "words": 14,
+   "text": "Zona blu: breadth ≤ livello blu per 2 chiusure e drawdown oltre il 70° percentile."
+  },
+  {
+   "words": 42,
+   "text": "Trigger: breadth ≥ livello + max(5 punti, 2 titoli) e almeno 2 titoli sopra il minimo della zona blu, con una conferma (due se la zona blu dura più di 60 sedute o dopo un fallimento); il rimbalzo a V basta da solo."
+  },
+  {
+   "words": 34,
+   "text": "Fallito: il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera entro 20 sedute dal trigger, oppure più tardi, prima del riarmo, con la breadth di nuovo sotto il livello blu."
+  },
+  {
+   "words": 26,
+   "text": "Cooldown e riarmo: 63 sedute senza nuovi alert dopo un trigger; una nuova zona blu solo dopo che la breadth torna sopra max(40%, livello + 25)."
+  },
+  {
+   "words": 27,
+   "text": "Industrie (SOXX): stesse regole e stessi alert su Telegram; i loro eventi sono nel loro dettaglio, mentre statistiche ed elenco qui sopra sono dei soli 11 settori."
+  }
+ ],
+ "soxx": [
+  {
+   "words": 175,
+   "text": "Come è costruita questa storia. La breadth usa i 30 titoli di oggi dell'ETF SOXX (lista iShares letta il 13/11/2026) anche per il passato, dal 01/08/2001: molti allora non erano quotati, quindi i titoli contati crescono nel tempo (oggi 30) e chi è uscito dall'indice non c'è. Fino all'ottobre 2010 l'ETF seguiva l'S&P North American Technology-Semiconductors Index, poi il PHLX Semiconductor (SOX) fino al 21/06/2021, oggi il NYSE Semiconductor Index (date secondo fonti secondarie). Confrontata con le composizioni storiche del SOX, la breadth con i membri di oggi è stata in media da 0,7 punti più bassa a 4,9 più alta, vicino ai minimi tra −2 e +3 punti, con le stesse zone blu al 3%. Diversi titoli, ADR compresi, non sono nell'S&P 500. Con 30 titoli uno vale 3,3 punti: la breadth salta molto in pochi giorni. SKHY, CBRS sono quotati da meno di 200 sedute e contano come «sotto la media» finché non le hanno. Prezzo: ETF SOXX con i dividendi reinvestiti. Statistiche del livello blu e degli episodi indicative: guida."
+  }
+ ]
+}
