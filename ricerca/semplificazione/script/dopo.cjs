@@ -51,7 +51,7 @@ fs.mkdirSync(OUT, { recursive: true });
   for (const w of [861, 1100]) {
     const cp = await ctx({ viewport: { width: w, height: 700 } });
     const q = await cp.newPage();
-    await q.goto(URL + '#mon'); await q.waitForSelector('#boardTable tr', { timeout: 30000 }); await q.waitForTimeout(500);
+    await q.goto(URL + '#mon'); await q.waitForSelector('#boardTable tbody tr', { timeout: 30000, state: 'attached' }); await q.waitForTimeout(500);
     const fit = await q.evaluate(() => { const f = document.querySelector('.fnkeys'); return { sw: f.scrollWidth, cw: f.clientWidth, last: document.getElementById('tab-ath').getBoundingClientRect().right }; });
     console.log('schede a', w, 'px', JSON.stringify(fit));
     await q.screenshot({ path: path.join(OUT, `schede-${w}.png`), clip: { x: 0, y: 0, width: w, height: 120 } });
