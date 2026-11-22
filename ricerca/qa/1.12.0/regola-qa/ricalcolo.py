@@ -18,6 +18,7 @@ taglio (chiusure <= data del taglio) applica la regola come è scritta nel compi
     l'ultima seduta).
 
 Uso: python3 -I ricerca/qa/1.12.0/regola-qa/ricalcolo.py [file ath_history.json] > uscita.json
+(DAILY=1: ogni seduta dal 2002 invece dei fine mese e dei giorni scelti)
 Scrive su stdout un JSON {taglio: {asOf, done:[[data, calo]], open:[[data, calo]], checks...}}.
 """
 import json, sys, datetime as dt
@@ -123,7 +124,10 @@ def analyse(dates, close, X=15, last=4):
     }
 
 def cuts():
+    import os
     today = DATES[-1]
+    if os.environ.get('DAILY'):  # ogni seduta dal 2002 (controllo in più)
+        return [d.isoformat() for d in DATES if d.year >= 2002]
     out = []
     y, m = 2002, 1
     while dt.date(y, m, 1) <= today:
