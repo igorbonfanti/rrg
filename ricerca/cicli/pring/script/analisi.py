@@ -165,6 +165,29 @@ R['punti'] = elenco
 R['nota_punti'] = ('Per le obbligazioni «massimo» e «minimo» sono nel verso del prezzo (minimo del rendimento = massimo); '
                    'il valore è il rendimento GS10 in %.')
 
+# ------------------------------------------------------------------ controlli dei dati (buchi, raccordi, seconde fonti)
+cd = {'buchi': {}}
+for k, v in S.items():
+    full = pd.date_range(v.index.min(), v.index.max(), freq='MS')
+    cd['buchi'][k] = int(len(full.difference(v.index)))
+a_, b_ = dati.fred('WPUID62'), dati.fred('WPUSOP1000')
+jj_ = pd.concat([a_, b_], axis=1).dropna()
+dd_ = (jj_.iloc[:, 0] - jj_.iloc[:, 1]).abs()
+cd['WPUID62_contro_WPUSOP1000'] = {'mesi_in_comune': len(jj_), 'scarto_massimo': float(dd_.max()), 'mesi_con_scarto_oltre_0_05': int((dd_ > 0.05).sum()),
+                                   'primo_mese_con_scarto': str(dd_[dd_ > 0.05].index.min().date())[:7]}
+ult_ = pd.Timestamp(S['tassi'].index[-1])
+d10 = dati.mensile(dati.fred('DGS10'), ult_)
+tnx = dati.mensile(dati.yahoo('^TNX'), ult_)
+jj_ = pd.concat([S['tassi'], d10, tnx], axis=1).dropna()
+cd['GS10_contro_DGS10_media_mensile'] = {'mesi': len(jj_), 'scarto_massimo_punti': float((jj_.iloc[:, 0] - jj_.iloc[:, 1]).abs().max())}
+cd['GS10_contro_Yahoo_TNX_media_mensile'] = {'scarto_massimo_punti': float((jj_.iloc[:, 0] - jj_.iloc[:, 2]).abs().max()),
+                                             'scarto_99_percentile': float((jj_.iloc[:, 0] - jj_.iloc[:, 2]).abs().quantile(0.99))}
+old_ = dati.fred('TWEXMMTH')
+afe_ = dati.mensile(dati.fred('DTWEXAFEGS'), pd.Timestamp('2019-12-01'))
+jj_ = pd.concat([old_, afe_], axis=1).dropna()
+cd['dollaro_raccordo'] = {'mesi_in_comune_2006_2019': len(jj_), 'correlazione_variazioni_mensili': float(np.log(jj_).diff().dropna().corr().iloc[0, 1])}
+R['controlli_dati'] = cd
+
 # ------------------------------------------------------------------ criterio 1 e domanda 2: tutto il campione
 R['principale'] = {}
 for definizione, livelli in (('soglia', [0, 1, 2]), ('bb', [None])):

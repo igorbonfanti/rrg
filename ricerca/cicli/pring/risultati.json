@@ -1,5 +1,5 @@
 {
- "generato": "2026-11-22T23:46:45.112165",
+ "generato": "2026-11-22T23:53:18.911151",
  "ripetizioni": 2000,
  "seme": 20261122,
  "periodo": {
@@ -5793,6 +5793,41 @@
   }
  },
  "nota_punti": "Per le obbligazioni «massimo» e «minimo» sono nel verso del prezzo (minimo del rendimento = massimo); il valore è il rendimento GS10 in %.",
+ "controlli_dati": {
+  "buchi": {
+   "azioni": 0,
+   "tassi": 0,
+   "mp": 0,
+   "ppiaco": 0,
+   "metalli": 0,
+   "petrolio": 0,
+   "rame": 0,
+   "imf": 0,
+   "dollaro": 0,
+   "rec": 0,
+   "wb_nonen": 0,
+   "wb_metalli": 0,
+   "oro": 0
+  },
+  "WPUID62_contro_WPUSOP1000": {
+   "mesi_in_comune": 828,
+   "scarto_massimo": 0.8,
+   "mesi_con_scarto_oltre_0_05": 17,
+   "primo_mese_con_scarto": "2010-07"
+  },
+  "GS10_contro_DGS10_media_mensile": {
+   "mesi": 778,
+   "scarto_massimo_punti": 0.005
+  },
+  "GS10_contro_Yahoo_TNX_media_mensile": {
+   "scarto_massimo_punti": 0.048381,
+   "scarto_99_percentile": 0.032518
+  },
+  "dollaro_raccordo": {
+   "mesi_in_comune_2006_2019": 168,
+   "correlazione_variazioni_mensili": 0.998822
+  }
+ },
  "principale": {
   "bassa": {
    "M2": {
