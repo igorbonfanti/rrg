@@ -113,7 +113,7 @@ function want(m, narrow, ongoingEp) {
     ok(/negli 8 cali dell'S&P 500 di almeno il 15% dal 2000 al 2025/.test(await p.$eval('#pkOrder .pkordh', (x) => x.title).catch(() => '')), `${name}: ordine tipico con il periodo nel suggerimento`);
     // intestazione: «i» con il motivo, riga dei dati
     const head = await p.evaluate(() => ({ h2: (document.querySelector('#pkPanel h2') || {}).textContent, i: (document.querySelector('#pkPanel .ihint') || {}).title, meta: (document.getElementById('pkMeta') || {}).textContent }));
-    ok(head.h2 === 'Linea del tempo dei massimi' && head.i === INFO && head.meta === `ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al ${dIT(F.asOf)}`, `${name}: intestazione «${head.h2}», «i» e «${head.meta}»`);
+    ok(head.h2 === 'Linea del tempo dei massimi' && head.i === INFO && head.meta === `ultimi 4 cali ≥ 15% dell'S&P 500 e il calo in corso, finora sotto il 15% · chiusure al ${dIT(F.asOf)}`, `${name}: intestazione «${head.h2}», «i» e «${head.meta}»`);
     if (phone) {
       await tap(p.locator('#pkPanel .ihint')); await p.waitForTimeout(200);
       const tt = await p.evaluate(() => { const t = document.querySelector('.taptip'); return t && !t.hidden ? t.textContent : ''; });

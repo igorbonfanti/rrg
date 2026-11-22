@@ -13,7 +13,7 @@
  *  - calo in corso: i massimi di ciclo ≥ 15% dell'S&P 500 non ancora recuperati, se ci sono (decisione dell'utente del
  *    22/11/2026: altrimenti, con un nuovo massimo di 52 settimane più basso, il calo grande sparirebbe, come al 31/07/2023
  *    con quello del 2022). Di solito uno; due quando un calo nuovo parte sotto un massimo più vecchio non ancora
- *    recuperato (per esempio a giugno 2010: 2007 e aprile 2010). Se non ce ne sono, l'ultimo massimo di 52 settimane non
+ *    recuperato (dal 30/06/2010 al 03/11/2010: 2007 e aprile 2010; dall'08/08/2011 al 23/02/2012: 2007 e aprile 2011). Se non ce ne sono, l'ultimo massimo di 52 settimane non
  *    ancora superato. Calo fino all'ultima seduta.
  * Calcolato nel browser dalle chiusure di data/ath_history.json (dal 2000). Il test test/peaks.test.js confronta i
  * risultati, episodio per episodio, con ricerca/rotazione-bolle/risultati.json (fixture test/fixtures/peaks_20261120.json.gz).

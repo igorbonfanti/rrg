@@ -25,6 +25,8 @@ function cut(H, to) {
     ['2023-07-31', [['03/01/2022', 'calo −25,4%', true]], "e quello in corso"],
     ['2010-06-30', [['09/10/2007', 'calo −56,8%', true], ['23/04/2010', 'calo −15,3%', true]], "cali ≥ 15% dell'S&P 500: i 2 in corso"],
     ['2012-03-30', [['23/04/2010', 'calo −16,0%', false], ['29/04/2011', 'calo −19,4%', false], ['09/10/2007', 'calo −56,8%', true]], "e quello in corso"],
+    ['2011-10-03', [['23/04/2010', 'calo −16,0%', false], ['09/10/2007', 'calo −56,8%', true], ['29/04/2011', 'calo −19,4%', true]], "ultimo calo ≥ 15% dell'S&P 500 e i 2 in corso"],
+    ['2005-06-30', [['', 'calo −', true]], "S&P 500: il calo in corso, finora sotto il 15%"],
   ]) {
     for (const [w, mob] of [[1440, false], [390, true]]) {
       const c = await b.newContext({ viewport: { width: w, height: 900 }, isMobile: mob, hasTouch: mob });
@@ -39,7 +41,7 @@ function cut(H, to) {
       const got = await p.evaluate(() => ({ h: [...document.querySelectorAll('#pkBody .pkep h3')].map((x) => x.textContent), meta: document.getElementById('pkMeta').textContent }));
       const tail = got.h.slice(-want.length);
       const good = want.every(([d, calo, on], k) => (tail[k] || '').includes(d) && (tail[k] || '').includes(calo) && (tail[k] || '').includes('in corso') === on);
-      ok(good && got.h.length === { '2023-07-31': 5, '2010-06-30': 2, '2012-03-30': 3 }[to], `${to} ${w}px: riquadri ${got.h.join(' | ')}`);
+      ok(good && got.h.length === { '2023-07-31': 5, '2010-06-30': 2, '2012-03-30': 3, '2011-10-03': 3, '2005-06-30': 1 }[to], `${to} ${w}px: riquadri ${got.h.join(' | ')}`);
       ok(got.meta.includes(meta), `${to} ${w}px: intestazione «${got.meta}»`);
       const sw = await p.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
       ok(sw[0] <= sw[1] && !errs.length, `${to} ${w}px: niente scorrimento orizzontale né errori ${errs.join(' | ')}`);

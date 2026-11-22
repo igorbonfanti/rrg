@@ -16,4 +16,16 @@ OK   2012-03-30 1440px: niente scorrimento orizzontale né errori
 OK   2012-03-30 390px: riquadri Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 09/10/2007 · calo −56,8% in corso
 OK   2012-03-30 390px: intestazione «ultimi 2 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 30/03/2012»
 OK   2012-03-30 390px: niente scorrimento orizzontale né errori 
+OK   2011-10-03 1440px: riquadri Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 29/04/2011 · calo −19,4% in corso
+OK   2011-10-03 1440px: intestazione «ultimo calo ≥ 15% dell'S&P 500 e i 2 in corso · chiusure al 03/10/2011»
+OK   2011-10-03 1440px: niente scorrimento orizzontale né errori 
+OK   2011-10-03 390px: riquadri Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 29/04/2011 · calo −19,4% in corso
+OK   2011-10-03 390px: intestazione «ultimo calo ≥ 15% dell'S&P 500 e i 2 in corso · chiusure al 03/10/2011»
+OK   2011-10-03 390px: niente scorrimento orizzontale né errori 
+OK   2005-06-30 1440px: riquadri Massimo S&P 500 07/03/2005 · calo −7,2% in corso
+OK   2005-06-30 1440px: intestazione «S&P 500: il calo in corso, finora sotto il 15% · chiusure al 30/06/2005»
+OK   2005-06-30 1440px: niente scorrimento orizzontale né errori 
+OK   2005-06-30 390px: riquadri Massimo S&P 500 07/03/2005 · calo −7,2% in corso
+OK   2005-06-30 390px: intestazione «S&P 500: il calo in corso, finora sotto il 15% · chiusure al 30/06/2005»
+OK   2005-06-30 390px: niente scorrimento orizzontale né errori 
 0 FAIL

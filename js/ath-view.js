@@ -301,14 +301,17 @@ export function createAth(ctx) {
     if (!tl) tl = buildTimeline();
     if (!tl || !tl.episodes.length) {
       $('pkMiss').hidden = false; body.innerHTML = ''; $('pkMeta').textContent = ''; $('pkOrder').innerHTML = '';
-      $('pkMiss').textContent = 'Linea del tempo non disponibile: manca lo storico dell\'S&P 500 (data/ath_history.json). Tornerà dopo il prossimo aggiornamento.';
+      $('pkMiss').textContent = tl ? 'Linea del tempo non disponibile: lo storico dell\'S&P 500 è troppo corto (serve almeno un anno).' : 'Linea del tempo non disponibile: manca lo storico dell\'S&P 500 (data/ath_history.json). Tornerà dopo il prossimo aggiornamento.';
       return;
     }
     $('pkMiss').hidden = true;
     renderOrder(tl.ms);
     const nOn = tl.episodes.filter((e) => e.ongoing).length;
-    const nDone = tl.episodes.length - nOn, onTxt = nOn > 1 ? `i ${nOn} in corso` : 'quello in corso';
-    $('pkMeta').textContent = `${nDone ? `ultimi ${nDone} cali ≥ 15% dell'S&P 500 e ${onTxt}` : `cali ≥ 15% dell'S&P 500: ${onTxt}`} · chiusure al ${dIT(tl.asOf)}`;
+    // un calo in corso sotto il 15% (l'ultimo massimo di 52 settimane non superato) lo si dice: il titolo parla di cali ≥ 15%
+    const small = nOn === 1 && tl.episodes.some((e) => e.ongoing && !(e.ddPct <= -15));
+    const nDone = tl.episodes.length - nOn, onTxt = nOn > 1 ? `i ${nOn} in corso` : small ? 'il calo in corso, finora sotto il 15%' : 'quello in corso';
+    const doneTxt = nDone === 1 ? "ultimo calo ≥ 15% dell'S&P 500" : `ultimi ${nDone} cali ≥ 15% dell'S&P 500`;
+    $('pkMeta').textContent = `${nDone ? `${doneTxt} e ${onTxt}` : small ? `S&P 500: ${onTxt}` : `cali ≥ 15% dell'S&P 500: ${onTxt}`} · chiusure al ${dIT(tl.asOf)}`;
     body.innerHTML = '';
     for (const ep of tl.episodes) {
       const box = document.createElement('div');
