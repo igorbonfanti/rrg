@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 13/11/2026, versione 1.11.0.
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 22/11/2026, versione 1.12.0 (sul ramo di sviluppo, non ancora pubblicata).
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -28,6 +28,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/indexdata.js` | formato compatto degli indici |
   | `js/capitulation.js` | cali forti |
   | `js/calendar.js` | calendari |
+  | `js/peaks.js` | vista 0 (1.12.0): massimi di ciclo, calo in corso, linea del tempo dei massimi, ordine tipico della ricerca (`ORDER`) |
   | `js/vix.js` | vista 8: episodi del VIX, rendimenti dopo i picchi, scatter, realizzata e premio per la paura, struttura a termine (VIX/VIX3M) e credito (HYG/IEF) |
   | `js/emerging.js` | vista 7 (Emergenti): pulizia dei cambi, z e F della valuta, D del dollaro, forza relativa contro ACWI |
 
@@ -40,6 +41,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/indices.js` | vista 6 |
   | `js/titles.js` | vista 5 |
   | `js/vix-view.js` | vista 8 VIX |
+  | `js/ath-view.js` | vista 0 Massimi (1.12.0): distanza dal massimo, grafico e profilo dei volumi (prima nella vista 8), linea del tempo dei massimi |
   | `js/emerging-view.js` | vista 7 Emergenti (stato degli indici preso dalla vista 6 con `snapshot`) |
   | `js/cap-view.js`, `js/cap-chart.js` | scheda Cali forti |
   | `js/rrg-chart.js`, `js/perf-chart.js`, `js/sector-chart.js`, `js/bottom-map.js` | grafici SVG |
@@ -49,7 +51,8 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   - prima i file del Monitor (`prices`, `sectors`, `breadth`, `thresholds`, `breadth_latest`, `alerts`, `config/indices`);
   - dopo il primo disegno `prices_global` e `prices_macro`;
   - alla prima apertura della vista: `indices`, poi `indices_more`, `sector_members`, `capitulation`;
-  - alla prima apertura della vista 7: `emerging` e i due file degli indici (`ensureAll`).
+  - alla prima apertura della vista 7: `emerging` e i due file degli indici (`ensureAll`);
+  - alla prima apertura della vista 0 (1.12.0): `ath` e `ath_history` (prima arrivavano con il VIX).
   - I file caricati dopo usano `cache: 'no-cache'`.
 - **Versione**: `js/version.js` e `version.json` devono coincidere. Se il browser usa file vecchi l'app lo dice e il pulsante «Nuova versione» riscarica tutto.
 
@@ -147,6 +150,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | Distanza dal massimo (12/11/2026) | pannello di solo contesto nella vista 8 come il prototipo; riferimento il massimo di chiusura degli ultimi 3 anni (il picco dell'ultimo ciclo), il massimo di sempre nel dettaglio; grafico del prezzo al clic; GLD e SLV per oro e argento, future continuo per rame e petrolio (niente USO); idea citata a Francesco Caruso (Cicli&Mercati) |
 | Oro e argento nel pannello dei massimi (13/11/2026) | future GC=F e SI=F invece di GLD e SLV (1.10.1), con le note su regolamento delle 13:30 e cambi di contratto |
 | POC e profilo dei volumi (13/11/2026) | niente linea del POC (non robusto in 7 mercati su 9, `ricerca/poc/`); profilo dei volumi degli ultimi 12 mesi a lato del grafico (1.11.0): grafica del prototipo approvata (`ricerca/poc/profilo/prototipo/`), solo la forma (niente POC, value area o fasce evidenziate); il criterio deciso prima lo passano 6 mercati su 9, ma l'utente ha scelto di mostrare tutti e 9 i mercati, oro, Nasdaq-100 e KOSPI con l'avvertenza «profilo poco stabile»; strumenti e metodo come la ricerca (SPY, QQQ, 069500.KS sulla scala dell'indice; argento e rame dalle orarie); il passo notturno non fallisce per il profilo, lo segnala `check_fresh.js` oltre `maxAge` |
+| Vista 0 Massimi (22/11/2026) | il pannello della distanza dal massimo esce dal VIX e va in una vista nuova, «0 Massimi», in coda (tasto 0, `#ath`; le altre schede non cambiano numero; telefono 5 × 2); nel VIX una riga rimanda lì per qualche versione. Linea del tempo dei massimi come il prototipo (`ricerca/rotazione-bolle/linea-del-tempo.html`): ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso, solo descrizione (il backtest non trova anticipatori affidabili), testi lunghi nella guida, una «i» con il motivo; ordine tipico della ricerca (8 cali dal 2000) |
 | Spread HY a 350 pb e petrolio come innesco (12/11/2026) | verificati e lasciati fuori (`ricerca/credito-soglia/`, `ricerca/petrolio/`): solo un paragrafo nella guida |
 | Oscillatori mensili di Francesco Caruso (12/11/2026) | non si fa la pagina: il segnale «Composite Momentum e secondo oscillatore girano al ribasso da zona alta» sull'S&P 500 mensile non anticipa i cali più di un mese qualunque (solo CMO: 9 segnali su 30 seguiti da un calo ≥10% in 12 mesi, contro 125 mesi su 397 di base; 162 varianti con Coppock, KST e MACD/PPO, nessuna supera i criteri decisi prima). Il CMO si può usare con il permesso di Caruso (riferito dall'utente, 12/11/2026); il C-Wave non è pubblico. Ricerca in `ricerca/oscillatori/` |
 | Rendimenti degli episodi | indecisa: calcolarli dalla chiusura della seduta dopo il segnale invece che dal giorno stesso (cambio di regola, da decidere con l'utente) |
@@ -167,6 +171,8 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 | `emergenti/` | backtest dei cambi e del dollaro emergente, demo, piano di inserimento e sintesi della vista 7 |
 | `oscillatori/` | Composite Momentum (Caruso) e C-Wave: identificazione, dati, backtest e ricalcolo indipendente in Python; verdetto: scartato come allarme |
 | `poc/` | POC degli ultimi 12 mesi (non robusto, non mostrato) e future per oro e argento (1.10.1); `poc/profilo/`: profilo dei volumi, criterio deciso prima, ricalcolo indipendente (`verifica.py`), prototipo, `confronto_app.mjs` (pipeline contro ricerca sugli stessi dati) e `fixture.mjs` (estratto per i test) (1.11.0) |
+| `rotazione-bolle/` | chi fa il massimo prima, insieme e dopo l'S&P 500 (21/11/2026): backtest con criterio deciso prima, ricalcolo in Python, tabelle, prototipo della linea del tempo; verdetto: solo descrittivo. `script/fixture.mjs` scrive la fixture di `test/peaks.test.js` |
+| `semplificazione/` | inventario delle note, piano per accorciarle (1.13.0) e per la vista 0 Massimi (1.12.0), prototipo del riquadro «i» |
 | `bolle-rotazione/` | distanza dal massimo (degli ultimi 3 anni dalla scelta dell'utente; prima il massimo di sempre): serie, seconde fonti, confronto con la slide di Caruso, prototipo e piano (1.10.0) |
 | `credito-soglia/` | spread high yield a 350 pb e soglie su HYG/IEF: resta contesto |
 | `petrolio/` | petrolio come innesco dei cali dell'S&P 500 dal 1950: solo contesto (legame con le recessioni) |
@@ -174,7 +180,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 
 ## 7. Stato attuale (1.10.0)
 
-- 9 viste, 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
+- 10 viste dalla 1.12.0 (9 prima), 22 indici, 11 settori, 6 universi di rotazione più gli asset reali.
 - Test automatici: `npm test`, 144 test; nel browser `ricerca/qa/browser/v091.cjs` (88 controlli su computer e telefono, tema chiaro e scuro), `v095.cjs` (64 controlli: pannelli richiudibili, date allineate, linea condivisa, picchi tagliati), `v130.cjs` (avvicinamento sul grafico) `v140.cjs` e `v140fix.cjs` (vista Emergenti), `v150.cjs` (vista VIX), `v160.cjs` (struttura a termine e credito), `v161.cjs` (scatter per crisi), `v162.cjs` (punti grandi e tabella), `v170.cjs` (mini-grafici e pannello dell'indice).
 - Audit completo della 0.9.0 (18/10/2026): `ricerca/qa/audit-0.9.0/`. Fatti il passo 1 (0.9.1: numeri, avvertenze, testi), il passo 2 (0.9.2: grafica e telefono) e il passo 3 (0.9.3: robustezza della pipeline). Del passo 2 restano, minori:
   - con CVD la freccia di salita blu accanto alla barra viola del cap-weighted si confonde (cambiato solo il testo);
@@ -196,6 +202,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - **1.4.0 (05/11/2026)**: vista 8 Emergenti, solo contesto, dal piano `ricerca/emergenti/inserimento.md`. Il file `data/emerging.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Controllo nel browser `ricerca/qa/browser/v140.cjs`.
 - **1.4.1 (05/11/2026)**: schede riordinate su richiesta dell'utente: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 Alert (`VIEWS` in `js/app.js`); indirizzi e comandi invariati. Le note storiche usano i numeri di allora (Titoli era la 7, Alert la 5, Emergenti la 8).
 - **1.5.0 (06/11/2026)**: vista 8 VIX (Alert alla 9), dalla verifica in `ricerca/vix/` (idea di Massimo Rea). Il file `data/vix.json` lo crea la Action: finché non c'è, la vista dice che i dati non sono disponibili. Test: `test/vix.test.js` (valori verificati con lo script di ricerca), controllo nel browser `ricerca/qa/browser/v150.cjs`.
+- **1.12.0 (22/11/2026, ramo di sviluppo)**: vista 0 Massimi dal piano `ricerca/semplificazione/piano.md` §4 e linea del tempo dei massimi da `ricerca/rotazione-bolle/` (decisioni dell'utente del 22/11/2026). `js/ath-view.js` (codice spostato da `js/vix-view.js`, stesse chiavi del browser e stesso zoom), `js/peaks.js` con `test/peaks.test.js` (281 massimi di ciclo, 5 finestre e ranghi uguali a `risultati.json`). Comandi `MASSIMI`, `MASSIMO`, `ATH`, `MAX`, `BOLLE` (`MAX` non è un ticker degli universi di oggi; il piano sconsigliava `MAX` perché è anche un ticker di borsa: se un giorno entra negli universi, il comando vince sul ticker). Limiti: l'ordine tipico non si ricalcola nel browser (il calo del 2000 richiede le chiusure del 1999, che `data/ath_history.json` non ha: lo dice la guida); i testi lunghi delle note del pannello restano com'erano fino alla 1.13.0 (note più corte). Controlli nel browser `ricerca/qa/browser/v1120.cjs` (e `v1100`, `v1101`, `v1110` portati su `#ath`), fatti da chi ha scritto il codice: mancano i controlli di agenti indipendenti prima di pubblicare.
 - **1.11.0 (13/11/2026)**: profilo dei volumi degli ultimi 12 mesi accanto al grafico del pannello dei massimi, per tutti e 9 i mercati (oro, Nasdaq-100 e KOSPI con l'avvertenza: scelta dell'utente), dal piano `ricerca/poc/profilo/sintesi.md` §6.2. Pipeline: `scripts/lib/volprofile.js`, `fetch_ath.js` (`profiles` in `data/ath_history.json`), `check_fresh.js`; i `bp` coincidono con `analisi.mjs` sulle stesse risposte di Yahoo per 9 mercati su 9 (`confronto_app.mjs`, sia sulla cache della ricerca sia su una corsa della pipeline del 13/11/2026 alle 20:20 UTC); rispetto a `profilo_app.json` (dati delle 07:16) cambiano di 1 bp il Nasdaq-100 e il SOXX (Yahoo ha rivisto il volume del 12/11 di QQQ e SOXX) e il KOSPI (Yahoo ridà la serie fino al 12/11 invece che al 13/11: profilo dal 12/11/2025 al 12/11/2026). Due corse di fila: file identici a parte `generated`. Test: `npm test` 192 verdi (nuovo `test/volprofile.test.js`); nel browser `ricerca/qa/browser/v1110.cjs` 2.845 controlli, 0 falliti (risultato in `ricerca/qa/1.11.0/v1110.txt`, immagini in `ricerca/qa/1.11.0/shots/`), sulla 1.10.2 fallisce (97 su 101 a 1440). Controlli fatti da chi ha scritto il codice: mancano ancora i controlli indipendenti della fase 3 e le immagini da mostrare all'utente prima di pubblicare. Limiti aperti: il criterio di stabilità è misurato una volta (12/11/2026) e non si ricalcola ogni notte; la quota del riquadro dipende da quante fasce si uniscono (computer e telefono diversi); con uno zoom che arriva all'ultima seduta la scala si allarga ai 12 mesi del profilo. Controlli indipendenti in `ricerca/qa/1.11.0/numeri/` e `uso-testi/` (GO); corretti prima di pubblicare: motivo dell'avvertenza (metodi di calcolo diversi, non solo giornaliero/orario), copertura dei volumi nella finestra (oltre il 5% di sedute mancanti: niente profilo), estremi con 10 cifre significative (bitcoin). Minori aperti: legenda «lo zoom non arriva all'ultima seduta» se il profilo finisse dopo il grafico (oggi non succede); con lo zoom fino all'ultima seduta la scala si allarga ai 12 mesi e la legenda cita l'inizio dei 12 mesi anche se la linea non si vede; il riquadro delle barre non si apre da tastiera; quote del riquadro arrotondate a bp interi (fino a 0,03 punti); nel log di `fetch_ath.js` il motivo è «non arrivato» anche quando fallisce il calcolo; il testo «dalle barre orarie» di argento e rame è fisso in `config/ath.json`.
 - **1.10.2 (13/11/2026)**: falso allarme della corsa delle 18:42 UTC (KOSPI con una seduta in meno da Yahoo): ora solo un avviso. Controllato con una simulazione (riga pubblicata più recente, esito 0 e avviso) e `npm test`, senza agente indipendente.
 - **1.10.1 (13/11/2026)**: oro e argento con i future nel pannello dei massimi (scelta dell'utente), verifica in `ricerca/poc/sintesi.md` parte A.

@@ -6,6 +6,7 @@ import { createCap } from './cap-view.js';
 import { createTitles } from './titles.js';
 import { createEmerging } from './emerging-view.js';
 import { createVix } from './vix-view.js';
+import { createAth } from './ath-view.js';
 import { VERSION, RELEASE, NOTES } from './version.js';
 import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
@@ -16,7 +17,7 @@ import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
 
 const $ = (id) => document.getElementById(id);
-const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'tit', 'idx', 'emg', 'vix', 'alr']; // ordine delle schede e dei tasti 1-9 (1.5.0)
+const VIEWS = ['mon', 'rrg', 'btm', 'sec', 'tit', 'idx', 'emg', 'vix', 'alr', 'ath']; // ordine delle schede e dei tasti 1-9 (1.5.0), poi 0 Massimi (1.12.0)
 const QORDER = { Improving: 0, Leading: 1, Weakening: 2, Lagging: 3 };
 // La GitHub Action parte alle 22:40 UTC, riprova ogni ora dalle 01:10 alle 06:10 UTC e di nuovo alle 11:40; GitHub fa partire
 // le corse programmate anche con ore di ritardo. Prima di queste ore l'ultima chiusura non è ancora attesa e non conta come ritardo.
@@ -272,7 +273,9 @@ function init() {
   }) : null;
   if (!state.emerging) $('tab-emg').hidden = true;
   // vista 8 VIX: dati alla prima apertura (solo contesto)
-  state.vix = createVix({ $, store, load: () => getJSON('data/vix.json', false, true), loadAth: () => getJSON('data/ath.json', true, true), loadAthHist: () => getJSON('data/ath_history.json', true, true) });
+  state.vix = createVix({ $, store, load: () => getJSON('data/vix.json', false, true) });
+  // vista 0 Massimi (1.12.0): distanza dal massimo e linea del tempo, dati alla prima apertura, indipendenti dal VIX
+  state.ath = createAth({ $, store, loadAth: () => getJSON('data/ath.json', true, true), loadAthHist: () => getJSON('data/ath_history.json', true, true) });
   // vista 5 Titoli: grandi contro piccoli e titoli del settore, dati alla prima apertura
   state.titles = createTitles({
     $, store, names: Object.fromEntries([...Object.keys(SECTOR_NAMES), ...state.bottom.industries()].map((k) => [k, state.bottom.name(k)])), industries: state.bottom.industries(),
@@ -290,6 +293,7 @@ function init() {
   if (state.indices) state.indices.bind();
   if (state.emerging) state.emerging.bind();
   state.vix.bind();
+  state.ath.bind();
   state.titles.bind();
   $('toTit').onclick = () => setView('tit');
   syncControls();
@@ -390,6 +394,7 @@ function renderAll() {
   else if (state.view === 'tit') state.titles.render();
   else if (state.view === 'emg' && state.emerging) state.emerging.render();
   else if (state.view === 'vix') state.vix.render();
+  else if (state.view === 'ath') state.ath.render();
 }
 
 // ---------- tabella prezzi dell'universo (vista RRG, modalità "Prezzi") ----------
@@ -996,7 +1001,7 @@ function bind() {
     if (!state.shortcuts || e.target.closest('input, select, textarea') || e.metaKey || e.ctrlKey || e.altKey) return;
     if (e.key === '?') { openHelp(true); return; }
     if (e.key === '/') { e.preventDefault(); $('cmd').focus(); return; }
-    const idx = +e.key - 1;
+    const idx = e.key === '0' ? 9 : +e.key - 1; // tasti 1-9, poi 0 per la decima vista
     if (VIEWS[idx]) { setView(VIEWS[idx]); return; }
     if (state.view === 'rrg') {
       if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
@@ -1012,7 +1017,7 @@ function bind() {
     $('cmd').value = '';
     // un nuovo comando toglie l'avviso di quello non trovato
     clearTimeout(cmdErrTimer); $('cmdForm').classList.remove('err'); setPlaceholder();
-    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx', TIT: 'tit', TITOLI: 'tit', EMG: 'emg', EMERGENTI: 'emg', VIX: 'vix', VOLATILITA: 'vix', VOLATILITÀ: 'vix' };
+    const words = { MON: 'mon', MONITOR: 'mon', RRG: 'rrg', ROT: 'rrg', ROTAZIONE: 'rrg', BTM: 'btm', BOTTOM: 'btm', MAP: 'btm', SEC: 'sec', SETTORE: 'sec', ALRT: 'alr', ALERT: 'alr', IDX: 'idx', INDICI: 'idx', TIT: 'tit', TITOLI: 'tit', EMG: 'emg', EMERGENTI: 'emg', VIX: 'vix', VOLATILITA: 'vix', VOLATILITÀ: 'vix', ATH: 'ath', MAX: 'ath', MASSIMI: 'ath', MASSIMO: 'ath', BOLLE: 'ath' };
     if (!v) return;
     if (v === 'HELP' || v === 'GUIDA') { openHelp(true); return; }
     if (['CHIARO', 'SCURO', 'TEMA'].includes(v)) { setTheme(v === 'TEMA' ? !isLight() : v === 'CHIARO'); return; }
