@@ -21,7 +21,6 @@ Uso: python3 -I ricerca/qa/1.12.0/regola-qa/ricalcolo.py [file ath_history.json]
 Scrive su stdout un JSON {taglio: {asOf, done:[[data, calo]], open:[[data, calo]], checks...}}.
 """
 import json, sys, datetime as dt
-from decimal import Decimal, ROUND_HALF_UP
 
 PATH = sys.argv[1] if len(sys.argv) > 1 else 'data/ath_history.json'
 H = json.load(open(PATH))
@@ -46,32 +45,27 @@ def decode(s):
 
 DATES, CLOSE = decode(S)
 
-def r1(x):
-    # arrotondamento «metà verso l'alto» a 0,1 come Math.round(x*10)/10 di JS (verso +infinito)
-    return float(Decimal(repr(x * 10)).quantize(Decimal('1'), rounding=ROUND_HALF_UP) / 10) if x is not None else None
-
 def r1js(x):
+    # arrotondamento a 0,1 come Math.round(x*10)/10 (metà verso +infinito)
     import math
     return None if x is None else math.floor(x * 10 + 0.5) / 10
 
+# massimi di 52 settimane: dipendono solo dalle sedute precedenti, quindi uguali in ogni taglio (forza bruta)
+HI52 = set()
+for i in range(len(CLOSE)):
+    if DATES[i] < DATES[0] + dt.timedelta(days=365):
+        continue
+    lim = DATES[i] - dt.timedelta(days=365)
+    k = i - 1; m = None
+    while k >= 0 and DATES[k] >= lim:  # finestra [d-365, d)
+        m = CLOSE[k] if m is None or CLOSE[k] > m else m
+        k -= 1
+    if m is not None and CLOSE[i] > m:
+        HI52.add(i)
+
 def analyse(dates, close, X=15, last=4):
     n = len(close)
-    first = dates[0]
-    # massimi di 52 settimane, forza bruta O(n * 260)
-    hi52 = []
-    lo = 0
-    for i in range(n):
-        if dates[i] < first + dt.timedelta(days=365):
-            continue
-        lim = dates[i] - dt.timedelta(days=365)
-        prev = [close[k] for k in range(i - 1, -1, -1) if dates[k] >= lim] if False else None
-        # finestra [d-365, d)
-        k = i - 1; m = None
-        while k >= 0 and dates[k] >= lim:
-            m = close[k] if m is None or close[k] > m else m
-            k -= 1
-        if m is not None and close[i] > m:
-            hi52.append(i)
+    hi52 = sorted(i for i in HI52 if i < n)
     def nxt_higher(i):
         for k in range(i + 1, n):
             if close[k] > close[i]:
@@ -115,7 +109,7 @@ def analyse(dates, close, X=15, last=4):
             seg = close[i + 1:]
             dd = (min(seg) / close[i] - 1) * 100 if seg else None
             if dd is not None and dd <= -15:
-                suffix_rec.append((dates[i].isoformat(), dd, i in set(hi52)))
+                suffix_rec.append((dates[i].isoformat(), dd, i in HI52))
             best = close[i] if best is None or close[i] > best else best
     return {
         'asOf': dates[-1].isoformat(),
