@@ -1,0 +1,702 @@
+{
+ "ripetizioni_null": 500,
+ "serie_ritardo_noto": 50,
+ "serie_indipendenti": 300,
+ "ritardo_noto": {
+  "bassa": {
+   "massimi": {
+    "quota_p_W_sotto_005": 1.0,
+    "quota_p_perfetti_sotto_005": 1.0,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": 0.98,
+     "obbligazioni>mp": 1.0
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": 0.9091,
+     "obbligazioni>mp": 1.0
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 6.0,
+     "azioni>mp": 6.0,
+     "obbligazioni>mp": 12.0
+    },
+    "cicli_completi_mediana": 10.0,
+    "quota_ordine_perfetto_mediana": 0.8889
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 1.0,
+    "quota_p_perfetti_sotto_005": 1.0,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.84,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 0.98
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.8333,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 1.0
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 5.0,
+     "azioni>mp": 6.0,
+     "obbligazioni>mp": 11.0
+    },
+    "cicli_completi_mediana": 11.0,
+    "quota_ordine_perfetto_mediana": 0.7817
+   }
+  },
+  "media": {
+   "massimi": {
+    "quota_p_W_sotto_005": 1.0,
+    "quota_p_perfetti_sotto_005": 1.0,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 1.0
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": 0.9045,
+     "obbligazioni>mp": 1.0
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 6.0,
+     "azioni>mp": 6.0,
+     "obbligazioni>mp": 12.0
+    },
+    "cicli_completi_mediana": 9.0,
+    "quota_ordine_perfetto_mediana": 0.875
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 1.0,
+    "quota_p_perfetti_sotto_005": 1.0,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.92,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 1.0
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.8333,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 1.0
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 5.25,
+     "azioni>mp": 6.0,
+     "obbligazioni>mp": 11.5
+    },
+    "cicli_completi_mediana": 9.5,
+    "quota_ordine_perfetto_mediana": 0.7889
+   }
+  },
+  "alta": {
+   "massimi": {
+    "quota_p_W_sotto_005": 0.7,
+    "quota_p_perfetti_sotto_005": 0.76,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.86,
+     "azioni>mp": 0.44,
+     "obbligazioni>mp": 0.74
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 1.0
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 6.25,
+     "azioni>mp": 6.0,
+     "obbligazioni>mp": 12.0
+    },
+    "cicli_completi_mediana": 2.0,
+    "quota_ordine_perfetto_mediana": 1.0
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 0.76,
+    "quota_p_perfetti_sotto_005": 0.76,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.7,
+     "azioni>mp": 0.66,
+     "obbligazioni>mp": 0.78
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 1.0
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 6.0,
+     "azioni>mp": 6.0,
+     "obbligazioni>mp": 12.0
+    },
+    "cicli_completi_mediana": 3.0,
+    "quota_ordine_perfetto_mediana": 1.0
+   }
+  },
+  "bry_boschan": {
+   "massimi": {
+    "quota_p_W_sotto_005": 1.0,
+    "quota_p_perfetti_sotto_005": 1.0,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.98,
+     "azioni>mp": 0.9,
+     "obbligazioni>mp": 0.92
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": 0.9,
+     "obbligazioni>mp": 0.9231
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 6.5,
+     "azioni>mp": 5.25,
+     "obbligazioni>mp": 12.0
+    },
+    "cicli_completi_mediana": 11.0,
+    "quota_ordine_perfetto_mediana": 0.8819
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 1.0,
+    "quota_p_perfetti_sotto_005": 1.0,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.84,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 0.98
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.798,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 0.9231
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 5.0,
+     "azioni>mp": 6.0,
+     "obbligazioni>mp": 12.0
+    },
+    "cicli_completi_mediana": 11.0,
+    "quota_ordine_perfetto_mediana": 0.8091
+   }
+  }
+ },
+ "indipendenti": {
+  "bassa": {
+   "massimi": {
+    "quota_p_W_sotto_005": 0.04,
+    "quota_p_perfetti_sotto_005": 0.0267,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.03,
+     "azioni>mp": 0.0467,
+     "obbligazioni>mp": 0.04
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 0.0,
+     "azioni>mp": 0.0,
+     "obbligazioni>mp": 0.5
+    },
+    "cicli_completi_mediana": 2.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 0.06,
+    "quota_p_perfetti_sotto_005": 0.0167,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.0467,
+     "azioni>mp": 0.0433,
+     "obbligazioni>mp": 0.04
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": -0.5,
+     "azioni>mp": 0.0,
+     "obbligazioni>mp": 0.0
+    },
+    "cicli_completi_mediana": 2.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   }
+  },
+  "media": {
+   "massimi": {
+    "quota_p_W_sotto_005": 0.0333,
+    "quota_p_perfetti_sotto_005": 0.0233,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.0367,
+     "azioni>mp": 0.0267,
+     "obbligazioni>mp": 0.0267
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 0.0,
+     "azioni>mp": -0.5,
+     "obbligazioni>mp": 0.0
+    },
+    "cicli_completi_mediana": 2.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 0.0667,
+    "quota_p_perfetti_sotto_005": 0.0333,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.0267,
+     "azioni>mp": 0.0367,
+     "obbligazioni>mp": 0.0267
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 0.0,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": -0.5
+    },
+    "cicli_completi_mediana": 2.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   }
+  },
+  "alta": {
+   "massimi": {
+    "quota_p_W_sotto_005": 0.0433,
+    "quota_p_perfetti_sotto_005": 0.02,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.0267,
+     "azioni>mp": 0.05,
+     "obbligazioni>mp": 0.0467
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 0.0,
+     "azioni>mp": 2.5,
+     "obbligazioni>mp": 1.0
+    },
+    "cicli_completi_mediana": 0.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 0.0267,
+    "quota_p_perfetti_sotto_005": 0.0033,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.0367,
+     "azioni>mp": 0.0233,
+     "obbligazioni>mp": 0.02
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 0.0,
+     "azioni>mp": 1.0,
+     "obbligazioni>mp": 0.0
+    },
+    "cicli_completi_mediana": 0.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   }
+  },
+  "bry_boschan": {
+   "massimi": {
+    "quota_p_W_sotto_005": 0.04,
+    "quota_p_perfetti_sotto_005": 0.01,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.0467,
+     "azioni>mp": 0.0267,
+     "obbligazioni>mp": 0.03
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": -1.0,
+     "obbligazioni>mp": 0.25
+    },
+    "cicli_completi_mediana": 3.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   },
+   "minimi": {
+    "quota_p_W_sotto_005": 0.05,
+    "quota_p_perfetti_sotto_005": 0.0267,
+    "quota_p_coppie_sotto_005": {
+     "obbligazioni>azioni": 0.05,
+     "azioni>mp": 0.0167,
+     "obbligazioni>mp": 0.05
+    },
+    "quota_dopo_mediana": {
+     "obbligazioni>azioni": 0.5,
+     "azioni>mp": 0.5,
+     "obbligazioni>mp": 0.5
+    },
+    "ritardo_mediano": {
+     "obbligazioni>azioni": 1.0,
+     "azioni>mp": -0.5,
+     "obbligazioni>mp": 0.25
+    },
+    "cicli_completi_mediana": 3.0,
+    "quota_ordine_perfetto_mediana": 0.0
+   }
+  }
+ },
+ "bry_boschan_proprieta": {
+  "azioni": {
+   "punti": 38,
+   "alternanza": true,
+   "fase_minima": 6,
+   "ciclo_minimo": 19,
+   "bordi_ok": true
+  },
+  "tassi": {
+   "punti": 37,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 18,
+   "bordi_ok": true
+  },
+  "mp": {
+   "punti": 34,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 31,
+   "bordi_ok": true
+  },
+  "ppiaco": {
+   "punti": 40,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 16,
+   "bordi_ok": true
+  },
+  "metalli": {
+   "punti": 47,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 20,
+   "bordi_ok": true
+  },
+  "petrolio": {
+   "punti": 26,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 20,
+   "bordi_ok": true
+  },
+  "dollaro": {
+   "punti": 31,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 15,
+   "bordi_ok": true
+  },
+  "wb_nonen": {
+   "punti": 31,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 16,
+   "bordi_ok": true
+  },
+  "wb_metalli": {
+   "punti": 30,
+   "alternanza": true,
+   "fase_minima": 6,
+   "ciclo_minimo": 21,
+   "bordi_ok": true
+  },
+  "indpro": {
+   "punti": 42,
+   "alternanza": true,
+   "fase_minima": 5,
+   "ciclo_minimo": 17,
+   "bordi_ok": true
+  }
+ },
+ "bry_boschan_indpro_nber": {
+  "picchi_nber": 12,
+  "minimi_nber": 12,
+  "picchi_entro_3_mesi": 8,
+  "minimi_entro_3_mesi": 12,
+  "picchi_entro_6_mesi": 10,
+  "minimi_entro_6_mesi": 12,
+  "punti_bb": 30,
+  "punti_bb_lontani_da_nber_oltre_6_mesi": 8,
+  "elenco_bb": [
+   [
+    "1948-06",
+    "massimo"
+   ],
+   [
+    "1949-10",
+    "minimo"
+   ],
+   [
+    "1953-07",
+    "massimo"
+   ],
+   [
+    "1954-04",
+    "minimo"
+   ],
+   [
+    "1957-02",
+    "massimo"
+   ],
+   [
+    "1958-04",
+    "minimo"
+   ],
+   [
+    "1960-01",
+    "massimo"
+   ],
+   [
+    "1960-12",
+    "minimo"
+   ],
+   [
+    "1969-10",
+    "massimo"
+   ],
+   [
+    "1970-11",
+    "minimo"
+   ],
+   [
+    "1973-11",
+    "massimo"
+   ],
+   [
+    "1975-05",
+    "minimo"
+   ],
+   [
+    "1980-02",
+    "massimo"
+   ],
+   [
+    "1980-07",
+    "minimo"
+   ],
+   [
+    "1981-07",
+    "massimo"
+   ],
+   [
+    "1982-12",
+    "minimo"
+   ],
+   [
+    "1989-01",
+    "massimo"
+   ],
+   [
+    "1989-07",
+    "minimo"
+   ],
+   [
+    "1990-09",
+    "massimo"
+   ],
+   [
+    "1991-03",
+    "minimo"
+   ],
+   [
+    "2000-06",
+    "massimo"
+   ],
+   [
+    "2001-12",
+    "minimo"
+   ],
+   [
+    "2007-12",
+    "massimo"
+   ],
+   [
+    "2009-06",
+    "minimo"
+   ],
+   [
+    "2014-11",
+    "massimo"
+   ],
+   [
+    "2016-11",
+    "minimo"
+   ],
+   [
+    "2018-09",
+    "massimo"
+   ],
+   [
+    "2020-04",
+    "minimo"
+   ],
+   [
+    "2022-04",
+    "massimo"
+   ],
+   [
+    "2024-11",
+    "minimo"
+   ]
+  ]
+ },
+ "esempio": {
+  "massimi": [
+   {
+    "obbligazioni": "1959-03",
+    "azioni": "1959-11"
+   },
+   {
+    "azioni": "1964-05",
+    "obbligazioni": "1964-06",
+    "mp": "1965-06"
+   },
+   {
+    "obbligazioni": "1967-10",
+    "azioni": "1969-01"
+   },
+   {
+    "mp": "1969-07"
+   },
+   {
+    "obbligazioni": "1975-05",
+    "azioni": "1975-09",
+    "mp": "1976-01"
+   },
+   {
+    "obbligazioni": "1979-11",
+    "azioni": "1980-03",
+    "mp": "1980-09"
+   },
+   {
+    "obbligazioni": "1986-07",
+    "azioni": "1987-03",
+    "mp": "1987-09"
+   },
+   {
+    "obbligazioni": "1992-12",
+    "azioni": "1993-06",
+    "mp": "1993-10"
+   },
+   {
+    "obbligazioni": "1997-10",
+    "azioni": "1998-04",
+    "mp": "1998-09"
+   },
+   {
+    "obbligazioni": "2003-03",
+    "azioni": "2003-08",
+    "mp": "2004-02"
+   },
+   {
+    "obbligazioni": "2007-02",
+    "azioni": "2008-03",
+    "mp": "2008-06"
+   },
+   {
+    "obbligazioni": "2013-01",
+    "azioni": "2013-05"
+   },
+   {
+    "mp": "2014-08"
+   },
+   {
+    "obbligazioni": "2019-01",
+    "azioni": "2019-04",
+    "mp": "2020-01"
+   },
+   {
+    "obbligazioni": "2024-07"
+   }
+  ],
+  "minimi": [
+   {
+    "azioni": "1954-04"
+   },
+   {
+    "mp": "1956-09"
+   },
+   {
+    "obbligazioni": "1961-06",
+    "azioni": "1962-01"
+   },
+   {
+    "obbligazioni": "1965-06",
+    "azioni": "1965-11",
+    "mp": "1966-04"
+   },
+   {
+    "obbligazioni": "1969-10",
+    "azioni": "1970-06",
+    "mp": "1971-01"
+   },
+   {
+    "obbligazioni": "1977-08",
+    "azioni": "1978-03",
+    "mp": "1978-09"
+   },
+   {
+    "azioni": "1981-11",
+    "obbligazioni": "1982-02",
+    "mp": "1982-05"
+   },
+   {
+    "obbligazioni": "1987-09",
+    "azioni": "1988-04",
+    "mp": "1989-01"
+   },
+   {
+    "obbligazioni": "1993-12",
+    "azioni": "1994-06",
+    "mp": "1995-05"
+   },
+   {
+    "obbligazioni": "2000-06",
+    "azioni": "2000-08",
+    "mp": "2001-03"
+   },
+   {
+    "azioni": "2004-05",
+    "obbligazioni": "2004-09",
+    "mp": "2005-08"
+   },
+   {
+    "azioni": "2010-03",
+    "obbligazioni": "2011-01",
+    "mp": "2010-11"
+   },
+   {
+    "obbligazioni": "2015-06",
+    "azioni": "2015-09",
+    "mp": "2016-04"
+   },
+   {
+    "obbligazioni": "2020-12",
+    "azioni": "2021-03",
+    "mp": "2021-07"
+   }
+  ]
+ }
+}
