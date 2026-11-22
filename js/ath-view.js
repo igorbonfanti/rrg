@@ -21,6 +21,8 @@ function el(tag, attrs, parent) {
   return e;
 }
 const DAY = 86400000;
+// nomi dei mercati se data/ath.json non c'è (la linea del tempo usa solo lo storico)
+const NAMES = { BTC: 'Bitcoin', GOLD: 'Oro', SILVER: 'Argento', COPPER: 'Rame', WTI: 'Petrolio WTI', NDX: 'Nasdaq-100', SPX: 'S&P 500', SOXX: 'Semiconduttori', KOSPI: 'KOSPI (Corea)' };
 
 /** @param {{$: Function, store: object, loadAth: () => Promise<object|null>, loadAthHist: () => Promise<object|null>}} ctx */
 export function createAth(ctx) {
@@ -260,7 +262,7 @@ export function createAth(ctx) {
   // mercati nell'ordine di config/ath.json (quello di data/ath.json), con le etichette; senza data/ath.json quelli dello storico
   function markets() {
     const ser = athHist && athHist.series ? athHist.series : {};
-    const list = ath && Array.isArray(ath.markets) && ath.markets.length ? ath.markets.map((m) => ({ id: m.id, label: m.label })) : Object.keys(ser).map((id) => ({ id, label: id }));
+    const list = ath && Array.isArray(ath.markets) && ath.markets.length ? ath.markets.map((m) => ({ id: m.id, label: m.label })) : Object.keys(ser).map((id) => ({ id, label: NAMES[id] || id }));
     return list.filter((m) => ser[m.id]);
   }
   function buildTimeline() {
@@ -291,7 +293,7 @@ export function createAth(ctx) {
         (o.none ? `; ${o.none} ${o.none === 1 ? 'calo' : 'cali'} senza un suo calo ≥ 20%` : '') + (o.nodata ? `; ${o.nodata} ${o.nodata === 1 ? 'calo' : 'cali'} prima dell'inizio della serie` : '') + '.';
       return `<span class="pkord" title="${esc(t)}">${esc(label[id])} <b>${fmt(o.meanRankNorm, 2)}</b></span>`;
     });
-    $('pkOrder').innerHTML = `<span class="pkordh" title="Rango medio del giorno del massimo di ciclo negli ${ORDER.episodes} cali dell'S&amp;P 500 di almeno il 15% dal ${ORDER.from} al ${ORDER.to}: 0 = primo, 1 = ultimo. Tabella T3 di ricerca/rotazione-bolle/backtest.md">Ordine tipico</span> <span class="muted">(rango medio, ${ORDER.episodes} cali ≥ 15% ${ORDER.from}-${ORDER.to}; 0 = primo, 1 = ultimo)</span>: ` + items.join('<span class="muted"> · </span>');
+    $('pkOrder').innerHTML = `<span class="pkordh" title="Rango medio del giorno del massimo di ciclo negli ${ORDER.episodes} cali dell'S&amp;P 500 di almeno il 15% dal ${ORDER.from} al ${ORDER.to}: 0 = primo, 1 = ultimo. Dettagli nella guida.">Ordine tipico</span>: ` + items.join('<span class="muted"> · </span>');
   }
   function renderTimeline() {
     const body = $('pkBody');
@@ -310,7 +312,7 @@ export function createAth(ctx) {
       const box = document.createElement('div');
       box.className = 'pkep'; box.dataset.peak = ep.peak;
       const h = document.createElement('h3');
-      h.innerHTML = `Massimo S&amp;P 500 ${dIT(ep.peak)} <span class="muted">·</span> calo ${ep.ddPct == null ? '—' : esc(p1(ep.ddPct))}${ep.ongoing ? ' <span class="pkon">in corso</span>' : ''}`;
+      h.innerHTML = `Massimo S&amp;P 500 ${dIT(ep.peak)} <span class="muted">·</span> ${ep.ddPct == null || ep.ddPct === 0 ? 'al massimo' : 'calo ' + esc(p1(ep.ddPct))}${ep.ongoing ? ' <span class="pkon">in corso</span>' : ''}`;
       box.append(h);
       const svg = el('svg', { class: 'ts pk', role: 'img' });
       box.append(svg);
@@ -319,7 +321,9 @@ export function createAth(ctx) {
     }
   }
   function drawEpisode(svg, ep, ms) {
-    const W = chartWidth(svg, 1400), narrow = W < 640;
+    // formato largo (testi a destra, 315 px) solo se ai 24 mesi restano almeno 520 px: tra 720 e 880 px le etichette
+    // dell'asse si sovrapponevano (controllo della 1.12.0); sotto, testo sotto la riga come sul telefono
+    const W = chartWidth(svg, 1400), narrow = W - 118 - 315 < 520;
     const padL = narrow ? 96 : 118, padR = narrow ? 10 : 315, T = 18, rowH = narrow ? 30 : 20, dotY = narrow ? 9 : 10;
     const PW = W - padL - padR, H = T + ms.length * rowH + 4;
     svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H); svg.classList.toggle('nar', narrow);

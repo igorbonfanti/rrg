@@ -22,7 +22,7 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
 const sg = (x) => (x > 0 ? '+' : x < 0 ? '−' : '') + Math.abs(x);
 const p1 = (x) => (x === 0 ? '0,0%' : (x > 0 ? '+' : '−') + Math.abs(x).toFixed(1).replace('.', ',') + '%');
 const F = JSON.parse(zlib.gunzipSync(fs.readFileSync(path.join(__dirname, '..', '..', '..', 'test', 'fixtures', 'peaks_20261120.json.gz'))));
-const INFO = 'Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile (ricerca/rotazione-bolle/)';
+const INFO = 'Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile. Dettagli nella guida.';
 
 // testo atteso a destra (computer) o sotto (telefono) della riga, scritto qui dai valori della fixture
 function want(m, narrow, ongoingEp) {
@@ -110,7 +110,7 @@ function want(m, narrow, ongoingEp) {
     ok(JSON.stringify(ord.map((o) => o.t)) === JSON.stringify(wantOrd), `${name}: ordine tipico ${ord.map((o) => o.t).join(' · ')}`);
     const k0 = ord.find((o) => o.t.startsWith('KOSPI')) || { title: '' }, ko = F.order.KOSPI;
     ok(k0.title.includes(`in ${ko.withPeak} cali su 8: ${ko.before} prima, ${ko.together} insieme, ${ko.after} dopo`) && k0.title.includes(`scarto mediano ${sg(ko.medianOffset)} giorni`), `${name}: dettaglio del KOSPI nell'ordine «${k0.title.slice(0, 80)}…»`);
-    ok(/8 cali ≥ 15% 2000-2025/.test(await p.$eval('#pkOrder', (x) => x.textContent).catch(() => '')), `${name}: ordine tipico con il periodo`);
+    ok(/negli 8 cali dell'S&P 500 di almeno il 15% dal 2000 al 2025/.test(await p.$eval('#pkOrder .pkordh', (x) => x.title).catch(() => '')), `${name}: ordine tipico con il periodo nel suggerimento`);
     // intestazione: «i» con il motivo, riga dei dati
     const head = await p.evaluate(() => ({ h2: (document.querySelector('#pkPanel h2') || {}).textContent, i: (document.querySelector('#pkPanel .ihint') || {}).title, meta: (document.getElementById('pkMeta') || {}).textContent }));
     ok(head.h2 === 'Linea del tempo dei massimi' && head.i === INFO && head.meta === `ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al ${dIT(F.asOf)}`, `${name}: intestazione «${head.h2}», «i» e «${head.meta}»`);
