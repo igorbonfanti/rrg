@@ -5,3 +5,50 @@ INFO 1280-scuro 2022-01-03: testo accanto alle righe a 9.6 px sullo schermo
 INFO 1280-scuro 2025-02-19: testo accanto alle righe a 9.6 px sullo schermo
 INFO 1280-scuro 2026-10-06: testo accanto alle righe a 9.6 px sullo schermo
 INFO 1280-scuro: riga «ordine tipico» alta 39 px: «Ordine tipico (rango medio, 8 cali ≥ 15% 2000-2025; 0 = primo, 1 = ultimo): KOSPI (Corea) …»
+INFO 1280-chiaro 2018-09-20: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-chiaro 2020-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-chiaro 2022-01-03: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-chiaro 2025-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-chiaro 2026-10-06: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-scuro 2018-09-20: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-scuro 2020-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-scuro 2022-01-03: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-scuro 2025-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-scuro 2026-10-06: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-chiaro 2018-09-20: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-chiaro 2020-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-chiaro 2022-01-03: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-chiaro 2025-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1100-chiaro 2026-10-06: testo accanto alle righe a 9.6 px sullo schermo
+FAIL 861-scuro: nessuna sovrapposizione nella linea del tempo 2018-09-20: «−12 m» / «−9 m» | 2018-09-20: «+9 m» / «+12 m» | 2020-02-19: «−12 m» / «−9 m» | 2020-02-19: «+9 m» / «+12 m» (+6)
+FAIL 861-chiaro: nessuna sovrapposizione nella linea del tempo 2018-09-20: «−12 m» / «−9 m» | 2018-09-20: «+9 m» / «+12 m» | 2020-02-19: «−12 m» / «−9 m» | 2020-02-19: «+9 m» / «+12 m» (+6)
+FAIL 820-scuro: nessuna sovrapposizione nella linea del tempo 2018-09-20: «−12 m» / «−9 m» | 2018-09-20: «+9 m» / «+12 m» | 2020-02-19: «−12 m» / «−9 m» | 2020-02-19: «+9 m» / «+12 m» (+6)
+INFO 820-scuro: al tocco su un cerchio vuoto non compare nulla (i numeri sono solo nel <title>, visibile col mouse)
+INFO 820-scuro: la «i» è 16×16 px (area di tocco allargata solo con ::after)
+FAIL 820-chiaro: nessuna sovrapposizione nella linea del tempo 2018-09-20: «−12 m» / «−9 m» | 2018-09-20: «+9 m» / «+12 m» | 2020-02-19: «−12 m» / «−9 m» | 2020-02-19: «+9 m» / «+12 m» (+6)
+INFO 820-chiaro: al tocco su un cerchio vuoto non compare nulla (i numeri sono solo nel <title>, visibile col mouse)
+INFO 820-chiaro: la «i» è 16×16 px (area di tocco allargata solo con ::after)
+INFO 390-scuro: schede su due righe di testo: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert, 0 Massimi
+INFO 390-scuro: riga «ordine tipico» alta 97 px
+INFO 390-scuro: al tocco su un cerchio vuoto non compare nulla (i numeri sono solo nel <title>, visibile col mouse)
+INFO 390-scuro: la «i» è 16×16 px (area di tocco allargata solo con ::after)
+INFO 390-chiaro: schede su due righe di testo: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert, 0 Massimi
+INFO 390-chiaro: al tocco su un cerchio vuoto non compare nulla (i numeri sono solo nel <title>, visibile col mouse)
+INFO 390-chiaro: la «i» è 16×16 px (area di tocco allargata solo con ::after)
+INFO 360-scuro: schede su due righe di testo: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert, 0 Massimi
+INFO 360-scuro: riga «ordine tipico» alta 116 px
+INFO 360-scuro: al tocco su un cerchio vuoto non compare nulla (i numeri sono solo nel <title>, visibile col mouse)
+INFO 360-scuro: la «i» è 16×16 px (area di tocco allargata solo con ::after)
+INFO 360-chiaro: schede su due righe di testo: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert, 0 Massimi
+INFO 360-chiaro: al tocco su un cerchio vuoto non compare nulla (i numeri sono solo nel <title>, visibile col mouse)
+INFO 360-chiaro: la «i» è 16×16 px (area di tocco allargata solo con ::after)
+INFO 740x360: linea del tempo in formato largo con solo 227 px per 24 mesi (testi a destra occupano 315 px)
+INFO senza ath 1280: senza data/ath.json la linea del tempo usa gli identificativi come nomi: BTC, GOLD, SILVER, COPPER, WTI, NDX, SPX, SOXX, KOSPI; ordine tipico: KOSPI 0,23 · SOXX 0,33 · BTC 0,45 · SPX 0,46 · NDX 0,50 · COPPER 0,56 · SILVER 0,56 · WTI 0,71 · GOLD 0,86
+INFO senza ath 1280: in console 1 righe di risorsa 404 (atteso dal test)
+INFO senza ath_history 1280: in console 1 righe di risorsa 404 (atteso dal test)
+INFO senza both 1280: in console 2 righe di risorsa 404 (atteso dal test)
+INFO senza ath 390: senza data/ath.json la linea del tempo usa gli identificativi come nomi: BTC, GOLD, SILVER, COPPER, WTI, NDX, SPX, SOXX, KOSPI; ordine tipico: KOSPI 0,23 · SOXX 0,33 · BTC 0,45 · SPX 0,46 · NDX 0,50 · COPPER 0,56 · SILVER 0,56 · WTI 0,71 · GOLD 0,86
+INFO senza ath 390: in console 1 righe di risorsa 404 (atteso dal test)
+INFO senza ath_history 390: in console 1 righe di risorsa 404 (atteso dal test)
+INFO senza both 390: in console 2 righe di risorsa 404 (atteso dal test)
+856 OK, 4 FAIL
