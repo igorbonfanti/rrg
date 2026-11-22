@@ -1,0 +1,7 @@
+INFO 1440-scuro: riga «ordine tipico» alta 39 px: «Ordine tipico (rango medio, 8 cali ≥ 15% 2000-2025; 0 = primo, 1 = ultimo): KOSPI (Corea) …»
+INFO 1280-scuro 2018-09-20: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-scuro 2020-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-scuro 2022-01-03: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-scuro 2025-02-19: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-scuro 2026-10-06: testo accanto alle righe a 9.6 px sullo schermo
+INFO 1280-scuro: riga «ordine tipico» alta 39 px: «Ordine tipico (rango medio, 8 cali ≥ 15% 2000-2025; 0 = primo, 1 = ultimo): KOSPI (Corea) …»
