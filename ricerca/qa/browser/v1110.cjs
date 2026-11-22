@@ -4,7 +4,8 @@
 // Nasdaq-100 e KOSPI, riquadro sulla barra più lunga (quota ricalcolata qui dai bp del file, posizione controllata con i
 // valori dell'asse), colonna tolta con uno zoom che non arriva all'ultima seduta, niente sovrapposizioni con la linea del
 // prezzo, niente scorrimento orizzontale, console senza errori. Testi: nota del pannello, guida, versione.
-// Deve fallire sulla 1.10.2 (nessun profilo).
+// Deve fallire sulla 1.10.2 (nessun profilo). Dalla 1.12.0 il pannello è nella vista 0 Massimi: lo script apre #ath e accetta
+// le versioni dalla 1.11.0 in poi.
 // Uso: BASE=http://127.0.0.1:8862/ NODE_PATH=$(npm root -g) node ricerca/qa/browser/v1110.cjs  (SHOTS=0 senza immagini)
 const { chromium } = require('playwright');
 const fs = require('fs');
@@ -37,7 +38,7 @@ const labVal = (t) => { const k = /k$/.test(t); const v = parseFloat(t.replace(/
     const p = await c.newPage(), errs = [];
     p.on('pageerror', (e) => errs.push(e.message)); p.on('console', (m) => m.type() === 'error' && errs.push(m.text()));
     const tap = async (l) => (phone ? l.tap({ timeout: 5000 }) : l.click({ timeout: 5000 })).catch(() => ok(false, `${name}: elemento da toccare assente`));
-    await p.goto(BASE + '#vix');
+    await p.goto(BASE + '#ath');
     await p.waitForSelector('#athTable tbody tr.athr', { timeout: 30000 }).catch(() => {});
     await p.waitForTimeout(400);
     ok(await p.evaluate(() => document.documentElement.getAttribute('data-theme')) === theme, `${name}: tema`);
@@ -137,8 +138,8 @@ const labVal = (t) => { const k = /k$/.test(t); const v = parseFloat(t.replace(/
   const gd = await (await fetch(BASE + 'guida.html?x=' + Date.now())).text();
   ok(/id="profilo-volumi"/.test(gd) && /6 mercati su 9/.test(gd) && /SPY/.test(gd) && /069500\.KS/.test(gd) && /KOSPI 200/.test(gd), 'guida: paragrafo «Profilo dei volumi»');
   const v = await (await fetch(BASE + 'version.json?x=' + Date.now())).json();
-  ok(v.version === '1.11.0', `version.json ${v.version}`);
+  ok(/^1\.1[1-9]\./.test(v.version), `version.json ${v.version}`);
   const js = await (await fetch(BASE + 'js/version.js?x=' + Date.now())).text();
-  ok(/VERSION = '1\.11\.0'/.test(js), 'js/version.js 1.11.0');
+  ok(new RegExp(`VERSION = '${v.version.replace(/\./g, '\\.')}'`).test(js), `js/version.js ${v.version}`);
   await b.close(); console.log(`${okn} OK, ${fail} FAIL`); process.exit(fail ? 1 : 0);
 })();

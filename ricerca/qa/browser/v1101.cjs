@@ -1,4 +1,4 @@
-// 1.10.1: oro e argento con i future GC=F e SI=F nel pannello dei massimi (vista 8 VIX). Deve fallire sulla 1.10.0 (GLD, SLV).
+// 1.10.1: oro e argento con i future GC=F e SI=F nel pannello dei massimi (vista 8 VIX, dalla 1.12.0 vista 0 Massimi, #ath). Deve fallire sulla 1.10.0 (GLD, SLV).
 // Uso: BASE=http://127.0.0.1:8791/ NODE_PATH=$(npm root -g) node ricerca/qa/browser/v1101.cjs
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/';
@@ -14,7 +14,7 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
   for (const [name, opt] of [['1440', { viewport: { width: 1440, height: 900 } }], ['390', { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }]]) {
     const c = await b.newContext(opt); await c.addInitScript(() => { try { localStorage.setItem('sm.introSeen', 'true'); } catch {} });
     const p = await c.newPage(), errs = []; p.on('pageerror', (e) => errs.push(e.message));
-    await p.goto(BASE + '#vix'); await p.waitForSelector('#athTable tbody tr.athr', { timeout: 30000 }).catch(() => {}); await p.waitForTimeout(500);
+    await p.goto(BASE + '#ath'); await p.waitForSelector('#athTable tbody tr.athr', { timeout: 30000 }).catch(() => {}); await p.waitForTimeout(500);
     for (const [id, m] of [['GOLD', g], ['SILVER', s]]) {
       const row = await p.$eval(`#athTable tr.athr[data-id="${id}"]`, (t) => t.textContent).catch(() => '');
       ok(m && row.includes(m.symbol) && row.includes('future continuo') && row.includes(sg(m.stats.distPct)), `${name} ${id}: riga «${row.slice(0, 70)}»`);

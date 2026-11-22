@@ -308,7 +308,7 @@ export function createAth(ctx) {
     body.innerHTML = '';
     for (const ep of tl.episodes) {
       const box = document.createElement('div');
-      box.className = 'pkep';
+      box.className = 'pkep'; box.dataset.peak = ep.peak;
       const h = document.createElement('h3');
       h.innerHTML = `Massimo S&amp;P 500 ${dIT(ep.peak)} <span class="muted">·</span> calo ${ep.ddPct == null ? '—' : esc(p1(ep.ddPct))}${ep.ongoing ? ' <span class="pkon">in corso</span>' : ''}`;
       box.append(h);
@@ -330,9 +330,10 @@ export function createAth(ctx) {
     for (const mo of [-12, -9, -6, -3, 3, 6, 9, 12]) {
       const xx = x(Math.round((mo * 365) / 12));
       el('line', { x1: xx, x2: xx, y1: y0, y2: y1, class: 'gridl' }, svg);
-      if (!narrow || mo % 6 === 0) el('text', { x: xx, y: T - 6, class: 'axt', 'text-anchor': mo === 12 ? 'end' : mo === -12 ? 'start' : 'middle' }, svg).textContent = `${mo > 0 ? '+' : '−'}${Math.abs(mo)}${narrow ? 'm' : ' m'}`;
+      if (!narrow || mo % 6 === 0) el('text', { x: xx, y: T - 6, class: 'axt', 'text-anchor': mo === 12 ? 'end' : mo === -12 ? 'start' : 'middle' }, svg).textContent = `${mo > 0 ? '+' : '−'}${Math.abs(mo)}${!narrow ? ' m' : Math.abs(mo) === 12 ? 'm' : ''}`;
     }
     el('line', { x1: x(0), x2: x(0), y1: y0, y2: y1, class: 'pkzero' }, svg);
+    svg.dataset.x0 = x(-HALF).toFixed(2); svg.dataset.x1 = x(HALF).toFixed(2); // per i controlli: x di −365 e +365 giorni
     el('text', { x: x(0), y: T - 6, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = '0';
     ms.forEach((mk, k) => {
       const m = ep.markets[mk.id] || { status: 'nodata' }, top = T + k * rowH, cy = top + dotY;
@@ -343,15 +344,15 @@ export function createAth(ctx) {
       const note = rowNote(m, narrow), dim = m.status === 'none' || m.status === 'nodata';
       if (m.status === 'peak') {
         for (const o of m.others) {
-          const c = el('circle', { cx: x(o.offset).toFixed(1), cy, r: 4, class: 'pkalt' }, svg);
+          const c = el('circle', { cx: x(o.offset).toFixed(1), cy, r: 4, class: 'pkalt', 'data-id': mk.id, 'data-o': o.offset }, svg);
           el('title', {}, c).textContent = `${mk.label}: altro massimo di ciclo ${sg(o.offset)} giorni, calo ${o.belowZero ? 'sotto zero' : p1(o.ddPct)}${o.ongoing ? ' finora' : ''} (${dIT(o.date)})`;
         }
       }
       if (m.status === 'peak' || m.status === 'anchor') {
-        const c = el('circle', { cx: x(m.offset).toFixed(1), cy, r: 5, class: 'pkdot' + (m.status === 'anchor' ? ' pkanchor' : '') }, svg);
+        const c = el('circle', { cx: x(m.offset).toFixed(1), cy, r: 5, class: 'pkdot' + (m.status === 'anchor' ? ' pkanchor' : ''), 'data-id': mk.id, 'data-o': m.offset }, svg);
         el('title', {}, c).textContent = `${mk.label}: ${note}`;
       }
-      const t = narrow ? el('text', { x: padL, y: top + rowH - 5, class: 'pknote' + (dim ? ' dim' : '') }, svg) : el('text', { x: padL + PW + 10, y: cy + 4, class: 'pknote' + (dim ? ' dim' : '') }, svg);
+      const t = narrow ? el('text', { x: padL, y: top + rowH - 5, class: 'pknote' + (dim ? ' dim' : ''), 'data-id': mk.id }, svg) : el('text', { x: padL + PW + 10, y: cy + 4, class: 'pknote' + (dim ? ' dim' : ''), 'data-id': mk.id }, svg);
       t.textContent = note;
     });
   }

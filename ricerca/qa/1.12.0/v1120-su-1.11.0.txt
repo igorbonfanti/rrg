@@ -1,0 +1,51 @@
+FAIL 1440-scuro: 10 schede, l'ultima «9 Alert»
+FAIL 1440-scuro: VIX con il rimando «» e senza il pannello
+FAIL 1440-scuro: la vista VIX non scarica i file dei massimi (vix.json, ath.json)
+FAIL 1440-scuro: elemento da toccare assente
+FAIL 1440-scuro: il rimando apre la vista 0
+FAIL 1440-scuro: la vista 0 scarica i suoi file (vix.json, ath.json)
+FAIL 1440-scuro: episodi 
+FAIL 1440-scuro: ordine tipico 
+FAIL 1440-scuro: dettaglio del KOSPI nell'ordine «…»
+FAIL 1440-scuro: ordine tipico con il periodo
+FAIL 1440-scuro: intestazione «undefined», «i» e «undefined»
+FAIL 1440-scuro: il tasto 0 apre la vista 0
+FAIL 1440-scuro: il comando MASSIMI apre la vista 0
+FAIL 1440-scuro: il comando MASSIMO apre la vista 0
+FAIL 1440-scuro: il comando ATH apre la vista 0
+FAIL 1440-scuro: il comando MAX apre la vista 0
+FAIL 1440-scuro: il comando BOLLE apre la vista 0
+FAIL 1440-scuro: il comando massimi apre la vista 0
+FAIL 1440-scuro: guida rapida con la vista 0, i tasti e il link alla sezione (guida.html#vix)
+FAIL 1440-scuro: piè di pagina
+FAIL 1440-chiaro: 10 schede, l'ultima «9 Alert»
+FAIL 1440-chiaro: VIX con il rimando «» e senza il pannello
+FAIL 1440-chiaro: la vista VIX non scarica i file dei massimi (vix.json, ath.json)
+FAIL 1440-chiaro: elemento da toccare assente
+FAIL 1440-chiaro: il rimando apre la vista 0
+FAIL 1440-chiaro: la vista 0 scarica i suoi file (vix.json, ath.json)
+FAIL 1440-chiaro: episodi 
+FAIL 1440-chiaro: ordine tipico 
+FAIL 1440-chiaro: dettaglio del KOSPI nell'ordine «…»
+FAIL 1440-chiaro: ordine tipico con il periodo
+FAIL 1440-chiaro: intestazione «undefined», «i» e «undefined»
+FAIL 1440-chiaro: il tasto 0 apre la vista 0
+FAIL 1440-chiaro: il comando MASSIMI apre la vista 0
+FAIL 1440-chiaro: il comando MASSIMO apre la vista 0
+FAIL 1440-chiaro: il comando ATH apre la vista 0
+FAIL 1440-chiaro: il comando MAX apre la vista 0
+FAIL 1440-chiaro: il comando BOLLE apre la vista 0
+FAIL 1440-chiaro: il comando massimi apre la vista 0
+FAIL 1440-chiaro: guida rapida con la vista 0, i tasti e il link alla sezione (guida.html#vix)
+FAIL 1440-chiaro: piè di pagina
+FAIL dati di oggi 1440: 5 episodi, l'ultimo in corso (undefined)
+FAIL dati di oggi 861: 5 episodi, l'ultimo in corso (undefined)
+FAIL dati di oggi 1100: 5 episodi, l'ultimo in corso (undefined)
+FAIL senza ath_history.json: «», tabella con 0 righe
+FAIL senza ath.json: «…», linea del tempo con 0 episodi
+FAIL guida: sezione #ath con #massimi, #profilo-volumi e #linea-massimi
+FAIL guida: le tre parti stanno dentro la sezione #ath
+FAIL guida: numeri dell'ordine tipico e del backtest
+FAIL versione 1.11.0
+33 OK, 49 FAIL
+exit 1
