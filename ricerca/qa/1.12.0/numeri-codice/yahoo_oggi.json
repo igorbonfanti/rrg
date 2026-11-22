@@ -1,0 +1,488 @@
+{
+ "asOf": "2026-11-20",
+ "episodes": [
+  {
+   "peak": "2018-09-20",
+   "ddPct": -19.8,
+   "ongoing": false,
+   "markets": {
+    "BTC": {
+     "status": "peak",
+     "date": "2017-12-16",
+     "offset": -278,
+     "ddPct": -83.4,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2018-12-15",
+     "confirm": "2017-12-22",
+     "others": [
+      -316,
+      279
+     ]
+    },
+    "GOLD": {
+     "status": "none",
+     "alt15": null
+    },
+    "SILVER": {
+     "status": "peak",
+     "date": "2019-09-03",
+     "offset": 348,
+     "ddPct": -39.5,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2020-03-17",
+     "confirm": "2020-03-12",
+     "others": []
+    },
+    "COPPER": {
+     "status": "peak",
+     "date": "2018-06-07",
+     "offset": -105,
+     "ddPct": -35.6,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2020-03-22",
+     "confirm": "2018-08-14",
+     "others": []
+    },
+    "WTI": {
+     "status": "peak",
+     "date": "2018-10-02",
+     "offset": 12,
+     "ddPct": -149.2,
+     "ongoing": false,
+     "belowZero": true,
+     "trough": "2020-04-19",
+     "confirm": "2018-11-08",
+     "others": []
+    },
+    "NDX": {
+     "status": "peak",
+     "date": "2018-08-29",
+     "offset": -22,
+     "ddPct": -23.0,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2018-12-24",
+     "confirm": "2018-12-21",
+     "others": []
+    },
+    "SPX": {
+     "status": "anchor",
+     "date": "2018-09-20",
+     "offset": 0,
+     "ddPct": -19.8
+    },
+    "SOXX": {
+     "status": "peak",
+     "date": "2018-03-12",
+     "offset": -192,
+     "ddPct": -26.1,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2018-12-24",
+     "confirm": "2018-10-24",
+     "others": []
+    },
+    "KOSPI": {
+     "status": "peak",
+     "date": "2018-01-29",
+     "offset": -234,
+     "ddPct": -26.5,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2019-08-07",
+     "confirm": "2018-10-25",
+     "others": []
+    }
+   }
+  },
+  {
+   "peak": "2020-02-19",
+   "ddPct": -33.9,
+   "ongoing": false,
+   "markets": {
+    "BTC": {
+     "status": "peak",
+     "date": "2021-01-08",
+     "offset": 324,
+     "ddPct": -25.4,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2021-01-27",
+     "confirm": "2021-01-21",
+     "others": [
+      -238
+     ]
+    },
+    "GOLD": {
+     "status": "peak",
+     "date": "2020-08-05",
+     "offset": 168,
+     "ddPct": -21.2,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-11-02",
+     "confirm": "2022-09-25",
+     "others": []
+    },
+    "SILVER": {
+     "status": "peak",
+     "date": "2021-02-01",
+     "offset": 348,
+     "ddPct": -40.3,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-08-31",
+     "confirm": "2021-08-08",
+     "others": [
+      -169,
+      172
+     ]
+    },
+    "COPPER": {
+     "status": "none",
+     "alt15": null
+    },
+    "WTI": {
+     "status": "none",
+     "alt15": null
+    },
+    "NDX": {
+     "status": "peak",
+     "date": "2020-02-19",
+     "offset": 0,
+     "ddPct": -28.0,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2020-03-20",
+     "confirm": "2020-03-12",
+     "others": []
+    },
+    "SPX": {
+     "status": "anchor",
+     "date": "2020-02-19",
+     "offset": 0,
+     "ddPct": -33.9
+    },
+    "SOXX": {
+     "status": "peak",
+     "date": "2020-02-19",
+     "offset": 0,
+     "ddPct": -34.3,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2020-03-20",
+     "confirm": "2020-03-09",
+     "others": []
+    },
+    "KOSPI": {
+     "status": "peak",
+     "date": "2020-01-22",
+     "offset": -28,
+     "ddPct": -35.7,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2020-03-19",
+     "confirm": "2020-03-13",
+     "others": []
+    }
+   }
+  },
+  {
+   "peak": "2022-01-03",
+   "ddPct": -25.4,
+   "ongoing": false,
+   "markets": {
+    "BTC": {
+     "status": "peak",
+     "date": "2021-11-08",
+     "offset": -56,
+     "ddPct": -76.6,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-11-21",
+     "confirm": "2021-11-26",
+     "others": [
+      -360,
+      -316,
+      -265
+     ]
+    },
+    "GOLD": {
+     "status": "peak",
+     "date": "2022-03-08",
+     "offset": 64,
+     "ddPct": -20.2,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-11-02",
+     "confirm": "2022-09-25",
+     "others": []
+    },
+    "SILVER": {
+     "status": "peak",
+     "date": "2021-02-01",
+     "offset": -336,
+     "ddPct": -40.3,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-08-31",
+     "confirm": "2021-08-08",
+     "others": []
+    },
+    "COPPER": {
+     "status": "peak",
+     "date": "2022-03-04",
+     "offset": 60,
+     "ddPct": -34.9,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-07-13",
+     "confirm": "2022-06-22",
+     "others": []
+    },
+    "WTI": {
+     "status": "peak",
+     "date": "2022-03-08",
+     "offset": 64,
+     "ddPct": -46.0,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2023-03-16",
+     "confirm": "2022-03-14",
+     "others": [
+      -70
+     ]
+    },
+    "NDX": {
+     "status": "peak",
+     "date": "2021-11-19",
+     "offset": -45,
+     "ddPct": -35.6,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-12-28",
+     "confirm": "2022-03-14",
+     "others": []
+    },
+    "SPX": {
+     "status": "anchor",
+     "date": "2022-01-03",
+     "offset": 0,
+     "ddPct": -25.4
+    },
+    "SOXX": {
+     "status": "peak",
+     "date": "2021-12-27",
+     "offset": -7,
+     "ddPct": -46.2,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-10-14",
+     "confirm": "2022-03-07",
+     "others": []
+    },
+    "KOSPI": {
+     "status": "peak",
+     "date": "2021-07-06",
+     "offset": -181,
+     "ddPct": -34.8,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2022-09-30",
+     "confirm": "2022-01-27",
+     "others": []
+    }
+   }
+  },
+  {
+   "peak": "2025-02-19",
+   "ddPct": -18.9,
+   "ongoing": false,
+   "markets": {
+    "BTC": {
+     "status": "peak",
+     "date": "2025-10-06",
+     "offset": 229,
+     "ddPct": -53.1,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-06-30",
+     "confirm": "2025-11-13",
+     "others": [
+      -343,
+      -29
+     ]
+    },
+    "GOLD": {
+     "status": "peak",
+     "date": "2026-01-29",
+     "offset": 344,
+     "ddPct": -33.9,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-11-20",
+     "confirm": "2026-06-09",
+     "others": []
+    },
+    "SILVER": {
+     "status": "peak",
+     "date": "2026-01-26",
+     "offset": 341,
+     "ddPct": -64.3,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-11-20",
+     "confirm": "2026-01-30",
+     "others": []
+    },
+    "COPPER": {
+     "status": "peak",
+     "date": "2025-07-22",
+     "offset": 153,
+     "ddPct": -25.3,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2025-07-30",
+     "confirm": "2025-07-30",
+     "others": [
+      -275,
+      34
+     ]
+    },
+    "WTI": {
+     "status": "none",
+     "alt15": null
+    },
+    "NDX": {
+     "status": "peak",
+     "date": "2025-02-19",
+     "offset": 0,
+     "ddPct": -22.9,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2025-04-08",
+     "confirm": "2025-04-04",
+     "others": []
+    },
+    "SPX": {
+     "status": "anchor",
+     "date": "2025-02-19",
+     "offset": 0,
+     "ddPct": -18.9
+    },
+    "SOXX": {
+     "status": "peak",
+     "date": "2024-07-10",
+     "offset": -224,
+     "ddPct": -41.7,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2025-04-08",
+     "confirm": "2024-08-02",
+     "others": []
+    },
+    "KOSPI": {
+     "status": "peak",
+     "date": "2024-07-11",
+     "offset": -223,
+     "ddPct": -20.7,
+     "ongoing": false,
+     "belowZero": false,
+     "trough": "2025-04-09",
+     "confirm": "2025-04-09",
+     "others": []
+    }
+   }
+  },
+  {
+   "peak": "2026-10-06",
+   "ddPct": -11.6,
+   "ongoing": true,
+   "markets": {
+    "BTC": {
+     "status": "peak",
+     "date": "2025-10-06",
+     "offset": -365,
+     "ddPct": -53.1,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-06-30",
+     "confirm": "2025-11-13",
+     "others": []
+    },
+    "GOLD": {
+     "status": "peak",
+     "date": "2026-01-29",
+     "offset": -250,
+     "ddPct": -33.9,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-11-20",
+     "confirm": "2026-06-09",
+     "others": []
+    },
+    "SILVER": {
+     "status": "peak",
+     "date": "2026-01-26",
+     "offset": -253,
+     "ddPct": -64.3,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-11-20",
+     "confirm": "2026-01-30",
+     "others": []
+    },
+    "COPPER": {
+     "status": "none",
+     "alt15": -28
+    },
+    "WTI": {
+     "status": "peak",
+     "date": "2026-04-06",
+     "offset": -183,
+     "ddPct": -39.3,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-07-05",
+     "confirm": "2026-04-16",
+     "others": []
+    },
+    "NDX": {
+     "status": "none",
+     "alt15": 0
+    },
+    "SPX": {
+     "status": "anchor",
+     "date": "2026-10-06",
+     "offset": 0,
+     "ddPct": -11.6
+    },
+    "SOXX": {
+     "status": "peak",
+     "date": "2026-06-22",
+     "offset": -106,
+     "ddPct": -43.5,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-11-20",
+     "confirm": "2026-07-17",
+     "others": []
+    },
+    "KOSPI": {
+     "status": "peak",
+     "date": "2026-06-22",
+     "offset": -106,
+     "ddPct": -46.6,
+     "ongoing": true,
+     "belowZero": false,
+     "trough": "2026-11-20",
+     "confirm": "2026-07-08",
+     "others": []
+    }
+   }
+  }
+ ]
+}
