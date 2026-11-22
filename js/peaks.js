@@ -10,7 +10,11 @@
  *    ciclo successivo (se viene prima), o fino all'ultima seduta (in corso: il calo è «finora»);
  *  - finestra: ±365 giorni dal massimo P dell'S&P 500; per ogni mercato il massimo di ciclo ≥ 20% più alto nella
  *    finestra (punto pieno) e gli altri (cerchi vuoti); scarto in giorni di calendario da P; «insieme» = entro 31 giorni;
- *  - calo in corso: l'ultimo massimo di 52 settimane dell'S&P 500 non ancora superato.
+ *  - calo in corso: i massimi di ciclo ≥ 15% dell'S&P 500 non ancora recuperati, se ci sono (decisione dell'utente del
+ *    22/11/2026: altrimenti, con un nuovo massimo di 52 settimane più basso, il calo grande sparirebbe, come al 31/07/2023
+ *    con quello del 2022). Di solito uno; due quando un calo nuovo parte sotto un massimo più vecchio non ancora
+ *    recuperato (per esempio a giugno 2010: 2007 e aprile 2010). Se non ce ne sono, l'ultimo massimo di 52 settimane non
+ *    ancora superato. Calo fino all'ultima seduta.
  * Calcolato nel browser dalle chiusure di data/ath_history.json (dal 2000). Il test test/peaks.test.js confronta i
  * risultati, episodio per episodio, con ricerca/rotazione-bolle/risultati.json (fixture test/fixtures/peaks_20261120.json.gz).
  *
@@ -79,17 +83,30 @@ export function cyclePeaks(s, X, H = highs(s)) {
   });
 }
 
-/** Ultimo massimo di 52 settimane non ancora superato (il massimo del calo in corso), con il calo fino all'ultima seduta */
-export function runningPeak(s, H = highs(s)) {
+// calo in corso dalla seduta i: chiusura più bassa dopo i fino all'ultima seduta (null se i è l'ultima)
+function openFrom(s, i) {
   const { dates, close } = s, n = close.length;
-  for (let t = H.idx.length - 1; t >= 0; t--) {
-    const i = H.idx[t];
-    if (H.next[i] < n) continue;
-    let iMin = -1;
-    for (let k = i + 1; k < n; k++) if (iMin < 0 || close[k] < close[iMin]) iMin = k;
-    return { date: dates[i], close: close[i], troughDate: iMin < 0 ? null : dates[iMin], ddPct: iMin < 0 ? null : r1((close[iMin] / close[i] - 1) * 100), belowZero: iMin >= 0 && close[iMin] <= 0 ? true : undefined, ongoing: true };
-  }
+  let iMin = -1;
+  for (let k = i + 1; k < n; k++) if (iMin < 0 || close[k] < close[iMin]) iMin = k;
+  return { date: dates[i], close: close[i], troughDate: iMin < 0 ? null : dates[iMin], ddPct: iMin < 0 ? null : r1((close[iMin] / close[i] - 1) * 100), belowZero: iMin >= 0 && close[iMin] <= 0 ? true : undefined, ongoing: true };
+}
+
+/** Ultimo massimo di 52 settimane non ancora superato, con il calo fino all'ultima seduta */
+export function runningPeak(s, H = highs(s)) {
+  const n = s.close.length;
+  for (let t = H.idx.length - 1; t >= 0; t--) if (H.next[H.idx[t]] >= n) return openFrom(s, H.idx[t]);
   return null;
+}
+
+/**
+ * Massimi dei cali in corso: i massimi di ciclo ≥ X% non ancora recuperati, in ordine di data; se non ce ne sono, l'ultimo
+ * massimo di 52 settimane non ancora superato. Per ognuno il calo fino all'ultima seduta.
+ */
+export function currentPeaks(s, X, H = highs(s), peaks = cyclePeaks(s, X, H)) {
+  const open = peaks.filter((p) => p.recoveryDate == null).map((p) => openFrom(s, s.dates.indexOf(p.date)));
+  if (open.length) return open;
+  const r = runningPeak(s, H);
+  return r ? [r] : [];
 }
 
 /**
@@ -130,10 +147,11 @@ export function timeline(series, ids, { anchor = 'SPX', anchorX = 15, X = 20, al
     }
     return { peak: ep.date, ddPct: ep.ddPct, troughDate: ep.troughDate, ongoing, markets };
   };
-  const done = cyclePeaks(A, anchorX, P[anchor] ? P[anchor].H : undefined).filter((p) => !p.ongoing).slice(-last);
+  const HA = P[anchor] ? P[anchor].H : highs(A), PA = cyclePeaks(A, anchorX, HA);
+  // conclusi: solo i cali recuperati (un calo non recuperato è quello in corso)
+  const done = PA.filter((p) => p.recoveryDate != null).slice(-last);
   const episodes = done.map((ep) => row(ep, false));
-  const cur = runningPeak(A, P[anchor] ? P[anchor].H : undefined);
-  if (cur) episodes.push(row(cur, true));
+  for (const cur of currentPeaks(A, anchorX, HA, PA)) episodes.push(row(cur, true));
   return { asOf: A.dates.at(-1), episodes };
 }
 

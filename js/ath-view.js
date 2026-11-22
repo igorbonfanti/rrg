@@ -306,7 +306,9 @@ export function createAth(ctx) {
     }
     $('pkMiss').hidden = true;
     renderOrder(tl.ms);
-    $('pkMeta').textContent = `ultimi ${tl.episodes.filter((e) => !e.ongoing).length} cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al ${dIT(tl.asOf)}`;
+    const nOn = tl.episodes.filter((e) => e.ongoing).length;
+    const nDone = tl.episodes.length - nOn, onTxt = nOn > 1 ? `i ${nOn} in corso` : 'quello in corso';
+    $('pkMeta').textContent = `${nDone ? `ultimi ${nDone} cali ≥ 15% dell'S&P 500 e ${onTxt}` : `cali ≥ 15% dell'S&P 500: ${onTxt}`} · chiusure al ${dIT(tl.asOf)}`;
     body.innerHTML = '';
     for (const ep of tl.episodes) {
       const box = document.createElement('div');

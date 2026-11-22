@@ -6,7 +6,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import zlib from 'node:zlib';
-import { cyclePeaks, runningPeak, timeline, ranks, clean, eligibleFrom, ORDER } from '../js/peaks.js';
+import { cyclePeaks, runningPeak, currentPeaks, timeline, ranks, clean, eligibleFrom, ORDER } from '../js/peaks.js';
 import { decodeDates, deltaDecode } from '../js/indexdata.js';
 
 const F = JSON.parse(zlib.gunzipSync(fs.readFileSync(new URL('./fixtures/peaks_20261120.json.gz', import.meta.url))));
@@ -46,6 +46,31 @@ test('calo in corso: ultimo massimo di 52 settimane non superato, anche all\'ult
   const top = runningPeak(mk([...Array(400).fill(100), 110]));
   assert.equal(top.date, day(400)); assert.equal(top.ddPct, null); assert.equal(top.troughDate, null);
   assert.equal(runningPeak(mk([100, 99, 98])), null);
+});
+
+test('calo in corso: un calo ≥ 15% non recuperato resta anche con un massimo di 52 settimane più basso (decisione del 22/11/2026)', () => {
+  // massimo 120, calo a 100 (−16,7%), poi un anno sotto 120 con un nuovo massimo di 52 settimane a 110: in corso resta 120
+  const v = [...Array(400).fill(100), 120, 100, ...Array(380).fill(101), 110, 108];
+  const s = mk(v);
+  assert.equal(runningPeak(s).date, day(782)); // la vecchia regola: il massimo nuovo, più basso
+  const cur = currentPeaks(s, 15);
+  assert.equal(cur.length, 1); assert.equal(cur[0].date, day(400)); assert.equal(cur[0].ddPct, -16.7); assert.equal(cur[0].troughDate, day(401));
+  const T = timeline({ SPX: s }, ['SPX']);
+  assert.deepEqual(T.episodes.map((e) => [e.peak, e.ongoing]), [[day(400), true]]);
+  // senza cali ≥ 15% aperti si usa l'ultimo massimo di 52 settimane non superato
+  assert.deepEqual(currentPeaks(mk([...Array(400).fill(100), 110, 105]), 15).map((p) => p.date), [day(400)]);
+  assert.deepEqual(currentPeaks(mk([100, 99]), 15), []);
+});
+
+test('calo in corso sulle chiusure vere tagliate: 31/07/2023 (calo del 2022) e 30/06/2010 (2007 e aprile 2010)', () => {
+  const cut = (to) => Object.fromEntries(F.ids.map((id) => { const x = S[id], k = x.dates.filter((d) => d <= to).length; return [id, { dates: x.dates.slice(0, k), close: x.close.slice(0, k) }]; }));
+  const a = timeline(cut('2023-07-31'), F.ids).episodes.filter((e) => e.ongoing);
+  assert.deepEqual(a.map((e) => [e.peak, e.ddPct]), [['2022-01-03', -25.4]]);
+  const b = timeline(cut('2010-06-30'), F.ids).episodes.filter((e) => e.ongoing);
+  assert.deepEqual(b.map((e) => [e.peak, e.ddPct]), [['2007-10-09', -56.8], ['2010-04-23', -15.3]]);
+  // 30/03/2012: il 2010 e il 2011 sono conclusi, il 2007 non ancora
+  const c = timeline(cut('2012-03-30'), F.ids).episodes;
+  assert.deepEqual(c.map((e) => [e.peak, e.ongoing]), [['2010-04-23', false], ['2011-04-29', false], ['2007-10-09', true]]);
 });
 
 test('linea del tempo: senza S&P 500 niente; un mercato con la serie corta è «nodata»', () => {
@@ -119,7 +144,7 @@ test('linea del tempo sui dati di oggi (data/ath_history.json): si calcola e ha 
   const H = JSON.parse(fs.readFileSync(new URL('../data/ath_history.json', import.meta.url)));
   const live = Object.fromEntries(Object.entries(H.series).map(([id, h]) => [id, { dates: decodeDates(h.d0, h.gaps), close: deltaDecode(h.cd, h.ps || 100) }]));
   const T = timeline(live, Object.keys(live));
-  assert.ok(T && T.episodes.length === 5);
+  assert.ok(T && T.episodes.length >= 5);
   assert.equal(T.episodes.at(-1).ongoing, true);
   assert.ok(T.episodes.slice(0, 4).every((e) => !e.ongoing && e.ddPct <= -15));
 });
