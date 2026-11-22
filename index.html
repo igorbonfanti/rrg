@@ -49,6 +49,9 @@
   <link rel="modulepreload" href="js/emerging-view.js" />
   <link rel="modulepreload" href="js/vix.js" />
   <link rel="modulepreload" href="js/vix-view.js" />
+  <link rel="modulepreload" href="js/ath-view.js" />
+  <link rel="modulepreload" href="js/ath.js" />
+  <link rel="modulepreload" href="js/peaks.js" />
   <link rel="modulepreload" href="js/version.js" />
   <link rel="modulepreload" href="js/industries.js" />
   <link rel="preload" href="data/industries.json" as="fetch" crossorigin />
@@ -88,6 +91,7 @@
     <button type="button" role="tab" id="tab-emg" data-view="emg" aria-controls="v-emg" aria-selected="false" tabindex="-1">7 Emergenti</button>
     <button type="button" role="tab" id="tab-vix" data-view="vix" aria-controls="v-vix" aria-selected="false" tabindex="-1">8 VIX</button>
     <button type="button" role="tab" id="tab-alr" data-view="alr" aria-controls="v-alr" aria-selected="false" tabindex="-1">9 Alert</button>
+    <button type="button" role="tab" id="tab-ath" data-view="ath" aria-controls="v-ath" aria-selected="false" tabindex="-1">0 Massimi</button>
   </div>
   </nav>
 
@@ -439,6 +443,7 @@
   <section class="view" id="v-vix" role="tabpanel" aria-labelledby="tab-vix" hidden>
     <p class="note loading" id="vxLoading" hidden>Caricamento dei dati del VIX…</p>
     <p class="note pb" id="vxMiss" hidden></p>
+    <p class="note pb vxmoved" id="vxAthMoved">Distanza dal massimo: ora nella scheda <a href="#ath">0 Massimi →</a></p>
     <div id="vxBody" hidden>
     <div class="kpis" id="vxKpis"></div>
     <p class="note pb vxmeta" id="vxMeta"></p>
@@ -474,6 +479,24 @@
       </div>
       <div class="legend" id="vxLegend"></div>
     </div>
+    <div class="panel">
+      <div class="ph"><h2>Come leggere il VIX</h2></div>
+      <div class="emread">
+        <p><b>Solo contesto, non un segnale.</b> Il VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&amp;P 500 nei prossimi 30 giorni: sale quando c'è paura. Non cambia stati né alert.</p>
+        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto». Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte. Il 40 ha 10 episodi: numeri indicativi. Dopo un VIX a 25 o 30 o più il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
+        <p><b>Lo scatter conta i giorni</b>, come il grafico di Massimo Rea da cui viene l'idea: le crisi lunghe mettono tanti punti, quindi sembra più sicuro di quanto sia. La tabella conta gli episodi.</p>
+        <p><b>VIX contro realizzata.</b> Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi. Il VIX sale insieme ai ribassi, non prima: dal 2005 il premio alto (oltre l'80° percentile) si è acceso 204 volte, e solo in 12 entro 21 sedute è arrivato un picco della volatilità (la realizzata sopra il suo 90° percentile). Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.</p>
+        <p><b>Struttura a termine.</b> Il VIX misura la paura per i prossimi 30 giorni, il VIX3M per i prossimi 3 mesi. Di solito il VIX sta sotto il VIX3M (rapporto sotto 1, <b>contango</b>): chi si assicura paga di più per le scadenze lunghe. Quando il VIX arriva al VIX3M o lo supera (rapporto da 1 in su, <b>backwardation</b>) la paura è per i prossimi giorni: succede nei ribassi bruschi. Nella verifica non aggiunge informazione al livello del VIX (dal 2008 tutti gli episodi del VIX sopra 30 erano già in backwardation il giorno del segnale) e il ritorno al contango non è stato un ingresso migliore del segnale del VIX sopra 30: solo contesto.</p>
+        <p><b>Credito high yield.</b> Il rapporto tra l'ETF delle obbligazioni societarie più rischiose (HYG, high yield) e quello dei titoli di Stato USA a 7-10 anni (IEF), con i dividendi reinvestiti: il pannello mostra quanto ha perso dal massimo dell'ultimo anno. Se il VIX sale e il credito resta vicino a 0 la paura è solo in borsa; se anche il credito scende il mercato teme i fallimenti, come nel 2008 e nel 2020. Non è uno spread ufficiale (il rendimento in più chiesto alle obbligazioni high yield rispetto ai titoli di Stato): quello non si può ripubblicare. Nella verifica, fatta sul campione dal 1990 con lo spread delle obbligazioni Baa (il gradino più basso dell'«investment grade»; la prima serie considerata, poi scartata per la licenza), i casi con il credito in tensione sono troppo pochi per una statistica: solo contesto.</p>
+        <p class="muted">Ricalcolo: <span class="mono">ricerca/vix/</span> (ramo di sviluppo del repository): <span class="mono">regimi/</span> per la tabella, <span class="mono">volatilita/</span> per l'83%, i 3,4 punti e i 12 su 204, <span class="mono">struttura/</span> per la struttura a termine e il credito.</p>
+      </div>
+    </div>
+    <p class="note pb">Fonti: VIX di chiusura © Cboe, dalla serie VIXCLS di FRED (Federal Reserve Bank of St. Louis), che la ripubblica con il permesso di Cboe, dal 02/01/1990, e VIX3M © Cboe dalla serie VXVCLS di FRED, dal 04/12/2007; l'ultima seduta, che FRED pubblica la mattina dopo, viene dal file ufficiale di Cboe (o da Yahoo Finance se Cboe non l'ha ancora pubblicata) ed è provvisoria. Credito: chiusure di HYG e IEF rettificate per i dividendi, da Yahoo Finance, dal 2007 (la distanza dal massimo di 12 mesi dal 2008). S&amp;P 500 e Nasdaq-100 di solo prezzo da Yahoo Finance (senza dividendi: sull'S&amp;P 500 circa 2 punti l'anno in meno; per il Nasdaq-100 la versione con i dividendi non è disponibile). Il VIX chiude alle 16:15 di New York, l'indice alle 16:00: per non usare quel quarto d'ora i rendimenti partono dalla chiusura della seduta dopo il segnale. Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi. Idea di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>); struttura a termine e credito da un grafico di Stefano Serafini (Swiss Capital School) al Morning Trading Show di BNP Paribas; calcoli nostri su dati pubblici.</p>
+    </div>
+  </section>
+  <!-- 0 MASSIMI (1.12.0) -->
+  <section class="view" id="v-ath" role="tabpanel" aria-labelledby="tab-ath" hidden>
+    <p class="note loading" id="athLoading" hidden>Caricamento della distanza dal massimo…</p>
     <div class="panel" id="athPanel">
       <div class="ph"><h2>Distanza dal massimo degli ultimi 3 anni · le bolle si sgonfiano a rotazione</h2><span class="ctl"><span class="seg" id="athSort" role="group" aria-label="Ordine delle righe"><button type="button" data-sort="dist" aria-pressed="true">per distanza</button><button type="button" data-sort="date" aria-pressed="false">per data del massimo</button></span></span></div>
       <p class="note pb" id="athMiss" hidden></p>
@@ -490,19 +513,12 @@
       <p class="note pb" id="athNote">Quanto ogni mercato è sotto il suo <b>massimo di chiusura degli ultimi 3 anni</b>, il picco dell'ultimo ciclo (il massimo di sempre, che per il petrolio è del 2008, è nel dettaglio), con i giorni passati dal massimo. La barra va da 0 a −60%; la tacca è il calo più profondo dopo il massimo. Solo prezzo, senza dividendi, nella valuta di quotazione (il KOSPI in won): per chi investe in euro il calo è un altro. Oro, argento, rame e petrolio con il future continuo (chiusura al prezzo di regolamento, che per oro e argento è verso le 13:30 di New York; ai cambi di contratto il livello si sposta un po'). Clic o tocco su una riga per il dettaglio e il grafico dal 2000. <b>Solo contesto</b>: nessuna soglia e nessun segnale. Idea da una slide di Francesco Caruso (Cicli&amp;Mercati).</p>
       <p class="note pb" id="athNoteVp">Accanto al grafico, a destra, il <b>profilo dei volumi degli ultimi 12 mesi</b>: la parte del volume dell'anno scambiata a ogni livello di prezzo (barre lunghe = prezzi dove si è scambiato di più); non è un livello né un segnale. Per S&amp;P 500, Nasdaq-100 e KOSPI i volumi sono degli ETF SPY, QQQ e KODEX 200 (069500.KS, che segue il KOSPI 200), riportati sulla scala dell'indice; per argento e rame dalle barre orarie del future. Per oro, Nasdaq-100 e KOSPI il profilo è poco stabile (con metodi di calcolo diversi le zone principali si spostano di oltre il 2%): è mostrato con un'avvertenza. Dati Yahoo Finance, ricalcolati ogni notte su tutta la storia; verifica in <span class="mono">ricerca/bolle-rotazione/</span> e, per oro e argento con i future, <span class="mono">ricerca/poc/</span>, per il profilo dei volumi <span class="mono">ricerca/poc/profilo/</span> (ramo di sviluppo).</p>
     </div>
-    <div class="panel">
-      <div class="ph"><h2>Come leggere il VIX</h2></div>
-      <div class="emread">
-        <p><b>Solo contesto, non un segnale.</b> Il VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&amp;P 500 nei prossimi 30 giorni: sale quando c'è paura. Non cambia stati né alert.</p>
-        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto». Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte. Il 40 ha 10 episodi: numeri indicativi. Dopo un VIX a 25 o 30 o più il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
-        <p><b>Lo scatter conta i giorni</b>, come il grafico di Massimo Rea da cui viene l'idea: le crisi lunghe mettono tanti punti, quindi sembra più sicuro di quanto sia. La tabella conta gli episodi.</p>
-        <p><b>VIX contro realizzata.</b> Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi. Il VIX sale insieme ai ribassi, non prima: dal 2005 il premio alto (oltre l'80° percentile) si è acceso 204 volte, e solo in 12 entro 21 sedute è arrivato un picco della volatilità (la realizzata sopra il suo 90° percentile). Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.</p>
-        <p><b>Struttura a termine.</b> Il VIX misura la paura per i prossimi 30 giorni, il VIX3M per i prossimi 3 mesi. Di solito il VIX sta sotto il VIX3M (rapporto sotto 1, <b>contango</b>): chi si assicura paga di più per le scadenze lunghe. Quando il VIX arriva al VIX3M o lo supera (rapporto da 1 in su, <b>backwardation</b>) la paura è per i prossimi giorni: succede nei ribassi bruschi. Nella verifica non aggiunge informazione al livello del VIX (dal 2008 tutti gli episodi del VIX sopra 30 erano già in backwardation il giorno del segnale) e il ritorno al contango non è stato un ingresso migliore del segnale del VIX sopra 30: solo contesto.</p>
-        <p><b>Credito high yield.</b> Il rapporto tra l'ETF delle obbligazioni societarie più rischiose (HYG, high yield) e quello dei titoli di Stato USA a 7-10 anni (IEF), con i dividendi reinvestiti: il pannello mostra quanto ha perso dal massimo dell'ultimo anno. Se il VIX sale e il credito resta vicino a 0 la paura è solo in borsa; se anche il credito scende il mercato teme i fallimenti, come nel 2008 e nel 2020. Non è uno spread ufficiale (il rendimento in più chiesto alle obbligazioni high yield rispetto ai titoli di Stato): quello non si può ripubblicare. Nella verifica, fatta sul campione dal 1990 con lo spread delle obbligazioni Baa (il gradino più basso dell'«investment grade»; la prima serie considerata, poi scartata per la licenza), i casi con il credito in tensione sono troppo pochi per una statistica: solo contesto.</p>
-        <p class="muted">Ricalcolo: <span class="mono">ricerca/vix/</span> (ramo di sviluppo del repository): <span class="mono">regimi/</span> per la tabella, <span class="mono">volatilita/</span> per l'83%, i 3,4 punti e i 12 su 204, <span class="mono">struttura/</span> per la struttura a termine e il credito.</p>
-      </div>
-    </div>
-    <p class="note pb">Fonti: VIX di chiusura © Cboe, dalla serie VIXCLS di FRED (Federal Reserve Bank of St. Louis), che la ripubblica con il permesso di Cboe, dal 02/01/1990, e VIX3M © Cboe dalla serie VXVCLS di FRED, dal 04/12/2007; l'ultima seduta, che FRED pubblica la mattina dopo, viene dal file ufficiale di Cboe (o da Yahoo Finance se Cboe non l'ha ancora pubblicata) ed è provvisoria. Credito: chiusure di HYG e IEF rettificate per i dividendi, da Yahoo Finance, dal 2007 (la distanza dal massimo di 12 mesi dal 2008). S&amp;P 500 e Nasdaq-100 di solo prezzo da Yahoo Finance (senza dividendi: sull'S&amp;P 500 circa 2 punti l'anno in meno; per il Nasdaq-100 la versione con i dividendi non è disponibile). Il VIX chiude alle 16:15 di New York, l'indice alle 16:00: per non usare quel quarto d'ora i rendimenti partono dalla chiusura della seduta dopo il segnale. Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi. Idea di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>); struttura a termine e credito da un grafico di Stefano Serafini (Swiss Capital School) al Morning Trading Show di BNP Paribas; calcoli nostri su dati pubblici.</p>
+    <div class="panel" id="pkPanel">
+      <div class="ph"><h2>Linea del tempo dei massimi</h2><span class="ihint" tabindex="0" title="Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile. Dettagli nella guida." aria-label="Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile. Dettagli nella guida.">i</span><span class="meta" id="pkMeta"></span></div>
+      <p class="note pb pkorder" id="pkOrder"></p>
+      <p class="note pb" id="pkMiss" hidden></p>
+      <div class="pkbody" id="pkBody"></div>
+      <div class="legend" id="pkLegend"><span><span class="kl pkk-zero"></span>massimo dell'S&amp;P 500</span><span><span class="kd pkk-dot"></span>massimo di ciclo più alto entro 12 mesi (seguito da un calo ≥ 20%)</span><span><span class="kd pkk-alt"></span>altri massimi di ciclo</span><span><span class="kb pkk-band"></span>insieme: entro 31 giorni</span><span>accanto o sotto la riga: data, giorni, calo</span><span><a href="guida.html#linea-massimi" target="_blank" rel="noopener">Come si legge ↗</a></span></div>
     </div>
   </section>
   <!-- 9 ALERT -->
@@ -834,7 +850,7 @@
   </main>
 
   <footer class="statusline">
-    <span id="srcLine">Dati di fine giornata: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · livelli blu di default dalla tabella «200 LEVEL SETTORI» di quant-rea · indici: livelli dai grafici di Massimo Rea dove ci sono, altrimenti il 3° percentile della storia dell'indice</span>
+    <span id="srcLine">Dati di fine giornata: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · livelli blu di default dalla tabella «200 LEVEL SETTORI» di quant-rea · indici: livelli dai grafici di Massimo Rea dove ci sono, altrimenti il 3° percentile della storia dell'indice · massimi (vista 0): idea di Francesco Caruso (Cicli&amp;Mercati)</span>
     <span class="discl">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</span>
     <span class="discl">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento. I rendimenti passati non indicano quelli futuri.</span>
     <span id="genLine"></span>
@@ -857,6 +873,7 @@
         <li><b>7 Emergenti</b>: CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM con lo stato della vista 6 e, accanto, la valuta contro il dollaro, il dollaro contro le valute emergenti (FRED) e la forza relativa dell'ETF del paese contro ACWI. Solo contesto: non cambia lo stato e non manda alert.</li>
         <li><b>8 VIX</b>: come sono andati S&amp;P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi), lo scatter delle sedute con il VIX a 30 o più, il VIX contro la volatilità realizzata, la struttura a termine (VIX/VIX3M) e il credito high yield (HYG/IEF). Solo contesto.</li>
         <li><b>9 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
+        <li><b>0 Massimi</b> (tasto 0): quanto bitcoin, oro, argento, rame, petrolio, Nasdaq-100, S&amp;P 500, semiconduttori e KOSPI sono sotto il massimo degli ultimi 3 anni, con grafico e profilo dei volumi, e la linea del tempo dei massimi negli ultimi cali dell'S&amp;P 500 con l'ordine tipico. Solo descrizione.</li>
       </ul>
       <h3>Stati dei settori</h3>
       <ul>
@@ -889,7 +906,7 @@
         <dt>Tema</dt><dd>l'interruttore Chiaro in alto passa al fondo bianco, con le stesse regole di colore; la scelta resta salvata nel browser e vale anche per le altre app del sito.</dd>
       </dl>
       <h3>Comandi e tasti</h3>
-      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, TIT, IDX, EMG, VIX, ALRT, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>9</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie lo zoom, poi l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Nei grafici grandi con il tempo, trascina da una data all'altra per lo zoom su un tratto (sul telefono prima la lente).</p>
+      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, TIT, IDX, EMG, VIX, ALRT, MASSIMI, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>9</kbd> e <kbd>0</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie lo zoom, poi l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Nei grafici grandi con il tempo, trascina da una data all'altra per lo zoom su un tratto (sul telefono prima la lente).</p>
       <label class="kbopt"><input type="checkbox" id="kbToggle" checked /> Scorciatoie da un tasto attive (toglile se usi un lettore di schermo o la dettatura)</label>
       <p class="note">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</p>
       <p class="note">La versione in uso è accanto al nome in alto (passa il mouse per le novità). Se compare «Nuova versione: ricarica», il browser sta usando file vecchi: clic sul pulsante, oppure Ctrl+F5 (su Mac Cmd+Maiusc+R).</p>
