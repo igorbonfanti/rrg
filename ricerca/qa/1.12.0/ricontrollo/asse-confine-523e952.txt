@@ -1,0 +1,192 @@
+dark  1000  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1002  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1004  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1026  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1028  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1030  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1032  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1034  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1036  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1038  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1040  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1042  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1044  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1046  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1048  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1050  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1080  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1084  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+dark  1088  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1000  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1002  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1004  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1026  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1028  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1030  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1032  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1034  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1036  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1038  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1040  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1042  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1044  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1046  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1048  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1050  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1080  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1084  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+light 1088  KO  tema=undefined svg=undefined testi=undefined formato=? W=? scroll=undefined/undefined sovrapp=? fuori=? err=1 FATALE Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:8796/#ath
+Call log:
+[2m  - navigating to "http://127.0.0.1:8796/#ath", waiting until "load"[22m
+
+      requestfailed: http://127.0.0.1:8796/ net::ERR_CONNECTION_REFUSED
+
+TOTALE: 38 caricamenti, 0 passi di ridimensionamento, 38 con problemi
