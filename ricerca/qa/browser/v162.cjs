@@ -2,6 +2,7 @@
 // (soglia della tabella; 30 se la soglia è 20 o 25). Deve fallire sulla 1.6.1 (punti grandi sempre sopra 30).
 // Uso: BASE=http://127.0.0.1:8791/ SITE=<cartella del sito> NODE_PATH=$(npm root -g) node ricerca/qa/browser/v162.cjs
 const { chromium } = require('playwright');
+const { infoText } = require('./lib-info.cjs');
 const path = require('path');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/';
 const SITE = process.env.SITE || path.resolve(__dirname, '../../..');
@@ -34,7 +35,8 @@ const iso = (s) => `${s.slice(6, 10)}-${s.slice(3, 5)}-${s.slice(0, 2)}`;
         ok(head[0] === `Primo giorno a ${X} o più` && head.includes('VIX quel giorno'), `${name} ${ix} soglia ${X}: intestazioni chiare (${head.slice(0, 4).join(' | ')})`);
       }
     }
-    ok(/etichette di periodo/.test(await p.locator('#v-vix').innerText()), `${name}: detto che i nomi delle crisi sono etichette`);
+    // dalla 1.13.0 la frase è nel riquadro «i» del titolo dello scatter (js/info.js)
+    ok(/etichette di periodo/.test(await p.locator('#v-vix').innerText() + await infoText(p, 'button[data-src="vxScHelp"]', !!opt.hasTouch)), `${name}: detto che i nomi delle crisi sono etichette`);
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     await c.close();
   }

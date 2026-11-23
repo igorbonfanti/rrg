@@ -1,6 +1,6 @@
 # Sviluppo di Sector Monitor: stato, decisioni e prossimi passi
 
-Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 22/11/2026, versione 1.12.0 (pubblicata il 22/11/2026).
+Documento di passaggio per riprendere lo sviluppo senza perdere il filo. Aggiornato al 23/11/2026, versione 1.13.0 sul ramo di sviluppo (non ancora pubblicata; su `main` c'è la 1.12.0 del 22/11/2026).
 - **Regole di lavoro**: `CLAUDE.md`.
 - **Dettaglio tecnico**: `README.md`.
 - **Spiegazione per chi usa l'app**: `guida.html`.
@@ -46,6 +46,7 @@ Non è consulenza e non dà ordini: dirige l'attenzione. La regola principale è
   | `js/cap-view.js`, `js/cap-chart.js` | scheda Cali forti |
   | `js/rrg-chart.js`, `js/perf-chart.js`, `js/sector-chart.js`, `js/bottom-map.js` | grafici SVG |
   | `js/format.js` | numeri all'italiana, tooltip, checklist |
+  | `js/info.js` | bottone «i» delle spiegazioni (1.13.0): riquadro unico, eventi delegati, `placeBox` |
 
 - **Avvio in due tempi**:
   - prima i file del Monitor (`prices`, `sectors`, `breadth`, `thresholds`, `breadth_latest`, `alerts`, `config/indices`);
@@ -84,7 +85,7 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - FRED per il CPI e per il dollaro contro le valute emergenti (`DTWEXEMEGS`, settimanale);
 - FRED H.10 per i cambi della vista 7 (valuta locale per un dollaro, mezzogiorno di New York), Yahoo per gli ultimi giorni non ancora pubblicati dalla Fed (provvisori).
 
-**Approssimazioni dichiarate** (devono restare scritte nell'app):
+**Approssimazioni dichiarate** (devono restare scritte nell'app; dalla 1.13.0 nella pagina accanto al numero, nel riquadro «i» del suo pannello o nella sezione della guida aperta da lì, sempre in `guida.html#fonti`):
 - **Composizione**: storia con i membri di oggi per gli indici senza composizione storica gratuita.
 - **Copertura**: inferiore al 100% dove Yahoo non ha i prezzi di un titolo uscito dall'indice.
 - **DBMFE**: prima del 28/04/2025 è il DBMF americano convertito in euro.
@@ -219,11 +220,13 @@ Workflow `.github/workflows/update-data.yml`, alle 22:40 UTC, ogni ora dalle 01:
 - 1.5.0, rilievi minori aperti (`ricerca/qa/1.5.0/`): tabella dei regimi più larga dello schermo sul telefono (si scorre dentro la tabella); righe della tabella senza ruolo per i lettori di schermo (come nel Monitor); spiegazioni solo nei `title` (al tocco si vedono su riquadri e pillole); la riga della soglia di oggi non è evidenziata all'apertura; prima corsa con ^GSPC accorciato scriverebbe una storia corta (si ripara alla corsa dopo). Sul Nasdaq-100 la soglia 30 supera il criterio in 5 varianti su 6 (scelta: «robusto» solo con 6 su 6).
 - Rilievi minori aperti della 1.3.5 (`ricerca/qa/1.3.5/codice/rapporto-codice.md`): la cache delle date di `barDate` non si svuota mai (nel caso reale 85.574 istanti diversi su 1,3 milioni, nessun problema); `scripts/backfill_indices.py` e i vecchi controlli in `ricerca/qa/audit-0.9.*` datano ancora con il `gmtoffset` (giusto per i titoli, sbagliato d'inverno per cambi e DX-Y.NYB).
 - Decisioni dell'utente del 18/10/2026: la scala Adatta/Massima della rotazione resta salvata nel browser.
+- **1.13.0 (23/11/2026, sul ramo di sviluppo, non pubblicata)**: note più corte, parte A di `ricerca/semplificazione/piano.md` con le decisioni dell'utente (bottone «i», una riga di fonti per vista con la sezione della guida `#fonti`, legenda degli stati in una riga per stato, guida rapida ridotta). Piano di lavoro, conteggi prima/dopo ed esiti in `ricerca/semplificazione/fase2.md`. Nessuna regola, formula, soglia o numero cambiato. `js/info.js` (bottone e riquadro, Esc prima dello zoom, `placeBox` con `test/info.test.js`, che controlla anche che ogni `data-src` abbia il suo contenitore e ogni `data-guide` la sua ancora). Prima la guida (testi che mancavano, ancore), poi una vista per commit. Approssimazioni: restano nella pagina «provvisorio», «storia con i membri di oggi» (indici, SOXX), «solo prezzo» (Indici, Massimi), l'asterisco dell'ultimo prezzo noto (tabella Prezzi), «livelli blu di oggi» nella Bottom Map storica; il resto nel riquadro «i» del pannello e in `guida.html#fonti-…`. Controlli: `ricerca/qa/browser/v1130.cjs` (nuovo), `ricerca/semplificazione/conserva.cjs` (91 voci su 91, eccezioni motivate), i controlli vecchi che cercavano testi spostati leggono ora il riquadro «i» (`lib-info.cjs`: v1100, v1101, v1110, v1120, v150, v160, v162, v190). Fallivano già sulla 1.12.0, per motivi che non c'entrano (versione o numero di schede scritti nel controllo, dati cambiati), e falliscono uguali: v091 (4), v130 (1), v140 (8), v150 (12, «ordine delle schede»), v180 (2). Minori aperti: alcuni riquadri «i» sono lunghi (Grandi contro piccoli con i dati e #titData, regole degli stati, cali forti: 1.300–2.200 caratteri, con lo scorrimento interno quando non entrano); la vista 9 Alert non ha bottoni «i» (come nel piano); la riga che nel VIX rimanda alla vista 0 resta; la legenda degli stati del Monitor scrive le soglie dalla configurazione come prima; i controlli indipendenti con agenti (skill, fase 3) non sono ancora stati fatti.
 
 ## 8. Prossimi passi proposti (in ordine)
 
 | Sigla | Proposta | Note |
 |---|---|---|
+| — | 1.13.0 (note più corte): controlli indipendenti (testi, usabilità computer e telefono), screenshot all'utente, poi pubblicazione | sul ramo di sviluppo dal 23/11/2026 |
 | A | due righe negli episodi: «dal minimo vero» e «nuovo minimo entro 3 mesi dal trigger» | piccolo |
 | B | scheda «Il calo in corso»: episodi de-duplicati, «da −X% a −Y%» con *n*, sedute al minimo e al recupero | serve `data/history_long.json` con le chiusure lunghe degli indici, caricato solo all'apertura |
 | D | fasce toro/orso sui grafici degli indici, regola del 20% sulle chiusure | riusa B |

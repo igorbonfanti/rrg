@@ -102,22 +102,22 @@ const pop = (p) => p.evaluate(() => { const x = document.getElementById('infopop
         await outside();
         ok(!(await pop(p)), `${name} ${hash}: «${label}» si chiude toccando fuori`);
       }
-      ok(seen >= 1, `${name} ${hash}: almeno un bottone «i» visibile (${seen} di ${n})`);
+      if (hash !== 'alr') ok(seen >= 1, `${name} ${hash}: almeno un bottone «i» visibile (${seen} di ${n})`); // nel piano la vista 9 non ne ha
       const sw = await p.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
       ok(sw[0] <= sw[1], `${name} ${hash}: nessuno scorrimento orizzontale (${sw})`);
-      if (SHOTS && (vw === '1440' || vw === '390')) await p.screenshot({ path: path.join(SHOTS, `${hash}-${name}.png`), fullPage: true });
+      if (SHOTS && (name === '1440-scuro' || name === '390-chiaro')) await p.screenshot({ path: path.join(SHOTS, `${hash}-${name}.png`), fullPage: true });
     }
 
     // Monitor: una riga per stato (al massimo 15 parole), regola completa e statistiche nel riquadro
     await p.evaluate(() => { location.hash = '#mon'; }); await p.waitForTimeout(500);
     const lines = await p.$$eval('#stateLegend > div', (d) => d.map((x) => x.textContent.trim()));
     ok(lines.length === 6 && lines.every((t) => t.split(/\s+/).length <= 15), `${name}: legenda degli stati, 6 righe corte (${lines.map((t) => t.split(/\s+/).length).join(', ')} parole)`);
-    await press(p.locator('button[data-src="stateHelp"]')); await p.waitForTimeout(150);
+    if (await p.locator('button[data-src="stateHelp"]').count()) await press(p.locator('button[data-src="stateHelp"]')); await p.waitForTimeout(150);
     const sh = (await pop(p)) || { t: '' };
     ok(/50 tocchi del livello su 63/.test(sh.t) && /max\(40%, livello \+ 25\)/.test(sh.t) && /escursione media giornaliera/.test(sh.t), `${name}: regola completa nel riquadro degli stati`);
     await outside();
 
-    if (vw === '1440' && theme === 'dark') {
+    if (vw === '1440' && theme === 'dark') try {
       // passaggio del mouse: si apre, si chiude uscendo
       await p.evaluate(() => { location.hash = '#vix'; }); await p.waitForSelector('#vxTable tbody tr'); await p.waitForTimeout(500);
       const bi = p.locator('button[data-src="vxTabHelp"]');
@@ -177,8 +177,16 @@ const pop = (p) => p.evaluate(() => { const x = document.getElementById('infopop
       const h = await p.evaluate(() => ({ h3: [...document.querySelectorAll('#helpModal h3')].map((x) => x.textContent), t: document.getElementById('helpModal').textContent }));
       ok(JSON.stringify(h.h3) === JSON.stringify(['Le viste', 'Stati dei settori', 'Glossario', 'Comandi e tasti']) && !/Universi globali/.test(h.t) && !/Chiusure di Yahoo Finance, aggiornate/.test(h.t) && /1–9 e 0 viste/.test(h.t), `${name}: guida rapida (${h.h3.join(', ')})`);
       await p.keyboard.press('Escape');
-    }
+    } catch (e) { ok(false, `${name}: prove con mouse e tastiera interrotte (${e.message.split('\n')[0]})`); }
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
+    await c.close();
+  }
+  // guida completa sul telefono: nessuno scorrimento orizzontale (i percorsi lunghi vanno a capo)
+  for (const [vw, opt] of SIZES.filter(([v]) => +v < 600)) {
+    const c = await b.newContext(opt); const p = await c.newPage();
+    await p.goto(BASE + 'guida.html#fonti'); await p.waitForTimeout(500);
+    const sw = await p.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
+    ok(sw[0] <= sw[1], `guida ${vw}: nessuno scorrimento orizzontale (${sw})`);
     await c.close();
   }
   await b.close();

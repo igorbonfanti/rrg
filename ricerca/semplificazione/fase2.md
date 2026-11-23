@@ -46,4 +46,28 @@ Piano di lavoro del 23/11/2026 sul ramo `claude/great-noether-2f1ude`, partendo 
 
 ## Parole visibili per vista, prima e dopo
 
-(compilato alla fine, con `ricerca/semplificazione/script/conta_fase2.cjs`)
+Conteggio del 23/11/2026 con `ricerca/semplificazione/script/conta_fase2.cjs`, lo stesso script sulle due versioni (1.12.0 dalla copia di `0c253bb`, 1.13.0 dal ramo di sviluppo), stessi dati: parole degli elementi di nota visibili subito a 1440 px (note, letture, legende, righe di stato, titoli dei riquadri piegati, righe di fonti, introduzione del Monitor alla prima visita; i riquadri «i» sono chiusi e non contano), la vista 4 con XLK, la Rotazione con i settori. La guida rapida si conta tutta.
+
+| Vista | 1.12.0 | 1.13.0 | Variazione |
+|---|---|---|---|
+| Piè di pagina | 125 | 29 | -77% |
+| Guida rapida (tasto ?) | 2013 | 649 | -68% |
+| 1 Monitor | 447 | 193 | -57% |
+| 2 Rotazione | 87 | 63 | -28% |
+| 3 Bottom Map | 135 | 76 | -44% |
+| 4 Settore (XLK) | 181 | 179 | -1% |
+| 5 Titoli | 811 | 161 | -80% |
+| 6 Indici | 394 | 230 | -42% |
+| 7 Emergenti | 750 | 184 | -75% |
+| 8 VIX | 1270 | 246 | -81% |
+| 9 Alert | 89 | 74 | -17% |
+| 0 Massimi | 358 | 148 | -59% |
+| **Viste e piè di pagina** | **4647** | **1583** | **-66%** |
+
+Il conteggio dell'inventario (`piano.md`, «In breve»: 4.976 → 1.271 previste, −74%) classificava a mano ogni voce, contava anche il pannello delle bolle ancora nel VIX (1.11.0) e i riquadri piegati in altro modo: i due numeri non sono confrontabili tra loro. La vista 4 cambia poco perché i testi più lunghi (episodi, cali forti) erano già in riquadri piegati: lì il guadagno è dentro i riquadri, le cui note lunghe sono passate nei «i». La Rotazione conta l'universo dei settori, senza i pannelli del portafoglio e degli asset reali.
+
+## Esiti
+
+- `npm test`: 206 test verdi (3 nuovi in `test/info.test.js`).
+- `ricerca/qa/browser/v1130.cjs`: vedi `docs/sviluppo.md` (stato della 1.13.0) per i numeri dell'ultima corsa; sulla 1.12.0 fallisce.
+- `ricerca/semplificazione/conserva.cjs`: 91 voci su 91 conservate, eccezioni motivate nello script (titoli di paragrafo e di riquadri tolti, frasi accorciate con il loro posto in guida o nel riquadro, date generate dai dati).

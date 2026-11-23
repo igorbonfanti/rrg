@@ -71,7 +71,10 @@ const it = (v, d) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d).replace('.', 
     ok(sw[0] <= sw[1], `${name}: nessuno scorrimento orizzontale`);
     const txt = await p.locator('#v-vix').innerText();
     ok(/Massimo Rea/.test(txt) && /Stefano Serafini/.test(txt), `${name}: Rea e Serafini citati`);
-    ok(/VXVCLS/.test(txt) && /HYG/.test(txt) && /IEF/.test(txt), `${name}: fonti nuove`);
+    // dalla 1.13.0 le fonti complete (serie VXVCLS di FRED) sono in guida.html#fonti-vix, aperta dalla riga di fonti della vista
+    const gv = await (await fetch(BASE + 'guida.html')).text();
+    const fv = gv.slice(gv.indexOf('id="fonti-vix"'), gv.indexOf('id="fonti-alr"'));
+    ok(/VXVCLS/.test(txt + fv) && /HYG/.test(txt) && /IEF/.test(txt) && (await p.locator('#v-vix .srcline a[href="guida.html#fonti-vix"]').count()) + /VXVCLS/.test(txt) >= 1, `${name}: fonti nuove`);
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     await ctx.close();
   }

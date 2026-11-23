@@ -1074,7 +1074,7 @@ th .info { margin-left: 3px; vertical-align: 0; }
 .infopop p:last-child { margin-bottom: 0; }
 .infopop b { color: var(--ink); }
 .infopop a { color: var(--amber-2); }
-.infopop .mono { font: 11.5px var(--f-mono); }
+.infopop .mono { font: 11.5px var(--f-mono); overflow-wrap: anywhere; }
 .infopop-g { font: 600 11.5px var(--f-mono); }
 .info-src { display: none !important; }
 /* una riga di fonti per vista, in fondo */
