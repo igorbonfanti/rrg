@@ -281,17 +281,17 @@
           <span><span class="kb" style="background:var(--down)"></span>fallito</span>
           <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
           <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
-          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia del settore (livello blu + il suo calo forte in 10 sedute)</span>
+          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento<button type="button" class="info" aria-label="Spiegazione: avvicinamento" aria-expanded="false" data-info="Breadth sotto la soglia del settore: livello blu più il suo calo forte in 10 sedute. Promemoria, non uno stato." data-guide="avvicinamento">i</button></span>
           <span id="bmIndLeg" hidden><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><path d="M7 1 L13 7 L7 13 L1 7 Z" fill="var(--ink-2)"/></svg>industria (SOXX, semiconduttori): breadth con i membri di oggi</span>
-          <span class="muted">coda = ultime 8 settimane · il percorso di un bottom scende a sinistra, poi risale · clic per il dettaglio</span>
+          <span class="muted">coda = ultime 8 settimane · clic per il dettaglio<button type="button" class="info" aria-label="Spiegazione: come si legge la mappa" aria-expanded="false" data-info="Il percorso tipico di un bottom scende a sinistra (drawdown più profondo) e in basso (breadth sotto il livello blu), poi risale. In zona blu si entra dopo 2 chiusure sotto il livello." data-guide="btm">i</button></span>
         </div>
       </div>
       <div class="panel">
-        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="ph"><h2>Distanza dal livello blu</h2><button type="button" class="info" aria-label="Spiegazione: Distanza dal livello blu" aria-expanded="false" data-info="Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nei settori piccoli (Energy, Communication Services, Materials, Real Estate, Utilities: 21-31 titoli) uno solo sposta la breadth di 3–5 punti." data-guide="btm-distanza">i</button><span class="meta">punti di breadth · dal più vicino</span></div>
         <div class="dist" id="distList"></div>
-        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nei settori piccoli (Energy, Communication Services, Materials, Real Estate, Utilities: 21-31 titoli) uno solo sposta la breadth di 3–5 punti.</p>
       </div>
     </div>
+    <p class="srcline" id="btmSrc">Stessi dati del Monitor (Yahoo Finance, breadth dai costituenti), settimanali · livelli blu di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>), quelli di oggi anche per le date passate · <a href="guida.html#fonti-btm" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 4 SETTORE -->

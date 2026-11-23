@@ -359,7 +359,7 @@ export function createBottom(ctx) {
     mapSeries = mapData(T);
     mapDraw = drawBottomMap($('bm'), mapOpts(T));
     if ($('bmIndLeg')) $('bmIndLeg').hidden = !IKEYS.length;
-    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[T])}${past ? ' (storico)' : ''} · colore del punto = stato ${past ? 'di quel giorno' : 'attuale'} (in zona blu si entra dopo ${P.setupCloses} chiusure sotto il livello)${past ? ' · livelli blu di oggi, scelti conoscendo anche quella crisi' : ''}`;
+    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[T])}${past ? ' (storico)' : ''} · colore del punto = stato ${past ? 'di quel giorno' : 'attuale'}${past ? ' · livelli blu di oggi, scelti conoscendo anche quella crisi' : ''}`;
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
     const tAt = (s) => (T === NOW ? nowOf(s) : T);
     const rows = ALLK.filter((s) => BR[s].pct200[tAt(s)] != null).map((s) => { const t = tAt(s); return { s, d: BR[s].pct200[t] - st.blue[s], need: BR[s].above200[t] - Math.floor((st.blue[s] * BR[s].n[t]) / 100) }; }).sort((a, b) => a.d - b.d);
