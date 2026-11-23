@@ -258,13 +258,21 @@ export function createBottom(ctx) {
     $('boardKpis').innerHTML = kpi.map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
     const isOn = (r) => r.state.code !== 'normal' || r.appr;
     const active = rows.filter(isOn), iactive = irows.filter(isOn);
-    $('activeMeta').textContent = `${active.length} su 11${iactive.length ? ` · più ${iactive.map((r) => r.s).join(', ')} (industria)` : ''} · in avvicinamento, attenzione, zona blu o dopo un trigger`;
+    $('activeMeta').textContent = `${active.length} su 11${iactive.length ? ` · più ${iactive.map((r) => r.s).join(', ')}` : ''}`; // il criterio è nel riquadro «i» del titolo (1.13.0)
     active.push(...iactive);
     $('activeList').innerHTML = active.length ? active.map((r) => `<div class="acard" data-sym="${r.s}" tabindex="0">
         <div class="acard-h"><span><span class="sym">${r.s}</span><span class="nm">${NM[r.s]}</span>${isInd(r.s) ? `<span class="indtag">industria${lag(r.s)}</span>` : ''}</span>${r.appr ? apprBadge() : badge(r.state.code)}</div>
         <div class="acard-t">${esc(r.appr ? apprWhy(r.s) : r.state.why)}</div>${explain(r.s).summary ? `<div class="acard-t ck-sum">${esc(explain(r.s).summary)}</div>` : ''}</div>`).join('') : '<p class="note">Nessun settore né industria vicino al livello blu.</p>';
     $('activeList').querySelectorAll('.acard').forEach((c) => { c.onclick = () => openSector(c.dataset.sym); c.onkeydown = (e) => { if (e.key === 'Enter') openSector(c.dataset.sym); }; });
-    $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth sotto la soglia di avvicinamento: livello blu più il calo forte del settore in 10 sedute. Non è uno stato e non manda alert. Nel campione degli 11 settori, circa un avvicinamento su tre tocca il livello entro sei mesi; con l\'Attenzione avvisa 50 tocchi del livello su 63, 7 più della sola Attenzione. È un promemoria, non un segnale per comprare o vendere: <a href="guida.html#avvicinamento" target="_blank" rel="noopener">come usarlo</a>.</span></div>` + [
+    // regola completa nel riquadro «i» del titolo (#stateHelp), una riga per stato nella pagina (1.13.0)
+    $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth vicina al livello blu dopo un calo veloce: promemoria, non uno stato.</span></div>` + [
+      ['watch', `breadth entro ${P.watchBand} punti dal livello blu o drawdown molto profondo.`],
+      ['setup', `sotto il livello blu per ${P.setupCloses} chiusure, con drawdown profondo.`],
+      ['trig', 'la breadth risale sopra il livello blu, con una conferma.'],
+      ['fail', 'il prezzo torna sotto il minimo della zona blu.'],
+      ['cool', `${P.cooldown} sedute senza nuovi alert.`],
+    ].map(([c, t]) => `<div>${badge(c)}<span>${t}</span></div>`).join('');
+    $('stateHelp').innerHTML = `<div>${apprBadge()}<span>breadth sotto la soglia di avvicinamento: livello blu più il calo forte del settore in 10 sedute. Non è uno stato e non manda alert. Nel campione degli 11 settori, circa un avvicinamento su tre tocca il livello entro sei mesi; con l\'Attenzione avvisa 50 tocchi del livello su 63, 7 più della sola Attenzione. È un promemoria, non un segnale per comprare o vendere: <a href="guida.html#avvicinamento" target="_blank" rel="noopener">come usarlo</a>.</span></div>` + [
       ['watch', `breadth entro ${P.watchBand} punti dal livello blu, oppure drawdown più profondo ${delPct(P.ddWatch)} della storia del settore. Sotto il livello blu per meno di ${P.setupCloses} chiusure si resta qui.`],
       ['setup', `breadth sotto il livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile. Qui si formano spesso i bottom, di solito in anticipo: ci si prepara.`],
       ['trig', `la breadth risale sopra il livello blu di almeno ${P.minRecoveryPoints} punti (o ${P.minRecoveryStocks} titoli, se valgono di più) e di almeno ${P.minRecoveryStocks} titoli sopra il minimo della zona blu, con una conferma (due se la zona blu dura più di ${P.slowSetupSessions} sedute o dopo un fallimento): spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V, cioè la breadth di nuovo sopra max(${P.resetFloor}%, livello + ${P.resetAbove}), basta da solo.`],

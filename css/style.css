@@ -1098,3 +1098,5 @@ th .info { margin-left: 3px; vertical-align: 0; }
 .srcline { margin: 10px 2px 0; color: var(--ink-3); font: 11.5px/1.5 var(--f-mono); }
 .srcline a { color: var(--ink-2); }
 @media print { .info, .infopop { display: none !important; } }
+/* regole degli stati nel riquadro «i» del Monitor: badge e testo affiancati */
+.infopop-t > div { display: grid; grid-template-columns: 118px 1fr; gap: 8px; align-items: start; margin: 0 0 7px; }

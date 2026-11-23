@@ -12,7 +12,8 @@
 
 /**
  * Posizione del riquadro (logica pura, provata in test/info.test.js): sotto il bottone, allineato al suo bordo sinistro
- * meno 12 px, dentro lo schermo con 12 px di margine; sopra il bottone se sotto non c'è posto e sopra sì.
+ * meno 12 px, dentro lo schermo con 12 px di margine; sopra il bottone se sotto non c'è posto e sopra sì; se non c'è
+ * posto né sotto né sopra, alzato quanto basta per stare nello schermo.
  * @param {{left:number, top:number, bottom:number}} r rettangolo del bottone (coordinate della finestra)
  * @param {number} vw larghezza della finestra
  * @param {number} vh altezza della finestra
@@ -24,8 +25,10 @@ export function placeBox(r, vw, vh, h, max = 360) {
   const width = Math.max(120, Math.min(max, vw - 24));
   const left = Math.max(12, Math.min(vw - width - 12, r.left - 12));
   const below = r.bottom + 6, aboveTop = r.top - h - 6;
-  const above = below + h > vh - 8 && aboveTop >= 8;
-  return { left, top: above ? aboveTop : below, width, above };
+  const fitsBelow = below + h <= vh - 8, above = !fitsBelow && aboveTop >= 8;
+  // non entra né sotto né sopra: si alza quanto serve per restare nello schermo (copre il bottone, si legge tutto)
+  const top = fitsBelow ? below : above ? aboveTop : Math.max(8, vh - h - 8);
+  return { left, top, width, above };
 }
 
 let bound = false;

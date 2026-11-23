@@ -20,8 +20,10 @@ test('placeBox: sotto il bottone, dentro lo schermo', () => {
 test('placeBox: sopra il bottone solo se sotto non c\'è posto e sopra sì', () => {
   // in fondo allo schermo, spazio sopra: va sopra
   assert.deepEqual(placeBox({ left: 100, top: 800, bottom: 816 }, 1440, 900, 200), { left: 88, top: 594, width: 360, above: true });
-  // in fondo ma senza spazio sopra (riquadro più alto dello schermo): resta sotto
-  assert.equal(placeBox({ left: 100, top: 100, bottom: 116 }, 1440, 300, 250).above, false);
+  // né sotto né sopra (riquadro alto): alzato fino a stare nello schermo, 8 px dal fondo
+  assert.deepEqual(placeBox({ left: 100, top: 450, bottom: 466 }, 1440, 900, 700), { left: 88, top: 192, width: 360, above: false });
+  // più alto dello schermo: in cima, a 8 px (il CSS limita l'altezza e lo fa scorrere)
+  assert.equal(placeBox({ left: 100, top: 100, bottom: 116 }, 1440, 300, 400).top, 8);
   // a metà schermo con spazio sotto: sotto
   assert.equal(placeBox({ left: 100, top: 400, bottom: 416 }, 1440, 900, 300).above, false);
 });
