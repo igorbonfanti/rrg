@@ -8,6 +8,7 @@
 // le versioni dalla 1.11.0 in poi.
 // Uso: BASE=http://127.0.0.1:8862/ NODE_PATH=$(npm root -g) node ricerca/qa/browser/v1110.cjs  (SHOTS=0 senza immagini)
 const { chromium } = require('playwright');
+const { infoText } = require('./lib-info.cjs');
 const fs = require('fs');
 const path = require('path');
 const BASE = process.env.BASE || 'http://127.0.0.1:8862/';
@@ -129,9 +130,11 @@ const labVal = (t) => { const k = /k$/.test(t); const v = parseFloat(t.replace(/
       }
       await tap(p.locator(`#athTable tr.athr[data-id="${id}"]`)); await p.waitForTimeout(100); // chiude
     }
-    const note = await p.$eval('#athNoteVp', (x) => x.textContent).catch(() => '');
+    // dalla 1.13.0 la nota del profilo è nel riquadro «i» del titolo del grafico (visibile con una riga aperta)
+    await tap(p.locator('#athTable tr.athr[data-id="SPX"]')); await p.waitForTimeout(400); // apre il grafico, dove sta il «i»
+    const note = await infoText(p, 'button[data-src="athVpHelp"]', !!opt.hasTouch);
     ok(/profilo dei volumi degli ultimi 12 mesi/.test(note) && /poco stabile/.test(note) && /oro, Nasdaq-100 e KOSPI/.test(note) && /ricerca\/poc\/profilo\//.test(note), `${name}: nota del pannello`);
-    if (SHOTS && vw === '1440') await p.locator('#athNote').screenshot({ path: path.join(SHOTS, `nota-${name}.png`) });
+    if (SHOTS && vw === '1440') await p.locator('#athPanel').screenshot({ path: path.join(SHOTS, `nota-${name}.png`) });
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     await c.close();
   }

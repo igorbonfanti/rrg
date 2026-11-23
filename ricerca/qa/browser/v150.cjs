@@ -1,6 +1,7 @@
 // 1.5.0: vista 8 VIX (solo contesto) e barra a 9 schede. Deve fallire sulla 1.4.x (manca la scheda) e passare sulla 1.5.0.
 // Uso: BASE=http://127.0.0.1:8791/ NODE_PATH=$(npm root -g) node ricerca/qa/browser/v150.cjs   (dalla cartella del sito servito)
 const { chromium } = require('playwright');
+const { infoText } = require('./lib-info.cjs');
 const path = require('path');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/';
 const SITE = process.env.SITE || path.resolve(__dirname, '../../..');
@@ -49,7 +50,8 @@ const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail+
     if (want) { const r2 = await p.$$eval('#vxTable tbody tr', (t) => t.map((r) => [r.dataset.x || 'base', r.textContent])); ok(['20', '25', '30', '40', '50'].every((X) => r2.find((r) => r[0] === X)[1].includes(want.NDX[X])), `${name}: positivi a 12 mesi come i calcoli (Nasdaq-100)`); }
     const pts = await p.locator('#vxScatter circle.vxpt').count(), starts = await p.locator('#vxScatter circle.vxpt.start').count();
     ok(pts > 500 && starts >= 15, `${name}: scatter con ${pts} sedute e ${starts} inizi di episodio`);
-    ok(/Giorni contro episodi/.test(await p.locator('#vxScNote').innerText()), `${name}: didascalia giorni contro episodi`);
+    // dalla 1.13.0 la didascalia completa è nel riquadro «i» del titolo dello scatter (js/info.js)
+    ok(/Giorni contro episodi/.test(await p.locator('#vxScNote').innerText() + await infoText(p, 'button[data-src="vxScHelp"]', !!opt.hasTouch)), `${name}: didascalia giorni contro episodi`);
     ok(await p.locator('#vxChart path.vxvix').count() === 1 && await p.locator('#vxChart path.vxrv').count() === 1 && await p.locator('#vxChart path.vxprem').count() === 1, `${name}: grafico VIX, realizzata e premio`);
     // riquadro dei valori sul grafico
     const box = await p.locator('#vxChart').boundingBox(); await p.locator('#vxChart').scrollIntoViewIfNeeded();

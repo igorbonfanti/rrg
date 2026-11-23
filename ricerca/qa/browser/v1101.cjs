@@ -1,6 +1,7 @@
 // 1.10.1: oro e argento con i future GC=F e SI=F nel pannello dei massimi (vista 8 VIX, dalla 1.12.0 vista 0 Massimi, #ath). Deve fallire sulla 1.10.0 (GLD, SLV).
 // Uso: BASE=http://127.0.0.1:8791/ NODE_PATH=$(npm root -g) node ricerca/qa/browser/v1101.cjs
 const { chromium } = require('playwright');
+const { infoText } = require('./lib-info.cjs');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/';
 let fail = 0;
 const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail++; };
@@ -24,7 +25,8 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
       ok(/13:30/.test(det) && m && det.includes(dIT(m.stats.refDate)), `${name} ${id}: dettaglio con il regolamento delle 13:30 e il massimo del ${m && dIT(m.stats.refDate)}`);
       await (opt.hasTouch ? l.tap({ timeout: 5000 }) : l.click({ timeout: 5000 })).catch(() => {}); await p.waitForTimeout(150);
     }
-    ok(/Oro, argento, rame e petrolio con il future continuo/.test(await p.$eval('#athNote', (x) => x.textContent).catch(() => '')), `${name}: nota del pannello`);
+    // dalla 1.13.0 la nota completa è nel riquadro «i» del titolo; nella pagina resta la riga corta con i future
+    ok(/Oro, argento, rame e petrolio con il future continuo/.test(await infoText(p, 'button[data-src="athHelp"]', !!opt.hasTouch)) && /future continuo/.test(await p.$eval('#athNote', (x) => x.textContent).catch(() => '')), `${name}: nota del pannello (riquadro «i» e riga corta)`);
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     await c.close();
   }

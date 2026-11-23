@@ -1,6 +1,7 @@
 // 1.9.0: semiconduttori (SOXX) come industria accanto agli 11 settori nelle viste 1-5, con alert; nota RRG/Bloomberg in guida.
 // Deve fallire sulla 1.8.0 (niente SOXX). Uso: BASE=http://127.0.0.1:8791/ SITE=<cartella del sito> NODE_PATH=$(npm root -g) node ricerca/qa/browser/v190.cjs
 const { chromium } = require('playwright');
+const { infoText } = require('./lib-info.cjs');
 const path = require('path');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/';
 const SITE = process.env.SITE || path.resolve(__dirname, '../../..');
@@ -55,6 +56,8 @@ const f1 = (v) => v.toFixed(1).replace('.', ',');
     }));
     ok(sx.title.startsWith('SOXX') && sx.title.includes('industria') && sx.chip, `${name} Settore: titolo «${sx.title}» e bottone dopo i settori`);
     ok(sx.blue === '3%' && /Massimo Rea/.test(sx.src) && /nessun titolo sopra la media/.test(sx.src), `${name} Settore: livello 3% di Rea, «nessun titolo sopra la media»`);
+    // dalla 1.13.0 la nota completa è nel riquadro «i» accanto alla frase corta (js/info.js)
+    if (sx.q) sx.q += ' ' + await infoText(p, '#secQuality button.info', !!opt.hasTouch);
     ok(/titoli di oggi/.test(sx.q) && /fonti secondarie/.test(sx.q) && /vale 3,3 punti/.test(sx.q), `${name} Settore: nota su come è costruita la storia`);
     ok(want && sx.facts.includes(`${want.a}/${want.n} · ${f1(want.pct)}%`), `${name} Settore: titoli sopra la media 200 uguali al file`);
     ok(want && sx.rows === want.rows && sx.head.includes('Peso') && sx.mt === "Titoli dell'industria", `${name} Settore: ${sx.rows} titoli con il peso`);

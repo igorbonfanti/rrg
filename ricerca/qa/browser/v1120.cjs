@@ -156,7 +156,8 @@ function want(m, narrow, ongoingEp) {
       ok(/0 Massimi/.test(help.t) && /1–9 e 0 viste/.test(help.t) && /MASSIMI/.test(help.t) && help.g === 'guida.html#ath', `${name}: guida rapida con la vista 0, i tasti e il link alla sezione (${help.g})`);
       await p.keyboard.press('Escape');
     }
-    ok(/massimi \(vista 0\): idea di Francesco Caruso/.test(await p.$eval('#srcLine', (x) => x.textContent).catch(() => '')), `${name}: piè di pagina`);
+    // dalla 1.13.0 la citazione è nella riga di fonti della vista 0 (il piè di pagina tiene solo l'avvertenza)
+    ok(/massimi \(vista 0\): idea di Francesco Caruso/.test(await p.$eval('#srcLine', (x) => x.textContent).catch(() => '')) || /idea da una slide di Francesco Caruso/.test(await p.$eval('#athSrc', (x) => x.textContent).catch(() => '')), `${name}: citazione di Caruso`);
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     await c.close();
   }

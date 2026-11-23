@@ -3,6 +3,7 @@
 // (#ath): lo script apre quella; senza data/ath.json la vista 0 lo dice e la vista 8 VIX funziona.
 // Uso: BASE=http://127.0.0.1:8791/ NODE_PATH=$(npm root -g) node ricerca/qa/browser/v1100.cjs
 const { chromium } = require('playwright');
+const { infoText } = require('./lib-info.cjs');
 const BASE = process.env.BASE || 'http://127.0.0.1:8791/';
 let fail = 0;
 const ok = (c, m) => { console.log(`${c ? 'OK  ' : 'FAIL'} ${m}`); if (!c) fail++; };
@@ -68,7 +69,9 @@ const dIT = (s) => `${s.slice(8, 10)}/${s.slice(5, 7)}/${s.slice(0, 4)}`;
     ok((await p.$$('#athTable tr.athdet')).length === 0 && (await p.$eval('#athChartBox', (x) => x.hidden).catch(() => false)), `${name}: secondo clic chiude dettaglio e grafico`);
     const sw = await p.evaluate(() => [document.documentElement.scrollWidth, document.documentElement.clientWidth]);
     ok(sw[0] <= sw[1], `${name}: nessuno scorrimento orizzontale (${sw})`);
-    ok(/Francesco Caruso/.test(await p.$eval('#athNote', (x) => x.textContent).catch(() => '')), `${name}: idea citata nella nota`);
+    // dalla 1.13.0 la nota completa è nel riquadro «i» del titolo, la citazione anche nella riga di fonti della vista
+    const athI = await infoText(p, 'button[data-src="athHelp"]', !!opt.hasTouch);
+    ok(/Francesco Caruso/.test(athI) && /Francesco Caruso/.test(await p.$eval('#athSrc', (x) => x.textContent).catch(() => '')), `${name}: idea citata nel riquadro «i» e nella riga di fonti`);
     ok(!errs.length, `${name}: console ${errs.join(' | ')}`);
     await c.close();
   }
