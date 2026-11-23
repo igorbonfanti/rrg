@@ -130,8 +130,10 @@ const note = (m) => { lines.push('INFO ' + m); };
     const q2 = await pop(p);
     ok(st[0] === 'false' && st[1] === 'true' && q2 && /tocchi/.test(q2.t), `${tag}: aprirne un altro chiude il primo (${st})`);
     // stesso bottone di nuovo: si chiude
-    if (phone) await two.nth(1).tap(); else await two.nth(1).click(); await p.waitForTimeout(200);
-    ok(!(await pop(p)), `${tag}: secondo ${phone ? 'tocco' : 'clic'} sullo stesso bottone chiude`);
+    // il riquadro può coprire il suo bottone (riquadro più alto dello spazio libero): allora il secondo tocco non lo raggiunge
+    const covered = await two.nth(1).evaluate((el) => { const r = el.getBoundingClientRect(); const e = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return !(e && e.closest('button.info') === el); });
+    ok(!covered, `${tag}: il bottone «regole degli stati» resta toccabile con il suo riquadro aperto`);
+    if (!covered) { if (phone) await two.nth(1).tap(); else await two.nth(1).click(); await p.waitForTimeout(200); ok(!(await pop(p)), `${tag}: secondo ${phone ? 'tocco' : 'clic'} sullo stesso bottone chiude`); }
     ok(!errs.length, `${tag}: console senza errori ${errs.join(' | ').slice(0, 300)}`);
     await c.close();
   }

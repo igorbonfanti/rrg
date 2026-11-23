@@ -11,15 +11,20 @@ INFO 1440-scuro #rrg [5 · Asset reali] «Spiegazione: dati e limiti degli asset
 INFO 1440-scuro #rrg [5 · Asset reali]: 3 bottoni visibili su 4
 INFO 1440-scuro #btm: 3 bottoni visibili su 3
 INFO 1440-scuro #XLK: 2 bottoni visibili su 3
-INFO 1440-scuro #SOXX: 3 bottoni visibili su 4
+INFO 1440-scuro #XLK (aperto): 3 bottoni visibili su 3
+INFO 1440-scuro #SOXX: 4 bottoni visibili su 4
+INFO 1440-scuro #SOXX (aperto): 4 bottoni visibili su 4
 INFO 1440-scuro #tit: 4 bottoni visibili su 4
 INFO 1440-scuro #idx: 5 bottoni visibili su 6
+INFO 1440-scuro #idx (aperto): 6 bottoni visibili su 6
 INFO 1440-scuro #emg: 3 bottoni visibili su 3
 INFO 1440-scuro #vix «Spiegazione: VIX e rendimento a 12 mesi»: il riquadro copre il bottone (alto 434 px su 900)
 INFO 1440-scuro #vix: 2 bottoni visibili su 2
 INFO 1440-scuro #alr: 0 bottoni visibili su 0
 INFO 1440-scuro #ath: 2 bottoni visibili su 3
-INFO 1440-scuro: 44 aperture provate
+INFO 1440-scuro #ath (aperto): 3 bottoni visibili su 3
+INFO 1440-scuro: 61 aperture provate
+FAIL 1440-scuro: il bottone «regole degli stati» resta toccabile con il suo riquadro aperto
 INFO 1440-chiaro #mon «Spiegazione: regole degli stati»: il riquadro copre il bottone (alto 730 px su 900)
 INFO 1440-chiaro #mon: 2 bottoni visibili su 2
 INFO 1440-chiaro #rrg [Settori S&P 500]: 2 bottoni visibili su 4
@@ -33,13 +38,18 @@ INFO 1440-chiaro #rrg [5 · Asset reali] «Spiegazione: dati e limiti degli asse
 INFO 1440-chiaro #rrg [5 · Asset reali]: 3 bottoni visibili su 4
 INFO 1440-chiaro #btm: 3 bottoni visibili su 3
 INFO 1440-chiaro #XLK: 2 bottoni visibili su 3
-INFO 1440-chiaro #SOXX: 3 bottoni visibili su 4
+INFO 1440-chiaro #XLK (aperto): 3 bottoni visibili su 3
+INFO 1440-chiaro #SOXX: 4 bottoni visibili su 4
+INFO 1440-chiaro #SOXX (aperto): 4 bottoni visibili su 4
 INFO 1440-chiaro #tit: 4 bottoni visibili su 4
 INFO 1440-chiaro #idx: 5 bottoni visibili su 6
+INFO 1440-chiaro #idx (aperto): 6 bottoni visibili su 6
 INFO 1440-chiaro #emg: 3 bottoni visibili su 3
 INFO 1440-chiaro #vix «Spiegazione: VIX e rendimento a 12 mesi»: il riquadro copre il bottone (alto 434 px su 900)
 INFO 1440-chiaro #vix: 2 bottoni visibili su 2
 INFO 1440-chiaro #alr: 0 bottoni visibili su 0
 INFO 1440-chiaro #ath: 2 bottoni visibili su 3
-INFO 1440-chiaro: 44 aperture provate
-1448 ok, 0 falliti
+INFO 1440-chiaro #ath (aperto): 3 bottoni visibili su 3
+INFO 1440-chiaro: 61 aperture provate
+FAIL 1440-chiaro: il bottone «regole degli stati» resta toccabile con il suo riquadro aperto
+1998 ok, 2 falliti

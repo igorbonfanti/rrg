@@ -1,2 +1,4 @@
 360: riquadro 12–348 × 16–732 su 360×740, contenuto 854 px visibile 714 (97% dell'altezza), overscroll-behavior auto; × di chiusura: false
 360: tocco sul riquadro → aperto true; tocco nel margine di 12 px a sinistra → aperto false
+390: riquadro 18–378 × 106–836 su 390×844, contenuto 728 px visibile 728 (86% dell'altezza), overscroll-behavior auto; × di chiusura: false
+390: tocco sul riquadro → aperto true; tocco nel margine di 12 px a sinistra → aperto false

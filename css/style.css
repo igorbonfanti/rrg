@@ -1071,6 +1071,9 @@ th .info { margin-left: 3px; vertical-align: 0; }
 .infopop { position: fixed; z-index: 70; padding: 9px 11px; background: var(--panel); color: var(--ink-2); border: 1px solid var(--amber);
   font: 12.5px/1.45 var(--f-ui); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); max-height: calc(100vh - 24px); overflow: auto; text-transform: none; letter-spacing: 0; }
 .infopop p { margin: 0 0 6px; }
+.infopop-x { float: right; margin: -6px -8px 2px 8px; width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: var(--ink-3); font: 18px/1 var(--f-ui); cursor: pointer; }
+.infopop-x:hover, .infopop-x:focus-visible { color: var(--amber); }
+@media (max-width: 600px) { .infopop { max-height: 70vh; } }
 .infopop p:last-child { margin-bottom: 0; }
 .infopop b { color: var(--ink); }
 .infopop a { color: var(--amber-2); }

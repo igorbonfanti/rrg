@@ -1,0 +1,35 @@
+OK   TWN MAX: nessuna tacca del cambio sotto 20 (2003 2006 2009 2012 2015 2018 2021 2024 78 227 377 526)
+OK   TWN MAX: scala del prezzo senza picchi oltre 1500 (78 227 377 526 38 63 88 28.1 30.3 32.4 34.6 93 107 122 136)
+OK   TWN console 
+OK   KOSPI200 MAX: nota della base coerente (cambio al 20/11/2026 (Fed fino al 13/11/2026, poi Yahoo provvisorio) · dollaro FRED al 13/11/2026)
+OK   KOSPI200 MAX: le due linee partono dallo stesso punto (scarto 0)
+OK   KOSPI200 3A: nessuna nota della base (le basi coincidono)
+OK   quadrante 1280: 7 etichette, sovrapposizioni 0
+OK   quadrante 1440: 7 etichette, sovrapposizioni 0
+OK   quadrante 360: 7 etichette, sovrapposizioni 0
+OK   schede 360 #mon: scroll 360/360, scheda 8 fino a 147
+OK   schede 360 #emg: scroll 360/360, scheda 8 fino a 147
+OK   schede 601 #mon: scroll 601/601, scheda 8 fino a 243
+OK   schede 601 #emg: scroll 601/601, scheda 8 fino a 243
+OK   schede 700 #mon: scroll 700/700, scheda 8 fino a 283
+OK   schede 700 #emg: scroll 700/700, scheda 8 fino a 283
+OK   schede 744 #mon: scroll 744/744, scheda 8 fino a 300
+OK   schede 744 #emg: scroll 744/744, scheda 8 fino a 300
+OK   schede 768 #mon: scroll 768/768, scheda 8 fino a 310
+OK   schede 768 #emg: scroll 768/768, scheda 8 fino a 310
+OK   schede 820 #mon: scroll 820/820, scheda 8 fino a 331
+OK   schede 820 #emg: scroll 820/820, scheda 8 fino a 331
+OK   schede 860 #mon: scroll 860/860, scheda 8 fino a 347
+OK   schede 860 #emg: scroll 860/860, scheda 8 fino a 347
+OK   schede 900 #mon: scroll 900/900, scheda 8 fino a 625
+OK   schede 900 #emg: scroll 900/900, scheda 8 fino a 625
+OK   schede 1024 #mon: scroll 1024/1024, scheda 8 fino a 625
+OK   schede 1024 #emg: scroll 1024/1024, scheda 8 fino a 625
+OK   tabellone 1024: 964/964
+OK   390: dopo il tocco il titolo del dettaglio è a 7 px
+OK   390: dettaglio di IBOV
+OK   comando KOSPI EMG → #emg-KOSPI200
+OK   comando EMG IBOV → #emg-IBOV
+OK   comando NIFTY EMG → #emg-NIFTY50
+OK   senza config/emerging.json il tasto 7 non apre una sezione vuota
+0 FAIL

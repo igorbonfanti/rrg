@@ -32,6 +32,10 @@ export function placeBox(r, vw, vh, h, max = 360) {
 }
 
 let bound = false;
+let closeFn = () => {};
+
+/** Chiude il riquadro aperto, se c'è (cambio di vista da js/app.js: pushState non manda hashchange). */
+export function closeInfo() { closeFn(false); }
 
 /** Lega i gestori una sola volta (chiamata da bind() di js/app.js). */
 export function bindInfo() {
@@ -39,9 +43,11 @@ export function bindInfo() {
   bound = true;
   const pop = document.createElement('div');
   pop.className = 'infopop'; pop.id = 'infopop'; pop.hidden = true;
+  const x = document.createElement('button');
+  x.type = 'button'; x.className = 'infopop-x'; x.setAttribute('aria-label', 'Chiudi la spiegazione'); x.textContent = '×';
   const body = document.createElement('div');
   body.className = 'infopop-t'; body.setAttribute('role', 'status');
-  pop.append(body);
+  pop.append(x, body);
   document.body.append(pop);
   let cur = null, pinned = false, tOpen = 0, tClose = 0;
   const fine = () => !!(window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches);
@@ -81,6 +87,8 @@ export function bindInfo() {
     b.setAttribute('aria-expanded', 'false');
     if (focus && b.isConnected) b.focus();
   }
+  closeFn = close;
+  x.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); close(true); });
   // clic, tocco, Invio e Spazio (i bottoni li trasformano in clic): in cattura, prima di righe, intestazioni e <summary>
   document.addEventListener('click', (e) => {
     const b = btnOf(e.target);
@@ -115,6 +123,17 @@ export function bindInfo() {
     e.preventDefault(); e.stopImmediatePropagation();
     close(true);
   }, true);
+  // Tab dal bottone con il riquadro aperto: il focus entra nel riquadro (× e «Nella guida ↗»); Tab oltre l'ultimo
+  // elemento del riquadro lo chiude e torna al bottone, così si prosegue nella pagina da lì
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !cur || e.altKey || e.ctrlKey || e.metaKey) return;
+    const f = [...pop.querySelectorAll('button, a[href]')];
+    if (!e.shiftKey && document.activeElement === cur && f.length) { e.preventDefault(); f[0].focus(); return; }
+    if (pop.contains(document.activeElement)) {
+      const i = f.indexOf(document.activeElement);
+      if ((!e.shiftKey && i === f.length - 1) || (e.shiftKey && i === 0)) { e.preventDefault(); close(true); }
+    }
+  });
   // Tab fuori dal bottone e dal riquadro: si chiude (senza riportare il focus)
   document.addEventListener('focusin', (e) => { if (cur && e.target !== cur && !pop.contains(e.target)) close(false); });
   addEventListener('scroll', () => { if (cur) { if (cur.isConnected) place(cur); else close(false); } }, { passive: true, capture: true });

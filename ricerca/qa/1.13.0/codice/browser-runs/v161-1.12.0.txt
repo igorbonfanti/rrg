@@ -1,0 +1,78 @@
+atteso 15 gruppi; 2020 Covid 84 punti, 2 righe sopra 40
+OK   1440-scuro: scatter largo quanto il pannello (1380/1382)
+OK   1440-scuro: 15 crisi nell'elenco (attese 15)
+OK   1440-scuro: un colore diverso per ogni crisi
+OK   1440-scuro: 48 sedute del 2022 con «2022 inflazione/tassi» (attese 48)
+OK   1440-scuro: tutti i punti di una crisi hanno lo stesso colore
+OK   1440-scuro: pallini d'inizio grandi (10)
+OK   1440-scuro: alone attorno a 84 punti (attesi 84)
+OK   1440-scuro: le altre crisi si spengono
+OK   1440-scuro: 2 righe della tabella evidenziate (attese 2)
+OK   1440-scuro: riga colorata (color(srgb 0.572549 0.988235 0.654902 / 0.18))
+OK   1440-scuro: crisi senza episodi sopra 40 segnalata
+OK   1440-scuro: la scritta sta sotto lo scatter
+OK   1440-scuro: clic sulla riga evidenzia la crisi 2025 dazi
+OK   1440-scuro: clic sul pallino d'inizio evidenzia la sua crisi
+OK   1440-scuro: selezione tolta
+OK   1440-scuro: riga del 27/03/2026 non cliccabile (presente)
+OK   1440-scuro: un altro tocco sulla crisi la lascia accesa
+OK   1440-scuro: nessuno scorrimento orizzontale
+OK   1440-scuro: console 
+OK   1280-chiaro: scatter largo quanto il pannello (1220/1222)
+OK   1280-chiaro: 15 crisi nell'elenco (attese 15)
+OK   1280-chiaro: un colore diverso per ogni crisi
+OK   1280-chiaro: 48 sedute del 2022 con «2022 inflazione/tassi» (attese 48)
+OK   1280-chiaro: tutti i punti di una crisi hanno lo stesso colore
+OK   1280-chiaro: pallini d'inizio grandi (10)
+OK   1280-chiaro: alone attorno a 84 punti (attesi 84)
+OK   1280-chiaro: le altre crisi si spengono
+OK   1280-chiaro: 2 righe della tabella evidenziate (attese 2)
+OK   1280-chiaro: riga colorata (color(srgb 0.584314 0.0156863 0.356863 / 0.18))
+OK   1280-chiaro: crisi senza episodi sopra 40 segnalata
+OK   1280-chiaro: la scritta sta sotto lo scatter
+OK   1280-chiaro: clic sulla riga evidenzia la crisi 2025 dazi
+OK   1280-chiaro: clic sul pallino d'inizio evidenzia la sua crisi
+OK   1280-chiaro: selezione tolta
+OK   1280-chiaro: riga del 27/03/2026 non cliccabile (presente)
+OK   1280-chiaro: un altro tocco sulla crisi la lascia accesa
+OK   1280-chiaro: nessuno scorrimento orizzontale
+OK   1280-chiaro: console 
+OK   390-scuro: scatter largo quanto il pannello (330/332)
+OK   390-scuro: 15 crisi nell'elenco (attese 15)
+OK   390-scuro: un colore diverso per ogni crisi
+OK   390-scuro: 48 sedute del 2022 con «2022 inflazione/tassi» (attese 48)
+OK   390-scuro: tutti i punti di una crisi hanno lo stesso colore
+OK   390-scuro: pallini d'inizio grandi (10)
+OK   390-scuro: alone attorno a 84 punti (attesi 84)
+OK   390-scuro: le altre crisi si spengono
+OK   390-scuro: 2 righe della tabella evidenziate (attese 2)
+OK   390-scuro: riga colorata (rgb(28, 28, 28))
+OK   390-scuro: crisi senza episodi sopra 40 segnalata
+OK   390-scuro: la scritta sta sotto lo scatter
+OK   390-scuro: clic sulla riga evidenzia la crisi 2025 dazi
+OK   390-scuro: clic sul pallino d'inizio evidenzia la sua crisi
+OK   390-scuro: selezione tolta
+OK   390-scuro: riga del 27/03/2026 non cliccabile (presente)
+OK   390-scuro: un altro tocco sulla crisi la lascia accesa
+OK   390-scuro: nessuno scorrimento orizzontale
+OK   390-scuro: console 
+OK   360-chiaro: scatter largo quanto il pannello (300/302)
+OK   360-chiaro: 15 crisi nell'elenco (attese 15)
+OK   360-chiaro: un colore diverso per ogni crisi
+OK   360-chiaro: 48 sedute del 2022 con «2022 inflazione/tassi» (attese 48)
+OK   360-chiaro: tutti i punti di una crisi hanno lo stesso colore
+OK   360-chiaro: pallini d'inizio grandi (10)
+OK   360-chiaro: alone attorno a 84 punti (attesi 84)
+OK   360-chiaro: le altre crisi si spengono
+OK   360-chiaro: 2 righe della tabella evidenziate (attese 2)
+OK   360-chiaro: riga colorata (rgb(236, 236, 234))
+OK   360-chiaro: crisi senza episodi sopra 40 segnalata
+OK   360-chiaro: la scritta sta sotto lo scatter
+OK   360-chiaro: clic sulla riga evidenzia la crisi 2025 dazi
+OK   360-chiaro: clic sul pallino d'inizio evidenzia la sua crisi
+OK   360-chiaro: selezione tolta
+OK   360-chiaro: riga del 27/03/2026 non cliccabile (presente)
+OK   360-chiaro: un altro tocco sulla crisi la lascia accesa
+OK   360-chiaro: nessuno scorrimento orizzontale
+OK   360-chiaro: console 
+0 FAIL

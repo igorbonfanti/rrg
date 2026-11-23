@@ -1,0 +1,87 @@
+OK   1440-scuro scheda «7 Emergenti»
+FAIL 1440-scuro ordine delle schede: 1 MONITOR · 2 ROTAZIONE · 3 BOTTOM MAP · 4 SETTORE · 5 TITOLI · 6 INDICI · 7 EMERGENTI · 8 VIX · 9 ALERT · 0 MASSIMI
+OK   1440-scuro data/emerging.json non scaricato aprendo il Monitor
+FAIL 1440-scuro 9 schede su 1 righe (dalla 1.5.0)
+OK   1440-scuro indirizzo emg-CSI300
+OK   1440-scuro data/emerging.json scaricato alla prima apertura
+OK   1440-scuro 7 righe (CSI300 NIFTY50 IBOV KOSPI200 TWN HSI EEM)
+OK   1440-scuro stati leggibili
+OK   1440-scuro HSI agganciato
+OK   1440-scuro EEM in dollari
+OK   1440-scuro 3 mesi in $: numero o «—»
+OK   1440-scuro stati uguali alla vista 6 (2 confrontati)
+OK   1440-scuro #emg-KOSPI200 apre il dettaglio
+OK   1440-scuro tasto 7
+OK   1440-scuro comando CSI300 EMG
+OK   1440-scuro clic su IBOV
+OK   1440-scuro Indietro torna a CSI300
+OK   1440-scuro 4 pannelli
+OK   1440-scuro riquadro dei valori: 16/10/2025 / CSI300 · normale / Prezzo / 4,721 / In dollari (base 100) / 129,6 /
+OK   1440-scuro niente scorrimento orizzontale
+OK   1440-scuro file mancante: messaggio comprensibile
+OK   1440-scuro console senza errori 
+OK   1280-chiaro scheda «7 Emergenti»
+FAIL 1280-chiaro ordine delle schede: 1 MONITOR · 2 ROTAZIONE · 3 BOTTOM MAP · 4 SETTORE · 5 TITOLI · 6 INDICI · 7 EMERGENTI · 8 VIX · 9 ALERT · 0 MASSIMI
+OK   1280-chiaro data/emerging.json non scaricato aprendo il Monitor
+FAIL 1280-chiaro 9 schede su 1 righe (dalla 1.5.0)
+OK   1280-chiaro indirizzo emg-CSI300
+OK   1280-chiaro data/emerging.json scaricato alla prima apertura
+OK   1280-chiaro 7 righe (CSI300 NIFTY50 IBOV KOSPI200 TWN HSI EEM)
+OK   1280-chiaro stati leggibili
+OK   1280-chiaro HSI agganciato
+OK   1280-chiaro EEM in dollari
+OK   1280-chiaro 3 mesi in $: numero o «—»
+OK   1280-chiaro stati uguali alla vista 6 (2 confrontati)
+OK   1280-chiaro #emg-KOSPI200 apre il dettaglio
+OK   1280-chiaro tasto 7
+OK   1280-chiaro comando CSI300 EMG
+OK   1280-chiaro clic su IBOV
+OK   1280-chiaro Indietro torna a CSI300
+OK   1280-chiaro 4 pannelli
+OK   1280-chiaro riquadro dei valori: 17/10/2025 / CSI300 · normale / Prezzo / 4,624 / In dollari (base 100) / 126,8 /
+OK   1280-chiaro niente scorrimento orizzontale
+OK   1280-chiaro file mancante: messaggio comprensibile
+OK   1280-chiaro console senza errori 
+OK   390-scuro scheda «7 Emergenti»
+FAIL 390-scuro ordine delle schede: 1 MONITOR · 2 ROTAZIONE · 3 BOTTOM MAP · 4 SETTORE · 5 TITOLI · 6 INDICI · 7 EMERGENTI · 8 VIX · 9 ALERT · 0 MASSIMI
+OK   390-scuro data/emerging.json non scaricato aprendo il Monitor
+FAIL 390-scuro 9 schede su 2 righe (dalla 1.5.0)
+OK   390-scuro indirizzo emg-CSI300
+OK   390-scuro data/emerging.json scaricato alla prima apertura
+OK   390-scuro 7 righe (CSI300 NIFTY50 IBOV KOSPI200 TWN HSI EEM)
+OK   390-scuro stati leggibili
+OK   390-scuro HSI agganciato
+OK   390-scuro EEM in dollari
+OK   390-scuro 3 mesi in $: numero o «—»
+OK   390-scuro stati uguali alla vista 6 (2 confrontati)
+OK   390-scuro #emg-KOSPI200 apre il dettaglio
+OK   390-scuro comando CSI300 EMG
+OK   390-scuro clic su IBOV
+OK   390-scuro Indietro torna a CSI300
+OK   390-scuro 4 pannelli
+OK   390-scuro riquadro dei valori: 12/01/2026 / CSI300 · normale / Prezzo / 4,913 / In dollari (base 100) / 137,7 /
+OK   390-scuro niente scorrimento orizzontale
+OK   390-scuro file mancante: messaggio comprensibile
+OK   390-scuro console senza errori 
+OK   360-chiaro scheda «7 Emergenti»
+FAIL 360-chiaro ordine delle schede: 1 MONITOR · 2 ROTAZIONE · 3 BOTTOM MAP · 4 SETTORE · 5 TITOLI · 6 INDICI · 7 EMERGENTI · 8 VIX · 9 ALERT · 0 MASSIMI
+OK   360-chiaro data/emerging.json non scaricato aprendo il Monitor
+FAIL 360-chiaro 9 schede su 2 righe (dalla 1.5.0)
+OK   360-chiaro indirizzo emg-CSI300
+OK   360-chiaro data/emerging.json scaricato alla prima apertura
+OK   360-chiaro 7 righe (CSI300 NIFTY50 IBOV KOSPI200 TWN HSI EEM)
+OK   360-chiaro stati leggibili
+OK   360-chiaro HSI agganciato
+OK   360-chiaro EEM in dollari
+OK   360-chiaro 3 mesi in $: numero o «—»
+OK   360-chiaro stati uguali alla vista 6 (2 confrontati)
+OK   360-chiaro #emg-KOSPI200 apre il dettaglio
+OK   360-chiaro comando CSI300 EMG
+OK   360-chiaro clic su IBOV
+OK   360-chiaro Indietro torna a CSI300
+OK   360-chiaro 4 pannelli
+OK   360-chiaro riquadro dei valori: 27/01/2026 / CSI300 · normale / Prezzo / 4,710 / In dollari (base 100) / 132,4 /
+OK   360-chiaro niente scorrimento orizzontale
+OK   360-chiaro file mancante: messaggio comprensibile
+OK   360-chiaro console senza errori 
+8 FAIL

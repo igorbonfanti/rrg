@@ -12,7 +12,7 @@ import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { zoomGroup } from './zoom.js';
-import { bindInfo } from './info.js';
+import { bindInfo, closeInfo } from './info.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
 import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
@@ -807,6 +807,7 @@ function setView(v, silent) {
   if (v === 'idx' && !state.indices) v = 'mon'; // senza config/indices.json la pagina Indici non c'è (la scheda è nascosta)
   if (v === 'emg' && !state.emerging) v = 'mon'; // lo stesso per gli Emergenti senza config/emerging.json
   const from = state.view;
+  closeInfo(); // un riquadro «i» aperto non resta sopra la vista nuova
   state.view = v;
   if (v !== 'rrg') stop();
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => {
