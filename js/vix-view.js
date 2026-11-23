@@ -75,7 +75,7 @@ export function createVix(ctx) {
       kpi('VIX', fmt(T.vix, 2), `${esc(T.band[2])} · al ${dIT(T.date)}${prov}`, 'Volatilità implicita dell\'S&P 500 per i prossimi 30 giorni (Cboe, da FRED). Fasce: sotto 15 calmo, 15-20 normale, 20-25 nervoso, 25-30 paura, 30-40 paura forte, 40-50 panico, oltre 50 panico estremo.' + PROV),
       kpi('Percentile del VIX', `${fmt(T.pct, 0)}°`, `nella storia dal ${dIT(model.SPX.R.from)}`, 'Quota delle chiusure del VIX fino a oggi minori o uguali a quella di oggi (solo storia passata).'),
       kpi('Volatilità realizzata', T.rv == null ? '—' : fmt(T.rv, 1), `S&P 500, 21 sedute al ${dIT(T.date)}, annualizzata`, 'Deviazione standard dei rendimenti logaritmici giornalieri delle ultime 21 sedute, ×√252.'),
-      kpi('Premio per la paura', T.prem == null ? '—' : sgnP(T.prem, 1).replace('%', ''), T.premPct == null ? '—' : `VIX − realizzata · ${fmt(T.premPct, 0)}° percentile`, 'Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (vedi «Come leggere»).'),
+      kpi('Premio per la paura', T.prem == null ? '—' : sgnP(T.prem, 1).replace('%', ''), T.premPct == null ? '—' : `VIX − realizzata · ${fmt(T.premPct, 0)}° percentile`, 'Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (guida, «VIX contro volatilità realizzata»).'),
       kpiTerm(kpi), kpiCredit(kpi),
     ].join('');
     const a = data.asOf, after = (f, l, src) => (f && l && f < l ? ` (FRED al ${dIT(f)}, poi ${src === 'Cboe' || src === 'Yahoo' ? src : 'Cboe o Yahoo'}, provvisorio)` : '');
@@ -251,8 +251,11 @@ export function createVix(ctx) {
     const posD = pts.filter((p) => p.ret > 0).length;
     const e30 = eps.filter((e) => e.ret[252] != null), posE = e30.filter((e) => e.ret[252] > 0).length;
     const hi = pts.filter((p) => p.vix >= 50), hiEp = new Set(hi.map((p) => p.ep));
-    $('vxScMeta').textContent = `${IXN[st.ix]} · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo`;
-    $('vxScNote').innerHTML = `<b>Giorni contro episodi.</b> ${pts.length} sedute, positive dopo 12 mesi ${posD} (${fmt((100 * posD) / pts.length, 0)}%); ma vengono da ${byEp.size} episodi con già 12 mesi di dati, positivi ${posE} su ${e30.length}, e i due episodi più lunghi da soli fanno ${fmt((100 * top2) / pts.length, 0)}% dei punti. Sopra 50: ${hi.length} sedute da ${hiEp.size} ${hiEp.size === 1 ? 'episodio' : 'episodi'}. Contare i giorni dà più peso alle crisi lunghe: la tabella conta gli episodi.${open ? ` ${open} ${open === 1 ? 'seduta recente non ha' : 'sedute recenti non hanno'} ancora 12 mesi di dati e non ${open === 1 ? 'è disegnata' : 'sono disegnate'}.` : ''}`;
+    $('vxScMeta').textContent = `${IXN[st.ix]} · sedute con il VIX a 30 o più · rendimento a 12 mesi`;
+    // nella pagina la riga corta; il testo completo nel riquadro «i» del titolo (#vxScNoteFull, 1.13.0)
+    const notDrawn = open ? ` ${open} ${open === 1 ? 'seduta recente non ha' : 'sedute recenti non hanno'} ancora 12 mesi di dati e non ${open === 1 ? 'è disegnata' : 'sono disegnate'}.` : '';
+    $('vxScNote').innerHTML = `${pts.length} sedute da ${byEp.size} episodi (${posE} su ${e30.length} positivi dopo 12 mesi): le crisi lunghe pesano di più, la tabella conta gli episodi.${notDrawn}`;
+    $('vxScNoteFull').innerHTML = `<b>Giorni contro episodi.</b> ${pts.length} sedute, positive dopo 12 mesi ${posD} (${fmt((100 * posD) / pts.length, 0)}%); ma vengono da ${byEp.size} episodi con già 12 mesi di dati, positivi ${posE} su ${e30.length}, e i due episodi più lunghi da soli fanno ${fmt((100 * top2) / pts.length, 0)}% dei punti. Sopra 50: ${hi.length} sedute da ${hiEp.size} ${hiEp.size === 1 ? 'episodio' : 'episodi'}. Contare i giorni dà più peso alle crisi lunghe: la tabella conta gli episodi.${notDrawn}`;
   }
 
   // ---------- VIX contro volatilità realizzata (S&P 500) ----------
@@ -390,7 +393,7 @@ export function createVix(ctx) {
     };
     bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('vxTip').hidden = true; });
     if (zoom) zoom.geo(svg, { L, PW, top: P[0].y0, bottom: yEnd, t0, t1, dates });
-    $('vxLegend').innerHTML = '<span><span class="kl vxk-vix"></span>VIX (implicita, prossimi 30 giorni)</span><span><span class="kl vxk-rv"></span>realizzata dell\'S&amp;P 500 nelle ultime 21 sedute</span>' + `<span><span class="kl vxk-ix"></span>${esc(IN)}</span><span><span class="kb vxk-ep"></span>episodi con il VIX a ${st.thr} o più (dal primo all'ultimo giorno), nel colore della crisi; grigi se la crisi non è nello scatter</span>` + '<span><span class="kl vxk-prem"></span>premio per la paura</span><span><span class="kb vxk-high"></span>premio oltre l\'80° percentile della sua storia</span>' +
+    $('vxLegend').innerHTML = '<span><span class="kl vxk-vix"></span>VIX (implicita, prossimi 30 giorni)</span><span><span class="kl vxk-rv"></span>realizzata dell\'S&amp;P 500 nelle ultime 21 sedute</span>' + `<span><span class="kl vxk-ix"></span>${esc(IN)}</span><span><span class="kb vxk-ep"></span>episodi con il VIX a ${st.thr} o più, nel colore della crisi (grigi: fuori dallo scatter)</span>` + '<span><span class="kl vxk-prem"></span>premio per la paura</span><span><span class="kb vxk-high"></span>premio oltre l\'80° percentile della sua storia</span>' +
       (has3 ? '<span><span class="kl vxk-r"></span>VIX / VIX3M</span><span><span class="kb vxk-back"></span>backwardation (VIX ≥ VIX3M)</span><span><span class="kd vxk-dot"></span>ultimo valore (pieno se in backwardation)</span>' : '') +
       (hasC ? '<span><span class="kl vxk-cr"></span>HYG/IEF: distanza dal massimo di 12 mesi</span>' : '');
   }
