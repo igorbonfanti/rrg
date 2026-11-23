@@ -330,14 +330,16 @@
           </div>
         </div>
         <details class="panel fold" id="secEpiBox" data-keep="secEpi">
-          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="epiMeta"></span></summary>
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><button type="button" class="info" aria-label="Spiegazione: Episodi in zona blu" aria-expanded="false" data-src="secEpiHelp" data-guide="sec-episodi">i</button><span class="meta" id="epiMeta"></span></summary>
+          <div class="info-src" id="secEpiHelp" hidden><p>Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.</p></div>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu"><table class="t" id="epiTable"></table></div>
-          <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni.</p>
+          <p class="note pb ctx-h"><b>Per confronto</b><button type="button" class="info" aria-label="Spiegazione: Per confronto" aria-expanded="false" data-info="Gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni." data-guide="sec-episodi">i</button></p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi a confronto con una seduta qualsiasi e con SPY"><table class="t ctx" id="epiCtx"></table></div>
-          <p class="note pb">Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
+          <p class="note pb">Storia ricostruita, incompleta prima del 2013: esempi, non probabilità.</p>
         </details>
         <details class="panel capcard fold" id="secCap" data-keep="secCap">
-          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="secCapMeta"></span></summary>
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><button type="button" class="info" aria-label="Spiegazione: Cali forti" aria-expanded="false" data-src="secCapHelp" data-guide="cali">i</button><span class="meta" id="secCapMeta"></span></summary>
+          <div class="info-src" id="secCapHelp" hidden></div>
           <div class="pb" id="secCapBody">
             <div class="controls capctl" id="secCapCtl"></div>
             <p class="note" id="secCapNow"></p>
@@ -372,7 +374,7 @@
             </div>
             <p class="note" id="blueSrc"></p>
             <p class="note" id="blueInfo"></p>
-            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+            <p class="note">Vale solo in questo browser.</p>
             <details class="owner">
               <summary>Per chi gestisce il repository</summary>
               <p class="note">Gli alert Telegram usano config/thresholds.json del repository. Per portarci i livelli provati qui:</p>
@@ -384,7 +386,7 @@
         </div>
         <div class="panel">
           <div class="ph"><h2>Situazione</h2></div>
-          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div><p class="note" id="secQuality" hidden></p></div>
+          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div><p class="note" id="secQuality" hidden></p><div class="info-src" id="secQualityHelp" hidden></div></div>
         </div>
         <div class="panel">
           <div class="ph"><h2 id="memTitle">Titoli del settore</h2><span class="meta" id="memMeta"></span><button type="button" class="mini" id="toTit" title="Bubble dei titoli e confronto tra grandi e piccoli">5 Titoli →</button></div>
@@ -392,6 +394,7 @@
         </div>
       </div>
     </div>
+    <p class="srcline" id="secSrc">Prezzi Yahoo Finance · breadth dai costituenti con la composizione di ogni data (SOXX: titoli di oggi) · livello blu dalla tabella «200 LEVEL SETTORI» e cali forti con il preset «Drop giornaliero cumulato» di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) · <a href="guida.html#fonti-sec" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 8 VIX -->
@@ -508,7 +511,7 @@
     </div>
     <div class="kpis" id="ixKpis"></div>
     <div class="panel">
-      <div class="ph"><h2>Indici · stato dei bottom</h2><span class="meta" id="ixMeta"></span></div>
+      <div class="ph"><h2>Indici · stato dei bottom</h2><button type="button" class="info" aria-label="Spiegazione: Indici, stato dei bottom" aria-expanded="false" data-src="ixHelp" data-guide="idx">i</button><span class="meta" id="ixMeta"></span></div>
       <div class="tscroll"><table class="t board-cards" id="ixTable"></table></div>
       <div class="legend">
         <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
@@ -517,7 +520,8 @@
         <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia</span>
         <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
       </div>
-      <p class="note pb">Stessa analisi dei settori sugli indici: quanti titoli dell'indice stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown dell'indice (solo prezzo, nella valuta dell'indice; per l'MSCI Emerging l'ETF EEM in dollari). «Storia» dice come è ricostruito il passato: con la composizione di ogni data, o con i membri di oggi. La rotazione di 9 di questi indici (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), con ETF in euro, è in <b>2 Rotazione</b>, universo <b>6 · Indici</b>.</p>
+      <p class="note pb">Drawdown sul solo prezzo, nella valuta dell'indice (MSCI Emerging: ETF EEM in dollari).</p>
+      <div class="info-src" id="ixHelp" hidden><p>Stessa analisi dei settori sugli indici: quanti titoli dell'indice stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown dell'indice (solo prezzo, nella valuta dell'indice; per l'MSCI Emerging l'ETF EEM in dollari). «Storia» dice come è ricostruito il passato: con la composizione di ogni data, o con i membri di oggi. La rotazione di 9 di questi indici (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), con ETF in euro, è in <b>2 Rotazione</b>, universo <b>6 · Indici</b>.</p></div>
     </div>
     <div class="grid-2" style="margin-top:12px">
       <div class="panel">
@@ -540,14 +544,13 @@
           <span><span class="kb" style="background:var(--down)"></span>fallito</span>
           <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
           <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
-          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute)</span>
+          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento<button type="button" class="info" aria-label="Spiegazione: avvicinamento" aria-expanded="false" data-info="Breadth sotto la soglia dell'indice: livello blu più il suo calo forte in 10 sedute. Promemoria, non uno stato." data-guide="idx-avvicinamento">i</button></span>
           <span class="muted">coda = ultime 8 settimane · clic per il dettaglio</span>
         </div>
       </div>
       <div class="panel">
-        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="ph"><h2>Distanza dal livello blu</h2><button type="button" class="info" aria-label="Spiegazione: Distanza dal livello blu" aria-expanded="false" data-info="Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nello SMI (20 titoli) uno solo sposta la breadth di 5 punti, nello STOXX 600 di meno di 0,2." data-guide="idx-distanza">i</button><span class="meta">punti di breadth · dal più vicino</span></div>
         <div class="dist" id="ixDist"></div>
-        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nello SMI (20 titoli) uno solo sposta la breadth di 5 punti, nello STOXX 600 di meno di 0,2.</p>
       </div>
     </div>
     <div class="panel" id="ixDetail" style="margin:12px 0">
@@ -582,14 +585,16 @@
           </div>
         </div>
         <details class="panel fold" id="ixEpiBox" data-keep="ixEpi">
-          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="ixEpiMeta"></span></summary>
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><button type="button" class="info" aria-label="Spiegazione: Episodi in zona blu dell'indice" aria-expanded="false" data-src="ixEpiHelp" data-guide="idx-episodi">i</button><span class="meta" id="ixEpiMeta"></span></summary>
+          <div class="info-src" id="ixEpiHelp" hidden><p>Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.</p></div>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu dell'indice"><table class="t" id="ixEpiTable"></table></div>
-          <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.</p>
+          <p class="note pb ctx-h"><b>Per confronto</b><button type="button" class="info" aria-label="Spiegazione: Per confronto" aria-expanded="false" data-info="Gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia." data-guide="idx-episodi">i</button></p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi dell'indice a confronto con una seduta qualsiasi"><table class="t ctx" id="ixEpiCtx"></table></div>
-          <p class="note pb">Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
+          <p class="note pb">Storia ricostruita, pochi casi: esempi, non probabilità.</p>
         </details>
         <details class="panel capcard fold" id="ixCap" data-keep="ixCap">
-          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="ixCapMeta"></span></summary>
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><button type="button" class="info" aria-label="Spiegazione: Cali forti dell'indice" aria-expanded="false" data-src="ixCapHelp" data-guide="cali">i</button><span class="meta" id="ixCapMeta"></span></summary>
+          <div class="info-src" id="ixCapHelp" hidden></div>
           <div class="pb" id="ixCapBody">
             <div class="controls capctl" id="ixCapCtl"></div>
             <p class="note" id="ixCapNow"></p>
@@ -624,7 +629,7 @@
             </div>
             <p class="note" id="ixBlueSrc"></p>
             <p class="note" id="ixBlueInfo"></p>
-            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+            <p class="note">Vale solo in questo browser.</p>
           </div>
         </div>
         <div class="panel">
@@ -633,6 +638,7 @@
         </div>
       </div>
     </div>
+    <p class="srcline" id="ixSrc">Prezzi Yahoo Finance, solo prezzo · membri da Wikipedia, iShares, Nasdaq, Nikkei e B3 (alcuni indici con i membri di oggi) · livelli blu dai grafici di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) o 3° percentile della storia · <a href="guida.html#fonti-idx" target="_blank" rel="noopener">Fonti e note ↗</a></p>
     </div>
   </section>
 

@@ -473,8 +473,8 @@ export function createBottom(ctx) {
     $('blueInfo').textContent = `${ilPct(share)} ${share}% delle sedute dal ${DATES[f0].slice(0, 4)} è stato sotto questo livello. Con ${n} titoli, uno vale ${fmt(100 / n)} punti.`;
     $('blueSrc').innerHTML = changed(s)
       ? `<span class="loc">modificato in questo browser · livello di default ${config.blue[s]}%</span>`
-      : isInd(s) ? `Livello di default di ${esc(ICFG[s].blueSource)}. Con ${n} titoli il ${config.blue[s]}% vuol dire ${Math.floor((config.blue[s] * n) / 100) === 0 ? 'nessun titolo' : `al massimo ${titoli(Math.floor((config.blue[s] * n) / 100))}`} sopra la media a 200 sedute. Le regole di zona blu, trigger e cooldown sono di questa app.`
-        : 'Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea. Le regole di zona blu, trigger e cooldown sono di questa app.';
+      : isInd(s) ? `Livello di default di ${esc(ICFG[s].blueSource)}. Con ${n} titoli il ${config.blue[s]}% vuol dire ${Math.floor((config.blue[s] * n) / 100) === 0 ? 'nessun titolo' : `al massimo ${titoli(Math.floor((config.blue[s] * n) / 100))}`} sopra la media a 200 sedute.`
+        : 'Livello di default: tabella «200 LEVEL SETTORI» di Massimo Rea (quant-rea).'; // regole dell'app: guida, «Stati»
     $('blueReset').hidden = !changed(s);
     // la configurazione copiata prima non vale più: si toglie il messaggio e il testo vecchio
     $('copyMsg').textContent = ''; $('cfgText').hidden = true;
@@ -513,10 +513,14 @@ export function createBottom(ctx) {
     const N = nowOf(s), n = BR[s].n[N], mem = BR[s].members[N];
     const young = lt ? lt.members.filter((r) => r.d200 == null).map((r) => r.s) : [];
     const f0 = BR[s].pct200.findIndex((v) => v != null);
-    box.innerHTML = `<b>Come è costruita questa storia.</b> La breadth usa i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)} (lista iShares${list && list.asOf ? ` letta il ${dIT(list.asOf)}` : ''}) anche per il passato, dal ${dIT(DATES[f0])}: molti allora non erano quotati, quindi i titoli contati crescono nel tempo (oggi ${n}) e chi è uscito dall'indice non c'è. ` +
+    // nella pagina la frase corta con l'approssimazione; il testo completo nel riquadro «i» accanto (1.13.0)
+    box.innerHTML = `Storia con i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)}, dal ${dIT(DATES[f0])}: chi è uscito non c'è e un titolo vale ${fmt(100 / n)} punti.` +
+      (young.length ? ` ${young.join(', ')} ${young.length === 1 ? 'conta' : 'contano'} come «sotto la media» (meno di 200 sedute).` : '') +
+      ' Statistiche indicative <button type="button" class="info" aria-label="Spiegazione: come è costruita questa storia" aria-expanded="false" data-src="secQualityHelp" data-guide="industrie">i</button>';
+    $('secQualityHelp').innerHTML = `<p><b>Come è costruita questa storia.</b> La breadth usa i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)} (lista iShares${list && list.asOf ? ` letta il ${dIT(list.asOf)}` : ''}) anche per il passato, dal ${dIT(DATES[f0])}: molti allora non erano quotati, quindi i titoli contati crescono nel tempo (oggi ${n}) e chi è uscito dall'indice non c'è. ` +
       `${esc(ICFG[s].note || '')} Con ${n} titoli uno vale ${fmt(100 / n)} punti: la breadth salta molto in pochi giorni. ` +
       (young.length ? `${young.join(', ')} ${young.length === 1 ? 'è quotato' : 'sono quotati'} da meno di 200 sedute e ${young.length === 1 ? 'conta' : 'contano'} come «sotto la media» finché non le ${young.length === 1 ? 'ha' : 'hanno'}. ` : '') +
-      `Prezzo: ETF ${esc(ICFG[s].etf)} con i dividendi reinvestiti. Statistiche del livello blu e degli episodi indicative: <a href="guida.html#industrie" target="_blank" rel="noopener">guida</a>.`;
+      `Prezzo: ETF ${esc(ICFG[s].etf)} con i dividendi reinvestiti. Statistiche del livello blu e degli episodi indicative.</p>`;
     box.hidden = false;
   }
   function renderMembers(s) {
@@ -555,7 +559,7 @@ export function createBottom(ctx) {
     // la zona blu chiede il percentile del drawdown: per XLRE e XLC (ETF dal 2015 e dal 2018) la storia utile parte dopo
     const first = Math.max(BR[s].pct200.findIndex((v) => v != null), PX[s].dp.findIndex((v) => v != null));
     const nTrig = m.events.filter((e) => e.code === 'trig').length, nFail = m.events.filter((e) => e.code === 'fail').length;
-    $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''} · rendimenti a confronto sotto la tabella`;
+    $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''}`;
     // per confronto: una seduta qualsiasi della stessa storia e SPY negli stessi giorni dei trigger
     const at = { trig: m.events.filter((e) => e.code === 'trig').map((e) => e.t), setup: m.setups.map((u) => u.t) };
     $('epiCtx').innerHTML = contextHTML(signalContext(c, at, first, [21, 63, 126], PX.SPY.close), { h: ['+1M', '+3M', '+6M'], key: 1, since: DATES[first].slice(0, 4), bench: 'SPY', what: isInd(s) ? "l'industria" : 'il settore' });
