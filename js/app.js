@@ -323,11 +323,6 @@ function routeHash(silent) {
 }
 
 const formulaText = () => (state.formula === 'semplice' ? 'medie semplici' : 'formula nuova');
-// riga sempre visibile della nota sotto il grafico; il confronto completo è in index.html (#fxBox)
-const FX_SUM = {
-  nuova: '<b>Formula nuova</b> · medie esponenziali divise per la volatilità · <span class="fx-open">come si calcola e cosa cambia con le medie semplici</span>',
-  semplice: '<b>Medie semplici</b> · come StockCharts, distanza da 100 in punti percentuali · <span class="fx-open">come si calcola e cosa cambia con la nuova</span>',
-};
 
 // quadrante e direzione di un ETF settoriale vs SPY (settimanale), per la tabella dei settori
 function sectorRotation(s) {
@@ -457,6 +452,10 @@ function renderPriceTable() {
   const COLS = { last: 'ultimo', d1: '1G', w1: '1S', m1: '1M', m3: '3M', ytd: 'YTD' };
   const cps = rows.map(({ s, mt }) => [s, mt]).concat([[bench, bm]]).filter(([, mt]) => mt.copied)
     .map(([s, mt]) => `${s} (${Object.keys(mt.copied).map((k) => COLS[k]).join(', ')}: ${[...new Set(Object.values(mt.copied).flat())].sort().map(dIT).join(', ')})`);
+  // nella pagina l'asterisco in una riga; il testo completo nel riquadro «i» del titolo (#pxCopied, 1.13.0)
+  const star = isGlobal() ? 'Sedute di Borsa Italiana · * ultimo prezzo noto: borsa chiusa per festa o barra del giorno mancante (bitcoin: chiusura a mezzanotte UTC).'
+    : cps.length ? '* ultimo prezzo noto: Yahoo non ha la barra di quel giorno, vale il prezzo della seduta prima.' : '';
+  $('pxNote').textContent = star; $('pxNote').hidden = !star;
   $('pxCopied').textContent = (isGlobal() ? ' Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l\'ultima seduta, il prezzo al momento dell\'aggiornamento; se Yahoo non ha la barra del giorno, quello del giorno prima, con l\'asterisco).' : '') +
     (cps.length ? ` * Con un prezzo ricopiato dalla seduta prima, perché Yahoo non ha la barra di quel giorno (nessuno scambio o dato mancante): ${cps.join('; ')}.` : '');
   $('monTable').querySelectorAll('th button').forEach((b) => b.onclick = () => {
@@ -508,15 +507,14 @@ function renderRRGView(frameOnly = false) {
   const m = state.model;
   $('rrgTitle').textContent = `Rotazione relativa · ${state.group} vs ${byLabel() ? label(state.benchmark) : state.benchmark}`;
   $('rrgMeta').innerHTML = `${state.timeframe === 'weekly' ? 'settimanale' : 'giornaliero'} · ${formulaText()}` + (isGlobal() ? ` · ${globalFreshness()}` : isMacro() ? ` · ${macroFreshness()}` : '');
-  const fx = $('fxBox');
-  if (fx.dataset.f !== state.formula) { fx.dataset.f = state.formula; $('fxSum').innerHTML = FX_SUM[state.formula] || FX_SUM.nuova; }
   const fr = $('frame');
   fr.min = minFrame(); fr.max = lastFrame(); fr.value = state.frame;
   $('frameDate').textContent = dIT(m.dates[state.frame]) + (isProvisional() ? ' *' : '');
   fr.setAttribute('aria-valuetext', dIT(m.dates[state.frame]) + (isProvisional() ? ', provvisorio' : ''));
   $('provNote').hidden = !isProvisional();
   const px = state.tableMode === 'px';
-  $('rotWrap').hidden = px; $('rotNote').hidden = px; $('pxWrap').hidden = !px; $('pxNote').hidden = !px;
+  $('rotWrap').hidden = px; $('pxWrap').hidden = !px; $('pxNote').hidden = !px;
+  $('tableInfo').dataset.src = px ? 'pxHelp' : 'rotHelp'; // il riquadro «i» spiega la tabella mostrata (1.13.0)
   $('tableTitle').textContent = px ? `Prezzi · ${state.group}` : 'Tabella di rotazione';
   if (px) renderPriceTable(); else renderRotTable();
   if (!frameOnly) { renderPerf(); renderPortfolio(); renderMacroNotes(); }
@@ -588,7 +586,7 @@ function renderPortfolio() {
     : syms.map(row).join('');
   // somme allineate sotto le caselle dei numeri: uno spazio largo quanto il cursore, poi il valore
   const total = '<tr class="tot"><td>Totale</td><td class="tkcol"></td><td class="wcell"><span class="wsp"></span><span class="wsum" id="ptfTot"></span><span class="pct">%</span></td><td class="num r">100%</td></tr>';
-  $('ptfTable').innerHTML = `<thead><tr><th>${classes ? 'Classe e componente' : 'Componente'}</th><th class="tkcol">ETF</th><th>Obiettivo</th><th class="r">Oggi</th></tr></thead><tbody>${body}${total}</tbody>`;
+  $('ptfTable').innerHTML = `<thead><tr><th>${classes ? 'Classe e componente' : 'Componente'}</th><th class="tkcol">ETF</th><th title="Il peso ripristinato alla chiusura dell'ultima seduta di ogni mese">Obiettivo</th><th class="r" title="Il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento">Oggi</th></tr></thead><tbody>${body}${total}</tbody>`;
   // riga: passandoci sopra evidenzia la componente nel grafico, clic o Invio la fissa (come la tabella di rotazione)
   $('ptfTable').querySelectorAll('tbody tr[data-sym]').forEach((tr) => {
     const s = tr.dataset.sym;
@@ -630,11 +628,11 @@ function updatePortfolioText() {
   // riga sopra il grafico: solo le classi (o componenti) con un peso
   const mix = classes ? classes.filter((c) => sum(c.tickers, w) > 0).map((c) => `${c.name} ${pw(eff(sum(c.tickers, w)))}`) : syms.filter((s) => w[s] > 0).map((s) => `${label(s)} ${pw(eff(w[s]))}`);
   const who = custom ? 'il <b>tuo portafoglio</b>' : 'un <b>portafoglio di esempio</b>';
-  $('ptfLine').innerHTML = mix.length ? `Contro ${who}: ${esc(mix.join(' · '))}. Composizione e cursori sotto il grafico.` : `Contro ${who}: tutti i pesi sono a 0, quindi il portafoglio è vuoto. Sposta un cursore sotto il grafico.`;
+  $('ptfLine').innerHTML = mix.length ? `Contro ${who}: ${esc(mix.join(' · '))}.` : `Contro ${who}: tutti i pesi sono a 0, quindi il portafoglio è vuoto. Sposta un cursore sotto il grafico.`;
   $('ptfLine').hidden = !isPtf;
   $('ptfMeta').textContent = `${syms.length} componenti · ribilanciato a fine mese${custom ? ' · pesi tuoi' : ''}`;
   $('ptfWhat').innerHTML = isPtf
-    ? `Il benchmark è ${who}, fatto con le ${syms.length} componenti di questo universo e i pesi qui sotto: sposta i cursori per adattarlo al tuo portafoglio di lungo periodo. Ogni punto del grafico confronta una componente con il portafoglio intero: a destra del centro la componente è più forte del portafoglio, in alto la sua forza relativa sta migliorando.`
+    ? `Benchmark: ${who} con le ${syms.length} componenti qui sotto. Sposta i cursori per adattarlo al tuo.`
     : `Questo universo è formato dalle componenti ${custom ? 'del <b>tuo portafoglio</b>' : 'di un <b>portafoglio di esempio</b>'}, ma ora le confronti con <b>${esc(label(state.benchmark))}</b>: i cursori cambiano il portafoglio, non questo grafico. <button type="button" class="mini" id="ptfUse">Confronta con il portafoglio</button>`;
   if ($('ptfUse')) $('ptfUse').onclick = () => { $('benchSel').value = p.key; $('benchSel').dispatchEvent(new Event('change')); };
   const now = (s) => (w[s] > 0 ? (p.now[s] == null ? '—' : fmt(p.now[s], 1) + '%') : '0%');
@@ -652,8 +650,9 @@ function updatePortfolioText() {
   $('ptfTotNote').hidden = !off;
   $('ptfNorm').hidden = !off || !tot;
   $('ptfReset').disabled = !custom;
+  // definizioni di «Obiettivo» e «Oggi» nei title delle intestazioni e nella guida (1.13.0)
   $('ptfFoot').innerHTML = (custom ? '' : 'Pesi indicativi, non una raccomandazione. ') +
-    `<b>Obiettivo</b>: il peso ripristinato alla chiusura dell'ultima seduta di ogni mese. <b>Oggi</b>: il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento (${dIT(p.rebalanced)}).` +
+    `Ultimo ribilanciamento: ${dIT(p.rebalanced)}.` +
     (p.missing && p.missing.length ? ` Senza ${esc(p.missing.map(label).join(', '))} per dati mancanti: i pesi delle altre componenti sono riproporzionati.` : '');
 }
 // ricalcolo al massimo una volta per fotogramma mentre si trascina un cursore
@@ -774,9 +773,8 @@ function renderMacroNotes() {
     tr.onclick = () => { if (ok && b !== state.benchmark) { $('benchSel').value = b; $('benchSel').dispatchEvent(new Event('change')); } };
     tr.onkeydown = (e) => { if (e.key === 'Enter') tr.onclick(); };
   }
-  $('mxNow').innerHTML = now
-    ? `Ora il benchmark è <b>${esc(label(state.benchmark))}</b>: ${esc(now.cells[1].textContent.charAt(0).toLowerCase() + now.cells[1].textContent.slice(1))}`
-    : `Ora il benchmark è <b>${esc(label(state.benchmark))}</b>.`;
+  // la spiegazione del benchmark scelto è nella sua riga, evidenziata (1.13.0)
+  $('mxNow').innerHTML = `Ora il benchmark è <b>${esc(label(state.benchmark))}</b>${now ? ` (${esc(now.dataset.b === 'DXY_INV' ? '1/DXY' : now.dataset.b)})` : ''}: clic su una riga per cambiarlo.`;
   $('mxMeta').textContent = `${grp().benchmarks.length} benchmark · clic su una riga per cambiarlo`;
 }
 

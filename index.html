@@ -110,7 +110,7 @@
       <span class="seg" id="formulaSeg" role="group" aria-label="Formula">
         <button type="button" data-formula="nuova" aria-pressed="true" title="Nostra formula: medie esponenziali a 10 e 30 barre sul logaritmo della forza relativa, divise per la sua volatilità. Tutti i titoli sulla stessa scala, di solito entro 3 punti da 100">Nuova</button>
         <button type="button" data-formula="semplice" aria-pressed="false" title="Come StockCharts: RS-Ratio = 100 × media semplice a 10 barre ÷ media a 30 della forza relativa; RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. Distanza da 100 in punti percentuali">Medie semplici</button>
-      </span></span>
+      </span><button type="button" class="info" aria-label="Spiegazione: le due formule" aria-expanded="false" data-info="Nuova: medie esponenziali sul logaritmo della forza relativa, divise per la volatilità: tutti i titoli sulla stessa scala, di solito entro 3 punti da 100. Medie semplici: come StockCharts, distanza da 100 in punti percentuali. Danno lo stesso quadrante circa tre volte su quattro. Come si calcolano e verifica: nella guida." data-guide="formule">i</button></span>
   </div>
 
   <!-- 1 MONITOR -->
@@ -188,40 +188,13 @@
           <span><span class="kb" style="background:var(--q-lead)"></span>Leading</span>
           <span><span class="kb" style="background:var(--q-weak)"></span>Weakening</span>
           <span><span class="kb" style="background:var(--q-lag)"></span>Lagging</span>
-          <span class="muted">colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo</span>
+          <span class="muted">passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo</span>
           <span class="muted" id="provNote" hidden>punto vuoto = settimana in corso, provvisorio</span>
         </div>
-        <!-- come si calcola la formula scelta e cosa cambia con l'altra -->
-        <details class="fx" id="fxBox">
-          <summary id="fxSum">Come si calcolano le due formule</summary>
-          <div class="fx-cols">
-            <div class="fx-col" data-f="nuova">
-              <h3>Nuova <span>· nostra, predefinita</span></h3>
-              <ul>
-                <li>Forza relativa in logaritmo: ln(prezzo ÷ benchmark).</li>
-                <li><b>RS-Ratio</b>: differenza tra la media esponenziale a 10 barre e quella a 30, divisa per la volatilità della forza relativa (emivita 26 barre) e riportata attorno a 100.</li>
-                <li><b>RS-Momentum</b>: scarto dell'RS-Ratio dalla sua media esponenziale a 8 barre, sulla stessa scala.</li>
-                <li>Dividendo per la volatilità, tutti i titoli stanno sulla stessa scala: un settore tranquillo e uno agitato con un trend ugualmente solido stanno alla stessa distanza dal centro, di solito entro 3 punti da 100.</li>
-                <li>Le medie esponenziali non fanno saltare il valore quando un dato vecchio esce dal calcolo.</li>
-              </ul>
-            </div>
-            <div class="fx-col" data-f="semplice">
-              <h3>Medie semplici <span>· come StockCharts</span></h3>
-              <ul>
-                <li>Forza relativa: prezzo ÷ benchmark.</li>
-                <li><b>RS-Ratio</b> = 100 × media semplice a 10 barre ÷ media semplice a 30.</li>
-                <li><b>RS-Momentum</b> = 100 × RS-Ratio ÷ sua media semplice a 9 barre.</li>
-                <li>Nessuna normalizzazione: la distanza da 100 è in punti percentuali, quindi i titoli più volatili vanno più lontano e disegnano code più lunghe (sui settori di solito entro 10 punti).</li>
-                <li>Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts (verificato su 11 letture del 25/09/2026). Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso, per via dei dividendi.</li>
-              </ul>
-            </div>
-          </div>
-          <p class="note">In pratica si leggono allo stesso modo: RS-Ratio sopra 100 = più forte del benchmark, RS-Momentum sopra 100 = forza in aumento. Sui settori USA dal 2022 le due formule danno lo stesso quadrante circa tre volte su quattro; le differenze stanno soprattutto vicino a 100. Le medie semplici servono per confrontarsi con le piattaforme ufficiali; la nuova per confrontare asset con volatilità molto diverse, come le asset class.</p>
-        </details>
       </div>
       <!-- composizione del portafoglio di riferimento, solo negli universi che ne hanno uno -->
       <div class="panel" id="ptfPanel" hidden>
-        <div class="ph"><h2>Portafoglio di riferimento</h2><span class="meta" id="ptfMeta"></span></div>
+        <div class="ph"><h2>Portafoglio di riferimento</h2><button type="button" class="info" aria-label="Spiegazione: Portafoglio di riferimento" aria-expanded="false" data-info="Sposta i cursori o scrivi il peso (con la tastiera: frecce un punto, Pagina su/giù dieci). Se il totale non fa 100% i pesi valgono in proporzione. Il portafoglio si ricalcola su tutta la storia e si ribilancia alla chiusura dell'ultima seduta di ogni mese. I pesi restano in questo browser." data-guide="portafoglio">i</button><span class="meta" id="ptfMeta"></span></div>
         <div class="pb ptf-box">
           <p class="note" id="ptfWhat"></p>
           <div class="tscroll"><table class="t ptf" id="ptfTable"></table></div>
@@ -231,23 +204,11 @@
             <button type="button" class="mini" id="ptfReset" disabled>Ripristina l'esempio</button>
           </div>
           <p class="note" id="ptfFoot"></p>
-          <details class="fx" id="ptfHow">
-            <summary><b>Il tuo portafoglio</b> · <span class="fx-open">come adattare i pesi e cosa cambia nel grafico</span></summary>
-            <ul class="fx-list">
-              <li>Sposta i cursori, oppure scrivi il numero nella casella accanto, per dare a ogni componente il peso che ha nel tuo portafoglio di lungo periodo. Con la tastiera, sul cursore le frecce cambiano il peso di un punto e Pagina su/giù di dieci.</li>
-              <li>A 0% una componente esce dal portafoglio ma resta sul grafico, confrontata con il resto. Le componenti sono fisse: se hai un'attività che qui non c'è, dai il suo peso a quella più simile.</li>
-              <li>Il totale dovrebbe fare 100%. Se non torna, i pesi valgono in proporzione: con 60 e 60, per esempio, ciascuna componente conta per metà. «Porta a 100%» riscrive i numeri mantenendo le proporzioni.</li>
-              <li>Il portafoglio viene ricalcolato su tutta la storia con i nuovi pesi, come se li avessi sempre avuti, e riportato ai pesi scelti alla chiusura dell'ultima seduta di ogni mese. «Oggi» mostra i pesi dopo i movimenti dei prezzi dall'ultimo ribilanciamento.</li>
-              <li>Ogni punto del grafico confronta una componente con il tuo portafoglio: a destra del centro fa meglio del portafoglio, in alto la sua forza relativa migliora. Così vedi quali parti lo trainano e quali lo frenano. Tabella e performance relativa si aggiornano insieme al grafico.</li>
-              <li>I cursori contano quando il benchmark è il portafoglio: con liquidità o MSCI World il confronto resta con quell'indice.</li>
-              <li>I pesi restano salvati in questo browser: non li vede nessun altro e non cambiano gli altri universi. «Ripristina l'esempio» torna al portafoglio di partenza.</li>
-            </ul>
-          </details>
         </div>
       </div>
       <!-- asset reali: cosa mostra ogni benchmark (clic su una riga per sceglierlo) -->
       <div class="panel" id="mxPanel" hidden>
-        <div class="ph"><h2>Come leggere i benchmark</h2><span class="meta" id="mxMeta"></span></div>
+        <div class="ph"><h2>Come leggere i benchmark</h2><button type="button" class="info" aria-label="Spiegazione: dati e limiti degli asset reali" aria-expanded="false" data-src="mxHelp" data-guide="asset-reali">i</button><span class="meta" id="mxMeta"></span></div>
         <div class="pb mx-box">
           <p class="note" id="mxNow"></p>
           <div class="tscroll"><table class="t mx" id="mxTable">
@@ -261,31 +222,22 @@
               <tr data-b="GLD" tabindex="0"><td><b>Oro</b><span class="tk">GLD</span></td><td>Tutto misurato in oro: a destra chi batte il bene rifugio.</td></tr>
             </tbody>
           </table></div>
-          <details class="fx" id="mxHow">
-            <summary><b>Da sapere</b> · <span class="fx-open">dati, limiti e come usare questo universo</span></summary>
-            <ul class="fx-list">
-              <li>Contro liquidità e inflazione il grafico legge soprattutto il trend assoluto: sono serie che crescono piano e con regolarità, quindi spostano il centro più che la rotazione. Le informazioni in più vengono dai benchmark che oscillano: dollaro, Treasury, azioni e oro.</li>
-              <li>Tassi e rendimenti non sono prezzi, quindi non stanno al denominatore: entrano come investimenti (liquidità BIL, Treasury IEF, TIPS indicizzati all'inflazione).</li>
-              <li>Il dollar index diretto conterebbe due volte il movimento del dollaro: per togliere il dollaro si usa il suo inverso.</li>
-              <li>Il CPI (BLS, via FRED) è mensile: ogni valore entra dal giorno in cui è stato pubblicato, così il grafico non usa un mese prima che fosse noto (i valori sono quelli rivisti di oggi, le date quelle della prima uscita). Ottobre 2025 non è mai uscito, per lo shutdown del governo USA.</li>
-              <li>Bitcoin quota sempre e il dollar index quasi 24 ore: si usa il loro ultimo prezzo a ogni seduta di New York.</li>
-              <li>Gli ETF sono indicatori in dollari, non strumenti consigliati. Chi investe in euro trova oro, materie prime e bitcoin contro la liquidità in euro nell'universo 1 · Asset class; tra gli equivalenti quotati in Europa ci sono SGLD (oro), PHAG (argento), COPA (rame), CRUD (petrolio) e CMOD (materie prime).</li>
-            </ul>
-          </details>
+          <div class="info-src" id="mxHelp" hidden><p>Contro liquidità e inflazione il grafico legge soprattutto il trend assoluto: sono serie che crescono piano e con regolarità, quindi spostano il centro più che la rotazione. Le informazioni in più vengono dai benchmark che oscillano: dollaro, Treasury, azioni e oro.</p><p>Tassi e rendimenti non sono prezzi, quindi non stanno al denominatore: entrano come investimenti (liquidità BIL, Treasury IEF, TIPS indicizzati all'inflazione).</p><p>Il dollar index diretto conterebbe due volte il movimento del dollaro: per togliere il dollaro si usa il suo inverso.</p><p>Il CPI (BLS, via FRED) è mensile: ogni valore entra dal giorno in cui è stato pubblicato, così il grafico non usa un mese prima che fosse noto (i valori sono quelli rivisti di oggi, le date quelle della prima uscita). Ottobre 2025 non è mai uscito, per lo shutdown del governo USA.</p><p>Bitcoin quota sempre e il dollar index quasi 24 ore: si usa il loro ultimo prezzo a ogni seduta di New York.</p><p>Gli ETF sono indicatori in dollari, non strumenti consigliati. Chi investe in euro trova oro, materie prime e bitcoin contro la liquidità in euro nell'universo 1 · Asset class; tra gli equivalenti quotati in Europa ci sono SGLD (oro), PHAG (argento), COPA (rame), CRUD (petrolio) e CMOD (materie prime).</p></div>
         </div>
       </div>
       </div>
       <div class="stack">
         <div class="panel">
-          <div class="ph"><h2 id="tableTitle">Tabella di rotazione</h2><span class="meta push" id="rotMeta"></span>
+          <div class="ph"><h2 id="tableTitle">Tabella di rotazione</h2><button type="button" class="info" id="tableInfo" aria-label="Spiegazione: colonne della tabella" aria-expanded="false" data-src="rotHelp" data-guide="rrg-tabelle">i</button><span class="meta push" id="rotMeta"></span>
             <span class="seg" id="tableSeg" role="group" aria-label="Tabella">
               <button type="button" data-mode="rot" aria-pressed="true">Rotazione</button>
               <button type="button" data-mode="px" aria-pressed="false">Prezzi</button>
             </span></div>
           <div class="tscroll" id="rotWrap"><table class="t" id="rotTable"></table></div>
           <div class="tscroll" id="pxWrap" hidden><table class="t" id="monTable"></table></div>
-          <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.<span class="only-phone"> Sul telefono Vel., Dist., Prima e le variazioni sono nascoste: ruotalo o usa un computer per vederle.</span></p>
-          <p class="note pb" id="pxNote" hidden>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni (nel Monitor il percentile usa la storia dal 2004, quindi lo stesso ETF può essere rosso in una tabella e no nell'altra); il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Clic su un'intestazione per ordinare.<span id="pxCopied"></span></p>
+          <p class="note pb" id="pxNote" hidden></p>
+          <div class="info-src" id="rotHelp" hidden><p>Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p></div>
+          <div class="info-src" id="pxHelp" hidden><p>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni (nel Monitor il percentile usa la storia dal 2004, quindi lo stesso ETF può essere rosso in una tabella e no nell'altra); il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView.</p><p id="pxCopied"></p></div>
         </div>
         <div class="panel">
           <div class="ph"><h2>Performance relativa</h2>
@@ -303,6 +255,7 @@
         </div>
       </div>
     </div>
+    <p class="srcline" id="rrgSrc">Prezzi di fine giornata: Yahoo Finance (ETF UCITS sulle sedute di Borsa Italiana; CPI USA da FRED) · formula «Medie semplici» come StockCharts; «Relative Rotation Graphs» è un marchio di RRG Research · idee di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) · <a href="guida.html#fonti-rrg" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 3 BOTTOM MAP -->
