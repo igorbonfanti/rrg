@@ -12,6 +12,7 @@ import { priceMetrics, priceDrawdown, copiedAt } from './metrics.js';
 import { drawRRG, nearestHead, SIZE } from './rrg-chart.js';
 import { drawPerf } from './perf-chart.js';
 import { zoomGroup } from './zoom.js';
+import { bindInfo } from './info.js';
 import { expectedSession, sessionsBetween, MILAN } from './calendar.js';
 import { portfolioIndex, cleanWeights, toHundred } from './portfolio.js';
 import { esc, fmt, sgn, sgnP, pct, dIT, arrow, qPill, QKEY, placeTip, chartWidth, DD_TIP, DDP_TIP, ddpTip } from './format.js';
@@ -899,6 +900,7 @@ function bindTapTips() {
 
 function bind() {
   bindTapTips();
+  bindInfo(); // bottoni «i» delle spiegazioni (1.13.0)
   document.querySelectorAll('.fnkeys button[data-view]').forEach((b) => b.onclick = () => setView(b.dataset.view));
   $('groupSel').onchange = (e) => {
     state.group = e.target.value; store.set('group', state.group);

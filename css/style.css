@@ -1047,9 +1047,6 @@ svg.flag { vertical-align: -1px; display: inline-block; }
 .t.ath td.nm { margin-left: 0; color: inherit; }
 
 /* vista 0 Massimi (1.12.0): linea del tempo dei massimi */
-.ihint { display: inline-grid; place-items: center; width: 16px; height: 16px; margin: 0 auto 0 6px; padding: 0; border: 1px solid var(--ink-3); border-radius: 50%; color: var(--ink-3); font: 600 10.5px/1 var(--f-mono); cursor: help; flex: none; text-decoration: none; }
-.ihint:hover, .ihint:focus-visible { color: #000; background: var(--amber); border-color: var(--amber); }
-@media (pointer: coarse) { .ihint { position: relative; } .ihint::after { content: ''; position: absolute; inset: -8px; } }
 .pkorder { line-height: 1.6; }
 .pkorder .pkordh { color: var(--ink); font-weight: 600; text-decoration: underline dotted var(--ink-3); text-underline-offset: 3px; }
 .pkorder .pkord { white-space: nowrap; text-decoration: underline dotted var(--ink-3); text-underline-offset: 3px; }
@@ -1076,3 +1073,30 @@ svg.flag { vertical-align: -1px; display: inline-block; }
 .ts.pk.nar .pknote { font: 11px var(--f-ui); }
 @media (max-width: 600px) { .pkbody { padding: 0 6px 4px; } }
 .legend .pkk-zero { width: 2px; height: 10px; vertical-align: -1px; background: var(--ink-2); }
+
+/* ---------- 1.13.0: bottone «i» delle spiegazioni (js/info.js), riquadro e riga delle fonti ---------- */
+.info { display: inline-grid; place-items: center; width: 16px; height: 16px; margin: 0 0 0 6px; padding: 0; vertical-align: 1px;
+  border: 1px solid var(--ink-3); border-radius: 50%; background: transparent; color: var(--ink-3);
+  font: 600 10.5px/1 var(--f-mono); text-transform: none; letter-spacing: 0; cursor: pointer; flex: none; position: relative; }
+.info:hover, .info[aria-expanded="true"] { color: #000; background: var(--amber-fill, var(--amber)); border-color: var(--amber); }
+.info:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+/* area di tocco di almeno 32 px senza allargare il disegno */
+@media (pointer: coarse) { .info::after { content: ''; position: absolute; inset: -8px; } }
+/* nei titoli dei pannelli: accanto al titolo, il resto della riga resta a destra */
+.ph > .info { margin-left: -4px; align-self: center; }
+.ph > h2 + .info, .ph > h3 + .info, .ph > .h2 + .info, summary.ph > .h2 + .info { margin-right: auto; }
+th .info { margin-left: 3px; vertical-align: 0; }
+.legend .info { margin-left: 4px; }
+.infopop { position: fixed; z-index: 70; padding: 9px 11px; background: var(--panel); color: var(--ink-2); border: 1px solid var(--amber);
+  font: 12.5px/1.45 var(--f-ui); box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); max-height: calc(100vh - 24px); overflow: auto; text-transform: none; letter-spacing: 0; }
+.infopop p { margin: 0 0 6px; }
+.infopop p:last-child { margin-bottom: 0; }
+.infopop b { color: var(--ink); }
+.infopop a { color: var(--amber-2); }
+.infopop .mono { font: 11.5px var(--f-mono); }
+.infopop-g { font: 600 11.5px var(--f-mono); }
+.info-src { display: none !important; }
+/* una riga di fonti per vista, in fondo */
+.srcline { margin: 10px 2px 0; color: var(--ink-3); font: 11.5px/1.5 var(--f-mono); }
+.srcline a { color: var(--ink-2); }
+@media print { .info, .infopop { display: none !important; } }

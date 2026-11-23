@@ -112,11 +112,12 @@ function want(m, narrow, ongoingEp) {
     ok(k0.title.includes(`in ${ko.withPeak} cali su 8: ${ko.before} prima, ${ko.together} insieme, ${ko.after} dopo`) && k0.title.includes(`scarto mediano ${sg(ko.medianOffset)} giorni`), `${name}: dettaglio del KOSPI nell'ordine «${k0.title.slice(0, 80)}…»`);
     ok(/negli 8 cali dell'S&P 500 di almeno il 15% dal 2000 al 2025/.test(await p.$eval('#pkOrder .pkordh', (x) => x.title).catch(() => '')), `${name}: ordine tipico con il periodo nel suggerimento`);
     // intestazione: «i» con il motivo, riga dei dati
-    const head = await p.evaluate(() => ({ h2: (document.querySelector('#pkPanel h2') || {}).textContent, i: (document.querySelector('#pkPanel .ihint') || {}).title, meta: (document.getElementById('pkMeta') || {}).textContent }));
+    const head = await p.evaluate(() => ({ h2: (document.querySelector('#pkPanel h2') || {}).textContent, i: (document.querySelector('#pkPanel .ihint') || {}).title || (document.querySelector('#pkPanel button.info') || { dataset: {} }).dataset.info, meta: (document.getElementById('pkMeta') || {}).textContent }));
     ok(head.h2 === 'Linea del tempo dei massimi' && head.i === INFO && head.meta === `ultimi 4 cali ≥ 15% dell'S&P 500 e il calo in corso, finora sotto il 15% · chiusure al ${dIT(F.asOf)}`, `${name}: intestazione «${head.h2}», «i» e «${head.meta}»`);
     if (phone) {
-      await tap(p.locator('#pkPanel .ihint')); await p.waitForTimeout(200);
-      const tt = await p.evaluate(() => { const t = document.querySelector('.taptip'); return t && !t.hidden ? t.textContent : ''; });
+      // dalla 1.13.0 la «i» è il bottone delle spiegazioni (js/info.js): il motivo compare nel riquadro, con il link alla guida
+      await tap(p.locator('#pkPanel .ihint, #pkPanel button.info')); await p.waitForTimeout(200);
+      const tt = await p.evaluate(() => { const t = document.querySelector('.taptip:not([hidden]), #infopop:not([hidden]) .infopop-t p:first-child'); return t ? t.textContent : ''; });
       ok(tt === INFO, `${name}: al tocco la «i» mostra il motivo («${tt.slice(0, 40)}…»)`);
       await p.mouse.click(5, 5).catch(() => {}); await p.waitForTimeout(100);
     }
@@ -196,6 +197,6 @@ function want(m, narrow, ongoingEp) {
   ok(ordTxt.every((t) => sec.includes(t)) && /80 e 71 giorni prima/.test(sec) && /161 giorni dopo/.test(sec) && /79,3%/.test(sec) && /solo 3/.test(sec), 'guida: numeri dell\'ordine tipico e del backtest');
   const v = await (await fetch(BASE + 'version.json?x=' + Date.now())).json();
   const js = await (await fetch(BASE + 'js/version.js?x=' + Date.now())).text();
-  ok(v.version === '1.12.0' && /VERSION = '1\.12\.0'/.test(js), `versione ${v.version}`);
+  ok(/^1\.1[2-9]\.\d+$/.test(v.version) && js.includes(`VERSION = '${v.version}'`), `versione ${v.version}`); // dalla 1.12.0 in poi
   await b.close(); console.log(`${okn} OK, ${fail} FAIL`); process.exit(fail ? 1 : 0);
 })();
