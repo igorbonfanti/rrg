@@ -240,8 +240,8 @@ export function createTitles(ctx) {
       g.addEventListener('mouseleave', () => { $('titSpreadTip').hidden = true; });
     });
     const lead = rows.filter((r) => r.sp > 0).length; // solo gli 11 settori
-    $('titSpreadNote').textContent = `Equal-weight davanti in ${lead} settori su 11. Ultima colonna: come è cambiata la divergenza rispetto a 1 mese fa ` +
-      `(▲ verso l'equal-weight, ▼ verso i grandi). Clic su un settore per vederne i titoli.`;
+    // l'ultima colonna (▲ ▼ rispetto a 1 mese fa) è spiegata nel riquadro «i» del titolo (1.13.0)
+    $('titSpreadNote').textContent = `Equal-weight davanti in ${lead} settori su 11. Clic su un settore per i suoi titoli.`;
   }
   function spreadTip(e, r) {
     const tip = $('titSpreadTip');

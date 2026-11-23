@@ -258,13 +258,21 @@ export function createBottom(ctx) {
     $('boardKpis').innerHTML = kpi.map(([k, v, s]) => `<div class="kpi"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`).join('');
     const isOn = (r) => r.state.code !== 'normal' || r.appr;
     const active = rows.filter(isOn), iactive = irows.filter(isOn);
-    $('activeMeta').textContent = `${active.length} su 11${iactive.length ? ` · più ${iactive.map((r) => r.s).join(', ')} (industria)` : ''} · in avvicinamento, attenzione, zona blu o dopo un trigger`;
+    $('activeMeta').textContent = `${active.length} su 11${iactive.length ? ` · più ${iactive.map((r) => r.s).join(', ')}` : ''}`; // il criterio è nel riquadro «i» del titolo (1.13.0)
     active.push(...iactive);
     $('activeList').innerHTML = active.length ? active.map((r) => `<div class="acard" data-sym="${r.s}" tabindex="0">
         <div class="acard-h"><span><span class="sym">${r.s}</span><span class="nm">${NM[r.s]}</span>${isInd(r.s) ? `<span class="indtag">industria${lag(r.s)}</span>` : ''}</span>${r.appr ? apprBadge() : badge(r.state.code)}</div>
         <div class="acard-t">${esc(r.appr ? apprWhy(r.s) : r.state.why)}</div>${explain(r.s).summary ? `<div class="acard-t ck-sum">${esc(explain(r.s).summary)}</div>` : ''}</div>`).join('') : '<p class="note">Nessun settore né industria vicino al livello blu.</p>';
     $('activeList').querySelectorAll('.acard').forEach((c) => { c.onclick = () => openSector(c.dataset.sym); c.onkeydown = (e) => { if (e.key === 'Enter') openSector(c.dataset.sym); }; });
-    $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth sotto la soglia di avvicinamento: livello blu più il calo forte del settore in 10 sedute. Non è uno stato e non manda alert. Nel campione degli 11 settori, circa un avvicinamento su tre tocca il livello entro sei mesi; con l\'Attenzione avvisa 50 tocchi del livello su 63, 7 più della sola Attenzione. È un promemoria, non un segnale per comprare o vendere: <a href="guida.html#avvicinamento" target="_blank" rel="noopener">come usarlo</a>.</span></div>` + [
+    // regola completa nel riquadro «i» del titolo (#stateHelp), una riga per stato nella pagina (1.13.0)
+    $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth sotto livello blu + suo calo forte in 10 sedute: promemoria, non uno stato.</span></div>` + [
+      ['watch', `breadth entro ${P.watchBand} punti dal livello blu o drawdown molto profondo.`],
+      ['setup', `sotto il livello blu per ${P.setupCloses} chiusure, con drawdown profondo.`],
+      ['trig', 'la breadth risale sopra il livello blu, con una conferma.'],
+      ['fail', 'il prezzo torna sotto il minimo della zona blu.'],
+      ['cool', `${P.cooldown} sedute senza nuovi alert.`],
+    ].map(([c, t]) => `<div>${badge(c)}<span>${t}</span></div>`).join('');
+    $('stateHelp').innerHTML = `<div>${apprBadge()}<span>breadth sotto la soglia di avvicinamento: livello blu più il calo forte del settore in 10 sedute. Non è uno stato e non manda alert. Nel campione degli 11 settori, circa un avvicinamento su tre tocca il livello entro sei mesi; con l\'Attenzione avvisa 50 tocchi del livello su 63, 7 più della sola Attenzione. È un promemoria, non un segnale per comprare o vendere: <a href="guida.html#avvicinamento" target="_blank" rel="noopener">come usarlo</a>.</span></div>` + [
       ['watch', `breadth entro ${P.watchBand} punti dal livello blu, oppure drawdown più profondo ${delPct(P.ddWatch)} della storia del settore. Sotto il livello blu per meno di ${P.setupCloses} chiusure si resta qui.`],
       ['setup', `breadth sotto il livello blu per ${P.setupCloses} chiusure e drawdown oltre il ${P.ddSetup}° percentile. Qui si formano spesso i bottom, di solito in anticipo: ci si prepara.`],
       ['trig', `la breadth risale sopra il livello blu di almeno ${P.minRecoveryPoints} punti (o ${P.minRecoveryStocks} titoli, se valgono di più) e di almeno ${P.minRecoveryStocks} titoli sopra il minimo della zona blu, con una conferma (due se la zona blu dura più di ${P.slowSetupSessions} sedute o dopo un fallimento): spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V, cioè la breadth di nuovo sopra max(${P.resetFloor}%, livello + ${P.resetAbove}), basta da solo.`],
@@ -351,7 +359,7 @@ export function createBottom(ctx) {
     mapSeries = mapData(T);
     mapDraw = drawBottomMap($('bm'), mapOpts(T));
     if ($('bmIndLeg')) $('bmIndLeg').hidden = !IKEYS.length;
-    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[T])}${past ? ' (storico)' : ''} · colore del punto = stato ${past ? 'di quel giorno' : 'attuale'} (in zona blu si entra dopo ${P.setupCloses} chiusure sotto il livello)${past ? ' · livelli blu di oggi, scelti conoscendo anche quella crisi' : ''}`;
+    $('bmMeta').textContent = `settimanale · coda 8 settimane · al ${dIT(DATES[T])}${past ? ' (storico)' : ''} · colore del punto = stato ${past ? 'di quel giorno' : 'attuale'}${past ? ' · livelli blu di oggi, scelti conoscendo anche quella crisi' : ''}`;
     // titoli che devono ancora scendere sotto la media perché la breadth arrivi al livello blu
     const tAt = (s) => (T === NOW ? nowOf(s) : T);
     const rows = ALLK.filter((s) => BR[s].pct200[tAt(s)] != null).map((s) => { const t = tAt(s); return { s, d: BR[s].pct200[t] - st.blue[s], need: BR[s].above200[t] - Math.floor((st.blue[s] * BR[s].n[t]) / 100) }; }).sort((a, b) => a.d - b.d);
@@ -465,8 +473,8 @@ export function createBottom(ctx) {
     $('blueInfo').textContent = `${ilPct(share)} ${share}% delle sedute dal ${DATES[f0].slice(0, 4)} è stato sotto questo livello. Con ${n} titoli, uno vale ${fmt(100 / n)} punti.`;
     $('blueSrc').innerHTML = changed(s)
       ? `<span class="loc">modificato in questo browser · livello di default ${config.blue[s]}%</span>`
-      : isInd(s) ? `Livello di default di ${esc(ICFG[s].blueSource)}. Con ${n} titoli il ${config.blue[s]}% vuol dire ${Math.floor((config.blue[s] * n) / 100) === 0 ? 'nessun titolo' : `al massimo ${titoli(Math.floor((config.blue[s] * n) / 100))}`} sopra la media a 200 sedute. Le regole di zona blu, trigger e cooldown sono di questa app.`
-        : 'Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea. Le regole di zona blu, trigger e cooldown sono di questa app.';
+      : isInd(s) ? `Livello di default di ${esc(ICFG[s].blueSource)}. Con ${n} titoli il ${config.blue[s]}% vuol dire ${Math.floor((config.blue[s] * n) / 100) === 0 ? 'nessun titolo' : `al massimo ${titoli(Math.floor((config.blue[s] * n) / 100))}`} sopra la media a 200 sedute.`
+        : 'Livello di default: tabella «200 LEVEL SETTORI» di Massimo Rea (quant-rea).'; // regole dell'app: guida, «Stati»
     $('blueReset').hidden = !changed(s);
     // la configurazione copiata prima non vale più: si toglie il messaggio e il testo vecchio
     $('copyMsg').textContent = ''; $('cfgText').hidden = true;
@@ -505,10 +513,14 @@ export function createBottom(ctx) {
     const N = nowOf(s), n = BR[s].n[N], mem = BR[s].members[N];
     const young = lt ? lt.members.filter((r) => r.d200 == null).map((r) => r.s) : [];
     const f0 = BR[s].pct200.findIndex((v) => v != null);
-    box.innerHTML = `<b>Come è costruita questa storia.</b> La breadth usa i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)} (lista iShares${list && list.asOf ? ` letta il ${dIT(list.asOf)}` : ''}) anche per il passato, dal ${dIT(DATES[f0])}: molti allora non erano quotati, quindi i titoli contati crescono nel tempo (oggi ${n}) e chi è uscito dall'indice non c'è. ` +
+    // nella pagina la frase corta con l'approssimazione; il testo completo nel riquadro «i» accanto (1.13.0)
+    box.innerHTML = `Storia con i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)}, dal ${dIT(DATES[f0])}: chi è uscito non c'è e un titolo vale ${fmt(100 / n)} punti.` +
+      (young.length ? ` ${young.join(', ')} ${young.length === 1 ? 'conta' : 'contano'} come «sotto la media» (meno di 200 sedute).` : '') +
+      ' Statistiche indicative <button type="button" class="info" aria-label="Spiegazione: come è costruita questa storia" aria-expanded="false" data-src="secQualityHelp" data-guide="industrie">i</button>';
+    $('secQualityHelp').innerHTML = `<p><b>Come è costruita questa storia.</b> La breadth usa i ${mem ?? n} titoli di oggi dell'ETF ${esc(ICFG[s].etf)} (lista iShares${list && list.asOf ? ` letta il ${dIT(list.asOf)}` : ''}) anche per il passato, dal ${dIT(DATES[f0])}: molti allora non erano quotati, quindi i titoli contati crescono nel tempo (oggi ${n}) e chi è uscito dall'indice non c'è. ` +
       `${esc(ICFG[s].note || '')} Con ${n} titoli uno vale ${fmt(100 / n)} punti: la breadth salta molto in pochi giorni. ` +
       (young.length ? `${young.join(', ')} ${young.length === 1 ? 'è quotato' : 'sono quotati'} da meno di 200 sedute e ${young.length === 1 ? 'conta' : 'contano'} come «sotto la media» finché non le ${young.length === 1 ? 'ha' : 'hanno'}. ` : '') +
-      `Prezzo: ETF ${esc(ICFG[s].etf)} con i dividendi reinvestiti. Statistiche del livello blu e degli episodi indicative: <a href="guida.html#industrie" target="_blank" rel="noopener">guida</a>.`;
+      `Prezzo: ETF ${esc(ICFG[s].etf)} con i dividendi reinvestiti. Statistiche del livello blu e degli episodi indicative.</p>`;
     box.hidden = false;
   }
   function renderMembers(s) {
@@ -547,7 +559,7 @@ export function createBottom(ctx) {
     // la zona blu chiede il percentile del drawdown: per XLRE e XLC (ETF dal 2015 e dal 2018) la storia utile parte dopo
     const first = Math.max(BR[s].pct200.findIndex((v) => v != null), PX[s].dp.findIndex((v) => v != null));
     const nTrig = m.events.filter((e) => e.code === 'trig').length, nFail = m.events.filter((e) => e.code === 'fail').length;
-    $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''} · rendimenti a confronto sotto la tabella`;
+    $('epiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(DATES[first])} con livello ${st.blue[s]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''}`;
     // per confronto: una seduta qualsiasi della stessa storia e SPY negli stessi giorni dei trigger
     const at = { trig: m.events.filter((e) => e.code === 'trig').map((e) => e.t), setup: m.setups.map((u) => u.t) };
     $('epiCtx').innerHTML = contextHTML(signalContext(c, at, first, [21, 63, 126], PX.SPY.close), { h: ['+1M', '+3M', '+6M'], key: 1, since: DATES[first].slice(0, 4), bench: 'SPY', what: isInd(s) ? "l'industria" : 'il settore' });

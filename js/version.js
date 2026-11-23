@@ -5,9 +5,10 @@
  * rompe qualcosa (regole, formati dei dati), la seconda per una funzione nuova, l'ultima per le correzioni. Prima della 1.0
  * lo schema era 0.vista.correzione.
  */
-export const VERSION = '1.12.0';
-export const RELEASE = '2026-11-22';
+export const VERSION = '1.13.0';
+export const RELEASE = '2026-11-23';
 export const NOTES = [
+  'Note più corte in tutte le viste: definizioni, metodo e limiti in un bottone «i» accanto ai titoli (si apre al passaggio del mouse, al clic, al tocco o con Invio; si chiude con Esc o toccando fuori) e nella guida; in fondo a ogni vista una riga di fonti con le citazioni e il link alla nuova sezione «Fonti e note» della guida; guida rapida con viste, stati, glossario e comandi',
   'Nuova vista 0 Massimi (tasto 0, comando MASSIMI): la distanza dal massimo degli ultimi 3 anni, con grafico e profilo dei volumi, esce dalla vista 8 VIX; in più la linea del tempo dei massimi negli ultimi cali dell\'S&P 500 di almeno il 15% e in quello in corso, con l\'ordine tipico della ricerca. Solo descrizione, nessun segnale',
   'VIX (vista 8), distanza dal massimo: accanto al grafico del prezzo il profilo dei volumi degli ultimi 12 mesi (dove si è scambiato di più), solo la forma, con un riquadro al passaggio del mouse o al tocco; per oro, Nasdaq-100 e KOSPI con l\'avvertenza «profilo poco stabile»',
   'Aggiornamento notturno: un mercato del pannello dei massimi che Yahoo ridà con una seduta in meno non fa più risultare fallita la corsa (si tiene la riga pubblicata, con un avviso)',

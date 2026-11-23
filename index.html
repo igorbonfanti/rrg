@@ -53,6 +53,7 @@
   <link rel="modulepreload" href="js/ath.js" />
   <link rel="modulepreload" href="js/peaks.js" />
   <link rel="modulepreload" href="js/version.js" />
+  <link rel="modulepreload" href="js/info.js" />
   <link rel="modulepreload" href="js/industries.js" />
   <link rel="preload" href="data/industries.json" as="fetch" crossorigin />
   <link rel="preload" href="config/industries.json" as="fetch" crossorigin />
@@ -109,18 +110,19 @@
       <span class="seg" id="formulaSeg" role="group" aria-label="Formula">
         <button type="button" data-formula="nuova" aria-pressed="true" title="Nostra formula: medie esponenziali a 10 e 30 barre sul logaritmo della forza relativa, divise per la sua volatilità. Tutti i titoli sulla stessa scala, di solito entro 3 punti da 100">Nuova</button>
         <button type="button" data-formula="semplice" aria-pressed="false" title="Come StockCharts: RS-Ratio = 100 × media semplice a 10 barre ÷ media a 30 della forza relativa; RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. Distanza da 100 in punti percentuali">Medie semplici</button>
-      </span></span>
+      </span><button type="button" class="info" aria-label="Spiegazione: le due formule" aria-expanded="false" data-info="Nuova: medie esponenziali sul logaritmo della forza relativa, divise per la volatilità: tutti i titoli sulla stessa scala, di solito entro 3 punti da 100. Medie semplici: come StockCharts, distanza da 100 in punti percentuali. Danno lo stesso quadrante circa tre volte su quattro. Come si calcolano e verifica: nella guida." data-guide="formule">i</button></span>
   </div>
 
   <!-- 1 MONITOR -->
   <section class="view" id="v-mon" role="tabpanel" aria-labelledby="tab-mon">
     <p class="note loading" id="loadingNote">Caricamento dei dati…</p>
     <div class="intro" id="intro" hidden>
-      <p><b>Sector Monitor</b> cerca i possibili bottom dei settori S&amp;P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
+      <p><b>Sector Monitor</b> segue i possibili bottom dei settori S&amp;P 500 e la rotazione relativa. Dati di fine giornata.</p>
       <ol>
-        <li>Leggi il <b>Monitor</b>: lo stato di ogni settore e, accanto (sul telefono sopra), quelli da osservare con il motivo.</li>
-        <li>Clic su un settore per il <b>dettaglio</b>: prova il livello blu con + e −.</li>
-        <li>Apri <b>2 Rotazione</b> e scegli un universo in euro: Asset class, Fattori, Regioni, Paesi o Indici.</li>
+        <li>Leggi lo <b>stato</b> dei settori.</li>
+        <li>Clic su un settore per il <b>dettaglio</b>.</li>
+        <li>In <b>2 Rotazione</b> gli ETF in euro.</li>
+        <li>Il bottone <b>i</b> accanto ai titoli spiega il pannello.</li>
       </ol>
       <div class="intro-btns"><button type="button" class="mini" id="introClose">Ho capito</button><button type="button" class="mini" id="introHelp">Apri la guida</button></div>
     </div>
@@ -137,19 +139,20 @@
           <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia del settore</span>
           <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
         </div>
-        <p class="note pb">Il drawdown conta i dividendi come reinvestiti: è la perdita di chi ha tenuto l'ETF e la base dei segnali. «Solo prezzo» è lo stesso calcolo senza i dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo.</p>
       </div>
       <div class="stack mon-side">
         <div class="panel watch-panel">
-          <div class="ph"><h2>Settori da osservare</h2><span class="meta" id="activeMeta"></span></div>
+          <div class="ph"><h2>Settori da osservare</h2><button type="button" class="info" aria-label="Spiegazione: Settori da osservare" aria-expanded="false" data-info="I settori in avvicinamento, in attenzione, in zona blu o dopo un trigger, con il motivo e, in arancione, cosa manca al prossimo stato." data-guide="mon-osservare">i</button><span class="meta" id="activeMeta"></span></div>
           <div class="pb" id="activeList"></div>
         </div>
         <div class="panel">
-          <div class="ph"><h2>Come si legge lo stato</h2></div>
+          <div class="ph"><h2>Come si legge lo stato</h2><button type="button" class="info" aria-label="Spiegazione: regole degli stati" aria-expanded="false" data-src="stateHelp" data-guide="stati">i</button></div>
           <div class="pb states" id="stateLegend"></div>
+          <div class="info-src states" id="stateHelp" hidden></div>
         </div>
       </div>
     </div>
+    <p class="srcline" id="monSrc">Prezzi di fine giornata: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · livelli blu di default dalla tabella «200 LEVEL SETTORI» di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>), dove trovate gli studi completi: i numeri qui possono differire · regole di zona blu, trigger e cooldown di questa app · <a href="guida.html#fonti-mon" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 2 RRG -->
@@ -186,40 +189,13 @@
           <span><span class="kb" style="background:var(--q-lead)"></span>Leading</span>
           <span><span class="kb" style="background:var(--q-weak)"></span>Weakening</span>
           <span><span class="kb" style="background:var(--q-lag)"></span>Lagging</span>
-          <span class="muted">colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo</span>
+          <span class="muted">passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo</span>
           <span class="muted" id="provNote" hidden>punto vuoto = settimana in corso, provvisorio</span>
         </div>
-        <!-- come si calcola la formula scelta e cosa cambia con l'altra -->
-        <details class="fx" id="fxBox">
-          <summary id="fxSum">Come si calcolano le due formule</summary>
-          <div class="fx-cols">
-            <div class="fx-col" data-f="nuova">
-              <h3>Nuova <span>· nostra, predefinita</span></h3>
-              <ul>
-                <li>Forza relativa in logaritmo: ln(prezzo ÷ benchmark).</li>
-                <li><b>RS-Ratio</b>: differenza tra la media esponenziale a 10 barre e quella a 30, divisa per la volatilità della forza relativa (emivita 26 barre) e riportata attorno a 100.</li>
-                <li><b>RS-Momentum</b>: scarto dell'RS-Ratio dalla sua media esponenziale a 8 barre, sulla stessa scala.</li>
-                <li>Dividendo per la volatilità, tutti i titoli stanno sulla stessa scala: un settore tranquillo e uno agitato con un trend ugualmente solido stanno alla stessa distanza dal centro, di solito entro 3 punti da 100.</li>
-                <li>Le medie esponenziali non fanno saltare il valore quando un dato vecchio esce dal calcolo.</li>
-              </ul>
-            </div>
-            <div class="fx-col" data-f="semplice">
-              <h3>Medie semplici <span>· come StockCharts</span></h3>
-              <ul>
-                <li>Forza relativa: prezzo ÷ benchmark.</li>
-                <li><b>RS-Ratio</b> = 100 × media semplice a 10 barre ÷ media semplice a 30.</li>
-                <li><b>RS-Momentum</b> = 100 × RS-Ratio ÷ sua media semplice a 9 barre.</li>
-                <li>Nessuna normalizzazione: la distanza da 100 è in punti percentuali, quindi i titoli più volatili vanno più lontano e disegnano code più lunghe (sui settori di solito entro 10 punti).</li>
-                <li>Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts (verificato su 11 letture del 25/09/2026). Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso, per via dei dividendi.</li>
-              </ul>
-            </div>
-          </div>
-          <p class="note">In pratica si leggono allo stesso modo: RS-Ratio sopra 100 = più forte del benchmark, RS-Momentum sopra 100 = forza in aumento. Sui settori USA dal 2022 le due formule danno lo stesso quadrante circa tre volte su quattro; le differenze stanno soprattutto vicino a 100. Le medie semplici servono per confrontarsi con le piattaforme ufficiali; la nuova per confrontare asset con volatilità molto diverse, come le asset class.</p>
-        </details>
       </div>
       <!-- composizione del portafoglio di riferimento, solo negli universi che ne hanno uno -->
       <div class="panel" id="ptfPanel" hidden>
-        <div class="ph"><h2>Portafoglio di riferimento</h2><span class="meta" id="ptfMeta"></span></div>
+        <div class="ph"><h2>Portafoglio di riferimento</h2><button type="button" class="info" aria-label="Spiegazione: Portafoglio di riferimento" aria-expanded="false" data-info="Sposta i cursori o scrivi il peso (con la tastiera: frecce un punto, Pagina su/giù dieci). Se il totale non fa 100% i pesi valgono in proporzione. Il portafoglio si ricalcola su tutta la storia e si ribilancia alla chiusura dell'ultima seduta di ogni mese. I pesi restano in questo browser." data-guide="portafoglio">i</button><span class="meta" id="ptfMeta"></span></div>
         <div class="pb ptf-box">
           <p class="note" id="ptfWhat"></p>
           <div class="tscroll"><table class="t ptf" id="ptfTable"></table></div>
@@ -229,23 +205,11 @@
             <button type="button" class="mini" id="ptfReset" disabled>Ripristina l'esempio</button>
           </div>
           <p class="note" id="ptfFoot"></p>
-          <details class="fx" id="ptfHow">
-            <summary><b>Il tuo portafoglio</b> · <span class="fx-open">come adattare i pesi e cosa cambia nel grafico</span></summary>
-            <ul class="fx-list">
-              <li>Sposta i cursori, oppure scrivi il numero nella casella accanto, per dare a ogni componente il peso che ha nel tuo portafoglio di lungo periodo. Con la tastiera, sul cursore le frecce cambiano il peso di un punto e Pagina su/giù di dieci.</li>
-              <li>A 0% una componente esce dal portafoglio ma resta sul grafico, confrontata con il resto. Le componenti sono fisse: se hai un'attività che qui non c'è, dai il suo peso a quella più simile.</li>
-              <li>Il totale dovrebbe fare 100%. Se non torna, i pesi valgono in proporzione: con 60 e 60, per esempio, ciascuna componente conta per metà. «Porta a 100%» riscrive i numeri mantenendo le proporzioni.</li>
-              <li>Il portafoglio viene ricalcolato su tutta la storia con i nuovi pesi, come se li avessi sempre avuti, e riportato ai pesi scelti alla chiusura dell'ultima seduta di ogni mese. «Oggi» mostra i pesi dopo i movimenti dei prezzi dall'ultimo ribilanciamento.</li>
-              <li>Ogni punto del grafico confronta una componente con il tuo portafoglio: a destra del centro fa meglio del portafoglio, in alto la sua forza relativa migliora. Così vedi quali parti lo trainano e quali lo frenano. Tabella e performance relativa si aggiornano insieme al grafico.</li>
-              <li>I cursori contano quando il benchmark è il portafoglio: con liquidità o MSCI World il confronto resta con quell'indice.</li>
-              <li>I pesi restano salvati in questo browser: non li vede nessun altro e non cambiano gli altri universi. «Ripristina l'esempio» torna al portafoglio di partenza.</li>
-            </ul>
-          </details>
         </div>
       </div>
       <!-- asset reali: cosa mostra ogni benchmark (clic su una riga per sceglierlo) -->
       <div class="panel" id="mxPanel" hidden>
-        <div class="ph"><h2>Come leggere i benchmark</h2><span class="meta" id="mxMeta"></span></div>
+        <div class="ph"><h2>Come leggere i benchmark</h2><button type="button" class="info" aria-label="Spiegazione: dati e limiti degli asset reali" aria-expanded="false" data-src="mxHelp" data-guide="asset-reali">i</button><span class="meta" id="mxMeta"></span></div>
         <div class="pb mx-box">
           <p class="note" id="mxNow"></p>
           <div class="tscroll"><table class="t mx" id="mxTable">
@@ -259,31 +223,22 @@
               <tr data-b="GLD" tabindex="0"><td><b>Oro</b><span class="tk">GLD</span></td><td>Tutto misurato in oro: a destra chi batte il bene rifugio.</td></tr>
             </tbody>
           </table></div>
-          <details class="fx" id="mxHow">
-            <summary><b>Da sapere</b> · <span class="fx-open">dati, limiti e come usare questo universo</span></summary>
-            <ul class="fx-list">
-              <li>Contro liquidità e inflazione il grafico legge soprattutto il trend assoluto: sono serie che crescono piano e con regolarità, quindi spostano il centro più che la rotazione. Le informazioni in più vengono dai benchmark che oscillano: dollaro, Treasury, azioni e oro.</li>
-              <li>Tassi e rendimenti non sono prezzi, quindi non stanno al denominatore: entrano come investimenti (liquidità BIL, Treasury IEF, TIPS indicizzati all'inflazione).</li>
-              <li>Il dollar index diretto conterebbe due volte il movimento del dollaro: per togliere il dollaro si usa il suo inverso.</li>
-              <li>Il CPI (BLS, via FRED) è mensile: ogni valore entra dal giorno in cui è stato pubblicato, così il grafico non usa un mese prima che fosse noto (i valori sono quelli rivisti di oggi, le date quelle della prima uscita). Ottobre 2025 non è mai uscito, per lo shutdown del governo USA.</li>
-              <li>Bitcoin quota sempre e il dollar index quasi 24 ore: si usa il loro ultimo prezzo a ogni seduta di New York.</li>
-              <li>Gli ETF sono indicatori in dollari, non strumenti consigliati. Chi investe in euro trova oro, materie prime e bitcoin contro la liquidità in euro nell'universo 1 · Asset class; tra gli equivalenti quotati in Europa ci sono SGLD (oro), PHAG (argento), COPA (rame), CRUD (petrolio) e CMOD (materie prime).</li>
-            </ul>
-          </details>
+          <div class="info-src" id="mxHelp" hidden><p>Contro liquidità e inflazione il grafico legge soprattutto il trend assoluto: sono serie che crescono piano e con regolarità, quindi spostano il centro più che la rotazione. Le informazioni in più vengono dai benchmark che oscillano: dollaro, Treasury, azioni e oro.</p><p>Tassi e rendimenti non sono prezzi, quindi non stanno al denominatore: entrano come investimenti (liquidità BIL, Treasury IEF, TIPS indicizzati all'inflazione).</p><p>Il dollar index diretto conterebbe due volte il movimento del dollaro: per togliere il dollaro si usa il suo inverso.</p><p>Il CPI (BLS, via FRED) è mensile: ogni valore entra dal giorno in cui è stato pubblicato, così il grafico non usa un mese prima che fosse noto (i valori sono quelli rivisti di oggi, le date quelle della prima uscita). Ottobre 2025 non è mai uscito, per lo shutdown del governo USA.</p><p>Bitcoin quota sempre e il dollar index quasi 24 ore: si usa il loro ultimo prezzo a ogni seduta di New York.</p><p>Gli ETF sono indicatori in dollari, non strumenti consigliati. Chi investe in euro trova oro, materie prime e bitcoin contro la liquidità in euro nell'universo 1 · Asset class; tra gli equivalenti quotati in Europa ci sono SGLD (oro), PHAG (argento), COPA (rame), CRUD (petrolio) e CMOD (materie prime).</p></div>
         </div>
       </div>
       </div>
       <div class="stack">
         <div class="panel">
-          <div class="ph"><h2 id="tableTitle">Tabella di rotazione</h2><span class="meta push" id="rotMeta"></span>
+          <div class="ph"><h2 id="tableTitle">Tabella di rotazione</h2><button type="button" class="info" id="tableInfo" aria-label="Spiegazione: colonne della tabella" aria-expanded="false" data-src="rotHelp" data-guide="rrg-tabelle">i</button><span class="meta push" id="rotMeta"></span>
             <span class="seg" id="tableSeg" role="group" aria-label="Tabella">
               <button type="button" data-mode="rot" aria-pressed="true">Rotazione</button>
               <button type="button" data-mode="px" aria-pressed="false">Prezzi</button>
             </span></div>
           <div class="tscroll" id="rotWrap"><table class="t" id="rotTable"></table></div>
           <div class="tscroll" id="pxWrap" hidden><table class="t" id="monTable"></table></div>
-          <p class="note pb" id="rotNote">Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.<span class="only-phone"> Sul telefono Vel., Dist., Prima e le variazioni sono nascoste: ruotalo o usa un computer per vederle.</span></p>
-          <p class="note pb" id="pxNote" hidden>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni (nel Monitor il percentile usa la storia dal 2004, quindi lo stesso ETF può essere rosso in una tabella e no nell'altra); il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView. Clic su un'intestazione per ordinare.<span id="pxCopied"></span></p>
+          <p class="note pb" id="pxNote" hidden></p>
+          <div class="info-src" id="rotHelp" hidden><p>Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading. Vel.: spostamento dell'ultimo periodo. Dist.: distanza dal centro 100/100. Prima: quadrante precedente. La spunta nasconde un titolo dal grafico.</p></div>
+          <div class="info-src" id="pxHelp" hidden><p>Drawdown con i dividendi reinvestiti, in rosso se più profondo dell'80% delle sedute degli ultimi 5 anni (nel Monitor il percentile usa la storia dal 2004, quindi lo stesso ETF può essere rosso in una tabella e no nell'altra); il segno grigio è il peggiore dei 5 anni. «Solo prezzo»: lo stesso calcolo senza i dividendi, come sul grafico di TradingView.</p><p id="pxCopied"></p></div>
         </div>
         <div class="panel">
           <div class="ph"><h2>Performance relativa</h2>
@@ -301,6 +256,7 @@
         </div>
       </div>
     </div>
+    <p class="srcline" id="rrgSrc">Prezzi di fine giornata: Yahoo Finance (ETF UCITS sulle sedute di Borsa Italiana; CPI USA da FRED) · formula «Medie semplici» come StockCharts; «Relative Rotation Graphs» è un marchio di RRG Research · idee di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) · <a href="guida.html#fonti-rrg" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 3 BOTTOM MAP -->
@@ -326,17 +282,17 @@
           <span><span class="kb" style="background:var(--down)"></span>fallito</span>
           <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
           <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
-          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia del settore (livello blu + il suo calo forte in 10 sedute)</span>
+          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento<button type="button" class="info" aria-label="Spiegazione: avvicinamento" aria-expanded="false" data-info="Breadth sotto la soglia del settore: livello blu più il suo calo forte in 10 sedute. Promemoria, non uno stato." data-guide="avvicinamento">i</button></span>
           <span id="bmIndLeg" hidden><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><path d="M7 1 L13 7 L7 13 L1 7 Z" fill="var(--ink-2)"/></svg>industria (SOXX, semiconduttori): breadth con i membri di oggi</span>
-          <span class="muted">coda = ultime 8 settimane · il percorso di un bottom scende a sinistra, poi risale · clic per il dettaglio</span>
+          <span class="muted">coda = ultime 8 settimane · clic per il dettaglio<button type="button" class="info" aria-label="Spiegazione: come si legge la mappa" aria-expanded="false" data-info="Il percorso tipico di un bottom scende a sinistra (drawdown più profondo) e in basso (breadth sotto il livello blu), poi risale. In zona blu si entra dopo 2 chiusure sotto il livello." data-guide="btm">i</button></span>
         </div>
       </div>
       <div class="panel">
-        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="ph"><h2>Distanza dal livello blu</h2><button type="button" class="info" aria-label="Spiegazione: Distanza dal livello blu" aria-expanded="false" data-info="Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nei settori piccoli (Energy, Communication Services, Materials, Real Estate, Utilities: 21-31 titoli) uno solo sposta la breadth di 3–5 punti." data-guide="btm-distanza">i</button><span class="meta">punti di breadth · dal più vicino</span></div>
         <div class="dist" id="distList"></div>
-        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nei settori piccoli (Energy, Communication Services, Materials, Real Estate, Utilities: 21-31 titoli) uno solo sposta la breadth di 3–5 punti.</p>
       </div>
     </div>
+    <p class="srcline" id="btmSrc">Stessi dati del Monitor (Yahoo Finance, breadth dai costituenti), settimanali · livelli blu di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>), quelli di oggi anche per le date passate · <a href="guida.html#fonti-btm" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 4 SETTORE -->
@@ -375,14 +331,16 @@
           </div>
         </div>
         <details class="panel fold" id="secEpiBox" data-keep="secEpi">
-          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="epiMeta"></span></summary>
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><button type="button" class="info" aria-label="Spiegazione: Episodi in zona blu" aria-expanded="false" data-src="secEpiHelp" data-guide="sec-episodi">i</button><span class="meta" id="epiMeta"></span></summary>
+          <div class="info-src" id="secEpiHelp" hidden><p>Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.</p></div>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu"><table class="t" id="epiTable"></table></div>
-          <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni.</p>
+          <p class="note pb ctx-h"><b>Per confronto</b><button type="button" class="info" aria-label="Spiegazione: Per confronto" aria-expanded="false" data-info="Gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni." data-guide="sec-episodi">i</button></p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi a confronto con una seduta qualsiasi e con SPY"><table class="t ctx" id="epiCtx"></table></div>
-          <p class="note pb">Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita dai costituenti con la composizione dell'indice di allora; fino al 2012 mancano i titoli usciti prima del 2013, che non hanno un settore noto (i settori coprono il 58% dei membri nel 2005, il 76% nel 2009). Serve a capire quanto il segnale arriva in anticipo, non è un backtest validato. I trigger sono pochi e spesso cadono nella stessa crisi per più settori, mentre le sedute qualsiasi si sovrappongono: leggi le mediane come esempi, non come probabilità.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
+          <p class="note pb">Storia ricostruita, incompleta prima del 2013: esempi, non probabilità.</p>
         </details>
         <details class="panel capcard fold" id="secCap" data-keep="secCap">
-          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="secCapMeta"></span></summary>
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><button type="button" class="info" aria-label="Spiegazione: Cali forti" aria-expanded="false" data-src="secCapHelp" data-guide="cali">i</button><span class="meta" id="secCapMeta"></span></summary>
+          <div class="info-src" id="secCapHelp" hidden></div>
           <div class="pb" id="secCapBody">
             <div class="controls capctl" id="secCapCtl"></div>
             <p class="note" id="secCapNow"></p>
@@ -417,7 +375,7 @@
             </div>
             <p class="note" id="blueSrc"></p>
             <p class="note" id="blueInfo"></p>
-            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+            <p class="note">Vale solo in questo browser.</p>
             <details class="owner">
               <summary>Per chi gestisce il repository</summary>
               <p class="note">Gli alert Telegram usano config/thresholds.json del repository. Per portarci i livelli provati qui:</p>
@@ -429,7 +387,7 @@
         </div>
         <div class="panel">
           <div class="ph"><h2>Situazione</h2></div>
-          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div><p class="note" id="secQuality" hidden></p></div>
+          <div class="pb"><dl class="facts" id="secFacts"></dl><div class="tvlinks" id="tvLinks"></div><p class="note" id="secQuality" hidden></p><div class="info-src" id="secQualityHelp" hidden></div></div>
         </div>
         <div class="panel">
           <div class="ph"><h2 id="memTitle">Titoli del settore</h2><span class="meta" id="memMeta"></span><button type="button" class="mini" id="toTit" title="Bubble dei titoli e confronto tra grandi e piccoli">5 Titoli →</button></div>
@@ -437,6 +395,7 @@
         </div>
       </div>
     </div>
+    <p class="srcline" id="secSrc">Prezzi Yahoo Finance · breadth dai costituenti con la composizione di ogni data (SOXX: titoli di oggi) · livello blu dalla tabella «200 LEVEL SETTORI» e cali forti con il preset «Drop giornaliero cumulato» di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) · regole di zona blu, trigger e cooldown di questa app · <a href="guida.html#fonti-sec" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 8 VIX -->
@@ -445,6 +404,7 @@
     <p class="note pb" id="vxMiss" hidden></p>
     <p class="note pb vxmoved" id="vxAthMoved">Distanza dal massimo: ora nella scheda <a href="#ath">0 Massimi →</a></p>
     <div id="vxBody" hidden>
+    <p class="note pb vxctx"><b>Solo contesto</b>: non cambia stati né alert.</p>
     <div class="kpis" id="vxKpis"></div>
     <p class="note pb vxmeta" id="vxMeta"></p>
     <div class="controls vxctl">
@@ -452,15 +412,15 @@
     </div>
     <div class="vix-grid">
       <div class="panel">
-        <div class="ph"><h2>Dopo i picchi del VIX</h2><span class="meta" id="vxTableMeta"></span></div>
+        <div class="ph"><h2>Dopo i picchi del VIX</h2><button type="button" class="info" aria-label="Spiegazione: Dopo i picchi del VIX" aria-expanded="false" data-src="vxTabHelp" data-guide="vix-picchi">i</button><span class="meta" id="vxTableMeta"></span></div>
         <div class="tscroll"><table class="t vxtable" id="vxTable"></table></div>
-        <p class="note pb">Ogni riga conta gli <b>episodi</b>: un episodio inizia con la prima chiusura del VIX alla soglia o più dopo almeno 63 sedute sotto, e finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila (in mezzo può scendere sotto: alle soglie basse un episodio può durare anni e comprendere più crisi, per questo accanto al massimo c'è la sua data). «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato. Clic (o tocco) su una riga per i suoi episodi.</p>
+        <p class="note pb">Conta gli <b>episodi</b>, non i giorni. Clic su una riga per i suoi episodi.</p>
+        <div class="info-src" id="vxTabHelp" hidden><p>Ogni riga conta gli <b>episodi</b>: un episodio inizia con la prima chiusura del VIX alla soglia o più dopo almeno 63 sedute sotto, e finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila (in mezzo può scendere sotto: alle soglie basse un episodio può durare anni e comprendere più crisi, per questo accanto al massimo c'è la sua data). «Positivi» è quanti episodi avevano l'indice più alto dopo quel periodo; «calo dopo» è il punto più basso entro 12 mesi rispetto all'ingresso; «minimo dopo» quante sedute dopo è arrivato.</p><p>«Robusto»: nella verifica, con un criterio deciso prima, solo la soglia 40 lo supera in tutte le varianti provate, per entrambi gli indici; il 40 ha 10 episodi, numeri indicativi. Dopo un VIX a 25 o 30 o più il ribasso spesso era appena cominciato: guarda il «calo dopo». I rendimenti partono dalla chiusura della seduta dopo il segnale; S&amp;P 500 e Nasdaq-100 sono di solo prezzo.</p></div>
         <div class="ph sub"><h3 id="vxEpsTitle"></h3></div>
-        <p class="note pb vxsplegend">Andamento del VIX: la linea tratteggiata è la soglia, colorati i tratti alla soglia o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno; da 3 mesi prima a un mese dopo, ogni mini-grafico con la sua scala. Asterisco: episodio non ancora finito.</p>
         <div class="tscroll"><table class="t vxeps" id="vxEps"></table></div>
       </div>
       <div class="panel">
-        <div class="ph"><h2>VIX e rendimento a 12 mesi</h2><span class="meta" id="vxScMeta"></span></div>
+        <div class="ph"><h2>VIX e rendimento a 12 mesi</h2><button type="button" class="info" aria-label="Spiegazione: VIX e rendimento a 12 mesi" aria-expanded="false" data-src="vxScHelp" data-guide="vix-scatter">i</button><span class="meta" id="vxScMeta"></span></div>
         <div class="chart-wrap" id="vxScWrap">
           <svg class="ts vxsc" id="vxScatter" role="img" aria-label="Sedute con il VIX a 30 o più: VIX contro rendimento dell'indice nei 12 mesi successivi"></svg>
           <div class="tip" id="vxScTip" hidden></div>
@@ -468,41 +428,30 @@
         <div class="vxcrises" id="vxCrises" role="group" aria-label="Crisi: clic per evidenziarne i punti"></div>
         <p class="note pb vxepsnone" id="vxEpsNone" hidden></p>
         <p class="note pb" id="vxScNote"></p>
-        <p class="note pb">Un colore per crisi: ogni seduta va con la crisi dell'elenco in cui cade, altrimenti con quella del suo episodio («Altro episodio» se neanche quello è in una crisi). Il punto grande è <span id="vxScBig">il primo giorno con il VIX sopra la soglia della tabella</span>. I nomi delle crisi sono etichette di periodo scelte a mano, non date d'inizio calcolate. Clic o tocco su un punto, su una crisi qui sopra o su una riga colorata della tabella degli episodi: l'alone racchiude tutti i punti di quella crisi e la tabella ne colora le righe. Per togliere: clic o tocco su un punto vuoto, di nuovo sulla stessa crisi nell'elenco o sulla stessa riga (Esc sul computer). Le linee verticali sono le soglie 40 e 50.</p>
+        <p class="note pb">Un colore per crisi. Clic su un punto, su una crisi o su una riga colorata per evidenziarla; di nuovo (o Esc) per togliere. Linee verticali: soglie 40 e 50.</p>
+        <div class="info-src" id="vxScHelp" hidden><p>Ogni punto è una seduta con il VIX a 30 o più: in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo, come il grafico di Massimo Rea da cui viene l'idea.</p><p id="vxScNoteFull"></p><p>Un colore per crisi: ogni seduta va con la crisi dell'elenco in cui cade, altrimenti con quella del suo episodio («Altro episodio» se neanche quello è in una crisi). Il punto grande è <span id="vxScBig">il primo giorno con il VIX sopra la soglia della tabella</span>. I nomi delle crisi sono etichette di periodo scelte a mano, non date d'inizio calcolate. Clic o tocco su un punto, su una crisi qui sopra o su una riga colorata della tabella degli episodi: l'alone racchiude tutti i punti di quella crisi e la tabella ne colora le righe. Per togliere: clic o tocco su un punto vuoto, di nuovo sulla stessa crisi nell'elenco o sulla stessa riga (Esc sul computer). Le linee verticali sono le soglie 40 e 50.</p></div>
       </div>
     </div>
     <div class="panel">
-      <div class="ph"><h2>VIX e indice nel tempo · struttura a termine e credito</h2><span class="ctl"><span class="seg" id="vxRange" role="group" aria-label="Periodo"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="vxLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span><span class="zchip" id="vxZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+      <div class="ph"><h2>VIX e indice nel tempo · struttura a termine e credito</h2><button type="button" class="info" aria-label="Spiegazione: VIX, struttura a termine e credito" aria-expanded="false" data-info="Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti, e sale insieme ai ribassi, non prima (premio alto 204 volte, picco della volatilità entro 21 sedute in 12). Backwardation (VIX/VIX3M da 1 in su): paura per i prossimi giorni; non aggiunge informazione al livello del VIX. Credito HYG/IEF: se scende anche lui il mercato teme i fallimenti. Solo contesto." data-guide="vix-realizzata">i</button><span class="ctl"><span class="seg" id="vxRange" role="group" aria-label="Periodo"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="vxLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span><span class="zchip" id="vxZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
       <div class="chart-wrap" id="vxWrap">
         <svg class="ts" id="vxChart" role="img" aria-label="VIX, volatilità realizzata dell'S&amp;P 500, prezzo dell'indice scelto con gli episodi, premio per la paura, rapporto VIX/VIX3M e credito high yield nel tempo"></svg>
         <div class="tip" id="vxTip" hidden></div>
       </div>
       <div class="legend" id="vxLegend"></div>
     </div>
-    <div class="panel">
-      <div class="ph"><h2>Come leggere il VIX</h2></div>
-      <div class="emread">
-        <p><b>Solo contesto, non un segnale.</b> Il VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&amp;P 500 nei prossimi 30 giorni: sale quando c'è paura. Non cambia stati né alert.</p>
-        <p><b>Dopo i picchi.</b> Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia <b>40</b> lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto». Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte. Il 40 ha 10 episodi: numeri indicativi. Dopo un VIX a 25 o 30 o più il ribasso spesso era appena cominciato: guarda il «calo dopo».</p>
-        <p><b>Lo scatter conta i giorni</b>, come il grafico di Massimo Rea da cui viene l'idea: le crisi lunghe mettono tanti punti, quindi sembra più sicuro di quanto sia. La tabella conta gli episodi.</p>
-        <p><b>VIX contro realizzata.</b> Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi. Il VIX sale insieme ai ribassi, non prima: dal 2005 il premio alto (oltre l'80° percentile) si è acceso 204 volte, e solo in 12 entro 21 sedute è arrivato un picco della volatilità (la realizzata sopra il suo 90° percentile). Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.</p>
-        <p><b>Struttura a termine.</b> Il VIX misura la paura per i prossimi 30 giorni, il VIX3M per i prossimi 3 mesi. Di solito il VIX sta sotto il VIX3M (rapporto sotto 1, <b>contango</b>): chi si assicura paga di più per le scadenze lunghe. Quando il VIX arriva al VIX3M o lo supera (rapporto da 1 in su, <b>backwardation</b>) la paura è per i prossimi giorni: succede nei ribassi bruschi. Nella verifica non aggiunge informazione al livello del VIX (dal 2008 tutti gli episodi del VIX sopra 30 erano già in backwardation il giorno del segnale) e il ritorno al contango non è stato un ingresso migliore del segnale del VIX sopra 30: solo contesto.</p>
-        <p><b>Credito high yield.</b> Il rapporto tra l'ETF delle obbligazioni societarie più rischiose (HYG, high yield) e quello dei titoli di Stato USA a 7-10 anni (IEF), con i dividendi reinvestiti: il pannello mostra quanto ha perso dal massimo dell'ultimo anno. Se il VIX sale e il credito resta vicino a 0 la paura è solo in borsa; se anche il credito scende il mercato teme i fallimenti, come nel 2008 e nel 2020. Non è uno spread ufficiale (il rendimento in più chiesto alle obbligazioni high yield rispetto ai titoli di Stato): quello non si può ripubblicare. Nella verifica, fatta sul campione dal 1990 con lo spread delle obbligazioni Baa (il gradino più basso dell'«investment grade»; la prima serie considerata, poi scartata per la licenza), i casi con il credito in tensione sono troppo pochi per una statistica: solo contesto.</p>
-        <p class="muted">Ricalcolo: <span class="mono">ricerca/vix/</span> (ramo di sviluppo del repository): <span class="mono">regimi/</span> per la tabella, <span class="mono">volatilita/</span> per l'83%, i 3,4 punti e i 12 su 204, <span class="mono">struttura/</span> per la struttura a termine e il credito.</p>
-      </div>
     </div>
-    <p class="note pb">Fonti: VIX di chiusura © Cboe, dalla serie VIXCLS di FRED (Federal Reserve Bank of St. Louis), che la ripubblica con il permesso di Cboe, dal 02/01/1990, e VIX3M © Cboe dalla serie VXVCLS di FRED, dal 04/12/2007; l'ultima seduta, che FRED pubblica la mattina dopo, viene dal file ufficiale di Cboe (o da Yahoo Finance se Cboe non l'ha ancora pubblicata) ed è provvisoria. Credito: chiusure di HYG e IEF rettificate per i dividendi, da Yahoo Finance, dal 2007 (la distanza dal massimo di 12 mesi dal 2008). S&amp;P 500 e Nasdaq-100 di solo prezzo da Yahoo Finance (senza dividendi: sull'S&amp;P 500 circa 2 punti l'anno in meno; per il Nasdaq-100 la versione con i dividendi non è disponibile). Il VIX chiude alle 16:15 di New York, l'indice alle 16:00: per non usare quel quarto d'ora i rendimenti partono dalla chiusura della seduta dopo il segnale. Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi. Idea di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>); struttura a termine e credito da un grafico di Stefano Serafini (Swiss Capital School) al Morning Trading Show di BNP Paribas; calcoli nostri su dati pubblici.</p>
-    </div>
+    <p class="srcline" id="vxSrc">VIX e VIX3M © Cboe, da FRED · indici e credito: Yahoo Finance · idea di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>); struttura a termine e credito da Stefano Serafini (Swiss Capital School) · <a href="guida.html#fonti-vix" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
   <!-- 0 MASSIMI (1.12.0) -->
   <section class="view" id="v-ath" role="tabpanel" aria-labelledby="tab-ath" hidden>
     <p class="note loading" id="athLoading" hidden>Caricamento della distanza dal massimo…</p>
     <div class="panel" id="athPanel">
-      <div class="ph"><h2>Distanza dal massimo degli ultimi 3 anni · le bolle si sgonfiano a rotazione</h2><span class="ctl"><span class="seg" id="athSort" role="group" aria-label="Ordine delle righe"><button type="button" data-sort="dist" aria-pressed="true">per distanza</button><button type="button" data-sort="date" aria-pressed="false">per data del massimo</button></span></span></div>
+      <div class="ph"><h2>Distanza dal massimo degli ultimi 3 anni · le bolle si sgonfiano a rotazione</h2><button type="button" class="info" aria-label="Spiegazione: Distanza dal massimo" aria-expanded="false" data-src="athHelp" data-guide="massimi">i</button><span class="ctl"><span class="seg" id="athSort" role="group" aria-label="Ordine delle righe"><button type="button" data-sort="dist" aria-pressed="true">per distanza</button><button type="button" data-sort="date" aria-pressed="false">per data del massimo</button></span></span></div>
       <p class="note pb" id="athMiss" hidden></p>
       <div class="tscroll"><table class="t ath" id="athTable"></table></div>
       <div id="athChartBox" hidden>
-        <div class="ph sub"><h3 id="athChartTitle"></h3><span class="ctl"><span class="seg" id="athRange" role="group" aria-label="Periodo del grafico"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="athLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span><span class="zchip" id="athZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+        <div class="ph sub"><h3 id="athChartTitle"></h3><button type="button" class="info" aria-label="Spiegazione: grafico e profilo dei volumi" aria-expanded="false" data-src="athVpHelp" data-guide="profilo-volumi">i</button><span class="ctl"><span class="seg" id="athRange" role="group" aria-label="Periodo del grafico"><button type="button" data-range="3A" aria-pressed="false">3A</button><button type="button" data-range="10A" aria-pressed="true">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="athLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span><span class="zchip" id="athZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
         <p class="note pb" id="athChartMiss" hidden></p>
         <div class="chart-wrap" id="athWrap">
           <svg class="ts" id="athChart" role="img" aria-label="Prezzo del mercato scelto dal 2000, con il massimo di chiusura degli ultimi 3 anni"></svg>
@@ -510,16 +459,18 @@
         </div>
         <div class="legend" id="athLegend"></div>
       </div>
-      <p class="note pb" id="athNote">Quanto ogni mercato è sotto il suo <b>massimo di chiusura degli ultimi 3 anni</b>, il picco dell'ultimo ciclo (il massimo di sempre, che per il petrolio è del 2008, è nel dettaglio), con i giorni passati dal massimo. La barra va da 0 a −60%; la tacca è il calo più profondo dopo il massimo. Solo prezzo, senza dividendi, nella valuta di quotazione (il KOSPI in won): per chi investe in euro il calo è un altro. Oro, argento, rame e petrolio con il future continuo (chiusura al prezzo di regolamento, che per oro e argento è verso le 13:30 di New York; ai cambi di contratto il livello si sposta un po'). Clic o tocco su una riga per il dettaglio e il grafico dal 2000. <b>Solo contesto</b>: nessuna soglia e nessun segnale. Idea da una slide di Francesco Caruso (Cicli&amp;Mercati).</p>
-      <p class="note pb" id="athNoteVp">Accanto al grafico, a destra, il <b>profilo dei volumi degli ultimi 12 mesi</b>: la parte del volume dell'anno scambiata a ogni livello di prezzo (barre lunghe = prezzi dove si è scambiato di più); non è un livello né un segnale. Per S&amp;P 500, Nasdaq-100 e KOSPI i volumi sono degli ETF SPY, QQQ e KODEX 200 (069500.KS, che segue il KOSPI 200), riportati sulla scala dell'indice; per argento e rame dalle barre orarie del future. Per oro, Nasdaq-100 e KOSPI il profilo è poco stabile (con metodi di calcolo diversi le zone principali si spostano di oltre il 2%): è mostrato con un'avvertenza. Dati Yahoo Finance, ricalcolati ogni notte su tutta la storia; verifica in <span class="mono">ricerca/bolle-rotazione/</span> e, per oro e argento con i future, <span class="mono">ricerca/poc/</span>, per il profilo dei volumi <span class="mono">ricerca/poc/profilo/</span> (ramo di sviluppo).</p>
+      <p class="note pb" id="athNote">Solo prezzo, nella valuta di quotazione (KOSPI in won); oro, argento, rame e petrolio: future continuo. Clic su una riga per il dettaglio e il grafico dal 2000. <b>Solo contesto</b>: nessuna soglia e nessun segnale.</p>
+      <div class="info-src" id="athHelp" hidden><p>Quanto ogni mercato è sotto il suo <b>massimo di chiusura degli ultimi 3 anni</b>, il picco dell'ultimo ciclo (il massimo di sempre, che per il petrolio è del 2008, è nel dettaglio), con i giorni passati dal massimo. La barra va da 0 a −60%; la tacca è il calo più profondo dopo il massimo. Solo prezzo, senza dividendi, nella valuta di quotazione (il KOSPI in won): per chi investe in euro il calo è un altro. Oro, argento, rame e petrolio con il future continuo (chiusura al prezzo di regolamento, che per oro e argento è verso le 13:30 di New York; ai cambi di contratto il livello si sposta un po'). Clic o tocco su una riga per il dettaglio e il grafico dal 2000. <b>Solo contesto</b>: nessuna soglia e nessun segnale. Idea da una slide di Francesco Caruso (Cicli&amp;Mercati).</p></div>
+      <div class="info-src" id="athVpHelp" hidden><p>Accanto al grafico, a destra, il <b>profilo dei volumi degli ultimi 12 mesi</b>: la parte del volume dell'anno scambiata a ogni livello di prezzo (barre lunghe = prezzi dove si è scambiato di più); non è un livello né un segnale. Per S&amp;P 500, Nasdaq-100 e KOSPI i volumi sono degli ETF SPY, QQQ e KODEX 200 (069500.KS, che segue il KOSPI 200), riportati sulla scala dell'indice; per argento e rame dalle barre orarie del future. Per oro, Nasdaq-100 e KOSPI il profilo è poco stabile (con metodi di calcolo diversi le zone principali si spostano di oltre il 2%): è mostrato con un'avvertenza. Dati Yahoo Finance, ricalcolati ogni notte su tutta la storia; verifica in <span class="mono">ricerca/bolle-rotazione/</span> e, per oro e argento con i future, <span class="mono">ricerca/poc/</span>, per il profilo dei volumi <span class="mono">ricerca/poc/profilo/</span> (ramo di sviluppo).</p></div>
     </div>
     <div class="panel" id="pkPanel">
-      <div class="ph"><h2>Linea del tempo dei massimi</h2><span class="ihint" tabindex="0" title="Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile. Dettagli nella guida." aria-label="Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile. Dettagli nella guida.">i</span><span class="meta" id="pkMeta"></span></div>
+      <div class="ph"><h2>Linea del tempo dei massimi</h2><button type="button" class="info" aria-label="Spiegazione: Linea del tempo dei massimi" aria-expanded="false" data-info="Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile. Dettagli nella guida." data-guide="linea-massimi">i</button><span class="meta" id="pkMeta"></span></div>
       <p class="note pb pkorder" id="pkOrder"></p>
       <p class="note pb" id="pkMiss" hidden></p>
       <div class="pkbody" id="pkBody"></div>
       <div class="legend" id="pkLegend"><span><span class="kl pkk-zero"></span>massimo dell'S&amp;P 500</span><span><span class="kd pkk-dot"></span>massimo di ciclo più alto entro 12 mesi (seguito da un calo ≥ 20%)</span><span><span class="kd pkk-alt"></span>altri massimi di ciclo</span><span><span class="kb pkk-band"></span>insieme: entro 31 giorni</span><span>accanto o sotto la riga: data, giorni, calo</span><span><a href="guida.html#linea-massimi" target="_blank" rel="noopener">Come si legge ↗</a></span></div>
     </div>
+    <p class="srcline" id="athSrc">Prezzi Yahoo Finance, solo prezzo (oro, argento, rame e petrolio: future continuo) · idea da una slide di Francesco Caruso (Cicli&amp;Mercati) · livelli blu e idee del resto dell'app: Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) · <a href="guida.html#fonti-ath" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
   <!-- 9 ALERT -->
   <section class="view" id="v-alr" role="tabpanel" aria-labelledby="tab-alr" hidden>
@@ -528,14 +479,14 @@
       <div class="panel">
         <div class="ph"><h2>Registro dei cambi di stato</h2><span class="meta" id="alertCount"></span></div>
         <ul class="alist" id="alertLog"></ul>
-        <p class="note pb">Calcolato nel browser con i livelli blu attuali su tutta la storia dal 2005 (ricostruita). Serve a vedere come si comporta il sistema, non è un backtest validato.</p>
+        <p class="note pb">Storia dal 2005 ricostruita, con i livelli blu di oggi: non è un backtest.</p>
       </div>
       <div class="stack">
         <div class="panel">
           <div class="ph"><h2>Notifiche Telegram</h2></div>
           <div class="pb">
             <p class="note" id="sentInfo"></p>
-            <p class="note">Le notifiche arrivano a chi gestisce il repository: la GitHub Action invia solo i nuovi cambi di stato dopo ogni aggiornamento dei dati (di solito tra la notte e la mattina).</p>
+            <p class="note">Le notifiche vanno a chi gestisce il repository, dopo ogni aggiornamento dei dati.</p>
             <details class="owner">
               <summary>Per chi gestisce il repository</summary>
               <p class="note">Crea un bot con @BotFather, avvia una chat con il bot e aggiungi al repository (Settings → Secrets and variables → Actions) i segreti <span class="mono">TELEGRAM_BOT_TOKEN</span> e <span class="mono">TELEGRAM_CHAT_ID</span>.</p>
@@ -548,6 +499,7 @@
         </div>
       </div>
     </div>
+    <p class="srcline" id="alrSrc">Stessi dati del Monitor · livelli blu di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>), regole di questa app · <a href="guida.html#fonti-alr" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 6 INDICI -->
@@ -563,7 +515,7 @@
     </div>
     <div class="kpis" id="ixKpis"></div>
     <div class="panel">
-      <div class="ph"><h2>Indici · stato dei bottom</h2><span class="meta" id="ixMeta"></span></div>
+      <div class="ph"><h2>Indici · stato dei bottom</h2><button type="button" class="info" aria-label="Spiegazione: Indici, stato dei bottom" aria-expanded="false" data-src="ixHelp" data-guide="idx">i</button><span class="meta" id="ixMeta"></span></div>
       <div class="tscroll"><table class="t board-cards" id="ixTable"></table></div>
       <div class="legend">
         <span><span class="kb" style="background:var(--blue)"></span>% titoli sopra la media 200, sotto il livello blu</span>
@@ -572,7 +524,8 @@
         <span><span class="kb" style="background:var(--down)"></span>drawdown più profondo dell'80% della storia</span>
         <span><span class="kb" style="background:var(--ink-3);width:2px"></span>peggior drawdown a 5 anni</span>
       </div>
-      <p class="note pb">Stessa analisi dei settori sugli indici: quanti titoli dell'indice stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown dell'indice (solo prezzo, nella valuta dell'indice; per l'MSCI Emerging l'ETF EEM in dollari). «Storia» dice come è ricostruito il passato: con la composizione di ogni data, o con i membri di oggi. La rotazione di 9 di questi indici (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), con ETF in euro, è in <b>2 Rotazione</b>, universo <b>6 · Indici</b>.</p>
+      <p class="note pb">Drawdown sul solo prezzo, nella valuta dell'indice (MSCI Emerging: ETF EEM in dollari).</p>
+      <div class="info-src" id="ixHelp" hidden><p>Stessa analisi dei settori sugli indici: quanti titoli dell'indice stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown dell'indice (solo prezzo, nella valuta dell'indice; per l'MSCI Emerging l'ETF EEM in dollari). «Storia» dice come è ricostruito il passato: con la composizione di ogni data, o con i membri di oggi. La rotazione di 9 di questi indici (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), con ETF in euro, è in <b>2 Rotazione</b>, universo <b>6 · Indici</b>.</p></div>
     </div>
     <div class="grid-2" style="margin-top:12px">
       <div class="panel">
@@ -595,14 +548,13 @@
           <span><span class="kb" style="background:var(--down)"></span>fallito</span>
           <span><span class="kb" style="background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--ink-2)"></span>cooldown</span>
           <span><span class="kb" style="background:var(--ink-2)"></span>normale</span>
-          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute)</span>
+          <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" style="vertical-align:-2px;margin-right:5px"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--watch-line)" stroke-width="1.5" stroke-dasharray="3 2.5"/></svg>avvicinamento<button type="button" class="info" aria-label="Spiegazione: avvicinamento" aria-expanded="false" data-info="Breadth sotto la soglia dell'indice: livello blu più il suo calo forte in 10 sedute. Promemoria, non uno stato." data-guide="idx-avvicinamento">i</button></span>
           <span class="muted">coda = ultime 8 settimane · clic per il dettaglio</span>
         </div>
       </div>
       <div class="panel">
-        <div class="ph"><h2>Distanza dal livello blu</h2><span class="meta">punti di breadth · dal più vicino</span></div>
+        <div class="ph"><h2>Distanza dal livello blu</h2><button type="button" class="info" aria-label="Spiegazione: Distanza dal livello blu" aria-expanded="false" data-info="Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nello SMI (20 titoli) uno solo sposta la breadth di 5 punti, nello STOXX 600 di meno di 0,2." data-guide="idx-distanza">i</button><span class="meta">punti di breadth · dal più vicino</span></div>
         <div class="dist" id="ixDist"></div>
-        <p class="note pb">Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci. Un titolo vale 100/N punti: nello SMI (20 titoli) uno solo sposta la breadth di 5 punti, nello STOXX 600 di meno di 0,2.</p>
       </div>
     </div>
     <div class="panel" id="ixDetail" style="margin:12px 0">
@@ -637,14 +589,16 @@
           </div>
         </div>
         <details class="panel fold" id="ixEpiBox" data-keep="ixEpi">
-          <summary class="ph"><span class="h2">Episodi in zona blu</span><span class="meta" id="ixEpiMeta"></span></summary>
+          <summary class="ph"><span class="h2">Episodi in zona blu</span><button type="button" class="info" aria-label="Spiegazione: Episodi in zona blu dell'indice" aria-expanded="false" data-src="ixEpiHelp" data-guide="idx-episodi">i</button><span class="meta" id="ixEpiMeta"></span></summary>
+          <div class="info-src" id="ixEpiHelp" hidden><p>Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.</p></div>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi in zona blu dell'indice"><table class="t" id="ixEpiTable"></table></div>
-          <p class="note pb ctx-h"><b>Per confronto</b>: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.</p>
+          <p class="note pb ctx-h"><b>Per confronto</b><button type="button" class="info" aria-label="Spiegazione: Per confronto" aria-expanded="false" data-info="Gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia." data-guide="idx-episodi">i</button></p>
           <div class="tscroll" tabindex="0" role="region" aria-label="Episodi dell'indice a confronto con una seduta qualsiasi"><table class="t ctx" id="ixEpiCtx"></table></div>
-          <p class="note pb">Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale. Storia ricostruita: serve a capire come si comporta il segnale, non è un backtest validato. I casi sono pochi: leggi le mediane come esempi, non come probabilità. Nei mercati orso lunghi (2001-2002, inizio 2008) i trigger sono stati spesso rimbalzi falliti.<span class="only-phone"> Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.</span></p>
+          <p class="note pb">Storia ricostruita, pochi casi: esempi, non probabilità.</p>
         </details>
         <details class="panel capcard fold" id="ixCap" data-keep="ixCap">
-          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><span class="meta" id="ixCapMeta"></span></summary>
+          <summary class="ph"><span class="h2">Cali forti · capitolazione</span><button type="button" class="info" aria-label="Spiegazione: Cali forti dell'indice" aria-expanded="false" data-src="ixCapHelp" data-guide="cali">i</button><span class="meta" id="ixCapMeta"></span></summary>
+          <div class="info-src" id="ixCapHelp" hidden></div>
           <div class="pb" id="ixCapBody">
             <div class="controls capctl" id="ixCapCtl"></div>
             <p class="note" id="ixCapNow"></p>
@@ -679,7 +633,7 @@
             </div>
             <p class="note" id="ixBlueSrc"></p>
             <p class="note" id="ixBlueInfo"></p>
-            <p class="note">Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.</p>
+            <p class="note">Vale solo in questo browser.</p>
           </div>
         </div>
         <div class="panel">
@@ -689,6 +643,7 @@
       </div>
     </div>
     </div>
+    <p class="srcline" id="ixSrc">Prezzi Yahoo Finance, solo prezzo · membri da Wikipedia, iShares, Nasdaq, Nikkei e B3 (alcuni indici con i membri di oggi) · livelli blu dai grafici di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) o 3° percentile della storia · regole di questa app · <a href="guida.html#fonti-idx" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 7 TITOLI -->
@@ -709,7 +664,8 @@
       </div>
     </div>
     <div class="panel" style="margin-bottom:12px">
-      <div class="ph"><h2>Grandi contro piccoli · cap-weighted vs equal-weight</h2><span class="meta" id="titMeta"></span></div>
+      <div class="ph"><h2>Grandi contro piccoli · cap-weighted vs equal-weight</h2><button type="button" class="info" aria-label="Spiegazione: Grandi contro piccoli" aria-expanded="false" data-src="titGrandiHelp" data-guide="tit-grandi">i</button><span class="meta" id="titMeta"></span></div>
+      <div class="info-src" id="titGrandiHelp" hidden><p><b>Grandi contro piccoli.</b> Per ogni settore il rendimento dell'indice pesato per capitalizzazione (pallino pieno, pesano i grandi) e dello stesso settore con ogni titolo a peso uguale (pallino vuoto, pesano i medi e i piccoli). La barra è la divergenza: verde acqua se vanno meglio i titoli medi (il movimento è largo), viola se guidano i grandi. Le tre divergenze più ampie hanno un anello sul pallino di chi è davanti. La scia, in grigio, segna dove erano i due pallini 3 mesi, 1 mese e 1 settimana fa (sulla stessa durata del periodo), con la stessa forma e sempre più grandi man mano che si avvicinano a oggi; la freccia sottile è il movimento dell'ultima settimana, verde (blu con CVD) se sale e rossa se scende, sfumata da 1 settimana fa a oggi. Così si vede chi si è mosso per primo e in che direzione. Al passaggio del mouse tutti i valori.</p><p>Ultima colonna: come è cambiata la divergenza rispetto a 1 mese fa (▲ verso l'equal-weight, ▼ verso i grandi).</p><p><b>Dati.</b> Calcolati da noi sui costituenti: prezzi senza dividendi, pesi dalle holdings dell'ETF iShares IVV, composizione dell'indice di ogni data (tabella dei cambi di Wikipedia); chi non è nelle holdings (uscito, appena entrato) pesa come un titolo piccolo del settore (una stima). L'equal-weight si ribilancia ogni trimestre come gli indici S&amp;P: in media a mezzo punto dagli ETF settoriali Invesco RSP* (0,47 punti su 60 confronti, verifica del 19/10/2026). Il cap-weighted non taglia il peso dei giganti come fanno gli ETF SPDR, quindi può scostarsi dagli ETF settoriali: al 19/10/2026, su 3 mesi, 1,6-1,7 punti in Beni di consumo e Tecnologia, 1,5 in Materiali, 1,3 nei Discrezionali, meno di un punto negli altri. <span id="titData"></span></p><p><b>Perché non coincide con il grafico di Rea</b>: periodo in sedute, pesi di inizio periodo, membri di ogni data. <a href="guida.html#faq-rea" target="_blank" rel="noopener">Spiegazione completa ↗</a></p></div>
       <div class="controls tit-ctl">
         <span class="ctl">Scia
           <span class="seg" id="titTrailSeg" role="group" aria-label="Scia">
@@ -732,13 +688,13 @@
         <span><span class="kd o"></span>equal-weight · ogni titolo conta uguale</span>
         <span><span class="kl" style="background:var(--q-lead);height:4px"></span>davanti l'equal-weight · movimento largo</span>
         <span><span class="kl" style="background:var(--q-imp);height:4px"></span>davanti il cap-weighted · guidano i grandi</span>
-        <span><svg class="ka" width="58" viewBox="0 0 58 10" aria-hidden="true"><circle cx="4" cy="5" r="1.9" fill="var(--chart-trail)" opacity=".4"/><circle cx="14" cy="5" r="2.6" fill="var(--chart-trail)" opacity=".55"/><circle cx="26" cy="5" r="3.4" fill="var(--chart-trail)" opacity=".75"/><defs><linearGradient id="kArrUp"><stop offset="0" stop-color="var(--up)" stop-opacity=".08"/><stop offset="1" stop-color="var(--up)"/></linearGradient></defs><rect x="26" y="3.8" width="18" height="2.4" fill="url(#kArrUp)"/><path d="M49 5 L43.5 1.4 L43.5 8.6 Z" fill="var(--up)"/><circle cx="53" cy="5" r="4.2" fill="var(--ink)"/></svg>scia: 3 mesi, 1 mese, 1 settimana fa (pallini sempre più grandi) e freccia dell'ultima settimana, verde (blu con CVD) se sale, rossa se scende</span>
+        <span><svg class="ka" width="58" viewBox="0 0 58 10" aria-hidden="true"><circle cx="4" cy="5" r="1.9" fill="var(--chart-trail)" opacity=".4"/><circle cx="14" cy="5" r="2.6" fill="var(--chart-trail)" opacity=".55"/><circle cx="26" cy="5" r="3.4" fill="var(--chart-trail)" opacity=".75"/><defs><linearGradient id="kArrUp"><stop offset="0" stop-color="var(--up)" stop-opacity=".08"/><stop offset="1" stop-color="var(--up)"/></linearGradient></defs><rect x="26" y="3.8" width="18" height="2.4" fill="url(#kArrUp)"/><path d="M49 5 L43.5 1.4 L43.5 8.6 Z" fill="var(--up)"/><circle cx="53" cy="5" r="4.2" fill="var(--ink)"/></svg>scia: 3 mesi, 1 mese, 1 settimana fa · freccia: ultima settimana</span>
         <span><svg class="ka" width="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5.5" fill="none" stroke="var(--amber)" stroke-width="1.5"/></svg>le 3 divergenze più ampie</span>
       </div>
       <p class="note pb" id="titSpreadNote"></p>
     </div>
     <div class="panel" id="titHistPanel" style="margin-bottom:12px" hidden>
-      <div class="ph"><h2 id="titHistTitle"></h2><span class="meta" id="titHistMeta"></span></div>
+      <div class="ph"><h2 id="titHistTitle"></h2><button type="button" class="info" aria-label="Spiegazione: Storia della divergenza" aria-expanded="false" data-src="titHistHelp" data-guide="tit-storia">i</button><span class="meta" id="titHistMeta"></span></div>
       <p class="note pb tit-streak" id="titHistNote"></p>
       <div class="chart-wrap" id="titHistWrap">
         <svg class="cq hist" id="titHist" role="img" aria-label="Divergenza tra equal-weight e cap-weighted del settore scelto nelle ultime 52 settimane"></svg>
@@ -749,11 +705,12 @@
         <span><span class="kb" style="background:var(--q-imp);opacity:.5"></span>sotto lo zero: guidano i grandi</span>
         <span><span class="kl" style="background:var(--ink-3)"></span>S&amp;P 500, per confronto</span>
       </div>
-      <p class="note pb">Ogni punto è la divergenza del dumbbell (equal-weight meno cap-weighted, in punti) calcolata alla fine di quella settimana sul periodo scelto: l'ultimo punto è il valore di oggi. Con YTD la divergenza riparte da zero a gennaio.</p>
+      <div class="info-src" id="titHistHelp" hidden><p>Ogni punto è la divergenza del dumbbell (equal-weight meno cap-weighted, in punti) calcolata alla fine di quella settimana sul periodo scelto: l'ultimo punto è il valore di oggi. Con YTD la divergenza riparte da zero a gennaio.</p></div>
     </div>
     <div class="grid-tit">
       <div class="panel">
-        <div class="ph"><h2 id="titBubbleTitle"></h2><span class="meta" id="titBubbleMeta"></span></div>
+        <div class="ph"><h2 id="titBubbleTitle"></h2><button type="button" class="info" aria-label="Spiegazione: Titoli del settore" aria-expanded="false" data-src="titBubHelp" data-guide="tit-bolle">i</button><span class="meta" id="titBubbleMeta"></span></div>
+        <div class="info-src" id="titBubHelp" hidden><p><b>Titoli del settore.</b> Una bolla per titolo, grande quanto il suo peso nell'S&amp;P 500 (per il SOXX, nell'ETF). In alto il rendimento del periodo; le linee tratteggiate sono il settore equal e cap-weighted. In basso a sinistra i titoli che scendono e stanno sotto la media 200 (o lontani dal massimo). Con «periodo precedente» si separano i deboli da tempo (in basso a sinistra) dai cedimenti recenti (in basso a destra). Valori estremi fermati al bordo con una freccia.</p><p>Chi non è nelle holdings di IVV (uscito, appena entrato) pesa come un titolo piccolo del settore: una stima.</p></div>
         <div class="controls tit-ctl">
           <label class="ctl" for="titAx">Asse orizzontale <select id="titAx">
             <option value="d200">Distanza da media 200</option>
@@ -762,7 +719,7 @@
           </select></label>
           <span class="ctl">Bolle
             <span class="seg" id="titSizeSeg" role="group" aria-label="Grandezza delle bolle">
-              <button type="button" data-size="w" aria-pressed="true" title="Area proporzionale al peso nell'S&amp;P 500 (per il SOXX nell'ETF)">Peso</button>
+              <button type="button" data-size="w" aria-pressed="true" title="Area proporzionale al peso nell'S&amp;P 500 (per il SOXX nell'ETF); chi non è nelle holdings di IVV pesa come un titolo piccolo del settore (una stima)">Peso</button>
               <button type="button" data-size="eq" aria-pressed="false">Uguali</button>
             </span></span>
         </div>
@@ -777,25 +734,16 @@
           <span><span class="kl kl-dot"></span>settore cap-weighted</span>
           <span><span class="kb" style="background:var(--down);opacity:.15"></span>sotto zero su entrambi gli assi</span>
           <span id="titSizeLeg" hidden><span class="kd" style="background:var(--ink-3);opacity:.6"></span>bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione</span>
-          <span id="titFlagLeg" hidden><span class="kd kd-ext"></span>titolo estero quotato negli Stati Uniti (ADR o azioni quotate a New York), con la bandiera del paese secondo iShares</span>
+          <span id="titFlagLeg" hidden><span class="kd kd-ext"></span>titolo estero quotato negli USA (bandiera del paese secondo iShares)</span>
         </div>
       </div>
       <div class="panel">
-        <div class="ph"><h2>I più in pena</h2><span class="meta" id="titPainMeta"></span></div>
+        <div class="ph"><h2>I più in pena</h2><button type="button" class="info" aria-label="Spiegazione: I più in pena" aria-expanded="false" data-info="Ordine: media della posizione nel settore per rendimento del periodo e per distanza dal massimo a 52 settimane. Chi è in pena non è per forza a sconto. Clic sul ticker per il grafico su TradingView." data-guide="tit-bolle">i</button><span class="meta" id="titPainMeta"></span></div>
         <div class="tscroll" tabindex="0" role="region" aria-label="I titoli più in pena del settore"><table class="t pain" id="titPain"></table></div>
-        <p class="note pb">Ordine: media della posizione nel settore per rendimento del periodo e per distanza dal massimo a 52 settimane. Chi è in pena non è per forza a sconto. Clic sul ticker per il grafico su TradingView.</p>
-      </div>
-    </div>
-    <div class="panel" style="margin-top:12px">
-      <div class="ph"><h2>Come si legge</h2></div>
-      <div class="pb how">
-        <p class="note"><b>Grandi contro piccoli.</b> Per ogni settore il rendimento dell'indice pesato per capitalizzazione (pallino pieno, pesano i grandi) e dello stesso settore con ogni titolo a peso uguale (pallino vuoto, pesano i medi e i piccoli). La barra è la divergenza: verde acqua se vanno meglio i titoli medi (il movimento è largo), viola se guidano i grandi. Le tre divergenze più ampie hanno un anello sul pallino di chi è davanti. La scia, in grigio, segna dove erano i due pallini 3 mesi, 1 mese e 1 settimana fa (sulla stessa durata del periodo), con la stessa forma e sempre più grandi man mano che si avvicinano a oggi; la freccia sottile è il movimento dell'ultima settimana, verde (blu con CVD) se sale e rossa se scende, sfumata da 1 settimana fa a oggi. Così si vede chi si è mosso per primo e in che direzione. Al passaggio del mouse tutti i valori.</p>
-        <p class="note"><b>Titoli del settore.</b> Una bolla per titolo, grande quanto il suo peso nell'S&amp;P 500 (per il SOXX, nell'ETF). In alto il rendimento del periodo; le linee tratteggiate sono il settore equal e cap-weighted. In basso a sinistra i titoli che scendono e stanno sotto la media 200 (o lontani dal massimo). Con «periodo precedente» si separano i deboli da tempo (in basso a sinistra) dai cedimenti recenti (in basso a destra). Valori estremi fermati al bordo con una freccia.</p>
-        <p class="note"><b>Dati.</b> Calcolati da noi sui costituenti: prezzi senza dividendi, pesi dalle holdings dell'ETF iShares IVV, composizione dell'indice di ogni data (tabella dei cambi di Wikipedia); chi non è nelle holdings (uscito, appena entrato) pesa come un titolo piccolo del settore (una stima). L'equal-weight si ribilancia ogni trimestre come gli indici S&amp;P: in media a mezzo punto dagli ETF settoriali Invesco RSP* (0,47 punti su 60 confronti, verifica del 19/10/2026). Il cap-weighted non taglia il peso dei giganti come fanno gli ETF SPDR, quindi può scostarsi dagli ETF settoriali: al 19/10/2026, su 3 mesi, 1,6-1,7 punti in Beni di consumo e Tecnologia, 1,5 in Materiali, 1,3 nei Discrezionali, meno di un punto negli altri. <span id="titData"></span></p>
-        <p class="note"><b>Perché non coincide con il grafico di Rea.</b> I numeri non coincidono, per tre motivi. Il periodo: per noi 3 mesi sono 63 sedute, per Rea 3 mesi di calendario, quindi si parte da una o due sedute diverse. Il cap-weighted: Rea pesa i rendimenti con la capitalizzazione di oggi, che dà più peso a chi è già salito, quindi il suo valore di solito è più alto di quanto ha reso davvero un indice a capitalizzazione (3 mesi al 16/10/2026, Tecnologia: 8,2% con i pesi di fine periodo, 5,8% con quelli di inizio periodo dalla stessa data di partenza; 5,7% sulle nostre 63 sedute); noi usiamo i pesi di inizio periodo, che poi seguono i prezzi. L'equal-weight: per Rea è la media semplice dei membri di oggi, per noi l'indice con i membri di ogni data e il ribilanciamento trimestrale. Per questo i numeri possono differire, soprattutto nel cap-weighted, e in qualche settore può cambiare chi è davanti; più è lungo il periodo, più le differenze possono crescere.</p>
       </div>
     </div>
     </div>
+    <p class="srcline" id="titSrc">Dati calcolati da noi sui costituenti: prezzi Yahoo Finance, pesi delle holdings iShares IVV, composizione da Wikipedia · idee di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): i numeri possono differire dal suo grafico · <a href="guida.html#fonti-tit" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <section class="view" id="v-emg" role="tabpanel" aria-labelledby="tab-emg" hidden>
@@ -805,13 +753,14 @@
     <div class="emg-grid">
       <div class="emg-main">
         <div class="panel">
-          <div class="ph"><h2>Emergenti · stato e contesto</h2><span class="meta" id="emMeta"></span></div>
+          <div class="ph"><h2>Emergenti · stato e contesto</h2><button type="button" class="info" aria-label="Spiegazione: Emergenti, valuta e dollaro" aria-expanded="false" data-src="emValHelp" data-guide="emg-leggere">i</button><span class="meta" id="emMeta"></span></div>
+          <div class="info-src" id="emValHelp" hidden><p><b>La valuta «ha smesso di scendere»</b>: dopo un calo forte (variazione in 13 settimane oltre 1 deviazione standard delle sue variazioni negli ultimi 3 anni), il cambio è sceso di almeno mezza deviazione standard dal massimo delle ultime 13 settimane. Nel campione, su 17 cali di borsa oltre il 25% dal massimo storico (5 indici con il cambio), si era già accesa nei sei mesi prima del minimo in 15, e poi la borsa era scesa ancora (uno dei 15 è il calo del KOSPI in corso, con il minimo del 26/10/2026 ancora provvisorio): non è un segnale d'ingresso.</p><p><b>Dollaro contro gli emergenti</b> (FRED, indice della Federal Reserve): il dollaro debole è arrivato in genere mesi dopo il minimo delle borse (mediana 110 sedute in 19 cali oltre il 25% dal massimo storico; nel ventesimo, il KOSPI in corso, non ancora). Conferma, non anticipa. È una serie giornaliera che FRED pubblica una volta alla settimana: conta la data dell'ultimo valore.</p><p><b>Cina e India</b>: cambio gestito dalla banca centrale, si muove poco. <b>Hong Kong</b>: dollaro agganciato, il cambio non dice nulla. <b>EEM</b>: è già in dollari.</p><p>Numeri del campione: cali oltre il 25% dal massimo storico (non il drawdown a 52 settimane della tabella); 5 indici con il cambio per la valuta, 7 per il dollaro; breadth con i membri di oggi; poche crisi indipendenti (indicativi). Ricalcolo: <span class="mono">ricerca/emergenti/backtest/</span> (ramo di sviluppo del repository).</p></div>
           <p class="note pb" id="emMiss" hidden></p>
           <div class="tscroll"><table class="t board-cards" id="emTable"></table></div>
-          <p class="note pb">Lo stato e la breadth sono quelli della vista <b>6 Indici</b>, con gli stessi livelli blu (anche se modificati in questo browser). Valuta, dollaro e forza relativa sono <b>solo contesto</b>: non cambiano lo stato e non mandano alert. Clic (o tocco) su una riga per il dettaglio.</p>
+          <p class="note pb">Stato e breadth dalla vista <b>6 Indici</b> · valuta, dollaro e forza relativa: <b>solo contesto</b>. Clic su una riga per il dettaglio.</p>
         </div>
         <div class="panel">
-          <div class="ph"><h2 id="emTitle"></h2><span class="meta"><span id="emState"></span> <span id="emDMeta"></span></span><span class="zchip" id="emZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
+          <div class="ph"><h2 id="emTitle"></h2><button type="button" class="info" aria-label="Spiegazione: grafico degli emergenti" aria-expanded="false" data-src="emChartHelp" data-guide="emg-dettaglio">i</button><span class="meta"><span id="emState"></span> <span id="emDMeta"></span></span><span class="zchip" id="emZoom" hidden><span></span><button type="button" aria-label="Togli lo zoom e torna al periodo">×</button></span></div>
           <div class="controls">
             <span class="ctl">Periodo <span class="seg" id="emRange"><button type="button" data-range="3A" aria-pressed="true">3A</button><button type="button" data-range="10A" aria-pressed="false">10A</button><button type="button" data-range="MAX" aria-pressed="false">MAX</button></span><button type="button" class="zlens" id="emLens" aria-pressed="false" aria-label="Zoom: scegli un tratto sul grafico" title="Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></span>
             <span class="ctl push"><button type="button" class="mini" id="emOpenIx"></button></span>
@@ -821,37 +770,27 @@
             <div class="tip" id="emTip" hidden></div>
           </div>
           <div class="legend" id="emLegend"></div>
-          <p class="note pb"><span id="emChartMeta"></span>. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).</p>
+          <p class="note pb"><span id="emChartMeta"></span>.</p>
+          <div class="info-src" id="emChartHelp" hidden><p>Prezzo in base 100 in valuta locale e in dollari, breadth con il livello blu, cambio (su = valuta più debole) e dollaro contro gli emergenti, sullo stesso asse del tempo. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, ultimi giorni non ancora pubblicati da FRED).</p><p>L'indice in dollari è il prezzo diviso per il cambio della Fed dello stesso giorno (mezzogiorno di New York); gli ultimi giorni, non ancora pubblicati dalla Fed, con il cambio di Yahoo, provvisorio.</p></div>
           <ul class="emnotes" id="emNotes"></ul>
         </div>
       </div>
       <div class="emg-side">
         <div class="panel">
-          <div class="ph"><h2>Forza relativa</h2><span class="meta" id="emRSMeta"></span></div>
+          <div class="ph"><h2>Forza relativa</h2><button type="button" class="info" aria-label="Spiegazione: Forza relativa" aria-expanded="false" data-src="emRSHelp" data-guide="emg-forza">i</button><span class="meta" id="emRSMeta"></span></div>
+          <div class="info-src" id="emRSHelp" hidden><p>ETF in dollari contro ACWI, settimanale, formula «Nuova» della rotazione (vista 2); scia di 10 settimane solo per l'indice selezionato. ASHR (CSI 300), INDA, EWZ, EWY, EWT, EWH (Hong Kong), EEM. RS-Ratio in orizzontale, RS-Momentum in verticale. Clic (o tocco) su un punto per sceglierlo.</p></div>
           <div class="pb" id="emRSWrap"><svg class="emrs" id="emRS" role="img" aria-label="Forza relativa degli ETF dei paesi contro ACWI"></svg>
-            <p class="note">ETF in dollari contro ACWI, settimanale, formula «Nuova» della rotazione (vista 2); scia di 10 settimane solo per l'indice selezionato. ASHR (CSI 300), INDA, EWZ, EWY, EWT, EWH (Hong Kong), EEM. RS-Ratio in orizzontale, RS-Momentum in verticale. Clic (o tocco) su un punto per sceglierlo.</p></div>
-        </div>
-        <div class="panel">
-          <div class="ph"><h2>Come leggere il contesto</h2></div>
-          <div class="emread">
-            <p><b>Solo contesto, non un segnale.</b> Lo stato è quello della vista 6 (breadth e livello blu). Valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert. Valuta e dollaro, nella verifica sui dati, non hanno migliorato i segnali della breadth; la forza relativa non è stata provata.</p>
-            <p><b>La valuta «ha smesso di scendere»</b>: dopo un calo forte (variazione in 13 settimane oltre 1 deviazione standard delle sue variazioni negli ultimi 3 anni), il cambio è sceso di almeno mezza deviazione standard dal massimo delle ultime 13 settimane. Nel campione, su 17 cali di borsa oltre il 25% dal massimo storico (5 indici con il cambio), si era già accesa nei sei mesi prima del minimo in 15, e poi la borsa era scesa ancora (uno dei 15 è il calo del KOSPI in corso, con il minimo del 26/10/2026 ancora provvisorio): non è un segnale d'ingresso.</p>
-            <p><b>Dollaro contro gli emergenti</b> (FRED, indice della Federal Reserve): il dollaro debole è arrivato in genere mesi dopo il minimo delle borse (mediana 110 sedute in 19 cali oltre il 25% dal massimo storico; nel ventesimo, il KOSPI in corso, non ancora). Conferma, non anticipa. È una serie giornaliera che FRED pubblica una volta alla settimana: conta la data dell'ultimo valore.</p>
-            <p><b>Cina e India</b>: cambio gestito dalla banca centrale, si muove poco. <b>Hong Kong</b>: dollaro agganciato, il cambio non dice nulla. <b>EEM</b>: è già in dollari.</p>
-            <p class="muted">Numeri del campione: cali oltre il 25% dal massimo storico (non il drawdown a 52 settimane della tabella); 5 indici con il cambio per la valuta, 7 per il dollaro; breadth con i membri di oggi; poche crisi indipendenti (indicativi). Ricalcolo: <span class="mono">ricerca/emergenti/backtest/</span> (ramo di sviluppo del repository).</p>
-          </div>
+            <p class="note">ETF in dollari contro ACWI, settimanale. Clic su un punto per sceglierlo.</p></div>
         </div>
       </div>
     </div>
-    <p class="note pb">Fonti: cambi in valuta locale per un dollaro della Federal Reserve (FRED H.10, dal 2000; il cambio della Fed è quello di mezzogiorno di New York dello stesso giorno: per l'Asia qualche ora dopo la chiusura della borsa, per il Brasile qualche ora prima); per gli ultimi giorni, che la Fed non ha ancora pubblicato, il cambio di Yahoo Finance, provvisorio (è in pratica il prezzo della sera prima, a mezzanotte di Londra) e sostituito da quello della Fed quando esce; dollaro contro le valute emergenti FRED DTWEXEMEGS (Federal Reserve H.10, serie giornaliera pubblicata una volta alla settimana, con qualche giorno di ritardo); ETF Yahoo Finance con i dividendi. L'indice in dollari è il prezzo della vista 6 diviso per il cambio dello stesso giorno: per il CSI 300 il prezzo è l'ETF 510300 in yuan, per il KOSPI 200 il KOSPI intero, per Taiwan il TAIEX. Gli ETF della forza relativa sono rettificati per i dividendi, gli indici no. Storie più corte: ASHR dal 2013, INDA dal 2012, ACWI dal 2008, DTWEXEMEGS dal 2006. Un probabile errore di stampa nei giorni di Yahoo (un salto che si annulla il giorno dopo) diventa un giorno mancante; l'ultimo giorno non si può ancora controllare. FRED a volte rivede DTWEXEMEGS (fino allo 0,6% nelle versioni 2024-2026): le fasce passate del dollaro usano i valori rivisti. Dove manca un dato si mostra «—».</p>
     </div>
+    <p class="srcline" id="emSrc">Cambi della Federal Reserve (FRED H.10), ultimi giorni da Yahoo Finance, provvisori · dollaro contro emergenti: FRED DTWEXEMEGS · ETF: Yahoo Finance · stato con i livelli blu e le idee di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>) · <a href="guida.html#fonti-emg" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   </main>
 
   <footer class="statusline">
-    <span id="srcLine">Dati di fine giornata: Yahoo Finance · breadth calcolata dai costituenti S&amp;P 500 (storico ricostruito con la composizione dell'epoca) · livelli blu di default dalla tabella «200 LEVEL SETTORI» di quant-rea · indici: livelli dai grafici di Massimo Rea dove ci sono, altrimenti il 3° percentile della storia dell'indice · massimi (vista 0): idea di Francesco Caruso (Cicli&amp;Mercati)</span>
-    <span class="discl">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</span>
     <span class="discl">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento. I rendimenti passati non indicano quelli futuri.</span>
     <span id="genLine"></span>
   </footer>
@@ -861,39 +800,29 @@
     <div class="ph"><h2 id="helpTitle">Guida</h2><button type="button" class="modal-close" id="helpClose" aria-label="Chiudi">×</button></div>
     <div class="pb help">
       <p class="guide-link"><a class="mini" id="guideLink" href="guida.html" target="_blank" rel="noopener">Guida completa ↗</a> <span class="muted">ogni vista e ogni funzione spiegata passo per passo</span></p>
-      <p><b>Sector Monitor</b> segue due cose: i <b>possibili bottom dei settori S&amp;P 500</b>, cioè quanti titoli di ogni settore stanno sopra la media a 200 sedute rispetto a un livello blu, insieme al drawdown dell'ETF; e la <b>rotazione relativa</b> di settori, titoli ed ETF in euro. Dati di fine giornata.</p>
+      <p><b>Sector Monitor</b> segue i possibili bottom dei settori S&amp;P 500 (breadth contro il livello blu) e la rotazione relativa. Dati di fine giornata.</p>
       <h3>Le viste</h3>
       <ul>
-        <li><b>1 Monitor</b>: gli 11 settori ordinati per stato, più i semiconduttori (SOXX) come industria, con breadth, livello blu e drawdown; a destra i settori da osservare, perché e cosa manca al prossimo stato. In alto, se sei già passato con i dati di un altro giorno, cosa è cambiato da allora (stati e breadth mossa di almeno 5 punti). Clic su un settore per il dettaglio, dove il riquadro <b>Perché questo stato</b> elenca le condizioni della zona blu o del trigger con ✓ e ✗. Sul telefono le spiegazioni delle intestazioni si aprono toccandole.</li>
+        <li><b>1 Monitor</b>: lo stato degli 11 settori e del SOXX; clic su un settore per il dettaglio.</li>
         <li><b>2 Rotazione</b>: grafico di rotazione relativa con tabella e performance. Universi USA (settori, MAG7) e globali in euro: 1 Asset class, 2 Fattori, 3 Regioni, 4 Paesi, 6 Indici.</li>
         <li><b>3 Bottom Map</b>: ogni settore è un punto; in orizzontale la profondità del drawdown, in verticale la distanza dal livello blu. Il colore è lo stato attuale.</li>
-        <li><b>4 Settore</b>: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/−, titoli del settore dal più sopra al più sotto la media, episodi passati e la scheda <b>Cali forti</b> (quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute: un'allerta di contesto, non un segnale).</li>
-        <li><b>5 Titoli</b>: dentro i settori. In alto «grandi contro piccoli»: per ogni settore il rendimento pesato per capitalizzazione e quello con ogni titolo a peso uguale (1, 3, 6 mesi, da inizio anno, 12 mesi), con la scia di 3 mesi, 1 mese e 1 settimana fa e la freccia dell'ultima settimana. Sotto, le bolle dei titoli del settore scelto e la lista dei più in pena. Il settore è lo stesso della vista 4. I numeri sono il rendimento di indici simulati con i membri di ogni data e possono differire da quelli del grafico di Rea: il motivo è nel riquadro «Come si legge».</li>
-        <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari. Di partenza si vedono i 10 principali (S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, KOSPI 200, MSCI Emerging Markets); gli altri si aggiungono o si tolgono con un clic nel riquadro «Indici mostrati», e la scelta resta nel browser. Tutti gli indici: S&amp;P 500, Nasdaq-100, Dow Jones, Russell 2000, S&amp;P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&amp;P/ASX 200, MSCI Emerging Markets e Ibovespa. Tabellone, Bottom Map e dettaglio con livello blu ed episodi. Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia. «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione. Anche qui l'anello tratteggiato e la voce «Avvicinamento» segnano gli indici sotto la loro soglia di avvicinamento (sulla storia di ciascuno dei 22 indici, la più lunga dal 2001, nel campione: insieme all'Attenzione 89 tocchi del livello su 132 avvisati, contro 83 della sola Attenzione; l'avvicinamento da solo 83). La colonna e la scheda <b>Cali forti</b> contano i titoli che perdono almeno il 7% in una seduta, sommati su 5 sedute (preset di Rea): allerta sopra il 99° percentile della storia dell'indice. Un'allerta che si ripete per settimane segnala vendite forti e diffuse sotto la superficie; è contesto, non cambia stati né alert.</li>
-        <li><b>7 Emergenti</b>: CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM con lo stato della vista 6 e, accanto, la valuta contro il dollaro, il dollaro contro le valute emergenti (FRED) e la forza relativa dell'ETF del paese contro ACWI. Solo contesto: non cambia lo stato e non manda alert.</li>
-        <li><b>8 VIX</b>: come sono andati S&amp;P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi), lo scatter delle sedute con il VIX a 30 o più, il VIX contro la volatilità realizzata, la struttura a termine (VIX/VIX3M) e il credito high yield (HYG/IEF). Solo contesto.</li>
+        <li><b>4 Settore</b>: grafico, livello blu da provare con + e −, titoli, episodi e cali forti.</li>
+        <li><b>5 Titoli</b>: grandi contro piccoli in ogni settore, bolle dei titoli e i più in pena.</li>
+        <li><b>6 Indici</b>: la stessa analisi su 22 indici azionari; «Indici mostrati» sceglie quali vedere.</li>
+        <li><b>7 Emergenti</b>: lo stato della vista 6 con valuta, dollaro e forza relativa (solo contesto).</li>
+        <li><b>8 VIX</b>: come sono andati gli indici dopo i picchi del VIX (solo contesto).</li>
         <li><b>9 Alert</b>: registro dei cambi di stato dal 2005 e regole.</li>
-        <li><b>0 Massimi</b> (tasto 0): quanto bitcoin, oro, argento, rame, petrolio, Nasdaq-100, S&amp;P 500, semiconduttori e KOSPI sono sotto il massimo degli ultimi 3 anni, con grafico e profilo dei volumi, e la linea del tempo dei massimi negli ultimi cali dell'S&amp;P 500 con l'ordine tipico. Solo descrizione.</li>
+        <li><b>0 Massimi</b> (tasto 0): quanto nove mercati sono sotto il massimo degli ultimi 3 anni e la linea del tempo dei massimi (solo descrizione).</li>
       </ul>
       <h3>Stati dei settori</h3>
       <ul>
-        <li><b>Avvicinamento</b> (anello tratteggiato sulla Bottom Map): breadth sotto la soglia di avvicinamento del settore, cioè il livello blu più il calo forte della sua breadth in 10 sedute. In un calo deciso il livello blu è a circa due settimane: è il momento di mettere il settore in osservazione. Dal 2005 (XLC dal 2019, XLRE dal 2016), insieme all'Attenzione ha avvisato 50 tocchi del livello su 63, 7 più della sola Attenzione (43); da solo ne ha avvisati 33. È un promemoria, non un segnale per comprare o vendere: <a href="guida.html#avvicinamento" target="_blank" rel="noopener">come usarlo</a>. Circa un avvicinamento su tre arriva al livello entro sei mesi. Sono numeri <b>nel campione</b>: la regola è stata scelta guardando questa stessa storia, quindi dal vivo ci si deve aspettare qualcosa di meno. Non cambia lo stato e non manda alert.</li>
+        <li><b>Avvicinamento</b>: breadth sotto il livello blu più il suo calo forte in 10 sedute; promemoria, non uno stato.</li>
         <li><b>Attenzione</b>: breadth entro 10 punti dal livello blu o drawdown molto profondo; anche sotto il livello da una sola chiusura.</li>
         <li><b>Zona blu</b>: breadth al livello blu o sotto per 2 chiusure e drawdown oltre il 70° percentile della storia del settore. Lì si formano spesso i bottom, di solito in anticipo.</li>
-        <li><b>Trigger</b>: la breadth risale di almeno 5 punti sopra il livello (o 2 titoli, se valgono di più) e di almeno 2 titoli sopra il minimo della zona blu, con una conferma (due dopo un fallimento o una zona blu lunga): spinta di breadth, prezzo sopra una media 20 crescente o divergenza. Il rimbalzo a V (breadth di nuovo sopra il più alto tra 40% e livello + 25) basta da solo.</li>
-        <li><b>Fallito</b>: il prezzo chiude sotto il minimo della zona blu, con un piccolo margine, entro 20 sedute dal trigger; oppure più tardi, finché la breadth non è tornata sopra il livello di riarmo, se anche la breadth è di nuovo sotto il livello blu. <b>Cooldown</b>: dopo un trigger, 63 sedute senza nuovi segnali. Nel grafico le bande blu a righe sono le sedute con la breadth sotto il livello ma fuori dalla zona blu: il motivo è nel riquadro al passaggio del mouse.</li>
+        <li><b>Trigger</b>: la breadth risale sopra il livello blu con una conferma.</li>
+        <li><b>Fallito</b>: il prezzo torna sotto il minimo della zona blu. <b>Cooldown</b>: 63 sedute senza nuovi segnali.</li>
       </ul>
-      <h3>Rotazione relativa</h3>
-      <p>Ogni titolo è confrontato con il benchmark su due assi: <b>RS-Ratio</b> (forza relativa) e <b>RS-Momentum</b> (slancio di quella forza). Il centro 100/100 vuol dire "in linea con il benchmark".</p>
-      <ul>
-        <li><b class="q-imp-c">Improving</b> (alto a sinistra): più debole del benchmark ma lo slancio migliora.</li>
-        <li><b class="q-lead-c">Leading</b> (alto a destra): più forte e con slancio.</li>
-        <li><b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala.</li>
-        <li><b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</li>
-      </ul>
-      <p>Universi globali: <b>1 Asset class</b> confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento, con i cursori per adattare i pesi al tuo portafoglio; <b>2 Fattori</b> gli stili con l'MSCI World; <b>3 Regioni</b> e <b>4 Paesi</b> con l'MSCI ACWI, il mondo con gli emergenti; <b>6 Indici</b> gli ETF in euro su 9 indici della pagina Indici (S&amp;P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), sempre con l'MSCI ACWI. <b>5 Asset reali</b>, in dollari, confronta oro, argento, rame, petrolio, materie prime, bitcoin e TIPS con liquidità, inflazione USA, dollaro, Treasury, azioni o oro: sotto il grafico, cosa mostra ogni benchmark. Due formule per la rotazione. La <b>nuova</b> usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro. <b>Medie semplici</b> divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre. La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe. Con l'indice S&amp;P 500 come benchmark coincide al centesimo con StockCharts. Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.</p>
-      <h3>Dati</h3>
-      <p>Chiusure di Yahoo Finance, aggiornate da una GitHub Action dopo la chiusura USA, con corse di recupero ogni ora nelle prime ore del mattino e una a metà giornata. GitHub fa partire le corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina. In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione. La breadth è calcolata sui costituenti dell'S&amp;P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.</p>
+      <p class="note">Regole complete, statistiche e limiti: riquadro «i» accanto ai titoli dei pannelli e <a href="guida.html#stati" target="_blank" rel="noopener">guida completa</a>.</p>
       <h3>Glossario</h3>
       <dl class="gloss">
         <dt>Breadth</dt><dd>% dei titoli del settore che chiudono sopra la propria media a 200 sedute, come SUTH o SKTH su TradingView.</dd>
@@ -902,15 +831,15 @@
         <dt>Solo prezzo</dt><dd>lo stesso calcolo sul prezzo senza dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo, e per chi non ne paga (oro, bitcoin) è uguale. Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday: dopo una seduta con un forte rovescio sta più in alto della chiusura (GLD il 29/01/2026: 509,70 contro 495,90).</dd>
         <dt>RS-Ratio</dt><dd>forza relativa rispetto al benchmark: sopra 100 più forte.</dd>
         <dt>RS-Momentum</dt><dd>come sta cambiando la forza relativa: sopra 100 in miglioramento.</dd>
+        <dt>Quadranti</dt><dd>centro 100/100 = in linea con il benchmark. <b class="q-imp-c">Improving</b> (alto a sinistra): più debole del benchmark ma lo slancio migliora; <b class="q-lead-c">Leading</b> (alto a destra): più forte e con slancio; <b class="q-weak-c">Weakening</b> (basso a destra): ancora forte, lo slancio cala; <b class="q-lag-c">Lagging</b> (basso a sinistra): debole e senza slancio.</dd>
         <dt>Direzione</dt><dd>verso dell'ultimo spostamento sul grafico, in gradi bussola: 0° in su, 90° a destra (verso Leading).</dd>
         <dt>Tema</dt><dd>l'interruttore Chiaro in alto passa al fondo bianco, con le stesse regole di colore; la scelta resta salvata nel browser e vale anche per le altre app del sito.</dd>
       </dl>
       <h3>Comandi e tasti</h3>
-      <p>Nella barra in alto scrivi un ETF settoriale (es. <span class="mono">XLU</span>) per aprirne il dettaglio, un altro ticker (anche senza borsa, es. <span class="mono">SWDA</span>) o un nome (es. <span class="mono">ORO</span>, <span class="mono">INDIA</span>, <span class="mono">TESLA</span>) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, TIT, IDX, EMG, VIX, ALRT, MASSIMI, HELP; un indice (es. <span class="mono">NDX</span>, <span class="mono">DAX</span>) apre il suo dettaglio nella pagina Indici; CHIARO o SCURO per il tema, TEMA per invertirlo. Tasti: <kbd>1</kbd>–<kbd>9</kbd> e <kbd>0</kbd> viste · <kbd>/</kbd> comando · <kbd>←</kbd> <kbd>→</kbd> periodo · <kbd>Spazio</kbd> animazione · <kbd>Esc</kbd> toglie lo zoom, poi l'evidenza · <kbd>?</kbd> guida. Con il focus sulle schede, <kbd>←</kbd> <kbd>→</kbd> passano da una vista all'altra. Nei grafici grandi con il tempo, trascina da una data all'altra per lo zoom su un tratto (sul telefono prima la lente).</p>
+      <p>Nella barra in alto scrivi un ticker, un nome o una vista (<span class="mono">XLU</span>, <span class="mono">ORO</span>, <span class="mono">NDX</span>, <span class="mono">VIX</span>, <span class="mono">MASSIMI</span>, <span class="mono">HELP</span>). Tasti: <kbd>1</kbd>–<kbd>9</kbd> e <kbd>0</kbd> viste · <kbd>/</kbd> comando · <kbd>Esc</kbd> toglie lo zoom · <kbd>?</kbd> guida. Tutti i comandi: <a href="guida.html#comandi" target="_blank" rel="noopener">guida completa</a>.</p>
       <label class="kbopt"><input type="checkbox" id="kbToggle" checked /> Scorciatoie da un tasto attive (toglile se usi un lettore di schermo o la dettatura)</label>
-      <p class="note">Idee ispirate al lavoro di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>): se vi interessano gli studi completi, li trovate lì. Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.</p>
-      <p class="note">La versione in uso è accanto al nome in alto (passa il mouse per le novità). Se compare «Nuova versione: ricarica», il browser sta usando file vecchi: clic sul pulsante, oppure Ctrl+F5 (su Mac Cmd+Maiusc+R).</p>
-      <p class="note">Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri. I livelli blu di default vengono dalla tabella «200 LEVEL SETTORI» di quant-rea; le regole di zona blu, trigger e cooldown sono di questa app. "Relative Rotation Graphs" è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente.</p>
+      <p class="note">Se compare «Nuova versione: ricarica» il browser usa file vecchi: clic sul pulsante o Ctrl+F5.</p>
+      <p class="note">Strumento di studio, non consulenza finanziaria.</p>
     </div>
 </dialog>
 

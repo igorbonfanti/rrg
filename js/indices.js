@@ -391,7 +391,7 @@ export function createIndices(ctx) {
     $('ixBlueSrc').innerHTML = changed(k)
       ? `<span class="loc">modificato in questo browser · livello di default ${CFG[k].blue}%</span>`
       : CFG[k].blueSource === 'Rea'
-        ? 'Livello di default dai grafici di Massimo Rea (quant-rea). Le regole di zona blu, trigger e cooldown sono quelle dei settori.'
+        ? 'Livello di default dai grafici di Massimo Rea (quant-rea).' // regole come per i settori: guida, «6 Indici»
         : 'Livello di default calcolato: 3° percentile della breadth dell\'indice in tutta la sua storia, la quota di sedute (circa il 3%) che i livelli di Rea lasciano sotto la soglia sull\'S&P 500 e sui settori. Sugli indici con un livello di Rea la regola gli arriva entro un punto in 6 casi su 12 e altrove se ne scosta di molto (Nasdaq-100 11 contro 18). Regole di zona blu, trigger e cooldown come per i settori.';
     $('ixBlueReset').hidden = !changed(k);
     // situazione
@@ -408,9 +408,11 @@ export function createIndices(ctx) {
     ];
     if (s.dates[t] < s.dates[last]) facts.push(['Breadth al', dIT(s.dates[t])]);
     $('ixFacts').innerHTML = facts.map(([a, v, tt]) => { const ti = tt ? ` title="${esc(tt)}"` : ''; return `<dt${ti}>${a}</dt><dd${ti}>${v}</dd>`; }).join('');
+    // la fonte della lista passa nel title (al passaggio del mouse, al tocco sul telefono) (1.13.0)
     $('ixQuality').textContent = CFG[k].composition === 'epoca'
-      ? `Storia con la composizione dell'indice di ogni data, dal ${s.dates[f0].slice(0, 4)}. Fonte della composizione: ${CFG[k].source}.`
-      : `${CFG[k].limits ? 'Indice con limiti. ' : ''}Storia ricostruita con i membri di oggi, dal ${s.dates[f0].slice(0, 4)}: nelle fasi intermedie la breadth risulta più alta del vero, vicino ai minimi lo scarto è piccolo.${CFG[k].note ? ' ' + CFG[k].note : ''} Fonte della lista: ${CFG[k].source}.`;
+      ? `Storia con la composizione di ogni data, dal ${s.dates[f0].slice(0, 4)}.`
+      : `${CFG[k].limits ? 'Indice con limiti. ' : ''}Storia ricostruita con i membri di oggi, dal ${s.dates[f0].slice(0, 4)}: nelle fasi intermedie la breadth risulta più alta del vero, vicino ai minimi lo scarto è piccolo.${CFG[k].note ? ' ' + CFG[k].note : ''}`;
+    $('ixQuality').title = `${CFG[k].composition === 'epoca' ? 'Fonte della composizione' : 'Fonte della lista'}: ${CFG[k].source}.`;
     $('ixLinks').innerHTML = (ctx.emgKeys && ctx.emgKeys.includes(k) ? `<a href="#emg-${k}">Cambio e dollaro: vista 7 Emergenti →</a>` : '') +
       (TV[k] || []).map((x) => `<a href="${tvLink(x)}" target="_blank" rel="noopener">${esc(x.split(':')[1])} su TradingView ↗</a>`).join('');
     renderEpisodes(k, m);
@@ -424,7 +426,7 @@ export function createIndices(ctx) {
     })).reverse();
     const first = S[k].pct200.findIndex((v) => v != null);
     const nTrig = m.events.filter((e) => e.code === 'trig').length, nFail = m.events.filter((e) => e.code === 'fail').length;
-    $('ixEpiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(dates[first])} con livello ${st.blue[k]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''} · rendimenti a confronto sotto la tabella`;
+    $('ixEpiMeta').textContent = `${eps.length} ${eps.length === 1 ? 'zona blu' : 'zone blu'} dal ${dIT(dates[first])} con livello ${st.blue[k]}% · ${nTrig} trigger${nFail ? `, ${nFail} ${nFail === 1 ? 'fallito' : 'falliti'}` : ''}`;
     const at = { trig: m.events.filter((e) => e.code === 'trig').map((e) => e.t), setup: m.setups.map((u) => u.t) };
     $('ixEpiCtx').innerHTML = contextHTML(signalContext(c, at, first, [63, 126, 252]), { h: ['+3M', '+6M', '+12M'], key: 0, since: dates[first].slice(0, 4), what: "l'indice" });
     if (!eps.length) { $('ixEpiTable').innerHTML = '<tbody><tr><td class="muted">Nessuna zona blu nel periodo con questo livello.</td></tr></tbody>'; return; }

@@ -70,7 +70,7 @@ export function createCap(ctx) {
     const t = status(k);
     if (!t || (!t.on && !t.recent)) return '';
     const head = t.on ? `<b>Cali forti: allerta al ${dIT(t.date)}</b> (${val(t.value)} in ${opt.win} sedute, soglia ${val(t.alert)})` : `<b>Cali forti</b>: nessuna allerta al ${dIT(t.date)}`;
-    return `<p class="note capinfo">ⓘ ${head} · ${t.recent} ${t.recent === 1 ? 'seduta' : 'sedute'} in allerta negli ultimi 3 mesi. Informativo: non fa parte delle regole del semaforo (scheda «Cali forti» qui sotto).</p>`;
+    return `<p class="note capinfo">ⓘ ${head} · ${t.recent} ${t.recent === 1 ? 'seduta' : 'sedute'} negli ultimi 3 mesi (solo contesto, non fa parte delle regole)</p>`;
   }
   /** Cella della tabella degli indici. */
   function cell(k, noCap) {
@@ -100,15 +100,15 @@ export function createCap(ctx) {
     const box = $('Cap');
     if (box && !box.dataset.redraw) { box.dataset.redraw = '1'; box.addEventListener('toggle', () => { if (box.open && last[p]) card(p, ...last[p]); }); }
     const show = (on) => { for (const id of ['CapCtl', 'CapNow', 'CapWrap', 'CapLegend', 'CapScroll', 'CapBase']) $(id).hidden = !on; };
-    if (o.noCap) { meta.textContent = 'non disponibile'; show(false); $('CapNote').textContent = o.noCap; return; }
-    if (failed) { meta.textContent = 'dati non disponibili'; show(false); $('CapNote').textContent = `Dati dei cali forti non disponibili (${failed.message}).`; return; }
+    if (o.noCap) { meta.textContent = 'non disponibile'; show(false); $('CapNote').textContent = o.noCap; $('CapHelp').textContent = $('CapNote').textContent; return; }
+    if (failed) { meta.textContent = 'dati non disponibili'; show(false); $('CapNote').textContent = `Dati dei cali forti non disponibili (${failed.message}).`; $('CapHelp').textContent = $('CapNote').textContent; return; }
     if (!data) {
       meta.textContent = 'caricamento…'; show(false);
       if (!waiting) { waiting = true; ensure().then(() => { waiting = false; notify(); }); }
       return;
     }
     const s = series(k), a = analysis(k);
-    if (!s || !a || !a.today) { meta.textContent = 'non disponibile'; show(false); $('CapNote').textContent = 'Per questa serie i cali forti non sono ancora calcolati.'; return; }
+    if (!s || !a || !a.today) { meta.textContent = 'non disponibile'; show(false); $('CapNote').textContent = 'Per questa serie i cali forti non sono ancora calcolati.'; $('CapHelp').textContent = $('CapNote').textContent; return; }
     show(true);
     const t = a.today;
     meta.innerHTML = t.on ? `<span class="capflag">allerta</span> <span class="muted">al ${dIT(s.dates[t.i])}</span>` : `al ${dIT(s.dates[t.i])}: ${fmt(t.pct, 0)}° percentile${t.recent ? ` · ${t.recent} sedute in allerta negli ultimi 3 mesi` : ''}`;
@@ -143,9 +143,11 @@ export function createCap(ctx) {
     $('CapBase').innerHTML = `${rows.length} ${rows.length === 1 ? 'episodio' : 'episodi'}${since ? ` dal ${dIT(since)}` : ''}` +
       (done ? `, ${neg} su ${done} con ${esc(o.what)} più in basso dopo 12 mesi` : '') +
       `. Per confronto, in media dopo una seduta qualsiasi della stessa storia: +3M ${c(base.r63)}, +12M ${c(base.r252)}.`;
-    $('CapNote').innerHTML = `Quanti ${what()} (preset di Massimo Rea, quant-rea, «Drop giornaliero cumulato»: −7% su 5 sedute). La linea tratteggiata è la soglia di allerta: il 99° percentile delle sedute precedenti, con almeno 5 cali nella somma. Se un evento eccezionale supera di molto la soglia, la scala si ferma a 1,3 volte la soglia più alta del periodo e il valore del picco è scritto in alto (▲, con il mese): così restano leggibili anche gli episodi minori; il valore di ogni seduta è nel tooltip. ` +
+    // nella pagina una riga con la citazione; il testo completo nel riquadro «i» del titolo (#secCapHelp, #ixCapHelp, 1.13.0)
+    $('CapNote').innerHTML = 'Preset «Drop giornaliero cumulato» di Massimo Rea (quant-rea) · allerta sopra il 99° percentile · solo contesto.';
+    $('CapHelp').innerHTML = `<p>Quanti ${what()} (preset di Massimo Rea, quant-rea, «Drop giornaliero cumulato»: −7% su 5 sedute). La linea tratteggiata è la soglia di allerta: il 99° percentile delle sedute precedenti, con almeno 5 cali nella somma. Se un evento eccezionale supera di molto la soglia, la scala si ferma a 1,3 volte la soglia più alta del periodo e il valore del picco è scritto in alto (▲, con il mese): così restano leggibili anche gli episodi minori; il valore di ogni seduta è nel tooltip. ` +
       'Un\'allerta dice che sotto la superficie le vendite sono forti e diffuse. Conta soprattutto se si ripete: con il preset, nei 12 mesi dal primo episodio le serie dell\'app sono state in allerta 31,5 sedute di mediana nel 2007-2009 (in più episodi), 12 nel 2020 e 5 nell\'aprile 2025. ' +
-      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati).<span class="only-phone"> Sul telefono «Dal max 52s» e «Calo dopo, 3M» sono nascoste.</span>';
+      'È un\'informazione di contesto da leggere con la breadth: non cambia stati, regole né alert. Storia con la stessa composizione della breadth; non contano i cali che la seduta dopo si riprendono quasi tutti mentre per gli altri membri quel giorno e il seguente sono tranquilli (errori di stampa della fonte), né i crolli oltre il 60% in una giornata normale (frazionamenti non registrati). Sul telefono «Dal max 52s» e «Calo dopo, 3M» sono nascoste.</p>';
     body.dataset.k = k;
   }
   // solo il grafico della scheda, sulla finestra del grafico principale in questo momento (periodo e zoom): lo zoom
