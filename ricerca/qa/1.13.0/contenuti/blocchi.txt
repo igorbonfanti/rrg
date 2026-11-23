@@ -1,0 +1,139 @@
+== mon: blocchi vecchi 43, nuovi 49
+  TESTO activeMeta: numeri tolti {} aggiunti {}
+     vecchio: '5 su 11 · più SOXX (industria) · in avvicinamento, attenzione, zona blu o dopo un trigger'
+     nuovo:   '5 su 11 · più SOXX'
+  SOLO NUOVO stateHelp>svg.: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#2: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#3: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#4: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#5: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#6: '' | title: ''
+== rrg-settori: blocchi vecchi 26, nuovi 26
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-settori-prezzi: blocchi vecchi 38, nuovi 38
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-mag7: blocchi vecchi 21, nuovi 21
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-global1: blocchi vecchi 24, nuovi 24
+  TITLE ptfTable: numeri tolti {} aggiunti {}
+     + "Il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento"
+     + "Il peso ripristinato alla chiusura dell'ultima seduta di ogni mese"
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-global1-prezzi: blocchi vecchi 34, nuovi 34
+  TITLE ptfTable: numeri tolti {} aggiunti {}
+     + "Il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento"
+     + "Il peso ripristinato alla chiusura dell'ultima seduta di ogni mese"
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-global2: blocchi vecchi 22, nuovi 22
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-global5: blocchi vecchi 23, nuovi 23
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-global6: blocchi vecchi 23, nuovi 23
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== rrg-semplice: blocchi vecchi 26, nuovi 26
+  TESTO v-rrg>div.legend: numeri tolti {} aggiunti {}
+     vecchio: 'Improving Leading Weakening Lagging colore = quadrante · passa sopra un punto o una riga per isolarlo, clic per fissarlo · ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio'
+     nuovo:   'Improving Leading Weakening Lagging passa sopra un punto per isolarlo, clic per fissarlo · ←→ tempo punto vuoto = settimana in corso, provvisorio'
+== btm: blocchi vecchi 7, nuovi 7
+  TESTO bmMeta: numeri tolti {'2': 1} aggiunti {}
+     vecchio: 'settimanale · coda 8 settimane · al 20/11/2026 · colore del punto = stato attuale (in zona blu si entra dopo 2 chiusure sotto il livello)'
+     nuovo:   'settimanale · coda 8 settimane · al 20/11/2026 · colore del punto = stato attuale'
+  TESTO v-btm>div.legend: numeri tolti {'10': 1} aggiunti {}
+     vecchio: 'zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamento: breadth sotto la soglia del settore (livello blu + il suo calo forte in 10 sedute) industria (SOXX, semiconduttori): breadth con i membri di oggi coda = ultime 8 settimane · il percorso di un bottom scende a sinistra, poi risale · clic per il dettaglio'
+     nuovo:   'zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamentoi industria (SOXX, semiconduttori): breadth con i membri di oggi coda = ultime 8 settimane · clic per il dettaglioi'
+== sec-XLK: blocchi vecchi 16, nuovi 16
+  TESTO epiMeta: numeri tolti {} aggiunti {}
+     vecchio: '4 zone blu dal 03/01/2005 con livello 6% · 7 trigger, 3 falliti · rendimenti a confronto sotto la tabella'
+     nuovo:   '4 zone blu dal 03/01/2005 con livello 6% · 7 trigger, 3 falliti'
+== sec-SOXX: blocchi vecchi 16, nuovi 16
+  TESTO epiMeta: numeri tolti {} aggiunti {}
+     vecchio: '7 zone blu dal 19/07/2002 con livello 3% · 7 trigger · rendimenti a confronto sotto la tabella'
+     nuovo:   '7 zone blu dal 19/07/2002 con livello 3% · 7 trigger'
+== sec-XLRE: blocchi vecchi 16, nuovi 16
+  TESTO epiMeta: numeri tolti {} aggiunti {}
+     vecchio: '4 zone blu dal 07/10/2016 con livello 8% · 5 trigger, 1 fallito · rendimenti a confronto sotto la tabella'
+     nuovo:   '4 zone blu dal 07/10/2016 con livello 8% · 5 trigger, 1 fallito'
+== tit-XLK: blocchi vecchi 13, nuovi 13
+  TESTO titBody>div.legend: numeri tolti {} aggiunti {}
+     vecchio: "cap-weighted · pesano i grandi equal-weight · ogni titolo conta uguale davanti l'equal-weight · movimento largo davanti il cap-weighted · guidano i grandi scia: 3 mesi, 1 mese, 1 settimana fa (pallini sempre più grandi) e freccia dell'ultima settimana, verde (blu con CVD) se sale, rossa se scende le 3 divergenze più ampie"
+     nuovo:   "cap-weighted · pesano i grandi equal-weight · ogni titolo conta uguale davanti l'equal-weight · movimento largo davanti il cap-weighted · guidano i grandi scia: 3 mesi, 1 mese, 1 settimana fa · freccia: ultima settimana le 3 divergenze più ampie"
+  TESTO titBody>div.legend#2: numeri tolti {} aggiunti {}
+     vecchio: "gli 8 più in pena (segnati nella lista) altri titoli settore equal-weight settore cap-weighted sotto zero su entrambi gli assi bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione titolo estero quotato negli Stati Uniti (ADR o azioni quotate a New York), con la bandiera del paese secondo iShares"
+     nuovo:   "gli 8 più in pena (segnati nella lista) altri titoli settore equal-weight settore cap-weighted sotto zero su entrambi gli assi bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione titolo estero quotato negli USA (bandiera del paese secondo iShares)"
+== tit-SOXX: blocchi vecchi 22, nuovi 22
+  TESTO titBody>div.legend: numeri tolti {} aggiunti {}
+     vecchio: "cap-weighted · pesano i grandi equal-weight · ogni titolo conta uguale davanti l'equal-weight · movimento largo davanti il cap-weighted · guidano i grandi scia: 3 mesi, 1 mese, 1 settimana fa (pallini sempre più grandi) e freccia dell'ultima settimana, verde (blu con CVD) se sale, rossa se scende le 3 divergenze più ampie"
+     nuovo:   "cap-weighted · pesano i grandi equal-weight · ogni titolo conta uguale davanti l'equal-weight · movimento largo davanti il cap-weighted · guidano i grandi scia: 3 mesi, 1 mese, 1 settimana fa · freccia: ultima settimana le 3 divergenze più ampie"
+  TESTO titBody>div.legend#2: numeri tolti {} aggiunti {}
+     vecchio: "gli 8 più in pena (segnati nella lista) altri titoli settore equal-weight settore cap-weighted sotto zero su entrambi gli assi bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione titolo estero quotato negli Stati Uniti (ADR o azioni quotate a New York), con la bandiera del paese secondo iShares"
+     nuovo:   "gli 8 più in pena (segnati nella lista) altri titoli settore equal-weight settore cap-weighted sotto zero su entrambi gli assi bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione titolo estero quotato negli USA (bandiera del paese secondo iShares)"
+== idx-SPX: blocchi vecchi 35, nuovi 35
+  TESTO ixBody>div.legend#2: numeri tolti {'10': 1} aggiunti {}
+     vecchio: "zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute) coda = ultime 8 settimane · clic per il dettaglio"
+     nuovo:   'zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamentoi coda = ultime 8 settimane · clic per il dettaglio'
+  TESTO ixEpiMeta: numeri tolti {} aggiunti {}
+     vecchio: '4 zone blu dal 03/01/2005 con livello 13% · 6 trigger, 2 falliti · rendimenti a confronto sotto la tabella'
+     nuovo:   '4 zone blu dal 03/01/2005 con livello 13% · 6 trigger, 2 falliti'
+== idx-DAX: blocchi vecchi 35, nuovi 35
+  TESTO ixBody>div.legend#2: numeri tolti {'10': 1} aggiunti {}
+     vecchio: "zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute) coda = ultime 8 settimane · clic per il dettaglio"
+     nuovo:   'zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamentoi coda = ultime 8 settimane · clic per il dettaglio'
+  TESTO ixEpiMeta: numeri tolti {} aggiunti {}
+     vecchio: '7 zone blu dal 02/01/2001 con livello 7% · 8 trigger, 1 fallito · rendimenti a confronto sotto la tabella'
+     nuovo:   '7 zone blu dal 02/01/2001 con livello 7% · 8 trigger, 1 fallito'
+== idx-KOSPI200: blocchi vecchi 35, nuovi 35
+  TESTO ixBody>div.legend#2: numeri tolti {'10': 1} aggiunti {}
+     vecchio: "zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute) coda = ultime 8 settimane · clic per il dettaglio"
+     nuovo:   'zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamentoi coda = ultime 8 settimane · clic per il dettaglio'
+  TESTO ixEpiMeta: numeri tolti {} aggiunti {}
+     vecchio: '4 zone blu dal 01/12/2006 con livello 15% · 5 trigger, 2 falliti · rendimenti a confronto sotto la tabella'
+     nuovo:   '4 zone blu dal 01/12/2006 con livello 15% · 5 trigger, 2 falliti'
+== idx-TSX60: blocchi vecchi 35, nuovi 35
+  TESTO ixBody>div.legend#2: numeri tolti {'10': 1} aggiunti {}
+     vecchio: "zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute) coda = ultime 8 settimane · clic per il dettaglio"
+     nuovo:   'zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamentoi coda = ultime 8 settimane · clic per il dettaglio'
+  TESTO ixEpiMeta: numeri tolti {} aggiunti {}
+     vecchio: '8 zone blu dal 01/02/2000 con livello 23% · 10 trigger, 2 falliti · rendimenti a confronto sotto la tabella'
+     nuovo:   '8 zone blu dal 01/02/2000 con livello 23% · 10 trigger, 2 falliti'
+== emg: blocchi vecchi 17, nuovi 17
+== emg-CSI300: blocchi vecchi 17, nuovi 17
+== vix: blocchi vecchi 20, nuovi 20
+  TITLE vxKpis: numeri tolti {} aggiunti {}
+     - 'Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (vedi «Come leggere»).'
+     + 'Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (guida, «VIX contro volatilità realizzata»).'
+  TESTO vxLegend: numeri tolti {} aggiunti {}
+     vecchio: "VIX (implicita, prossimi 30 giorni)realizzata dell'S&P 500 nelle ultime 21 seduteS&P 500episodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi; grigi se la crisi non è nello scatterpremio per la paurapremio oltre l'80° percentile della sua storiaVIX / VIX3Mbackwardation (VIX ≥ VIX3M)ultimo valore (pieno se in backwardation)HYG/IEF: distanza dal massimo di 12 mesi"
+     nuovo:   "VIX (implicita, prossimi 30 giorni)realizzata dell'S&P 500 nelle ultime 21 seduteS&P 500episodi con il VIX a 40 o più, nel colore della crisi (grigi: fuori dallo scatter)premio per la paurapremio oltre l'80° percentile della sua storiaVIX / VIX3Mbackwardation (VIX ≥ VIX3M)ultimo valore (pieno se in backwardation)HYG/IEF: distanza dal massimo di 12 mesi"
+  TESTO vxScMeta: numeri tolti {} aggiunti {}
+     vecchio: 'S&P 500 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo'
+     nuovo:   'S&P 500 · sedute con il VIX a 30 o più · rendimento a 12 mesi'
+== alr: blocchi vecchi 63, nuovi 63
+== ath: blocchi vecchi 13, nuovi 13
+== help: blocchi vecchi 0, nuovi 0
+== intro: blocchi vecchi 43, nuovi 49
+  TESTO activeMeta: numeri tolti {} aggiunti {}
+     vecchio: '5 su 11 · più SOXX (industria) · in avvicinamento, attenzione, zona blu o dopo un trigger'
+     nuovo:   '5 su 11 · più SOXX'
+  SOLO NUOVO stateHelp>svg.: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#2: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#3: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#4: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#5: '' | title: ''
+  SOLO NUOVO stateHelp>svg.#6: '' | title: ''
+blocchi uguali 650, diversi 33
