@@ -265,7 +265,7 @@ export function createBottom(ctx) {
         <div class="acard-t">${esc(r.appr ? apprWhy(r.s) : r.state.why)}</div>${explain(r.s).summary ? `<div class="acard-t ck-sum">${esc(explain(r.s).summary)}</div>` : ''}</div>`).join('') : '<p class="note">Nessun settore né industria vicino al livello blu.</p>';
     $('activeList').querySelectorAll('.acard').forEach((c) => { c.onclick = () => openSector(c.dataset.sym); c.onkeydown = (e) => { if (e.key === 'Enter') openSector(c.dataset.sym); }; });
     // regola completa nel riquadro «i» del titolo (#stateHelp), una riga per stato nella pagina (1.13.0)
-    $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth vicina al livello blu dopo un calo veloce: promemoria, non uno stato.</span></div>` + [
+    $('stateLegend').innerHTML = `<div>${apprBadge()}<span>breadth sotto il livello blu più il suo calo forte in 10 sedute: promemoria, non uno stato.</span></div>` + [
       ['watch', `breadth entro ${P.watchBand} punti dal livello blu o drawdown molto profondo.`],
       ['setup', `sotto il livello blu per ${P.setupCloses} chiusure, con drawdown profondo.`],
       ['trig', 'la breadth risale sopra il livello blu, con una conferma.'],
