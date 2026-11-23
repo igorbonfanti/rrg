@@ -56,7 +56,7 @@ export function bindInfo() {
   function fill(btn) {
     body.textContent = '';
     const src = btn.dataset.src && document.getElementById(btn.dataset.src);
-    if (src) body.innerHTML = src.innerHTML; // contenitori nascosti della pagina: testi dell'app, non dati esterni
+    if (src) { body.innerHTML = src.innerHTML; for (const e of body.querySelectorAll('[id]')) e.removeAttribute('id'); } // contenitori nascosti della pagina (testi dell'app, non dati esterni); la copia senza id, per non duplicarli
     else { const p = document.createElement('p'); p.textContent = btn.dataset.info || ''; body.append(p); }
     if (btn.dataset.guide) {
       const g = document.createElement('p'); g.className = 'infopop-g';
@@ -121,7 +121,7 @@ export function bindInfo() {
   window.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape' || !cur) return;
     e.preventDefault(); e.stopImmediatePropagation();
-    close(true);
+    close(pinned); // aperto solo col mouse: il focus resta dov'era
   }, true);
   // Tab dal bottone con il riquadro aperto: il focus entra nel riquadro (× e «Nella guida ↗»); Tab oltre l'ultimo
   // elemento del riquadro lo chiude e torna al bottone, così si prosegue nella pagina da lì
