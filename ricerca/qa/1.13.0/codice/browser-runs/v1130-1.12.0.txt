@@ -1,0 +1,261 @@
+FAIL 1440-scuro mon: una riga di fonti visibile (0)
+FAIL 1440-scuro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro rrg: una riga di fonti visibile (0)
+FAIL 1440-scuro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro btm: una riga di fonti visibile (0)
+FAIL 1440-scuro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro XLK: una riga di fonti visibile (0)
+FAIL 1440-scuro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro tit: una riga di fonti visibile (0)
+FAIL 1440-scuro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro idx: una riga di fonti visibile (0)
+FAIL 1440-scuro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro emg: una riga di fonti visibile (0)
+FAIL 1440-scuro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro vix: una riga di fonti visibile (0)
+FAIL 1440-scuro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro alr: una riga di fonti visibile (0)
+FAIL 1440-scuro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro ath: una riga di fonti visibile (0)
+FAIL 1440-scuro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-scuro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-scuro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 1440-scuro: regola completa nel riquadro degli stati
+FAIL 1440-scuro: prove con mouse e tastiera interrotte (locator.scrollIntoViewIfNeeded: Timeout 30000ms exceeded.)
+FAIL 1440-chiaro mon: una riga di fonti visibile (0)
+FAIL 1440-chiaro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro rrg: una riga di fonti visibile (0)
+FAIL 1440-chiaro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro btm: una riga di fonti visibile (0)
+FAIL 1440-chiaro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro XLK: una riga di fonti visibile (0)
+FAIL 1440-chiaro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro tit: una riga di fonti visibile (0)
+FAIL 1440-chiaro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro idx: una riga di fonti visibile (0)
+FAIL 1440-chiaro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro emg: una riga di fonti visibile (0)
+FAIL 1440-chiaro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro vix: una riga di fonti visibile (0)
+FAIL 1440-chiaro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro alr: una riga di fonti visibile (0)
+FAIL 1440-chiaro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro ath: una riga di fonti visibile (0)
+FAIL 1440-chiaro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1440-chiaro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 1440-chiaro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 1440-chiaro: regola completa nel riquadro degli stati
+FAIL 1280-scuro mon: una riga di fonti visibile (0)
+FAIL 1280-scuro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro rrg: una riga di fonti visibile (0)
+FAIL 1280-scuro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro btm: una riga di fonti visibile (0)
+FAIL 1280-scuro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro XLK: una riga di fonti visibile (0)
+FAIL 1280-scuro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro tit: una riga di fonti visibile (0)
+FAIL 1280-scuro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro idx: una riga di fonti visibile (0)
+FAIL 1280-scuro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro emg: una riga di fonti visibile (0)
+FAIL 1280-scuro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro vix: una riga di fonti visibile (0)
+FAIL 1280-scuro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro alr: una riga di fonti visibile (0)
+FAIL 1280-scuro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro ath: una riga di fonti visibile (0)
+FAIL 1280-scuro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-scuro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-scuro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 1280-scuro: regola completa nel riquadro degli stati
+FAIL 1280-chiaro mon: una riga di fonti visibile (0)
+FAIL 1280-chiaro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro rrg: una riga di fonti visibile (0)
+FAIL 1280-chiaro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro btm: una riga di fonti visibile (0)
+FAIL 1280-chiaro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro XLK: una riga di fonti visibile (0)
+FAIL 1280-chiaro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro tit: una riga di fonti visibile (0)
+FAIL 1280-chiaro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro idx: una riga di fonti visibile (0)
+FAIL 1280-chiaro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro emg: una riga di fonti visibile (0)
+FAIL 1280-chiaro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro vix: una riga di fonti visibile (0)
+FAIL 1280-chiaro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro alr: una riga di fonti visibile (0)
+FAIL 1280-chiaro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro ath: una riga di fonti visibile (0)
+FAIL 1280-chiaro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 1280-chiaro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 1280-chiaro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 1280-chiaro: regola completa nel riquadro degli stati
+FAIL 390-scuro mon: una riga di fonti visibile (0)
+FAIL 390-scuro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro rrg: una riga di fonti visibile (0)
+FAIL 390-scuro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro btm: una riga di fonti visibile (0)
+FAIL 390-scuro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro XLK: una riga di fonti visibile (0)
+FAIL 390-scuro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro tit: una riga di fonti visibile (0)
+FAIL 390-scuro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro idx: una riga di fonti visibile (0)
+FAIL 390-scuro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro emg: una riga di fonti visibile (0)
+FAIL 390-scuro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro vix: una riga di fonti visibile (0)
+FAIL 390-scuro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro alr: una riga di fonti visibile (0)
+FAIL 390-scuro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro ath: una riga di fonti visibile (0)
+FAIL 390-scuro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-scuro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-scuro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 390-scuro: regola completa nel riquadro degli stati
+FAIL 390-chiaro mon: una riga di fonti visibile (0)
+FAIL 390-chiaro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro rrg: una riga di fonti visibile (0)
+FAIL 390-chiaro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro btm: una riga di fonti visibile (0)
+FAIL 390-chiaro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro XLK: una riga di fonti visibile (0)
+FAIL 390-chiaro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro tit: una riga di fonti visibile (0)
+FAIL 390-chiaro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro idx: una riga di fonti visibile (0)
+FAIL 390-chiaro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro emg: una riga di fonti visibile (0)
+FAIL 390-chiaro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro vix: una riga di fonti visibile (0)
+FAIL 390-chiaro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro alr: una riga di fonti visibile (0)
+FAIL 390-chiaro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro ath: una riga di fonti visibile (0)
+FAIL 390-chiaro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 390-chiaro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 390-chiaro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 390-chiaro: regola completa nel riquadro degli stati
+FAIL 360-scuro mon: una riga di fonti visibile (0)
+FAIL 360-scuro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro rrg: una riga di fonti visibile (0)
+FAIL 360-scuro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro btm: una riga di fonti visibile (0)
+FAIL 360-scuro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro XLK: una riga di fonti visibile (0)
+FAIL 360-scuro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro tit: una riga di fonti visibile (0)
+FAIL 360-scuro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro idx: una riga di fonti visibile (0)
+FAIL 360-scuro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro emg: una riga di fonti visibile (0)
+FAIL 360-scuro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro vix: una riga di fonti visibile (0)
+FAIL 360-scuro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro alr: una riga di fonti visibile (0)
+FAIL 360-scuro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro ath: una riga di fonti visibile (0)
+FAIL 360-scuro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-scuro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-scuro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 360-scuro: regola completa nel riquadro degli stati
+FAIL 360-chiaro mon: una riga di fonti visibile (0)
+FAIL 360-chiaro mon: testi tolti ancora visibili: Il drawdown conta i dividendi come reinvestiti | con l'Attenzione avvisa 50 tocchi | in avvicinamento, attenzione, zona blu o dopo un trigger | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro mon: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro rrg: una riga di fonti visibile (0)
+FAIL 360-chiaro rrg: testi tolti ancora visibili: Direzione: ultimo spostamento in gradi bussola | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro rrg: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro btm: una riga di fonti visibile (0)
+FAIL 360-chiaro btm: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | il percorso di un bottom scende a sinistra | in zona blu si entra dopo | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro btm: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro XLK: una riga di fonti visibile (0)
+FAIL 360-chiaro XLK: testi tolti ancora visibili: Informativo: non fa parte delle regole del semaforo | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro XLK: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro tit: una riga di fonti visibile (0)
+FAIL 360-chiaro tit: testi tolti ancora visibili: Perché non coincide con il grafico di Rea | Calcolati da noi sui costituenti | Ogni punto è la divergenza del dumbbell | Ordine: media della posizione | Ultima colonna: come è cambiata la divergenza | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro tit: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro idx: una riga di fonti visibile (0)
+FAIL 360-chiaro idx: testi tolti ancora visibili: Differenza tra la % di titoli sopra la media 200 | rendimenti a confronto sotto la tabella | Le modifiche valgono solo in questo browser | Le regole di zona blu, trigger e cooldown sono | Stessa analisi dei settori sugli indici | Fonte della composizione: | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro idx: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro emg: una riga di fonti visibile (0)
+FAIL 360-chiaro emg: testi tolti ancora visibili: Fonti: cambi in valuta locale | Lo stato e la breadth sono quelli della vista | formula «Nuova» della rotazione (vista 2); scia di 10 settimane | Ogni serie ha il suo calendario | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro emg: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro vix: una riga di fonti visibile (0)
+FAIL 360-chiaro vix: testi tolti ancora visibili: Ogni riga conta gli episodi: un episodio inizia | Lo scatter conta i giorni | Fonti: VIX di chiusura | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro vix: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro alr: una riga di fonti visibile (0)
+FAIL 360-chiaro alr: testi tolti ancora visibili: Calcolato nel browser con i livelli blu attuali | la GitHub Action invia solo i nuovi cambi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro ath: una riga di fonti visibile (0)
+FAIL 360-chiaro ath: testi tolti ancora visibili: Quanto ogni mercato è sotto il suo massimo di chiusura | Accanto al grafico, a destra, il profilo dei volumi | Idee ispirate al lavoro di Massimo Rea | Dati di fine giornata: Yahoo Finance · breadth
+FAIL 360-chiaro ath: almeno un bottone «i» visibile (0 di 0)
+FAIL 360-chiaro: legenda degli stati, 6 righe corte (67, 28, 28, 74, 42, 12 parole)
+FAIL 360-chiaro: regola completa nel riquadro degli stati
+FAIL guida: sezione #fonti con una sottosezione per vista
+FAIL guida: fonti del VIX complete
+FAIL guida: fonti degli Emergenti complete
+FAIL guida: dati dei Titoli con RSP e SPDR
+FAIL guida: formule con la verifica su StockCharts
+FAIL guida: perché non coincide con il grafico di Rea
+FAIL guida: asset reali
+FAIL guida: valuta 15 su 17 con il ricalcolo
+FAIL guida: 89 tocchi su 132 con lo script
+FAIL guida: percorsi di ricalcolo del VIX
+FAIL versione 1.12.0
+90 ok, 260 falliti

@@ -1,0 +1,65 @@
+OK   d-1440 idx episodi e cali forti chiusi di default [false,false]
+OK   d-1440 idx stessa larghezza 1048/1048
+OK   d-1440 idx stesse date agli stessi pixel [["2006",83],["2007",128],["2008",172],["2009",217]]
+OK   d-1440 idx linea dal principale ai cali forti {"vis":"visible","dx":0,"gone":"hidden"}
+OK   d-1440 idx linea dai cali forti al principale {"vis":"visible","dx":0,"gone":"hidden"}
+OK   d-1440 SPX MAX picchi tagliati scritti ▲557 (ott 2008) | ▲1082 (mar 2020)
+OK   d-1440 idx aperti dopo il ricaricamento [true,true]
+OK   d-1440 idx niente scroll orizzontale 0
+OK   d-1440 idx senza NaN/undefined 
+OK   d-1440 XLF episodi e cali forti chiusi di default [false,false]
+OK   d-1440 XLF stessa larghezza 1048/1048
+OK   d-1440 XLF stesse date agli stessi pixel [["2006",83],["2007",128],["2008",172],["2009",217]]
+OK   d-1440 XLF linea dal principale ai cali forti {"vis":"visible","dx":0,"gone":"hidden"}
+OK   d-1440 XLF linea dai cali forti al principale {"vis":"visible","dx":0,"gone":"hidden"}
+OK   d-1440 XLF aperti dopo il ricaricamento [true,true]
+OK   d-1440 XLF niente scroll orizzontale 0
+OK   d-1440 XLF senza NaN/undefined 
+OK   d-1440 errori console 
+OK   d-390 idx episodi e cali forti chiusi di default [false,false]
+OK   d-390 idx stessa larghezza 330/330
+OK   d-390 idx stesse date agli stessi pixel [["2008",74],["2012",122],["2016",170],["2020",218]]
+OK   d-390 SPX MAX picchi tagliati scritti ▲557 (ott 2008) | ▲1082 (mar 2020)
+OK   d-390 idx aperti dopo il ricaricamento [true,true]
+OK   d-390 idx niente scroll orizzontale 0
+OK   d-390 idx senza NaN/undefined 
+OK   d-390 XLF episodi e cali forti chiusi di default [false,false]
+OK   d-390 XLF stessa larghezza 330/330
+OK   d-390 XLF stesse date agli stessi pixel [["2008",74],["2012",122],["2016",170],["2020",218]]
+OK   d-390 XLF aperti dopo il ricaricamento [true,true]
+OK   d-390 XLF niente scroll orizzontale 0
+OK   d-390 XLF senza NaN/undefined 
+OK   d-390 errori console 
+OK   l-1440 idx episodi e cali forti chiusi di default [false,false]
+OK   l-1440 idx stessa larghezza 1048/1048
+OK   l-1440 idx stesse date agli stessi pixel [["2006",83],["2007",128],["2008",172],["2009",217]]
+OK   l-1440 idx linea dal principale ai cali forti {"vis":"visible","dx":0,"gone":"hidden"}
+OK   l-1440 idx linea dai cali forti al principale {"vis":"visible","dx":0,"gone":"hidden"}
+OK   l-1440 SPX MAX picchi tagliati scritti ▲557 (ott 2008) | ▲1082 (mar 2020)
+OK   l-1440 idx aperti dopo il ricaricamento [true,true]
+OK   l-1440 idx niente scroll orizzontale 0
+OK   l-1440 idx senza NaN/undefined 
+OK   l-1440 XLF episodi e cali forti chiusi di default [false,false]
+OK   l-1440 XLF stessa larghezza 1048/1048
+OK   l-1440 XLF stesse date agli stessi pixel [["2006",83],["2007",128],["2008",172],["2009",217]]
+OK   l-1440 XLF linea dal principale ai cali forti {"vis":"visible","dx":0,"gone":"hidden"}
+OK   l-1440 XLF linea dai cali forti al principale {"vis":"visible","dx":0,"gone":"hidden"}
+OK   l-1440 XLF aperti dopo il ricaricamento [true,true]
+OK   l-1440 XLF niente scroll orizzontale 0
+OK   l-1440 XLF senza NaN/undefined 
+OK   l-1440 errori console 
+OK   l-390 idx episodi e cali forti chiusi di default [false,false]
+OK   l-390 idx stessa larghezza 330/330
+OK   l-390 idx stesse date agli stessi pixel [["2008",74],["2012",122],["2016",170],["2020",218]]
+OK   l-390 SPX MAX picchi tagliati scritti ▲557 (ott 2008) | ▲1082 (mar 2020)
+OK   l-390 idx aperti dopo il ricaricamento [true,true]
+OK   l-390 idx niente scroll orizzontale 0
+OK   l-390 idx senza NaN/undefined 
+OK   l-390 XLF episodi e cali forti chiusi di default [false,false]
+OK   l-390 XLF stessa larghezza 330/330
+OK   l-390 XLF stesse date agli stessi pixel [["2008",74],["2012",122],["2016",170],["2020",218]]
+OK   l-390 XLF aperti dopo il ricaricamento [true,true]
+OK   l-390 XLF niente scroll orizzontale 0
+OK   l-390 XLF senza NaN/undefined 
+OK   l-390 errori console 
+0 FAIL su 64

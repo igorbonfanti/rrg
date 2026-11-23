@@ -1,0 +1,89 @@
+OK   d-1440 mon senza NaN/undefined 
+OK   d-1440 mon niente scroll orizzontale 0
+OK   d-1440 rrg senza NaN/undefined 
+OK   d-1440 rrg niente scroll orizzontale 0
+OK   d-1440 btm senza NaN/undefined 
+OK   d-1440 btm niente scroll orizzontale 0
+OK   d-1440 XLU senza NaN/undefined 
+OK   d-1440 XLU niente scroll orizzontale 0
+OK   d-1440 alr senza NaN/undefined 
+OK   d-1440 alr niente scroll orizzontale 0
+OK   d-1440 idx senza NaN/undefined 
+OK   d-1440 idx niente scroll orizzontale 0
+OK   d-1440 tit-XLK senza NaN/undefined 
+OK   d-1440 tit-XLK niente scroll orizzontale 0
+FAIL d-1440 versione 0.9.2 
+OK   d-1440 asterisco prezzi ricopiati {"n":1,"note":" Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l'ultima seduta, il prezzo al
+OK   d-1440 comando DAX apre il dettaglio DAX · DAX
+OK   d-1440 comando SMI apre il dettaglio SMI · SMI
+OK   d-1440 comando NDX apre il dettaglio NDX · Nasdaq-100
+OK   d-1440 nov 2008 {"d":"settimana al 21/11/2008","p":["nov 2008"]}
+OK   d-1440 cali forti nel tabellone 97°|98°|5 sed.|99°|3 sed.|95°|97°|83°|92°|90°
+OK   d-1440 errori console 
+OK   d-390 mon senza NaN/undefined 
+OK   d-390 mon niente scroll orizzontale 0
+OK   d-390 rrg senza NaN/undefined 
+OK   d-390 rrg niente scroll orizzontale 0
+OK   d-390 btm senza NaN/undefined 
+OK   d-390 btm niente scroll orizzontale 0
+OK   d-390 XLU senza NaN/undefined 
+OK   d-390 XLU niente scroll orizzontale 0
+OK   d-390 alr senza NaN/undefined 
+OK   d-390 alr niente scroll orizzontale 0
+OK   d-390 idx senza NaN/undefined 
+OK   d-390 idx niente scroll orizzontale 0
+OK   d-390 tit-XLK senza NaN/undefined 
+OK   d-390 tit-XLK niente scroll orizzontale 0
+FAIL d-390 versione 0.9.2 
+OK   d-390 asterisco prezzi ricopiati {"n":1,"note":" Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l'ultima seduta, il prezzo al
+OK   d-390 comando DAX apre il dettaglio DAX · DAX
+OK   d-390 comando SMI apre il dettaglio SMI · SMI
+OK   d-390 comando NDX apre il dettaglio NDX · Nasdaq-100
+OK   d-390 nov 2008 {"d":"settimana al 21/11/2008","p":["nov 2008"]}
+OK   d-390 cali forti nel tabellone 97°|98°|5 sed.|99°|3 sed.|95°|97°|83°|92°|90°
+OK   d-390 errori console 
+OK   l-1440 mon senza NaN/undefined 
+OK   l-1440 mon niente scroll orizzontale 0
+OK   l-1440 rrg senza NaN/undefined 
+OK   l-1440 rrg niente scroll orizzontale 0
+OK   l-1440 btm senza NaN/undefined 
+OK   l-1440 btm niente scroll orizzontale 0
+OK   l-1440 XLU senza NaN/undefined 
+OK   l-1440 XLU niente scroll orizzontale 0
+OK   l-1440 alr senza NaN/undefined 
+OK   l-1440 alr niente scroll orizzontale 0
+OK   l-1440 idx senza NaN/undefined 
+OK   l-1440 idx niente scroll orizzontale 0
+OK   l-1440 tit-XLK senza NaN/undefined 
+OK   l-1440 tit-XLK niente scroll orizzontale 0
+FAIL l-1440 versione 0.9.2 
+OK   l-1440 asterisco prezzi ricopiati {"n":1,"note":" Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l'ultima seduta, il prezzo al
+OK   l-1440 comando DAX apre il dettaglio DAX · DAX
+OK   l-1440 comando SMI apre il dettaglio SMI · SMI
+OK   l-1440 comando NDX apre il dettaglio NDX · Nasdaq-100
+OK   l-1440 nov 2008 {"d":"settimana al 21/11/2008","p":["nov 2008"]}
+OK   l-1440 cali forti nel tabellone 97°|98°|5 sed.|99°|3 sed.|95°|97°|83°|92°|90°
+OK   l-1440 errori console 
+OK   l-390 mon senza NaN/undefined 
+OK   l-390 mon niente scroll orizzontale 0
+OK   l-390 rrg senza NaN/undefined 
+OK   l-390 rrg niente scroll orizzontale 0
+OK   l-390 btm senza NaN/undefined 
+OK   l-390 btm niente scroll orizzontale 0
+OK   l-390 XLU senza NaN/undefined 
+OK   l-390 XLU niente scroll orizzontale 0
+OK   l-390 alr senza NaN/undefined 
+OK   l-390 alr niente scroll orizzontale 0
+OK   l-390 idx senza NaN/undefined 
+OK   l-390 idx niente scroll orizzontale 0
+OK   l-390 tit-XLK senza NaN/undefined 
+OK   l-390 tit-XLK niente scroll orizzontale 0
+FAIL l-390 versione 0.9.2 
+OK   l-390 asterisco prezzi ricopiati {"n":1,"note":" Sedute di Borsa Italiana: un ETF quotato altrove e chiuso per festa conta con il suo ultimo prezzo; il bitcoin con la sua chiusura giornaliera su Yahoo, a mezzanotte UTC (per l'ultima seduta, il prezzo al
+OK   l-390 comando DAX apre il dettaglio DAX · DAX
+OK   l-390 comando SMI apre il dettaglio SMI · SMI
+OK   l-390 comando NDX apre il dettaglio NDX · Nasdaq-100
+OK   l-390 nov 2008 {"d":"settimana al 21/11/2008","p":["nov 2008"]}
+OK   l-390 cali forti nel tabellone 97°|98°|5 sed.|99°|3 sed.|95°|97°|83°|92°|90°
+OK   l-390 errori console 
+4 FAIL su 88

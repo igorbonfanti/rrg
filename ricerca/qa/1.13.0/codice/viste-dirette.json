@@ -1,0 +1,453 @@
+{
+ "dirette": {
+  "new 1440 #mon": {
+   "visible": true,
+   "drawn": 14,
+   "buttons": 2,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #rrg": {
+   "visible": true,
+   "drawn": 124,
+   "buttons": 3,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #btm": {
+   "visible": true,
+   "drawn": 109,
+   "buttons": 3,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #sec": {
+   "visible": true,
+   "drawn": 31,
+   "buttons": 3,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #tit": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 4,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #idx": {
+   "visible": true,
+   "drawn": 10,
+   "buttons": 6,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #emg": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 3,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #vix": {
+   "visible": true,
+   "drawn": 6,
+   "buttons": 2,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #alr": {
+   "visible": true,
+   "drawn": 60,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #ath": {
+   "visible": true,
+   "drawn": 9,
+   "buttons": 3,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #XLK": {
+   "visible": true,
+   "drawn": 75,
+   "buttons": 3,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #SOXX": {
+   "visible": true,
+   "drawn": 30,
+   "buttons": 4,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #tit-XLE": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 4,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 1440 #emg-KOSPI": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 3,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "new 390 #mon": {
+   "visible": true,
+   "drawn": 14,
+   "buttons": 2,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #rrg": {
+   "visible": true,
+   "drawn": 124,
+   "buttons": 3,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #btm": {
+   "visible": true,
+   "drawn": 109,
+   "buttons": 3,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #sec": {
+   "visible": true,
+   "drawn": 31,
+   "buttons": 3,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #tit": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 4,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #idx": {
+   "visible": true,
+   "drawn": 10,
+   "buttons": 6,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #emg": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 3,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #vix": {
+   "visible": true,
+   "drawn": 6,
+   "buttons": 2,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #alr": {
+   "visible": true,
+   "drawn": 60,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #ath": {
+   "visible": true,
+   "drawn": 9,
+   "buttons": 3,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #XLK": {
+   "visible": true,
+   "drawn": 75,
+   "buttons": 3,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #SOXX": {
+   "visible": true,
+   "drawn": 30,
+   "buttons": 4,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #tit-XLE": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 4,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "new 390 #emg-KOSPI": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 3,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 1440 #mon": {
+   "visible": true,
+   "drawn": 14,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #rrg": {
+   "visible": true,
+   "drawn": 124,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #btm": {
+   "visible": true,
+   "drawn": 109,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #sec": {
+   "visible": true,
+   "drawn": 31,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #tit": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #idx": {
+   "visible": true,
+   "drawn": 10,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #emg": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #vix": {
+   "visible": true,
+   "drawn": 6,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #alr": {
+   "visible": true,
+   "drawn": 60,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #ath": {
+   "visible": true,
+   "drawn": 9,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #XLK": {
+   "visible": true,
+   "drawn": 75,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #SOXX": {
+   "visible": true,
+   "drawn": 30,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #tit-XLE": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 1440 #emg-KOSPI": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 0,
+   "sw": 1440,
+   "cw": 1440,
+   "errs": []
+  },
+  "old 390 #mon": {
+   "visible": true,
+   "drawn": 14,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #rrg": {
+   "visible": true,
+   "drawn": 124,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #btm": {
+   "visible": true,
+   "drawn": 109,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #sec": {
+   "visible": true,
+   "drawn": 31,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #tit": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #idx": {
+   "visible": true,
+   "drawn": 10,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #emg": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #vix": {
+   "visible": true,
+   "drawn": 6,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #alr": {
+   "visible": true,
+   "drawn": 60,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #ath": {
+   "visible": true,
+   "drawn": 9,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #XLK": {
+   "visible": true,
+   "drawn": 75,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #SOXX": {
+   "visible": true,
+   "drawn": 30,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #tit-XLE": {
+   "visible": true,
+   "drawn": 12,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  },
+  "old 390 #emg-KOSPI": {
+   "visible": true,
+   "drawn": 7,
+   "buttons": 0,
+   "sw": 390,
+   "cw": 390,
+   "errs": []
+  }
+ },
+ "mancanti": {}
+}

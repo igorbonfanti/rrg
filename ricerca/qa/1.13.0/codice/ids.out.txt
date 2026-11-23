@@ -1,0 +1,7 @@
+id duplicati in index.html: []
+id duplicati in guida.html: []
+id usati dai js senza elemento (né in index.html né creati dai js): 0
+id tolti da index.html: 7 ["fxBox","fxSum","ptfHow","mxHow","rotNote","athNoteVp","srcLine"]
+id nuovi in index.html: 32 ["stateHelp","monSrc","mxHelp","tableInfo","rotHelp","pxHelp","rrgSrc","btmSrc","secEpiHelp","secCapHelp","secQualityHelp","secSrc","vxTabHelp","vxScHelp","vxScNoteFull","vxSrc","athHelp","athVpHelp","athSrc","alrSrc","ixHelp","ixEpiHelp","ixCapHelp","ixSrc","titGrandiHelp","titHistHelp","titBubHelp","titSrc","emValHelp","emChartHelp","emRSHelp","emSrc"]
+id tolti ma ancora usati dai js nuovi: []
+(vecchia) id usati senza elemento: []

@@ -1,0 +1,29 @@
+OK   A1 «i» della tabella di rotazione: testo delle colonne
+OK   A2 dopo «Prezzi» il «i» spiega la tabella dei prezzi
+FAIL A3 id duplicati con il riquadro dei prezzi aperto: ["pxCopied"]
+   pxNote (universo USA): {"h":true,"t":"","c":""}
+OK   A4 universo in euro: riga dell'asterisco visibile («Sedute di Borsa Italiana · * ultimo prezzo noto: borsa chius…»)
+OK   A5 universo in euro: il riquadro contiene il testo completo di #pxCopied
+OK   A6 intestazioni Obiettivo/Oggi con il title (2)
+FAIL B1 id duplicati con il riquadro dello scatter aperto: ["vxScNoteFull","vxScBig"]
+OK   B2 primo Esc: riquadro chiuso, crisi ancora evidenziata (1→1)
+OK   B3 secondo Esc: crisi tolta (0)
+OK   C1 «i» delle regole degli stati aperto
+OK   C2 «?» apre la guida e chiude il riquadro ({"dlg":true,"pop":false})
+OK   C3 Esc chiude la guida rapida
+OK   D1 un solo #infopop dopo altre due chiamate a bindInfo
+OK   D2 un clic apre ancora (nessun doppio gestore che apre e richiude)
+OK   D3 un secondo clic chiude
+OK   E1 data-src mancante: si apre senza errori, testo «Nella guida ↗»
+OK   F1 data-info con HTML: mostrato come testo, nessuno script
+OK   G1 passaggio del mouse apre il riquadro
+   G2 dopo Esc con il riquadro aperto al passaggio del mouse e il focus nel comando, focus su: {"id":"","cls":"info","v":"XL"}
+OK   H1 «i» nel summary: riquadro aperto, scheda invariata (false→false)
+OK   H2 «i» dei cali forti con la scheda chiusa: «Quanti titoli con un calo di almeno il 7% in una seduta, som…»
+OK   I1 «i» generato da bottom.js (SOXX) con il testo completo
+   I2 dopo + del livello blu: {"pop":true,"conn":true}
+OK   J1 Invio apre, Esc chiude e riporta il focus
+OK   J2 Spazio apre
+FAIL J3 tasto 3 con il riquadro aperto: cambia vista e chiude il riquadro
+OK   Z console: 
+22 OK, 4 FAIL

@@ -1,0 +1,62 @@
+OK   file data/industries.json con la serie SOXX (al 2026-11-20: 0/30 = 0,0%)
+OK   1440-scuro Monitor: gruppo industria dopo gli 11 settori (riga 11, SOXX 12)
+OK   1440-scuro Monitor: SOXX 0,0%0/30 (dal file 0,0% 0/30)
+OK   1440-scuro Monitor: riquadri ancora «/ 11»
+OK   1440-scuro Bottom Map: rombo 1, etichetta true, legenda true, distanza true
+OK   1440-scuro Settore: titolo «SOXX · Semiconductors (industria)» e bottone dopo i settori
+OK   1440-scuro Settore: livello 3% di Rea, «nessun titolo sopra la media»
+OK   1440-scuro Settore: nota su come è costruita la storia
+OK   1440-scuro Settore: titoli sopra la media 200 uguali al file
+OK   1440-scuro Settore: 30 titoli con il peso
+OK   1440-scuro Settore: link TradingView NASDAQ:SOXX e al settore XLK
+OK   1440-scuro Settore: episodi «7 zone blu dal 19/07/2002 con livello 3% · 7 trigger»
+OK   1440-scuro Settore: dal SOXX al suo settore XLK
+OK   1440-scuro Settore: XLK rimanda al SOXX e non ha la nota delle industrie
+OK   1440-scuro Settore: da XLK al SOXX
+OK   1440-scuro Titoli: righe XLP, SPX, SOXX con «INDUSTRIA»
+OK   1440-scuro Titoli: bottone e bubble del SOXX («Titoli · SOXX Semiconductors»)
+OK   1440-scuro comandi: SEMI apre il SOXX (SOXX)
+OK   1440-scuro Alert: riga sulle industrie
+OK   1440-scuro: nessuno scorrimento orizzontale
+OK   1440-scuro: console 
+OK   1280-chiaro Monitor: gruppo industria dopo gli 11 settori (riga 11, SOXX 12)
+OK   1280-chiaro Monitor: SOXX 0,0%0/30 (dal file 0,0% 0/30)
+OK   1280-chiaro Monitor: riquadri ancora «/ 11»
+OK   1280-chiaro Bottom Map: rombo 1, etichetta true, legenda true, distanza true
+OK   1280-chiaro Settore: titolo «SOXX · Semiconductors (industria)» e bottone dopo i settori
+OK   1280-chiaro Settore: livello 3% di Rea, «nessun titolo sopra la media»
+OK   1280-chiaro Settore: nota su come è costruita la storia
+OK   1280-chiaro Settore: titoli sopra la media 200 uguali al file
+OK   1280-chiaro Settore: 30 titoli con il peso
+OK   1280-chiaro Settore: link TradingView NASDAQ:SOXX e al settore XLK
+OK   1280-chiaro Settore: episodi «7 zone blu dal 19/07/2002 con livello 3% · 7 trigger»
+OK   1280-chiaro Settore: dal SOXX al suo settore XLK
+OK   1280-chiaro Settore: XLK rimanda al SOXX e non ha la nota delle industrie
+OK   1280-chiaro Settore: da XLK al SOXX
+OK   1280-chiaro Titoli: righe XLP, SPX, SOXX con «INDUSTRIA»
+OK   1280-chiaro Titoli: bottone e bubble del SOXX («Titoli · SOXX Semiconductors»)
+OK   1280-chiaro comandi: SEMI apre il SOXX (SOXX)
+OK   1280-chiaro Alert: riga sulle industrie
+OK   1280-chiaro: nessuno scorrimento orizzontale
+OK   1280-chiaro: console 
+OK   390-scuro Monitor: gruppo industria dopo gli 11 settori (riga 11, SOXX 12)
+OK   390-scuro Monitor: SOXX 0,0%0/30 (dal file 0,0% 0/30)
+OK   390-scuro Monitor: riquadri ancora «/ 11»
+OK   390-scuro Bottom Map: rombo 1, etichetta true, legenda true, distanza true
+OK   390-scuro Settore: titolo «SOXX · Semiconductors (industria)» e bottone dopo i settori
+OK   390-scuro Settore: livello 3% di Rea, «nessun titolo sopra la media»
+OK   390-scuro Settore: nota su come è costruita la storia
+OK   390-scuro Settore: titoli sopra la media 200 uguali al file
+OK   390-scuro Settore: 30 titoli con il peso
+OK   390-scuro Settore: link TradingView NASDAQ:SOXX e al settore XLK
+OK   390-scuro Settore: episodi «7 zone blu dal 19/07/2002 con livello 3% · 7 trigger»
+OK   390-scuro Settore: dal SOXX al suo settore XLK
+OK   390-scuro Settore: XLK rimanda al SOXX e non ha la nota delle industrie
+OK   390-scuro Settore: da XLK al SOXX
+OK   390-scuro Titoli: righe XLP, SPX, SOXX con «INDUSTRIA»
+OK   390-scuro Titoli: bottone e bubble del SOXX («Titoli · SOXX Semiconductors»)
+OK   390-scuro Alert: riga sulle industrie
+OK   390-scuro: nessuno scorrimento orizzontale
+OK   390-scuro: console 
+OK   guida: confronto con Bloomberg e sezione industrie
+0 FAIL
