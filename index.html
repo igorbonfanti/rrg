@@ -476,14 +476,14 @@
       <div class="panel">
         <div class="ph"><h2>Registro dei cambi di stato</h2><span class="meta" id="alertCount"></span></div>
         <ul class="alist" id="alertLog"></ul>
-        <p class="note pb">Calcolato nel browser con i livelli blu attuali su tutta la storia dal 2005 (ricostruita). Serve a vedere come si comporta il sistema, non è un backtest validato.</p>
+        <p class="note pb">Storia dal 2005 ricostruita, con i livelli blu di oggi: non è un backtest.</p>
       </div>
       <div class="stack">
         <div class="panel">
           <div class="ph"><h2>Notifiche Telegram</h2></div>
           <div class="pb">
             <p class="note" id="sentInfo"></p>
-            <p class="note">Le notifiche arrivano a chi gestisce il repository: la GitHub Action invia solo i nuovi cambi di stato dopo ogni aggiornamento dei dati (di solito tra la notte e la mattina).</p>
+            <p class="note">Le notifiche vanno a chi gestisce il repository, dopo ogni aggiornamento dei dati.</p>
             <details class="owner">
               <summary>Per chi gestisce il repository</summary>
               <p class="note">Crea un bot con @BotFather, avvia una chat con il bot e aggiungi al repository (Settings → Secrets and variables → Actions) i segreti <span class="mono">TELEGRAM_BOT_TOKEN</span> e <span class="mono">TELEGRAM_CHAT_ID</span>.</p>
@@ -496,6 +496,7 @@
         </div>
       </div>
     </div>
+    <p class="srcline" id="alrSrc">Stessi dati del Monitor · livelli blu di Massimo Rea (<a href="https://quant-rea.com/it/" target="_blank" rel="noopener">quant-rea.com</a>), regole di questa app · <a href="guida.html#fonti-alr" target="_blank" rel="noopener">Fonti e note ↗</a></p>
   </section>
 
   <!-- 6 INDICI -->
