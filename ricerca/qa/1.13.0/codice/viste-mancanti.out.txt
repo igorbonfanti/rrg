@@ -37,3 +37,4 @@ senza sp500_members.json (old): mon:14 rrg:124 btm:109 XLK:75 tit:12 idx:10 emg:
 senza vix.json (new): mon:14 rrg:124 btm:109 XLK:75 tit:12 idx:10 emg:7 vix:0 alr:60 ath:9
 senza vix.json (old): mon:14 rrg:124 btm:109 XLK:75 tit:12 idx:10 emg:7 vix:0 alr:60 ath:9
 senza index_members/ (new): mon:14 rrg:124 btm:109 XLK:75 tit:12 idx:10 emg:7 vix:6 alr:60 ath:9
+senza index_members/ (old): mon:14 rrg:124 btm:109 XLK:75 tit:12 idx:10 emg:7 vix:6 alr:60 ath:9
