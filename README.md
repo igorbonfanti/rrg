@@ -274,7 +274,7 @@ Esclusi: KOSPI e TAIEX interi e S&P/TSX Composite (nessuna lista gratuita dei me
 - **Risultati storici** (livelli qui sopra, regola del «fallito» tardivo), sui 9 indici della prima fase: contando tutti i trigger, compresi quelli poi falliti, 75 dal 2001 con rendimento mediano a 12 mesi +14,8% e 49 positivi; contando solo l'ultimo trigger di ogni episodio, dal 2005 39 episodi con mediana +20,6% e 34 positivi. Sui 13 indici con limiti, 54 episodi con trigger, mediana +23,4% e 46 positivi, ma con storie che partono quasi tutte dopo il 2007 e quindi senza i mercati orso del 2001-2002. I trigger nei mercati orso lunghi (2001-2002, prima metà del 2008) sono stati spesso rimbalzi falliti: un filtro per questi casi è tra le cose da studiare. Ricalcolo: `ricerca/qa/audit-0.9.0/testi/risultati_indici.mjs`.
 
 ## Metodo della rotazione
-Nella pagina Rotazione si sceglie tra due formule: la nuova (predefinita) e quella a medie semplici, che riproduce i valori di StockCharts. Sotto il grafico una nota apribile spiega come si calcolano e cosa cambia. La classica, della prima versione, resta in `js/engine.js` per confronto. Tutte usano solo i dati passati:
+Nella pagina Rotazione si sceglie tra due formule: la nuova (predefinita) e quella a medie semplici, che riproduce i valori di StockCharts. Come si calcolano e cosa cambia è in `guida.html#formule`, aperta dal bottone «i» accanto a «Formula» (fino alla 1.12.0 una nota apribile sotto il grafico). La classica, della prima versione, resta in `js/engine.js` per confronto. Tutte usano solo i dati passati:
 
 ```
 Nuova (default)

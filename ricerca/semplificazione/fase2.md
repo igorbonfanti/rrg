@@ -69,5 +69,6 @@ Il conteggio dell'inventario (`piano.md`, «In breve»: 4.976 → 1.271 previste
 ## Esiti
 
 - `npm test`: 206 test verdi (3 nuovi in `test/info.test.js`).
-- `ricerca/qa/browser/v1130.cjs`: vedi `docs/sviluppo.md` (stato della 1.13.0) per i numeri dell'ultima corsa; sulla 1.12.0 fallisce.
+- `ricerca/qa/browser/v1130.cjs`: 1.290 controlli verdi, 0 falliti (1440, 1280, 390, 360 px, chiaro e scuro; immagini in `ricerca/qa/1.13.0/shots/`); sulla 1.12.0 260 falliti (90 verdi).
+- Controlli vecchi aggiornati (leggono i riquadri «i» con `ricerca/qa/browser/lib-info.cjs`): v1100, v1101, v1110, v1120, v160, v162, v190 verdi; v150 fallisce solo su «ordine delle schede» (12, come sulla 1.12.0). Non toccati e verdi: v191, v170, v161, v140fix, v095. Falliti già sulla 1.12.0 con gli stessi controlli, per motivi estranei (versione o numero di schede scritti nel controllo, dati cambiati): v091 (4), v130 (1), v140 (8), v180 (2).
 - `ricerca/semplificazione/conserva.cjs`: 91 voci su 91 conservate, eccezioni motivate nello script (titoli di paragrafo e di riquadri tolti, frasi accorciate con il loro posto in guida o nel riquadro, date generate dai dati).
