@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-21T18:10:56.510Z",
+ "generated": "2026-11-24T06:24:19.142Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
- "asOf": "2026-11-20",
+ "asOf": "2026-11-23",
  "missing": [],
  "markets": [
   {
@@ -12,23 +12,23 @@
    "note": "Quotato 7 giorni su 7: chiusura del giorno UTC (Yahoo), solo giorni già chiusi.",
    "stats": {
     "start": "2014-09-17",
-    "from": "2023-11-20",
-    "last": 58798.9805,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-22",
+    "last": 61161.9102,
+    "lastDate": "2026-11-22",
     "ref": 124752.5313,
     "refDate": "2025-10-06",
-    "distPct": -52.87,
-    "days": 410,
+    "distPct": -50.97,
+    "days": 412,
     "cycleLow": 58558.8594,
     "cycleLowDate": "2026-06-30",
     "cycleLowPct": -53.06,
-    "fromLowPct": 0.41,
+    "fromLowPct": 4.45,
     "belowZero": null,
     "intradayRef": 126198.0703,
     "intradayRefDate": "2025-10-06",
     "ath": 124752.5313,
     "athDate": "2025-10-06",
-    "athDistPct": -52.87
+    "athDistPct": -50.97
    }
   },
   {
@@ -39,23 +39,23 @@
    "note": "Future continuo del Comex (Yahoo, GC=F): la chiusura è il prezzo di regolamento, verso le 13:30 di New York, non le 16:00 degli indici. A ogni cambio di contratto (ogni due mesi) il livello si sposta, di solito verso l'alto: da un massimo lontano il calo risulta un po' più piccolo di quello dell'oro fisico (scelta dell'utente del 13/11/2026: prima si usava l'ETF GLD).",
    "stats": {
     "start": "2000-08-30",
-    "from": "2023-11-20",
-    "last": 3515.3999,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 3651.3999,
+    "lastDate": "2026-11-23",
     "ref": 5318.3999,
     "refDate": "2026-01-29",
-    "distPct": -33.9,
-    "days": 295,
+    "distPct": -31.34,
+    "days": 298,
     "cycleLow": 3515.3999,
     "cycleLowDate": "2026-11-20",
     "cycleLowPct": -33.9,
-    "fromLowPct": 0,
+    "fromLowPct": 3.87,
     "belowZero": null,
     "intradayRef": 5586.2002,
     "intradayRefDate": "2026-01-29",
     "ath": 5318.3999,
     "athDate": "2026-01-29",
-    "athDistPct": -33.9
+    "athDistPct": -31.34
    }
   },
   {
@@ -66,23 +66,23 @@
    "note": "Future continuo del Comex (Yahoo, SI=F), contratto del mese più vicino (si scambia poco, ma il prezzo è quello ufficiale): la chiusura è il prezzo di regolamento, verso le 13:30 di New York. Il 26/01/2026, giorno del massimo, l'argento è crollato nel pomeriggio: l'ETF SLV, che chiude alle 16:00, ha il massimo il 28/01. A ogni cambio di contratto (ogni mese) il livello si sposta un po' (scelta dell'utente del 13/11/2026: prima si usava l'ETF SLV).",
    "stats": {
     "start": "2000-08-30",
-    "from": "2023-11-20",
-    "last": 41.035,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 43.147,
+    "lastDate": "2026-11-23",
     "ref": 115.08,
     "refDate": "2026-01-26",
-    "distPct": -64.34,
-    "days": 298,
+    "distPct": -62.51,
+    "days": 301,
     "cycleLow": 41.035,
     "cycleLowDate": "2026-11-20",
     "cycleLowPct": -64.34,
-    "fromLowPct": 0,
+    "fromLowPct": 5.15,
     "belowZero": null,
     "intradayRef": 121.3,
     "intradayRefDate": "2026-01-29",
     "ath": 115.08,
     "athDate": "2026-01-26",
-    "athDistPct": -64.34
+    "athDistPct": -62.51
    }
   },
   {
@@ -93,23 +93,23 @@
    "note": "Future continuo del Comex (Yahoo): ai cambi di contratto il livello si sposta un po'.",
    "stats": {
     "start": "2000-08-30",
-    "from": "2023-11-20",
-    "last": 5.477,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 5.627,
+    "lastDate": "2026-11-23",
     "ref": 6.8035,
     "refDate": "2026-09-09",
-    "distPct": -19.5,
-    "days": 72,
+    "distPct": -17.29,
+    "days": 75,
     "cycleLow": 5.477,
     "cycleLowDate": "2026-11-20",
     "cycleLowPct": -19.5,
-    "fromLowPct": 0,
+    "fromLowPct": 2.74,
     "belowZero": null,
     "intradayRef": 6.83,
     "intradayRefDate": "2026-09-22",
     "ath": 6.8035,
     "athDate": "2026-09-09",
-    "athDistPct": -19.5
+    "athDistPct": -17.29
    }
   },
   {
@@ -120,23 +120,23 @@
    "note": "Future continuo del Nymex (Yahoo): ai cambi di contratto il livello si sposta un po'. Non si usa l'ETF USO, che a ogni rinnovo dei contratti perde valore; il suo massimo non è quello del petrolio.",
    "stats": {
     "start": "2000-08-23",
-    "from": "2023-11-20",
-    "last": 83.98,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 80.17,
+    "lastDate": "2026-11-23",
     "ref": 112.95,
     "refDate": "2026-04-07",
-    "distPct": -25.65,
-    "days": 227,
+    "distPct": -29.02,
+    "days": 230,
     "cycleLow": 68.55,
     "cycleLowDate": "2026-07-06",
     "cycleLowPct": -39.31,
-    "fromLowPct": 22.51,
+    "fromLowPct": 16.95,
     "belowZero": null,
     "intradayRef": 119.48,
     "intradayRefDate": "2026-03-09",
     "ath": 145.29,
     "athDate": "2008-07-03",
-    "athDistPct": -42.2
+    "athDistPct": -44.82
    }
   },
   {
@@ -146,23 +146,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1985-10-01",
-    "from": "2023-11-20",
-    "last": 25028.9805,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 26746.0996,
+    "lastDate": "2026-11-23",
     "ref": 31224.4707,
     "refDate": "2026-10-06",
-    "distPct": -19.84,
-    "days": 45,
+    "distPct": -14.34,
+    "days": 48,
     "cycleLow": 25028.9805,
     "cycleLowDate": "2026-11-20",
     "cycleLowPct": -19.84,
-    "fromLowPct": 0,
+    "fromLowPct": 6.86,
     "belowZero": null,
     "intradayRef": 31361.3691,
     "intradayRefDate": "2026-10-06",
     "ath": 31224.4707,
     "athDate": "2026-10-06",
-    "athDistPct": -19.84
+    "athDistPct": -14.34
    }
   },
   {
@@ -172,23 +172,23 @@
    "kind": "indice, solo prezzo",
    "stats": {
     "start": "1927-12-30",
-    "from": "2023-11-20",
-    "last": 6910.3901,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 7237.1699,
+    "lastDate": "2026-11-23",
     "ref": 7818.9302,
     "refDate": "2026-10-06",
-    "distPct": -11.62,
-    "days": 45,
+    "distPct": -7.44,
+    "days": 48,
     "cycleLow": 6910.3901,
     "cycleLowDate": "2026-11-20",
     "cycleLowPct": -11.62,
-    "fromLowPct": 0,
+    "fromLowPct": 4.73,
     "belowZero": null,
     "intradayRef": 7844.52,
     "intradayRefDate": "2026-10-06",
     "ath": 7818.9302,
     "athDate": "2026-10-06",
-    "athDistPct": -11.62
+    "athDistPct": -7.44
    }
   },
   {
@@ -199,23 +199,23 @@
    "note": "ETF iShares dei semiconduttori, senza i dividendi (la differenza è minima).",
    "stats": {
     "start": "2001-07-13",
-    "from": "2023-11-20",
-    "last": 123.4,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 140.22,
+    "lastDate": "2026-11-23",
     "ref": 218.3367,
     "refDate": "2026-06-22",
-    "distPct": -43.48,
-    "days": 151,
+    "distPct": -35.78,
+    "days": 154,
     "cycleLow": 123.4,
     "cycleLowDate": "2026-11-20",
     "cycleLowPct": -43.48,
-    "fromLowPct": 0,
+    "fromLowPct": 13.63,
     "belowZero": null,
     "intradayRef": 218.65,
     "intradayRefDate": "2026-06-22",
     "ath": 218.3367,
     "athDate": "2026-06-22",
-    "athDistPct": -43.48
+    "athDistPct": -35.78
    }
   },
   {
@@ -226,23 +226,23 @@
    "note": "Indice KOSPI intero, in won: per chi investe in euro o in dollari il calo è diverso (conta anche il cambio). Le feste coreane possono fermarlo fino a 11 giorni.",
    "stats": {
     "start": "1996-12-11",
-    "from": "2023-11-20",
-    "last": 4869.96,
-    "lastDate": "2026-11-20",
+    "from": "2023-11-23",
+    "last": 4708.54,
+    "lastDate": "2026-11-23",
     "ref": 9114.5498,
     "refDate": "2026-06-22",
-    "distPct": -46.57,
-    "days": 151,
-    "cycleLow": 4869.96,
-    "cycleLowDate": "2026-11-20",
-    "cycleLowPct": -46.57,
+    "distPct": -48.34,
+    "days": 154,
+    "cycleLow": 4708.54,
+    "cycleLowDate": "2026-11-23",
+    "cycleLowPct": -48.34,
     "fromLowPct": 0,
     "belowZero": null,
     "intradayRef": 9385.5898,
     "intradayRefDate": "2026-06-19",
     "ath": 9114.5498,
     "athDate": "2026-06-22",
-    "athDistPct": -46.57
+    "athDistPct": -48.34
    }
   }
  ]
