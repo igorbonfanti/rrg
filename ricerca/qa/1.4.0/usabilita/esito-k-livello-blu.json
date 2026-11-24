@@ -1,0 +1,41 @@
+[
+ {
+  "name": "vista 8: livello blu di IBOV aggiornato con l'asterisco",
+  "ok": true,
+  "detail": {
+   "before": {
+    "blu": "11%",
+    "st": "ATTENZIONE"
+   },
+   "ix": {
+    "val": "21%",
+    "badge": "ZONA BLU"
+   },
+   "after": {
+    "blu": "21%*",
+    "st": "ZONA BLU"
+   }
+  }
+ },
+ {
+  "name": "vista 8: stato di IBOV uguale a quello della vista 6",
+  "ok": true,
+  "detail": {
+   "ix": "ZONA BLU",
+   "after": "ZONA BLU"
+  }
+ },
+ {
+  "name": "vista 8: dettaglio con il nuovo livello",
+  "ok": true,
+  "detail": {
+   "meta": "breadth 18,4% · livello blu 21% · dati al 04/11/2026",
+   "state": "ZONA BLU"
+  }
+ },
+ {
+  "name": "console pulita",
+  "ok": true,
+  "detail": []
+ }
+]

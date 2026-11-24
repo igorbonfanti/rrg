@@ -1,0 +1,129 @@
+{
+ "tag": "main",
+ "dxMeta": {
+  "tz": "America/New_York",
+  "gmtoffset": -18000,
+  "barre": 1521
+ },
+ "dxOreUTC": {
+  "4": 997,
+  "5": 514,
+  "13": 3,
+  "14": 7
+ },
+ "dxDateDoppieVecchie": 0,
+ "dxDateDoppieNuove": 0,
+ "dxBarreSpostate": 997,
+ "dxRegoleManoVsIntl": 0,
+ "DXY_INV": {
+  "file": "/tmp/claude-0/-home-user-rrg/d11a05ff-fe30-5458-88d7-bab1e13b8eb0/scratchpad/main_data/prices_macro.json",
+  "asOf": "2026-11-04",
+  "sedute": 1254,
+  "primaData": "2021-11-05",
+  "confrontate": 1254,
+  "fileUgualeVecchio": 1253,
+  "fileUgualeNuovo": 613,
+  "primeDifferenzeFileVsVecchio": [
+   [
+    "2026-11-04",
+    98.1643,
+    98.5125,
+    98.5125
+   ]
+  ],
+  "ultimeDifferenzeFileVsVecchio": [
+   [
+    "2026-11-04",
+    98.1643,
+    98.5125,
+    98.5125
+   ]
+  ],
+  "seduteDiverseVecchioNuovo": 640,
+  "diverseDoveVecchio_eq_NuovoSedutaDopo": 640,
+  "scartoLivelloSuDiverse": {
+   "n": 640,
+   "med": 0.2668829639707937,
+   "p95": 0.8891720508163115,
+   "max": 2.0125188178432785
+  },
+  "scartoLivelloSuTutte": {
+   "n": 1254,
+   "med": 0.010080806145096322,
+   "p95": 0.7338911671216586,
+   "max": 2.0125188178432785,
+   "medianaVera": 0.010092464065780682
+  },
+  "medianaSuDiverse": 0.26870277814493027,
+  "massimo": {
+   "data": "2025-04-09",
+   "vecchio": 99.1375,
+   "nuovo": 97.1817
+  },
+  "scartoRendimentiPunti": {
+   "n": 1253,
+   "med": 0.1343050658651812,
+   "p95": 1.0196835234146495,
+   "max": 3.24800356106133
+  }
+ },
+ "fxMeta": {
+  "tz": "Europe/London",
+  "gmtoffset": 0
+ },
+ "liveMeta": {
+  "tz": "Europe/Paris",
+  "gmtoffset": 3600,
+  "cur": "EUR"
+ },
+ "liveDateUguali": true,
+ "dbmfDateUguali": true,
+ "fxBarreSpostate": 760,
+ "fxBarre": 1305,
+ "DBMFE": {
+  "file": "/tmp/claude-0/-home-user-rrg/d11a05ff-fe30-5458-88d7-bab1e13b8eb0/scratchpad/main_data/prices_global.json",
+  "asOf": "2026-11-04",
+  "spliced": {
+   "proxy": "DBMF",
+   "until": "2025-04-28"
+  },
+  "fattoreVecchio": 4.572310886672728,
+  "fattoreNuovo": 4.545860259841652,
+  "variazioneFattorePct": -0.5784958085018554,
+  "raccordo": "2025-04-28",
+  "ultimaBarraDBMF": "2025-04-28",
+  "cambioVecchio": {
+   "data": "2025-04-28",
+   "valore": 1.1409143209457397
+  },
+  "cambioNuovo": {
+   "data": "2025-04-28",
+   "valore": 1.1343141794204712
+  },
+  "confrontate": 1262,
+  "fileUgualeVecchio": 1262,
+  "fileUgualeNuovo": 386,
+  "differenzeFileVsVecchio": [],
+  "nDifferenze": 0,
+  "scartoPrimaDelRaccordoPct": {
+   "n": 876,
+   "mediana": -0.5784924897428212,
+   "medianaAss": 0.5784948135152068,
+   "p95Ass": 1.1831268782981907,
+   "maxAss": 2.2509557024534166,
+   "dataMax": "2022-07-05",
+   "minimo": -2.2509557024534166,
+   "massimo": 2.197308897246386,
+   "seduteInSalita": 43,
+   "seduteSoloFattore": 517
+  },
+  "scartoRendimentiPunti": {
+   "n": 875,
+   "med": 0.022135728071270844,
+   "p95": 1.1036983605007489,
+   "max": 2.9587159416320175,
+   "mediana": 0.022135728071270844
+  },
+  "dopoRaccordoUguali": true
+ }
+}

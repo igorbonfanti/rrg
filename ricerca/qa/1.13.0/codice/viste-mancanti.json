@@ -1,0 +1,3805 @@
+{
+ "dirette": {},
+ "mancanti": {
+  "alerts.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "alerts.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "ath.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "ath.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "ath_history.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "ath_history.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "breadth.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "breadth.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "breadth_latest.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 1,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "breadth_latest.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 1,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "capitulation.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "capitulation.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "emerging.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "emerging.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "indices.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "indices.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "indices_more.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 2,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "indices_more.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 2,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "industries.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 101,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1940,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "industries.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 101,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "industry_members.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1989,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "industry_members.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "prices.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "prices.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "prices_global.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "prices_global.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "prices_macro.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "prices_macro.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sector_members.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sector_members.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sectors.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sectors.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": false,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sp500_history.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sp500_history.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sp500_members.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "sp500_members.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "vix.json new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "vix.json old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 0,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "index_members/ new": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 147,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 277,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 124,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 617,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 4,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 2181,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 6,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 570,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 1384,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 2,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 926,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 3,
+     "sw": 1440,
+     "cw": 1440,
+     "info": 777,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  },
+  "index_members/ old": {
+   "views": {
+    "mon": {
+     "visible": true,
+     "drawn": 14,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "rrg": {
+     "visible": true,
+     "drawn": 124,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "btm": {
+     "visible": true,
+     "drawn": 109,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "XLK": {
+     "visible": true,
+     "drawn": 75,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "tit": {
+     "visible": true,
+     "drawn": 12,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "idx": {
+     "visible": true,
+     "drawn": 10,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "emg": {
+     "visible": true,
+     "drawn": 7,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "vix": {
+     "visible": true,
+     "drawn": 6,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "alr": {
+     "visible": true,
+     "drawn": 60,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    },
+    "ath": {
+     "visible": true,
+     "drawn": 9,
+     "buttons": 0,
+     "sw": 1440,
+     "cw": 1440,
+     "info": null,
+     "errs": []
+    }
+   },
+   "pageerrors": []
+  }
+ }
+}

@@ -1,0 +1,2078 @@
+[
+ {
+  "id": "d1440-dark.bar",
+  "ok": true,
+  "what": "barra: 9 schede su una riga, nessuna tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "n": 9,
+   "rows": 1,
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "minH": 29,
+   "minW": 65.8125,
+   "barH": 30,
+   "hscroll": 0,
+   "labels": [
+    "1 Monitor",
+    "2 Rotazione",
+    "3 Bottom Map",
+    "4 Settore",
+    "5 Titoli",
+    "6 Indici",
+    "7 Emergenti",
+    "8 VIX",
+    "9 Alert"
+   ],
+   "wrapped": []
+  }
+ },
+ {
+  "id": "d1440-dark.labels",
+  "ok": true,
+  "what": "etichette e ordine delle schede",
+  "detail": [
+   "1 Monitor",
+   "2 Rotazione",
+   "3 Bottom Map",
+   "4 Settore",
+   "5 Titoli",
+   "6 Indici",
+   "7 Emergenti",
+   "8 VIX",
+   "9 Alert"
+  ]
+ },
+ {
+  "id": "d1440-dark.lazy",
+  "ok": true,
+  "what": "data/vix.json non scaricato all'avvio",
+  "detail": [
+   "data/prices.json",
+   "data/sectors.json",
+   "data/breadth.json",
+   "data/breadth_latest.json",
+   "data/alerts.json",
+   "data/prices_global.json",
+   "data/prices_macro.json"
+  ]
+ },
+ {
+  "id": "d1440-dark.theme",
+  "ok": true,
+  "what": "tema dal localStorage",
+  "detail": "dark"
+ },
+ {
+  "id": "d1440-dark.key8",
+  "ok": true,
+  "what": "tasto 8 apre la vista VIX (#vix, scheda selezionata, contenuto visibile)",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "sel": "tab-vix",
+   "body": true,
+   "miss": false,
+   "loading": false,
+   "ms": 178
+  }
+ },
+ {
+  "id": "d1440-dark.fetch1",
+  "ok": true,
+  "what": "data/vix.json scaricato una volta alla prima apertura",
+  "detail": 1
+ },
+ {
+  "id": "d1440-dark.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori di oggi"
+ },
+ {
+  "id": "d1440-dark.nobad",
+  "ok": true,
+  "what": "nessun NaN/undefined/Infinity/null nel testo della vista",
+  "detail": []
+ },
+ {
+  "id": "d1440-dark.vixhscroll",
+  "ok": true,
+  "what": "vista VIX senza scorrimento orizzontale della pagina",
+  "detail": 0
+ },
+ {
+  "id": "d1440-dark.table",
+  "ok": true,
+  "what": "tabella: riga base + soglie 20/25/30/40/50",
+  "detail": {
+   "rows": [
+    "base",
+    "20",
+    "25",
+    "30",
+    "40",
+    "50"
+   ],
+   "sel": "40",
+   "overflow": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "d1440-dark.tablefit",
+  "ok": true,
+  "what": "tabelle senza scorrimento orizzontale interno sul computer",
+  "detail": [
+   0,
+   0
+  ]
+ },
+ {
+  "id": "d1440-dark.rowclick",
+  "ok": true,
+  "what": "clic sulla riga 30: selezionata, titolo e numero di episodi coerenti con la colonna «episodi»",
+  "detail": {
+   "sel": "30",
+   "title": "Episodi con il VIX sopra 30 · S&P 500",
+   "n": 21,
+   "nTab": 21
+  }
+ },
+ {
+  "id": "d1440-dark.ndx",
+  "ok": true,
+  "what": "Nasdaq-100: pulsante premuto, tabella, scatter ed episodi passano al Nasdaq-100, soglia 30 mantenuta",
+  "detail": {
+   "p": [
+    "false",
+    "true"
+   ],
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "sc": "Nasdaq-100 · ogni punto è una seduta con il VIX sopra 30 · ingresso alla chiusura della seduta dopo",
+   "title": "Episodi con il VIX sopra 30 · Nasdaq-100",
+   "sel": "30"
+  }
+ },
+ {
+  "id": "d1440-dark.range",
+  "ok": true,
+  "what": "periodi 3A/10A/MAX: pulsante premuto e asse degli anni cambia",
+  "detail": {
+   "y3": "2024 2025 2026",
+   "y10": "2018 2020 2022 2024 2026",
+   "yM": "1994 1998 2002 2006 2010 2014 2018 2022 2026"
+  }
+ },
+ {
+  "id": "d1440-dark.reload",
+  "ok": true,
+  "what": "ricarica su #vix: vista VIX, indice, periodo e soglia ricordati",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "ix": "NDX",
+   "range": "3A",
+   "thr": "30",
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale"
+  }
+ },
+ {
+  "id": "d1440-dark.sctip",
+  "ok": true,
+  "what": "scatter: riquadro dei valori sul punto grande, anello, dentro il riquadro e lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "06/08/1990 | 1990 Golfo | VIX | 35,91 | Nasdaq-100 dopo 12 mesi | +35,6% | Episodio iniziato il | 06/08/1990 | Primo giorno dell'episodio (il punto grande).",
+   "inside": true,
+   "ring": "visible"
+  }
+ },
+ {
+  "id": "d1440-dark.sctiphide",
+  "ok": true,
+  "what": "scatter: il riquadro sparisce quando il mouse esce"
+ },
+ {
+  "id": "d1440-dark.chtip",
+  "ok": true,
+  "what": "grafico VIX/realizzata: riquadro dei valori e linea verticale",
+  "detail": {
+   "vis": true,
+   "text": "10/09/2025 | S&P 500 6532 | VIX | 15,35 | Realizzata 21 sedute | 9,2 | Premio per la paura | +6,2 | Percentile del premio | 72°",
+   "inside": true,
+   "xh": "visible"
+  }
+ },
+ {
+  "id": "d1440-dark.chtipedge",
+  "ok": true,
+  "what": "grafico: riquadro dei valori al bordo destro resta dentro",
+  "detail": {
+   "vis": true,
+   "text": "05/11/2026 | S&P 500 7354 | VIX | 28,18 | Realizzata 21 sedute | 19,7 | Premio per la paura | +8,5 | Percentile del premio | 88°",
+   "inside": true
+  }
+ },
+ {
+  "id": "d1440-dark.kbrow",
+  "ok": true,
+  "what": "tastiera: Invio e Spazio sulle righe scelgono la soglia, il focus resta sulla riga, Spazio non scorre la pagina",
+  "detail": {
+   "kE": {
+    "sel": "40",
+    "focus": "40",
+    "tag": "TR"
+   },
+   "kS": {
+    "sel": "30",
+    "focus": "30",
+    "sy": 15
+   },
+   "y0": 15
+  }
+ },
+ {
+  "id": "d1440-dark.rowrole",
+  "ok": false,
+  "what": "righe attivabili: ruolo o stato ARIA che dica al lettore di schermo che sono selezionabili e quale è scelta",
+  "detail": {
+   "role": null,
+   "ariaSel": null,
+   "ariaCur": null,
+   "ariaPressed": null,
+   "label": null
+  }
+ },
+ {
+  "id": "d1440-dark.rowfocus",
+  "ok": true,
+  "what": "righe: focus della tastiera visibile",
+  "detail": {
+   "outline": "solid 2px",
+   "tdOutline": "none",
+   "boxShadow": "rgb(255, 160, 40) 2px 0px 0px 0px inset"
+  }
+ },
+ {
+  "id": "d1440-dark.arrows",
+  "ok": true,
+  "what": "schede: frecce e Fine tra VIX e Alert",
+  "detail": {
+   "ar": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   },
+   "al": {
+    "hash": "#vix",
+    "focus": "tab-vix"
+   },
+   "en": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   }
+  }
+ },
+ {
+  "id": "d1440-dark.keys19",
+  "ok": true,
+  "what": "tasti 1-9 aprono le nove viste nell'ordine",
+  "detail": [
+   "#mon v-mon",
+   "#rrg v-rrg",
+   "#btm v-btm",
+   "#XLU v-sec",
+   "#tit-XLU v-tit",
+   "#idx v-idx",
+   "#emg-CSI300 v-emg",
+   "#vix v-vix",
+   "#alr v-alr"
+  ]
+ },
+ {
+  "id": "d1440-dark.fetchonce",
+  "ok": true,
+  "what": "vix.json non riscaricato tornando alla vista (1 per pagina caricata: avvio + ricarica)",
+  "detail": 2
+ },
+ {
+  "id": "d1440-dark.history",
+  "ok": true,
+  "what": "Indietro da Alert torna a VIX, poi a Emergenti; Avanti torna a VIX",
+  "detail": {
+   "b1": {
+    "h": "#vix",
+    "vix": true
+   },
+   "b2": {
+    "h": "#emg-CSI300",
+    "emg": true
+   },
+   "f1": {
+    "h": "#vix",
+    "vix": true,
+    "body": true,
+    "sel": "tab-vix"
+   }
+  }
+ },
+ {
+  "id": "d1440-dark.cmd-VIX",
+  "ok": true,
+  "what": "comando VIX",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1440-dark.cmd-vix",
+  "ok": true,
+  "what": "comando vix",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1440-dark.cmd-volatilità",
+  "ok": true,
+  "what": "comando volatilità",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1440-dark.cmd-ALRT",
+  "ok": true,
+  "what": "comando ALRT",
+  "detail": "#alr"
+ },
+ {
+  "id": "d1440-dark.help",
+  "ok": false,
+  "what": "guida rapida: tasti delle viste 1–9",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1440-dark.helpcmd",
+  "ok": false,
+  "what": "guida rapida: il comando VIX è elencato tra i comandi delle viste",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1440-dark.view-mon",
+  "ok": true,
+  "what": "vista 1 mon: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 125
+  }
+ },
+ {
+  "id": "d1440-dark.view-btm",
+  "ok": true,
+  "what": "vista 3 btm: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.view-sec",
+  "ok": true,
+  "what": "vista 4 sec: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.view-tit",
+  "ok": true,
+  "what": "vista 5 tit: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.view-idx",
+  "ok": true,
+  "what": "vista 6 idx: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.view-emg",
+  "ok": true,
+  "what": "vista 7 emg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.view-vix",
+  "ok": true,
+  "what": "vista 8 vix: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.view-alr",
+  "ok": true,
+  "what": "vista 9 alr: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-dark.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "d1440-dark.tstart",
+  "ok": true,
+  "what": "tempi",
+  "detail": {
+   "avvioMs": 300,
+   "primaAperturaVixMs": 178
+  }
+ },
+ {
+  "id": "d1440-light.bar",
+  "ok": true,
+  "what": "barra: 9 schede su una riga, nessuna tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "n": 9,
+   "rows": 1,
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "minH": 29,
+   "minW": 65.8125,
+   "barH": 30,
+   "hscroll": 0,
+   "labels": [
+    "1 Monitor",
+    "2 Rotazione",
+    "3 Bottom Map",
+    "4 Settore",
+    "5 Titoli",
+    "6 Indici",
+    "7 Emergenti",
+    "8 VIX",
+    "9 Alert"
+   ],
+   "wrapped": []
+  }
+ },
+ {
+  "id": "d1440-light.labels",
+  "ok": true,
+  "what": "etichette e ordine delle schede",
+  "detail": [
+   "1 Monitor",
+   "2 Rotazione",
+   "3 Bottom Map",
+   "4 Settore",
+   "5 Titoli",
+   "6 Indici",
+   "7 Emergenti",
+   "8 VIX",
+   "9 Alert"
+  ]
+ },
+ {
+  "id": "d1440-light.lazy",
+  "ok": true,
+  "what": "data/vix.json non scaricato all'avvio",
+  "detail": [
+   "data/prices.json",
+   "data/sectors.json",
+   "data/breadth.json",
+   "data/breadth_latest.json",
+   "data/alerts.json",
+   "data/prices_global.json",
+   "data/prices_macro.json"
+  ]
+ },
+ {
+  "id": "d1440-light.theme",
+  "ok": true,
+  "what": "tema dal localStorage",
+  "detail": "light"
+ },
+ {
+  "id": "d1440-light.key8",
+  "ok": true,
+  "what": "tasto 8 apre la vista VIX (#vix, scheda selezionata, contenuto visibile)",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "sel": "tab-vix",
+   "body": true,
+   "miss": false,
+   "loading": false,
+   "ms": 166
+  }
+ },
+ {
+  "id": "d1440-light.fetch1",
+  "ok": true,
+  "what": "data/vix.json scaricato una volta alla prima apertura",
+  "detail": 1
+ },
+ {
+  "id": "d1440-light.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori di oggi"
+ },
+ {
+  "id": "d1440-light.nobad",
+  "ok": true,
+  "what": "nessun NaN/undefined/Infinity/null nel testo della vista",
+  "detail": []
+ },
+ {
+  "id": "d1440-light.vixhscroll",
+  "ok": true,
+  "what": "vista VIX senza scorrimento orizzontale della pagina",
+  "detail": 0
+ },
+ {
+  "id": "d1440-light.table",
+  "ok": true,
+  "what": "tabella: riga base + soglie 20/25/30/40/50",
+  "detail": {
+   "rows": [
+    "base",
+    "20",
+    "25",
+    "30",
+    "40",
+    "50"
+   ],
+   "sel": "40",
+   "overflow": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "d1440-light.tablefit",
+  "ok": true,
+  "what": "tabelle senza scorrimento orizzontale interno sul computer",
+  "detail": [
+   0,
+   0
+  ]
+ },
+ {
+  "id": "d1440-light.rowclick",
+  "ok": true,
+  "what": "clic sulla riga 30: selezionata, titolo e numero di episodi coerenti con la colonna «episodi»",
+  "detail": {
+   "sel": "30",
+   "title": "Episodi con il VIX sopra 30 · S&P 500",
+   "n": 21,
+   "nTab": 21
+  }
+ },
+ {
+  "id": "d1440-light.ndx",
+  "ok": true,
+  "what": "Nasdaq-100: pulsante premuto, tabella, scatter ed episodi passano al Nasdaq-100, soglia 30 mantenuta",
+  "detail": {
+   "p": [
+    "false",
+    "true"
+   ],
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "sc": "Nasdaq-100 · ogni punto è una seduta con il VIX sopra 30 · ingresso alla chiusura della seduta dopo",
+   "title": "Episodi con il VIX sopra 30 · Nasdaq-100",
+   "sel": "30"
+  }
+ },
+ {
+  "id": "d1440-light.range",
+  "ok": true,
+  "what": "periodi 3A/10A/MAX: pulsante premuto e asse degli anni cambia",
+  "detail": {
+   "y3": "2024 2025 2026",
+   "y10": "2018 2020 2022 2024 2026",
+   "yM": "1994 1998 2002 2006 2010 2014 2018 2022 2026"
+  }
+ },
+ {
+  "id": "d1440-light.reload",
+  "ok": true,
+  "what": "ricarica su #vix: vista VIX, indice, periodo e soglia ricordati",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "ix": "NDX",
+   "range": "3A",
+   "thr": "30",
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale"
+  }
+ },
+ {
+  "id": "d1440-light.sctip",
+  "ok": true,
+  "what": "scatter: riquadro dei valori sul punto grande, anello, dentro il riquadro e lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "06/08/1990 | 1990 Golfo | VIX | 35,91 | Nasdaq-100 dopo 12 mesi | +35,6% | Episodio iniziato il | 06/08/1990 | Primo giorno dell'episodio (il punto grande).",
+   "inside": true,
+   "ring": "visible"
+  }
+ },
+ {
+  "id": "d1440-light.sctiphide",
+  "ok": true,
+  "what": "scatter: il riquadro sparisce quando il mouse esce"
+ },
+ {
+  "id": "d1440-light.chtip",
+  "ok": true,
+  "what": "grafico VIX/realizzata: riquadro dei valori e linea verticale",
+  "detail": {
+   "vis": true,
+   "text": "10/09/2025 | S&P 500 6532 | VIX | 15,35 | Realizzata 21 sedute | 9,2 | Premio per la paura | +6,2 | Percentile del premio | 72°",
+   "inside": true,
+   "xh": "visible"
+  }
+ },
+ {
+  "id": "d1440-light.chtipedge",
+  "ok": true,
+  "what": "grafico: riquadro dei valori al bordo destro resta dentro",
+  "detail": {
+   "vis": true,
+   "text": "05/11/2026 | S&P 500 7354 | VIX | 28,18 | Realizzata 21 sedute | 19,7 | Premio per la paura | +8,5 | Percentile del premio | 88°",
+   "inside": true
+  }
+ },
+ {
+  "id": "d1440-light.kbrow",
+  "ok": true,
+  "what": "tastiera: Invio e Spazio sulle righe scelgono la soglia, il focus resta sulla riga, Spazio non scorre la pagina",
+  "detail": {
+   "kE": {
+    "sel": "40",
+    "focus": "40",
+    "tag": "TR"
+   },
+   "kS": {
+    "sel": "30",
+    "focus": "30",
+    "sy": 15
+   },
+   "y0": 15
+  }
+ },
+ {
+  "id": "d1440-light.rowrole",
+  "ok": false,
+  "what": "righe attivabili: ruolo o stato ARIA che dica al lettore di schermo che sono selezionabili e quale è scelta",
+  "detail": {
+   "role": null,
+   "ariaSel": null,
+   "ariaCur": null,
+   "ariaPressed": null,
+   "label": null
+  }
+ },
+ {
+  "id": "d1440-light.rowfocus",
+  "ok": true,
+  "what": "righe: focus della tastiera visibile",
+  "detail": {
+   "outline": "solid 2px",
+   "tdOutline": "none",
+   "boxShadow": "rgb(154, 74, 0) 2px 0px 0px 0px inset"
+  }
+ },
+ {
+  "id": "d1440-light.arrows",
+  "ok": true,
+  "what": "schede: frecce e Fine tra VIX e Alert",
+  "detail": {
+   "ar": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   },
+   "al": {
+    "hash": "#vix",
+    "focus": "tab-vix"
+   },
+   "en": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   }
+  }
+ },
+ {
+  "id": "d1440-light.keys19",
+  "ok": true,
+  "what": "tasti 1-9 aprono le nove viste nell'ordine",
+  "detail": [
+   "#mon v-mon",
+   "#rrg v-rrg",
+   "#btm v-btm",
+   "#XLU v-sec",
+   "#tit-XLU v-tit",
+   "#idx v-idx",
+   "#emg-CSI300 v-emg",
+   "#vix v-vix",
+   "#alr v-alr"
+  ]
+ },
+ {
+  "id": "d1440-light.fetchonce",
+  "ok": true,
+  "what": "vix.json non riscaricato tornando alla vista (1 per pagina caricata: avvio + ricarica)",
+  "detail": 2
+ },
+ {
+  "id": "d1440-light.history",
+  "ok": true,
+  "what": "Indietro da Alert torna a VIX, poi a Emergenti; Avanti torna a VIX",
+  "detail": {
+   "b1": {
+    "h": "#vix",
+    "vix": true
+   },
+   "b2": {
+    "h": "#emg-CSI300",
+    "emg": true
+   },
+   "f1": {
+    "h": "#vix",
+    "vix": true,
+    "body": true,
+    "sel": "tab-vix"
+   }
+  }
+ },
+ {
+  "id": "d1440-light.cmd-VIX",
+  "ok": true,
+  "what": "comando VIX",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1440-light.cmd-vix",
+  "ok": true,
+  "what": "comando vix",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1440-light.cmd-volatilità",
+  "ok": true,
+  "what": "comando volatilità",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1440-light.cmd-ALRT",
+  "ok": true,
+  "what": "comando ALRT",
+  "detail": "#alr"
+ },
+ {
+  "id": "d1440-light.help",
+  "ok": false,
+  "what": "guida rapida: tasti delle viste 1–9",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1440-light.helpcmd",
+  "ok": false,
+  "what": "guida rapida: il comando VIX è elencato tra i comandi delle viste",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1440-light.view-mon",
+  "ok": true,
+  "what": "vista 1 mon: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 125
+  }
+ },
+ {
+  "id": "d1440-light.view-btm",
+  "ok": true,
+  "what": "vista 3 btm: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.view-sec",
+  "ok": true,
+  "what": "vista 4 sec: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.view-tit",
+  "ok": true,
+  "what": "vista 5 tit: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.view-idx",
+  "ok": true,
+  "what": "vista 6 idx: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.view-emg",
+  "ok": true,
+  "what": "vista 7 emg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.view-vix",
+  "ok": true,
+  "what": "vista 8 vix: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.view-alr",
+  "ok": true,
+  "what": "vista 9 alr: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1440-light.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "d1440-light.tstart",
+  "ok": true,
+  "what": "tempi",
+  "detail": {
+   "avvioMs": 300,
+   "primaAperturaVixMs": 166
+  }
+ },
+ {
+  "id": "d1280-dark.bar",
+  "ok": true,
+  "what": "barra: 9 schede su una riga, nessuna tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "n": 9,
+   "rows": 1,
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "minH": 29,
+   "minW": 65.8125,
+   "barH": 30,
+   "hscroll": 0,
+   "labels": [
+    "1 Monitor",
+    "2 Rotazione",
+    "3 Bottom Map",
+    "4 Settore",
+    "5 Titoli",
+    "6 Indici",
+    "7 Emergenti",
+    "8 VIX",
+    "9 Alert"
+   ],
+   "wrapped": []
+  }
+ },
+ {
+  "id": "d1280-dark.labels",
+  "ok": true,
+  "what": "etichette e ordine delle schede",
+  "detail": [
+   "1 Monitor",
+   "2 Rotazione",
+   "3 Bottom Map",
+   "4 Settore",
+   "5 Titoli",
+   "6 Indici",
+   "7 Emergenti",
+   "8 VIX",
+   "9 Alert"
+  ]
+ },
+ {
+  "id": "d1280-dark.lazy",
+  "ok": true,
+  "what": "data/vix.json non scaricato all'avvio",
+  "detail": [
+   "data/prices.json",
+   "data/sectors.json",
+   "data/breadth.json",
+   "data/breadth_latest.json",
+   "data/alerts.json",
+   "data/prices_global.json",
+   "data/prices_macro.json"
+  ]
+ },
+ {
+  "id": "d1280-dark.theme",
+  "ok": true,
+  "what": "tema dal localStorage",
+  "detail": "dark"
+ },
+ {
+  "id": "d1280-dark.key8",
+  "ok": true,
+  "what": "tasto 8 apre la vista VIX (#vix, scheda selezionata, contenuto visibile)",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "sel": "tab-vix",
+   "body": true,
+   "miss": false,
+   "loading": false,
+   "ms": 198
+  }
+ },
+ {
+  "id": "d1280-dark.fetch1",
+  "ok": true,
+  "what": "data/vix.json scaricato una volta alla prima apertura",
+  "detail": 1
+ },
+ {
+  "id": "d1280-dark.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori di oggi"
+ },
+ {
+  "id": "d1280-dark.nobad",
+  "ok": true,
+  "what": "nessun NaN/undefined/Infinity/null nel testo della vista",
+  "detail": []
+ },
+ {
+  "id": "d1280-dark.vixhscroll",
+  "ok": true,
+  "what": "vista VIX senza scorrimento orizzontale della pagina",
+  "detail": 0
+ },
+ {
+  "id": "d1280-dark.table",
+  "ok": true,
+  "what": "tabella: riga base + soglie 20/25/30/40/50",
+  "detail": {
+   "rows": [
+    "base",
+    "20",
+    "25",
+    "30",
+    "40",
+    "50"
+   ],
+   "sel": "40",
+   "overflow": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "d1280-dark.tablefit",
+  "ok": true,
+  "what": "tabelle senza scorrimento orizzontale interno sul computer",
+  "detail": [
+   0,
+   0
+  ]
+ },
+ {
+  "id": "d1280-dark.rowclick",
+  "ok": true,
+  "what": "clic sulla riga 30: selezionata, titolo e numero di episodi coerenti con la colonna «episodi»",
+  "detail": {
+   "sel": "30",
+   "title": "Episodi con il VIX sopra 30 · S&P 500",
+   "n": 21,
+   "nTab": 21
+  }
+ },
+ {
+  "id": "d1280-dark.ndx",
+  "ok": true,
+  "what": "Nasdaq-100: pulsante premuto, tabella, scatter ed episodi passano al Nasdaq-100, soglia 30 mantenuta",
+  "detail": {
+   "p": [
+    "false",
+    "true"
+   ],
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "sc": "Nasdaq-100 · ogni punto è una seduta con il VIX sopra 30 · ingresso alla chiusura della seduta dopo",
+   "title": "Episodi con il VIX sopra 30 · Nasdaq-100",
+   "sel": "30"
+  }
+ },
+ {
+  "id": "d1280-dark.range",
+  "ok": true,
+  "what": "periodi 3A/10A/MAX: pulsante premuto e asse degli anni cambia",
+  "detail": {
+   "y3": "2024 2025 2026",
+   "y10": "2018 2020 2022 2024 2026",
+   "yM": "1994 1998 2002 2006 2010 2014 2018 2022 2026"
+  }
+ },
+ {
+  "id": "d1280-dark.reload",
+  "ok": true,
+  "what": "ricarica su #vix: vista VIX, indice, periodo e soglia ricordati",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "ix": "NDX",
+   "range": "3A",
+   "thr": "30",
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale"
+  }
+ },
+ {
+  "id": "d1280-dark.sctip",
+  "ok": true,
+  "what": "scatter: riquadro dei valori sul punto grande, anello, dentro il riquadro e lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "06/08/1990 | 1990 Golfo | VIX | 35,91 | Nasdaq-100 dopo 12 mesi | +35,6% | Episodio iniziato il | 06/08/1990 | Primo giorno dell'episodio (il punto grande).",
+   "inside": true,
+   "ring": "visible"
+  }
+ },
+ {
+  "id": "d1280-dark.sctiphide",
+  "ok": true,
+  "what": "scatter: il riquadro sparisce quando il mouse esce"
+ },
+ {
+  "id": "d1280-dark.chtip",
+  "ok": true,
+  "what": "grafico VIX/realizzata: riquadro dei valori e linea verticale",
+  "detail": {
+   "vis": true,
+   "text": "12/09/2025 | S&P 500 6584 | VIX | 14,76 | Realizzata 21 sedute | 8,8 | Premio per la paura | +6,0 | Percentile del premio | 70°",
+   "inside": true,
+   "xh": "visible"
+  }
+ },
+ {
+  "id": "d1280-dark.chtipedge",
+  "ok": true,
+  "what": "grafico: riquadro dei valori al bordo destro resta dentro",
+  "detail": {
+   "vis": true,
+   "text": "05/11/2026 | S&P 500 7354 | VIX | 28,18 | Realizzata 21 sedute | 19,7 | Premio per la paura | +8,5 | Percentile del premio | 88°",
+   "inside": true
+  }
+ },
+ {
+  "id": "d1280-dark.kbrow",
+  "ok": true,
+  "what": "tastiera: Invio e Spazio sulle righe scelgono la soglia, il focus resta sulla riga, Spazio non scorre la pagina",
+  "detail": {
+   "kE": {
+    "sel": "40",
+    "focus": "40",
+    "tag": "TR"
+   },
+   "kS": {
+    "sel": "30",
+    "focus": "30",
+    "sy": 65
+   },
+   "y0": 65
+  }
+ },
+ {
+  "id": "d1280-dark.rowrole",
+  "ok": false,
+  "what": "righe attivabili: ruolo o stato ARIA che dica al lettore di schermo che sono selezionabili e quale è scelta",
+  "detail": {
+   "role": null,
+   "ariaSel": null,
+   "ariaCur": null,
+   "ariaPressed": null,
+   "label": null
+  }
+ },
+ {
+  "id": "d1280-dark.rowfocus",
+  "ok": true,
+  "what": "righe: focus della tastiera visibile",
+  "detail": {
+   "outline": "solid 2px",
+   "tdOutline": "none",
+   "boxShadow": "rgb(255, 160, 40) 2px 0px 0px 0px inset"
+  }
+ },
+ {
+  "id": "d1280-dark.arrows",
+  "ok": true,
+  "what": "schede: frecce e Fine tra VIX e Alert",
+  "detail": {
+   "ar": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   },
+   "al": {
+    "hash": "#vix",
+    "focus": "tab-vix"
+   },
+   "en": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   }
+  }
+ },
+ {
+  "id": "d1280-dark.keys19",
+  "ok": true,
+  "what": "tasti 1-9 aprono le nove viste nell'ordine",
+  "detail": [
+   "#mon v-mon",
+   "#rrg v-rrg",
+   "#btm v-btm",
+   "#XLU v-sec",
+   "#tit-XLU v-tit",
+   "#idx v-idx",
+   "#emg-CSI300 v-emg",
+   "#vix v-vix",
+   "#alr v-alr"
+  ]
+ },
+ {
+  "id": "d1280-dark.fetchonce",
+  "ok": true,
+  "what": "vix.json non riscaricato tornando alla vista (1 per pagina caricata: avvio + ricarica)",
+  "detail": 2
+ },
+ {
+  "id": "d1280-dark.history",
+  "ok": true,
+  "what": "Indietro da Alert torna a VIX, poi a Emergenti; Avanti torna a VIX",
+  "detail": {
+   "b1": {
+    "h": "#vix",
+    "vix": true
+   },
+   "b2": {
+    "h": "#emg-CSI300",
+    "emg": true
+   },
+   "f1": {
+    "h": "#vix",
+    "vix": true,
+    "body": true,
+    "sel": "tab-vix"
+   }
+  }
+ },
+ {
+  "id": "d1280-dark.cmd-VIX",
+  "ok": true,
+  "what": "comando VIX",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1280-dark.cmd-vix",
+  "ok": true,
+  "what": "comando vix",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1280-dark.cmd-volatilità",
+  "ok": true,
+  "what": "comando volatilità",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1280-dark.cmd-ALRT",
+  "ok": true,
+  "what": "comando ALRT",
+  "detail": "#alr"
+ },
+ {
+  "id": "d1280-dark.help",
+  "ok": false,
+  "what": "guida rapida: tasti delle viste 1–9",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1280-dark.helpcmd",
+  "ok": false,
+  "what": "guida rapida: il comando VIX è elencato tra i comandi delle viste",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1280-dark.view-mon",
+  "ok": true,
+  "what": "vista 1 mon: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 125
+  }
+ },
+ {
+  "id": "d1280-dark.view-btm",
+  "ok": true,
+  "what": "vista 3 btm: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.view-sec",
+  "ok": true,
+  "what": "vista 4 sec: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.view-tit",
+  "ok": true,
+  "what": "vista 5 tit: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.view-idx",
+  "ok": true,
+  "what": "vista 6 idx: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.view-emg",
+  "ok": true,
+  "what": "vista 7 emg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.view-vix",
+  "ok": true,
+  "what": "vista 8 vix: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.view-alr",
+  "ok": true,
+  "what": "vista 9 alr: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-dark.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "d1280-dark.tstart",
+  "ok": true,
+  "what": "tempi",
+  "detail": {
+   "avvioMs": 253,
+   "primaAperturaVixMs": 198
+  }
+ },
+ {
+  "id": "d1280-light.bar",
+  "ok": true,
+  "what": "barra: 9 schede su una riga, nessuna tagliata, nessuno scorrimento orizzontale",
+  "detail": {
+   "n": 9,
+   "rows": 1,
+   "perRow": [
+    9
+   ],
+   "clipped": [],
+   "minH": 29,
+   "minW": 65.8125,
+   "barH": 30,
+   "hscroll": 0,
+   "labels": [
+    "1 Monitor",
+    "2 Rotazione",
+    "3 Bottom Map",
+    "4 Settore",
+    "5 Titoli",
+    "6 Indici",
+    "7 Emergenti",
+    "8 VIX",
+    "9 Alert"
+   ],
+   "wrapped": []
+  }
+ },
+ {
+  "id": "d1280-light.labels",
+  "ok": true,
+  "what": "etichette e ordine delle schede",
+  "detail": [
+   "1 Monitor",
+   "2 Rotazione",
+   "3 Bottom Map",
+   "4 Settore",
+   "5 Titoli",
+   "6 Indici",
+   "7 Emergenti",
+   "8 VIX",
+   "9 Alert"
+  ]
+ },
+ {
+  "id": "d1280-light.lazy",
+  "ok": true,
+  "what": "data/vix.json non scaricato all'avvio",
+  "detail": [
+   "data/prices.json",
+   "data/sectors.json",
+   "data/breadth.json",
+   "data/breadth_latest.json",
+   "data/alerts.json",
+   "data/prices_global.json",
+   "data/prices_macro.json"
+  ]
+ },
+ {
+  "id": "d1280-light.theme",
+  "ok": true,
+  "what": "tema dal localStorage",
+  "detail": "light"
+ },
+ {
+  "id": "d1280-light.key8",
+  "ok": true,
+  "what": "tasto 8 apre la vista VIX (#vix, scheda selezionata, contenuto visibile)",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "sel": "tab-vix",
+   "body": true,
+   "miss": false,
+   "loading": false,
+   "ms": 176
+  }
+ },
+ {
+  "id": "d1280-light.fetch1",
+  "ok": true,
+  "what": "data/vix.json scaricato una volta alla prima apertura",
+  "detail": 1
+ },
+ {
+  "id": "d1280-light.kpis",
+  "ok": true,
+  "what": "4 riquadri dei valori di oggi"
+ },
+ {
+  "id": "d1280-light.nobad",
+  "ok": true,
+  "what": "nessun NaN/undefined/Infinity/null nel testo della vista",
+  "detail": []
+ },
+ {
+  "id": "d1280-light.vixhscroll",
+  "ok": true,
+  "what": "vista VIX senza scorrimento orizzontale della pagina",
+  "detail": 0
+ },
+ {
+  "id": "d1280-light.table",
+  "ok": true,
+  "what": "tabella: riga base + soglie 20/25/30/40/50",
+  "detail": {
+   "rows": [
+    "base",
+    "20",
+    "25",
+    "30",
+    "40",
+    "50"
+   ],
+   "sel": "40",
+   "overflow": [
+    0,
+    0
+   ]
+  }
+ },
+ {
+  "id": "d1280-light.tablefit",
+  "ok": true,
+  "what": "tabelle senza scorrimento orizzontale interno sul computer",
+  "detail": [
+   0,
+   0
+  ]
+ },
+ {
+  "id": "d1280-light.rowclick",
+  "ok": true,
+  "what": "clic sulla riga 30: selezionata, titolo e numero di episodi coerenti con la colonna «episodi»",
+  "detail": {
+   "sel": "30",
+   "title": "Episodi con il VIX sopra 30 · S&P 500",
+   "n": 21,
+   "nTab": 21
+  }
+ },
+ {
+  "id": "d1280-light.ndx",
+  "ok": true,
+  "what": "Nasdaq-100: pulsante premuto, tabella, scatter ed episodi passano al Nasdaq-100, soglia 30 mantenuta",
+  "detail": {
+   "p": [
+    "false",
+    "true"
+   ],
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "sc": "Nasdaq-100 · ogni punto è una seduta con il VIX sopra 30 · ingresso alla chiusura della seduta dopo",
+   "title": "Episodi con il VIX sopra 30 · Nasdaq-100",
+   "sel": "30"
+  }
+ },
+ {
+  "id": "d1280-light.range",
+  "ok": true,
+  "what": "periodi 3A/10A/MAX: pulsante premuto e asse degli anni cambia",
+  "detail": {
+   "y3": "2024 2025 2026",
+   "y10": "2018 2020 2022 2024 2026",
+   "yM": "1994 1998 2002 2006 2010 2014 2018 2022 2026"
+  }
+ },
+ {
+  "id": "d1280-light.reload",
+  "ok": true,
+  "what": "ricarica su #vix: vista VIX, indice, periodo e soglia ricordati",
+  "detail": {
+   "hash": "#vix",
+   "vis": true,
+   "ix": "NDX",
+   "range": "3A",
+   "thr": "30",
+   "meta": "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale"
+  }
+ },
+ {
+  "id": "d1280-light.sctip",
+  "ok": true,
+  "what": "scatter: riquadro dei valori sul punto grande, anello, dentro il riquadro e lo schermo",
+  "detail": {
+   "vis": true,
+   "text": "06/08/1990 | 1990 Golfo | VIX | 35,91 | Nasdaq-100 dopo 12 mesi | +35,6% | Episodio iniziato il | 06/08/1990 | Primo giorno dell'episodio (il punto grande).",
+   "inside": true,
+   "ring": "visible"
+  }
+ },
+ {
+  "id": "d1280-light.sctiphide",
+  "ok": true,
+  "what": "scatter: il riquadro sparisce quando il mouse esce"
+ },
+ {
+  "id": "d1280-light.chtip",
+  "ok": true,
+  "what": "grafico VIX/realizzata: riquadro dei valori e linea verticale",
+  "detail": {
+   "vis": true,
+   "text": "12/09/2025 | S&P 500 6584 | VIX | 14,76 | Realizzata 21 sedute | 8,8 | Premio per la paura | +6,0 | Percentile del premio | 70°",
+   "inside": true,
+   "xh": "visible"
+  }
+ },
+ {
+  "id": "d1280-light.chtipedge",
+  "ok": true,
+  "what": "grafico: riquadro dei valori al bordo destro resta dentro",
+  "detail": {
+   "vis": true,
+   "text": "05/11/2026 | S&P 500 7354 | VIX | 28,18 | Realizzata 21 sedute | 19,7 | Premio per la paura | +8,5 | Percentile del premio | 88°",
+   "inside": true
+  }
+ },
+ {
+  "id": "d1280-light.kbrow",
+  "ok": true,
+  "what": "tastiera: Invio e Spazio sulle righe scelgono la soglia, il focus resta sulla riga, Spazio non scorre la pagina",
+  "detail": {
+   "kE": {
+    "sel": "40",
+    "focus": "40",
+    "tag": "TR"
+   },
+   "kS": {
+    "sel": "30",
+    "focus": "30",
+    "sy": 65
+   },
+   "y0": 65
+  }
+ },
+ {
+  "id": "d1280-light.rowrole",
+  "ok": false,
+  "what": "righe attivabili: ruolo o stato ARIA che dica al lettore di schermo che sono selezionabili e quale è scelta",
+  "detail": {
+   "role": null,
+   "ariaSel": null,
+   "ariaCur": null,
+   "ariaPressed": null,
+   "label": null
+  }
+ },
+ {
+  "id": "d1280-light.rowfocus",
+  "ok": true,
+  "what": "righe: focus della tastiera visibile",
+  "detail": {
+   "outline": "solid 2px",
+   "tdOutline": "none",
+   "boxShadow": "rgb(154, 74, 0) 2px 0px 0px 0px inset"
+  }
+ },
+ {
+  "id": "d1280-light.arrows",
+  "ok": true,
+  "what": "schede: frecce e Fine tra VIX e Alert",
+  "detail": {
+   "ar": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   },
+   "al": {
+    "hash": "#vix",
+    "focus": "tab-vix"
+   },
+   "en": {
+    "hash": "#alr",
+    "focus": "tab-alr"
+   }
+  }
+ },
+ {
+  "id": "d1280-light.keys19",
+  "ok": true,
+  "what": "tasti 1-9 aprono le nove viste nell'ordine",
+  "detail": [
+   "#mon v-mon",
+   "#rrg v-rrg",
+   "#btm v-btm",
+   "#XLU v-sec",
+   "#tit-XLU v-tit",
+   "#idx v-idx",
+   "#emg-CSI300 v-emg",
+   "#vix v-vix",
+   "#alr v-alr"
+  ]
+ },
+ {
+  "id": "d1280-light.fetchonce",
+  "ok": true,
+  "what": "vix.json non riscaricato tornando alla vista (1 per pagina caricata: avvio + ricarica)",
+  "detail": 2
+ },
+ {
+  "id": "d1280-light.history",
+  "ok": true,
+  "what": "Indietro da Alert torna a VIX, poi a Emergenti; Avanti torna a VIX",
+  "detail": {
+   "b1": {
+    "h": "#vix",
+    "vix": true
+   },
+   "b2": {
+    "h": "#emg-CSI300",
+    "emg": true
+   },
+   "f1": {
+    "h": "#vix",
+    "vix": true,
+    "body": true,
+    "sel": "tab-vix"
+   }
+  }
+ },
+ {
+  "id": "d1280-light.cmd-VIX",
+  "ok": true,
+  "what": "comando VIX",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1280-light.cmd-vix",
+  "ok": true,
+  "what": "comando vix",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1280-light.cmd-volatilità",
+  "ok": true,
+  "what": "comando volatilità",
+  "detail": "#vix"
+ },
+ {
+  "id": "d1280-light.cmd-ALRT",
+  "ok": true,
+  "what": "comando ALRT",
+  "detail": "#alr"
+ },
+ {
+  "id": "d1280-light.help",
+  "ok": false,
+  "what": "guida rapida: tasti delle viste 1–9",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1280-light.helpcmd",
+  "ok": false,
+  "what": "guida rapida: il comando VIX è elencato tra i comandi delle viste",
+  "detail": {
+   "keys": "Tasti: 1–8 viste · / coman",
+   "vixCmd": false,
+   "guideHref": "guida.html#alr"
+  }
+ },
+ {
+  "id": "d1280-light.view-mon",
+  "ok": true,
+  "what": "vista 1 mon: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.view-rrg",
+  "ok": true,
+  "what": "vista 2 rrg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 125
+  }
+ },
+ {
+  "id": "d1280-light.view-btm",
+  "ok": true,
+  "what": "vista 3 btm: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.view-sec",
+  "ok": true,
+  "what": "vista 4 sec: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.view-tit",
+  "ok": true,
+  "what": "vista 5 tit: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.view-idx",
+  "ok": true,
+  "what": "vista 6 idx: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.view-emg",
+  "ok": true,
+  "what": "vista 7 emg: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.view-vix",
+  "ok": true,
+  "what": "vista 8 vix: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.view-alr",
+  "ok": true,
+  "what": "vista 9 alr: visibile, senza scorrimento orizzontale",
+  "detail": {
+   "hs": 0,
+   "vis": true,
+   "top": 83
+  }
+ },
+ {
+  "id": "d1280-light.console",
+  "ok": true,
+  "what": "console senza errori né avvisi",
+  "detail": []
+ },
+ {
+  "id": "d1280-light.tstart",
+  "ok": true,
+  "what": "tempi",
+  "detail": {
+   "avvioMs": 253,
+   "primaAperturaVixMs": 176
+  }
+ },
+ {
+  "id": "cmp.1440",
+  "ok": true,
+  "what": "barra a 1440px: altezza 1.5.0 30px contro 1.4.1 30px; inizio del Monitor 83 contro 83",
+  "detail": {
+   "1.5.0": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.1280",
+  "ok": true,
+  "what": "barra a 1280px: altezza 1.5.0 30px contro 1.4.1 30px; inizio del Monitor 83 contro 83",
+  "detail": {
+   "1.5.0": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.1100",
+  "ok": true,
+  "what": "barra a 1100px: altezza 1.5.0 30px contro 1.4.1 30px; inizio del Monitor 83 contro 83",
+  "detail": {
+   "1.5.0": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.1024",
+  "ok": true,
+  "what": "barra a 1024px: altezza 1.5.0 30px contro 1.4.1 30px; inizio del Monitor 83 contro 83",
+  "detail": {
+   "1.5.0": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 30,
+    "monTop": 83,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.861",
+  "ok": true,
+  "what": "barra a 861px: altezza 1.5.0 30px contro 1.4.1 30px; inizio del Monitor 116 contro 116",
+  "detail": {
+   "1.5.0": {
+    "bar": 30,
+    "monTop": 116,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 30,
+    "monTop": 116,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.860",
+  "ok": true,
+  "what": "barra a 860px: altezza 1.5.0 60px contro 1.4.1 60px; inizio del Monitor 146 contro 146",
+  "detail": {
+   "1.5.0": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.820",
+  "ok": true,
+  "what": "barra a 820px: altezza 1.5.0 60px contro 1.4.1 60px; inizio del Monitor 146 contro 146",
+  "detail": {
+   "1.5.0": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.768",
+  "ok": true,
+  "what": "barra a 768px: altezza 1.5.0 60px contro 1.4.1 60px; inizio del Monitor 146 contro 146",
+  "detail": {
+   "1.5.0": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.601",
+  "ok": true,
+  "what": "barra a 601px: altezza 1.5.0 60px contro 1.4.1 60px; inizio del Monitor 146 contro 146",
+  "detail": {
+   "1.5.0": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 60,
+    "monTop": 146,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.600",
+  "ok": true,
+  "what": "barra a 600px: altezza 1.5.0 93px contro 1.4.1 62px; inizio del Monitor 206 contro 175",
+  "detail": {
+   "1.5.0": {
+    "bar": 93,
+    "monTop": 206,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 62,
+    "monTop": 175,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.390",
+  "ok": true,
+  "what": "barra a 390px: altezza 1.5.0 93px contro 1.4.1 62px; inizio del Monitor 239 contro 208",
+  "detail": {
+   "1.5.0": {
+    "bar": 93,
+    "monTop": 239,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 62,
+    "monTop": 208,
+    "hs": 0
+   }
+  }
+ },
+ {
+  "id": "cmp.360",
+  "ok": true,
+  "what": "barra a 360px: altezza 1.5.0 93px contro 1.4.1 76px; inizio del Monitor 239 contro 222",
+  "detail": {
+   "1.5.0": {
+    "bar": 93,
+    "monTop": 239,
+    "hs": 0
+   },
+   "1.4.1": {
+    "bar": 76,
+    "monTop": 222,
+    "hs": 0
+   }
+  }
+ }
+]

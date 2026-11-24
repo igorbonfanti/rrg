@@ -1,0 +1,4170 @@
+{
+ "Fyahoo_fred": {
+  "triggerConCambio": 25,
+  "conEntrambi": 19,
+  "diversi": 3,
+  "soloFred": 5,
+  "elenco": [
+   {
+    "k": "CSI300",
+    "date": "2015-10-13",
+    "yahoo": 1,
+    "fred": 1
+   },
+   {
+    "k": "CSI300",
+    "date": "2016-03-30",
+    "yahoo": 1,
+    "fred": 1
+   },
+   {
+    "k": "CSI300",
+    "date": "2018-09-21",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "CSI300",
+    "date": "2019-01-18",
+    "yahoo": 1,
+    "fred": 1
+   },
+   {
+    "k": "CSI300",
+    "date": "2022-05-26",
+    "yahoo": 1,
+    "fred": 0
+   },
+   {
+    "k": "CSI300",
+    "date": "2024-02-05",
+    "yahoo": 1,
+    "fred": 1
+   },
+   {
+    "k": "NIFTY50",
+    "date": "2009-04-15",
+    "yahoo": null,
+    "fred": 1
+   },
+   {
+    "k": "NIFTY50",
+    "date": "2020-04-13",
+    "yahoo": 1,
+    "fred": 0
+   },
+   {
+    "k": "IBOV",
+    "date": "2009-03-25",
+    "yahoo": null,
+    "fred": 1
+   },
+   {
+    "k": "IBOV",
+    "date": "2011-08-29",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "IBOV",
+    "date": "2016-02-01",
+    "yahoo": 1,
+    "fred": 0
+   },
+   {
+    "k": "IBOV",
+    "date": "2020-05-05",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "KOSPI200",
+    "date": "2009-03-19",
+    "yahoo": null,
+    "fred": 1
+   },
+   {
+    "k": "KOSPI200",
+    "date": "2020-04-20",
+    "yahoo": 1,
+    "fred": 1
+   },
+   {
+    "k": "KOSPI200",
+    "date": "2022-03-28",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "KOSPI200",
+    "date": "2022-07-25",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "KOSPI200",
+    "date": "2022-10-28",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "TWN",
+    "date": "2008-08-12",
+    "yahoo": null,
+    "fred": 0
+   },
+   {
+    "k": "TWN",
+    "date": "2009-04-06",
+    "yahoo": null,
+    "fred": 1
+   },
+   {
+    "k": "TWN",
+    "date": "2011-12-15",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "TWN",
+    "date": "2011-12-26",
+    "yahoo": 1,
+    "fred": null
+   },
+   {
+    "k": "TWN",
+    "date": "2015-09-22",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "TWN",
+    "date": "2020-04-07",
+    "yahoo": 0,
+    "fred": 0
+   },
+   {
+    "k": "TWN",
+    "date": "2022-11-09",
+    "yahoo": 1,
+    "fred": 1
+   },
+   {
+    "k": "TWN",
+    "date": "2025-04-28",
+    "yahoo": 1,
+    "fred": 1
+   }
+  ]
+ },
+ "generato": "2026-11-05T16:44:50.235Z",
+ "asOfIndici": "2026-11-04",
+ "fonti": {
+  "CNY=X": {
+   "righe": 6342,
+   "da": "2001-06-25",
+   "a": "2026-11-05",
+   "erroriTolti": [
+    "2011-07-18 5.8630",
+    "2013-03-18 6.2875",
+    "2016-11-17 6.7892",
+    "2017-04-24 6.7921",
+    "2023-08-22 7.1980",
+    "2023-08-24 7.1705",
+    "2023-09-04 7.1401",
+    "2023-10-16 7.1681",
+    "2023-10-30 7.1587",
+    "2023-11-13 7.1818"
+   ],
+   "buchiOltre10gg": 1
+  },
+  "INR=X": {
+   "righe": 5944,
+   "da": "2003-12-01",
+   "a": "2026-11-05",
+   "erroriTolti": [
+    "2012-01-30 49.3880",
+    "2012-01-31 52.4930",
+    "2013-09-04 68.6100"
+   ],
+   "buchiOltre10gg": 1
+  },
+  "BRL=X": {
+   "righe": 5516,
+   "da": "2003-12-01",
+   "a": "2026-11-05",
+   "erroriTolti": [
+    "2006-05-08 1.9472",
+    "2006-07-14 2.0968",
+    "2006-08-16 2.0144",
+    "2008-10-14 2.0260",
+    "2009-10-23 1.6642",
+    "2010-03-02 1.7325",
+    "2010-08-30 1.6992",
+    "2010-09-20 1.6655",
+    "2010-10-04 1.6335",
+    "2010-10-18 1.6064",
+    "2010-10-25 1.6439",
+    "2010-11-01 1.6462",
+    "2011-01-10 1.6355",
+    "2011-01-27 1.6183",
+    "2017-07-03 3.1777",
+    "2020-05-11 5.4770"
+   ],
+   "buchiOltre10gg": 2
+  },
+  "KRW=X": {
+   "righe": 5930,
+   "da": "2003-12-01",
+   "a": "2026-11-05",
+   "erroriTolti": [
+    "2005-10-27 996.8300",
+    "2006-08-15 917.6300",
+    "2006-08-29 916.6700",
+    "2006-09-26 901.3500",
+    "2006-10-03 900.5800",
+    "2006-12-20 886.6800",
+    "2006-12-26 892.8100",
+    "2007-02-20 896.0100",
+    "2007-02-21 927.6900",
+    "2007-02-22 894.6600",
+    "2007-05-01 891.6200",
+    "2008-03-21 978.1400",
+    "2008-03-24 1008.4000",
+    "2008-09-16 1160.0000",
+    "2008-09-17 1099.6000",
+    "2010-05-18 1162.1000",
+    "2013-01-14 1023.2000",
+    "2013-05-09 1056.2000"
+   ],
+   "buchiOltre10gg": 1
+  },
+  "TWD=X": {
+   "righe": 5423,
+   "da": "2004-03-24",
+   "a": "2026-11-05",
+   "erroriTolti": [
+    "2011-10-05 29.5460",
+    "2011-10-25 1.8015",
+    "2011-11-14 29.2000",
+    "2012-08-22 29.0220",
+    "2013-04-05 28.9020",
+    "2013-05-09 28.5220",
+    "2014-12-31 3.6700",
+    "2015-04-27 29.7500",
+    "2015-06-22 29.7290",
+    "2015-07-03 29.9540",
+    "2015-07-20 30.3130",
+    "2015-08-20 31.3320",
+    "2015-10-07 31.6090",
+    "2015-10-12 31.2910",
+    "2015-11-18 31.8990",
+    "2015-11-24 32.7700",
+    "2015-11-27 32.6950",
+    "2015-11-30 31.7090",
+    "2015-12-01 32.8220",
+    "2015-12-04 30.7480",
+    "2015-12-11 33.0000",
+    "2016-01-07 33.4420",
+    "2016-02-24 33.4720",
+    "2016-03-08 32.9950",
+    "2016-03-09 31.9080",
+    "2016-03-16 32.9100",
+    "2016-03-17 31.6010",
+    "2016-03-18 32.6980",
+    "2016-03-21 31.4860",
+    "2016-05-02 31.2600",
+    "2016-06-20 31.2680",
+    "2016-07-04 31.2140"
+   ],
+   "buchiOltre10gg": 2
+  },
+  "HKD=X": {
+   "righe": 6405,
+   "da": "2001-07-16",
+   "a": "2026-11-05",
+   "erroriTolti": [
+    "2006-02-10 7.8613",
+    "2008-03-14 7.6849",
+    "2008-03-21 7.6431"
+   ],
+   "buchiOltre10gg": 2
+  },
+  "DTWEXEMEGS": {
+   "righe": 5222,
+   "da": "2006-01-02",
+   "a": "2026-10-30",
+   "erroriTolti": [],
+   "buchiOltre10gg": 0
+  },
+  "DX-Y.NYB": {
+   "righe": 6781,
+   "da": "2000-01-03",
+   "a": "2026-11-05",
+   "erroriTolti": [],
+   "buchiOltre10gg": 0
+  }
+ },
+ "copertura": {
+  "CSI300": {
+   "daStato": "2013-06-05",
+   "sedute": 3256,
+   "conPunteggio": 3124,
+   "quotaPieno": 11,
+   "quotaZero": 53,
+   "Fmancante": 132,
+   "primoPunteggio": "2012-05-04"
+  },
+  "NIFTY50": {
+   "daStato": "2008-09-22",
+   "sedute": 4442,
+   "conPunteggio": 4275,
+   "quotaPieno": 14,
+   "quotaZero": 43,
+   "Fmancante": 167,
+   "primoPunteggio": "2007-09-17"
+  },
+  "IBOV": {
+   "daStato": "2008-11-03",
+   "sedute": 4460,
+   "conPunteggio": 4313,
+   "quotaPieno": 9,
+   "quotaZero": 36,
+   "Fmancante": 147,
+   "primoPunteggio": "2006-10-10"
+  },
+  "KOSPI200": {
+   "daStato": "2006-12-01",
+   "sedute": 4904,
+   "conPunteggio": 4736,
+   "quotaPieno": 17,
+   "quotaZero": 33,
+   "Fmancante": 168,
+   "primoPunteggio": "2006-10-10"
+  },
+  "TWN": {
+   "daStato": "2003-01-02",
+   "sedute": 5841,
+   "conPunteggio": 4725,
+   "quotaPieno": 10,
+   "quotaZero": 40,
+   "Fmancante": 306,
+   "primoPunteggio": "2006-10-11"
+  },
+  "HSI": {
+   "daStato": "2008-09-01",
+   "sedute": 4477,
+   "conPunteggio": 4477,
+   "quotaPieno": 38,
+   "quotaZero": 62,
+   "Fmancante": 0,
+   "primoPunteggio": "2006-10-10"
+  },
+  "EEM": {
+   "daStato": "2011-03-01",
+   "sedute": 3945,
+   "conPunteggio": 3945,
+   "quotaPieno": 34,
+   "quotaZero": 66,
+   "Fmancante": 0,
+   "primoPunteggio": "2006-10-10"
+  }
+ },
+ "segnali": [
+  {
+   "k": "CSI300",
+   "date": "2015-10-13",
+   "crisis": "2015-16",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": -6.9,
+   "r126usd": -8.7
+  },
+  {
+   "k": "CSI300",
+   "date": "2016-03-30",
+   "crisis": "2015-16",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 4.7,
+   "r126usd": null
+  },
+  {
+   "k": "CSI300",
+   "date": "2018-09-21",
+   "crisis": "2018",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": true,
+   "r126": 17,
+   "r126usd": 19.6
+  },
+  {
+   "k": "CSI300",
+   "date": "2019-01-18",
+   "crisis": "2018",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 21.3,
+   "r126usd": null
+  },
+  {
+   "k": "CSI300",
+   "date": "2022-05-26",
+   "crisis": "2022",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": -2.3,
+   "r126usd": -7.6
+  },
+  {
+   "k": "CSI300",
+   "date": "2024-02-05",
+   "crisis": "2024-25",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 3,
+   "r126usd": 3.4
+  },
+  {
+   "k": "NIFTY50",
+   "date": "2009-04-15",
+   "crisis": "2008",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 51.8,
+   "r126usd": 62.9
+  },
+  {
+   "k": "NIFTY50",
+   "date": "2020-04-13",
+   "crisis": "2020",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 33.7,
+   "r126usd": 39.4
+  },
+  {
+   "k": "IBOV",
+   "date": "2009-03-25",
+   "crisis": "2008",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 44,
+   "r126usd": 80.1
+  },
+  {
+   "k": "IBOV",
+   "date": "2011-08-29",
+   "crisis": "2011",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 19.2,
+   "r126usd": 7.3
+  },
+  {
+   "k": "IBOV",
+   "date": "2016-02-01",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 47.9,
+   "r126usd": 81
+  },
+  {
+   "k": "IBOV",
+   "date": "2020-05-05",
+   "crisis": "2020",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 23.7,
+   "r126usd": 24.3
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2009-03-19",
+   "crisis": "2008",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 43.8,
+   "r126usd": 66.5
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2020-04-20",
+   "crisis": "2020",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 24.7,
+   "r126usd": 35.9
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2022-03-28",
+   "crisis": "2022",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": true,
+   "r126": -21.4,
+   "r126usd": -33
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2022-07-25",
+   "crisis": "2022",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": true,
+   "r126": 1.6,
+   "r126usd": 8.3
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2022-10-28",
+   "crisis": "2022",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 10.1,
+   "r126usd": 16.9
+  },
+  {
+   "k": "TWN",
+   "date": "2008-08-12",
+   "crisis": "2008",
+   "score": 1,
+   "F": 0,
+   "D": 1,
+   "failed": true,
+   "r126": -39.2,
+   "r126usd": -45.4
+  },
+  {
+   "k": "TWN",
+   "date": "2009-04-06",
+   "crisis": "2008",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 35.1,
+   "r126usd": 41.4
+  },
+  {
+   "k": "TWN",
+   "date": "2011-12-15",
+   "crisis": "2011",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": true,
+   "r126": 5.9,
+   "r126usd": 7.4
+  },
+  {
+   "k": "TWN",
+   "date": "2011-12-26",
+   "crisis": "2011",
+   "score": null,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 4,
+   "r126usd": 5.3
+  },
+  {
+   "k": "TWN",
+   "date": "2015-09-22",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 3.9,
+   "r126usd": 5.8
+  },
+  {
+   "k": "TWN",
+   "date": "2020-04-07",
+   "crisis": "2020",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 27.1,
+   "r126usd": 33.6
+  },
+  {
+   "k": "TWN",
+   "date": "2022-11-09",
+   "crisis": "2022",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 22.2,
+   "r126usd": 25.4
+  },
+  {
+   "k": "TWN",
+   "date": "2025-04-28",
+   "crisis": "2024-25",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 39.8,
+   "r126usd": 46.5
+  },
+  {
+   "k": "HSI",
+   "date": "2009-04-06",
+   "crisis": "2008",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 44,
+   "r126usd": 44
+  },
+  {
+   "k": "HSI",
+   "date": "2016-02-22",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 18,
+   "r126usd": 18.2
+  },
+  {
+   "k": "HSI",
+   "date": "2020-04-06",
+   "crisis": "2020",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 1.6,
+   "r126usd": null
+  },
+  {
+   "k": "HSI",
+   "date": "2022-11-14",
+   "crisis": "2022",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 4.2,
+   "r126usd": 4.2
+  },
+  {
+   "k": "EEM",
+   "date": "2011-10-24",
+   "crisis": "2011",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 6.7,
+   "r126usd": 6.7
+  },
+  {
+   "k": "EEM",
+   "date": "2016-02-17",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 23.3,
+   "r126usd": 23.3
+  }
+ ],
+ "zonaBlu": [
+  {
+   "k": "CSI300",
+   "date": "2015-09-15",
+   "crisis": "2015-16",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": -4.8,
+   "r126usd": -6.9
+  },
+  {
+   "k": "CSI300",
+   "date": "2016-01-11",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 1.2,
+   "r126usd": -0.7
+  },
+  {
+   "k": "CSI300",
+   "date": "2018-09-17",
+   "crisis": "2018",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": true,
+   "r126": 19,
+   "r126usd": 21.7
+  },
+  {
+   "k": "CSI300",
+   "date": "2022-04-26",
+   "crisis": "2022",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": -4.7,
+   "r126usd": -14.3
+  },
+  {
+   "k": "CSI300",
+   "date": "2024-01-23",
+   "crisis": "2024-25",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 3.9,
+   "r126usd": 4.3
+  },
+  {
+   "k": "NIFTY50",
+   "date": "2008-10-06",
+   "crisis": "2008",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": -3.5,
+   "r126usd": -7.2
+  },
+  {
+   "k": "NIFTY50",
+   "date": "2020-03-19",
+   "crisis": "2020",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 27.5,
+   "r126usd": 30.7
+  },
+  {
+   "k": "IBOV",
+   "date": "2008-11-04",
+   "crisis": "2008",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 30.9,
+   "r126usd": 32.6
+  },
+  {
+   "k": "IBOV",
+   "date": "2011-08-05",
+   "crisis": "2011",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 34.6,
+   "r126usd": 25.2
+  },
+  {
+   "k": "IBOV",
+   "date": "2016-01-21",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 49.3,
+   "r126usd": 87.1
+  },
+  {
+   "k": "IBOV",
+   "date": "2020-03-17",
+   "crisis": "2020",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 49.6,
+   "r126usd": 45.5
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2008-10-13",
+   "crisis": "2008",
+   "score": null,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": -2.5,
+   "r126usd": -11.7
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2020-03-12",
+   "crisis": "2020",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 37.1,
+   "r126usd": 40.6
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2022-01-27",
+   "crisis": "2022",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": true,
+   "r126": -6.5,
+   "r126usd": -12.9
+  },
+  {
+   "k": "KOSPI200",
+   "date": "2026-10-26",
+   "crisis": "altro",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": null,
+   "r126usd": null
+  },
+  {
+   "k": "TWN",
+   "date": "2008-07-09",
+   "crisis": "2008",
+   "score": 1,
+   "F": 0,
+   "D": 1,
+   "failed": true,
+   "r126": -36.4,
+   "r126usd": -41.6
+  },
+  {
+   "k": "TWN",
+   "date": "2011-11-25",
+   "crisis": "2011",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": true,
+   "r126": 2.6,
+   "r126usd": 4.7
+  },
+  {
+   "k": "TWN",
+   "date": "2015-08-25",
+   "crisis": "2015-16",
+   "score": 1,
+   "F": 1,
+   "D": 0,
+   "failed": false,
+   "r126": 12.2,
+   "r126usd": 12
+  },
+  {
+   "k": "TWN",
+   "date": "2020-03-18",
+   "crisis": "2020",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 48.3,
+   "r126usd": 55.4
+  },
+  {
+   "k": "TWN",
+   "date": "2022-10-21",
+   "crisis": "2022",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 22.3,
+   "r126usd": 28.9
+  },
+  {
+   "k": "TWN",
+   "date": "2025-04-08",
+   "crisis": "2024-25",
+   "score": 0,
+   "F": 0,
+   "D": 0,
+   "failed": false,
+   "r126": 55.6,
+   "r126usd": 67.3
+  },
+  {
+   "k": "HSI",
+   "date": "2008-09-08",
+   "crisis": "2008",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": -37.2,
+   "r126usd": -36.8
+  },
+  {
+   "k": "HSI",
+   "date": "2016-01-21",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 14.7,
+   "r126usd": 15.2
+  },
+  {
+   "k": "HSI",
+   "date": "2020-03-19",
+   "crisis": "2020",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 4,
+   "r126usd": 4.1
+  },
+  {
+   "k": "HSI",
+   "date": "2022-10-13",
+   "crisis": "2022",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 21,
+   "r126usd": 21.1
+  },
+  {
+   "k": "EEM",
+   "date": "2011-10-05",
+   "crisis": "2011",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 14.2,
+   "r126usd": 14.2
+  },
+  {
+   "k": "EEM",
+   "date": "2016-01-21",
+   "crisis": "2015-16",
+   "score": 0,
+   "F": null,
+   "D": 0,
+   "failed": false,
+   "r126": 22.6,
+   "r126usd": 22.6
+  }
+ ],
+ "H1": {
+  "tutti": {
+   "n": 31,
+   "med126": 18,
+   "med126usd": 18.9,
+   "med63": 11.3,
+   "med252": 20.6,
+   "pos126": "27/31",
+   "falliti": "5/31",
+   "quotaFalliti": 16
+  },
+  "pieno": {
+   "n": 0,
+   "med126": null,
+   "med126usd": null,
+   "med63": null,
+   "med252": null,
+   "pos126": "0/0",
+   "falliti": "0/0",
+   "quotaFalliti": null
+  },
+  "parziale": {
+   "n": 12,
+   "med126": 23.5,
+   "med126usd": 38.7,
+   "med63": 16.7,
+   "med252": 36.2,
+   "pos126": "10/12",
+   "falliti": "1/12",
+   "quotaFalliti": 8
+  },
+  "zero": {
+   "n": 18,
+   "med126": 13.5,
+   "med126usd": 16.9,
+   "med63": 6.1,
+   "med252": 14.1,
+   "pos126": "16/18",
+   "falliti": "4/18",
+   "quotaFalliti": 22
+  },
+  "mancante": 1,
+  "diffLocale": null,
+  "diffDollari": null,
+  "menoFalliti": null,
+  "perCrisi": {
+   "2008": {
+    "n": 6,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 1,
+     "med126": 44,
+     "med126usd": 44,
+     "med63": 18.6,
+     "med252": 48.2,
+     "pos126": "1/1",
+     "falliti": "0/1",
+     "quotaFalliti": 0
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2011": {
+    "n": 4,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 3,
+     "med126": 6.7,
+     "med126usd": 7.3,
+     "med63": 6.5,
+     "med252": 3.8,
+     "pos126": "3/3",
+     "falliti": "1/3",
+     "quotaFalliti": 33
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2018": {
+    "n": 2,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 1,
+     "med126": 17,
+     "med126usd": 19.6,
+     "med63": -11.3,
+     "med252": 15.7,
+     "pos126": "1/1",
+     "falliti": "1/1",
+     "quotaFalliti": 100
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2020": {
+    "n": 5,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 4,
+     "med126": 25.4,
+     "med126usd": 33.6,
+     "med63": 19.6,
+     "med252": 56.8,
+     "pos126": "4/4",
+     "falliti": "0/4",
+     "quotaFalliti": 0
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2022": {
+    "n": 6,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 5,
+     "med126": 1.6,
+     "med126usd": 4.2,
+     "med63": 4.5,
+     "med252": -4.3,
+     "pos126": "3/5",
+     "falliti": "2/5",
+     "quotaFalliti": 40
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2015-16": {
+    "n": 6,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 4,
+     "med126": 20.7,
+     "med126usd": 20.8,
+     "med63": 5.5,
+     "med252": 24.6,
+     "pos126": "4/4",
+     "falliti": "0/4",
+     "quotaFalliti": 0
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2024-25": {
+    "n": 2,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "altro": {
+    "n": 0,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   }
+  },
+  "crisiOk": [],
+  "crisiConfrontabili": [],
+  "superato": false,
+  "perIndice": {
+   "CSI300": {
+    "n": 6,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 2,
+     "med126": 7.4,
+     "med126usd": 6,
+     "med63": -3.4,
+     "med252": 5.7,
+     "pos126": "1/2",
+     "falliti": "1/2",
+     "quotaFalliti": 50
+    },
+    "mancante": 0
+   },
+   "NIFTY50": {
+    "n": 2,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 1,
+     "med126": 33.7,
+     "med126usd": 39.4,
+     "med63": 19,
+     "med252": 60.9,
+     "pos126": "1/1",
+     "falliti": "0/1",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   },
+   "IBOV": {
+    "n": 4,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 3,
+     "med126": 23.7,
+     "med126usd": 24.3,
+     "med63": 28,
+     "med252": 52.7,
+     "pos126": "3/3",
+     "falliti": "0/3",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   },
+   "KOSPI200": {
+    "n": 5,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 3,
+     "med126": 1.6,
+     "med126usd": 8.3,
+     "med63": -6,
+     "med252": 6.6,
+     "pos126": "2/3",
+     "falliti": "2/3",
+     "quotaFalliti": 67
+    },
+    "mancante": 0
+   },
+   "TWN": {
+    "n": 8,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 3,
+     "med126": 5.9,
+     "med126usd": 7.4,
+     "med63": 18.5,
+     "med252": 12.5,
+     "pos126": "3/3",
+     "falliti": "1/3",
+     "quotaFalliti": 33
+    },
+    "mancante": 1
+   },
+   "HSI": {
+    "n": 4,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 4,
+     "med126": 11.1,
+     "med126usd": 18.2,
+     "med63": 10.1,
+     "med252": 21.1,
+     "pos126": "4/4",
+     "falliti": "0/4",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   },
+   "EEM": {
+    "n": 2,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 2,
+     "med126": 15,
+     "med126usd": 15,
+     "med63": 6.2,
+     "med252": 15.3,
+     "pos126": "2/2",
+     "falliti": "0/2",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   }
+  }
+ },
+ "H2": {
+  "tutti": {
+   "n": 27,
+   "med126": 14.5,
+   "med126usd": 14.7,
+   "med63": 11.8,
+   "med252": 20.3,
+   "pos126": "19/26",
+   "falliti": "4/27",
+   "quotaFalliti": 15
+  },
+  "pieno": {
+   "n": 0,
+   "med126": null,
+   "med126usd": null,
+   "med63": null,
+   "med252": null,
+   "pos126": "0/0",
+   "falliti": "0/0",
+   "quotaFalliti": null
+  },
+  "parziale": {
+   "n": 6,
+   "med126": 3.9,
+   "med126usd": 4.3,
+   "med63": 11.3,
+   "med252": 19,
+   "pos126": "3/5",
+   "falliti": "1/6",
+   "quotaFalliti": 17
+  },
+  "zero": {
+   "n": 20,
+   "med126": 20,
+   "med126usd": 21.4,
+   "med63": 16.7,
+   "med252": 22.7,
+   "pos126": "16/20",
+   "falliti": "3/20",
+   "quotaFalliti": 15
+  },
+  "mancante": 1,
+  "diffLocale": null,
+  "diffDollari": null,
+  "menoFalliti": null,
+  "perCrisi": {
+   "2008": {
+    "n": 5,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 2,
+     "med126": -20.3,
+     "med126usd": -22,
+     "med63": -24,
+     "med252": 19.1,
+     "pos126": "0/2",
+     "falliti": "0/2",
+     "quotaFalliti": 0
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2011": {
+    "n": 3,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 3,
+     "med126": 14.2,
+     "med126usd": 14.2,
+     "med63": 15.7,
+     "med252": 13.7,
+     "pos126": "3/3",
+     "falliti": "1/3",
+     "quotaFalliti": 33
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2018": {
+    "n": 1,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 1,
+     "med126": 19,
+     "med126usd": 21.7,
+     "med63": -7.2,
+     "med252": 19.4,
+     "pos126": "1/1",
+     "falliti": "1/1",
+     "quotaFalliti": 100
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2020": {
+    "n": 5,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 5,
+     "med126": 37.1,
+     "med126usd": 40.6,
+     "med63": 20.7,
+     "med252": 69.6,
+     "pos126": "5/5",
+     "falliti": "0/5",
+     "quotaFalliti": 0
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2022": {
+    "n": 4,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 4,
+     "med126": 8.2,
+     "med126usd": 4.1,
+     "med63": 14.2,
+     "med252": 1.9,
+     "pos126": "2/4",
+     "falliti": "1/4",
+     "quotaFalliti": 25
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2015-16": {
+    "n": 6,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 4,
+     "med126": 18.7,
+     "med126usd": 18.9,
+     "med63": 14.9,
+     "med252": 23.6,
+     "pos126": "4/4",
+     "falliti": "0/4",
+     "quotaFalliti": 0
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "2024-25": {
+    "n": 2,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 1,
+     "med126": 55.6,
+     "med126usd": 67.3,
+     "med63": 29.5,
+     "med252": 117.8,
+     "pos126": "1/1",
+     "falliti": "0/1",
+     "quotaFalliti": 0
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   },
+   "altro": {
+    "n": 1,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "diffLocale": null,
+    "diffDollari": null,
+    "ok": null
+   }
+  },
+  "crisiOk": [],
+  "crisiConfrontabili": [],
+  "superato": false,
+  "perIndice": {
+   "CSI300": {
+    "n": 5,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 3,
+     "med126": 1.2,
+     "med126usd": -0.7,
+     "med63": -1.2,
+     "med252": 3.2,
+     "pos126": "2/3",
+     "falliti": "1/3",
+     "quotaFalliti": 33
+    },
+    "mancante": 0
+   },
+   "NIFTY50": {
+    "n": 2,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 2,
+     "med126": 12,
+     "med126usd": 11.7,
+     "med63": -3.2,
+     "med252": 48.8,
+     "pos126": "1/2",
+     "falliti": "0/2",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   },
+   "IBOV": {
+    "n": 4,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 3,
+     "med126": 49.3,
+     "med126usd": 45.5,
+     "med63": 43.2,
+     "med252": 71.6,
+     "pos126": "3/3",
+     "falliti": "0/3",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   },
+   "KOSPI200": {
+    "n": 4,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 2,
+     "med126": 15.3,
+     "med126usd": 13.8,
+     "med63": 10.6,
+     "med252": 31.4,
+     "pos126": "1/2",
+     "falliti": "1/2",
+     "quotaFalliti": 50
+    },
+    "mancante": 1
+   },
+   "TWN": {
+    "n": 6,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 4,
+     "med126": 35.3,
+     "med126usd": 42.1,
+     "med63": 24.7,
+     "med252": 59.8,
+     "pos126": "4/4",
+     "falliti": "1/4",
+     "quotaFalliti": 25
+    },
+    "mancante": 0
+   },
+   "HSI": {
+    "n": 4,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 4,
+     "med126": 9.4,
+     "med126usd": 9.6,
+     "med63": 10.7,
+     "med252": 12.8,
+     "pos126": "3/4",
+     "falliti": "0/4",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   },
+   "EEM": {
+    "n": 2,
+    "pieno": {
+     "n": 0,
+     "med126": null,
+     "med126usd": null,
+     "med63": null,
+     "med252": null,
+     "pos126": "0/0",
+     "falliti": "0/0",
+     "quotaFalliti": null
+    },
+    "zero": {
+     "n": 2,
+     "med126": 18.4,
+     "med126usd": 18.4,
+     "med63": 10.7,
+     "med252": 19.9,
+     "pos126": "2/2",
+     "falliti": "0/2",
+     "quotaFalliti": 0
+    },
+    "mancante": 0
+   }
+  }
+ },
+ "H3": {
+  "tutto": {
+   "cinqueIndici": {
+    "0": {
+     "n": 8635,
+     "r63": 2.4,
+     "r126": 4.3,
+     "r252": 8.7,
+     "r126usd": 3.8
+    },
+    "1": {
+     "n": 10686,
+     "r63": 2.1,
+     "r126": 2.9,
+     "r252": 6.4,
+     "r126usd": 2.6
+    },
+    "2": {
+     "n": 2873,
+     "r63": 3.4,
+     "r126": 7.1,
+     "r252": 8.1,
+     "r126usd": 7.9
+    },
+    "base": {
+     "n": 22194,
+     "r63": 2.4,
+     "r126": 4,
+     "r252": 7.7,
+     "r126usd": 3.7
+    }
+   },
+   "hsiEem": {
+    "0": {
+     "n": 5717,
+     "r63": 2.5,
+     "r126": 4.4,
+     "r252": 6.9,
+     "r126usd": 4.3
+    },
+    "1": {
+     "n": 4273,
+     "r63": -0.1,
+     "r126": -0.8,
+     "r252": -1.8,
+     "r126usd": -0.8
+    },
+    "base": {
+     "n": 9990,
+     "r63": 1.4,
+     "r126": 2.4,
+     "r252": 3,
+     "r126usd": 2.4
+    }
+   },
+   "monotono126": false,
+   "pienoMenoBase126": 3.1,
+   "pienoMenoBase126usd": 4.2,
+   "scartoPerIndice126": {
+    "CSI300": {
+     "base": 1.2,
+     "pieno": 7.3,
+     "scarto": 6.1,
+     "quotaPieno": 13
+    },
+    "NIFTY50": {
+     "base": 5,
+     "pieno": 4.1,
+     "scarto": -0.9,
+     "quotaPieno": 14
+    },
+    "IBOV": {
+     "base": 5.3,
+     "pieno": 6.2,
+     "scarto": 0.9,
+     "quotaPieno": 11
+    },
+    "KOSPI200": {
+     "base": 2.3,
+     "pieno": 9.6,
+     "scarto": 7.3,
+     "quotaPieno": 17
+    },
+    "TWN": {
+     "base": 5.2,
+     "pieno": 9.5,
+     "scarto": 4.3,
+     "quotaPieno": 10
+    },
+    "HSI": {
+     "base": 2.1,
+     "pieno": -3.4,
+     "scarto": -5.5,
+     "quotaPieno": 43
+    },
+    "EEM": {
+     "base": 2.8,
+     "pieno": 0.6,
+     "scarto": -2.2,
+     "quotaPieno": 43
+    }
+   }
+  },
+  "fino2015": {
+   "cinqueIndici": {
+    "0": {
+     "n": 3026,
+     "r63": 2.9,
+     "r126": 4.8,
+     "r252": 5.6,
+     "r126usd": 4
+    },
+    "1": {
+     "n": 5141,
+     "r63": 0.4,
+     "r126": -0.9,
+     "r252": 0.5,
+     "r126usd": -1.3
+    },
+    "2": {
+     "n": 1267,
+     "r63": 3.2,
+     "r126": 4.9,
+     "r252": 5.6,
+     "r126usd": 8.4
+    },
+    "base": {
+     "n": 9434,
+     "r63": 1.8,
+     "r126": 1.9,
+     "r252": 3.3,
+     "r126usd": 1.7
+    }
+   },
+   "hsiEem": {
+    "0": {
+     "n": 2280,
+     "r63": 3.6,
+     "r126": 3.4,
+     "r252": 5.2,
+     "r126usd": 3.4
+    },
+    "1": {
+     "n": 2318,
+     "r63": -0.6,
+     "r126": -1.4,
+     "r252": -2.3,
+     "r126usd": -1.4
+    },
+    "base": {
+     "n": 4598,
+     "r63": 1.3,
+     "r126": 1,
+     "r252": 2,
+     "r126usd": 1
+    }
+   },
+   "monotono126": false,
+   "pienoMenoBase126": 3,
+   "pienoMenoBase126usd": 6.7,
+   "scartoPerIndice126": {
+    "CSI300": {
+     "base": -1.7,
+     "pieno": 9.2,
+     "scarto": 10.9,
+     "quotaPieno": 14
+    },
+    "NIFTY50": {
+     "base": 3.2,
+     "pieno": -1.2,
+     "scarto": -4.4,
+     "quotaPieno": 12
+    },
+    "IBOV": {
+     "base": 0,
+     "pieno": 5.7,
+     "scarto": 5.7,
+     "quotaPieno": 12
+    },
+    "KOSPI200": {
+     "base": 1.6,
+     "pieno": 5.8,
+     "scarto": 4.2,
+     "quotaPieno": 19
+    },
+    "TWN": {
+     "base": 3.4,
+     "pieno": 8,
+     "scarto": 4.7,
+     "quotaPieno": 11
+    },
+    "HSI": {
+     "base": 1.6,
+     "pieno": -1.5,
+     "scarto": -3.2,
+     "quotaPieno": 50
+    },
+    "EEM": {
+     "base": 0.7,
+     "pieno": -1.3,
+     "scarto": -2,
+     "quotaPieno": 50
+    }
+   }
+  },
+  "dal2016": {
+   "cinqueIndici": {
+    "0": {
+     "n": 5609,
+     "r63": 2.1,
+     "r126": 4,
+     "r252": 10.4,
+     "r126usd": 3.7
+    },
+    "1": {
+     "n": 5545,
+     "r63": 3.4,
+     "r126": 5.7,
+     "r252": 12.2,
+     "r126usd": 5.8
+    },
+    "2": {
+     "n": 1606,
+     "r63": 3.4,
+     "r126": 8,
+     "r252": 10.8,
+     "r126usd": 7.7
+    },
+    "base": {
+     "n": 12760,
+     "r63": 2.9,
+     "r126": 5.3,
+     "r252": 11.2,
+     "r126usd": 5.1
+    }
+   },
+   "hsiEem": {
+    "0": {
+     "n": 3437,
+     "r63": 2.1,
+     "r126": 4.7,
+     "r252": 8.8,
+     "r126usd": 4.7
+    },
+    "1": {
+     "n": 1955,
+     "r63": 0.5,
+     "r126": 0.1,
+     "r252": -1.3,
+     "r126usd": 0.1
+    },
+    "base": {
+     "n": 5392,
+     "r63": 1.5,
+     "r126": 3.8,
+     "r252": 4.6,
+     "r126usd": 3.9
+    }
+   },
+   "monotono126": true,
+   "pienoMenoBase126": 2.7,
+   "pienoMenoBase126usd": 2.6,
+   "scartoPerIndice126": {
+    "CSI300": {
+     "base": 1.8,
+     "pieno": 6.2,
+     "scarto": 4.4,
+     "quotaPieno": 13
+    },
+    "NIFTY50": {
+     "base": 6,
+     "pieno": 6.4,
+     "scarto": 0.4,
+     "quotaPieno": 16
+    },
+    "IBOV": {
+     "base": 8.1,
+     "pieno": 6.2,
+     "scarto": -1.9,
+     "quotaPieno": 10
+    },
+    "KOSPI200": {
+     "base": 2.8,
+     "pieno": 11,
+     "scarto": 8.2,
+     "quotaPieno": 16
+    },
+    "TWN": {
+     "base": 6.8,
+     "pieno": 10.5,
+     "scarto": 3.7,
+     "quotaPieno": 8
+    },
+    "HSI": {
+     "base": 2.8,
+     "pieno": -5.5,
+     "scarto": -8.3,
+     "quotaPieno": 36
+    },
+    "EEM": {
+     "base": 4.4,
+     "pieno": 3.5,
+     "scarto": -0.9,
+     "quotaPieno": 36
+    }
+   }
+  }
+ },
+ "H4": {
+  "libere": {
+   "indici": "IBOV, KOSPI200",
+   "sedute": {
+    "F1": {
+     "n": 3618,
+     "r126": 6.6,
+     "r126usd": 7.5
+    },
+    "F0": {
+     "n": 5965,
+     "r126": 2.1,
+     "r126usd": 1.7
+    },
+    "diff": 4.5,
+    "diffUsd": 5.8
+   },
+   "segnali": {
+    "F1": {
+     "n": 5,
+     "med126": 37.3,
+     "med126usd": 51.2,
+     "med63": 18.4,
+     "med252": 67.8,
+     "pos126": "4/4",
+     "falliti": "0/5",
+     "quotaFalliti": 0
+    },
+    "F0": {
+     "n": 11,
+     "med126": 23.7,
+     "med126usd": 24.3,
+     "med63": 20.7,
+     "med252": 19.3,
+     "pos126": "9/11",
+     "falliti": "3/11",
+     "quotaFalliti": 27
+    },
+    "diff": 13.6
+   }
+  },
+  "intermedia": {
+   "indici": "TWN",
+   "sedute": {
+    "F1": {
+     "n": 1271,
+     "r126": 6.2,
+     "r126usd": 6.3
+    },
+    "F0": {
+     "n": 3454,
+     "r126": 4.9,
+     "r126usd": 6
+    },
+    "diff": 1.3,
+    "diffUsd": 0.3
+   },
+   "segnali": {
+    "F1": {
+     "n": 4,
+     "med126": 28.7,
+     "med126usd": 33.4,
+     "med63": 14.9,
+     "med252": 36.2,
+     "pos126": "4/4",
+     "falliti": "0/4",
+     "quotaFalliti": 0
+    },
+    "F0": {
+     "n": 9,
+     "med126": 5.9,
+     "med126usd": 7.4,
+     "med63": 18.5,
+     "med252": 12.5,
+     "pos126": "7/9",
+     "falliti": "4/9",
+     "quotaFalliti": 44
+    },
+    "diff": 22.8
+   }
+  },
+  "gestite": {
+   "indici": "CSI300, NIFTY50",
+   "sedute": {
+    "F1": {
+     "n": 2395,
+     "r126": 7.2,
+     "r126usd": 6.4
+    },
+    "F0": {
+     "n": 5491,
+     "r126": 2.2,
+     "r126usd": 0.9
+    },
+    "diff": 5,
+    "diffUsd": 5.5
+   },
+   "segnali": {
+    "F1": {
+     "n": 7,
+     "med126": 3.9,
+     "med126usd": 3.4,
+     "med63": 11.3,
+     "med252": 20.6,
+     "pos126": "5/7",
+     "falliti": "0/7",
+     "quotaFalliti": 0
+    },
+    "F0": {
+     "n": 8,
+     "med126": 9.1,
+     "med126usd": 9.4,
+     "med63": 1.7,
+     "med252": 17.5,
+     "pos126": "5/8",
+     "falliti": "2/8",
+     "quotaFalliti": 25
+    },
+    "diff": -5.2
+   }
+  }
+ },
+ "H5": {
+  "ath": {
+   "episodi": [
+    {
+     "k": "CSI300",
+     "minimo": "2016-01-28",
+     "massimo": "2015-06-08",
+     "drawdown": -46.3,
+     "crisi": "2015-16",
+     "FalMinimo": 0,
+     "anticipoF": -99,
+     "FdopoMinimo": 8,
+     "DalMinimo": 0,
+     "DdopoMinimo": 61,
+     "anticipoD": 61,
+     "anticipoPieno": 61,
+     "trigger": -76
+    },
+    {
+     "k": "CSI300",
+     "minimo": "2024-02-02",
+     "massimo": "2021-02-10",
+     "drawdown": -45.1,
+     "crisi": "2024-25",
+     "FalMinimo": 1,
+     "anticipoF": -54,
+     "FdopoMinimo": 0,
+     "DalMinimo": 0,
+     "DdopoMinimo": 26,
+     "anticipoD": -106,
+     "anticipoPieno": -27,
+     "trigger": 1
+    },
+    {
+     "k": "NIFTY50",
+     "minimo": "2008-10-27",
+     "massimo": "2008-01-08",
+     "drawdown": -59.9,
+     "crisi": "2008",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 3,
+     "DalMinimo": 0,
+     "DdopoMinimo": 133,
+     "anticipoD": null,
+     "anticipoPieno": -102,
+     "trigger": 106
+    },
+    {
+     "k": "NIFTY50",
+     "minimo": "2011-12-20",
+     "massimo": "2010-11-09",
+     "drawdown": -27.9,
+     "crisi": "2011",
+     "FalMinimo": 0,
+     "anticipoF": -33,
+     "FdopoMinimo": 1,
+     "DalMinimo": 0,
+     "DdopoMinimo": 32,
+     "anticipoD": 32,
+     "anticipoPieno": 32,
+     "trigger": null
+    },
+    {
+     "k": "NIFTY50",
+     "minimo": "2020-03-23",
+     "massimo": "2020-01-14",
+     "drawdown": -38.4,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -123,
+     "FdopoMinimo": 3,
+     "DalMinimo": 0,
+     "DdopoMinimo": 110,
+     "anticipoD": -61,
+     "anticipoPieno": -49,
+     "trigger": 12
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2002-10-16",
+     "massimo": "2000-03-27",
+     "drawdown": -55.8,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2004-05-10",
+     "massimo": "2004-01-26",
+     "drawdown": -27.7,
+     "crisi": "altro",
+     "FalMinimo": 0,
+     "anticipoF": null,
+     "FdopoMinimo": null,
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2008-10-27",
+     "massimo": "2008-05-20",
+     "drawdown": -60,
+     "crisi": "2008",
+     "FalMinimo": 1,
+     "anticipoF": -26,
+     "FdopoMinimo": 0,
+     "DalMinimo": 0,
+     "DdopoMinimo": 141,
+     "anticipoD": null,
+     "anticipoPieno": null,
+     "trigger": 100
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2020-03-23",
+     "massimo": "2020-01-23",
+     "drawdown": -46.8,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -113,
+     "FdopoMinimo": 3,
+     "DalMinimo": 0,
+     "DdopoMinimo": 112,
+     "anticipoD": -58,
+     "anticipoPieno": -58,
+     "trigger": 28
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2022-07-14",
+     "massimo": "2021-06-07",
+     "drawdown": -26.5,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": -125,
+     "FdopoMinimo": 10,
+     "DalMinimo": 0,
+     "DdopoMinimo": 118,
+     "anticipoD": -97,
+     "anticipoPieno": -97,
+     "trigger": null
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2001-09-17",
+     "massimo": "2000-01-04",
+     "drawdown": -55.7,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2008-10-24",
+     "massimo": "2007-10-31",
+     "drawdown": -54.5,
+     "crisi": "2008",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 4,
+     "DalMinimo": 0,
+     "DdopoMinimo": 145,
+     "anticipoD": null,
+     "anticipoPieno": -102,
+     "trigger": 99
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2011-09-26",
+     "massimo": "2011-05-02",
+     "drawdown": -25.9,
+     "crisi": "2011",
+     "FalMinimo": 0,
+     "anticipoF": 15,
+     "FdopoMinimo": 15,
+     "DalMinimo": 0,
+     "DdopoMinimo": 91,
+     "anticipoD": 91,
+     "anticipoPieno": 91,
+     "trigger": null
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2020-03-19",
+     "massimo": "2018-01-29",
+     "drawdown": -43.9,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -117,
+     "FdopoMinimo": 4,
+     "DalMinimo": 0,
+     "DdopoMinimo": 113,
+     "anticipoD": -57,
+     "anticipoPieno": -57,
+     "trigger": 21
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2022-09-30",
+     "massimo": "2021-07-06",
+     "drawdown": -34.8,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": -126,
+     "FdopoMinimo": 2,
+     "DalMinimo": 0,
+     "DdopoMinimo": 64,
+     "anticipoD": -126,
+     "anticipoPieno": -126,
+     "trigger": -46
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2026-10-26",
+     "massimo": "2026-06-22",
+     "drawdown": -40,
+     "crisi": "altro",
+     "FalMinimo": 1,
+     "anticipoF": -107,
+     "FdopoMinimo": 0,
+     "DalMinimo": 0,
+     "DdopoMinimo": null,
+     "anticipoD": -111,
+     "anticipoPieno": -111,
+     "trigger": null
+    },
+    {
+     "k": "TWN",
+     "minimo": "2001-10-03",
+     "massimo": "2000-02-17",
+     "drawdown": -66.2,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "TWN",
+     "minimo": "2020-03-19",
+     "massimo": "2020-01-14",
+     "drawdown": -28.7,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -103,
+     "FdopoMinimo": null,
+     "DalMinimo": 0,
+     "DdopoMinimo": 113,
+     "anticipoD": -53,
+     "anticipoPieno": -53,
+     "trigger": 11
+    },
+    {
+     "k": "TWN",
+     "minimo": "2022-10-25",
+     "massimo": "2022-01-04",
+     "drawdown": -31.6,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": -106,
+     "FdopoMinimo": 11,
+     "DalMinimo": 0,
+     "DdopoMinimo": 49,
+     "anticipoD": 49,
+     "anticipoPieno": 49,
+     "trigger": 11
+    },
+    {
+     "k": "TWN",
+     "minimo": "2025-04-09",
+     "massimo": "2024-07-11",
+     "drawdown": -28.7,
+     "crisi": "2024-25",
+     "FalMinimo": 0,
+     "anticipoF": -114,
+     "FdopoMinimo": 2,
+     "DalMinimo": 0,
+     "DdopoMinimo": 14,
+     "anticipoD": 14,
+     "anticipoPieno": 14,
+     "trigger": 13
+    },
+    {
+     "k": "HSI",
+     "minimo": "2003-04-25",
+     "massimo": "2000-03-28",
+     "drawdown": -54.1,
+     "crisi": "altro",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "HSI",
+     "minimo": "2008-10-27",
+     "massimo": "2007-10-30",
+     "drawdown": -65.2,
+     "crisi": "2008",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 142,
+     "anticipoD": null,
+     "anticipoPieno": null,
+     "trigger": 109
+    },
+    {
+     "k": "HSI",
+     "minimo": "2022-10-31",
+     "massimo": "2018-01-26",
+     "drawdown": -55.7,
+     "crisi": "2022",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 43,
+     "anticipoD": 43,
+     "anticipoPieno": 43,
+     "trigger": 10
+    },
+    {
+     "k": "EEM",
+     "minimo": "2006-06-13",
+     "massimo": "2006-05-09",
+     "drawdown": -26.2,
+     "crisi": "altro",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": 83,
+     "anticipoPieno": 83,
+     "trigger": null
+    },
+    {
+     "k": "EEM",
+     "minimo": "2008-11-20",
+     "massimo": "2007-10-31",
+     "drawdown": -67.2,
+     "crisi": "2008",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 126,
+     "anticipoD": 126,
+     "anticipoPieno": 126,
+     "trigger": null
+    },
+    {
+     "k": "EEM",
+     "minimo": "2022-10-24",
+     "massimo": "2021-02-17",
+     "drawdown": -41.5,
+     "crisi": "2022",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 48,
+     "anticipoD": 48,
+     "anticipoPieno": 48,
+     "trigger": null
+    }
+   ],
+   "FalMinimoAcceso": "3/17",
+   "DalMinimoAcceso": "0/20",
+   "FprimoDopo": {
+    "conDato": 15,
+    "mediana": 3,
+    "prima": 0,
+    "stessoGiorno": 3,
+    "dopo": 12,
+    "mai": 2
+   },
+   "DprimoDopo": {
+    "conDato": 19,
+    "mediana": 110,
+    "prima": 0,
+    "stessoGiorno": 0,
+    "dopo": 19,
+    "mai": 1
+   },
+   "F": {
+    "conDato": 16,
+    "mediana": -104.5,
+    "prima": 15,
+    "stessoGiorno": 0,
+    "dopo": 1,
+    "mai": 1
+   },
+   "D": {
+    "conDato": 17,
+    "mediana": 14,
+    "prima": 8,
+    "stessoGiorno": 0,
+    "dopo": 9,
+    "mai": 4
+   },
+   "pieno": {
+    "conDato": 19,
+    "mediana": -27,
+    "prima": 10,
+    "stessoGiorno": 0,
+    "dopo": 9,
+    "mai": 2
+   },
+   "trigger": {
+    "conDato": 14,
+    "mediana": 12.5,
+    "prima": 2,
+    "stessoGiorno": 0,
+    "dopo": 12,
+    "mai": 12
+   }
+  },
+  "max252": {
+   "episodi": [
+    {
+     "k": "CSI300",
+     "minimo": "2016-01-28",
+     "massimo": null,
+     "drawdown": -46.3,
+     "crisi": "2015-16",
+     "FalMinimo": 0,
+     "anticipoF": -99,
+     "FdopoMinimo": 8,
+     "DalMinimo": 0,
+     "DdopoMinimo": 61,
+     "anticipoD": 61,
+     "anticipoPieno": 61,
+     "trigger": -76
+    },
+    {
+     "k": "CSI300",
+     "minimo": "2019-01-02",
+     "massimo": null,
+     "drawdown": -31.3,
+     "crisi": "2018",
+     "FalMinimo": 1,
+     "anticipoF": -85,
+     "FdopoMinimo": 0,
+     "DalMinimo": 0,
+     "DdopoMinimo": 19,
+     "anticipoD": 19,
+     "anticipoPieno": 19,
+     "trigger": -65
+    },
+    {
+     "k": "CSI300",
+     "minimo": "2022-04-26",
+     "massimo": null,
+     "drawdown": -29.3,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": 15,
+     "FdopoMinimo": 15,
+     "DalMinimo": 0,
+     "DdopoMinimo": 169,
+     "anticipoD": -43,
+     "anticipoPieno": null,
+     "trigger": 19
+    },
+    {
+     "k": "CSI300",
+     "minimo": "2022-10-31",
+     "massimo": null,
+     "drawdown": -30.9,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": -109,
+     "FdopoMinimo": 8,
+     "DalMinimo": 0,
+     "DdopoMinimo": 45,
+     "anticipoD": 45,
+     "anticipoPieno": 45,
+     "trigger": -105
+    },
+    {
+     "k": "NIFTY50",
+     "minimo": "2008-10-27",
+     "massimo": null,
+     "drawdown": -59.9,
+     "crisi": "2008",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 3,
+     "DalMinimo": 0,
+     "DdopoMinimo": 133,
+     "anticipoD": null,
+     "anticipoPieno": -102,
+     "trigger": 106
+    },
+    {
+     "k": "NIFTY50",
+     "minimo": "2011-12-20",
+     "massimo": null,
+     "drawdown": -26.2,
+     "crisi": "2011",
+     "FalMinimo": 0,
+     "anticipoF": -33,
+     "FdopoMinimo": 1,
+     "DalMinimo": 0,
+     "DdopoMinimo": 32,
+     "anticipoD": 32,
+     "anticipoPieno": 32,
+     "trigger": null
+    },
+    {
+     "k": "NIFTY50",
+     "minimo": "2020-03-23",
+     "massimo": null,
+     "drawdown": -38.4,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -123,
+     "FdopoMinimo": 3,
+     "DalMinimo": 0,
+     "DdopoMinimo": 110,
+     "anticipoD": -61,
+     "anticipoPieno": -49,
+     "trigger": 12
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2000-05-23",
+     "massimo": null,
+     "drawdown": -28.3,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2000-11-30",
+     "massimo": null,
+     "drawdown": -29.9,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2001-03-22",
+     "massimo": null,
+     "drawdown": -25.8,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2001-09-26",
+     "massimo": null,
+     "drawdown": -44.1,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2002-10-16",
+     "massimo": null,
+     "drawdown": -42.2,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2004-05-10",
+     "massimo": null,
+     "drawdown": -27.7,
+     "crisi": "altro",
+     "FalMinimo": 0,
+     "anticipoF": null,
+     "FdopoMinimo": null,
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2008-10-27",
+     "massimo": null,
+     "drawdown": -60,
+     "crisi": "2008",
+     "FalMinimo": 1,
+     "anticipoF": -26,
+     "FdopoMinimo": 0,
+     "DalMinimo": 0,
+     "DdopoMinimo": 141,
+     "anticipoD": null,
+     "anticipoPieno": null,
+     "trigger": 100
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2011-08-08",
+     "massimo": null,
+     "drawdown": -33.3,
+     "crisi": "2011",
+     "FalMinimo": 0,
+     "anticipoF": 43,
+     "FdopoMinimo": 43,
+     "DalMinimo": 0,
+     "DdopoMinimo": 124,
+     "anticipoD": 124,
+     "anticipoPieno": 124,
+     "trigger": 15
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2013-07-03",
+     "massimo": null,
+     "drawdown": -28.9,
+     "crisi": "altro",
+     "FalMinimo": 0,
+     "anticipoF": -110,
+     "FdopoMinimo": 36,
+     "DalMinimo": 0,
+     "DdopoMinimo": 217,
+     "anticipoD": null,
+     "anticipoPieno": -110,
+     "trigger": null
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2015-08-24",
+     "massimo": null,
+     "drawdown": -28.4,
+     "crisi": "2015-16",
+     "FalMinimo": 0,
+     "anticipoF": -105,
+     "FdopoMinimo": 23,
+     "DalMinimo": 0,
+     "DdopoMinimo": 168,
+     "anticipoD": null,
+     "anticipoPieno": null,
+     "trigger": 106
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2016-01-26",
+     "massimo": null,
+     "drawdown": -35.4,
+     "crisi": "2015-16",
+     "FalMinimo": 0,
+     "anticipoF": -79,
+     "FdopoMinimo": 6,
+     "DalMinimo": 0,
+     "DdopoMinimo": 66,
+     "anticipoD": 66,
+     "anticipoPieno": 66,
+     "trigger": 4
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2020-03-23",
+     "massimo": null,
+     "drawdown": -46.8,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -113,
+     "FdopoMinimo": 3,
+     "DalMinimo": 0,
+     "DdopoMinimo": 112,
+     "anticipoD": -58,
+     "anticipoPieno": -58,
+     "trigger": 28
+    },
+    {
+     "k": "IBOV",
+     "minimo": "2022-07-14",
+     "massimo": null,
+     "drawdown": -25.1,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": -125,
+     "FdopoMinimo": 10,
+     "DalMinimo": 0,
+     "DdopoMinimo": 118,
+     "anticipoD": -97,
+     "anticipoPieno": -97,
+     "trigger": null
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2001-09-17",
+     "massimo": null,
+     "drawdown": -31,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2003-03-17",
+     "massimo": null,
+     "drawdown": -45,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": 51,
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2008-10-24",
+     "massimo": null,
+     "drawdown": -54.5,
+     "crisi": "2008",
+     "FalMinimo": 0,
+     "anticipoF": -102,
+     "FdopoMinimo": 4,
+     "DalMinimo": 0,
+     "DdopoMinimo": 145,
+     "anticipoD": null,
+     "anticipoPieno": -102,
+     "trigger": 99
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2011-09-26",
+     "massimo": null,
+     "drawdown": -25.9,
+     "crisi": "2011",
+     "FalMinimo": 0,
+     "anticipoF": 15,
+     "FdopoMinimo": 15,
+     "DalMinimo": 0,
+     "DdopoMinimo": 91,
+     "anticipoD": 91,
+     "anticipoPieno": 91,
+     "trigger": null
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2020-03-19",
+     "massimo": null,
+     "drawdown": -35.7,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -117,
+     "FdopoMinimo": 4,
+     "DalMinimo": 0,
+     "DdopoMinimo": 113,
+     "anticipoD": -57,
+     "anticipoPieno": -57,
+     "trigger": 21
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2022-09-30",
+     "massimo": null,
+     "drawdown": -31.4,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": -126,
+     "FdopoMinimo": 2,
+     "DalMinimo": 0,
+     "DdopoMinimo": 64,
+     "anticipoD": -126,
+     "anticipoPieno": -126,
+     "trigger": -46
+    },
+    {
+     "k": "KOSPI200",
+     "minimo": "2026-10-26",
+     "massimo": null,
+     "drawdown": -40,
+     "crisi": "altro",
+     "FalMinimo": 1,
+     "anticipoF": -107,
+     "FdopoMinimo": 0,
+     "DalMinimo": 0,
+     "DdopoMinimo": null,
+     "anticipoD": -111,
+     "anticipoPieno": -111,
+     "trigger": null
+    },
+    {
+     "k": "TWN",
+     "minimo": "2001-10-03",
+     "massimo": null,
+     "drawdown": -48.9,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "TWN",
+     "minimo": "2002-10-11",
+     "massimo": null,
+     "drawdown": -40.4,
+     "crisi": "altro",
+     "FalMinimo": null,
+     "anticipoF": "dati F assenti",
+     "FdopoMinimo": "assente al minimo",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "TWN",
+     "minimo": "2008-11-20",
+     "massimo": null,
+     "drawdown": -56,
+     "crisi": "2008",
+     "FalMinimo": 0,
+     "anticipoF": -15,
+     "FdopoMinimo": 18,
+     "DalMinimo": 0,
+     "DdopoMinimo": 122,
+     "anticipoD": 122,
+     "anticipoPieno": 122,
+     "trigger": -70
+    },
+    {
+     "k": "TWN",
+     "minimo": "2011-12-19",
+     "massimo": null,
+     "drawdown": -27.5,
+     "crisi": "2011",
+     "FalMinimo": 0,
+     "anticipoF": -45,
+     "FdopoMinimo": 14,
+     "DalMinimo": 0,
+     "DdopoMinimo": 28,
+     "anticipoD": 28,
+     "anticipoPieno": 28,
+     "trigger": -2
+    },
+    {
+     "k": "TWN",
+     "minimo": "2015-08-24",
+     "massimo": null,
+     "drawdown": -25.7,
+     "crisi": "2015-16",
+     "FalMinimo": 0,
+     "anticipoF": -112,
+     "FdopoMinimo": 1,
+     "DalMinimo": 0,
+     "DdopoMinimo": 166,
+     "anticipoD": null,
+     "anticipoPieno": null,
+     "trigger": 21
+    },
+    {
+     "k": "TWN",
+     "minimo": "2020-03-19",
+     "massimo": null,
+     "drawdown": -28.7,
+     "crisi": "2020",
+     "FalMinimo": 0,
+     "anticipoF": -103,
+     "FdopoMinimo": null,
+     "DalMinimo": 0,
+     "DdopoMinimo": 113,
+     "anticipoD": -53,
+     "anticipoPieno": -53,
+     "trigger": 11
+    },
+    {
+     "k": "TWN",
+     "minimo": "2022-10-25",
+     "massimo": null,
+     "drawdown": -31.6,
+     "crisi": "2022",
+     "FalMinimo": 0,
+     "anticipoF": -106,
+     "FdopoMinimo": 11,
+     "DalMinimo": 0,
+     "DdopoMinimo": 49,
+     "anticipoD": 49,
+     "anticipoPieno": 49,
+     "trigger": 11
+    },
+    {
+     "k": "TWN",
+     "minimo": "2025-04-09",
+     "massimo": null,
+     "drawdown": -28.7,
+     "crisi": "2024-25",
+     "FalMinimo": 0,
+     "anticipoF": -114,
+     "FdopoMinimo": 2,
+     "DalMinimo": 0,
+     "DdopoMinimo": 14,
+     "anticipoD": 14,
+     "anticipoPieno": 14,
+     "trigger": 13
+    },
+    {
+     "k": "HSI",
+     "minimo": "2000-05-26",
+     "massimo": null,
+     "drawdown": -25,
+     "crisi": "altro",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "HSI",
+     "minimo": "2001-09-21",
+     "massimo": null,
+     "drawdown": -47.5,
+     "crisi": "altro",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "HSI",
+     "minimo": "2002-10-10",
+     "massimo": null,
+     "drawdown": -26,
+     "crisi": "altro",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "HSI",
+     "minimo": "2003-04-25",
+     "massimo": null,
+     "drawdown": -29.8,
+     "crisi": "altro",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": "dati D assenti",
+     "anticipoPieno": "dati assenti",
+     "trigger": null
+    },
+    {
+     "k": "HSI",
+     "minimo": "2008-10-27",
+     "massimo": null,
+     "drawdown": -65.2,
+     "crisi": "2008",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 142,
+     "anticipoD": null,
+     "anticipoPieno": null,
+     "trigger": 109
+    },
+    {
+     "k": "HSI",
+     "minimo": "2011-10-04",
+     "massimo": null,
+     "drawdown": -34.9,
+     "crisi": "2011",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 83,
+     "anticipoD": 83,
+     "anticipoPieno": 83,
+     "trigger": null
+    },
+    {
+     "k": "HSI",
+     "minimo": "2016-02-12",
+     "massimo": null,
+     "drawdown": -35.6,
+     "crisi": "2015-16",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 53,
+     "anticipoD": 53,
+     "anticipoPieno": 53,
+     "trigger": 6
+    },
+    {
+     "k": "HSI",
+     "minimo": "2018-10-30",
+     "massimo": null,
+     "drawdown": -25.8,
+     "crisi": "2018",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 62,
+     "anticipoD": 62,
+     "anticipoPieno": 62,
+     "trigger": null
+    },
+    {
+     "k": "HSI",
+     "minimo": "2020-03-23",
+     "massimo": null,
+     "drawdown": -28.1,
+     "crisi": "2020",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 110,
+     "anticipoD": -59,
+     "anticipoPieno": -59,
+     "trigger": 10
+    },
+    {
+     "k": "HSI",
+     "minimo": "2022-10-31",
+     "massimo": null,
+     "drawdown": -43.6,
+     "crisi": "2022",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 43,
+     "anticipoD": 43,
+     "anticipoPieno": 43,
+     "trigger": 10
+    },
+    {
+     "k": "HSI",
+     "minimo": "2024-01-22",
+     "massimo": null,
+     "drawdown": -34.1,
+     "crisi": "2024-25",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 1,
+     "DdopoMinimo": 0,
+     "anticipoD": -97,
+     "anticipoPieno": -97,
+     "trigger": null
+    },
+    {
+     "k": "EEM",
+     "minimo": "2006-06-13",
+     "massimo": null,
+     "drawdown": -26.2,
+     "crisi": "altro",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": null,
+     "DdopoMinimo": "assente al minimo",
+     "anticipoD": 83,
+     "anticipoPieno": 83,
+     "trigger": null
+    },
+    {
+     "k": "EEM",
+     "minimo": "2008-11-20",
+     "massimo": null,
+     "drawdown": -66.2,
+     "crisi": "2008",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 126,
+     "anticipoD": 126,
+     "anticipoPieno": 126,
+     "trigger": null
+    },
+    {
+     "k": "EEM",
+     "minimo": "2011-10-03",
+     "massimo": null,
+     "drawdown": -31.6,
+     "crisi": "2011",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 87,
+     "anticipoD": 87,
+     "anticipoPieno": 87,
+     "trigger": 15
+    },
+    {
+     "k": "EEM",
+     "minimo": "2016-01-20",
+     "massimo": null,
+     "drawdown": -35.9,
+     "crisi": "2015-16",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 72,
+     "anticipoD": 72,
+     "anticipoPieno": 72,
+     "trigger": 19
+    },
+    {
+     "k": "EEM",
+     "minimo": "2018-10-29",
+     "massimo": null,
+     "drawdown": -27,
+     "crisi": "2018",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 61,
+     "anticipoD": 61,
+     "anticipoPieno": 61,
+     "trigger": null
+    },
+    {
+     "k": "EEM",
+     "minimo": "2020-03-23",
+     "massimo": null,
+     "drawdown": -33.9,
+     "crisi": "2020",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 113,
+     "anticipoD": -60,
+     "anticipoPieno": -60,
+     "trigger": null
+    },
+    {
+     "k": "EEM",
+     "minimo": "2022-10-24",
+     "massimo": null,
+     "drawdown": -35.1,
+     "crisi": "2022",
+     "FalMinimo": "n.a.",
+     "anticipoF": "n.a.",
+     "FdopoMinimo": "n.a.",
+     "DalMinimo": 0,
+     "DdopoMinimo": 48,
+     "anticipoD": 48,
+     "anticipoPieno": 48,
+     "trigger": null
+    }
+   ],
+   "FalMinimoAcceso": "3/26",
+   "DalMinimoAcceso": "1/38",
+   "FprimoDopo": {
+    "conDato": 24,
+    "mediana": 5,
+    "prima": 0,
+    "stessoGiorno": 3,
+    "dopo": 21,
+    "mai": 2
+   },
+   "DprimoDopo": {
+    "conDato": 37,
+    "mediana": 91,
+    "prima": 0,
+    "stessoGiorno": 1,
+    "dopo": 36,
+    "mai": 1
+   },
+   "F": {
+    "conDato": 26,
+    "mediana": -102.5,
+    "prima": 22,
+    "stessoGiorno": 0,
+    "dopo": 4,
+    "mai": 1
+   },
+   "D": {
+    "conDato": 32,
+    "mediana": 44,
+    "prima": 11,
+    "stessoGiorno": 0,
+    "dopo": 21,
+    "mai": 7
+   },
+   "pieno": {
+    "conDato": 34,
+    "mediana": 37.5,
+    "prima": 13,
+    "stessoGiorno": 0,
+    "dopo": 21,
+    "mai": 5
+   },
+   "trigger": {
+    "conDato": 26,
+    "mediana": 12.5,
+    "prima": 6,
+    "stessoGiorno": 0,
+    "dopo": 20,
+    "mai": 27
+   }
+  }
+ },
+ "esplorazione": {
+  "trigger": {
+   "punteggio ≥ 1 contro 0": {
+    "si": {
+     "n": 12,
+     "med126": 23.5,
+     "med126usd": 38.7,
+     "med63": 16.7,
+     "med252": 36.2,
+     "pos126": "10/12",
+     "falliti": "1/12",
+     "quotaFalliti": 8
+    },
+    "no": {
+     "n": 18,
+     "med126": 13.5,
+     "med126usd": 16.9,
+     "med63": 6.1,
+     "med252": 14.1,
+     "pos126": "16/18",
+     "falliti": "4/18",
+     "quotaFalliti": 22
+    },
+    "diffLocale": 10,
+    "diffDollari": 21.8,
+    "perCrisi": {
+     "2008": "5: 43.8 (fall 1/5) | 1: 44 (fall 0/1)",
+     "2011": "0: — (fall 0/0) | 3: 6.7 (fall 1/3)",
+     "2018": "1: 21.3 (fall 0/1) | 1: 17 (fall 1/1)",
+     "2020": "1: 24.7 (fall 0/1) | 4: 25.4 (fall 0/4)",
+     "2022": "1: 22.2 (fall 0/1) | 5: 1.6 (fall 2/5)",
+     "2015-16": "2: -1.1 (fall 0/2) | 4: 20.7 (fall 0/4)",
+     "2024-25": "2: 21.4 (fall 0/2) | 0: — (fall 0/0)"
+    }
+   },
+   "F = 1 contro F = 0 (5 indici)": {
+    "si": {
+     "n": 11,
+     "med126": 24.7,
+     "med126usd": 41.4,
+     "med63": 18.1,
+     "med252": 44,
+     "pos126": "10/11",
+     "falliti": "0/11",
+     "quotaFalliti": 0
+    },
+    "no": {
+     "n": 13,
+     "med126": 10.1,
+     "med126usd": 8.3,
+     "med63": 5,
+     "med252": 11.1,
+     "pos126": "10/13",
+     "falliti": "5/13",
+     "quotaFalliti": 38
+    },
+    "diffLocale": 14.6,
+    "diffDollari": 33.1,
+    "perCrisi": {
+     "2008": "4: 43.9 (fall 0/4) | 1: -39.2 (fall 1/1)",
+     "2011": "0: — (fall 0/0) | 2: 12.5 (fall 1/2)",
+     "2018": "1: 21.3 (fall 0/1) | 1: 17 (fall 1/1)",
+     "2020": "1: 24.7 (fall 0/1) | 3: 27.1 (fall 0/3)",
+     "2022": "1: 22.2 (fall 0/1) | 4: -0.4 (fall 2/4)",
+     "2015-16": "2: -1.1 (fall 0/2) | 2: 25.9 (fall 0/2)",
+     "2024-25": "2: 21.4 (fall 0/2) | 0: — (fall 0/0)"
+    }
+   },
+   "D = 1 contro D = 0 (7 indici)": {
+    "si": {
+     "n": 1,
+     "med126": -39.2,
+     "med126usd": -45.4,
+     "med63": -36.7,
+     "med252": -6.2,
+     "pos126": "0/1",
+     "falliti": "1/1",
+     "quotaFalliti": 100
+    },
+    "no": {
+     "n": 30,
+     "med126": 18.6,
+     "med126usd": 19.6,
+     "med63": 12.6,
+     "med252": 21.4,
+     "pos126": "27/30",
+     "falliti": "4/30",
+     "quotaFalliti": 13
+    },
+    "diffLocale": -57.8,
+    "diffDollari": -65,
+    "perCrisi": {
+     "2008": "1: -39.2 (fall 1/1) | 5: 44 (fall 0/5)",
+     "2011": "0: — (fall 0/0) | 4: 6.3 (fall 1/4)",
+     "2018": "0: — (fall 0/0) | 2: 19.1 (fall 1/2)",
+     "2020": "0: — (fall 0/0) | 5: 24.7 (fall 0/5)",
+     "2022": "0: — (fall 0/0) | 6: 2.9 (fall 2/6)",
+     "2015-16": "0: — (fall 0/0) | 6: 11.4 (fall 0/6)",
+     "2024-25": "0: — (fall 0/0) | 2: 21.4 (fall 0/2)"
+    }
+   }
+  },
+  "zonaBlu": {
+   "punteggio ≥ 1 contro 0": {
+    "si": {
+     "n": 6,
+     "med126": 3.9,
+     "med126usd": 4.3,
+     "med63": 11.3,
+     "med252": 19,
+     "pos126": "3/5",
+     "falliti": "1/6",
+     "quotaFalliti": 17
+    },
+    "no": {
+     "n": 20,
+     "med126": 20,
+     "med126usd": 21.4,
+     "med63": 16.7,
+     "med252": 22.7,
+     "pos126": "16/20",
+     "falliti": "3/20",
+     "quotaFalliti": 15
+    },
+    "diffLocale": -16.1,
+    "diffDollari": -17.1,
+    "perCrisi": {
+     "2008": "2: -2.8 (fall 1/2) | 2: -20.3 (fall 0/2)",
+     "2011": "0: — (fall 0/0) | 3: 14.2 (fall 1/3)",
+     "2018": "0: — (fall 0/0) | 1: 19 (fall 1/1)",
+     "2020": "0: — (fall 0/0) | 5: 37.1 (fall 0/5)",
+     "2022": "0: — (fall 0/0) | 4: 8.2 (fall 1/4)",
+     "2015-16": "2: 3.7 (fall 0/2) | 4: 18.7 (fall 0/4)",
+     "2024-25": "1: 3.9 (fall 0/1) | 1: 55.6 (fall 0/1)",
+     "altro": "1: — (fall 0/1) | 0: — (fall 0/0)"
+    }
+   },
+   "F = 1 contro F = 0 (5 indici)": {
+    "si": {
+     "n": 5,
+     "med126": 8.1,
+     "med126usd": 8.2,
+     "med63": 11.4,
+     "med252": 21.1,
+     "pos126": "3/4",
+     "falliti": "0/5",
+     "quotaFalliti": 0
+    },
+    "no": {
+     "n": 15,
+     "med126": 22.3,
+     "med126usd": 25.2,
+     "med63": 17.6,
+     "med252": 30.2,
+     "pos126": "11/15",
+     "falliti": "4/15",
+     "quotaFalliti": 27
+    },
+    "diffLocale": -14.2,
+    "diffDollari": -17,
+    "perCrisi": {
+     "2008": "1: 30.9 (fall 0/1) | 2: -19.9 (fall 1/2)",
+     "2011": "0: — (fall 0/0) | 2: 18.6 (fall 1/2)",
+     "2018": "0: — (fall 0/0) | 1: 19 (fall 1/1)",
+     "2020": "0: — (fall 0/0) | 4: 42.7 (fall 0/4)",
+     "2022": "0: — (fall 0/0) | 3: -4.7 (fall 1/3)",
+     "2015-16": "2: 3.7 (fall 0/2) | 2: 25.2 (fall 0/2)",
+     "2024-25": "1: 3.9 (fall 0/1) | 1: 55.6 (fall 0/1)",
+     "altro": "1: — (fall 0/1) | 0: — (fall 0/0)"
+    }
+   },
+   "D = 1 contro D = 0 (7 indici)": {
+    "si": {
+     "n": 1,
+     "med126": -36.4,
+     "med126usd": -41.6,
+     "med63": -27.5,
+     "med252": -1.7,
+     "pos126": "0/1",
+     "falliti": "1/1",
+     "quotaFalliti": 100
+    },
+    "no": {
+     "n": 26,
+     "med126": 14.7,
+     "med126usd": 15.2,
+     "med63": 12.1,
+     "med252": 21.2,
+     "pos126": "19/25",
+     "falliti": "3/26",
+     "quotaFalliti": 12
+    },
+    "diffLocale": -51.1,
+    "diffDollari": -56.8,
+    "perCrisi": {
+     "2008": "1: -36.4 (fall 1/1) | 4: -3 (fall 0/4)",
+     "2011": "0: — (fall 0/0) | 3: 14.2 (fall 1/3)",
+     "2018": "0: — (fall 0/0) | 1: 19 (fall 1/1)",
+     "2020": "0: — (fall 0/0) | 5: 37.1 (fall 0/5)",
+     "2022": "0: — (fall 0/0) | 4: 8.2 (fall 1/4)",
+     "2015-16": "0: — (fall 0/0) | 6: 13.5 (fall 0/6)",
+     "2024-25": "0: — (fall 0/0) | 2: 29.8 (fall 0/2)",
+     "altro": "0: — (fall 0/0) | 1: — (fall 0/1)"
+    }
+   }
+  }
+ },
+ "episodiH1": {
+  "persi": [
+   "CSI300 2018-09-21 (+17.0% a 126, fallito)",
+   "NIFTY50 2020-04-13 (+33.7% a 126, tenuto)",
+   "IBOV 2011-08-29 (+19.2% a 126, tenuto)",
+   "IBOV 2016-02-01 (+47.9% a 126, tenuto)",
+   "IBOV 2020-05-05 (+23.7% a 126, tenuto)",
+   "KOSPI200 2022-10-28 (+10.1% a 126, tenuto)",
+   "TWN 2020-04-07 (+27.1% a 126, tenuto)",
+   "HSI 2009-04-06 (+44.0% a 126, tenuto)",
+   "HSI 2016-02-22 (+18.0% a 126, tenuto)",
+   "EEM 2016-02-17 (+23.3% a 126, tenuto)"
+  ],
+  "contrari": []
+ },
+ "episodiH2": {
+  "persi": [
+   "CSI300 2018-09-17 (+19.0% a 126, fallito)",
+   "NIFTY50 2020-03-19 (+27.5% a 126, tenuto)",
+   "IBOV 2011-08-05 (+34.6% a 126, tenuto)",
+   "IBOV 2016-01-21 (+49.3% a 126, tenuto)",
+   "IBOV 2020-03-17 (+49.6% a 126, tenuto)",
+   "KOSPI200 2020-03-12 (+37.1% a 126, tenuto)",
+   "TWN 2020-03-18 (+48.3% a 126, tenuto)",
+   "TWN 2022-10-21 (+22.3% a 126, tenuto)",
+   "TWN 2025-04-08 (+55.6% a 126, tenuto)",
+   "HSI 2016-01-21 (+14.7% a 126, tenuto)",
+   "HSI 2022-10-13 (+21.0% a 126, tenuto)",
+   "EEM 2011-10-05 (+14.2% a 126, tenuto)",
+   "EEM 2016-01-21 (+22.6% a 126, tenuto)"
+  ],
+  "contrari": []
+ },
+ "sensibilita": {
+  "principale (w 63, z 1, media 200, D pubblicato)": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 18,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/18",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 20,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 3,
+    "pienoMenoBaseDal2016": 2.7,
+    "pienoMenoBaseDal2016usd": 2.6
+   }
+  },
+  "w 26": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 15,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/15",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 18,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 2/18",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 14 med 25.9 fall 1/14 | F=0 10 med 4.9 fall 4/10 | diff 21",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": -2.1,
+    "pienoMenoBaseDal2016": 1,
+    "pienoMenoBaseDal2016usd": 0
+   }
+  },
+  "w 126": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 19,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/19",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 1,
+    "zero": 19,
+    "diffLocale": -56.2,
+    "diffDollari": -57.9,
+    "falliti": "0/1 vs 3/19",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 9 med 35.1 fall 0/9 | F=0 15 med 10.1 fall 5/15 | diff 25",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 6.7,
+    "pienoMenoBaseDal2016": 4,
+    "pienoMenoBaseDal2016usd": 5.7
+   }
+  },
+  "z 0,75": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 18,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/18",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 20,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 2.3,
+    "pienoMenoBaseDal2016": 2.1,
+    "pienoMenoBaseDal2016usd": 2.3
+   }
+  },
+  "z 1,5": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 20,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 21,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/21",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 9 med 24.7 fall 0/9 | F=0 15 med 10.1 fall 5/15 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 3,
+    "pienoMenoBaseDal2016": 1.4,
+    "pienoMenoBaseDal2016usd": -1.1
+   }
+  },
+  "media 100 per D": {
+   "H1": {
+    "n": 31,
+    "pieno": 3,
+    "zero": 17,
+    "diffLocale": 4.3,
+    "diffDollari": 7.4,
+    "falliti": "0/3 vs 3/17",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 1,
+    "zero": 20,
+    "diffLocale": -16.1,
+    "diffDollari": -17.1,
+    "falliti": "0/1 vs 3/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 2.5,
+    "pienoMenoBaseDal2016": 3.5,
+    "pienoMenoBaseDal2016usd": 3.7
+   }
+  },
+  "D stesso giorno (guarda avanti)": {
+   "H1": {
+    "n": 31,
+    "pieno": 1,
+    "zero": 17,
+    "diffLocale": 22.8,
+    "diffDollari": 28.9,
+    "falliti": "0/1 vs 3/17",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 20,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 3.2,
+    "pienoMenoBaseDal2016": 2.1,
+    "pienoMenoBaseDal2016usd": 2
+   }
+  },
+  "D con DX-Y.NYB": {
+   "H1": {
+    "n": 31,
+    "pieno": 4,
+    "zero": 17,
+    "diffLocale": 7.3,
+    "diffDollari": 10.7,
+    "falliti": "0/4 vs 5/17",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 1,
+    "zero": 19,
+    "diffLocale": -2.5,
+    "diffDollari": -3.2,
+    "falliti": "0/1 vs 4/19",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 24.7 fall 0/11 | F=0 13 med 10.1 fall 5/13 | diff 14.6",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 4.5,
+    "pienoMenoBaseDal2016": 4.2,
+    "pienoMenoBaseDal2016usd": 4.6
+   }
+  },
+  "F' = cambio sotto media 50": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 20,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/20",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 1,
+    "zero": 24,
+    "diffLocale": -53.3,
+    "diffDollari": -59.7,
+    "falliti": "1/1 vs 3/24",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 9 med 35.1 fall 0/9 | F=0 15 med 10.1 fall 5/15 | diff 25",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": -2.3,
+    "pienoMenoBaseDal2016": 1.9,
+    "pienoMenoBaseDal2016usd": 2.6
+   }
+  },
+  "cambi FRED H.10 (pubblicati)": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 15,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 2/15",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 22,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 3/22",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 15 med 21.3 fall 2/15 | F=0 10 med 18.1 fall 3/10 | diff 3.2",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 3,
+    "pienoMenoBaseDal2016": 2.5,
+    "pienoMenoBaseDal2016usd": 2.6
+   }
+  },
+  "cambi Yahoo (fonte fino alla 1.4.0 in prova)": {
+   "H1": {
+    "n": 31,
+    "pieno": 0,
+    "zero": 15,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 4/15",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "H2": {
+    "n": 27,
+    "pieno": 0,
+    "zero": 18,
+    "diffLocale": null,
+    "diffDollari": null,
+    "falliti": "0/0 vs 2/18",
+    "crisiOk": "—",
+    "superato": false
+   },
+   "esplorazioneTriggerF": "F=1 11 med 21.3 fall 0/11 | F=0 9 med 10.1 fall 4/9 | diff 11.2",
+   "H3": {
+    "monotonoFino2015": false,
+    "monotonoDal2016": true,
+    "pienoMenoBaseFino2015": 0.6,
+    "pienoMenoBaseDal2016": 2.1,
+    "pienoMenoBaseDal2016usd": 2
+   }
+  }
+ }
+}

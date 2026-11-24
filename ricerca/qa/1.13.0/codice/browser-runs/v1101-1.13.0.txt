@@ -1,0 +1,16 @@
+OK   dati: oro GC=F, argento SI=F
+OK   1440 GOLD: riga «OroGC=F · future continuo−33,90%massimo il 29/01/2026 · 298 giorni fa »
+OK   1440 GOLD: dettaglio con il regolamento delle 13:30 e il massimo del 29/01/2026
+OK   1440 SILVER: riga «ArgentoSI=F · future continuo−64,34%massimo il 26/01/2026 · 301 giorni»
+OK   1440 SILVER: dettaglio con il regolamento delle 13:30 e il massimo del 26/01/2026
+OK   1440: nota del pannello (riquadro «i» e riga corta)
+OK   1440: console 
+OK   390 GOLD: riga «OroGC=F · future continuo−33,90%massimo il 29/01/2026 · 298 giorni fa »
+OK   390 GOLD: dettaglio con il regolamento delle 13:30 e il massimo del 29/01/2026
+OK   390 SILVER: riga «ArgentoSI=F · future continuo−64,34%massimo il 26/01/2026 · 301 giorni»
+OK   390 SILVER: dettaglio con il regolamento delle 13:30 e il massimo del 26/01/2026
+OK   390: nota del pannello (riquadro «i» e riga corta)
+OK   390: console 
+OK   guida: future e regolamento delle 13:30
+OK   version.json 1.13.0
+0 FAIL

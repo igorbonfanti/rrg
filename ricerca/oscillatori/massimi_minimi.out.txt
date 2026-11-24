@@ -1,0 +1,4 @@
+Yahoo ^GSPC giornaliero: 10547 barre dal 1985-01-02 al 2026-11-11; mensile: 504 barre dal 1985-01-01 al 2026-11-11
+Sedute con massimo = minimo (o mancanti), per anno: nessuna
+Mesi confrontati 504: massimo diverso in 1, minimo in 1, chiusura in 0; scarto massimo 3.0139% (2026-11: mensile H 7647.20 L 7571.88 C 7619.38, dalle sedute H 7715.57 L 7350.35 C 7619.38)
+Ultima barra mensile 2026-11-11: è il mese in corso (Yahoo la aggiorna seduta per seduta), da scartare o segnare come provvisoria

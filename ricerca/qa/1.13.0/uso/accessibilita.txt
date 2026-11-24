@@ -1,0 +1,78 @@
+dark bottone a riposo: testo rgb(138, 138, 138) su rgb(0,0,0) → 6.08:1; bordo 6.08:1 (minimo 3:1 per un controllo, WCAG 1.4.11)
+dark bottone aperto: rgb(0, 0, 0) su rgb(255, 160, 40) → 10.31:1
+dark riquadro: testo rgb(180, 180, 180) su rgb(14, 14, 14) → 9.31:1, grassetto 15.76:1, link «Nella guida» 13.37:1, bordo sul pannello 10.31:1, corpo 12.5px/18.125px
+dark bottoni senza aria-label, aria-expanded o type=button: 0
+dark riquadro: role null, corpo role status; aria-controls sui bottoni null
+light bottone a riposo: testo rgb(98, 98, 98) su rgb(255,255,255) → 6.1:1; bordo 6.1:1 (minimo 3:1 per un controllo, WCAG 1.4.11)
+light bottone aperto: rgb(0, 0, 0) su rgb(255, 160, 40) → 10.31:1
+light riquadro: testo rgb(58, 58, 58) su rgb(242, 242, 240) → 10.15:1, grassetto 16.85:1, link «Nella guida» 6.93:1, bordo sul pannello 6.26:1, corpo 12.5px/18.125px
+light bottoni senza aria-label, aria-expanded o type=button: 0
+light riquadro: role null, corpo role status; aria-controls sui bottoni null
+390 #mon «Spiegazione: Settori da osservare»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON 9 Alert a 429 px
+390 #mon «Spiegazione: regole degli stati»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR SOXXSemiconductorsin a 219 px
+390 #rrg «Spiegazione: le due formule»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Medie semplici a 13 px
+390 #rrg «Spiegazione: colonne della tabella»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Prezzi a 15 px
+390 #btm «Spiegazione: avvicinamento»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 111 px
+390 #btm «Spiegazione: come si legge la mappa»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 120 px
+390 #btm «Spiegazione: Distanza dal livello blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 111 px
+390 #XLK «Spiegazione: Episodi in zona blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 450 px
+390 #XLK «Spiegazione: Per confronto»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SUMMARY Cali forti · capitol a 389 px
+390 #XLK «Spiegazione: Cali forti»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 3/3/0/0 su 4; controllo più vicino BUTTON −10% a 65 px
+390 #SOXX «Spiegazione: Episodi in zona blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 816 px
+390 #SOXX «Spiegazione: Per confronto»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SUMMARY Cali forti · capitol a 389 px
+390 #SOXX «Spiegazione: Cali forti»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 3/3/0/0 su 4; controllo più vicino BUTTON −10% a 65 px
+390 #SOXX «Spiegazione: come è costruita questa storia»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino A Settore che la conti a 62 px
+390 #tit «Spiegazione: Grandi contro piccoli»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Tutti a 46 px
+390 #tit «Spiegazione: Storia della divergenza»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 383 px
+390 #tit «Spiegazione: Titoli del settore»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SELECT Distanza da media 20 a 67 px
+390 #tit «Spiegazione: I più in pena»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino A CBRS a 90 px
+390 #idx «Spiegazione: Indici, stato dei bottom»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR KOSPI200KOSPI 200 (C a 31 px
+390 #idx «Spiegazione: avvicinamento»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 81 px
+390 #idx «Spiegazione: Distanza dal livello blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 81 px
+390 #idx «Spiegazione: Episodi in zona blu dell'indice»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 483 px
+390 #idx «Spiegazione: Per confronto»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SUMMARY Cali forti · capitol a 277 px
+390 #idx «Spiegazione: Cali forti dell'indice»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON −10% a 64 px
+390 #emg «Spiegazione: Emergenti, valuta e dollaro»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR CSI300CSI 300
+       a 59 px
+390 #emg «Spiegazione: grafico degli emergenti»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON 10A a 60 px
+390 #emg «Spiegazione: Forza relativa»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino g INDANIFTY50 · INDA c a 36 px
+390 #vix «Spiegazione: Dopo i picchi del VIX»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Nasdaq-100 a 27 px
+390 #vix «Spiegazione: VIX e rendimento a 12 mesi»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR 31/08/19981998 Russi a 21 px
+390 #ath «Spiegazione: Distanza dal massimo»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR ArgentoSI=F · future a 17 px
+390 #ath «Spiegazione: Linea del tempo dei massimi»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR S&P 500^GSPC · indic a 98 px
+360 #mon «Spiegazione: Settori da osservare»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON 9 Alert a 429 px
+360 #mon «Spiegazione: regole degli stati»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR SOXXSemiconductorsin a 219 px
+360 #rrg «Spiegazione: le due formule»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Medie semplici a 13 px
+360 #rrg «Spiegazione: colonne della tabella»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Prezzi a 15 px
+360 #btm «Spiegazione: avvicinamento»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 62 px
+360 #btm «Spiegazione: come si legge la mappa»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 62 px
+360 #btm «Spiegazione: Distanza dal livello blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 120 px
+360 #XLK «Spiegazione: Episodi in zona blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 450 px
+360 #XLK «Spiegazione: Per confronto»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SUMMARY Cali forti · capitol a 389 px
+360 #XLK «Spiegazione: Cali forti»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON −10% a 65 px
+360 #SOXX «Spiegazione: Episodi in zona blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 816 px
+360 #SOXX «Spiegazione: Per confronto»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SUMMARY Cali forti · capitol a 389 px
+360 #SOXX «Spiegazione: Cali forti»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON −10% a 65 px
+360 #SOXX «Spiegazione: come è costruita questa storia»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino A Settore che la conti a 62 px
+360 #tit «Spiegazione: Grandi contro piccoli»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Tutti a 59 px
+360 #tit «Spiegazione: Storia della divergenza»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 383 px
+360 #tit «Spiegazione: Titoli del settore»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SELECT Distanza da media 20 a 67 px
+360 #tit «Spiegazione: I più in pena»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino A CBRS a 90 px
+360 #idx «Spiegazione: Indici, stato dei bottom»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR KOSPI200KOSPI 200 (C a 31 px
+360 #idx «Spiegazione: avvicinamento»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 93 px
+360 #idx «Spiegazione: Distanza dal livello blu»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 93 px
+360 #idx «Spiegazione: Episodi in zona blu dell'indice»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON i a 483 px
+360 #idx «Spiegazione: Per confronto»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino SUMMARY Cali forti · capitol a 277 px
+360 #idx «Spiegazione: Cali forti dell'indice»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON −10% a 64 px
+360 #emg «Spiegazione: Emergenti, valuta e dollaro»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR CSI300CSI 300
+       a 59 px
+360 #emg «Spiegazione: grafico degli emergenti»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON 10A a 60 px
+360 #emg «Spiegazione: Forza relativa»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino g INDANIFTY50 · INDA c a 29 px
+360 #vix «Spiegazione: Dopo i picchi del VIX»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON Nasdaq-100 a 27 px
+360 #vix «Spiegazione: VIX e rendimento a 12 mesi»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR 31/08/19981998 Russi a 21 px
+360 #ath «Spiegazione: Distanza dal massimo»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino BUTTON per distanza a 11 px
+360 #ath «Spiegazione: Linea del tempo dei massimi»: disegno 16×16, punti colpiti a ±10/14/16/20 px: 4/4/0/0 su 4; controllo più vicino TR S&P 500^GSPC · indic a 98 px
+1.13.0 1440 presentazione alla prima apertura: «Sector Monitor segue i possibili bottom dei settori S&P 500 e la rotazione relativa. Dati di fine giornata. Leggi lo stato dei settori. Clic su un settore per il dettaglio. In 2 Rotazione gli ETF in euro. Ho capito Apri la guida»
+1.13.0 390 presentazione alla prima apertura: «Sector Monitor segue i possibili bottom dei settori S&P 500 e la rotazione relativa. Dati di fine giornata. Leggi lo stato dei settori. Clic su un settore per il dettaglio. In 2 Rotazione gli ETF in euro. Ho capito Apri la guida»
+1.12.0 1440 presentazione alla prima apertura: «Sector Monitor cerca i possibili bottom dei settori S&P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro. Dati di fine giornata. Leggi il Monitor: lo stato di ogni settore e, accanto (sul telefono sopra), quelli da osservare con il motivo. Clic su un settore per il dettaglio: prova il livello blu con + e −. Apri 2 Rotazione e scegli un universo in euro: Asset class, Fattori, Regioni, Paesi o Indici. Ho capito Apri la guida»
+1.12.0 390 presentazione alla prima apertura: «Sector Monitor cerca i possibili bottom dei settori S&P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro. Dati di fine giornata. Leggi il Monitor: lo stato di ogni settore e, accanto (sul telefono sopra), quelli da osservare con il motivo. Clic su un settore per il dettaglio: prova il livello blu con + e −. Apri 2 Rotazione e scegli un universo in euro: Asset class, Fattori, Regioni, Paesi o Indici. Ho capito Apri la guida»

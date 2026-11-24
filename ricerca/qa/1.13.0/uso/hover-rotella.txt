@@ -1,0 +1,2 @@
+sotto il puntatore: <button type="button" class="info" aria-label="Spiegazione: 
+aperto al passaggio: true; dopo rotella di 200 px: chiuso

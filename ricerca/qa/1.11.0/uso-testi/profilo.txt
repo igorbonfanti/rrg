@@ -1,0 +1,31 @@
+INFO 1440-scuro WTI zoom finale: linea del prezzo alta 155 px su 260 px del riquadro (asse 100–60)
+INFO 1440-scuro SPX zoom finale: linea del prezzo alta 158 px su 260 px del riquadro (asse 7,86k–6,3k)
+INFO 1440-scuro KOSPI zoom finale: linea del prezzo alta 162 px su 260 px del riquadro (asse 8k–4k)
+INFO 1440-chiaro WTI zoom finale: linea del prezzo alta 155 px su 260 px del riquadro (asse 100–60)
+INFO 1440-chiaro SPX zoom finale: linea del prezzo alta 158 px su 260 px del riquadro (asse 7,86k–6,3k)
+INFO 1440-chiaro KOSPI zoom finale: linea del prezzo alta 162 px su 260 px del riquadro (asse 8k–4k)
+INFO 1280-scuro WTI zoom finale: linea del prezzo alta 155 px su 260 px del riquadro (asse 100–60)
+INFO 1280-scuro SPX zoom finale: linea del prezzo alta 158 px su 260 px del riquadro (asse 7,86k–6,3k)
+INFO 1280-scuro KOSPI zoom finale: linea del prezzo alta 162 px su 260 px del riquadro (asse 8k–4k)
+INFO 1280-chiaro WTI zoom finale: linea del prezzo alta 155 px su 260 px del riquadro (asse 100–60)
+INFO 1280-chiaro SPX zoom finale: linea del prezzo alta 158 px su 260 px del riquadro (asse 7,86k–6,3k)
+INFO 1280-chiaro KOSPI zoom finale: linea del prezzo alta 162 px su 260 px del riquadro (asse 8k–4k)
+FAIL 390-scuro SPX 3A: testi senza sovrapposizioni (8k/vol. 12m)
+FAIL 390-scuro SPX 10A: testi senza sovrapposizioni (8k/vol. 12m)
+INFO 390-scuro SPX zoom finale: linea del prezzo alta 121 px su 200 px del riquadro (asse 7,86k–6,3k)
+FAIL 390-chiaro SPX 3A: testi senza sovrapposizioni (8k/vol. 12m)
+FAIL 390-chiaro SPX 10A: testi senza sovrapposizioni (8k/vol. 12m)
+INFO 390-chiaro SPX zoom finale: linea del prezzo alta 121 px su 200 px del riquadro (asse 7,86k–6,3k)
+FAIL 360-scuro SPX 3A: testi senza sovrapposizioni (8k/vol. 12m)
+FAIL 360-scuro SPX 10A: testi senza sovrapposizioni (8k/vol. 12m)
+INFO 360-scuro SPX zoom finale: linea del prezzo alta 121 px su 200 px del riquadro (asse 7,86k–6,3k)
+FAIL 360-chiaro SPX 3A: testi senza sovrapposizioni (8k/vol. 12m)
+FAIL 360-chiaro SPX 10A: testi senza sovrapposizioni (8k/vol. 12m)
+INFO 360-chiaro SPX zoom finale: linea del prezzo alta 121 px su 200 px del riquadro (asse 7,86k–6,3k)
+riquadri provati: 681
+INFO tastiera: elementi del grafico raggiungibili con Tab: 0 (il riquadro delle barre si apre solo con mouse o tocco; aria-label: «Prezzo di Argento dal 30/08/2000, con il massimo di chiusura degli ultimi 3 anni e il profilo dei volumi degli ultimi 12 mesi»)
+INFO dati SPX-to-futuro 1440 SPX: colonna false, legenda «a: 7.592,40 il 12/11/2026profilo dei volumi nascosto: lo zoom non arriva all'ultima seduta»
+FAIL dati SPX-to-futuro 1440 SPX: profilo con fine dopo l'ultima seduta del grafico, senza zoom la legenda non parla di zoom
+INFO dati SPX-to-futuro 390 SPX: colonna false, legenda «a: 7.592,40 il 12/11/2026profilo dei volumi nascosto: lo zoom non arriva all'ultima seduta»
+FAIL dati SPX-to-futuro 390 SPX: profilo con fine dopo l'ultima seduta del grafico, senza zoom la legenda non parla di zoom
+4911 OK, 10 FAIL

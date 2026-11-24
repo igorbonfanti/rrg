@@ -1,0 +1,23 @@
+OK   1440 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «0,999 contango», riquadro dei valori «0,999 contango», atteso «0,999 contango»; console pulita
+OK   390 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «0,999 contango», riquadro dei valori «0,999 contango», atteso «0,999 contango»; console pulita
+OK   1440 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «0,999 contango», riquadro dei valori «0,999 contango», atteso «0,999 contango»; console pulita
+OK   390 R 0.999610 (VIX 25.64 / VIX3M 25.65): riquadro «0,999 contango», riquadro dei valori «0,999 contango», atteso «0,999 contango»; console pulita
+OK   1440 R 0.999221 (VIX 25.64 / VIX3M 25.66): riquadro «0,999 contango», riquadro dei valori «0,999 contango», atteso «0,999 contango»; console pulita
+OK   390 R 0.999221 (VIX 25.64 / VIX3M 25.66): riquadro «0,999 contango», riquadro dei valori «0,999 contango», atteso «0,999 contango»; console pulita
+OK   1440 R 0.997277 (VIX 25.64 / VIX3M 25.71): riquadro «0,997 contango», riquadro dei valori «0,997 contango», atteso «0,997 contango»; console pulita
+OK   390 R 0.997277 (VIX 25.64 / VIX3M 25.71): riquadro «0,997 contango», riquadro dei valori «0,997 contango», atteso «0,997 contango»; console pulita
+OK   1440 R 1.000390 (VIX 25.64 / VIX3M 25.63): riquadro «1,000 backwardation», riquadro dei valori «1,000 backwardation», atteso «1,000 backwardation»; console pulita
+OK   390 R 1.000390 (VIX 25.64 / VIX3M 25.63): riquadro «1,000 backwardation», riquadro dei valori «1,000 backwardation», atteso «1,000 backwardation»; console pulita
+OK   320 light MAX: [{"w":109.9,"label":"dal 2007","x0":37.8,"x1":88.3,"inside":true},{"w":112.1,"label":"dal 2008","x0":38.9,"x1":89.4,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   320 dark MAX: [{"w":109.9,"label":"dal 2007","x0":37.8,"x1":88.3,"inside":true},{"w":112.1,"label":"dal 2008","x0":38.9,"x1":89.4,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   360 light MAX: [{"w":119.6,"label":"dal 2007","x0":42.6,"x1":93,"inside":true},{"w":122,"label":"dal 2008","x0":43.8,"x1":94.2,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   360 dark MAX: [{"w":119.6,"label":"dal 2007","x0":42.6,"x1":93,"inside":true},{"w":122,"label":"dal 2008","x0":43.8,"x1":94.2,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   390 light MAX: [{"w":134.2,"label":"VIX3M dal 04/12/2007","x0":12.1,"x1":138.1,"inside":true},{"w":136.8,"label":"dal 2008","x0":51.2,"x1":101.6,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   390 dark MAX: [{"w":134.2,"label":"VIX3M dal 04/12/2007","x0":12.1,"x1":138.1,"inside":true},{"w":136.8,"label":"dal 2008","x0":51.2,"x1":101.6,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   1440 light MAX: [{"w":745.6,"label":"VIX3M dal 04/12/2007","x0":317.8,"x1":443.8,"inside":true},{"w":760.1,"label":"HYG/IEF dal 09/04/2008","x0":318.8,"x1":457.3,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   1440 dark MAX: [{"w":745.6,"label":"VIX3M dal 04/12/2007","x0":317.8,"x1":443.8,"inside":true},{"w":760.1,"label":"HYG/IEF dal 09/04/2008","x0":318.8,"x1":457.3,"inside":true}]; testi oltre il bordo 0; console pulita
+OK   vixSrc null: «VIX al 06/11/2026 (FRED al 05/11/2026, poi Cboe o Yahoo, provvisorio) · VIX3M al 06/11/2026 (FRED al 05/11/2026, poi Cboe o Yahoo, provvisorio) · HYG/IEF al 06/11/2026 · S&P 500 al 06/11/2026 · Nasdaq-100 al 06/11/2026»
+OK   1440 light: console senza errori cambiando periodo ()
+OK   390 dark: console senza errori cambiando periodo ()
+
+21 controlli, 0 FAIL

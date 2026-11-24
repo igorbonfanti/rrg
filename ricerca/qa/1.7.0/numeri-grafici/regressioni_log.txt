@@ -1,0 +1,18 @@
+== v170
+OK   390-scuro NDX 40: 10 fasce degli episodi (attese 10)
+OK   390-scuro: nessuno scorrimento orizzontale della pagina
+OK   390-scuro: console 
+0 FAIL
+exit 0
+== v162
+OK   390 NDX soglia 50: intestazioni chiare (Primo giorno a 50 o più | Crisi | Andamento del VIX | VIX quel giorno)
+OK   390: detto che i nomi delle crisi sono etichette
+OK   390: console 
+0 FAIL
+exit 0
+== v161
+OK   360-chiaro: un altro tocco sulla crisi la lascia accesa
+OK   360-chiaro: nessuno scorrimento orizzontale
+OK   360-chiaro: console 
+0 FAIL
+exit 0

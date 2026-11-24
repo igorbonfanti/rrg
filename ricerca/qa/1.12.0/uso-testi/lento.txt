@@ -1,0 +1,13 @@
+OK   ath_history lento: durante il caricamento «Caricamento dello storico…» (riga di caricamento della tabella false)
+OK   ath_history lento: alla fine 5 episodi e 9 righe
+OK   ath_history lento: console 
+OK   ath_history lento: durante il caricamento «Caricamento dello storico…» (riga di caricamento della tabella false)
+OK   ath_history lento, con un giro nel VIX: alla fine 5 episodi e 9 righe
+OK   ath_history lento: console 
+OK   ath lento: durante il caricamento «Caricamento dello storico…» (riga di caricamento della tabella true)
+OK   ath lento: alla fine 5 episodi e 9 righe
+OK   ath lento: console 
+OK   ath lento: durante il caricamento «Caricamento dello storico…» (riga di caricamento della tabella true)
+OK   ath lento, con un giro nel VIX: alla fine 5 episodi e 9 righe
+OK   ath lento: console 
+0 FAIL

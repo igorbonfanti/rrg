@@ -1,0 +1,320 @@
+{
+ "EURUSD": {
+  "barreEstive": 758,
+  "barreInvernali": 542,
+  "estate": {
+   "nuova_vs_BCE": {
+    "n": 746,
+    "corr": 0.722,
+    "segnoUguale": "518/736",
+    "segnoPct": 70.4,
+    "scartoLivelloMedianoPct": 0.168
+   },
+   "vecchia_vs_BCE": {
+    "n": 598,
+    "corr": 0.661,
+    "segnoUguale": "406/591",
+    "segnoPct": 68.7,
+    "scartoLivelloMedianoPct": 0.199
+   },
+   "nuova_vs_FRED": {
+    "n": 732,
+    "corr": 0.414,
+    "segnoUguale": "390/726",
+    "segnoPct": 53.7,
+    "scartoLivelloMedianoPct": 0.259
+   },
+   "vecchia_vs_FRED": {
+    "n": 584,
+    "corr": 0.908,
+    "segnoUguale": "496/579",
+    "segnoPct": 85.7,
+    "scartoLivelloMedianoPct": 0.094
+   },
+   "nuova_vs_BCE_giornoPrima": {
+    "n": 746,
+    "corr": 0.539,
+    "segnoUguale": "472/737",
+    "segnoPct": 64,
+    "scartoLivelloMedianoPct": 0.194
+   },
+   "nuova_vs_FRED_giornoPrima": {
+    "n": 732,
+    "corr": 0.878,
+    "segnoUguale": "603/726",
+    "segnoPct": 83.1,
+    "scartoLivelloMedianoPct": 0.097
+   }
+  },
+  "inverno": {
+   "nuova_vs_BCE": {
+    "n": 533,
+    "corr": 0.793,
+    "segnoUguale": "371/529",
+    "segnoPct": 70.1,
+    "scartoLivelloMedianoPct": 0.184
+   },
+   "nuova_vs_FRED": {
+    "n": 510,
+    "corr": 0.685,
+    "segnoUguale": "291/502",
+    "segnoPct": 58,
+    "scartoLivelloMedianoPct": 0.24
+   },
+   "nuova_vs_BCE_giornoPrima": {
+    "n": 533,
+    "corr": 0.766,
+    "segnoUguale": "343/529",
+    "segnoPct": 64.8,
+    "scartoLivelloMedianoPct": 0.181
+   },
+   "nuova_vs_FRED_giornoPrima": {
+    "n": 510,
+    "corr": 0.896,
+    "segnoUguale": "404/502",
+    "segnoPct": 80.5,
+    "scartoLivelloMedianoPct": 0.104
+   }
+  }
+ },
+ "DXY": {
+  "barreEstive": 824,
+  "barreInvernali": 433,
+  "estate": {
+   "nuova_vs_DXYdaFRED": {
+    "n": 817,
+    "corr": 0.924,
+    "segnoUguale": "695/806",
+    "segnoPct": 86.2,
+    "scartoLivelloMedianoPct": 0.076
+   },
+   "vecchia_vs_DXYdaFRED": {
+    "n": 644,
+    "corr": 0.438,
+    "segnoUguale": "319/639",
+    "segnoPct": 49.9,
+    "scartoLivelloMedianoPct": 0.286
+   },
+   "nuova_vs_DXYdaBCE": {
+    "n": 814,
+    "corr": 0.645,
+    "segnoUguale": "534/803",
+    "segnoPct": 66.5,
+    "scartoLivelloMedianoPct": 0.166
+   },
+   "vecchia_vs_DXYdaBCE": {
+    "n": 658,
+    "corr": 0.389,
+    "segnoUguale": "319/653",
+    "segnoPct": 48.9,
+    "scartoLivelloMedianoPct": 0.314
+   },
+   "nuova_vs_DTWEXBGS": {
+    "n": 817,
+    "corr": 0.853,
+    "segnoUguale": "651/806",
+    "segnoPct": 80.8,
+    "scartoLivelloMedianoPct": 16.52
+   },
+   "vecchia_vs_DTWEXBGS": {
+    "n": 644,
+    "corr": 0.401,
+    "segnoUguale": "313/639",
+    "segnoPct": 49,
+    "scartoLivelloMedianoPct": 16.668
+   }
+  },
+  "inverno": {
+   "nuova_vs_DXYdaFRED": {
+    "n": 422,
+    "corr": 0.961,
+    "segnoUguale": "360/416",
+    "segnoPct": 86.5,
+    "scartoLivelloMedianoPct": 0.08
+   },
+   "nuova_vs_DXYdaBCE": {
+    "n": 429,
+    "corr": 0.841,
+    "segnoUguale": "275/423",
+    "segnoPct": 65,
+    "scartoLivelloMedianoPct": 0.157
+   },
+   "nuova_vs_DTWEXBGS": {
+    "n": 422,
+    "corr": 0.922,
+    "segnoUguale": "333/416",
+    "segnoPct": 80,
+    "scartoLivelloMedianoPct": 17.3
+   }
+  }
+ },
+ "campioneDXY": [
+  {
+   "d": "2022-07-14",
+   "yahooNuova": "108.540",
+   "yahooVecchia": "108.060",
+   "daFRED_mezzogiornoNY": "108.562",
+   "daBCE_14_15CET": "108.760"
+  },
+  {
+   "d": "2023-06-15",
+   "yahooNuova": "102.120",
+   "yahooVecchia": "102.300",
+   "daFRED_mezzogiornoNY": "102.271",
+   "daBCE_14_15CET": "103.239"
+  },
+  {
+   "d": "2024-08-05",
+   "yahooNuova": "102.690",
+   "yahooVecchia": "102.970",
+   "daFRED_mezzogiornoNY": "102.695",
+   "daBCE_14_15CET": "102.458"
+  },
+  {
+   "d": "2025-04-09",
+   "yahooNuova": "102.900",
+   "yahooVecchia": "100.870",
+   "daFRED_mezzogiornoNY": "102.326",
+   "daBCE_14_15CET": "102.228"
+  },
+  {
+   "d": "2025-04-10",
+   "yahooNuova": "100.870",
+   "yahooVecchia": "99.780",
+   "daFRED_mezzogiornoNY": "101.037",
+   "daBCE_14_15CET": "101.885"
+  },
+  {
+   "d": "2025-04-11",
+   "yahooNuova": "99.780",
+   "daFRED_mezzogiornoNY": "100.038",
+   "daBCE_14_15CET": "99.802"
+  },
+  {
+   "d": "2025-07-02",
+   "yahooNuova": "96.780",
+   "daFRED_mezzogiornoNY": "96.873",
+   "daBCE_14_15CET": "97.059"
+  },
+  {
+   "d": "2026-06-17",
+   "yahooNuova": "100.090",
+   "yahooVecchia": "100.850",
+   "daFRED_mezzogiornoNY": "99.673",
+   "daBCE_14_15CET": "99.674"
+  },
+  {
+   "d": "2022-12-14",
+   "yahooNuova": "103.770",
+   "yahooVecchia": "103.770",
+   "daFRED_mezzogiornoNY": "103.767",
+   "daBCE_14_15CET": "103.851"
+  },
+  {
+   "d": "2024-01-11",
+   "yahooNuova": "102.290",
+   "yahooVecchia": "102.290",
+   "daFRED_mezzogiornoNY": "102.664",
+   "daBCE_14_15CET": "102.197"
+  },
+  {
+   "d": "2025-02-03",
+   "yahooNuova": "108.990",
+   "yahooVecchia": "108.990",
+   "daFRED_mezzogiornoNY": "109.048",
+   "daBCE_14_15CET": "109.137"
+  },
+  {
+   "d": "2026-01-21",
+   "yahooNuova": "98.760",
+   "yahooVecchia": "98.760",
+   "daFRED_mezzogiornoNY": "98.650",
+   "daBCE_14_15CET": "98.419"
+  }
+ ],
+ "campioneEURUSD": [
+  {
+   "d": "2022-07-14",
+   "yahooNuova": "1.00327",
+   "yahooVecchia": "1.00257",
+   "BCE": 1.0005,
+   "FRED": 1.0028
+  },
+  {
+   "d": "2023-06-15",
+   "yahooNuova": "1.08430",
+   "yahooVecchia": "1.09459",
+   "BCE": 1.0819,
+   "FRED": 1.0933
+  },
+  {
+   "d": "2024-08-05",
+   "yahooNuova": "1.09108",
+   "yahooVecchia": "1.09510",
+   "BCE": 1.0966,
+   "FRED": 1.0957
+  },
+  {
+   "d": "2025-04-09",
+   "yahooNuova": "1.09804",
+   "yahooVecchia": "1.09521",
+   "BCE": 1.1045,
+   "FRED": 1.104
+  },
+  {
+   "d": "2025-04-10",
+   "yahooNuova": "1.09521",
+   "yahooVecchia": "1.12578",
+   "BCE": 1.1082,
+   "FRED": 1.1192
+  },
+  {
+   "d": "2025-04-11",
+   "yahooNuova": "1.12578",
+   "BCE": 1.1346,
+   "FRED": 1.1325
+  },
+  {
+   "d": "2025-07-02",
+   "yahooNuova": "1.18055",
+   "yahooVecchia": "1.18002",
+   "BCE": 1.1755,
+   "FRED": 1.179
+  },
+  {
+   "d": "2026-06-17",
+   "yahooNuova": "1.16100",
+   "yahooVecchia": "1.15073",
+   "BCE": 1.1591,
+   "FRED": 1.1593
+  },
+  {
+   "d": "2022-12-14",
+   "yahooNuova": "1.06267",
+   "yahooVecchia": "1.06267",
+   "BCE": 1.0649,
+   "FRED": 1.0655
+  },
+  {
+   "d": "2024-01-11",
+   "yahooNuova": "1.09751",
+   "yahooVecchia": "1.09751",
+   "BCE": 1.0987,
+   "FRED": 1.0943
+  },
+  {
+   "d": "2025-02-03",
+   "yahooNuova": "1.02478",
+   "yahooVecchia": "1.02478",
+   "BCE": 1.0274,
+   "FRED": 1.0277
+  },
+  {
+   "d": "2026-01-21",
+   "yahooNuova": "1.17279",
+   "yahooVecchia": "1.17279",
+   "BCE": 1.1739,
+   "FRED": 1.1705
+  }
+ ]
+}

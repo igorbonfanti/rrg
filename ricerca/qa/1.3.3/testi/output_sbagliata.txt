@@ -1,0 +1,14 @@
+dati al 2026-10-30 · prima seduta con stato: XLK 2005-01-03, XLC 2019-06-20, XLY 2005-01-03, XLP 2005-01-03, XLE 2005-01-03, XLF 2005-01-03, XLV 2005-01-03, XLI 2005-01-03, XLB 2005-01-03, XLRE 2016-10-07, XLU 2005-01-03
+controllo soglia: 264 sedute, 0 diverse
+
+== SETTORI (DEFINIZIONE SBAGLIATA: dalla seduta 0)
+  C {"tocchiAvvisati":"42/73","allarmi":180,"arrivano":"64/180 = 36%","anticipoMediano":27,"anticipoDeiTocchiAvvisati":49}
+  D {"tocchiAvvisati":"59/73","allarmi":278,"arrivano":"85/278 = 31%","anticipoMediano":23,"anticipoDeiTocchiAvvisati":39}
+  E {"tocchiAvvisati":"44/73","allarmi":213,"arrivano":"66/213 = 31%","anticipoMediano":12,"anticipoDeiTocchiAvvisati":29}
+
+indici: 22
+
+== INDICI (DEFINIZIONE SBAGLIATA: dalla seduta 0)
+  C {"tocchiAvvisati":"86/135","allarmi":336,"arrivano":"137/336 = 41%","anticipoMediano":28,"anticipoDeiTocchiAvvisati":60}
+  D {"tocchiAvvisati":"92/135","allarmi":375,"arrivano":"152/375 = 41%","anticipoMediano":24,"anticipoDeiTocchiAvvisati":63}
+  E {"tocchiAvvisati":"84/135","allarmi":308,"arrivano":"153/308 = 50%","anticipoMediano":12,"anticipoDeiTocchiAvvisati":55}

@@ -1,0 +1,2355 @@
+[
+ {
+  "name": "[1440 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 1,
+   "sw": 1406,
+   "cw": 1406,
+   "out": []
+  }
+ },
+ {
+  "name": "[1440 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 83,
+   "oldBottom": 83
+  }
+ },
+ {
+  "name": "[1440 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 83,
+   "old": 83
+  }
+ },
+ {
+  "name": "[1440 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 137,
+   "old": 137
+  }
+ },
+ {
+  "name": "[1440 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 light] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 1,
+   "sw": 1406,
+   "cw": 1406,
+   "out": []
+  }
+ },
+ {
+  "name": "[1440 light] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 83,
+   "oldBottom": 83
+  }
+ },
+ {
+  "name": "[1440 light] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 83,
+   "old": 83
+  }
+ },
+ {
+  "name": "[1440 light] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 light] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 light] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 light] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 137,
+   "old": 137
+  }
+ },
+ {
+  "name": "[1440 light] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 light] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 light] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 light] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 light] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 light] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 light] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 light] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 light] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1440,
+    "cw": 1440,
+    "over": []
+   },
+   "old": 1440
+  }
+ },
+ {
+  "name": "[1440 light] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1440 light] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1280 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 1,
+   "sw": 1246,
+   "cw": 1246,
+   "out": []
+  }
+ },
+ {
+  "name": "[1280 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 83,
+   "oldBottom": 83
+  }
+ },
+ {
+  "name": "[1280 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 83,
+   "old": 83
+  }
+ },
+ {
+  "name": "[1280 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1280,
+    "cw": 1280,
+    "over": []
+   },
+   "old": 1280
+  }
+ },
+ {
+  "name": "[1280 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1280 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1280,
+    "cw": 1280,
+    "over": []
+   },
+   "old": 1280
+  }
+ },
+ {
+  "name": "[1280 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 137,
+   "old": 137
+  }
+ },
+ {
+  "name": "[1280 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1280,
+    "cw": 1280,
+    "over": []
+   },
+   "old": 1280
+  }
+ },
+ {
+  "name": "[1280 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1280 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1280,
+    "cw": 1280,
+    "over": []
+   },
+   "old": 1280
+  }
+ },
+ {
+  "name": "[1280 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1280 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1280,
+    "cw": 1280,
+    "over": []
+   },
+   "old": 1280
+  }
+ },
+ {
+  "name": "[1280 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1280 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1280,
+    "cw": 1280,
+    "over": []
+   },
+   "old": 1280
+  }
+ },
+ {
+  "name": "[1280 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1280 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1280,
+    "cw": 1280,
+    "over": []
+   },
+   "old": 1280
+  }
+ },
+ {
+  "name": "[1280 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1280 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1024 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 1,
+   "sw": 990,
+   "cw": 990,
+   "out": []
+  }
+ },
+ {
+  "name": "[1024 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 83,
+   "oldBottom": 83
+  }
+ },
+ {
+  "name": "[1024 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 83,
+   "old": 83
+  }
+ },
+ {
+  "name": "[1024 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1024,
+    "cw": 1024,
+    "over": []
+   },
+   "old": 1024
+  }
+ },
+ {
+  "name": "[1024 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1024 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1024,
+    "cw": 1024,
+    "over": []
+   },
+   "old": 1024
+  }
+ },
+ {
+  "name": "[1024 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 168,
+   "old": 168
+  }
+ },
+ {
+  "name": "[1024 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1024,
+    "cw": 1024,
+    "over": []
+   },
+   "old": 1024
+  }
+ },
+ {
+  "name": "[1024 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1024 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1024,
+    "cw": 1024,
+    "over": []
+   },
+   "old": 1024
+  }
+ },
+ {
+  "name": "[1024 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1024 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1024,
+    "cw": 1024,
+    "over": []
+   },
+   "old": 1024
+  }
+ },
+ {
+  "name": "[1024 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1024 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1024,
+    "cw": 1024,
+    "over": []
+   },
+   "old": 1024
+  }
+ },
+ {
+  "name": "[1024 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1024 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 1024,
+    "cw": 1024,
+    "over": []
+   },
+   "old": 1024
+  }
+ },
+ {
+  "name": "[1024 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 95,
+   "old": 95
+  }
+ },
+ {
+  "name": "[1024 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[820 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": false,
+  "detail": {
+   "rows": 1,
+   "sw": 798,
+   "cw": 786,
+   "out": []
+  }
+ },
+ {
+  "name": "[820 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 146,
+   "oldBottom": 146
+  }
+ },
+ {
+  "name": "[820 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 146,
+   "old": 146
+  }
+ },
+ {
+  "name": "[820 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 820,
+    "cw": 820,
+    "over": []
+   },
+   "old": 820
+  }
+ },
+ {
+  "name": "[820 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[820 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 820,
+    "cw": 820,
+    "over": []
+   },
+   "old": 820
+  }
+ },
+ {
+  "name": "[820 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 253
+  }
+ },
+ {
+  "name": "[820 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 820,
+    "cw": 820,
+    "over": []
+   },
+   "old": 820
+  }
+ },
+ {
+  "name": "[820 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[820 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 820,
+    "cw": 820,
+    "over": []
+   },
+   "old": 820
+  }
+ },
+ {
+  "name": "[820 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[820 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 820,
+    "cw": 820,
+    "over": []
+   },
+   "old": 820
+  }
+ },
+ {
+  "name": "[820 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[820 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 820,
+    "cw": 820,
+    "over": []
+   },
+   "old": 820
+  }
+ },
+ {
+  "name": "[820 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[820 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 820,
+    "cw": 820,
+    "over": []
+   },
+   "old": 820
+  }
+ },
+ {
+  "name": "[820 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[820 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[768 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": false,
+  "detail": {
+   "rows": 1,
+   "sw": 798,
+   "cw": 734,
+   "out": [
+    "8 Emergenti"
+   ]
+  }
+ },
+ {
+  "name": "[768 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 146,
+   "oldBottom": 146
+  }
+ },
+ {
+  "name": "[768 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 146,
+   "old": 146
+  }
+ },
+ {
+  "name": "[768 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 768,
+    "over": [
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 768
+  }
+ },
+ {
+  "name": "[768 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[768 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 768,
+    "over": [
+     "#tab-emg r=815",
+     "g.[object SVGAnimatedString] r=829",
+     "circle.[object SVGAnimatedString] r=829"
+    ]
+   },
+   "old": 768
+  }
+ },
+ {
+  "name": "[768 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 253
+  }
+ },
+ {
+  "name": "[768 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 768,
+    "over": [
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 768
+  }
+ },
+ {
+  "name": "[768 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[768 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 768,
+    "over": [
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 768
+  }
+ },
+ {
+  "name": "[768 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[768 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 768,
+    "over": [
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 768
+  }
+ },
+ {
+  "name": "[768 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[768 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 768,
+    "over": [
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 768
+  }
+ },
+ {
+  "name": "[768 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[768 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 768,
+    "over": [
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 768
+  }
+ },
+ {
+  "name": "[768 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 158,
+   "old": 158
+  }
+ },
+ {
+  "name": "[768 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[700 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": false,
+  "detail": {
+   "rows": 1,
+   "sw": 798,
+   "cw": 666,
+   "out": [
+    "7 Titoli",
+    "8 Emergenti"
+   ]
+  }
+ },
+ {
+  "name": "[700 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 116,
+   "oldBottom": 116
+  }
+ },
+ {
+  "name": "[700 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 116,
+   "old": 116
+  }
+ },
+ {
+  "name": "[700 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 700,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[700 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[700 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 700,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815",
+     "g.[object SVGAnimatedString] r=753",
+     "circle.[object SVGAnimatedString] r=753"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[700 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 201,
+   "old": 201
+  }
+ },
+ {
+  "name": "[700 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 700,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[700 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[700 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 700,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[700 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[700 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 700,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[700 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[700 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 700,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[700 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[700 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 700,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[700 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[700 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[640 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": false,
+  "detail": {
+   "rows": 1,
+   "sw": 798,
+   "cw": 606,
+   "out": [
+    "7 Titoli",
+    "8 Emergenti"
+   ]
+  }
+ },
+ {
+  "name": "[640 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 116,
+   "oldBottom": 116
+  }
+ },
+ {
+  "name": "[640 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 116,
+   "old": 116
+  }
+ },
+ {
+  "name": "[640 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 640,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[640 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[640 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 640,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815",
+     "g.[object SVGAnimatedString] r=683",
+     "circle.[object SVGAnimatedString] r=683"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[640 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 201,
+   "old": 201
+  }
+ },
+ {
+  "name": "[640 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 640,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[640 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[640 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 640,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[640 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[640 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 640,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[640 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[640 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 640,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[640 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[640 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 640,
+    "over": [
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[640 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[640 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[601 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": false,
+  "detail": {
+   "rows": 1,
+   "sw": 798,
+   "cw": 567,
+   "out": [
+    "6 Indici",
+    "7 Titoli",
+    "8 Emergenti"
+   ]
+  }
+ },
+ {
+  "name": "[601 dark] righe di schede: 1.4.0 1 · 1.3.5 1",
+  "ok": true,
+  "detail": {
+   "new": 1,
+   "old": 1,
+   "newBottom": 116,
+   "oldBottom": 116
+  }
+ },
+ {
+  "name": "[601 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 116,
+   "old": 116
+  }
+ },
+ {
+  "name": "[601 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 601,
+    "over": [
+     "#tab-idx r=613",
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[601 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[601 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 601,
+    "over": [
+     "#tab-idx r=613",
+     "#tab-tit r=703",
+     "#tab-emg r=815",
+     "g.[object SVGAnimatedString] r=637",
+     "circle.[object SVGAnimatedString] r=637"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[601 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 234,
+   "old": 234
+  }
+ },
+ {
+  "name": "[601 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 601,
+    "over": [
+     "#tab-idx r=613",
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[601 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[601 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 601,
+    "over": [
+     "#tab-idx r=613",
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[601 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[601 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 601,
+    "over": [
+     "#tab-idx r=613",
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[601 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[601 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 601,
+    "over": [
+     "#tab-idx r=613",
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[601 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[601 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": false,
+  "detail": {
+   "new": {
+    "sw": 815,
+    "cw": 601,
+    "over": [
+     "#tab-idx r=613",
+     "#tab-tit r=703",
+     "#tab-emg r=815"
+    ]
+   },
+   "old": 703
+  }
+ },
+ {
+  "name": "[601 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 128,
+   "old": 128
+  }
+ },
+ {
+  "name": "[601 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[600 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 2,
+   "sw": 566,
+   "cw": 566,
+   "out": []
+  }
+ },
+ {
+  "name": "[600 dark] righe di schede: 1.4.0 2 · 1.3.5 2",
+  "ok": true,
+  "detail": {
+   "new": 2,
+   "old": 2,
+   "newBottom": 208,
+   "oldBottom": 210
+  }
+ },
+ {
+  "name": "[600 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 208,
+   "old": 210
+  }
+ },
+ {
+  "name": "[600 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 600,
+    "cw": 600,
+    "over": []
+   },
+   "old": 600
+  }
+ },
+ {
+  "name": "[600 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 220,
+   "old": 222
+  }
+ },
+ {
+  "name": "[600 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 600,
+    "cw": 600,
+    "over": []
+   },
+   "old": 600
+  }
+ },
+ {
+  "name": "[600 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 357,
+   "old": 359
+  }
+ },
+ {
+  "name": "[600 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 600,
+    "cw": 600,
+    "over": []
+   },
+   "old": 600
+  }
+ },
+ {
+  "name": "[600 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 220,
+   "old": 222
+  }
+ },
+ {
+  "name": "[600 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 600,
+    "cw": 600,
+    "over": []
+   },
+   "old": 600
+  }
+ },
+ {
+  "name": "[600 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 220,
+   "old": 222
+  }
+ },
+ {
+  "name": "[600 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 600,
+    "cw": 600,
+    "over": []
+   },
+   "old": 600
+  }
+ },
+ {
+  "name": "[600 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 220,
+   "old": 222
+  }
+ },
+ {
+  "name": "[600 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 600,
+    "cw": 600,
+    "over": []
+   },
+   "old": 600
+  }
+ },
+ {
+  "name": "[600 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 220,
+   "old": 222
+  }
+ },
+ {
+  "name": "[600 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 600,
+    "cw": 600,
+    "over": []
+   },
+   "old": 600
+  }
+ },
+ {
+  "name": "[600 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 220,
+   "old": 222
+  }
+ },
+ {
+  "name": "[600 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 2,
+   "sw": 356,
+   "cw": 356,
+   "out": []
+  }
+ },
+ {
+  "name": "[390 dark] righe di schede: 1.4.0 2 · 1.3.5 2",
+  "ok": true,
+  "detail": {
+   "new": 2,
+   "old": 2,
+   "newBottom": 241,
+   "oldBottom": 243
+  }
+ },
+ {
+  "name": "[390 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 241,
+   "old": 243
+  }
+ },
+ {
+  "name": "[390 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 434,
+   "old": 436
+  }
+ },
+ {
+  "name": "[390 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[390 light] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 2,
+   "sw": 356,
+   "cw": 356,
+   "out": []
+  }
+ },
+ {
+  "name": "[390 light] righe di schede: 1.4.0 2 · 1.3.5 2",
+  "ok": true,
+  "detail": {
+   "new": 2,
+   "old": 2,
+   "newBottom": 241,
+   "oldBottom": 243
+  }
+ },
+ {
+  "name": "[390 light] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 241,
+   "old": 243
+  }
+ },
+ {
+  "name": "[390 light] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 light] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 light] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 light] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 434,
+   "old": 436
+  }
+ },
+ {
+  "name": "[390 light] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 light] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 light] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 light] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 light] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 light] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 light] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 light] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 light] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 390,
+    "cw": 390,
+    "over": []
+   },
+   "old": 390
+  }
+ },
+ {
+  "name": "[390 light] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 253,
+   "old": 255
+  }
+ },
+ {
+  "name": "[390 light] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[360 dark] barra delle schede senza sporgenze (8 schede)",
+  "ok": true,
+  "detail": {
+   "rows": 2,
+   "sw": 326,
+   "cw": 326,
+   "out": []
+  }
+ },
+ {
+  "name": "[360 dark] righe di schede: 1.4.0 2 · 1.3.5 2",
+  "ok": true,
+  "detail": {
+   "new": 2,
+   "old": 2,
+   "newBottom": 255,
+   "oldBottom": 243
+  }
+ },
+ {
+  "name": "[360 dark] altezza della testata non cresce più di 16 px",
+  "ok": true,
+  "detail": {
+   "new": 255,
+   "old": 243
+  }
+ },
+ {
+  "name": "[360 dark] vista mon: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 360,
+    "cw": 360,
+    "over": []
+   },
+   "old": 360
+  }
+ },
+ {
+  "name": "[360 dark] vista mon: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 267,
+   "old": 255
+  }
+ },
+ {
+  "name": "[360 dark] vista rrg: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 360,
+    "cw": 360,
+    "over": []
+   },
+   "old": 360
+  }
+ },
+ {
+  "name": "[360 dark] vista rrg: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 448,
+   "old": 436
+  }
+ },
+ {
+  "name": "[360 dark] vista btm: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 360,
+    "cw": 360,
+    "over": []
+   },
+   "old": 360
+  }
+ },
+ {
+  "name": "[360 dark] vista btm: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 267,
+   "old": 255
+  }
+ },
+ {
+  "name": "[360 dark] vista sec: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 360,
+    "cw": 360,
+    "over": []
+   },
+   "old": 360
+  }
+ },
+ {
+  "name": "[360 dark] vista sec: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 267,
+   "old": 255
+  }
+ },
+ {
+  "name": "[360 dark] vista alr: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 360,
+    "cw": 360,
+    "over": []
+   },
+   "old": 360
+  }
+ },
+ {
+  "name": "[360 dark] vista alr: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 267,
+   "old": 255
+  }
+ },
+ {
+  "name": "[360 dark] vista idx: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 360,
+    "cw": 360,
+    "over": []
+   },
+   "old": 360
+  }
+ },
+ {
+  "name": "[360 dark] vista idx: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 267,
+   "old": 255
+  }
+ },
+ {
+  "name": "[360 dark] vista tit: nessuno scroll orizzontale nuovo",
+  "ok": true,
+  "detail": {
+   "new": {
+    "sw": 360,
+    "cw": 360,
+    "over": []
+   },
+   "old": 360
+  }
+ },
+ {
+  "name": "[360 dark] vista tit: il contenuto inizia dove prima (±16 px)",
+  "ok": true,
+  "detail": {
+   "new": 267,
+   "old": 255
+  }
+ },
+ {
+  "name": "[360 dark] console senza errori (1.4.0)",
+  "ok": true,
+  "detail": []
+ }
+]

@@ -1,0 +1,210 @@
+{
+ "problemi": [
+  "Invio sul punto IBOV → {\"view\":\"v-emg\",\"hash\":\"#emg-IBOV\",\"title\":\"IBOV · Ibovespa\",\"sel\":\"IBOV\",\"range\":\"10A\",\"focus\":\"BODY\"}"
+ ],
+ "controlli": 48,
+ "misure": [
+  [
+   "freccia destra da 8",
+   {
+    "view": "v-mon",
+    "hash": "#mon",
+    "title": "CSI300 · CSI 300",
+    "sel": "CSI300",
+    "range": "3A",
+    "focus": "tab-mon"
+   }
+  ],
+  [
+   "End sulle schede",
+   {
+    "view": "v-emg",
+    "hash": "#emg-CSI300",
+    "title": "CSI300 · CSI 300",
+    "sel": "CSI300",
+    "range": "3A",
+    "focus": "tab-emg"
+   }
+  ],
+  [
+   "DAX EMG",
+   {
+    "view": "v-mon",
+    "hash": "#mon",
+    "title": "EEM · MSCI Emerging Markets",
+    "sel": "EEM",
+    "range": "3A",
+    "focus": "cmd"
+   }
+  ],
+  [
+   "clic sulla riga già scelta: voci di storia in più",
+   0
+  ],
+  [
+   "#emg-DAX",
+   {
+    "view": "v-emg",
+    "hash": "#emg-IBOV",
+    "title": "IBOV · Ibovespa",
+    "sel": "IBOV",
+    "range": "10A",
+    "focus": "BODY"
+   }
+  ],
+  [
+   "#emg-kospi200",
+   {
+    "view": "v-emg",
+    "hash": "#emg-KOSPI200",
+    "title": "KOSPI200 · KOSPI 200",
+    "sel": "KOSPI200",
+    "range": "10A",
+    "focus": "BODY"
+   }
+  ],
+  [
+   "Spazio sulla riga",
+   {
+    "view": "v-emg",
+    "hash": "#emg-TWN",
+    "title": "TWN · Taiwan",
+    "sel": "TWN",
+    "range": "10A",
+    "focus": "TWN"
+   }
+  ],
+  [
+   "focus sul punto del quadrante",
+   {
+    "outline": "none 3px rgb(17, 17, 17)"
+   }
+  ],
+  [
+   "Apri nella vista 6",
+   {
+    "view": "v-idx",
+    "hash": "#idx",
+    "title": "IBOV · Ibovespa",
+    "sel": "IBOV",
+    "range": "10A",
+    "focus": "BODY"
+   }
+  ],
+  [
+   "link alla vista 8 nel dettaglio della vista 6",
+   [
+    [
+     "",
+     "Cambio e dollaro: vista 8 Emergenti →",
+     false
+    ]
+   ]
+  ],
+  [
+   "dati mancante (404)",
+   {
+    "loading": "Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli stati degli indici restano nella vista 6.",
+    "body": false,
+    "rows": 0,
+    "kpi": "",
+    "dots": 0,
+    "meta": ""
+   },
+   "vista 6 righe 10",
+   [
+    "http 404: http://127.0.0.1:8794/data/emerging.json",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "requestfailed: http://127.0.0.1:8794/data/emerging.json net::ERR_ABORTED"
+   ]
+  ],
+  [
+   "dati troncato",
+   {
+    "loading": "Dati della vista Emergenti non disponibili (data/emerging.json: file illeggibile). Gli stati degli indici restano nella vista 6.",
+    "body": false,
+    "rows": 0,
+    "kpi": "",
+    "dots": 0,
+    "meta": ""
+   },
+   "vista 6 righe 10",
+   []
+  ],
+  [
+   "dati vuoto",
+   {
+    "loading": "Dati della vista Emergenti non disponibili (data/emerging.json: file illeggibile). Gli stati degli indici restano nella vista 6.",
+    "body": false,
+    "rows": 0,
+    "kpi": "",
+    "dots": 0,
+    "meta": ""
+   },
+   "vista 6 righe 10",
+   []
+  ],
+  [
+   "dati oggetto vuoto",
+   {
+    "loading": "Dati della vista Emergenti non disponibili (data/emerging.json: file incompleto (manca series, asOf)). Gli stati degli indici restano nella vista 6.",
+    "body": false,
+    "rows": 0,
+    "kpi": "",
+    "dots": 0,
+    "meta": ""
+   },
+   "vista 6 righe 10",
+   []
+  ],
+  [
+   "dati senza KRW=X",
+   {
+    "loading": false,
+    "body": true,
+    "rows": 7,
+    "kpi": "DOLLARO CONTRO EMERGENTI 130,9 sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+    "krw": "—",
+    "m3u": "—",
+    "rs": "LAGGING",
+    "dots": 7,
+    "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026"
+   },
+   "vista 6 righe 10",
+   []
+  ],
+  [
+   "dati senza DTWEXEMEGS",
+   {
+    "loading": false,
+    "body": true,
+    "rows": 7,
+    "kpi": "DOLLARO CONTRO EMERGENTI — FRED non disponibile",
+    "krw": "HA SMESSO DI SCENDERE",
+    "m3u": "−7,8%",
+    "rs": "LAGGING",
+    "dots": 7,
+    "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026"
+   },
+   "vista 6 righe 10",
+   []
+  ],
+  [
+   "dati senza ACWI",
+   {
+    "loading": false,
+    "body": true,
+    "rows": 7,
+    "kpi": "DOLLARO CONTRO EMERGENTI 130,9 sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+    "krw": "HA SMESSO DI SCENDERE",
+    "m3u": "−7,8%",
+    "rs": "—",
+    "dots": 0,
+    "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026"
+   },
+   "vista 6 righe 10",
+   []
+  ]
+ ],
+ "erroriPercorsi": []
+}

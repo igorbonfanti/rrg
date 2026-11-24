@@ -1,0 +1,64 @@
+oggi 1440 px: 8 schede su 1 righe, barra alta 30 px, schede larghe 798/1406 px, la più stretta 81 px
+oggi 1280 px: 8 schede su 1 righe, barra alta 30 px, schede larghe 798/1246 px, la più stretta 81 px
+oggi 1100 px: 8 schede su 1 righe, barra alta 30 px, schede larghe 798/1066 px, la più stretta 81 px
+oggi 1024 px: 8 schede su 1 righe, barra alta 30 px, schede larghe 798/990 px, la più stretta 81 px
+oggi  960 px: 8 schede su 1 righe, barra alta 30 px, schede larghe 798/926 px, la più stretta 81 px
+oggi  900 px: 8 schede su 1 righe, barra alta 30 px, schede larghe 798/866 px, la più stretta 81 px
+oggi  861 px: 8 schede su 1 righe, barra alta 30 px, schede larghe 798/827 px, la più stretta 81 px
+oggi  860 px: 8 schede su 2 righe, barra alta 60 px, schede larghe 826/826 px, la più stretta 206 px
+oggi  820 px: 8 schede su 2 righe, barra alta 60 px, schede larghe 786/786 px, la più stretta 196 px
+oggi  768 px: 8 schede su 2 righe, barra alta 60 px, schede larghe 734/734 px, la più stretta 183 px
+oggi  601 px: 8 schede su 2 righe, barra alta 60 px, schede larghe 567/567 px, la più stretta 141 px
+oggi  600 px: 8 schede su 2 righe, barra alta 62 px, schede larghe 566/566 px, la più stretta 141 px
+oggi  414 px: 8 schede su 2 righe, barra alta 70 px, schede larghe 380/380 px, la più stretta 94 px
+oggi  390 px: 8 schede su 2 righe, barra alta 70 px, schede larghe 356/356 px, la più stretta 88 px
+oggi  375 px: 8 schede su 2 righe, barra alta 84 px, schede larghe 341/341 px, la più stretta 85 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore
+oggi  360 px: 8 schede su 2 righe, barra alta 84 px, schede larghe 326/326 px, la più stretta 81 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore
+A    1440 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/1406 px, la più stretta 66 px
+A    1280 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/1246 px, la più stretta 66 px
+A    1100 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/1066 px, la più stretta 66 px
+A    1024 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/990 px, la più stretta 66 px
+A     960 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/926 px, la più stretta 66 px
+A     900 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/866 px, la più stretta 66 px
+A     861 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/827 px, la più stretta 66 px, PAGINA CHE SCORRE
+A     860 px: 9 schede su 3 righe, barra alta 90 px, schede larghe 826/826 px, la più stretta 206 px
+A     820 px: 9 schede su 3 righe, barra alta 90 px, schede larghe 786/786 px, la più stretta 196 px
+A     768 px: 9 schede su 3 righe, barra alta 90 px, schede larghe 734/734 px, la più stretta 183 px
+A     601 px: 9 schede su 3 righe, barra alta 90 px, schede larghe 567/567 px, la più stretta 141 px
+A     600 px: 9 schede su 3 righe, barra alta 93 px, schede larghe 566/566 px, la più stretta 141 px
+A     414 px: 9 schede su 3 righe, barra alta 105 px, schede larghe 380/380 px, la più stretta 94 px
+A     390 px: 9 schede su 3 righe, barra alta 105 px, schede larghe 356/356 px, la più stretta 88 px
+A     375 px: 9 schede su 3 righe, barra alta 119 px, schede larghe 341/341 px, la più stretta 85 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore
+A     360 px: 9 schede su 3 righe, barra alta 119 px, schede larghe 326/326 px, la più stretta 81 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore
+B    1440 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/1406 px, la più stretta 66 px
+B    1280 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/1246 px, la più stretta 66 px
+B    1100 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/1066 px, la più stretta 56 px
+B    1024 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/990 px, la più stretta 56 px
+B     960 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/926 px, la più stretta 56 px
+B     900 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/866 px, la più stretta 56 px
+B     861 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/827 px, la più stretta 56 px
+B     860 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 826/826 px, la più stretta 164 px
+B     820 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 786/786 px, la più stretta 156 px
+B     768 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 734/734 px, la più stretta 146 px
+B     601 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 567/567 px, la più stretta 113 px
+B     600 px: 9 schede su 2 righe, barra alta 62 px, schede larghe 566/566 px, la più stretta 112 px
+B     414 px: 9 schede su 2 righe, barra alta 98 px, schede larghe 380/380 px, la più stretta 75 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert
+B     390 px: 9 schede su 2 righe, barra alta 98 px, schede larghe 356/356 px, la più stretta 70 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert
+B     375 px: 9 schede su 2 righe, barra alta 98 px, schede larghe 341/341 px, la più stretta 67 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert
+B     360 px: 9 schede su 2 righe, barra alta 98 px, schede larghe 326/326 px, la più stretta 64 px, a capo o tagliate: 1 Monitor, 2 Rotazione, 3 Bottom Map, 4 Settore, 5 Titoli, 6 Indici, 7 Emergenti, 8 VIX, 9 Alert
+C    1440 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/1406 px, la più stretta 66 px
+C    1280 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 865/1246 px, la più stretta 66 px
+C    1100 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/1066 px, la più stretta 56 px
+C    1024 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/990 px, la più stretta 56 px
+C     960 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/926 px, la più stretta 56 px
+C     900 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/866 px, la più stretta 56 px
+C     861 px: 9 schede su 1 righe, barra alta 30 px, schede larghe 775/827 px, la più stretta 56 px
+C     860 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 826/826 px, la più stretta 164 px
+C     820 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 786/786 px, la più stretta 156 px
+C     768 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 734/734 px, la più stretta 146 px
+C     601 px: 9 schede su 2 righe, barra alta 60 px, schede larghe 567/567 px, la più stretta 113 px
+C     600 px: 9 schede su 3 righe, barra alta 93 px, schede larghe 566/566 px, la più stretta 188 px
+C     414 px: 9 schede su 3 righe, barra alta 105 px, schede larghe 380/380 px, la più stretta 126 px
+C     390 px: 9 schede su 3 righe, barra alta 105 px, schede larghe 356/356 px, la più stretta 118 px
+C     375 px: 9 schede su 3 righe, barra alta 105 px, schede larghe 341/341 px, la più stretta 113 px
+C     360 px: 9 schede su 3 righe, barra alta 105 px, schede larghe 326/326 px, la più stretta 108 px

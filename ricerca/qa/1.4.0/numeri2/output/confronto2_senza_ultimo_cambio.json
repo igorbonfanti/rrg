@@ -1,0 +1,28 @@
+{
+ "ok": 94,
+ "diversi": 0,
+ "tips": 0,
+ "elenco": [],
+ "log": [
+  "dollaro 2026-10-30 130.8602 sma200 128.6171 ch63 1.9633 D 0",
+  "CSI300: data 2026-11-03 (breadth 2026-11-03) b 22.22222222222222 dd -19.623 3m -12.1323 3m$ -10.571326577203388 al 2026-11-03  usd[t-63] 0.6882842405521645 fx Normale",
+  "NIFTY50: data 2026-11-04 (breadth 2026-11-04) b 46.0 dd -8.994 3m -2.6581 3m$ -3.2653183923011864 al 2026-11-03 (ritardo) usd[t-63] 259.85210824417874 fx Ha smesso di scendere",
+  "IBOV: data 2026-11-04 (breadth 2026-11-04) b 18.42105263157895 dd -19.852 3m -5.8077 3m$ -13.154107407818483 al 2026-11-03 (ritardo) usd[t-63] 35060.76542772164 fx In calo forte",
+  "KOSPI200: data 2026-11-04 (breadth 2026-11-04) b 17.5 dd -37.640 3m -13.8224 3m$ 6.937847213925008 al 2026-11-03 (ritardo) usd[t-63] 3.92792387907728 fx Ha smesso di scendere",
+  "TWN: data 2026-11-04 (breadth 2026-11-04) b 68.91891891891892 dd -13.796 3m -0.3962 3m$ 7.767076289371322 al 2026-11-03 (ritardo) usd[t-63] 1233.270537368746 fx Normale",
+  "HSI: data 2026-11-04 (breadth 2026-11-04) b 35.294117647058826 dd -14.476 3m -7.7031 3m$ -9.041316154280887 al 2026-11-03 (ritardo) usd[t-63] 3296.3890447289227 fx Agganciato",
+  "EEM: data 2026-11-04 (breadth 2026-11-04) b 30.21390374331551 dd -13.467 3m -5.2292 3m$ -5.229160258382038 al 2026-11-04  usd[t-63] 65.02 fx In dollari",
+  "CSI300: z -1.0781 F 0 sd 0.01456 cambio 6.648 al 2026-11-03 tolti []",
+  "NIFTY50: z -0.4254 F 1 sd 0.01619 cambio 94.7254 al 2026-11-03 tolti []",
+  "IBOV: z 1.3767 F 0 sd 0.04495 cambio 5.4363 al 2026-11-03 tolti []",
+  "KOSPI200: z -1.3286 F 1 sd 0.04490 cambio 1344.81 al 2026-11-03 tolti []",
+  "TWN: z 0.1583 F 0 sd 0.03598 cambio 32.5851 al 2026-11-03 tolti []",
+  "CSI300 RS 2026-11-04 ratio 97.7331 mom 98.8161 Lagging",
+  "NIFTY50 RS 2026-11-04 ratio 98.5689 mom 101.6674 Improving",
+  "IBOV RS 2026-11-04 ratio 99.9168 mom 99.5499 Lagging",
+  "KOSPI200 RS 2026-11-04 ratio 99.9927 mom 98.3837 Lagging",
+  "TWN RS 2026-11-04 ratio 101.2638 mom 97.8318 Weakening",
+  "HSI RS 2026-11-04 ratio 99.5271 mom 100.9654 Improving",
+  "EEM RS 2026-11-04 ratio 99.2792 mom 98.3733 Lagging"
+ ]
+}

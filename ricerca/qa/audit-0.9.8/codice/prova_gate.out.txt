@@ -1,0 +1,3 @@
+cron «40 22 * * 1-5»: uscita 1, GITHUB_OUTPUT=«», TypeError: Cannot read properties of undefined (reading 'map')
+cron «10 1-6 * * 2-6»: uscita 1, GITHUB_OUTPUT=«», TypeError: Cannot read properties of undefined (reading 'map')
+Con uscita ≠ 0 il job gate fallisce e il job update (needs: gate) non parte: anche la corsa delle 22:40 salta.

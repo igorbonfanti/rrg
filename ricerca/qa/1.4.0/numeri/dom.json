@@ -1,0 +1,1761 @@
+{
+ "errors": [],
+ "kpis": [
+  {
+   "k": "Dollaro contro emergenti",
+   "v": "130,9",
+   "s": "sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+   "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+  },
+  {
+   "k": "Emergenti in zona blu",
+   "v": "1 / 7",
+   "s": "KOSPI200",
+   "title": "Stato della vista 6 (breadth contro il livello blu)."
+  },
+  {
+   "k": "In attenzione",
+   "v": "2 / 7",
+   "s": "CSI300 · IBOV",
+   "title": "Stato della vista 6."
+  },
+  {
+   "k": "Valute in calo forte",
+   "v": "1 / 5 con dati",
+   "s": "IBOV",
+   "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+  },
+  {
+   "k": "Valute ferme dopo un calo",
+   "v": "2 / 5 con dati",
+   "s": "NIFTY50 · KOSPI200",
+   "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+  }
+ ],
+ "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+ "miss": null,
+ "table": [
+  {
+   "k": "CSI300",
+   "state": "Attenzione",
+   "breadth": "22,2%",
+   "blue": "14%",
+   "dd": "−19,6%",
+   "fx": "Normale",
+   "fxTitle": "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+   "m3": "−12,1%",
+   "m3u": "−10,5%",
+   "m3uTitle": "indice diviso per il cambio CNY=X dello stesso giorno",
+   "rs": "Lagging",
+   "rsTitle": "ASHR contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "NIFTY50",
+   "state": "Normale",
+   "breadth": "46,0%",
+   "blue": "10%",
+   "dd": "−9,0%",
+   "fx": "Ha smesso di scendere",
+   "fxTitle": "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+   "m3": "−2,7%",
+   "m3u": "−2,1%",
+   "m3uTitle": "indice diviso per il cambio INR=X dello stesso giorno",
+   "rs": "Improving",
+   "rsTitle": "INDA contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "IBOV",
+   "state": "Attenzione",
+   "breadth": "18,4%",
+   "blue": "11%",
+   "dd": "−19,9%",
+   "fx": "In calo forte",
+   "fxTitle": "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+   "m3": "−5,8%",
+   "m3u": "−12,4%",
+   "m3uTitle": "indice diviso per il cambio BRL=X dello stesso giorno",
+   "rs": "Lagging",
+   "rsTitle": "EWZ contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "KOSPI200",
+   "state": "Zona blu",
+   "breadth": "17,5%",
+   "blue": "15%",
+   "dd": "−37,6%",
+   "fx": "Ha smesso di scendere",
+   "fxTitle": "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+   "m3": "−13,8%",
+   "m3u": "−8,8%",
+   "m3uTitle": "indice diviso per il cambio KRW=X dello stesso giorno",
+   "rs": "Lagging",
+   "rsTitle": "EWY contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "TWN",
+   "state": "Normale",
+   "breadth": "68,9%",
+   "blue": "8%",
+   "dd": "−13,8%",
+   "fx": "Normale",
+   "fxTitle": "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+   "m3": "−0,4%",
+   "m3u": "−1,4%",
+   "m3uTitle": "indice diviso per il cambio TWD=X dello stesso giorno",
+   "rs": "Weakening",
+   "rsTitle": "EWT contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "HSI",
+   "state": "Normale",
+   "breadth": "35,3%",
+   "blue": "8%",
+   "dd": "−14,5%",
+   "fx": "Agganciato",
+   "fxTitle": null,
+   "m3": "−7,7%",
+   "m3u": "−7,8%",
+   "m3uTitle": "indice diviso per il cambio HKD=X dello stesso giorno",
+   "rs": "Improving",
+   "rsTitle": "EWH contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "EEM",
+   "state": "Normale",
+   "breadth": "30,2%",
+   "blue": "15%",
+   "dd": "−13,5%",
+   "fx": "In dollari",
+   "fxTitle": null,
+   "m3": "−5,2%",
+   "m3u": "−5,2%",
+   "m3uTitle": "EEM è già in dollari",
+   "rs": "Lagging",
+   "rsTitle": "EEM contro ACWI, settimanale, al 04/11/2026"
+  }
+ ],
+ "rsDots": [
+  "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+  "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+  "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+  "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+  "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+  "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+  "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+ ],
+ "detail": {
+  "CSI300": {
+   "hash": "#emg-CSI300",
+   "title": "CSI300 · CSI 300",
+   "state": "Attenzione",
+   "dmeta": "breadth 22,2% · livello blu 14% · dati al 03/11/2026",
+   "notes": [
+    "Il cambio CNY è gestito dalla banca centrale e si muove poco: anche i movimenti piccoli contano.",
+    "9 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con ASHR (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026",
+   "legend": "in valuta localein dollarizona blutriggervaluta in calo fortevaluta che ha smesso di scenderedollaro contro emergentisua media 200dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M118.4 210.5L114.2 210.5L113.5 202.8L109.0 205.2L102.6 211.1L96.4 215.4L89.2 221.1L82.3 224.7L74.9 228.4L73.2 219.0",
+   "tips": {
+    "3A:2013-03-18": null,
+    "3A:2016-11-17": null,
+    "3A:2017-04-24": null,
+    "3A:2023-08-22": null,
+    "3A:2023-08-24": null,
+    "3A:2023-09-04": null,
+    "3A:2023-10-16": null,
+    "3A:2023-10-30": null,
+    "3A:2023-11-13": [
+     "13/11/2023CSI300 · attenzione",
+     "Prezzo3,65",
+     "In dollari (base 100)—",
+     "Sopra media 20021,1%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti128,67"
+    ],
+    "3A:2023-11-20": [
+     "20/11/2023CSI300 · normale",
+     "Prezzo3,65",
+     "In dollari (base 100)99,7",
+     "Sopra media 20024,2%",
+     "CNY per dollaro7,2097",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti126,31"
+    ],
+    "3A:2025-01-17": [
+     "17/01/2025CSI300 · normale",
+     "Prezzo3,90",
+     "In dollari (base 100)104,9",
+     "Sopra media 20053,7%",
+     "CNY per dollaro7,3310",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti139,00"
+    ],
+    "3A:2025-04-21": [
+     "21/04/2025CSI300 · normale",
+     "Prezzo3,88",
+     "In dollari (base 100)—",
+     "Sopra media 20047,3%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti135,63"
+    ],
+    "3A:2025-07-15": [
+     "15/07/2025CSI300 · normale",
+     "Prezzo4,08",
+     "In dollari (base 100)112,2",
+     "Sopra media 20047,0%",
+     "CNY per dollaro7,1670",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti131,86"
+    ],
+    "3A:2025-08-04": [
+     "04/08/2025CSI300 · normale",
+     "Prezzo4,15",
+     "In dollari (base 100)113,5",
+     "Sopra media 20053,0%",
+     "CNY per dollaro7,2116",
+     "ValutaNormale",
+     "Dollaro vs emergenti132,44"
+    ],
+    "3A:2025-12-25": [
+     "25/12/2025CSI300 · normale",
+     "Prezzo4,77",
+     "In dollari (base 100)—",
+     "Sopra media 20058,4%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-07-29": [
+     "29/07/2026CSI300 · normale",
+     "Prezzo4,66",
+     "In dollari (base 100)135,6",
+     "Sopra media 20025,5%",
+     "CNY per dollaro6,7710",
+     "ValutaNormale",
+     "Dollaro vs emergenti129,11"
+    ],
+    "3A:2026-11-02": [
+     "02/11/2026CSI300 · attenzione",
+     "Prezzo4,08",
+     "In dollari (base 100)120,9",
+     "Sopra media 20019,5%",
+     "CNY per dollaro6,6610",
+     "ValutaNormale",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-11-03": [
+     "03/11/2026CSI300 · attenzione",
+     "Prezzo4,09",
+     "In dollari (base 100)121,4",
+     "Sopra media 20022,2%",
+     "CNY per dollaro6,6480",
+     "ValutaNormale",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2013-03-18": [
+     "18/03/2013CSI300",
+     "Prezzo2,50",
+     "In dollari (base 100)—",
+     "Sopra media 20056,6%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti94,73"
+    ],
+    "MAX:2016-11-17": [
+     "17/11/2016CSI300 · normale",
+     "Prezzo3,49",
+     "In dollari (base 100)—",
+     "Sopra media 20081,3%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti122,44"
+    ],
+    "MAX:2017-04-24": [
+     "24/04/2017CSI300 · normale",
+     "Prezzo3,42",
+     "In dollari (base 100)—",
+     "Sopra media 20054,3%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti118,32"
+    ],
+    "MAX:2023-08-22": [
+     "22/08/2023CSI300 · normale",
+     "Prezzo3,82",
+     "In dollari (base 100)—",
+     "Sopra media 20038,9%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti126,83"
+    ],
+    "MAX:2023-08-24": [
+     "24/08/2023CSI300 · normale",
+     "Prezzo3,79",
+     "In dollari (base 100)—",
+     "Sopra media 20031,9%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti126,31"
+    ],
+    "MAX:2023-09-04": [
+     "04/09/2023CSI300 · normale",
+     "Prezzo3,92",
+     "In dollari (base 100)—",
+     "Sopra media 20043,3%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2023-10-16": [
+     "16/10/2023CSI300 · normale",
+     "Prezzo3,69",
+     "In dollari (base 100)—",
+     "Sopra media 20028,2%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti130,26"
+    ],
+    "MAX:2023-10-30": [
+     "30/10/2023CSI300 · attenzione",
+     "Prezzo3,65",
+     "In dollari (base 100)—",
+     "Sopra media 20023,5%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti130,26"
+    ],
+    "MAX:2023-11-13": null,
+    "MAX:2023-11-20": [
+     "20/11/2023CSI300 · normale",
+     "Prezzo3,65",
+     "In dollari (base 100)117,1",
+     "Sopra media 20024,2%",
+     "CNY per dollaro7,2097",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti126,31"
+    ],
+    "MAX:2025-01-17": [
+     "17/01/2025CSI300 · normale",
+     "Prezzo3,90",
+     "In dollari (base 100)123,2",
+     "Sopra media 20053,7%",
+     "CNY per dollaro7,3310",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti139,00"
+    ],
+    "MAX:2025-04-21": null,
+    "MAX:2025-07-15": [
+     "15/07/2025CSI300 · normale",
+     "Prezzo4,08",
+     "In dollari (base 100)131,8",
+     "Sopra media 20047,0%",
+     "CNY per dollaro7,1670",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti131,86"
+    ],
+    "MAX:2025-08-04": [
+     "04/08/2025CSI300 · normale",
+     "Prezzo4,15",
+     "In dollari (base 100)133,4",
+     "Sopra media 20053,0%",
+     "CNY per dollaro7,2116",
+     "ValutaNormale",
+     "Dollaro vs emergenti132,44"
+    ],
+    "MAX:2025-12-25": [
+     "25/12/2025CSI300 · normale",
+     "Prezzo4,77",
+     "In dollari (base 100)—",
+     "Sopra media 20058,4%",
+     "CNY per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2026-07-29": [
+     "29/07/2026CSI300 · normale",
+     "Prezzo4,66",
+     "In dollari (base 100)159,3",
+     "Sopra media 20025,5%",
+     "CNY per dollaro6,7710",
+     "ValutaNormale",
+     "Dollaro vs emergenti129,11"
+    ],
+    "MAX:2026-11-02": null,
+    "MAX:2026-11-03": [
+     "03/11/2026CSI300 · attenzione",
+     "Prezzo4,09",
+     "In dollari (base 100)142,6",
+     "Sopra media 20022,2%",
+     "CNY per dollaro6,6480",
+     "ValutaNormale",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ]
+   }
+  },
+  "NIFTY50": {
+   "hash": "#emg-NIFTY50",
+   "title": "NIFTY50 · Nifty 50",
+   "state": "Normale",
+   "dmeta": "breadth 46,0% · livello blu 10% · dati al 04/11/2026",
+   "notes": [
+    "Il cambio INR è gestito dalla banca centrale e si muove poco: anche i movimenti piccoli contano.",
+    "3 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con INDA (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026",
+   "legend": "in valuta localein dollarizona blutriggervaluta in calo fortevaluta che ha smesso di scenderedollaro contro emergentisua media 200dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M75.1 146.4L74.9 151.8L73.5 158.7L70.8 167.1L65.9 178.2L58.8 191.7L78.0 144.5L81.0 143.3L92.6 123.6L108.5 98.6",
+   "tips": {
+    "3A:2012-01-30": null,
+    "3A:2012-01-31": null,
+    "3A:2013-09-04": null,
+    "3A:2023-11-06": [
+     "06/11/2023NIFTY50 · normale",
+     "Prezzo19412",
+     "In dollari (base 100)100,0",
+     "Sopra media 20088,0%",
+     "INR per dollaro83,16",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti127,96"
+    ],
+    "3A:2025-04-21": [
+     "21/04/2025NIFTY50 · normale",
+     "Prezzo24126",
+     "In dollari (base 100)—",
+     "Sopra media 20046,0%",
+     "INR per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti135,63"
+    ],
+    "3A:2025-08-14": [
+     "14/08/2025NIFTY50 · normale",
+     "Prezzo24631",
+     "In dollari (base 100)120,7",
+     "Sopra media 20066,0%",
+     "INR per dollaro87,45",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti132,21"
+    ],
+    "3A:2026-01-01": [
+     "01/01/2026NIFTY50 · normale",
+     "Prezzo26147",
+     "In dollari (base 100)—",
+     "Sopra media 20068,0%",
+     "INR per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-08-04": [
+     "04/08/2026NIFTY50 · normale",
+     "Prezzo24615",
+     "In dollari (base 100)110,6",
+     "Sopra media 20056,0%",
+     "INR per dollaro95,33",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti128,18"
+    ],
+    "3A:2026-09-17": [
+     "17/09/2026NIFTY50 · normale",
+     "Prezzo23271",
+     "In dollari (base 100)103,7",
+     "Sopra media 20030,0%",
+     "INR per dollaro96,13",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti127,49"
+    ],
+    "3A:2026-11-03": [
+     "03/11/2026NIFTY50 · normale",
+     "Prezzo23811",
+     "In dollari (base 100)107,7",
+     "Sopra media 20042,0%",
+     "INR per dollaro94,73",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-11-04": [
+     "04/11/2026NIFTY50 · normale",
+     "Prezzo23961",
+     "In dollari (base 100)108,3",
+     "Sopra media 20046,0%",
+     "INR per dollaro94,75",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2012-01-30": [
+     "30/01/2012NIFTY50 · normale",
+     "Prezzo5087",
+     "In dollari (base 100)—",
+     "Sopra media 20048,8%",
+     "INR per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti95,39"
+    ],
+    "MAX:2012-01-31": null,
+    "MAX:2013-09-04": null,
+    "MAX:2023-11-06": [
+     "06/11/2023NIFTY50 · normale",
+     "Prezzo19412",
+     "In dollari (base 100)209,7",
+     "Sopra media 20088,0%",
+     "INR per dollaro83,16",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti127,96"
+    ],
+    "MAX:2025-04-21": [
+     "21/04/2025NIFTY50 · normale",
+     "Prezzo24126",
+     "In dollari (base 100)—",
+     "Sopra media 20046,0%",
+     "INR per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti135,63"
+    ],
+    "MAX:2025-08-14": [
+     "14/08/2025NIFTY50 · normale",
+     "Prezzo24631",
+     "In dollari (base 100)253,0",
+     "Sopra media 20066,0%",
+     "INR per dollaro87,45",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti132,21"
+    ],
+    "MAX:2026-01-01": null,
+    "MAX:2026-08-04": null,
+    "MAX:2026-09-17": [
+     "17/09/2026NIFTY50 · normale",
+     "Prezzo23271",
+     "In dollari (base 100)217,5",
+     "Sopra media 20030,0%",
+     "INR per dollaro96,13",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti127,49"
+    ],
+    "MAX:2026-11-03": null,
+    "MAX:2026-11-04": [
+     "04/11/2026NIFTY50 · normale",
+     "Prezzo23961",
+     "In dollari (base 100)227,2",
+     "Sopra media 20046,0%",
+     "INR per dollaro94,75",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ]
+   }
+  },
+  "IBOV": {
+   "hash": "#emg-IBOV",
+   "title": "IBOV · Ibovespa",
+   "state": "Attenzione",
+   "dmeta": "breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+   "notes": [
+    "16 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026",
+   "legend": "in valuta localein dollarizona blutriggervaluta in calo fortevaluta che ha smesso di scenderedollaro contro emergentisua media 200dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M141.5 165.8L150.1 147.7L155.4 140.6L156.2 145.2L162.3 137.2L180.2 104.8L191.2 94.9L202.0 87.6L177.3 159.9L165.5 188.0",
+   "tips": {
+    "3A:2006-05-08": null,
+    "3A:2006-07-14": null,
+    "3A:2006-08-16": null,
+    "3A:2008-10-14": null,
+    "3A:2009-10-23": null,
+    "3A:2010-03-02": null,
+    "3A:2010-08-30": null,
+    "3A:2010-09-20": null,
+    "3A:2010-10-04": null,
+    "3A:2010-10-18": null,
+    "3A:2010-10-25": null,
+    "3A:2010-11-01": null,
+    "3A:2011-01-10": null,
+    "3A:2011-01-27": null,
+    "3A:2017-07-03": null,
+    "3A:2020-05-11": null,
+    "3A:2023-11-06": [
+     "06/11/2023IBOV · normale",
+     "Prezzo118487",
+     "In dollari (base 100)100,0",
+     "Sopra media 20057,3%",
+     "BRL per dollaro4,8992",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti127,96"
+    ],
+    "3A:2025-08-21": [
+     "21/08/2025IBOV · normale",
+     "Prezzo134511",
+     "In dollari (base 100)101,7",
+     "Sopra media 20059,2%",
+     "BRL per dollaro5,4692",
+     "ValutaNormale",
+     "Dollaro vs emergenti132,52"
+    ],
+    "3A:2026-06-18": [
+     "18/06/2026IBOV · normale",
+     "Prezzo168278",
+     "In dollari (base 100)135,8",
+     "Sopra media 20030,3%",
+     "BRL per dollaro5,1221",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti128,92"
+    ],
+    "3A:2026-08-04": [
+     "04/08/2026IBOV · normale",
+     "Prezzo177895",
+     "In dollari (base 100)144,1",
+     "Sopra media 20035,5%",
+     "BRL per dollaro5,1029",
+     "ValutaNormale",
+     "Dollaro vs emergenti128,18"
+    ],
+    "3A:2026-11-03": [
+     "03/11/2026IBOV · attenzione",
+     "Prezzo165529",
+     "In dollari (base 100)125,9",
+     "Sopra media 20015,8%",
+     "BRL per dollaro5,4363",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-11-04": [
+     "04/11/2026IBOV · attenzione",
+     "Prezzo167563",
+     "In dollari (base 100)126,3",
+     "Sopra media 20018,4%",
+     "BRL per dollaro5,4870",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2006-05-08": null,
+    "MAX:2006-07-14": [
+     "14/07/2006IBOV",
+     "Prezzo35350",
+     "In dollari (base 100)—",
+     "Sopra media 200—",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti100,59"
+    ],
+    "MAX:2006-08-16": null,
+    "MAX:2008-10-14": null,
+    "MAX:2009-10-23": [
+     "23/10/2009IBOV · normale",
+     "Prezzo65059",
+     "In dollari (base 100)—",
+     "Sopra media 20090,0%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti98,73"
+    ],
+    "MAX:2010-03-02": [
+     "02/03/2010IBOV · normale",
+     "Prezzo67779",
+     "In dollari (base 100)—",
+     "Sopra media 20073,6%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti98,11"
+    ],
+    "MAX:2010-08-30": null,
+    "MAX:2010-09-20": null,
+    "MAX:2010-10-04": [
+     "04/10/2010IBOV · normale",
+     "Prezzo70385",
+     "In dollari (base 100)—",
+     "Sopra media 20069,8%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti95,71"
+    ],
+    "MAX:2010-10-18": [
+     "18/10/2010IBOV · normale",
+     "Prezzo71736",
+     "In dollari (base 100)—",
+     "Sopra media 20071,7%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti94,85"
+    ],
+    "MAX:2010-10-25": [
+     "25/10/2010IBOV · normale",
+     "Prezzo69580",
+     "In dollari (base 100)—",
+     "Sopra media 20070,4%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti94,83"
+    ],
+    "MAX:2010-11-01": [
+     "01/11/2010IBOV · normale",
+     "Prezzo71561",
+     "In dollari (base 100)—",
+     "Sopra media 20072,2%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti95,04"
+    ],
+    "MAX:2011-01-10": [
+     "10/01/2011IBOV · normale",
+     "Prezzo70127",
+     "In dollari (base 100)—",
+     "Sopra media 20066,7%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti94,71"
+    ],
+    "MAX:2011-01-27": null,
+    "MAX:2017-07-03": [
+     "03/07/2017IBOV · normale",
+     "Prezzo63280",
+     "In dollari (base 100)—",
+     "Sopra media 20059,7%",
+     "BRL per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti117,63"
+    ],
+    "MAX:2020-05-11": null,
+    "MAX:2023-11-06": [
+     "06/11/2023IBOV · normale",
+     "Prezzo118487",
+     "In dollari (base 100)138,7",
+     "Sopra media 20057,3%",
+     "BRL per dollaro4,8992",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti127,96"
+    ],
+    "MAX:2025-08-21": null,
+    "MAX:2026-06-18": [
+     "18/06/2026IBOV · normale",
+     "Prezzo168278",
+     "In dollari (base 100)188,4",
+     "Sopra media 20030,3%",
+     "BRL per dollaro5,1221",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti128,92"
+    ],
+    "MAX:2026-08-04": null,
+    "MAX:2026-11-03": null,
+    "MAX:2026-11-04": [
+     "04/11/2026IBOV · attenzione",
+     "Prezzo167563",
+     "In dollari (base 100)175,1",
+     "Sopra media 20018,4%",
+     "BRL per dollaro5,4870",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ]
+   }
+  },
+  "KOSPI200": {
+   "hash": "#emg-KOSPI200",
+   "title": "KOSPI200 · KOSPI 200",
+   "state": "Zona blu",
+   "dmeta": "breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+   "notes": [
+    "18 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026",
+   "legend": "in valuta localein dollarizona blutriggervaluta in calo fortevaluta che ha smesso di scenderedollaro contro emergentisua media 200dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M216.6 208.9L218.0 197.0L216.0 195.2L215.6 190.2L217.0 182.4L210.2 194.3L193.1 226.4L182.8 236.1L175.7 236.8L168.7 237.3",
+   "tips": {
+    "3A:2005-10-27": null,
+    "3A:2006-08-29": null,
+    "3A:2006-09-26": null,
+    "3A:2006-12-20": null,
+    "3A:2006-12-26": null,
+    "3A:2007-02-20": null,
+    "3A:2007-02-21": null,
+    "3A:2007-02-22": null,
+    "3A:2008-03-21": null,
+    "3A:2008-03-24": null,
+    "3A:2008-09-16": null,
+    "3A:2008-09-17": null,
+    "3A:2010-05-18": null,
+    "3A:2013-01-14": null,
+    "3A:2013-05-09": null,
+    "3A:2023-11-06": [
+     "06/11/2023KOSPI200 · normale",
+     "Prezzo2502",
+     "In dollari (base 100)100,0",
+     "Sopra media 20044,6%",
+     "KRW per dollaro1307,84",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti127,96"
+    ],
+    "3A:2025-04-18": [
+     "18/04/2025KOSPI200 · normale",
+     "Prezzo2483",
+     "In dollari (base 100)—",
+     "Sopra media 20039,4%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti136,06"
+    ],
+    "3A:2025-04-21": [
+     "21/04/2025KOSPI200 · normale",
+     "Prezzo2488",
+     "In dollari (base 100)—",
+     "Sopra media 20040,4%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti135,63"
+    ],
+    "3A:2025-08-08": [
+     "08/08/2025KOSPI200 · normale",
+     "Prezzo3210",
+     "In dollari (base 100)121,1",
+     "Sopra media 20082,4%",
+     "KRW per dollaro1384,97",
+     "ValutaNormale",
+     "Dollaro vs emergenti131,68"
+    ],
+    "3A:2026-07-07": [
+     "07/07/2026KOSPI200 · normale",
+     "Prezzo7656",
+     "In dollari (base 100)261,7",
+     "Sopra media 20042,0%",
+     "KRW per dollaro1528,76",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti129,48"
+    ],
+    "3A:2026-07-31": [
+     "31/07/2026KOSPI200 · attenzione",
+     "Prezzo6595",
+     "In dollari (base 100)242,6",
+     "Sopra media 20030,0%",
+     "KRW per dollaro1420,60",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti128,34"
+    ],
+    "3A:2026-11-03": [
+     "03/11/2026KOSPI200 · zona blu",
+     "Prezzo5649",
+     "In dollari (base 100)219,5",
+     "Sopra media 20016,0%",
+     "KRW per dollaro1344,81",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-11-04": [
+     "04/11/2026KOSPI200 · zona blu",
+     "Prezzo5684",
+     "In dollari (base 100)221,2",
+     "Sopra media 20017,5%",
+     "KRW per dollaro1342,90",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2005-10-27": null,
+    "MAX:2006-08-29": null,
+    "MAX:2006-09-26": [
+     "26/09/2006KOSPI200",
+     "Prezzo1344",
+     "In dollari (base 100)—",
+     "Sopra media 200—",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti99,96"
+    ],
+    "MAX:2006-12-20": null,
+    "MAX:2006-12-26": [
+     "26/12/2006KOSPI200 · normale",
+     "Prezzo1434",
+     "In dollari (base 100)—",
+     "Sopra media 20075,4%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti98,21"
+    ],
+    "MAX:2007-02-20": null,
+    "MAX:2007-02-21": [
+     "21/02/2007KOSPI200 · normale",
+     "Prezzo1451",
+     "In dollari (base 100)—",
+     "Sopra media 20067,2%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti97,89"
+    ],
+    "MAX:2007-02-22": null,
+    "MAX:2008-03-21": [
+     "21/03/2008KOSPI200 · normale",
+     "Prezzo1646",
+     "In dollari (base 100)—",
+     "Sopra media 20026,0%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti91,43"
+    ],
+    "MAX:2008-03-24": [
+     "24/03/2008KOSPI200 · attenzione",
+     "Prezzo1655",
+     "In dollari (base 100)—",
+     "Sopra media 20023,6%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti91,38"
+    ],
+    "MAX:2008-09-16": null,
+    "MAX:2008-09-17": null,
+    "MAX:2010-05-18": [
+     "18/05/2010KOSPI200 · normale",
+     "Prezzo1643",
+     "In dollari (base 100)—",
+     "Sopra media 20047,4%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti97,74"
+    ],
+    "MAX:2013-01-14": [
+     "14/01/2013KOSPI200 · normale",
+     "Prezzo2007",
+     "In dollari (base 100)—",
+     "Sopra media 20069,8%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti94,66"
+    ],
+    "MAX:2013-05-09": [
+     "09/05/2013KOSPI200 · normale",
+     "Prezzo1979",
+     "In dollari (base 100)—",
+     "Sopra media 20055,7%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti93,14"
+    ],
+    "MAX:2023-11-06": [
+     "06/11/2023KOSPI200 · normale",
+     "Prezzo2502",
+     "In dollari (base 100)284,0",
+     "Sopra media 20044,6%",
+     "KRW per dollaro1307,84",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti127,96"
+    ],
+    "MAX:2025-04-18": [
+     "18/04/2025KOSPI200 · normale",
+     "Prezzo2483",
+     "In dollari (base 100)—",
+     "Sopra media 20039,4%",
+     "KRW per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti136,06"
+    ],
+    "MAX:2025-04-21": null,
+    "MAX:2025-08-08": [
+     "08/08/2025KOSPI200 · normale",
+     "Prezzo3210",
+     "In dollari (base 100)344,0",
+     "Sopra media 20082,4%",
+     "KRW per dollaro1384,97",
+     "ValutaNormale",
+     "Dollaro vs emergenti131,68"
+    ],
+    "MAX:2026-07-07": [
+     "07/07/2026KOSPI200 · normale",
+     "Prezzo7656",
+     "In dollari (base 100)743,4",
+     "Sopra media 20042,0%",
+     "KRW per dollaro1528,76",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti129,48"
+    ],
+    "MAX:2026-07-31": [
+     "31/07/2026KOSPI200 · attenzione",
+     "Prezzo6595",
+     "In dollari (base 100)689,1",
+     "Sopra media 20030,0%",
+     "KRW per dollaro1420,60",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti128,34"
+    ],
+    "MAX:2026-11-03": null,
+    "MAX:2026-11-04": [
+     "04/11/2026KOSPI200 · zona blu",
+     "Prezzo5684",
+     "In dollari (base 100)628,2",
+     "Sopra media 20017,5%",
+     "KRW per dollaro1342,90",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ]
+   }
+  },
+  "TWN": {
+   "hash": "#emg-TWN",
+   "title": "TWN · Taiwan",
+   "state": "Normale",
+   "dmeta": "breadth 68,9% · livello blu 8% · dati al 04/11/2026",
+   "notes": [
+    "30 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWT (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026",
+   "legend": "in valuta localein dollarizona blutriggervaluta in calo fortevaluta che ha smesso di scenderedollaro contro emergentisua media 200dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M268.3 196.2L270.6 185.1L273.0 176.3L276.0 168.1L279.7 160.0L278.1 165.5L264.6 196.2L255.9 209.1L242.8 229.2L222.4 260.6",
+   "tips": {
+    "3A:2011-10-05": null,
+    "3A:2011-11-14": null,
+    "3A:2012-08-22": null,
+    "3A:2013-05-09": null,
+    "3A:2015-04-27": null,
+    "3A:2015-06-22": null,
+    "3A:2015-07-03": null,
+    "3A:2015-07-20": null,
+    "3A:2015-08-20": null,
+    "3A:2015-10-07": null,
+    "3A:2015-10-12": null,
+    "3A:2015-11-18": null,
+    "3A:2015-11-24": null,
+    "3A:2015-11-27": null,
+    "3A:2015-11-30": null,
+    "3A:2015-12-01": null,
+    "3A:2015-12-04": null,
+    "3A:2015-12-11": null,
+    "3A:2016-01-07": null,
+    "3A:2016-02-24": null,
+    "3A:2016-03-08": null,
+    "3A:2016-03-09": null,
+    "3A:2016-03-16": null,
+    "3A:2016-03-17": null,
+    "3A:2016-03-18": null,
+    "3A:2016-03-21": null,
+    "3A:2016-06-20": null,
+    "3A:2016-07-04": null,
+    "3A:2023-11-17": [
+     "17/11/2023TWN · normale",
+     "Prezzo17209",
+     "In dollari (base 100)104,2",
+     "Sopra media 20064,4%",
+     "TWD per dollaro31,84",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti126,89"
+    ],
+    "3A:2025-04-18": [
+     "18/04/2025TWN · zona blu",
+     "Prezzo19395",
+     "In dollari (base 100)—",
+     "Sopra media 20013,5%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti136,06"
+    ],
+    "3A:2025-04-21": [
+     "21/04/2025TWN · zona blu",
+     "Prezzo19106",
+     "In dollari (base 100)—",
+     "Sopra media 2009,5%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti135,63"
+    ],
+    "3A:2025-08-07": [
+     "07/08/2025TWN · normale",
+     "Prezzo24004",
+     "In dollari (base 100)154,7",
+     "Sopra media 20056,8%",
+     "TWD per dollaro29,91",
+     "ValutaNormale",
+     "Dollaro vs emergenti131,98"
+    ],
+    "3A:2025-12-22": [
+     "22/12/2025TWN · normale",
+     "Prezzo28150",
+     "In dollari (base 100)172,2",
+     "Sopra media 20068,9%",
+     "TWD per dollaro31,50",
+     "ValutaIn calo forte",
+     "Dollaro vs emergenti130,86"
+    ],
+    "3A:2026-06-10": [
+     "10/06/2026TWN · normale",
+     "Prezzo43226",
+     "In dollari (base 100)264,1",
+     "Sopra media 20093,2%",
+     "TWD per dollaro31,54",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti129,07"
+    ],
+    "3A:2026-07-31": [
+     "31/07/2026TWN · normale",
+     "Prezzo43120",
+     "In dollari (base 100)256,5",
+     "Sopra media 20087,8%",
+     "TWD per dollaro32,40",
+     "ValutaNormale",
+     "Dollaro vs emergenti128,34"
+    ],
+    "3A:2026-11-03": [
+     "03/11/2026TWN · normale",
+     "Prezzo43308",
+     "In dollari (base 100)256,2",
+     "Sopra media 20071,6%",
+     "TWD per dollaro32,59",
+     "ValutaNormale",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-11-04": [
+     "04/11/2026TWN · normale",
+     "Prezzo42949",
+     "In dollari (base 100)252,9",
+     "Sopra media 20068,9%",
+     "TWD per dollaro32,73",
+     "ValutaNormale",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2011-10-05": [
+     "05/10/2011TWN · attenzione",
+     "Prezzo6989",
+     "In dollari (base 100)—",
+     "Sopra media 20010,8%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti97,98"
+    ],
+    "MAX:2011-11-14": null,
+    "MAX:2012-08-22": null,
+    "MAX:2013-05-09": [
+     "09/05/2013TWN · normale",
+     "Prezzo8286",
+     "In dollari (base 100)—",
+     "Sopra media 20076,8%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti93,14"
+    ],
+    "MAX:2015-04-27": [
+     "27/04/2015TWN · normale",
+     "Prezzo9973",
+     "In dollari (base 100)—",
+     "Sopra media 20068,1%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti105,90"
+    ],
+    "MAX:2015-06-22": null,
+    "MAX:2015-07-03": [
+     "03/07/2015TWN · normale",
+     "Prezzo9358",
+     "In dollari (base 100)—",
+     "Sopra media 20043,1%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2015-07-20": null,
+    "MAX:2015-08-20": null,
+    "MAX:2015-10-07": null,
+    "MAX:2015-10-12": null,
+    "MAX:2015-11-18": [
+     "18/11/2015TWN · cooldown",
+     "Prezzo8340",
+     "In dollari (base 100)—",
+     "Sopra media 20015,3%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti113,95"
+    ],
+    "MAX:2015-11-24": null,
+    "MAX:2015-11-27": [
+     "27/11/2015TWN · cooldown",
+     "Prezzo8398",
+     "In dollari (base 100)—",
+     "Sopra media 20019,4%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti113,54"
+    ],
+    "MAX:2015-11-30": [
+     "30/11/2015TWN · cooldown",
+     "Prezzo8321",
+     "In dollari (base 100)—",
+     "Sopra media 20018,1%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti113,58"
+    ],
+    "MAX:2015-12-01": null,
+    "MAX:2015-12-04": [
+     "04/12/2015TWN · cooldown",
+     "Prezzo8399",
+     "In dollari (base 100)—",
+     "Sopra media 20020,8%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti113,47"
+    ],
+    "MAX:2015-12-11": [
+     "11/12/2015TWN · cooldown",
+     "Prezzo8116",
+     "In dollari (base 100)—",
+     "Sopra media 20013,9%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti115,85"
+    ],
+    "MAX:2016-01-07": null,
+    "MAX:2016-02-24": [
+     "24/02/2016TWN · normale",
+     "Prezzo8283",
+     "In dollari (base 100)—",
+     "Sopra media 20043,1%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti118,83"
+    ],
+    "MAX:2016-03-08": null,
+    "MAX:2016-03-09": null,
+    "MAX:2016-03-16": null,
+    "MAX:2016-03-17": [
+     "17/03/2016TWN · normale",
+     "Prezzo8735",
+     "In dollari (base 100)—",
+     "Sopra media 20059,7%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti115,07"
+    ],
+    "MAX:2016-03-18": [
+     "18/03/2016TWN · normale",
+     "Prezzo8811",
+     "In dollari (base 100)—",
+     "Sopra media 20062,5%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti114,89"
+    ],
+    "MAX:2016-03-21": null,
+    "MAX:2016-06-20": null,
+    "MAX:2016-07-04": null,
+    "MAX:2023-11-17": [
+     "17/11/2023TWN · normale",
+     "Prezzo17209",
+     "In dollari (base 100)243,2",
+     "Sopra media 20064,4%",
+     "TWD per dollaro31,84",
+     "ValutaHa smesso di scendere",
+     "Dollaro vs emergenti126,89"
+    ],
+    "MAX:2025-04-18": [
+     "18/04/2025TWN · zona blu",
+     "Prezzo19395",
+     "In dollari (base 100)—",
+     "Sopra media 20013,5%",
+     "TWD per dollaro—",
+     "Valuta—",
+     "Dollaro vs emergenti136,06"
+    ],
+    "MAX:2025-04-21": null,
+    "MAX:2025-08-07": null,
+    "MAX:2025-12-22": null,
+    "MAX:2026-06-10": null,
+    "MAX:2026-07-31": [
+     "31/07/2026TWN · normale",
+     "Prezzo43120",
+     "In dollari (base 100)598,8",
+     "Sopra media 20087,8%",
+     "TWD per dollaro32,40",
+     "ValutaNormale",
+     "Dollaro vs emergenti128,34"
+    ],
+    "MAX:2026-11-03": null,
+    "MAX:2026-11-04": [
+     "04/11/2026TWN · normale",
+     "Prezzo42949",
+     "In dollari (base 100)590,2",
+     "Sopra media 20068,9%",
+     "TWD per dollaro32,73",
+     "ValutaNormale",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ]
+   }
+  },
+  "HSI": {
+   "hash": "#emg-HSI",
+   "title": "HSI · Hang Seng",
+   "state": "Normale",
+   "dmeta": "breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+   "notes": [
+    "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+    "3 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026",
+   "legend": "in valuta localein dollarizona blutriggerdollaro contro emergentisua media 200dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M133.9 145.0L133.6 151.0L133.9 154.4L131.5 162.9L126.0 176.3L124.9 177.1L128.3 167.9L129.2 166.1L138.5 146.3L149.0 128.2",
+   "tips": {
+    "3A:2006-02-10": null,
+    "3A:2008-03-14": null,
+    "3A:2023-11-06": [
+     "06/11/2023HSI · normale",
+     "Prezzo17967",
+     "In dollari (base 100)100,0",
+     "Sopra media 20019,0%",
+     "Dollaro vs emergenti127,96"
+    ],
+    "3A:2025-08-15": [
+     "15/08/2025HSI · normale",
+     "Prezzo25270",
+     "In dollari (base 100)140,5",
+     "Sopra media 20089,4%",
+     "Dollaro vs emergenti131,98"
+    ],
+    "3A:2026-03-26": [
+     "26/03/2026HSI · normale",
+     "Prezzo24856",
+     "In dollari (base 100)138,5",
+     "Sopra media 20042,4%",
+     "Dollaro vs emergenti130,26"
+    ],
+    "3A:2026-04-23": [
+     "23/04/2026HSI · normale",
+     "Prezzo25915",
+     "In dollari (base 100)144,1",
+     "Sopra media 20054,1%",
+     "Dollaro vs emergenti128,24"
+    ],
+    "3A:2026-08-05": [
+     "05/08/2026HSI · normale",
+     "Prezzo25916",
+     "In dollari (base 100)143,9",
+     "Sopra media 20040,0%",
+     "Dollaro vs emergenti127,97"
+    ],
+    "3A:2026-11-03": [
+     "03/11/2026HSI · normale",
+     "Prezzo23526",
+     "In dollari (base 100)130,6",
+     "Sopra media 20030,6%",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-11-04": [
+     "04/11/2026HSI · normale",
+     "Prezzo23920",
+     "In dollari (base 100)132,8",
+     "Sopra media 20035,3%",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2006-02-10": [
+     "10/02/2006HSI",
+     "Prezzo15426",
+     "In dollari (base 100)—",
+     "Sopra media 200—",
+     "Dollaro vs emergenti99,48"
+    ],
+    "MAX:2008-03-14": [
+     "14/03/2008HSI",
+     "Prezzo22237",
+     "In dollari (base 100)—",
+     "Sopra media 200—",
+     "Dollaro vs emergenti91,61"
+    ],
+    "MAX:2023-11-06": [
+     "06/11/2023HSI · normale",
+     "Prezzo17967",
+     "In dollari (base 100)143,1",
+     "Sopra media 20019,0%",
+     "Dollaro vs emergenti127,96"
+    ],
+    "MAX:2025-08-15": [
+     "15/08/2025HSI · normale",
+     "Prezzo25270",
+     "In dollari (base 100)201,1",
+     "Sopra media 20089,4%",
+     "Dollaro vs emergenti131,98"
+    ],
+    "MAX:2026-03-26": [
+     "26/03/2026HSI · normale",
+     "Prezzo24856",
+     "In dollari (base 100)198,2",
+     "Sopra media 20042,4%",
+     "Dollaro vs emergenti130,26"
+    ],
+    "MAX:2026-04-23": null,
+    "MAX:2026-08-05": [
+     "05/08/2026HSI · normale",
+     "Prezzo25916",
+     "In dollari (base 100)206,0",
+     "Sopra media 20040,0%",
+     "Dollaro vs emergenti127,97"
+    ],
+    "MAX:2026-11-03": null,
+    "MAX:2026-11-04": [
+     "04/11/2026HSI · normale",
+     "Prezzo23920",
+     "In dollari (base 100)190,0",
+     "Sopra media 20035,3%",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ]
+   }
+  },
+  "EEM": {
+   "hash": "#emg-EEM",
+   "title": "EEM · MSCI Emerging Markets",
+   "state": "Normale",
+   "dmeta": "breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+   "notes": [
+    "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+    "Forza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026",
+   "legend": "in valuta localezona blutriggerdollaro contro emergentisua media 200dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M180.7 189.2L183.0 179.6L183.3 176.5L184.2 173.0L185.0 170.2L181.3 178.2L169.0 203.1L158.4 218.8L147.9 230.8L138.5 237.7",
+   "tips": {
+    "3A:2025-08-26": [
+     "26/08/2025EEM · normale",
+     "Prezzo50,21",
+     "Sopra media 20079,0%",
+     "Dollaro vs emergenti132,02"
+    ],
+    "3A:2026-08-06": [
+     "06/08/2026EEM · normale",
+     "Prezzo65,02",
+     "Sopra media 20048,4%",
+     "Dollaro vs emergenti127,95"
+    ],
+    "3A:2026-11-03": [
+     "03/11/2026EEM · normale",
+     "Prezzo61,10",
+     "Sopra media 20028,3%",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "3A:2026-11-04": [
+     "04/11/2026EEM · normale",
+     "Prezzo61,62",
+     "Sopra media 20030,2%",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ],
+    "MAX:2025-08-26": [
+     "26/08/2025EEM · normale",
+     "Prezzo50,21",
+     "Sopra media 20079,0%",
+     "Dollaro vs emergenti132,02"
+    ],
+    "MAX:2026-08-06": null,
+    "MAX:2026-11-03": null,
+    "MAX:2026-11-04": [
+     "04/11/2026EEM · normale",
+     "Prezzo61,62",
+     "Sopra media 20030,2%",
+     "Dollaro vs emergenti—",
+     "FRED: nessun valore per questa data (esce una volta alla settimana, a volte con giorni festivi)"
+    ]
+   }
+  }
+ },
+ "storeKeys": [
+  "sm.emSel",
+  "sm.emRange",
+  "sm.ixShown"
+ ],
+ "view6": [
+  {
+   "k": "KOSPI200",
+   "state": "Zona blu",
+   "breadth": "17,5%",
+   "blue": "15%",
+   "dd": "−37,6%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "IBOV",
+   "state": "Attenzione",
+   "breadth": "18,4%",
+   "blue": "11%",
+   "dd": "−19,9%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "CSI300",
+   "state": "Attenzione",
+   "breadth": "22,2%",
+   "blue": "14%",
+   "dd": "−19,6%",
+   "lastTitle": "chiusura del 03/11/2026"
+  },
+  {
+   "k": "EEM",
+   "state": "Normale",
+   "breadth": "30,2%",
+   "blue": "15%",
+   "dd": "−13,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "HSI",
+   "state": "Normale",
+   "breadth": "35,3%",
+   "blue": "8%",
+   "dd": "−14,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "NIFTY50",
+   "state": "Normale",
+   "breadth": "46,0%",
+   "blue": "10%",
+   "dd": "−9,0%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "TWN",
+   "state": "Normale",
+   "breadth": "68,9%",
+   "blue": "8%",
+   "dd": "−13,8%",
+   "lastTitle": "chiusura del 04/11/2026"
+  }
+ ],
+ "beforeBlue": [
+  [
+   "CSI300",
+   "Attenzione",
+   "14%"
+  ],
+  [
+   "NIFTY50",
+   "Normale",
+   "10%"
+  ],
+  [
+   "IBOV",
+   "Attenzione",
+   "11%"
+  ],
+  [
+   "KOSPI200",
+   "Zona blu",
+   "15%"
+  ],
+  [
+   "TWN",
+   "Normale",
+   "8%"
+  ],
+  [
+   "HSI",
+   "Normale",
+   "8%"
+  ],
+  [
+   "EEM",
+   "Normale",
+   "15%"
+  ]
+ ],
+ "ixSelTitle": "KOSPI200 · KOSPI 200 (Corea)",
+ "view6after": [
+  {
+   "k": "KOSPI200",
+   "state": "Zona blu",
+   "breadth": "17,5%",
+   "blue": "20%*",
+   "dd": "−37,6%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "IBOV",
+   "state": "Attenzione",
+   "breadth": "18,4%",
+   "blue": "11%",
+   "dd": "−19,9%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "CSI300",
+   "state": "Attenzione",
+   "breadth": "22,2%",
+   "blue": "14%",
+   "dd": "−19,6%",
+   "lastTitle": "chiusura del 03/11/2026"
+  },
+  {
+   "k": "EEM",
+   "state": "Normale",
+   "breadth": "30,2%",
+   "blue": "15%",
+   "dd": "−13,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "HSI",
+   "state": "Normale",
+   "breadth": "35,3%",
+   "blue": "8%",
+   "dd": "−14,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "NIFTY50",
+   "state": "Normale",
+   "breadth": "46,0%",
+   "blue": "10%",
+   "dd": "−9,0%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "TWN",
+   "state": "Normale",
+   "breadth": "68,9%",
+   "blue": "8%",
+   "dd": "−13,8%",
+   "lastTitle": "chiusura del 04/11/2026"
+  }
+ ],
+ "after": {
+  "kpis": [
+   [
+    "Dollaro contro emergenti",
+    "130,9",
+    "sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026"
+   ],
+   [
+    "Emergenti in zona blu",
+    "1 / 7",
+    "KOSPI200"
+   ],
+   [
+    "In attenzione",
+    "2 / 7",
+    "CSI300 · IBOV"
+   ],
+   [
+    "Valute in calo forte",
+    "1 / 5 con dati",
+    "IBOV"
+   ],
+   [
+    "Valute ferme dopo un calo",
+    "2 / 5 con dati",
+    "NIFTY50 · KOSPI200"
+   ]
+  ],
+  "table": [
+   [
+    "CSI300",
+    "Attenzione",
+    "22,2%",
+    "14%"
+   ],
+   [
+    "NIFTY50",
+    "Normale",
+    "46,0%",
+    "10%"
+   ],
+   [
+    "IBOV",
+    "Attenzione",
+    "18,4%",
+    "11%"
+   ],
+   [
+    "KOSPI200",
+    "Zona blu",
+    "17,5%",
+    "20%*"
+   ],
+   [
+    "TWN",
+    "Normale",
+    "68,9%",
+    "8%"
+   ],
+   [
+    "HSI",
+    "Normale",
+    "35,3%",
+    "8%"
+   ],
+   [
+    "EEM",
+    "Normale",
+    "30,2%",
+    "15%"
+   ]
+  ],
+  "dmeta": "breadth 17,5% · livello blu 20% · dati al 04/11/2026",
+  "title": "KOSPI200 · KOSPI 200",
+  "blueLineY": "260",
+  "paneTitles": [
+   "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+   "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 20%",
+   "CAMBIO KRW PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+  ]
+ },
+ "reset": [
+  [
+   "CSI300",
+   "Attenzione",
+   "14%"
+  ],
+  [
+   "NIFTY50",
+   "Normale",
+   "10%"
+  ],
+  [
+   "IBOV",
+   "Attenzione",
+   "11%"
+  ],
+  [
+   "KOSPI200",
+   "Zona blu",
+   "15%"
+  ],
+  [
+   "TWN",
+   "Normale",
+   "8%"
+  ],
+  [
+   "HSI",
+   "Normale",
+   "8%"
+  ],
+  [
+   "EEM",
+   "Normale",
+   "15%"
+  ]
+ ]
+}

@@ -1,0 +1,8 @@
+secCap dx -30 (x=238, «i» 268–284) elemento SPAN.h2: riquadro «i» false, piegato aperto true
+secCap dx -22 (x=246, «i» 268–284) elemento SPAN.h2: riquadro «i» false, piegato aperto true
+secCap dx -16 (x=252, «i» 268–284) elemento SPAN.h2: riquadro «i» true, piegato aperto false
+secCap dx -12 (x=256, «i» 268–284) elemento SPAN.h2: riquadro «i» true, piegato aperto false
+secCap dx -10 (x=258, «i» 268–284) elemento SPAN.h2: riquadro «i» true, piegato aperto false
+secCap dx -6 (x=262, «i» 268–284) elemento BUTTON.info: riquadro «i» true, piegato aperto false
+secCap dx 22 (x=290, «i» 268–284) elemento BUTTON.info: riquadro «i» true, piegato aperto false
+secCap dx 30 (x=298, «i» 268–284) elemento SUMMARY.ph: riquadro «i» true, piegato aperto false

@@ -1,0 +1,393 @@
+<title>Grandi e piccoli · demo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: la cornice «terminale» di Sector Monitor, con una vista 7 in più: comandi in alto, poi
+   grandi contro piccoli (tutti i settori), poi la bubble dei titoli del settore scelto con la lista dei più in pena. */
+:root {
+  color-scheme: dark;
+  --bg: #000000; --panel: #0e0e0e; --panel-2: #1a1a1a; --row-hi: #1c1c1c; --rule: #2a2a2a; --grid: #1a1a1a;
+  --ink: #e8e8e8; --ink-2: #b4b4b4; --ink-3: #8a8a8a; --amber: #ffa028; --amber-2: #ffd23f;
+  --up: #22c55e; --down: #ef4444; --blue: #3b7bff; --blue-light: #7fa6ff;
+  --broad: #35d0ba; --narrow: #9b7bff; --chart-axis: #55555c; --chart-trail: #9a9a9a; --black: #000000;
+  --f-ui: "IBM Plex Sans Condensed", "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); }
+body { margin: 0; color: var(--ink); font: 13px/1.4 var(--f-ui); padding-block: 16px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+button, select { font: inherit; color: inherit; }
+:focus-visible { outline: 1px solid var(--amber); outline-offset: 1px; }
+.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.term { max-width: 1480px; margin: 0 auto; background: var(--panel); border: 1px solid var(--rule); }
+.cmdbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; background: var(--bg); border-bottom: 1px solid var(--amber); padding: 6px 10px; }
+.brand { font: 600 12px var(--f-mono); letter-spacing: 0.08em; color: var(--black); background: var(--amber); padding: 3px 8px; white-space: nowrap; margin: 0; }
+.demo { font: 600 10.5px var(--f-mono); letter-spacing: 0.04em; color: var(--amber-2); border: 1px solid var(--amber-2); padding: 1px 6px; }
+.clock { margin-left: auto; font: 12px var(--f-mono); color: var(--ink-2); }
+.fnkeys { display: flex; gap: 1px; background: var(--bg); border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
+.fnkeys::after { content: ''; flex: 1; background: var(--panel-2); }
+.fnkeys span { font: 600 12px var(--f-mono); letter-spacing: 0.03em; color: var(--amber); background: var(--panel-2); padding: 7px 14px; white-space: nowrap; opacity: .55; }
+.fnkeys span.on { background: var(--amber); color: var(--black); opacity: 1; }
+main { padding: 12px; display: grid; gap: 12px; }
+.panel { background: var(--bg); border: 1px solid var(--rule); min-width: 0; }
+.ph { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 6px 10px; border-bottom: 1px solid var(--rule); }
+.ph h2 { margin: 0; font: 600 12px var(--f-mono); letter-spacing: 0.06em; color: var(--amber); text-transform: uppercase; }
+.meta { font: 11px var(--f-mono); color: var(--ink-3); }
+.note { font: 12px/1.45 var(--f-ui); color: var(--ink-3); margin: 0; max-width: 95ch; }
+.pb { padding: 8px 10px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; padding: 8px 10px; }
+.ctl { display: flex; align-items: center; gap: 6px; font: 11px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; max-width: 100%; flex-wrap: wrap; }
+.ctl select { background: var(--bg); border: 1px solid var(--rule); color: var(--ink); font: 500 12px var(--f-mono); padding: 3px 6px; text-transform: none; max-width: 100%; }
+.seg { display: inline-flex; border: 1px solid var(--rule); }
+.seg button { background: var(--bg); border: 0; color: var(--ink-2); padding: 3px 9px; cursor: pointer; font: 500 11.5px var(--f-mono); }
+.seg button + button { border-left: 1px solid var(--rule); }
+.seg button[aria-pressed="true"] { background: var(--amber); color: var(--black); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chip { font: 600 11.5px var(--f-mono); background: var(--bg); color: var(--ink-2); border: 1px solid var(--rule); padding: 3px 8px; cursor: pointer; }
+.chip[aria-pressed="true"] { border-color: var(--amber); color: var(--amber-2); }
+.push { margin-left: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; padding: 6px 10px; border-top: 1px solid var(--rule); font: 11px var(--f-mono); color: var(--ink-3); }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend svg { flex: none; }
+.wrap { position: relative; padding: 4px 6px 2px; }
+svg text { font-family: var(--f-mono); }
+.tip { position: absolute; pointer-events: none; background: var(--bg); border: 1px solid var(--amber); padding: 7px 9px; font: 11.5px var(--f-mono); color: var(--ink-2); min-width: 200px; max-width: 280px; z-index: 5; }
+.tip b { color: var(--ink); }
+.tip .row { display: flex; justify-content: space-between; gap: 12px; }
+.tip .sub { color: var(--ink-3); margin-bottom: 4px; white-space: normal; }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 12px; }
+@media (max-width: 980px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+table.t { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.t th { font: 600 10.5px var(--f-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-3); text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+.t td { padding: 5px 8px; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+.t .r { text-align: right; }
+.t tr.hl td { background: var(--row-hi); }
+.t tbody tr { cursor: pointer; }
+.sym { font: 600 12px var(--f-mono); color: var(--ink); margin-right: 6px; }
+.nm { color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; display: inline-block; max-width: 13ch; vertical-align: bottom; }
+.up { color: var(--up); } .down { color: var(--down); } .muted { color: var(--ink-3); }
+.tscroll { overflow-x: auto; }
+.how { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.how h3 { margin: 0 0 4px; font: 600 11px var(--f-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); }
+.how p { margin: 0 0 6px; }
+.flow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: 11px var(--f-mono); color: var(--ink-3); }
+.flow b { color: var(--amber-2); font-weight: 600; }
+@media (max-width: 640px) {
+  .fnkeys span { flex: 1 1 auto; padding: 8px 10px; }
+  .fnkeys::after { display: none; }
+  .clock { margin-left: 0; }
+  .seg button, .chip, .ctl select { min-height: 34px; }
+  .push { margin-left: 0; }
+}
+@media (prefers-reduced-motion: no-preference) { .dot { transition: opacity .15s; } }
+</style>
+
+<div class="term">
+  <header class="cmdbar">
+    <p class="brand">SECTOR MONITOR</p>
+    <span class="demo">DEMO</span>
+    <span class="clock">dati al <b id="asOf"></b></span>
+  </header>
+  <div class="fnkeys" aria-hidden="true">
+    <span>1 Monitor</span><span>2 Rotazione</span><span>3 Bottom Map</span><span>4 Settore</span><span>5 Alert</span><span>6 Indici</span><span class="on">7 Titoli</span>
+  </div>
+  <main>
+    <div class="panel">
+      <div class="controls">
+        <div class="chips" id="chips" role="group" aria-label="Settore"></div>
+        <span class="ctl push">Periodo
+          <span class="seg" id="perSeg" role="group" aria-label="Periodo"></span></span>
+      </div>
+      <div class="pb" style="border-top:1px solid var(--rule)">
+        <div class="flow">Percorso: <span>2 Rotazione / 3 Bottom Map</span>→<span>scegli il settore</span>→<b>grandi contro piccoli</b>→<b>titoli del settore</b></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ph"><h2>Grandi contro piccoli · cap-weighted vs equal-weight</h2>
+        <span class="ctl">Scia <span class="seg" id="trailSeg" role="group" aria-label="Scia"></span></span>
+        <span class="ctl">Ordina <span class="seg" id="sortSeg" role="group" aria-label="Ordina"></span></span>
+      </div>
+      <div class="wrap" id="dbWrap"><svg id="db" role="img" aria-label="Rendimento cap-weighted ed equal-weight di ogni settore"></svg><div class="tip" id="dbTip" hidden></div></div>
+      <div class="legend">
+        <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="var(--ink)"/></svg>cap-weighted · pesano i grandi</span>
+        <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="4.2" fill="var(--bg)" stroke="var(--ink)" stroke-width="1.6"/></svg>equal-weight · ogni titolo conta uguale</span>
+        <span><svg width="18" height="8" aria-hidden="true"><rect y="2" width="18" height="4" fill="var(--broad)"/></svg>davanti l'equal-weight · rialzo/ribasso largo</span>
+        <span><svg width="18" height="8" aria-hidden="true"><rect y="2" width="18" height="4" fill="var(--narrow)"/></svg>davanti il cap-weighted · guidano i grandi</span>
+        <span><svg width="30" height="12" aria-hidden="true"><path d="M2 3 H28" stroke="var(--chart-trail)"/><circle cx="3" cy="3" r="1.8" fill="var(--chart-trail)"/><circle cx="14" cy="3" r="2.3" fill="var(--chart-trail)"/><path d="M2 9 H28" stroke="var(--blue-light)" stroke-dasharray="3 2"/><circle cx="3" cy="9" r="1.8" fill="var(--bg)" stroke="var(--blue-light)"/><circle cx="14" cy="9" r="2.3" fill="var(--bg)" stroke="var(--blue-light)"/></svg>scia cap / equal: 3 mesi, 1 mese, 1 settimana fa</span>
+      </div>
+      <div class="pb"><p class="note" id="dbNote"></p></div>
+    </div>
+
+    <div class="grid2">
+      <div class="panel">
+        <div class="ph"><h2 id="bbTitle"></h2><span class="meta" id="bbMeta"></span></div>
+        <div class="controls" style="border-bottom:1px solid var(--rule)">
+          <label class="ctl" for="axSel">Assi <select id="axSel">
+            <option value="d200">Rendimento · distanza dalla media 200</option>
+            <option value="dd">Rendimento · distanza dal massimo 52 sett.</option>
+            <option value="prev">Rendimento · periodo precedente</option>
+          </select></label>
+          <span class="ctl">Bolle <span class="seg" id="sizeSeg" role="group" aria-label="Dimensione delle bolle"></span></span>
+        </div>
+        <div class="wrap" id="bbWrap"><svg id="bb" role="img" aria-label="Titoli del settore: rendimento e distanza"></svg><div class="tip" id="bbTip" hidden></div></div>
+        <div class="legend">
+          <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="var(--down)"/></svg>i più in pena (lista a destra)</span>
+          <span><svg width="12" height="12" aria-hidden="true"><circle cx="6" cy="6" r="5" fill="var(--ink-3)" fill-opacity=".5"/></svg>altri titoli</span>
+          <span><svg width="22" height="8" aria-hidden="true"><path d="M1 4 H21" stroke="var(--blue-light)" stroke-dasharray="4 3"/></svg>settore equal-weight</span>
+          <span><svg width="22" height="8" aria-hidden="true"><path d="M1 4 H21" stroke="var(--ink)" stroke-dasharray="1 3"/></svg>settore cap-weighted</span>
+          <span><svg width="10" height="10" aria-hidden="true"><path d="M1 5 L8 1 V9 Z" fill="var(--ink-3)"/></svg>fuori scala</span>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>I più in pena</h2><span class="meta" id="painMeta"></span></div>
+        <div class="tscroll"><table class="t" id="pain"></table></div>
+        <div class="pb"><p class="note">Punteggio: media dei ranghi nel settore di rendimento del periodo e distanza dal massimo a 52 settimane (0 = il peggiore). Chi è in pena non è per forza a sconto.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ph"><h2>Come si legge · dati</h2><span class="meta">bozza per la discussione</span></div>
+      <div class="pb how">
+        <div>
+          <h3>Grandi contro piccoli</h3>
+          <p class="note">Per ogni settore: rendimento dell'indice pesato per capitalizzazione (pallino pieno) e dello stesso settore con ogni titolo a peso uguale (pallino vuoto). La barra tra i due è la divergenza: verde acqua se vanno meglio i titoli medi, viola se guidano i grandi. In evidenza i tre settori con la divergenza più ampia.</p>
+          <p class="note">La scia mostra dove erano le due misure 3 mesi, 1 mese e 1 settimana fa (stessa durata del periodo; per YTD stesso inizio): dice chi si è mosso per primo e in che direzione. Clic su una riga per scegliere il settore.</p>
+        </div>
+        <div>
+          <h3>Titoli del settore</h3>
+          <p class="note">Ogni bolla è un titolo dell'S&amp;P 500 nel settore scelto; la grandezza è il suo peso nell'indice. In alto il rendimento del periodo, le linee tratteggiate sono il settore cap ed equal-weight. In basso a sinistra stanno i titoli che scendono e sono lontani dalla media o dal massimo. Con «periodo precedente» si separano i deboli da tempo (in basso a sinistra) dai cedimenti recenti (in basso a destra).</p>
+        </div>
+        <div>
+          <h3>Da dove vengono i numeri</h3>
+          <p class="note">Calcolati da noi sui costituenti: prezzi Yahoo (solo prezzo, senza dividendi), pesi dalle holdings dell'ETF iShares IVV, composizione dell'indice di ogni data (entrate e uscite dalla tabella dei cambi). Equal-weight ribilanciato ogni trimestre come gli indici S&amp;P. Verifica: equal-weight entro 0–3 punti dagli ETF Invesco RSP* anche su un anno; cap-weighted uguale agli SPDR XL* tranne Tecnologia, Comunicazioni e Discrezionali, dove gli ETF tagliano il peso dei giganti.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+const D = /*DATA*/null;
+const NAMES = { XLK: 'Technology', XLC: 'Communication Services', XLY: 'Consumer Discretionary', XLP: 'Consumer Staples', XLE: 'Energy', XLF: 'Financials', XLV: 'Health Care', XLI: 'Industrials', XLB: 'Materials', XLRE: 'Real Estate', XLU: 'Utilities', SPX: 'S&P 500' };
+const SECS = ['XLK', 'XLC', 'XLY', 'XLP', 'XLE', 'XLF', 'XLV', 'XLI', 'XLB', 'XLRE', 'XLU'];
+const PERS = ['1M', '3M', '6M', 'YTD', '1A'];
+const OFFL = ['oggi', '1 settimana fa', '1 mese fa', '3 mesi fa'];
+const st = { sec: 'XLK', per: '3M', trail: 'sel', sort: 'div', ax: 'd200', size: 'w', hover: null };
+const $ = (id) => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+const dIT = (d) => d ? d.slice(8, 10) + '/' + d.slice(5, 7) + '/' + d.slice(0, 4) : '';
+const pct = (v, dec = 1) => v == null ? '–' : (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(dec).replace('.', ',') + '%';
+const pp = (v) => v == null ? '–' : (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(1).replace('.', ',') + ' pp';
+const cls = (v) => v == null ? 'muted' : v > 0 ? 'up' : v < 0 ? 'down' : '';
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function txt(parent, x, y, s, attrs = {}) { const t = el('text', { x, y, ...attrs }, parent); t.textContent = s; return t; }
+function nice(lo, hi, n = 6) {
+  const span = hi - lo || 1, raw = span / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => span / s <= n) || 10 * mag;
+  return { lo: Math.floor(lo / step) * step, hi: Math.ceil(hi / step) * step, step };
+}
+function segButtons(id, items, key, after) {
+  const box = $(id); box.innerHTML = '';
+  for (const [v, label] of items) {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = label; b.dataset.v = v;
+    b.setAttribute('aria-pressed', String(st[key] === v));
+    b.onclick = () => { st[key] = v; [...box.children].forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.v === v))); after(); };
+    box.appendChild(b);
+  }
+}
+function placeTip(tip, wrap, x, y) {
+  tip.hidden = false;
+  const W = wrap.clientWidth, w = tip.offsetWidth, h = tip.offsetHeight;
+  let left = x + 14; if (left + w > W - 4) left = Math.max(4, x - w - 14);
+  let top = y - h - 10; if (top < 0) top = y + 14;
+  tip.style.left = left + 'px'; tip.style.top = top + 'px';
+}
+
+/* ---------- grandi contro piccoli ---------- */
+function drawDumbbell() {
+  const svg = $('db'), wrap = $('dbWrap'), W = Math.max(320, wrap.clientWidth - 12);
+  const narrow = W < 600;
+  const rows = SECS.map((s) => ({ s, v: D.sectors[s][st.per] }));
+  rows.forEach((r) => { r.cw = r.v[0][0]; r.ew = r.v[0][1]; r.sp = r.ew - r.cw; r.sp1m = r.v[2] ? r.v[2][1] - r.v[2][0] : null; });
+  if (st.sort === 'div') rows.sort((a, b) => b.sp - a.sp);
+  const top3 = new Set([...rows].sort((a, b) => Math.abs(b.sp) - Math.abs(a.sp)).slice(0, 3).map((r) => r.s));
+  const spx = { s: 'SPX', v: D.sectors.SPX[st.per] }; spx.cw = spx.v[0][0]; spx.ew = spx.v[0][1]; spx.sp = spx.ew - spx.cw; spx.sp1m = spx.v[2] ? spx.v[2][1] - spx.v[2][0] : null;
+  const all = [...rows, spx];
+  const showTrail = (r) => st.trail === 'all' || (st.trail === 'sel' && (r.s === st.sec || r.s === 'SPX'));
+  const vals = [];
+  for (const r of all) r.v.forEach((p, k) => { if (p && (k === 0 || showTrail(r))) vals.push(p[0], p[1]); });
+  const sc = nice(Math.min(0, ...vals), Math.max(0, ...vals), narrow ? 4 : 8);
+  const L = narrow ? 52 : 210, R = narrow ? 84 : 170, T = 22, RH = narrow ? 30 : 27, H = T + RH * (all.length + 0.6) + 8;
+  svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.innerHTML = '';
+  const X = (v) => L + (v - sc.lo) / (sc.hi - sc.lo) * (W - L - R);
+  for (let v = sc.lo; v <= sc.hi + 1e-9; v += sc.step) {
+    el('line', { x1: X(v), x2: X(v), y1: T - 6, y2: H - 4, stroke: v === 0 ? 'var(--chart-axis)' : 'var(--grid)', 'stroke-width': v === 0 ? 1.2 : 1 }, svg);
+    txt(svg, X(v), 12, pct(v, sc.step < 1 ? 1 : 0).replace(/^\+/, ''), { 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--ink-3)' });
+  }
+  txt(svg, W - R + 22, 12, narrow ? 'EW−CW' : 'EW − CW', { 'font-size': 10.5, fill: 'var(--ink-3)' });
+  if (!narrow) txt(svg, W - 8, 12, 'in 1 mese', { 'font-size': 10.5, fill: 'var(--ink-3)', 'text-anchor': 'end' });
+  all.forEach((r, i) => {
+    const y = T + RH * (i + 0.5) + (r.s === 'SPX' ? RH * 0.6 : 0);
+    const g = el('g', { class: 'dbrow', 'data-s': r.s, style: r.s === 'SPX' ? '' : 'cursor:pointer' }, svg);
+    const sel = r.s === st.sec, hot = top3.has(r.s);
+    el('rect', { x: 0, y: y - RH / 2, width: W, height: RH, fill: sel ? 'var(--row-hi)' : 'var(--bg)' }, g);
+    if (sel) el('rect', { x: 0, y: y - RH / 2, width: 3, height: RH, fill: 'var(--amber)' }, g);
+    if (r.s === 'SPX') el('line', { x1: 0, x2: W, y1: y - RH / 2 - RH * 0.3, y2: y - RH / 2 - RH * 0.3, stroke: 'var(--rule)' }, svg);
+    txt(g, 8, y + 4, r.s, { 'font-size': 12, 'font-weight': 600, fill: sel ? 'var(--amber-2)' : 'var(--ink)' });
+    if (!narrow) txt(g, 52, y + 4, NAMES[r.s], { 'font-size': 11.5, fill: 'var(--ink-3)', 'font-family': 'var(--f-ui)' });
+    const col = r.sp >= 0 ? 'var(--broad)' : 'var(--narrow)';
+    if (showTrail(r)) {
+      for (const leg of [0, 1]) {
+        const pts = [3, 2, 1, 0].map((k) => r.v[k] ? [X(r.v[k][leg]), y + (leg ? 3 : -3)] : null).filter(Boolean);
+        const tc = leg ? 'var(--blue-light)' : 'var(--chart-trail)';
+        el('path', { d: 'M' + pts.map((p) => p.join(' ')).join(' L'), fill: 'none', stroke: tc, 'stroke-width': 1, 'stroke-dasharray': leg ? '3 2' : 'none', opacity: 0.7 }, g);
+        [3, 2, 1].forEach((k, j) => { if (r.v[k]) el('circle', { cx: X(r.v[k][leg]), cy: y + (leg ? 3 : -3), r: 1.8 + j * 0.5, fill: leg ? 'var(--bg)' : tc, stroke: tc, 'stroke-width': 1, opacity: 0.5 + j * 0.2 }, g); });
+      }
+    }
+    el('line', { x1: X(r.cw), x2: X(r.ew), y1: y, y2: y, stroke: col, 'stroke-width': hot ? 5 : 3, opacity: hot || sel ? 1 : 0.7 }, g);
+    el('circle', { cx: X(r.cw), cy: y, r: 5.2, fill: 'var(--ink)' }, g);
+    el('circle', { cx: X(r.ew), cy: y, r: 4.4, fill: 'var(--bg)', stroke: 'var(--ink)', 'stroke-width': 1.7 }, g);
+    txt(g, W - R + 22, y + 4, pp(r.sp).replace(' pp', ''), { 'font-size': 12, 'font-weight': hot ? 600 : 400, fill: col });
+    if (r.sp1m != null) {
+      const d = r.sp - r.sp1m, arrow = Math.abs(d) < 0.5 ? '=' : (d > 0 ? '▲' : '▼');
+      const dcol = Math.abs(d) < 0.5 ? 'var(--ink-3)' : d > 0 ? 'var(--broad)' : 'var(--narrow)';
+      txt(g, W - 8, y + 4, narrow ? arrow : `${arrow} ${pp(d).replace(' pp', '')}`, { 'font-size': 11, fill: dcol, 'text-anchor': 'end' });
+    }
+    if (r.s !== 'SPX') g.addEventListener('click', () => setSector(r.s));
+    g.addEventListener('mousemove', (ev) => dbTip(ev, r));
+    g.addEventListener('mouseleave', () => { $('dbTip').hidden = true; });
+  });
+  const lead = rows.filter((r) => r.sp > 0).length;
+  $('dbNote').textContent = `${PERLABEL()} · equal-weight davanti in ${lead} settori su 11. ` +
+    `Ultima colonna: come è cambiata la divergenza rispetto a 1 mese fa (▲ verso l'equal-weight, ▼ verso i grandi). Clic su un settore per vederne i titoli.`;
+}
+function PERLABEL() { const s = D.starts[st.per][0]; return `${st.per === 'YTD' ? 'Da inizio anno' : 'Ultimi ' + { '1M': '1 mese', '3M': '3 mesi', '6M': '6 mesi', '1A': '12 mesi' }[st.per]} (dal ${dIT(s)} al ${dIT(D.asOf)})`; }
+function dbTip(ev, r) {
+  const tip = $('dbTip'), wrap = $('dbWrap'), b = wrap.getBoundingClientRect();
+  tip.innerHTML = `<div class="row"><b>${r.s}</b><span>${NAMES[r.s]}</span></div><div class="sub">${PERLABEL()}</div>` +
+    `<div class="row"><span></span><span>cap · equal · diff.</span></div>` +
+    r.v.map((p, k) => p ? `<div class="row"><span>${OFFL[k]}</span><span>${pct(p[0])} · ${pct(p[1])} · <span style="color:${p[1] - p[0] >= 0 ? 'var(--broad)' : 'var(--narrow)'}">${pp(p[1] - p[0])}</span></span></div>` : '').join('');
+  placeTip(tip, wrap, ev.clientX - b.left, ev.clientY - b.top);
+}
+
+/* ---------- titoli del settore ---------- */
+const AX = {
+  d200: { lab: 'distanza dalla media a 200 sedute', get: (s) => s.d200 },
+  dd: { lab: 'distanza dal massimo a 52 settimane', get: (s) => s.dd },
+  prev: { lab: 'rendimento nel periodo precedente', get: (s) => s.prev[st.per] },
+};
+function quant(a, q) { const s = [...a].sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.max(0, Math.round(q * (s.length - 1))))]; }
+function painRank(list) {
+  const rk = (key) => { const s = [...list].sort((a, b) => key(a) - key(b)); const m = new Map(s.map((x, i) => [x.s, i / Math.max(1, s.length - 1)])); return m; };
+  const a = rk((x) => x.r[st.per] ?? 0), b = rk((x) => x.dd ?? 0);
+  list.forEach((x) => { x.pain = (a.get(x.s) + b.get(x.s)) / 2; });
+  return [...list].sort((x, y) => x.pain - y.pain);
+}
+function drawBubble() {
+  const svg = $('bb'), wrap = $('bbWrap'), W = Math.max(300, wrap.clientWidth - 12);
+  const H = Math.round(Math.min(560, Math.max(320, W * (W < 600 ? 0.95 : 0.62))));
+  const list = D.stocks.filter((s) => s.sec === st.sec && s.r[st.per] != null && AX[st.ax].get(s) != null);
+  const ranked = painRank(list), worst = new Set(ranked.slice(0, 8).map((s) => s.s));
+  const ax = AX[st.ax];
+  const xs = list.map(ax.get), ys = list.map((s) => s.r[st.per]);
+  const sec = D.sectors[st.sec][st.per][0];
+  const clipX = [Math.min(0, quant(xs, 0.02)), Math.max(0, quant(xs, 0.98))], clipY = [Math.min(0, quant(ys, 0.02), sec[0], sec[1]), Math.max(0, quant(ys, 0.98), sec[0], sec[1])];
+  const pad = (a) => { const d = (a[1] - a[0]) * 0.06 || 1; return [a[0] - d, a[1] + d]; };
+  const sx = nice(...pad(clipX), W < 600 ? 4 : 7), sy = nice(...pad(clipY), 6);
+  const L = 46, R = 14, T = 12, B = 34;
+  const X = (v) => L + (Math.min(sx.hi, Math.max(sx.lo, v)) - sx.lo) / (sx.hi - sx.lo) * (W - L - R);
+  const Y = (v) => T + (sy.hi - Math.min(sy.hi, Math.max(sy.lo, v))) / (sy.hi - sy.lo) * (H - T - B);
+  svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.innerHTML = '';
+  const dec = (s) => (s.step < 1 ? 1 : 0);
+  for (let v = sx.lo; v <= sx.hi + 1e-9; v += sx.step) { el('line', { x1: X(v), x2: X(v), y1: T, y2: H - B, stroke: Math.abs(v) < 1e-9 ? 'var(--chart-axis)' : 'var(--grid)', 'stroke-width': Math.abs(v) < 1e-9 ? 1.3 : 1 }, svg); txt(svg, X(v), H - B + 14, pct(v, dec(sx)).replace(/^\+/, ''), { 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--ink-3)' }); }
+  for (let v = sy.lo; v <= sy.hi + 1e-9; v += sy.step) { el('line', { x1: L, x2: W - R, y1: Y(v), y2: Y(v), stroke: Math.abs(v) < 1e-9 ? 'var(--chart-axis)' : 'var(--grid)', 'stroke-width': Math.abs(v) < 1e-9 ? 1.3 : 1 }, svg); txt(svg, L - 6, Y(v) + 4, pct(v, dec(sy)).replace(/^\+/, ''), { 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--ink-3)' }); }
+  txt(svg, W - R, H - 4, ax.lab + ' →', { 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--ink-2)' });
+  txt(svg, L + 4, T + 10, `↑ rendimento ${st.per}`, { 'font-size': 10.5, fill: 'var(--ink-2)' });
+  // fondo del quadrante in pena
+  el('rect', { x: L, y: Y(0), width: Math.max(0, X(0) - L), height: Math.max(0, H - B - Y(0)), fill: 'var(--down)', opacity: 0.05 }, svg);
+  // settore cap ed equal
+  el('line', { x1: L, x2: W - R, y1: Y(sec[1]), y2: Y(sec[1]), stroke: 'var(--blue-light)', 'stroke-dasharray': '4 3' }, svg);
+  el('line', { x1: L, x2: W - R, y1: Y(sec[0]), y2: Y(sec[0]), stroke: 'var(--ink)', 'stroke-dasharray': '1 3' }, svg);
+  const lyEw = Y(sec[1]), lyCw = Y(sec[0]), close = Math.abs(lyEw - lyCw) < 12;
+  txt(svg, W - R - 2, lyEw + (close && lyEw > lyCw ? 12 : -4), `equal ${pct(sec[1])}`, { 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--blue-light)' });
+  txt(svg, W - R - 2, lyCw + (close && lyCw >= lyEw ? 12 : -4), `cap ${pct(sec[0])}`, { 'text-anchor': 'end', 'font-size': 10.5, fill: 'var(--ink)' });
+  const maxW = Math.max(...list.map((s) => s.w || 0.01));
+  const rad = (s) => st.size === 'eq' ? 5 : Math.max(3, Math.min(W < 600 ? 20 : 30, 30 * Math.sqrt((s.w || 0.01) / maxW)));
+  const order = [...list].sort((a, b) => rad(b) - rad(a));
+  const g = el('g', {}, svg), labels = el('g', {}, svg);
+  const pos = new Map();
+  for (const s of order) {
+    const x = ax.get(s), y = s.r[st.per];
+    const out = x < sx.lo || x > sx.hi || y < sy.lo || y > sy.hi;
+    const cx = X(x), cy = Y(y), r = rad(s); pos.set(s.s, [cx, cy, r]);
+    const bad = worst.has(s.s), hov = st.hover === s.s;
+    const c = el('circle', { class: 'dot', cx, cy, r, fill: hov ? 'var(--amber)' : bad ? 'var(--down)' : 'var(--ink-3)', 'fill-opacity': hov ? 0.95 : bad ? 0.8 : 0.42, stroke: hov ? 'var(--amber-2)' : 'var(--bg)', 'stroke-width': 1 }, g);
+    if (out) { // freccia verso il valore fuori scala
+      const dx = x < sx.lo ? -1 : x > sx.hi ? 1 : 0, dy = y < sy.lo ? 1 : y > sy.hi ? -1 : 0;
+      const ang = Math.atan2(dy, dx), ex = cx + Math.cos(ang) * (r + 2), ey = cy + Math.sin(ang) * (r + 2);
+      el('path', { d: `M${ex + Math.cos(ang) * 6} ${ey + Math.sin(ang) * 6} L${ex + Math.cos(ang + 2.4) * 5} ${ey + Math.sin(ang + 2.4) * 5} L${ex + Math.cos(ang - 2.4) * 5} ${ey + Math.sin(ang - 2.4) * 5} Z`, fill: 'var(--ink-3)' }, g);
+    }
+    c.addEventListener('mousemove', (ev) => { bbTip(ev, s); hover(s.s); });
+    c.addEventListener('mouseleave', () => { $('bbTip').hidden = true; hover(null); });
+    c.addEventListener('click', (ev) => { bbTip(ev, s); hover(s.s); });
+  }
+  // etichette: i più in pena e i 3 più pesanti, senza sovrapposizioni
+  const want = [...ranked.slice(0, 8), ...[...list].sort((a, b) => (b.w || 0) - (a.w || 0)).slice(0, 3)];
+  if (st.hover) { const h = list.find((s) => s.s === st.hover); if (h) want.unshift(h); }
+  const boxes = [];
+  for (const s of [...new Set(want)]) {
+    const [cx, cy, r] = pos.get(s.s), w = s.s.length * 7 + 4, h = 12;
+    const cands = [[cx + r + 3, cy + 4], [cx - r - 3 - w, cy + 4], [cx - w / 2, cy - r - 4], [cx - w / 2, cy + r + 12]];
+    const ok = cands.find(([x, y]) => x > L && x + w < W - R && y - h > T && y < H - B && !boxes.some((b) => x < b[0] + b[2] && x + w > b[0] && y - h < b[1] && y > b[1] - b[3]));
+    if (!ok) continue;
+    boxes.push([ok[0], ok[1], w, h]);
+    txt(labels, ok[0], ok[1], s.s, { 'font-size': 11, 'font-weight': 600, fill: st.hover === s.s ? 'var(--amber-2)' : worst.has(s.s) ? 'var(--ink)' : 'var(--ink-2)', 'paint-order': 'stroke', stroke: 'var(--bg)', 'stroke-width': 3 });
+  }
+  $('bbTitle').textContent = `Titoli · ${st.sec} ${NAMES[st.sec]}`;
+  const below = list.filter((s) => s.d200 != null && s.d200 < 0).length;
+  $('bbMeta').textContent = `${list.length} titoli · ${below} sotto la media 200 · ${st.per}`;
+  drawPain(ranked);
+}
+function bbTip(ev, s) {
+  const tip = $('bbTip'), wrap = $('bbWrap'), b = wrap.getBoundingClientRect();
+  const extra = s.added ? `<div class="sub">nell'indice dal ${dIT(s.added)}</div>` : s.since ? `<div class="sub">quotato dal ${dIT(s.since)}</div>` : '';
+  tip.innerHTML = `<div class="row"><b>${s.s}</b><span>${s.px.toFixed(2).replace('.', ',')} $</span></div><div class="sub">${esc(s.n)} · ${esc(s.sub)}</div>${extra}` +
+    `<div class="row"><span>rendimento ${st.per}</span><span class="${cls(s.r[st.per])}">${pct(s.r[st.per])}</span></div>` +
+    `<div class="row"><span>periodo precedente</span><span class="${cls(s.prev[st.per])}">${pct(s.prev[st.per])}</span></div>` +
+    `<div class="row"><span>dal massimo 52 sett.</span><span class="${cls(s.dd)}">${pct(s.dd)}</span></div>` +
+    `<div class="row"><span>dalla media 200</span><span class="${cls(s.d200)}">${pct(s.d200)}</span></div>` +
+    `<div class="row"><span>dalla media 50</span><span class="${cls(s.d50)}">${pct(s.d50)}</span></div>` +
+    `<div class="row"><span>peso nell'S&amp;P 500</span><span>${s.w == null ? '–' : s.w.toFixed(2).replace('.', ',') + '%'}</span></div>`;
+  placeTip(tip, wrap, ev.clientX - b.left, ev.clientY - b.top);
+}
+function drawPain(ranked) {
+  const top = ranked.slice(0, 12);
+  $('painMeta').textContent = `${st.sec} · ${st.per}`;
+  $('pain').innerHTML = `<thead><tr><th>Titolo</th><th class="r">${st.per}</th><th class="r">Dal max</th><th class="r">Media 200</th><th class="r">Peso</th></tr></thead><tbody>` +
+    top.map((s) => `<tr data-s="${s.s}" class="${st.hover === s.s ? 'hl' : ''}"><td><span class="sym">${s.s}</span><span class="nm">${esc(s.n)}</span></td>` +
+      `<td class="r num ${cls(s.r[st.per])}">${pct(s.r[st.per])}</td><td class="r num ${cls(s.dd)}">${pct(s.dd)}</td><td class="r num ${cls(s.d200)}">${pct(s.d200)}</td><td class="r num muted">${s.w == null ? '–' : s.w.toFixed(2).replace('.', ',')}</td></tr>`).join('') + '</tbody>';
+  [...$('pain').querySelectorAll('tbody tr')].forEach((tr) => {
+    tr.addEventListener('mouseenter', () => hover(tr.dataset.s));
+    tr.addEventListener('mouseleave', () => hover(null));
+    tr.addEventListener('click', () => hover(st.hover === tr.dataset.s ? null : tr.dataset.s));
+  });
+}
+let hovT = null;
+function hover(s) { if (st.hover === s) return; st.hover = s; clearTimeout(hovT); hovT = setTimeout(drawBubble, 10); }
+
+function setSector(s) { st.sec = s; st.hover = null; [...$('chips').children].forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.s === s))); drawAll(); }
+function drawAll() { drawDumbbell(); drawBubble(); }
+
+$('asOf').textContent = dIT(D.asOf);
+for (const s of SECS) { const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.dataset.s = s; b.textContent = s; b.title = NAMES[s]; b.setAttribute('aria-pressed', String(s === st.sec)); b.onclick = () => setSector(s); $('chips').appendChild(b); }
+segButtons('perSeg', PERS.map((p) => [p, p]), 'per', drawAll);
+segButtons('trailSeg', [['sel', 'Scelto'], ['all', 'Tutti'], ['off', 'No']], 'trail', drawDumbbell);
+segButtons('sortSeg', [['div', 'Divergenza'], ['sec', 'Settore']], 'sort', drawDumbbell);
+segButtons('sizeSeg', [['w', 'Peso'], ['eq', 'Uguali']], 'size', drawBubble);
+$('axSel').onchange = (e) => { st.ax = e.target.value; drawBubble(); };
+let rT = null; addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(drawAll, 80); });
+drawAll();
+</script>

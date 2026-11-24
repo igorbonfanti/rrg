@@ -1,0 +1,90 @@
+atteso {"r":"1,04","st":"backwardation","dd":"−3,1%"}
+OK   1440-scuro: 6 riquadri (6)
+OK   1440-scuro: VIX / VIX3M 1,04 backwardation
+OK   1440-scuro: credito −3,1%
+OK   1440-scuro: nessun testo tagliato nei riquadri
+OK   1440-scuro: fonte dell'ultima seduta (Cboe) nella riga delle date
+OK   1440-scuro: 6 colonne di riquadri (6)
+OK   1440-scuro: pannelli VIX/VIX3M e credito, linea a 1, punto sull'ultimo valore
+OK   1440-scuro: a 10A nessuna fascia «dati non ancora disponibili»
+OK   1440-scuro: riquadro dei valori con VIX3M, rapporto e credito
+OK   1440-scuro: MAX, fascia grigia prima del 2007
+OK   1440-scuro: MAX, scritte delle fasce grigie dentro la fascia
+OK   1440-scuro: MAX, zone di backwardation (133)
+OK   1440-scuro: nessuno scorrimento orizzontale
+OK   1440-scuro: Rea e Serafini citati
+OK   1440-scuro: fonti nuove
+OK   1440-scuro: console 
+OK   1280-chiaro: 6 riquadri (6)
+OK   1280-chiaro: VIX / VIX3M 1,04 backwardation
+OK   1280-chiaro: credito −3,1%
+OK   1280-chiaro: nessun testo tagliato nei riquadri
+OK   1280-chiaro: fonte dell'ultima seduta (Cboe) nella riga delle date
+OK   1280-chiaro: 6 colonne di riquadri (6)
+OK   1280-chiaro: pannelli VIX/VIX3M e credito, linea a 1, punto sull'ultimo valore
+OK   1280-chiaro: a 10A nessuna fascia «dati non ancora disponibili»
+OK   1280-chiaro: riquadro dei valori con VIX3M, rapporto e credito
+OK   1280-chiaro: MAX, fascia grigia prima del 2007
+OK   1280-chiaro: MAX, scritte delle fasce grigie dentro la fascia
+OK   1280-chiaro: MAX, zone di backwardation (133)
+OK   1280-chiaro: nessuno scorrimento orizzontale
+OK   1280-chiaro: Rea e Serafini citati
+OK   1280-chiaro: fonti nuove
+OK   1280-chiaro: console 
+OK   1024-scuro: 6 riquadri (6)
+OK   1024-scuro: VIX / VIX3M 1,04 backwardation
+OK   1024-scuro: credito −3,1%
+OK   1024-scuro: nessun testo tagliato nei riquadri
+OK   1024-scuro: fonte dell'ultima seduta (Cboe) nella riga delle date
+OK   1024-scuro: 3 colonne di riquadri (3)
+OK   1024-scuro: pannelli VIX/VIX3M e credito, linea a 1, punto sull'ultimo valore
+OK   1024-scuro: a 10A nessuna fascia «dati non ancora disponibili»
+OK   1024-scuro: riquadro dei valori con VIX3M, rapporto e credito
+OK   1024-scuro: MAX, fascia grigia prima del 2007
+OK   1024-scuro: MAX, scritte delle fasce grigie dentro la fascia
+OK   1024-scuro: MAX, zone di backwardation (133)
+OK   1024-scuro: nessuno scorrimento orizzontale
+OK   1024-scuro: Rea e Serafini citati
+OK   1024-scuro: fonti nuove
+OK   1024-scuro: console 
+OK   390-scuro: 6 riquadri (6)
+OK   390-scuro: VIX / VIX3M 1,04 backwardation
+OK   390-scuro: credito −3,1%
+OK   390-scuro: nessun testo tagliato nei riquadri
+OK   390-scuro: fonte dell'ultima seduta (Cboe) nella riga delle date
+OK   390-scuro: 2 colonne di riquadri (2)
+OK   390-scuro: pannelli VIX/VIX3M e credito, linea a 1, punto sull'ultimo valore
+OK   390-scuro: a 10A nessuna fascia «dati non ancora disponibili»
+OK   390-scuro: riquadro dei valori con VIX3M, rapporto e credito
+OK   390-scuro: MAX, fascia grigia prima del 2007
+OK   390-scuro: MAX, scritte delle fasce grigie dentro la fascia
+OK   390-scuro: MAX, zone di backwardation (133)
+OK   390-scuro: nessuno scorrimento orizzontale
+OK   390-scuro: Rea e Serafini citati
+OK   390-scuro: fonti nuove
+OK   390-scuro: console 
+OK   360-chiaro: 6 riquadri (6)
+OK   360-chiaro: VIX / VIX3M 1,04 backwardation
+OK   360-chiaro: credito −3,1%
+OK   360-chiaro: nessun testo tagliato nei riquadri
+OK   360-chiaro: fonte dell'ultima seduta (Cboe) nella riga delle date
+OK   360-chiaro: 2 colonne di riquadri (2)
+OK   360-chiaro: pannelli VIX/VIX3M e credito, linea a 1, punto sull'ultimo valore
+OK   360-chiaro: a 10A nessuna fascia «dati non ancora disponibili»
+OK   360-chiaro: riquadro dei valori con VIX3M, rapporto e credito
+OK   360-chiaro: MAX, fascia grigia prima del 2007
+OK   360-chiaro: MAX, scritte delle fasce grigie dentro la fascia
+OK   360-chiaro: MAX, zone di backwardation (133)
+OK   360-chiaro: nessuno scorrimento orizzontale
+OK   360-chiaro: Rea e Serafini citati
+OK   360-chiaro: fonti nuove
+OK   360-chiaro: console 
+OK   file senza le serie nuove: due riquadri «—»
+OK   file senza le serie nuove: grafico della 1.5.0
+OK   file senza le serie nuove: console 
+OK   VIX3M mancante: VIX3M del 06/11/2026 non ancora arrivato · al 05/11/2026 era 1,10 (backwardation)
+OK   VIX3M mancante: console 
+OK   credito in ritardo: HYG/IEF del 06/11/2026 non ancora arrivato · al 05/11/2026 era −3,1% dal massimo
+OK   credito in ritardo: console 
+0 FAIL
+v160 exit 0

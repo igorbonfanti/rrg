@@ -1,0 +1,1730 @@
+[
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "desktop-dark caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1979ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "desktop-dark tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "dark",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "desktop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":1319.53125}",
+  "shot": "shots/m-desktop-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "desktop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "desktop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "desktop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":957}",
+  "shot": "shots/m-desktop-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "desktop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "desktop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "desktop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":900.625}",
+  "shot": "shots/m-desktop-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "desktop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "desktop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "desktop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":1442.015625}",
+  "shot": "shots/m-desktop-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "desktop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "desktop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "desktop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":2618.390625}",
+  "shot": "shots/m-desktop-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "desktop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "desktop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "desktop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":2711.375}",
+  "shot": "shots/m-desktop-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "desktop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "desktop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "desktop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":2175.25}",
+  "shot": "shots/m-desktop-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "desktop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "desktop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "desktop-dark nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "desktop-light caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1526ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "desktop-light tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "light",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "desktop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":1319.53125}",
+  "shot": "shots/m-desktop-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "desktop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "desktop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "desktop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":957}",
+  "shot": "shots/m-desktop-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "desktop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "desktop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "desktop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":900.625}",
+  "shot": "shots/m-desktop-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "desktop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "desktop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "desktop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":1442.015625}",
+  "shot": "shots/m-desktop-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "desktop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "desktop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "desktop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":2618.390625}",
+  "shot": "shots/m-desktop-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "desktop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "desktop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "desktop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":2711.375}",
+  "shot": "shots/m-desktop-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "desktop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "desktop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "desktop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":2175.25}",
+  "shot": "shots/m-desktop-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "desktop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "desktop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-desktop-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "desktop-light nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "laptop-dark caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1513ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "laptop-dark tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "dark",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "laptop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":1550.1875}",
+  "shot": "shots/m-laptop-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "laptop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "laptop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "laptop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":922.828125}",
+  "shot": "shots/m-laptop-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "laptop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "laptop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "laptop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":852.625}",
+  "shot": "shots/m-laptop-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "laptop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "laptop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "laptop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":1516.015625}",
+  "shot": "shots/m-laptop-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "laptop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "laptop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "laptop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":2632.390625}",
+  "shot": "shots/m-laptop-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "laptop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "laptop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "laptop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":2742.265625}",
+  "shot": "shots/m-laptop-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "laptop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "laptop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "laptop-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":2049.953125}",
+  "shot": "shots/m-laptop-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "laptop-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "laptop-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "laptop-dark nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "laptop-light caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1625ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "laptop-light tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "light",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "laptop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":1550.1875}",
+  "shot": "shots/m-laptop-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "laptop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "laptop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "laptop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":922.828125}",
+  "shot": "shots/m-laptop-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "laptop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "laptop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "laptop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":852.625}",
+  "shot": "shots/m-laptop-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "laptop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "laptop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "laptop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":1516.015625}",
+  "shot": "shots/m-laptop-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "laptop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "laptop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "laptop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":2632.390625}",
+  "shot": "shots/m-laptop-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "laptop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "laptop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "laptop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":2742.265625}",
+  "shot": "shots/m-laptop-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "laptop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "laptop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "laptop-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":2049.953125}",
+  "shot": "shots/m-laptop-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "laptop-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "laptop-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-laptop-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "laptop-light nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "tablet-dark caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1483ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "tablet-dark tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "dark",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "tablet-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":2082.71875}",
+  "shot": "shots/m-tablet-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "tablet-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "tablet-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "tablet-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":1946.03125}",
+  "shot": "shots/m-tablet-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "tablet-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "tablet-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "tablet-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":1374.78125}",
+  "shot": "shots/m-tablet-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "tablet-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "tablet-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "tablet-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":1912.96875}",
+  "shot": "shots/m-tablet-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "tablet-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "tablet-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "tablet-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":3229.3125}",
+  "shot": "shots/m-tablet-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "tablet-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "tablet-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "tablet-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":4462.984375}",
+  "shot": "shots/m-tablet-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "tablet-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "tablet-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "tablet-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":2671.078125}",
+  "shot": "shots/m-tablet-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "tablet-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "tablet-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "tablet-dark nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "tablet-light caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1521ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "tablet-light tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "light",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "tablet-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":2082.71875}",
+  "shot": "shots/m-tablet-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "tablet-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "tablet-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "tablet-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":1946.03125}",
+  "shot": "shots/m-tablet-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "tablet-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "tablet-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "tablet-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":1374.78125}",
+  "shot": "shots/m-tablet-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "tablet-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "tablet-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "tablet-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":1912.96875}",
+  "shot": "shots/m-tablet-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "tablet-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "tablet-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "tablet-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":3229.3125}",
+  "shot": "shots/m-tablet-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "tablet-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "tablet-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "tablet-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":4462.984375}",
+  "shot": "shots/m-tablet-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "tablet-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "tablet-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "tablet-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":2671.078125}",
+  "shot": "shots/m-tablet-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "tablet-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "tablet-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-tablet-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "tablet-light nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "phone-dark caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1513ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "phone-dark tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "dark",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "phone-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":3366.984375}",
+  "shot": "shots/m-phone-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "phone-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "phone-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "phone-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":1773.84375}",
+  "shot": "shots/m-phone-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "phone-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "phone-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "phone-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":1295.953125}",
+  "shot": "shots/m-phone-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "phone-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "phone-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "phone-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":2393.515625}",
+  "shot": "shots/m-phone-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "phone-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "phone-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "phone-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":6988.484375}",
+  "shot": "shots/m-phone-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "phone-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "phone-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "phone-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":5726.9375}",
+  "shot": "shots/m-phone-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "phone-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "phone-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "phone-dark apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":3658.359375}",
+  "shot": "shots/m-phone-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "phone-dark niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "phone-dark nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-dark-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "phone-dark nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M0",
+  "area": "avvio",
+  "test": "phone-light caricamento Monitor",
+  "ok": "OK",
+  "detail": "t=1756ms",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M1",
+  "area": "tema",
+  "test": "phone-light tema applicato da localStorage",
+  "ok": "OK",
+  "detail": "light",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista mon",
+  "test": "phone-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-mon\"],\"hash\":\"#mon\",\"h\":3366.984375}",
+  "shot": "shots/m-phone-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista mon",
+  "test": "phone-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista mon",
+  "test": "phone-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-mon.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista rrg",
+  "test": "phone-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-rrg\"],\"hash\":\"#rrg\",\"h\":1773.84375}",
+  "shot": "shots/m-phone-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista rrg",
+  "test": "phone-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista rrg",
+  "test": "phone-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista btm",
+  "test": "phone-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-btm\"],\"hash\":\"#btm\",\"h\":1295.953125}",
+  "shot": "shots/m-phone-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista btm",
+  "test": "phone-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista btm",
+  "test": "phone-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista sec",
+  "test": "phone-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-sec\"],\"hash\":\"#XLU\",\"h\":2393.515625}",
+  "shot": "shots/m-phone-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista sec",
+  "test": "phone-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista sec",
+  "test": "phone-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-sec.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista alr",
+  "test": "phone-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-alr\"],\"hash\":\"#alr\",\"h\":6988.484375}",
+  "shot": "shots/m-phone-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista alr",
+  "test": "phone-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista alr",
+  "test": "phone-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-alr.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista idx",
+  "test": "phone-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-idx\"],\"hash\":\"#idx\",\"h\":5726.9375}",
+  "shot": "shots/m-phone-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista idx",
+  "test": "phone-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista idx",
+  "test": "phone-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-idx.png",
+  "sev": ""
+ },
+ {
+  "id": "M2",
+  "area": "vista tit",
+  "test": "phone-light apertura con la scheda",
+  "ok": "OK",
+  "detail": "{\"sel\":\"true\",\"vis\":true,\"others\":[\"v-tit\"],\"hash\":\"#tit-XLU\",\"h\":3658.359375}",
+  "shot": "shots/m-phone-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M3",
+  "area": "vista tit",
+  "test": "phone-light niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M4",
+  "area": "vista tit",
+  "test": "phone-light nessun NaN/undefined nel testo",
+  "ok": "OK",
+  "detail": "",
+  "shot": "shots/m-phone-light-tit.png",
+  "sev": ""
+ },
+ {
+  "id": "M5",
+  "area": "console",
+  "test": "phone-light nessun errore in console",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

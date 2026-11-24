@@ -1,0 +1,82 @@
+== chart5y
+   simboli: 63
+   barre: 79374
+   simboli diversi (vecchio, offset di oggi): 13
+   barre diverse (vecchio, offset di oggi): 8693
+   simboli non crypto con barre nel fine settimana (nuovo): 2
+== chartMax
+   simboli: 13
+   barre: 83663
+   simboli diversi (vecchio, offset di oggi): 2
+   barre diverse (vecchio, offset di oggi): 7662
+== spark
+   simboli: 4556
+   barre: 1118612
+   simboli non crypto con barre nel fine settimana (nuovo): 49
+
+   chart5y CL=F [FUTURE, America/New_York, gmtoffset -18000→-14400] vecchio, offset di oggi: 349 barre, lunghezza 1255 contro 1256, barre nel weekend in più col vecchio 156
+   chart5y DX-Y.NYB [INDEX, America/New_York, gmtoffset -18000→-14400] vecchio, offset di oggi: 824 barre, lunghezza 1256 contro 1256, barre nel weekend in più col vecchio 157
+   chart5y ES=F [FUTURE, America/New_York, gmtoffset -18000→-14400] vecchio, offset di oggi: 349 barre, lunghezza 1256 contro 1257, barre nel weekend in più col vecchio 156
+   chart5y EURAUD=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y EURBRL=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y EURCAD=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y EURCHF=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y EURGBP=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y EURJPY=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y EURSEK=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y EURUSD=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y GC=F [FUTURE, America/New_York, gmtoffset -18000→-14400] vecchio, offset di oggi: 349 barre, lunghezza 1256 contro 1257, barre nel weekend in più col vecchio 156
+   chart5y RELIANCE.NS (Asia/Kolkata): 1 barre nel fine settimana con il nuovo, es. ['2025-02-01']
+   chart5y USDJPY=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 758 barre, lunghezza 1299 contro 1299, barre nel weekend in più col vecchio 151
+   chart5y ^NSEI (Asia/Kolkata): 1 barre nel fine settimana con il nuovo, es. ['2025-02-01']
+   chartMax DX-Y.NYB [INDEX, America/New_York, gmtoffset -18000→-14400] vecchio, offset di oggi: 4174 barre, lunghezza 6524 contro 6524, barre nel weekend in più col vecchio 799
+   chartMax EURUSD=X [CURRENCY, Europe/London, gmtoffset 0→3600] vecchio, offset di oggi: 3488 barre, lunghezza 5949 contro 5949, barre nel weekend in più col vecchio 697
+   spark 1010.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1030.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1050.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1060.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1080.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1120.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1140.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1150.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1180.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 1211.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 2010.SR (Asia/Riyadh): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 2020.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 2082.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 2222.SR (Asia/Riyadh): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 2280.SR (Asia/Riyadh): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 2290.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 2382.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 4013.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 4100.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 4190.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 4250.SR (Asia/Riyadh): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 4300.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 5110.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 7010.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 7020.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 7203.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 8010.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark 8210.SR (Asia/Riyadh): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark BOUBYAN.KW (Asia/Kuwait): 47 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark CBQK.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark COMI.CA (Africa/Cairo): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark DUBK.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark EAST.CA (Africa/Cairo): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark GBK.KW (Asia/Kuwait): 47 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-30', '2025-12-07']
+   spark IQCD.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark KFH.KW (Asia/Kuwait): 47 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark MABANEE.KW (Asia/Kuwait): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark MARK.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark MPHC.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark NBK.KW (Asia/Kuwait): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark ORDS.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark QEWS.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark QGTS.QA (Asia/Qatar): 50 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark QIBK.QA (Asia/Qatar): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark QIIK.QA (Asia/Qatar): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark QNBK.QA (Asia/Qatar): 49 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark TMGH.CA (Africa/Cairo): 48 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark WARBABANK.KW (Asia/Kuwait): 46 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']
+   spark ZAIN.KW (Asia/Kuwait): 47 barre nel fine settimana con il nuovo, es. ['2025-11-09', '2025-11-16', '2025-11-23', '2025-11-30']

@@ -1,0 +1,112 @@
+{
+ "CNY=X": {
+  "prove": 930,
+  "stati_diversi": 2,
+  "z_diversi": 0,
+  "esempi": [
+   [
+    "2023-11-13",
+    "tagliata a t:",
+    "ferma",
+    "completa:",
+    "tolta (errore)"
+   ],
+   [
+    "2023-08-22",
+    "tagliata a t:",
+    "normale",
+    "completa:",
+    "tolta (errore)"
+   ]
+  ]
+ },
+ "INR=X": {
+  "prove": 930,
+  "stati_diversi": 0,
+  "z_diversi": 0,
+  "esempi": []
+ },
+ "BRL=X": {
+  "prove": 930,
+  "stati_diversi": 1,
+  "z_diversi": 0,
+  "esempi": [
+   [
+    "2011-01-27",
+    "tagliata a t:",
+    "normale",
+    "completa:",
+    "tolta (errore)"
+   ]
+  ]
+ },
+ "KRW=X": {
+  "prove": 930,
+  "stati_diversi": 1,
+  "z_diversi": 0,
+  "esempi": [
+   [
+    "2010-05-18",
+    "tagliata a t:",
+    "normale",
+    "completa:",
+    "tolta (errore)"
+   ]
+  ]
+ },
+ "TWD=X": {
+  "prove": 930,
+  "stati_diversi": 2,
+  "z_diversi": 0,
+  "esempi": [
+   [
+    "2011-10-05",
+    "tagliata a t:",
+    "ferma",
+    "completa:",
+    "tolta (errore)"
+   ],
+   [
+    "2015-04-27",
+    "tagliata a t:",
+    "ferma",
+    "completa:",
+    "tolta (errore)"
+   ]
+  ]
+ },
+ "DTWEXEMEGS": {
+  "prove": 800,
+  "diversi": 0
+ },
+ "rs": {
+  "ASHR": {
+   "prove": 199,
+   "diversi": 0
+  },
+  "INDA": {
+   "prove": 199,
+   "diversi": 0
+  },
+  "EWZ": {
+   "prove": 199,
+   "diversi": 0
+  },
+  "EWY": {
+   "prove": 199,
+   "diversi": 0
+  },
+  "EWT": {
+   "prove": 199,
+   "diversi": 0
+  },
+  "EWH": {
+   "prove": 199,
+   "diversi": 0
+  },
+  "EEM": {
+   "prove": 199,
+   "diversi": 0
+  }
+ }
+}

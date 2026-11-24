@@ -1,0 +1,118 @@
+
+Oggi (ultima seduta 2026-11-20)
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  concluso 2022-01-03 calo -25.4
+  concluso 2025-02-19 calo -18.9
+  in corso 2026-10-06 calo -11.6
+
+Taglio al 2008-03-31 (ultima seduta 2008-03-31)
+  in corso 2007-10-09 calo -18.6
+
+Taglio al 2009-06-30 (ultima seduta 2009-06-30)
+  in corso 2007-10-09 calo -56.8
+
+Taglio al 2010-06-30 (ultima seduta 2010-06-30)
+  in corso 2007-10-09 calo -56.8
+  in corso 2010-04-23 calo -15.3
+
+Taglio al 2012-03-30 (ultima seduta 2012-03-30)
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  in corso 2007-10-09 calo -56.8
+
+Taglio al 2013-03-14 (ultima seduta 2013-03-14)
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  in corso 2007-10-09 calo -56.8
+
+Taglio al 2018-12-24 (ultima seduta 2018-12-24)
+  concluso 2007-10-09 calo -56.8
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  in corso 2018-09-20 calo -19.8
+
+Taglio al 2019-04-30 (ultima seduta 2019-04-30)
+  concluso 2007-10-09 calo -56.8
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  in corso 2019-04-30 calo null
+
+Taglio al 2020-03-23 (ultima seduta 2020-03-23)
+  concluso 2007-10-09 calo -56.8
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  in corso 2020-02-19 calo -33.9
+
+Taglio al 2020-08-14 (ultima seduta 2020-08-14)
+  concluso 2007-10-09 calo -56.8
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  in corso 2020-02-19 calo -33.9
+
+Taglio al 2022-10-12 (ultima seduta 2022-10-12)
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  in corso 2022-01-03 calo -25.4
+
+Taglio al 2023-07-31 (ultima seduta 2023-07-31)
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  in corso 2022-01-03 calo -25.4
+
+Taglio al 2023-12-29 (ultima seduta 2023-12-29)
+  concluso 2010-04-23 calo -16
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  in corso 2022-01-03 calo -25.4
+
+Taglio al 2024-01-19 (ultima seduta 2024-01-19)
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  concluso 2022-01-03 calo -25.4
+  in corso 2024-01-19 calo null
+
+Taglio al 2025-04-08 (ultima seduta 2025-04-08)
+  concluso 2011-04-29 calo -19.4
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  concluso 2022-01-03 calo -25.4
+  in corso 2025-02-19 calo -18.9
+
+Taglio al 2025-06-27 (ultima seduta 2025-06-27)
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  concluso 2022-01-03 calo -25.4
+  concluso 2025-02-19 calo -18.9
+  in corso 2025-06-27 calo null
+
+Taglio al 2026-10-06 (ultima seduta 2026-10-06)
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  concluso 2022-01-03 calo -25.4
+  concluso 2025-02-19 calo -18.9
+  in corso 2026-10-06 calo null
+
+Nuovo massimo dell'S&P 500 all'ultima seduta (ultima seduta 2026-11-23)
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  concluso 2022-01-03 calo -25.4
+  concluso 2025-02-19 calo -18.9
+  in corso 2026-11-23 calo null
+  in corso: 2026-11-23 ddPct null anchor {"status":"anchor","date":"2026-11-23","offset":0,"ddPct":null,"belowZero":false,"ongoing":true}
+
+Calo in corso oltre il 15% (ultima seduta 2026-11-24)
+  concluso 2018-09-20 calo -19.8
+  concluso 2020-02-19 calo -33.9
+  concluso 2022-01-03 calo -25.4
+  concluso 2025-02-19 calo -18.9
+  in corso 2026-10-06 calo -20

@@ -1,0 +1,59 @@
+OK   oggi 1440px dark: riquadri Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% | Massimo S&P 500 19/02/2025 · calo −18,9% | Massimo S&P 500 06/10/2026 · calo −11,6% in corso
+OK   oggi 1440px dark: 4 conclusi e 1 in corso dal 06/10/2026
+OK   oggi 1440px dark: intestazione «ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 20/11/2026»
+OK   oggi 1440px dark: tema dark, larghezza 1440/1440, errori 0 
+OK   oggi 1440px light: riquadri Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% | Massimo S&P 500 19/02/2025 · calo −18,9% | Massimo S&P 500 06/10/2026 · calo −11,6% in corso
+OK   oggi 1440px light: 4 conclusi e 1 in corso dal 06/10/2026
+OK   oggi 1440px light: intestazione «ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 20/11/2026»
+OK   oggi 1440px light: tema light, larghezza 1440/1440, errori 0 
+OK   oggi 390px dark: riquadri Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% | Massimo S&P 500 19/02/2025 · calo −18,9% | Massimo S&P 500 06/10/2026 · calo −11,6% in corso
+OK   oggi 390px dark: 4 conclusi e 1 in corso dal 06/10/2026
+OK   oggi 390px dark: intestazione «ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 20/11/2026»
+OK   oggi 390px dark: tema dark, larghezza 390/390, errori 0 
+OK   oggi 390px light: riquadri Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% | Massimo S&P 500 19/02/2025 · calo −18,9% | Massimo S&P 500 06/10/2026 · calo −11,6% in corso
+OK   oggi 390px light: 4 conclusi e 1 in corso dal 06/10/2026
+OK   oggi 390px light: intestazione «ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 20/11/2026»
+OK   oggi 390px light: tema light, larghezza 390/390, errori 0 
+OK   2023-07-31 1440px: riquadri app [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% in corso] attesi [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% in corso]
+     2023-07-31 1440px intestazione «ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 31/07/2023»
+OK   2023-07-31 1440px: larghezza 1440/1440, errori 0 
+OK   2023-07-31 390px: riquadri app [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% in corso] attesi [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 20/09/2018 · calo −19,8% | Massimo S&P 500 19/02/2020 · calo −33,9% | Massimo S&P 500 03/01/2022 · calo −25,4% in corso]
+     2023-07-31 390px intestazione «ultimi 4 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 31/07/2023»
+OK   2023-07-31 390px: larghezza 390/390, errori 0 
+OK   2011-10-03 1440px: riquadri app [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 29/04/2011 · calo −19,4% in corso] attesi [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 29/04/2011 · calo −19,4% in corso]
+     2011-10-03 1440px intestazione «ultimi 1 cali ≥ 15% dell'S&P 500 e i 2 in corso · chiusure al 03/10/2011»
+OK   2011-10-03 1440px: larghezza 1440/1440, errori 0 
+OK   2011-10-03 390px: riquadri app [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 29/04/2011 · calo −19,4% in corso] attesi [Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 29/04/2011 · calo −19,4% in corso]
+     2011-10-03 390px intestazione «ultimi 1 cali ≥ 15% dell'S&P 500 e i 2 in corso · chiusure al 03/10/2011»
+OK   2011-10-03 390px: larghezza 390/390, errori 0 
+OK   2010-06-30 1440px: riquadri app [Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 23/04/2010 · calo −15,3% in corso] attesi [Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 23/04/2010 · calo −15,3% in corso]
+     2010-06-30 1440px intestazione «cali ≥ 15% dell'S&P 500: i 2 in corso · chiusure al 30/06/2010»
+OK   2010-06-30 1440px: larghezza 1440/1440, errori 0 
+OK   2010-06-30 390px: riquadri app [Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 23/04/2010 · calo −15,3% in corso] attesi [Massimo S&P 500 09/10/2007 · calo −56,8% in corso | Massimo S&P 500 23/04/2010 · calo −15,3% in corso]
+     2010-06-30 390px intestazione «cali ≥ 15% dell'S&P 500: i 2 in corso · chiusure al 30/06/2010»
+OK   2010-06-30 390px: larghezza 390/390, errori 0 
+OK   2013-03-28 1440px: riquadri app [Massimo S&P 500 09/10/2007 · calo −56,8% | Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 28/03/2013 · al massimo in corso] attesi [Massimo S&P 500 09/10/2007 · calo −56,8% | Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 28/03/2013 · al massimo in corso]
+     2013-03-28 1440px intestazione «ultimi 3 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 28/03/2013»
+OK   2013-03-28 1440px: larghezza 1440/1440, errori 0 
+OK   2013-03-28 390px: riquadri app [Massimo S&P 500 09/10/2007 · calo −56,8% | Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 28/03/2013 · al massimo in corso] attesi [Massimo S&P 500 09/10/2007 · calo −56,8% | Massimo S&P 500 23/04/2010 · calo −16,0% | Massimo S&P 500 29/04/2011 · calo −19,4% | Massimo S&P 500 28/03/2013 · al massimo in corso]
+     2013-03-28 390px intestazione «ultimi 3 cali ≥ 15% dell'S&P 500 e quello in corso · chiusure al 28/03/2013»
+OK   2013-03-28 390px: larghezza 390/390, errori 0 
+OK   2005-06-30 1440px: riquadri app [Massimo S&P 500 07/03/2005 · calo −7,2% in corso] attesi [Massimo S&P 500 07/03/2005 · calo −7,2% in corso]
+     2005-06-30 1440px intestazione «cali ≥ 15% dell'S&P 500: quello in corso · chiusure al 30/06/2005»
+OK   2005-06-30 1440px: larghezza 1440/1440, errori 0 
+OK   2005-06-30 390px: riquadri app [Massimo S&P 500 07/03/2005 · calo −7,2% in corso] attesi [Massimo S&P 500 07/03/2005 · calo −7,2% in corso]
+     2005-06-30 390px intestazione «cali ≥ 15% dell'S&P 500: quello in corso · chiusure al 30/06/2005»
+OK   2005-06-30 390px: larghezza 390/390, errori 0 
+OK   2009-03-09 1440px: riquadri app [Massimo S&P 500 09/10/2007 · calo −56,8% in corso] attesi [Massimo S&P 500 09/10/2007 · calo −56,8% in corso]
+     2009-03-09 1440px intestazione «cali ≥ 15% dell'S&P 500: quello in corso · chiusure al 09/03/2009»
+OK   2009-03-09 1440px: larghezza 1440/1440, errori 0 
+OK   2009-03-09 390px: riquadri app [Massimo S&P 500 09/10/2007 · calo −56,8% in corso] attesi [Massimo S&P 500 09/10/2007 · calo −56,8% in corso]
+     2009-03-09 390px intestazione «cali ≥ 15% dell'S&P 500: quello in corso · chiusure al 09/03/2009»
+OK   2009-03-09 390px: larghezza 390/390, errori 0 
+OK   2003-01-31 1440px: riquadri app [] attesi [] messaggio «Linea del tempo non disponibile: manca lo storico dell'S&P 500 (data/ath_history.json). Tornerà dopo il prossimo aggiornamento.»
+     2003-01-31 1440px intestazione «»
+OK   2003-01-31 1440px: larghezza 1440/1440, errori 0 
+OK   2003-01-31 390px: riquadri app [] attesi [] messaggio «Linea del tempo non disponibile: manca lo storico dell'S&P 500 (data/ath_history.json). Tornerà dopo il prossimo aggiornamento.»
+     2003-01-31 390px intestazione «»
+OK   2003-01-31 390px: larghezza 390/390, errori 0 
+0 FAIL

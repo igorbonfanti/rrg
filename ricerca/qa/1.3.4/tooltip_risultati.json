@@ -1,0 +1,124 @@
+[
+ {
+  "w": 1440,
+  "touch": false,
+  "tema": "chiaro",
+  "elementi": 3,
+  "errori": [],
+  "titleUguale": true,
+  "testo": "membri di oggi",
+  "visibile": true,
+  "box": {
+   "x": 962,
+   "y": 596,
+   "w": 75,
+   "h": 16
+  },
+  "dentroLaPagina": true,
+  "raggiungibile": true,
+  "datiIndici": [
+   "N225Nikkei 225",
+   "SXXPSTOXX Europe 600",
+   "DAXDAX"
+  ]
+ },
+ {
+  "w": 1440,
+  "touch": false,
+  "tema": "scuro",
+  "elementi": 3,
+  "errori": [],
+  "titleUguale": true,
+  "testo": "membri di oggi",
+  "visibile": true,
+  "box": {
+   "x": 962,
+   "y": 596,
+   "w": 75,
+   "h": 16
+  },
+  "dentroLaPagina": true,
+  "raggiungibile": true,
+  "datiIndici": [
+   "N225Nikkei 225",
+   "SXXPSTOXX Europe 600",
+   "DAXDAX"
+  ]
+ },
+ {
+  "w": 390,
+  "touch": true,
+  "tema": "chiaro",
+  "elementi": 3,
+  "errori": [],
+  "titleUguale": true,
+  "testo": "membri di oggi",
+  "visibile": true,
+  "box": {
+   "x": 84,
+   "y": 414,
+   "w": 75,
+   "h": 16
+  },
+  "dentroLaPagina": true,
+  "raggiungibile": true,
+  "datiIndici": [
+   "N225Nikkei 225",
+   "SXXPSTOXX Europe 600",
+   "DAXDAX"
+  ],
+  "taptip": {
+   "text": "Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 3,6 punti più alta (da −6 a +17 nelle singole date); vicino ai minimi lo scarto medio è piccolo (+1,1 con la breadth sotto il 20%, da −4 a +8 nelle singole date) (Tocca il nome per aprire.)",
+   "x": 58,
+   "y": 436.390625,
+   "w": 320,
+   "h": 105.5,
+   "vw": 390,
+   "vh": 844,
+   "sh": 104,
+   "ch": 104,
+   "ov": "visible",
+   "color": "rgb(17, 17, 17)",
+   "bg": "rgb(242, 242, 240)"
+  },
+  "taptipIntero": true
+ },
+ {
+  "w": 390,
+  "touch": true,
+  "tema": "scuro",
+  "elementi": 3,
+  "errori": [],
+  "titleUguale": true,
+  "testo": "membri di oggi",
+  "visibile": true,
+  "box": {
+   "x": 84,
+   "y": 414,
+   "w": 75,
+   "h": 16
+  },
+  "dentroLaPagina": true,
+  "raggiungibile": true,
+  "datiIndici": [
+   "N225Nikkei 225",
+   "SXXPSTOXX Europe 600",
+   "DAXDAX"
+  ],
+  "taptip": {
+   "text": "Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 3,6 punti più alta (da −6 a +17 nelle singole date); vicino ai minimi lo scarto medio è piccolo (+1,1 con la breadth sotto il 20%, da −4 a +8 nelle singole date) (Tocca il nome per aprire.)",
+   "x": 58,
+   "y": 436.390625,
+   "w": 320,
+   "h": 105.5,
+   "vw": 390,
+   "vh": 844,
+   "sh": 104,
+   "ch": 104,
+   "ov": "visible",
+   "color": "rgb(232, 232, 232)",
+   "bg": "rgb(14, 14, 14)"
+  },
+  "taptipIntero": true
+ }
+]

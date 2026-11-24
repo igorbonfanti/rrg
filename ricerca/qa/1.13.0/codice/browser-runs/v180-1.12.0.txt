@@ -1,0 +1,232 @@
+OK   1440-scuro perf: lente con aria-label e aria-pressed
+OK   1440-scuro perf: trascinamento → «Zoom: dal 20/07/2026 al 11/09/2026» (riquadro prima: 20/07/2026 – 11/09/2026)
+OK   1440-scuro perf: bordi del grafico 20/07/2026 – 11/09/2026
+OK   1440-scuro perf: lo zoom non si salva nel browser
+OK   1440-scuro perf: clic senza trascinare = riquadro, zoom invariato
+OK   1440-scuro perf: tratto di 8 sedute ignorato
+OK   1440-scuro perf: zoom nello zoom «Zoom: dal 04/08/2026 al 20/08/2026», 6 etichette del tempo
+OK   1440-scuro perf: doppio clic toglie lo zoom
+OK   1440-scuro perf: Esc toglie lo zoom
+OK   1440-scuro perf: × toglie lo zoom e porta il focus sul periodo
+OK   1440-scuro perf: periodo toglie lo zoom
+OK   1440-scuro perf: legenda «zoom dal 20/07/2026 al 11/09/2026, base 100 al 20/07/2026»
+OK   1440-scuro perf: SPY 103,0 alla fine del tratto (dal file: 103,0)
+OK   1440-scuro perf: resta passando sopra la RRG
+OK   1440-scuro ts: lente con aria-label e aria-pressed
+OK   1440-scuro ts: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1440-scuro ts: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1440-scuro ts: lo zoom non si salva nel browser
+OK   1440-scuro ts: clic senza trascinare = riquadro, zoom invariato
+OK   1440-scuro ts: rilascio fuori dal grafico: niente banda appiccicata, riquadro di nuovo visibile
+OK   1440-scuro ts: tratto di 8 sedute ignorato
+OK   1440-scuro ts: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1440-scuro ts: doppio clic toglie lo zoom
+OK   1440-scuro ts: Esc toglie lo zoom
+OK   1440-scuro ts: × toglie lo zoom e porta il focus sul periodo
+OK   1440-scuro ts: periodo toglie lo zoom
+OK   1440-scuro ts: 228 sedute disegnate (dal file: 228)
+OK   1440-scuro ts: valori a destra alla fine del tratto, con la data
+OK   1440-scuro ts: «peggiore nel tratto»
+OK   1440-scuro ts: scala ricalcolata sui valori visibili (margini 0.05, 0.05)
+OK   1440-scuro ts: resta dopo il livello blu −
+OK   1440-scuro ts: resta cambiando settore (XLE)
+OK   1440-scuro ts: resta dopo il ridimensionamento
+OK   1440-scuro ts: lo stesso zoom nei Cali forti
+OK   1440-scuro ts: i Cali forti partono dal 11/10/2024 (zoom dal 11/10/2024)
+OK   1440-scuro ts: «soglia … al 10/09/2025» nei Cali forti
+OK   1440-scuro ts: dopo il ricaricamento niente zoom
+OK   1440-scuro secCapSvg: lente con aria-label e aria-pressed
+OK   1440-scuro secCapSvg: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1440-scuro secCapSvg: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1440-scuro secCapSvg: lo zoom non si salva nel browser
+OK   1440-scuro secCapSvg: clic senza trascinare = riquadro, zoom invariato
+OK   1440-scuro secCapSvg: tratto di 8 sedute ignorato
+OK   1440-scuro secCapSvg: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1440-scuro secCapSvg: doppio clic toglie lo zoom
+OK   1440-scuro secCapSvg: Esc toglie lo zoom
+OK   1440-scuro secCapSvg: × toglie lo zoom e porta il focus sul periodo
+OK   1440-scuro secCapSvg: periodo toglie lo zoom
+OK   1440-scuro ixTs: lente con aria-label e aria-pressed
+OK   1440-scuro ixTs: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1440-scuro ixTs: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1440-scuro ixTs: lo zoom non si salva nel browser
+OK   1440-scuro ixTs: clic senza trascinare = riquadro, zoom invariato
+OK   1440-scuro ixTs: tratto di 8 sedute ignorato
+OK   1440-scuro ixTs: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1440-scuro ixTs: doppio clic toglie lo zoom
+OK   1440-scuro ixTs: Esc toglie lo zoom
+OK   1440-scuro ixTs: × toglie lo zoom e porta il focus sul periodo
+OK   1440-scuro ixTs: periodo toglie lo zoom
+OK   1440-scuro ixCapSvg: lente con aria-label e aria-pressed
+OK   1440-scuro ixCapSvg: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1440-scuro ixCapSvg: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1440-scuro ixCapSvg: lo zoom non si salva nel browser
+OK   1440-scuro ixCapSvg: clic senza trascinare = riquadro, zoom invariato
+OK   1440-scuro ixCapSvg: tratto di 8 sedute ignorato
+OK   1440-scuro ixCapSvg: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1440-scuro ixCapSvg: doppio clic toglie lo zoom
+OK   1440-scuro ixCapSvg: Esc toglie lo zoom
+OK   1440-scuro ixCapSvg: × toglie lo zoom e porta il focus sul periodo
+OK   1440-scuro ixCapSvg: periodo toglie lo zoom
+OK   1440-scuro emChart: lente con aria-label e aria-pressed
+OK   1440-scuro emChart: trascinamento → «Zoom: dal 14/10/2024 al 08/09/2025» (riquadro prima: 14/10/2024 – 08/09/2025)
+OK   1440-scuro emChart: bordi del grafico 14/10/2024 – 08/09/2025
+OK   1440-scuro emChart: lo zoom non si salva nel browser
+OK   1440-scuro emChart: clic senza trascinare = riquadro, zoom invariato
+OK   1440-scuro emChart: zoom nello zoom «Zoom: dal 18/02/2025 al 20/03/2025», 4 etichette del tempo
+OK   1440-scuro emChart: doppio clic toglie lo zoom
+OK   1440-scuro emChart: Esc toglie lo zoom
+OK   1440-scuro emChart: × toglie lo zoom e porta il focus sul periodo
+OK   1440-scuro emChart: periodo toglie lo zoom
+FAIL 1440-scuro emChart: nota «base 100 al 14/10/2024, inizio dello zoom»
+OK   1440-scuro emChart: resta cambiando paese (Zoom: dal 14/10/2024 al 08/09/2025)
+OK   1440-scuro vxChart: lente con aria-label e aria-pressed
+OK   1440-scuro vxChart: trascinamento → «Zoom: dal 20/11/2019 al 21/11/2022» (riquadro prima: 20/11/2019 – 21/11/2022)
+OK   1440-scuro vxChart: bordi del grafico 21/11/2019 – 21/11/2022
+OK   1440-scuro vxChart: lo zoom non si salva nel browser
+OK   1440-scuro vxChart: clic senza trascinare = riquadro, zoom invariato
+OK   1440-scuro vxChart: zoom nello zoom «Zoom: dal 18/02/2021 al 19/03/2021», 4 etichette del tempo
+OK   1440-scuro vxChart: doppio clic toglie lo zoom
+OK   1440-scuro vxChart: Esc toglie lo zoom
+OK   1440-scuro vxChart: × toglie lo zoom e porta il focus sul periodo
+OK   1440-scuro vxChart: periodo toglie lo zoom
+OK   1440-scuro vxChart: resta cambiando indice
+OK   1440-scuro vxChart: il primo Esc toglie lo zoom e lascia la crisi
+OK   1440-scuro vxChart: il secondo Esc toglie la crisi
+OK   1440-scuro vxChart: dopo il ricaricamento niente zoom
+OK   1440-scuro: console 
+OK   1280-chiaro perf: lente con aria-label e aria-pressed
+OK   1280-chiaro perf: trascinamento → «Zoom: dal 20/07/2026 al 11/09/2026» (riquadro prima: 20/07/2026 – 11/09/2026)
+OK   1280-chiaro perf: bordi del grafico 20/07/2026 – 11/09/2026
+OK   1280-chiaro perf: lo zoom non si salva nel browser
+OK   1280-chiaro perf: clic senza trascinare = riquadro, zoom invariato
+OK   1280-chiaro perf: tratto di 8 sedute ignorato
+OK   1280-chiaro perf: zoom nello zoom «Zoom: dal 04/08/2026 al 20/08/2026», 6 etichette del tempo
+OK   1280-chiaro perf: doppio clic toglie lo zoom
+OK   1280-chiaro perf: Esc toglie lo zoom
+OK   1280-chiaro perf: × toglie lo zoom e porta il focus sul periodo
+OK   1280-chiaro perf: periodo toglie lo zoom
+OK   1280-chiaro perf: legenda «zoom dal 20/07/2026 al 11/09/2026, base 100 al 20/07/2026»
+OK   1280-chiaro perf: SPY 103,0 alla fine del tratto (dal file: 103,0)
+OK   1280-chiaro perf: resta passando sopra la RRG
+OK   1280-chiaro ts: lente con aria-label e aria-pressed
+OK   1280-chiaro ts: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1280-chiaro ts: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1280-chiaro ts: lo zoom non si salva nel browser
+OK   1280-chiaro ts: clic senza trascinare = riquadro, zoom invariato
+OK   1280-chiaro ts: rilascio fuori dal grafico: niente banda appiccicata, riquadro di nuovo visibile
+OK   1280-chiaro ts: tratto di 8 sedute ignorato
+OK   1280-chiaro ts: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1280-chiaro ts: doppio clic toglie lo zoom
+OK   1280-chiaro ts: Esc toglie lo zoom
+OK   1280-chiaro ts: × toglie lo zoom e porta il focus sul periodo
+OK   1280-chiaro ts: periodo toglie lo zoom
+OK   1280-chiaro ts: 228 sedute disegnate (dal file: 228)
+OK   1280-chiaro ts: valori a destra alla fine del tratto, con la data
+OK   1280-chiaro ts: «peggiore nel tratto»
+OK   1280-chiaro ts: scala ricalcolata sui valori visibili (margini 0.05, 0.05)
+OK   1280-chiaro ts: resta dopo il livello blu −
+OK   1280-chiaro ts: resta cambiando settore (XLE)
+OK   1280-chiaro ts: resta dopo il ridimensionamento
+OK   1280-chiaro ts: lo stesso zoom nei Cali forti
+OK   1280-chiaro ts: i Cali forti partono dal 11/10/2024 (zoom dal 11/10/2024)
+OK   1280-chiaro ts: «soglia … al 10/09/2025» nei Cali forti
+OK   1280-chiaro ts: dopo il ricaricamento niente zoom
+OK   1280-chiaro secCapSvg: lente con aria-label e aria-pressed
+OK   1280-chiaro secCapSvg: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1280-chiaro secCapSvg: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1280-chiaro secCapSvg: lo zoom non si salva nel browser
+OK   1280-chiaro secCapSvg: clic senza trascinare = riquadro, zoom invariato
+OK   1280-chiaro secCapSvg: tratto di 8 sedute ignorato
+OK   1280-chiaro secCapSvg: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1280-chiaro secCapSvg: doppio clic toglie lo zoom
+OK   1280-chiaro secCapSvg: Esc toglie lo zoom
+OK   1280-chiaro secCapSvg: × toglie lo zoom e porta il focus sul periodo
+OK   1280-chiaro secCapSvg: periodo toglie lo zoom
+OK   1280-chiaro ixTs: lente con aria-label e aria-pressed
+OK   1280-chiaro ixTs: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1280-chiaro ixTs: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1280-chiaro ixTs: lo zoom non si salva nel browser
+OK   1280-chiaro ixTs: clic senza trascinare = riquadro, zoom invariato
+OK   1280-chiaro ixTs: tratto di 8 sedute ignorato
+OK   1280-chiaro ixTs: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1280-chiaro ixTs: doppio clic toglie lo zoom
+OK   1280-chiaro ixTs: Esc toglie lo zoom
+OK   1280-chiaro ixTs: × toglie lo zoom e porta il focus sul periodo
+OK   1280-chiaro ixTs: periodo toglie lo zoom
+OK   1280-chiaro ixCapSvg: lente con aria-label e aria-pressed
+OK   1280-chiaro ixCapSvg: trascinamento → «Zoom: dal 11/10/2024 al 10/09/2025» (riquadro prima: 11/10/2024 – 10/09/2025)
+OK   1280-chiaro ixCapSvg: bordi del grafico 11/10/2024 – 10/09/2025
+OK   1280-chiaro ixCapSvg: lo zoom non si salva nel browser
+OK   1280-chiaro ixCapSvg: clic senza trascinare = riquadro, zoom invariato
+OK   1280-chiaro ixCapSvg: tratto di 8 sedute ignorato
+OK   1280-chiaro ixCapSvg: zoom nello zoom «Zoom: dal 20/02/2025 al 21/03/2025», 11 etichette del tempo
+OK   1280-chiaro ixCapSvg: doppio clic toglie lo zoom
+OK   1280-chiaro ixCapSvg: Esc toglie lo zoom
+OK   1280-chiaro ixCapSvg: × toglie lo zoom e porta il focus sul periodo
+OK   1280-chiaro ixCapSvg: periodo toglie lo zoom
+OK   1280-chiaro emChart: lente con aria-label e aria-pressed
+OK   1280-chiaro emChart: trascinamento → «Zoom: dal 14/10/2024 al 08/09/2025» (riquadro prima: 14/10/2024 – 08/09/2025)
+OK   1280-chiaro emChart: bordi del grafico 14/10/2024 – 08/09/2025
+OK   1280-chiaro emChart: lo zoom non si salva nel browser
+OK   1280-chiaro emChart: clic senza trascinare = riquadro, zoom invariato
+OK   1280-chiaro emChart: zoom nello zoom «Zoom: dal 18/02/2025 al 20/03/2025», 4 etichette del tempo
+OK   1280-chiaro emChart: doppio clic toglie lo zoom
+OK   1280-chiaro emChart: Esc toglie lo zoom
+OK   1280-chiaro emChart: × toglie lo zoom e porta il focus sul periodo
+OK   1280-chiaro emChart: periodo toglie lo zoom
+FAIL 1280-chiaro emChart: nota «base 100 al 14/10/2024, inizio dello zoom»
+OK   1280-chiaro emChart: resta cambiando paese (Zoom: dal 14/10/2024 al 08/09/2025)
+OK   1280-chiaro vxChart: lente con aria-label e aria-pressed
+OK   1280-chiaro vxChart: trascinamento → «Zoom: dal 20/11/2019 al 21/11/2022» (riquadro prima: 20/11/2019 – 21/11/2022)
+OK   1280-chiaro vxChart: bordi del grafico 21/11/2019 – 21/11/2022
+OK   1280-chiaro vxChart: lo zoom non si salva nel browser
+OK   1280-chiaro vxChart: clic senza trascinare = riquadro, zoom invariato
+OK   1280-chiaro vxChart: zoom nello zoom «Zoom: dal 18/02/2021 al 19/03/2021», 4 etichette del tempo
+OK   1280-chiaro vxChart: doppio clic toglie lo zoom
+OK   1280-chiaro vxChart: Esc toglie lo zoom
+OK   1280-chiaro vxChart: × toglie lo zoom e porta il focus sul periodo
+OK   1280-chiaro vxChart: periodo toglie lo zoom
+OK   1280-chiaro vxChart: resta cambiando indice
+OK   1280-chiaro vxChart: il primo Esc toglie lo zoom e lascia la crisi
+OK   1280-chiaro vxChart: il secondo Esc toglie la crisi
+OK   1280-chiaro vxChart: dopo il ricaricamento niente zoom
+OK   1280-chiaro: console 
+OK   390-scuro perf: trascinamento orizzontale senza lente: niente zoom
+OK   390-scuro perf: trascinamento verticale: la pagina scorre (1651 → 1753)
+OK   390-scuro perf: lente accesa
+OK   390-scuro perf: lente accesa, gesto verticale: la pagina scorre (1753 → 1573) e niente zoom
+OK   390-scuro perf: un tocco con la lente accesa apre il riquadro
+OK   390-scuro perf: zoom con la lente («Zoom: dal 30/06/2026 al 08/10/2026»), poi la lente si spegne
+OK   390-scuro perf: etichetta dentro lo schermo (46–311)
+OK   390-scuro perf: × toglie lo zoom
+OK   390-scuro perf: nessuno scorrimento orizzontale
+OK   390-scuro ts: trascinamento orizzontale senza lente: niente zoom
+OK   390-scuro ts: trascinamento verticale: la pagina scorre (225 → 450)
+OK   390-scuro ts: lente accesa
+OK   390-scuro ts: lente accesa, gesto verticale: la pagina scorre (225 → 45) e niente zoom
+OK   390-scuro ts: un tocco con la lente accesa apre il riquadro
+OK   390-scuro ts: zoom con la lente («Zoom: dal 25/06/2024 al 23/02/2026»), poi la lente si spegne
+OK   390-scuro ts: etichetta dentro lo schermo (46–311)
+OK   390-scuro ts: × toglie lo zoom
+OK   390-scuro ts: nessuno scorrimento orizzontale
+OK   390-scuro emChart: trascinamento orizzontale senza lente: niente zoom
+OK   390-scuro emChart: trascinamento verticale: la pagina scorre (2016 → 2236)
+OK   390-scuro emChart: lente accesa
+OK   390-scuro emChart: lente accesa, gesto verticale: la pagina scorre (1868 → 1688) e niente zoom
+OK   390-scuro emChart: un tocco con la lente accesa apre il riquadro
+OK   390-scuro emChart: zoom con la lente («Zoom: dal 26/06/2024 al 24/02/2026»), poi la lente si spegne
+OK   390-scuro emChart: etichetta dentro lo schermo (46–311)
+OK   390-scuro emChart: × toglie lo zoom
+OK   390-scuro emChart: nessuno scorrimento orizzontale
+OK   390-scuro vxChart: trascinamento orizzontale senza lente: niente zoom
+OK   390-scuro vxChart: trascinamento verticale: la pagina scorre (3438 → 3656)
+OK   390-scuro vxChart: lente accesa
+OK   390-scuro vxChart: lente accesa, gesto verticale: la pagina scorre (3366 → 3186) e niente zoom
+OK   390-scuro vxChart: un tocco con la lente accesa apre il riquadro
+OK   390-scuro vxChart: zoom con la lente («Zoom: dal 19/11/2018 al 20/05/2024»), poi la lente si spegne
+OK   390-scuro vxChart: etichetta dentro lo schermo (46–311)
+OK   390-scuro vxChart: × toglie lo zoom
+OK   390-scuro vxChart: nessuno scorrimento orizzontale
+OK   390-scuro: console 
+2 FAIL

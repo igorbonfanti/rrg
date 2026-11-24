@@ -1,0 +1,5 @@
+XLC 2008-09-29: fall63=NaN, dd52=null, r63=null → in tabella <span class="muted">—</span>
+XLC 2008-11-12: fall63=NaN, dd52=null, r63=null → in tabella <span class="muted">—</span>
+XLRE 2008-07-09: fall63=NaN, dd52=null, r63=null → in tabella <span class="muted">—</span>
+XLRE 2008-09-15: fall63=NaN, dd52=null, r63=null → in tabella <span class="muted">—</span>
+XLRE 2009-02-17: fall63=NaN, dd52=null, r63=null → in tabella <span class="muted">—</span>

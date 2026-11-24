@@ -1,0 +1,38 @@
+1440 #mon: vista mostrata v-mon, righe/punti 36, scheda nascosta false, messaggi: —
+   «i» si apre
+1440 #rrg: vista mostrata v-rrg, righe/punti 143, scheda nascosta false, messaggi: —
+1440 #btm: vista mostrata v-btm, righe/punti 110, scheda nascosta false, messaggi: —
+   «i» si apre
+1440 #XLK: vista mostrata v-sec, righe/punti 107, scheda nascosta false, messaggi: —
+   «i» si apre
+1440 #SOXX: vista mostrata v-sec, righe/punti 67, scheda nascosta false, messaggi: —
+   «i» si apre
+1440 #tit: vista mostrata v-tit, righe/punti 156, scheda nascosta false, messaggi: —
+   «i» si apre
+1440 #idx: vista mostrata v-idx, righe/punti 126, scheda nascosta false, messaggi: —
+   «i» si apre
+1440 #emg: vista mostrata v-emg, righe/punti 1, scheda nascosta false, messaggi: Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli stati degli indici restano nella vista 6., ancora «Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli s»
+1440 #vix: vista mostrata v-vix, righe/punti 1, scheda nascosta false, messaggi: Dati del VIX non disponibili (data/vix.json: HTTP 404).
+1440 #alr: vista mostrata v-alr, righe/punti 68, scheda nascosta false, messaggi: —
+1440 #ath: vista mostrata v-ath, righe/punti 53, scheda nascosta false, messaggi: Dati della distanza dal massimo non disponibili (data/ath.json): il pannello tornerà dopo il prossimo aggiornamento.
+   «i» si apre
+1440: richieste bloccate emerging.json, vix.json, ath.json; errori in console: 3 console: Failed to load resource: the server responded with a status of 404 (Not Found) | console: Failed to load resource: the server responded with a status of 404 (Not Found) | console: Failed to load resource: the server responded with a status of 404 (Not Found)
+390 #mon: vista mostrata v-mon, righe/punti 36, scheda nascosta false, messaggi: —
+   «i» si apre
+390 #rrg: vista mostrata v-rrg, righe/punti 143, scheda nascosta false, messaggi: —
+390 #btm: vista mostrata v-btm, righe/punti 110, scheda nascosta false, messaggi: —
+   «i» si apre
+390 #XLK: vista mostrata v-sec, righe/punti 107, scheda nascosta false, messaggi: —
+   «i» si apre
+390 #SOXX: vista mostrata v-sec, righe/punti 67, scheda nascosta false, messaggi: —
+   «i» si apre
+390 #tit: vista mostrata v-tit, righe/punti 156, scheda nascosta false, messaggi: —
+   «i» si apre
+390 #idx: vista mostrata v-idx, righe/punti 126, scheda nascosta false, messaggi: —
+   «i» si apre
+390 #emg: vista mostrata v-emg, righe/punti 1, scheda nascosta false, messaggi: Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli stati degli indici restano nella vista 6., ancora «Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli s»
+390 #vix: vista mostrata v-vix, righe/punti 1, scheda nascosta false, messaggi: Dati del VIX non disponibili (data/vix.json: HTTP 404).
+390 #alr: vista mostrata v-alr, righe/punti 68, scheda nascosta false, messaggi: —
+390 #ath: vista mostrata v-ath, righe/punti 53, scheda nascosta false, messaggi: Dati della distanza dal massimo non disponibili (data/ath.json): il pannello tornerà dopo il prossimo aggiornamento.
+   «i» si apre
+390: richieste bloccate emerging.json, vix.json, ath.json; errori in console: 3 console: Failed to load resource: the server responded with a status of 404 (Not Found) | console: Failed to load resource: the server responded with a status of 404 (Not Found) | console: Failed to load resource: the server responded with a status of 404 (Not Found)

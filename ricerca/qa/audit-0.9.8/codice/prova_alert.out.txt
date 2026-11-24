@@ -1,0 +1,19 @@
+Scenario A: un invio fallito, il registro non si pubblica, la sera dopo il messaggio già arrivato riparte
+  sera 1 (prima chiamata HTTP 500): uscita 1
+    chiamata 1 (HTTP 500): <b>▼ ZONA BLU</b> · XLU Utilities | 25/09/2026 · breadth 3,2% ≤ livello blu 5% · drawdown −15,5% (93° percentile)
+    chiamata 2 (ok): <b>▲ TRIGGER</b> · XLU Utilities | 12/10/2026 · breadth risale a 16,1% · spinta di breadth a 20 giorni
+  registro scritto dalla sera 1: 2026-09-25 XLU setup telegram=false failed; 2026-10-12 XLU trig telegram=true
+  il workflow non lo pubblica (uscita 1 → outcome 'failure'): la sera 2 riparte dal registro di main
+  sera 2 (Telegram funziona): uscita 0
+    chiamata 1 (ok): <b>▼ ZONA BLU</b> · XLU Utilities | 25/09/2026 · breadth 3,2% ≤ livello blu 5% · drawdown −15,5% (93° percentile)
+    chiamata 2 (ok): <b>▲ TRIGGER</b> · XLU Utilities | 12/10/2026 · breadth risale a 16,1% · spinta di breadth a 20 giorni
+  ESITO A: 1 messaggi arrivati due volte: <b>▲ TRIGGER</b> · XLU Utilities | 12/10/2026 · breadth risale a 16,1% · spinta di breadth a 20 giorni
+  controprova: sera 2 con il registro della sera 1: uscita 0
+  controprova: 0 messaggi: il trigger già arrivato non riparte (la zona blu fallita del 25/09 è fuori dalle 5 sedute dei riprova)
+
+Scenario B: invio fallito di un evento poi annullato dal ricalcolo
+  sera con Telegram funzionante: uscita 0
+    chiamata 1 (ok): <b>▼ ZONA BLU</b> · XLK Technology | 16/10/2026 · evento che il ricalcolo ha tolto
+    chiamata 2 (ok): <b>↻ RETTIFICA</b> · XLK Technology | ▼ ZONA BLU del 16/10/2026 annullato: dopo il ricalcolo delle ultime sedute non risulta più.
+  registro: {"date":"2026-10-16","sector":"XLK","code":"setup","text":"evento che il ricalcolo ha tolto","telegram":true,"retracted":true}
+  ESITO B: 2 messaggi per un evento che non esiste più (atteso: 0, non era mai stato inviato)

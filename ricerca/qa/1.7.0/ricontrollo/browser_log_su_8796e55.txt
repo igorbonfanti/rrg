@@ -1,0 +1,694 @@
+FAIL SPX 20: intestazioni Primo giorno a 20 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 20 o più | Sedute
+FAIL SPX 20 2026-11-02: ultimo giorno «06/11/2026*» atteso «06/11/2026* provv.»
+FAIL SPX 20 2026-11-02: riassunto per il telefono «null» atteso «massimo 28,2 il 05/11/2026 · in corso · 5 sedute»
+FAIL SPX 20 2026-11-02: title
+   pagina: VIX da 04/08/2026: 16,5; primo giorno a 20 o più il 02/11/2026 (21,1); massimo 28,2 il 05/11/2026; ultimo giorno a 20 o più il 06/11/2026; poi fino al 06/11/2026: 25,6
+   atteso: VIX da 04/08/2026: 16,5; primo giorno a 20 o più il 02/11/2026 (21,1); massimo 28,2 il 05/11/2026; episodio in corso, ultimo giorno a 20 o più finora il 06/11/2026 (provvisorio)
+FAIL SPX 20 2026-11-02: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2026-11-02 grigia (crisi —)
+FAIL SPX 20 2024-08-02: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 29/07/2026 · 498 sedute»
+FAIL SPX 20 2023-10-19: riassunto per il telefono «null» atteso «massimo 21,7 il 20/10/2023 · fino al 27/10/2023 · 7 sedute»
+FAIL SPX 20 2023-10-19: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2023-10-19 grigia (crisi —)
+FAIL SPX 20 2020-02-24: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 24/05/2023 · 820 sedute»
+FAIL SPX 20 2019-05-13: riassunto per il telefono «null» atteso «massimo 24,6 il 05/08/2019 · fino al 08/10/2019 · 104 sedute»
+FAIL SPX 20 2019-05-13: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2019-05-13 grigia (crisi —)
+FAIL SPX 20 2018-10-10: riassunto per il telefono «null» atteso «massimo 36,1 il 24/12/2018 · fino al 22/01/2019 · 70 sedute»
+FAIL SPX 20 2018-02-05: riassunto per il telefono «null» atteso «massimo 37,3 il 05/02/2018 · fino al 11/04/2018 · 46 sedute»
+FAIL SPX 20 2016-11-03: riassunto per il telefono «null» atteso «massimo 22,5 il 04/11/2016 · fino al 04/11/2016 · 2 sedute»
+FAIL SPX 20 2016-11-03: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2016-11-03 grigia (crisi —)
+FAIL SPX 20 2016-06-13: riassunto per il telefono «null» atteso «massimo 25,8 il 24/06/2016 · fino al 27/06/2016 · 11 sedute»
+FAIL SPX 20 2016-06-13: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2016-06-13 grigia (crisi —)
+FAIL SPX 20 2015-08-21: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 29/02/2016 · 131 sedute»
+FAIL SPX 20 2014-10-10: riassunto per il telefono «null» atteso «massimo 26,3 il 15/10/2014 · fino al 30/01/2015 · 77 sedute»
+FAIL SPX 20 2014-10-10: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2014-10-10 grigia (crisi 2014 ottobre)
+FAIL SPX 20 2014-02-03: riassunto per il telefono «null» atteso «massimo 21,4 il 03/02/2014 · fino al 03/02/2014 · 1 sedute»
+FAIL SPX 20 2014-02-03: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2014-02-03 grigia (crisi —)
+FAIL SPX 20 2013-10-08: riassunto per il telefono «null» atteso «massimo 20,3 il 08/10/2013 · fino al 08/10/2013 · 1 sedute»
+FAIL SPX 20 2013-10-08: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2013-10-08 grigia (crisi —)
+FAIL SPX 20 2013-06-20: riassunto per il telefono «null» atteso «massimo 20,5 il 20/06/2013 · fino al 24/06/2013 · 3 sedute»
+FAIL SPX 20 2013-06-20: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2013-06-20 grigia (crisi —)
+FAIL SPX 20 2012-12-28: riassunto per il telefono «null» atteso «massimo 22,7 il 28/12/2012 · fino al 28/12/2012 · 1 sedute»
+FAIL SPX 20 2012-12-28: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2012-12-28 grigia (crisi —)
+FAIL SPX 20 2007-07-26: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 24/07/2012 · 1260 sedute»
+FAIL SPX 20 2006-06-12: riassunto per il telefono «null» atteso «massimo 23,8 il 13/06/2006 · fino al 14/06/2006 · 3 sedute»
+FAIL SPX 20 2006-06-12: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2006-06-12 grigia (crisi —)
+FAIL SPX 20 2004-03-11: riassunto per il telefono «null» atteso «massimo 21,6 il 22/03/2004 · fino al 23/03/2004 · 9 sedute»
+FAIL SPX 20 2004-03-11: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 2004-03-11 grigia (crisi —)
+FAIL SPX 20 1996-12-12: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 02/10/2003 · 1712 sedute»
+FAIL SPX 20 1996-12-12: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 1996-12-12 grigia (crisi —)
+FAIL SPX 20 1996-07-15: riassunto per il telefono «null» atteso «massimo 21,6 il 23/07/1996 · fino al 05/09/1996 · 38 sedute»
+FAIL SPX 20 1996-07-15: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 1996-07-15 grigia (crisi —)
+FAIL SPX 20 1996-03-08: riassunto per il telefono «null» atteso «massimo 20,7 il 08/03/1996 · fino al 10/04/1996 · 23 sedute»
+FAIL SPX 20 1996-03-08: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 1996-03-08 grigia (crisi —)
+FAIL SPX 20 1994-03-31: riassunto per il telefono «null» atteso «massimo 23,9 il 04/04/1994 · fino al 04/04/1994 · 2 sedute»
+FAIL SPX 20 1994-03-31: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 1994-03-31 grigia (crisi —)
+FAIL SPX 20 1992-10-05: riassunto per il telefono «null» atteso «massimo 21,0 il 07/10/1992 · fino al 09/10/1992 · 5 sedute»
+FAIL SPX 20 1992-10-05: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 1992-10-05 grigia (crisi —)
+FAIL SPX 20 1992-04-08: riassunto per il telefono «null» atteso «massimo 20,1 il 08/04/1992 · fino al 08/04/1992 · 1 sedute»
+FAIL SPX 20 1992-04-08: riga senza classe di colore (né gN né gnone)
+  nota: SPX 20 1992-04-08 grigia (crisi —)
+FAIL SPX 20 3A 2026-11-02: colore della fascia null diverso dalla riga null
+FAIL SPX 20 3A 2026-11-02: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 3A 2026-11-02: realizzata nel riquadro null, S&P 500 ricalcolata 11.58
+FAIL SPX 20 3A 2026-11-02: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 02/11/2026, ancora in corso»)
+   02/11/2026 / S&P 500 7.541 / Nell'episodio a 20 o più dal 02/11/2026 al 06/11/2026 / VIX / 21,15 / Realizzata 21 sedute / 11,6 / Premio per la paura / +9,6 / Percentile del premio / 92° / VIX3M / 21,60 / VIX / VIX3M / 0,98 contango / HYG/IEF dal massimo 12 mesi / −3,1%
+FAIL SPX 20 3A 2026-11-06: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 3A 2026-11-06: realizzata nel riquadro null, S&P 500 ricalcolata 19.81
+FAIL SPX 20 3A 2026-11-06: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 02/11/2026, ancora in corso»)
+   06/11/2026 / S&P 500 7.377 / Nell'episodio a 20 o più dal 02/11/2026 al 06/11/2026 / VIX / 25,64 provv. / Realizzata 21 sedute / 19,8 / Premio per la paura / +5,8 / Percentile del premio / 68° / VIX3M / 24,60 provv. / VIX / VIX3M / 1,04 backwardation / HYG/IEF dal massimo 12 mesi / −3,1%
+FAIL SPX 20 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL SPX 20 3A 2024-12-16: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 02/08/2024, finito il 29/07/2026»)
+   16/12/2024 / S&P 500 6.074 / Nell'episodio a 20 o più dal 02/08/2024 al 29/07/2026 (2024 carry yen) / VIX / 14,69 / Realizzata 21 sedute / 8,1 / Premio per la paura / +6,6 / Percentile del premio / 76° / VIX3M / 17,57 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −0,1%
+FAIL SPX 20 10A 2019-05-13: colore della fascia null diverso dalla riga null
+FAIL SPX 20 10A 2023-10-19: colore della fascia null diverso dalla riga null
+FAIL SPX 20 10A 2026-11-02: colore della fascia null diverso dalla riga null
+FAIL SPX 20 10A 2020-02-24: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 10A 2020-02-24: realizzata nel riquadro null, S&P 500 ricalcolata 18.03
+FAIL SPX 20 10A 2020-02-24: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 24/02/2020, finito il 24/05/2023»)
+   24/02/2020 / S&P 500 3.226 / Nell'episodio a 20 o più dal 24/02/2020 al 24/05/2023 (2020 Covid) / VIX / 25,03 / Realizzata 21 sedute / 18,0 / Premio per la paura / +7,0 / Percentile del premio / 80° / VIX3M / 21,92 / VIX / VIX3M / 1,14 backwardation / HYG/IEF dal massimo 12 mesi / −5,9%
+FAIL SPX 20 10A 2023-05-24: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 10A 2023-05-24: realizzata nel riquadro null, S&P 500 ricalcolata 13.90
+FAIL SPX 20 10A 2023-05-24: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 24/02/2020, finito il 24/05/2023»)
+   24/05/2023 / S&P 500 4.115 / Nell'episodio a 20 o più dal 24/02/2020 al 24/05/2023 (2020 Covid) / VIX / 20,03 / Realizzata 21 sedute / 13,9 / Premio per la paura / +6,1 / Percentile del premio / 71° / VIX3M / 22,02 / VIX / VIX3M / 0,91 contango / HYG/IEF dal massimo 12 mesi / −3,4%
+FAIL SPX 20 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL SPX 20 10A 2020-07-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 24/02/2020, finito il 24/05/2023»)
+   20/07/2020 / S&P 500 3.252 / Nell'episodio a 20 o più dal 24/02/2020 al 24/05/2023 (2020 Covid) / VIX / 24,46 / Realizzata 21 sedute / 19,1 / Premio per la paura / +5,3 / Percentile del premio / 63° / VIX3M / 29,10 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −12,0%
+FAIL SPX 20 MAX 1992-04-08: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 1992-10-05: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 1994-03-31: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 1996-03-08: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 1996-07-15: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 1996-12-12: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2004-03-11: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2006-06-12: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2012-12-28: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2013-06-20: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2013-10-08: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2014-02-03: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2014-10-10: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2016-06-13: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2016-11-03: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2019-05-13: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2023-10-19: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2026-11-02: colore della fascia null diverso dalla riga null
+FAIL SPX 20 MAX 2014-02-04: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 MAX 2014-02-04: realizzata nel riquadro null, S&P 500 ricalcolata 14.81
+FAIL SPX 20 MAX 2014-02-04: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 MAX 2014-02-04: realizzata nel riquadro null, S&P 500 ricalcolata 14.81
+FAIL SPX 20 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL SPX 20 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL SPX 20 MAX 2003-08-22: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 12/12/1996, finito il 02/10/2003»)
+   22/08/2003 / S&P 500 993 / Nell'episodio a 20 o più dal 12/12/1996 al 02/10/2003 / VIX / 18,55 / Realizzata 21 sedute / 12,6 / Premio per la paura / +6,0 / Percentile del premio / 62° / VIX3M / — / VIX / VIX3M / — / HYG/IEF dal massimo 12 mesi / —
+FAIL SPX 25: intestazioni Primo giorno a 25 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 25 o più | Sedute
+FAIL SPX 25 2026-11-05: ultimo giorno «06/11/2026*» atteso «06/11/2026* provv.»
+FAIL SPX 25 2026-11-05: riassunto per il telefono «null» atteso «massimo 28,2 il 05/11/2026 · in corso · 2 sedute»
+FAIL SPX 25 2026-11-05: title
+   pagina: VIX da 07/08/2026: 14,9; primo giorno a 25 o più il 05/11/2026 (28,2); massimo 28,2 il 05/11/2026; ultimo giorno a 25 o più il 06/11/2026; poi fino al 06/11/2026: 25,6
+   atteso: VIX da 07/08/2026: 14,9; primo giorno a 25 o più il 05/11/2026 (28,2); massimo 28,2 il 05/11/2026; episodio in corso, ultimo giorno a 25 o più finora il 06/11/2026 (provvisorio)
+FAIL SPX 25 2026-11-05: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2026-11-05 grigia (crisi —)
+FAIL SPX 25 2026-03-06: riassunto per il telefono «null» atteso «massimo 31,1 il 27/03/2026 · fino al 07/04/2026 · 22 sedute»
+FAIL SPX 25 2026-03-06: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2026-03-06 grigia (crisi —)
+FAIL SPX 25 2025-10-16: riassunto per il telefono «null» atteso «massimo 26,4 il 20/11/2025 · fino al 20/11/2025 · 26 sedute»
+FAIL SPX 25 2025-10-16: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2025-10-16 grigia (crisi —)
+FAIL SPX 25 2024-12-18: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 28/04/2025 · 88 sedute»
+FAIL SPX 25 2024-12-18: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2024-12-18 grigia (crisi —)
+FAIL SPX 25 2024-08-05: riassunto per il telefono «null» atteso «massimo 38,6 il 05/08/2024 · fino al 07/08/2024 · 3 sedute»
+FAIL SPX 25 2021-09-20: riassunto per il telefono «null» atteso «massimo 36,5 il 07/03/2022 · fino al 17/03/2023 · 376 sedute»
+FAIL SPX 25 2021-09-20: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2021-09-20 grigia (crisi —)
+FAIL SPX 25 2020-02-24: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 12/05/2021 · 308 sedute»
+FAIL SPX 25 2018-10-24: riassunto per il telefono «null» atteso «massimo 36,1 il 24/12/2018 · fino al 03/01/2019 · 48 sedute»
+FAIL SPX 25 2018-02-05: riassunto per il telefono «null» atteso «massimo 37,3 il 05/02/2018 · fino al 12/02/2018 · 6 sedute»
+FAIL SPX 25 2016-06-24: riassunto per il telefono «null» atteso «massimo 25,8 il 24/06/2016 · fino al 24/06/2016 · 1 sedute»
+FAIL SPX 25 2016-06-24: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2016-06-24 grigia (crisi —)
+FAIL SPX 25 2016-01-08: riassunto per il telefono «null» atteso «massimo 28,1 il 11/02/2016 · fino al 12/02/2016 · 25 sedute»
+FAIL SPX 25 2015-08-21: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 29/09/2015 · 27 sedute»
+FAIL SPX 25 2014-10-15: riassunto per il telefono «null» atteso «massimo 26,3 il 15/10/2014 · fino al 16/10/2014 · 2 sedute»
+FAIL SPX 25 2014-10-15: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2014-10-15 grigia (crisi 2014 ottobre)
+FAIL SPX 25 2012-05-18: riassunto per il telefono «null» atteso «massimo 26,7 il 01/06/2012 · fino al 04/06/2012 · 11 sedute»
+FAIL SPX 25 2011-07-29: riassunto per il telefono «null» atteso «massimo 48,0 il 08/08/2011 · fino al 15/12/2011 · 98 sedute»
+FAIL SPX 25 2011-03-16: riassunto per il telefono «null» atteso «massimo 29,4 il 16/03/2011 · fino al 17/03/2011 · 2 sedute»
+FAIL SPX 25 2011-03-16: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 2011-03-16 grigia (crisi —)
+FAIL SPX 25 2008-07-02: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 31/08/2010 · 546 sedute»
+FAIL SPX 25 2007-08-03: riassunto per il telefono «null» atteso «massimo 32,2 il 17/03/2008 · fino al 31/03/2008 · 165 sedute»
+FAIL SPX 25 2002-06-13: riassunto per il telefono «null» atteso «massimo 45,1 il 05/08/2002 · fino al 10/04/2003 · 209 sedute»
+FAIL SPX 25 2000-10-11: riassunto per il telefono «null» atteso «massimo 43,7 il 20/09/2001 · fino al 07/02/2002 · 330 sedute»
+FAIL SPX 25 1998-04-27: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 23/05/2000 · 525 sedute»
+FAIL SPX 25 1998-04-27: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 1998-04-27 grigia (crisi —)
+FAIL SPX 25 1997-09-04: riassunto per il telefono «null» atteso «massimo 38,2 il 30/10/1997 · fino al 13/01/1998 · 91 sedute»
+FAIL SPX 25 1997-09-04: riga senza classe di colore (né gN né gnone)
+  nota: SPX 25 1997-09-04 grigia (crisi —)
+FAIL SPX 25 1990-08-03: riassunto per il telefono «null» atteso «massimo 36,5 il 23/08/1990 · fino al 18/01/1991 · 117 sedute»
+FAIL SPX 25 3A 2024-12-18: colore della fascia null diverso dalla riga null
+FAIL SPX 25 3A 2025-10-16: colore della fascia null diverso dalla riga null
+FAIL SPX 25 3A 2026-03-06: colore della fascia null diverso dalla riga null
+FAIL SPX 25 3A 2026-11-05: colore della fascia null diverso dalla riga null
+FAIL SPX 25 3A 2025-10-16: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 3A 2025-10-16: realizzata nel riquadro null, S&P 500 ricalcolata 12.90
+FAIL SPX 25 3A 2025-10-16: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 16/10/2025, finito il 20/11/2025»)
+   16/10/2025 / S&P 500 6.629 / Nell'episodio a 25 o più dal 16/10/2025 al 20/11/2025 / VIX / 25,31 / Realizzata 21 sedute / 12,9 / Premio per la paura / +12,4 / Percentile del premio / 98° / VIX3M / 24,87 / VIX / VIX3M / 1,02 backwardation / HYG/IEF dal massimo 12 mesi / −3,0%
+FAIL SPX 25 3A 2025-11-20: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 3A 2025-11-20: realizzata nel riquadro null, S&P 500 ricalcolata 13.94
+FAIL SPX 25 3A 2025-11-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 16/10/2025, finito il 20/11/2025»)
+   20/11/2025 / S&P 500 6.539 / Nell'episodio a 25 o più dal 16/10/2025 al 20/11/2025 / VIX / 26,42 / Realizzata 21 sedute / 13,9 / Premio per la paura / +12,5 / Percentile del premio / 98° / VIX3M / 25,76 / VIX / VIX3M / 1,03 backwardation / HYG/IEF dal massimo 12 mesi / −2,6%
+FAIL SPX 25 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL SPX 25 10A 2021-09-20: colore della fascia null diverso dalla riga null
+FAIL SPX 25 10A 2024-12-18: colore della fascia null diverso dalla riga null
+FAIL SPX 25 10A 2025-10-16: colore della fascia null diverso dalla riga null
+FAIL SPX 25 10A 2026-03-06: colore della fascia null diverso dalla riga null
+FAIL SPX 25 10A 2026-11-05: colore della fascia null diverso dalla riga null
+FAIL SPX 25 10A 2024-08-05: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 10A 2024-08-05: realizzata nel riquadro null, S&P 500 ricalcolata 19.04
+FAIL SPX 25 10A 2024-08-05: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 05/08/2024, finito il 07/08/2024»)
+   05/08/2024 / S&P 500 5.186 / Nell'episodio a 25 o più dal 05/08/2024 al 07/08/2024 (2024 carry yen) / VIX / 38,57 / Realizzata 21 sedute / 19,0 / Premio per la paura / +19,5 / Percentile del premio / 100° / VIX3M / 33,71 / VIX / VIX3M / 1,14 backwardation / HYG/IEF dal massimo 12 mesi / −4,9%
+FAIL SPX 25 10A 2024-08-07: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 10A 2024-08-07: realizzata nel riquadro null, S&P 500 ricalcolata 19.59
+FAIL SPX 25 10A 2024-08-07: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 05/08/2024, finito il 07/08/2024»)
+   07/08/2024 / S&P 500 5.200 / Nell'episodio a 25 o più dal 05/08/2024 al 07/08/2024 (2024 carry yen) / VIX / 27,85 / Realizzata 21 sedute / 19,6 / Premio per la paura / +8,3 / Percentile del premio / 88° / VIX3M / 27,01 / VIX / VIX3M / 1,03 backwardation / HYG/IEF dal massimo 12 mesi / −3,2%
+FAIL SPX 25 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL SPX 25 10A 2020-07-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 24/02/2020, finito il 12/05/2021»)
+   20/07/2020 / S&P 500 3.252 / Nell'episodio a 25 o più dal 24/02/2020 al 12/05/2021 (2020 Covid) / VIX / 24,46 / Realizzata 21 sedute / 19,1 / Premio per la paura / +5,3 / Percentile del premio / 63° / VIX3M / 29,10 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −12,0%
+FAIL SPX 25 MAX 1997-09-04: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 1998-04-27: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2011-03-16: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2014-10-15: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2016-06-24: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2021-09-20: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2024-12-18: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2025-10-16: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2026-03-06: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2026-11-05: colore della fascia null diverso dalla riga null
+FAIL SPX 25 MAX 2015-08-21: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 MAX 2015-08-21: realizzata nel riquadro null, S&P 500 ricalcolata 16.38
+FAIL SPX 25 MAX 2015-08-21: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 21/08/2015, finito il 29/09/2015»)
+   21/08/2015 / S&P 500 1.971 / Nell'episodio a 25 o più dal 21/08/2015 al 29/09/2015 (2015-16 Cina/petrolio) / VIX / 28,03 / Realizzata 21 sedute / 16,4 / Premio per la paura / +11,6 / Percentile del premio / 97° / VIX3M / 23,47 / VIX / VIX3M / 1,19 backwardation / HYG/IEF dal massimo 12 mesi / −9,8%
+FAIL SPX 25 MAX 2015-09-30: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 MAX 2015-09-30: realizzata nel riquadro null, S&P 500 ricalcolata 22.57
+FAIL SPX 25 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL SPX 25 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL SPX 30: intestazioni Primo giorno a 30 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 30 o più | Sedute
+FAIL SPX 30 2026-03-27: riassunto per il telefono «null» atteso «massimo 31,1 il 27/03/2026 · fino al 30/03/2026 · 2 sedute»
+FAIL SPX 30 2026-03-27: riga senza classe di colore (né gN né gnone)
+  nota: SPX 30 2026-03-27 grigia (crisi —)
+FAIL SPX 30 2025-04-03: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 22/04/2025 · 13 sedute»
+FAIL SPX 30 2024-08-05: riassunto per il telefono «null» atteso «massimo 38,6 il 05/08/2024 · fino al 05/08/2024 · 1 sedute»
+FAIL SPX 30 2022-09-26: riassunto per il telefono «null» atteso «massimo 33,6 il 11/10/2022 · fino al 19/10/2022 · 18 sedute»
+FAIL SPX 30 2021-12-01: riassunto per il telefono «null» atteso «massimo 36,5 il 07/03/2022 · fino al 21/06/2022 · 139 sedute»
+FAIL SPX 30 2020-02-27: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 01/02/2021 · 235 sedute»
+FAIL SPX 30 2018-12-21: riassunto per il telefono «null» atteso «massimo 36,1 il 24/12/2018 · fino al 26/12/2018 · 3 sedute»
+FAIL SPX 30 2018-02-05: riassunto per il telefono «null» atteso «massimo 37,3 il 05/02/2018 · fino al 08/02/2018 · 4 sedute»
+FAIL SPX 30 2015-08-24: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 01/09/2015 · 7 sedute»
+FAIL SPX 30 2011-08-04: riassunto per il telefono «null» atteso «massimo 48,0 il 08/08/2011 · fino al 08/12/2011 · 89 sedute»
+FAIL SPX 30 2010-05-06: riassunto per il telefono «null» atteso «massimo 45,8 il 20/05/2010 · fino al 02/07/2010 · 41 sedute»
+FAIL SPX 30 2009-10-30: riassunto per il telefono «null» atteso «massimo 30,7 il 30/10/2009 · fino al 30/10/2009 · 1 sedute»
+FAIL SPX 30 2008-09-15: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 08/07/2009 · 205 sedute»
+FAIL SPX 30 2007-08-15: riassunto per il telefono «null» atteso «massimo 32,2 il 17/03/2008 · fino al 17/03/2008 · 148 sedute»
+FAIL SPX 30 2002-07-09: riassunto per il telefono «null» atteso «massimo 45,1 il 05/08/2002 · fino al 24/03/2003 · 179 sedute»
+FAIL SPX 30 2001-09-07: riassunto per il telefono «null» atteso «massimo 43,7 il 20/09/2001 · fino al 05/11/2001 · 38 sedute»
+FAIL SPX 30 2000-10-12: riassunto per il telefono «null» atteso «massimo 34,7 il 03/04/2001 · fino al 09/04/2001 · 123 sedute»
+FAIL SPX 30 2000-04-14: riassunto per il telefono «null» atteso «massimo 33,5 il 14/04/2000 · fino al 04/05/2000 · 14 sedute»
+FAIL SPX 30 1998-08-04: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 18/02/1999 · 137 sedute»
+FAIL SPX 30 1997-10-27: riassunto per il telefono «null» atteso «massimo 38,2 il 30/10/1997 · fino al 24/12/1997 · 42 sedute»
+FAIL SPX 30 1990-08-06: riassunto per il telefono «null» atteso «massimo 36,5 il 23/08/1990 · fino al 16/01/1991 · 114 sedute»
+FAIL SPX 30 3A 2026-03-27: colore della fascia null diverso dalla riga null
+FAIL SPX 30 3A 2025-04-03: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 3A 2025-04-03: realizzata nel riquadro null, S&P 500 ricalcolata 25.57
+FAIL SPX 30 3A 2025-04-03: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 03/04/2025, finito il 22/04/2025»)
+   03/04/2025 / S&P 500 5.397 / Nell'episodio a 30 o più dal 03/04/2025 al 22/04/2025 (2025 dazi) / VIX / 30,02 / Realizzata 21 sedute / 25,6 / Premio per la paura / +4,4 / Percentile del premio / 52° / VIX3M / 27,38 / VIX / VIX3M / 1,10 backwardation / HYG/IEF dal massimo 12 mesi / −5,9%
+FAIL SPX 30 3A 2025-04-22: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 3A 2025-04-22: realizzata nel riquadro null, S&P 500 ricalcolata 48.68
+FAIL SPX 30 3A 2025-04-22: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 03/04/2025, finito il 22/04/2025»)
+   22/04/2025 / S&P 500 5.288 / Nell'episodio a 30 o più dal 03/04/2025 al 22/04/2025 (2025 dazi) / VIX / 30,57 / Realizzata 21 sedute / 48,7 / Premio per la paura / −18,1 / Percentile del premio / 0° / VIX3M / 29,45 / VIX / VIX3M / 1,04 backwardation / HYG/IEF dal massimo 12 mesi / −4,1%
+FAIL SPX 30 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL SPX 30 10A 2026-03-27: colore della fascia null diverso dalla riga null
+FAIL SPX 30 10A 2022-09-26: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 10A 2022-09-26: realizzata nel riquadro null, S&P 500 ricalcolata 23.67
+FAIL SPX 30 10A 2022-09-26: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 26/09/2022, finito il 19/10/2022»)
+   26/09/2022 / S&P 500 3.655 / Nell'episodio a 30 o più dal 26/09/2022 al 19/10/2022 (2022 inflazione/tassi) / VIX / 32,26 / Realizzata 21 sedute / 23,7 / Premio per la paura / +8,6 / Percentile del premio / 89° / VIX3M / 31,77 / VIX / VIX3M / 1,02 backwardation / HYG/IEF dal massimo 12 mesi / −2,9%
+FAIL SPX 30 10A 2022-10-19: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 10A 2022-10-19: realizzata nel riquadro null, S&P 500 ricalcolata 28.48
+FAIL SPX 30 10A 2022-10-19: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 26/09/2022, finito il 19/10/2022»)
+   19/10/2022 / S&P 500 3.695 / Nell'episodio a 30 o più dal 26/09/2022 al 19/10/2022 (2022 inflazione/tassi) / VIX / 30,76 / Realizzata 21 sedute / 28,5 / Premio per la paura / +2,3 / Percentile del premio / 26° / VIX3M / 31,35 / VIX / VIX3M / 0,98 contango / HYG/IEF dal massimo 12 mesi / 0,0%
+FAIL SPX 30 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL SPX 30 10A 2020-07-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 27/02/2020, finito il 01/02/2021»)
+   20/07/2020 / S&P 500 3.252 / Nell'episodio a 30 o più dal 27/02/2020 al 01/02/2021 (2020 Covid) / VIX / 24,46 / Realizzata 21 sedute / 19,1 / Premio per la paura / +5,3 / Percentile del premio / 63° / VIX3M / 29,10 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −12,0%
+FAIL SPX 30 MAX 2026-03-27: colore della fascia null diverso dalla riga null
+FAIL SPX 30 MAX 2010-05-07: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 MAX 2010-05-07: realizzata nel riquadro null, S&P 500 ricalcolata 21.16
+FAIL SPX 30 MAX 2010-05-07: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 06/05/2010, finito il 02/07/2010»)
+   07/05/2010 / S&P 500 1.111 / Nell'episodio a 30 o più dal 06/05/2010 al 02/07/2010 (2010 euro/flash crash) / VIX / 40,95 / Realizzata 21 sedute / 21,2 / Premio per la paura / +19,8 / Percentile del premio / 100° / VIX3M / 36,62 / VIX / VIX3M / 1,12 backwardation / HYG/IEF dal massimo 12 mesi / −7,7%
+FAIL SPX 30 MAX 2010-07-02: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 MAX 2010-07-02: realizzata nel riquadro null, S&P 500 ricalcolata 23.60
+FAIL SPX 30 MAX 2010-07-02: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 06/05/2010, finito il 02/07/2010»)
+   02/07/2010 / S&P 500 1.023 / Nell'episodio a 30 o più dal 06/05/2010 al 02/07/2010 (2010 euro/flash crash) / VIX / 30,12 / Realizzata 21 sedute / 23,6 / Premio per la paura / +6,5 / Percentile del premio / 73° / VIX3M / 33,29 / VIX / VIX3M / 0,90 contango / HYG/IEF dal massimo 12 mesi / −9,8%
+FAIL SPX 30 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL SPX 30 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL SPX 40: intestazioni Primo giorno a 40 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 40 o più | Sedute
+FAIL SPX 40 2025-04-04: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 10/04/2025 · 5 sedute»
+FAIL SPX 40 2020-10-28: riassunto per il telefono «null» atteso «massimo 40,3 il 28/10/2020 · fino al 28/10/2020 · 1 sedute»
+FAIL SPX 40 2020-02-28: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 11/06/2020 · 73 sedute»
+FAIL SPX 40 2015-08-24: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 24/08/2015 · 1 sedute»
+FAIL SPX 40 2011-08-08: riassunto per il telefono «null» atteso «massimo 48,0 il 08/08/2011 · fino al 04/10/2011 · 41 sedute»
+FAIL SPX 40 2010-05-07: riassunto per il telefono «null» atteso «massimo 45,8 il 20/05/2010 · fino al 21/05/2010 · 11 sedute»
+FAIL SPX 40 2008-09-29: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 07/04/2009 · 132 sedute»
+FAIL SPX 40 2002-07-22: riassunto per il telefono «null» atteso «massimo 45,1 il 05/08/2002 · fino al 09/10/2002 · 57 sedute»
+FAIL SPX 40 2001-09-17: riassunto per il telefono «null» atteso «massimo 43,7 il 20/09/2001 · fino al 21/09/2001 · 5 sedute»
+FAIL SPX 40 1998-08-31: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 13/10/1998 · 31 sedute»
+FAIL SPX 40 3A 2025-04-04: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 3A 2025-04-04: realizzata nel riquadro null, S&P 500 ricalcolata 32.23
+FAIL SPX 40 3A 2025-04-04: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 04/04/2025, finito il 10/04/2025»)
+   04/04/2025 / S&P 500 5.074 / Nell'episodio a 40 o più dal 04/04/2025 al 10/04/2025 (2025 dazi) / VIX / 45,31 / Realizzata 21 sedute / 32,2 / Premio per la paura / +13,1 / Percentile del premio / 98° / VIX3M / 36,71 / VIX / VIX3M / 1,23 backwardation / HYG/IEF dal massimo 12 mesi / −7,5%
+FAIL SPX 40 3A 2025-04-10: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 3A 2025-04-10: realizzata nel riquadro null, S&P 500 ricalcolata 47.20
+FAIL SPX 40 3A 2025-04-10: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 04/04/2025, finito il 10/04/2025»)
+   10/04/2025 / S&P 500 5.268 / Nell'episodio a 40 o più dal 04/04/2025 al 10/04/2025 (2025 dazi) / VIX / 40,72 / Realizzata 21 sedute / 47,2 / Premio per la paura / −6,5 / Percentile del premio / 2° / VIX3M / 35,71 / VIX / VIX3M / 1,14 backwardation / HYG/IEF dal massimo 12 mesi / −5,3%
+FAIL SPX 40 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL SPX 40 10A 2020-10-28: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 10A 2020-10-28: realizzata nel riquadro null, S&P 500 ricalcolata 20.89
+FAIL SPX 40 10A 2020-10-28: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 28/10/2020, finito il 28/10/2020»)
+   28/10/2020 / S&P 500 3.271 / Nell'episodio a 40 o più dal 28/10/2020 al 28/10/2020 (2020 Covid) / VIX / 40,28 / Realizzata 21 sedute / 20,9 / Premio per la paura / +19,4 / Percentile del premio / 100° / VIX3M / 37,75 / VIX / VIX3M / 1,07 backwardation / HYG/IEF dal massimo 12 mesi / −10,9%
+FAIL SPX 40 10A 2020-10-28: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 10A 2020-10-28: realizzata nel riquadro null, S&P 500 ricalcolata 20.89
+FAIL SPX 40 10A 2020-10-28: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 28/10/2020, finito il 28/10/2020»)
+   28/10/2020 / S&P 500 3.271 / Nell'episodio a 40 o più dal 28/10/2020 al 28/10/2020 (2020 Covid) / VIX / 40,28 / Realizzata 21 sedute / 20,9 / Premio per la paura / +19,4 / Percentile del premio / 100° / VIX3M / 37,75 / VIX / VIX3M / 1,07 backwardation / HYG/IEF dal massimo 12 mesi / −10,9%
+FAIL SPX 40 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL SPX 40 MAX 2011-08-09: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 MAX 2011-08-09: realizzata nel riquadro null, S&P 500 ricalcolata 36.35
+FAIL SPX 40 MAX 2011-08-09: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 08/08/2011, finito il 04/10/2011»)
+   09/08/2011 / S&P 500 1.173 / Nell'episodio a 40 o più dal 08/08/2011 al 04/10/2011 (2011-12 debito USA/euro) / VIX / 35,06 / Realizzata 21 sedute / 36,4 / Premio per la paura / −1,3 / Percentile del premio / 7° / VIX3M / 31,07 / VIX / VIX3M / 1,13 backwardation / HYG/IEF dal massimo 12 mesi / −15,1%
+FAIL SPX 40 MAX 2011-10-05: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 MAX 2011-10-05: realizzata nel riquadro null, S&P 500 ricalcolata 31.28
+FAIL SPX 40 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL SPX 40 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL SPX 50: intestazioni Primo giorno a 50 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 50 o più | Sedute
+FAIL SPX 50 2025-04-08: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 08/04/2025 · 1 sedute»
+FAIL SPX 50 2020-03-09: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 02/04/2020 · 19 sedute»
+FAIL SPX 50 2008-10-06: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 05/03/2009 · 104 sedute»
+FAIL SPX 50 3A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 3A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL SPX 50 3A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / S&P 500 4.983 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL SPX 50 3A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 3A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL SPX 50 3A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / S&P 500 4.983 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL SPX 50 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL SPX 50 10A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 10A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL SPX 50 10A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / S&P 500 4.983 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL SPX 50 10A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 10A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL SPX 50 10A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / S&P 500 4.983 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL SPX 50 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL SPX 50 MAX 2020-03-10: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 MAX 2020-03-10: realizzata nel riquadro null, S&P 500 ricalcolata 47.77
+FAIL SPX 50 MAX 2020-03-10: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 09/03/2020, finito il 02/04/2020»)
+   10/03/2020 / S&P 500 2.882 / Nell'episodio a 50 o più dal 09/03/2020 al 02/04/2020 (2020 Covid) / VIX / 47,30 / Realizzata 21 sedute / 47,8 / Premio per la paura / −0,5 / Percentile del premio / 10° / VIX3M / 39,44 / VIX / VIX3M / 1,20 backwardation / HYG/IEF dal massimo 12 mesi / −13,8%
+FAIL SPX 50 MAX 2020-04-03: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 MAX 2020-04-03: realizzata nel riquadro null, S&P 500 ricalcolata 93.90
+FAIL SPX 50 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL SPX 50 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL NDX 20: intestazioni Primo giorno a 20 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 20 o più | Sedute
+FAIL NDX 20 2026-11-02: ultimo giorno «06/11/2026*» atteso «06/11/2026* provv.»
+FAIL NDX 20 2026-11-02: riassunto per il telefono «null» atteso «massimo 28,2 il 05/11/2026 · in corso · 5 sedute»
+FAIL NDX 20 2026-11-02: title
+   pagina: VIX da 04/08/2026: 16,5; primo giorno a 20 o più il 02/11/2026 (21,1); massimo 28,2 il 05/11/2026; ultimo giorno a 20 o più il 06/11/2026; poi fino al 06/11/2026: 25,6
+   atteso: VIX da 04/08/2026: 16,5; primo giorno a 20 o più il 02/11/2026 (21,1); massimo 28,2 il 05/11/2026; episodio in corso, ultimo giorno a 20 o più finora il 06/11/2026 (provvisorio)
+FAIL NDX 20 2026-11-02: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2026-11-02 grigia (crisi —)
+FAIL NDX 20 2024-08-02: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 29/07/2026 · 498 sedute»
+FAIL NDX 20 2023-10-19: riassunto per il telefono «null» atteso «massimo 21,7 il 20/10/2023 · fino al 27/10/2023 · 7 sedute»
+FAIL NDX 20 2023-10-19: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2023-10-19 grigia (crisi —)
+FAIL NDX 20 2020-02-24: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 24/05/2023 · 820 sedute»
+FAIL NDX 20 2019-05-13: riassunto per il telefono «null» atteso «massimo 24,6 il 05/08/2019 · fino al 08/10/2019 · 104 sedute»
+FAIL NDX 20 2019-05-13: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2019-05-13 grigia (crisi —)
+FAIL NDX 20 2018-10-10: riassunto per il telefono «null» atteso «massimo 36,1 il 24/12/2018 · fino al 22/01/2019 · 70 sedute»
+FAIL NDX 20 2018-02-05: riassunto per il telefono «null» atteso «massimo 37,3 il 05/02/2018 · fino al 11/04/2018 · 46 sedute»
+FAIL NDX 20 2016-11-03: riassunto per il telefono «null» atteso «massimo 22,5 il 04/11/2016 · fino al 04/11/2016 · 2 sedute»
+FAIL NDX 20 2016-11-03: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2016-11-03 grigia (crisi —)
+FAIL NDX 20 2016-06-13: riassunto per il telefono «null» atteso «massimo 25,8 il 24/06/2016 · fino al 27/06/2016 · 11 sedute»
+FAIL NDX 20 2016-06-13: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2016-06-13 grigia (crisi —)
+FAIL NDX 20 2015-08-21: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 29/02/2016 · 131 sedute»
+FAIL NDX 20 2014-10-10: riassunto per il telefono «null» atteso «massimo 26,3 il 15/10/2014 · fino al 30/01/2015 · 77 sedute»
+FAIL NDX 20 2014-10-10: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2014-10-10 grigia (crisi 2014 ottobre)
+FAIL NDX 20 2014-02-03: riassunto per il telefono «null» atteso «massimo 21,4 il 03/02/2014 · fino al 03/02/2014 · 1 sedute»
+FAIL NDX 20 2014-02-03: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2014-02-03 grigia (crisi —)
+FAIL NDX 20 2013-10-08: riassunto per il telefono «null» atteso «massimo 20,3 il 08/10/2013 · fino al 08/10/2013 · 1 sedute»
+FAIL NDX 20 2013-10-08: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2013-10-08 grigia (crisi —)
+FAIL NDX 20 2013-06-20: riassunto per il telefono «null» atteso «massimo 20,5 il 20/06/2013 · fino al 24/06/2013 · 3 sedute»
+FAIL NDX 20 2013-06-20: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2013-06-20 grigia (crisi —)
+FAIL NDX 20 2012-12-28: riassunto per il telefono «null» atteso «massimo 22,7 il 28/12/2012 · fino al 28/12/2012 · 1 sedute»
+FAIL NDX 20 2012-12-28: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2012-12-28 grigia (crisi —)
+FAIL NDX 20 2007-07-26: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 24/07/2012 · 1260 sedute»
+FAIL NDX 20 2006-06-12: riassunto per il telefono «null» atteso «massimo 23,8 il 13/06/2006 · fino al 14/06/2006 · 3 sedute»
+FAIL NDX 20 2006-06-12: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2006-06-12 grigia (crisi —)
+FAIL NDX 20 2004-03-11: riassunto per il telefono «null» atteso «massimo 21,6 il 22/03/2004 · fino al 23/03/2004 · 9 sedute»
+FAIL NDX 20 2004-03-11: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 2004-03-11 grigia (crisi —)
+FAIL NDX 20 1996-12-12: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 02/10/2003 · 1712 sedute»
+FAIL NDX 20 1996-12-12: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 1996-12-12 grigia (crisi —)
+FAIL NDX 20 1996-07-15: riassunto per il telefono «null» atteso «massimo 21,6 il 23/07/1996 · fino al 05/09/1996 · 38 sedute»
+FAIL NDX 20 1996-07-15: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 1996-07-15 grigia (crisi —)
+FAIL NDX 20 1996-03-08: riassunto per il telefono «null» atteso «massimo 20,7 il 08/03/1996 · fino al 10/04/1996 · 23 sedute»
+FAIL NDX 20 1996-03-08: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 1996-03-08 grigia (crisi —)
+FAIL NDX 20 1994-03-31: riassunto per il telefono «null» atteso «massimo 23,9 il 04/04/1994 · fino al 04/04/1994 · 2 sedute»
+FAIL NDX 20 1994-03-31: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 1994-03-31 grigia (crisi —)
+FAIL NDX 20 1992-10-05: riassunto per il telefono «null» atteso «massimo 21,0 il 07/10/1992 · fino al 09/10/1992 · 5 sedute»
+FAIL NDX 20 1992-10-05: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 1992-10-05 grigia (crisi —)
+FAIL NDX 20 1992-04-08: riassunto per il telefono «null» atteso «massimo 20,1 il 08/04/1992 · fino al 08/04/1992 · 1 sedute»
+FAIL NDX 20 1992-04-08: riga senza classe di colore (né gN né gnone)
+  nota: NDX 20 1992-04-08 grigia (crisi —)
+FAIL NDX 20 3A 2026-11-02: colore della fascia null diverso dalla riga null
+FAIL NDX 20 3A 2026-11-02: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 3A 2026-11-02: realizzata nel riquadro null, S&P 500 ricalcolata 11.58
+FAIL NDX 20 3A 2026-11-02: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 02/11/2026, ancora in corso»)
+   02/11/2026 / Nasdaq-100 27.990 / Nell'episodio a 20 o più dal 02/11/2026 al 06/11/2026 / VIX / 21,15 / Realizzata 21 sedute / 11,6 / Premio per la paura / +9,6 / Percentile del premio / 92° / VIX3M / 21,60 / VIX / VIX3M / 0,98 contango / HYG/IEF dal massimo 12 mesi / −3,1%
+FAIL NDX 20 3A 2026-11-06: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 3A 2026-11-06: realizzata nel riquadro null, S&P 500 ricalcolata 19.81
+FAIL NDX 20 3A 2026-11-06: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 02/11/2026, ancora in corso»)
+   06/11/2026 / Nasdaq-100 26.990 / Nell'episodio a 20 o più dal 02/11/2026 al 06/11/2026 / VIX / 25,64 provv. / Realizzata 21 sedute / 19,8 / Premio per la paura / +5,8 / Percentile del premio / 68° / VIX3M / 24,60 provv. / VIX / VIX3M / 1,04 backwardation / HYG/IEF dal massimo 12 mesi / −3,1%
+FAIL NDX 20 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL NDX 20 3A 2024-12-16: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 02/08/2024, finito il 29/07/2026»)
+   16/12/2024 / Nasdaq-100 22.097 / Nell'episodio a 20 o più dal 02/08/2024 al 29/07/2026 (2024 carry yen) / VIX / 14,69 / Realizzata 21 sedute / 8,1 / Premio per la paura / +6,6 / Percentile del premio / 76° / VIX3M / 17,57 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −0,1%
+FAIL NDX 20 10A 2019-05-13: colore della fascia null diverso dalla riga null
+FAIL NDX 20 10A 2023-10-19: colore della fascia null diverso dalla riga null
+FAIL NDX 20 10A 2026-11-02: colore della fascia null diverso dalla riga null
+FAIL NDX 20 10A 2020-02-24: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 10A 2020-02-24: realizzata nel riquadro null, S&P 500 ricalcolata 18.03
+FAIL NDX 20 10A 2020-02-24: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 24/02/2020, finito il 24/05/2023»)
+   24/02/2020 / Nasdaq-100 9.080 / Nell'episodio a 20 o più dal 24/02/2020 al 24/05/2023 (2020 Covid) / VIX / 25,03 / Realizzata 21 sedute / 18,0 / Premio per la paura / +7,0 / Percentile del premio / 80° / VIX3M / 21,92 / VIX / VIX3M / 1,14 backwardation / HYG/IEF dal massimo 12 mesi / −5,9%
+FAIL NDX 20 10A 2023-05-24: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 10A 2023-05-24: realizzata nel riquadro null, S&P 500 ricalcolata 13.90
+FAIL NDX 20 10A 2023-05-24: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 24/02/2020, finito il 24/05/2023»)
+   24/05/2023 / Nasdaq-100 13.604 / Nell'episodio a 20 o più dal 24/02/2020 al 24/05/2023 (2020 Covid) / VIX / 20,03 / Realizzata 21 sedute / 13,9 / Premio per la paura / +6,1 / Percentile del premio / 71° / VIX3M / 22,02 / VIX / VIX3M / 0,91 contango / HYG/IEF dal massimo 12 mesi / −3,4%
+FAIL NDX 20 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL NDX 20 10A 2020-07-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 24/02/2020, finito il 24/05/2023»)
+   20/07/2020 / Nasdaq-100 10.952 / Nell'episodio a 20 o più dal 24/02/2020 al 24/05/2023 (2020 Covid) / VIX / 24,46 / Realizzata 21 sedute / 19,1 / Premio per la paura / +5,3 / Percentile del premio / 63° / VIX3M / 29,10 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −12,0%
+FAIL NDX 20 MAX 1992-04-08: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 1992-10-05: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 1994-03-31: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 1996-03-08: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 1996-07-15: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 1996-12-12: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2004-03-11: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2006-06-12: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2012-12-28: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2013-06-20: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2013-10-08: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2014-02-03: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2014-10-10: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2016-06-13: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2016-11-03: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2019-05-13: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2023-10-19: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2026-11-02: colore della fascia null diverso dalla riga null
+FAIL NDX 20 MAX 2014-02-04: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 MAX 2014-02-04: realizzata nel riquadro null, S&P 500 ricalcolata 14.81
+FAIL NDX 20 MAX 2014-02-04: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 MAX 2014-02-04: realizzata nel riquadro null, S&P 500 ricalcolata 14.81
+FAIL NDX 20 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL NDX 20 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL NDX 20 MAX 2003-08-22: riga dell'episodio nel riquadro (attesa «Nell'episodio a 20 o più iniziato il 12/12/1996, finito il 02/10/2003»)
+   22/08/2003 / Nasdaq-100 1.305 / Nell'episodio a 20 o più dal 12/12/1996 al 02/10/2003 / VIX / 18,55 / Realizzata 21 sedute / 12,6 / Premio per la paura / +6,0 / Percentile del premio / 62° / VIX3M / — / VIX / VIX3M / — / HYG/IEF dal massimo 12 mesi / —
+FAIL NDX 25: intestazioni Primo giorno a 25 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 25 o più | Sedute
+FAIL NDX 25 2026-11-05: ultimo giorno «06/11/2026*» atteso «06/11/2026* provv.»
+FAIL NDX 25 2026-11-05: riassunto per il telefono «null» atteso «massimo 28,2 il 05/11/2026 · in corso · 2 sedute»
+FAIL NDX 25 2026-11-05: title
+   pagina: VIX da 07/08/2026: 14,9; primo giorno a 25 o più il 05/11/2026 (28,2); massimo 28,2 il 05/11/2026; ultimo giorno a 25 o più il 06/11/2026; poi fino al 06/11/2026: 25,6
+   atteso: VIX da 07/08/2026: 14,9; primo giorno a 25 o più il 05/11/2026 (28,2); massimo 28,2 il 05/11/2026; episodio in corso, ultimo giorno a 25 o più finora il 06/11/2026 (provvisorio)
+FAIL NDX 25 2026-11-05: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2026-11-05 grigia (crisi —)
+FAIL NDX 25 2026-03-06: riassunto per il telefono «null» atteso «massimo 31,1 il 27/03/2026 · fino al 07/04/2026 · 22 sedute»
+FAIL NDX 25 2026-03-06: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2026-03-06 grigia (crisi —)
+FAIL NDX 25 2025-10-16: riassunto per il telefono «null» atteso «massimo 26,4 il 20/11/2025 · fino al 20/11/2025 · 26 sedute»
+FAIL NDX 25 2025-10-16: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2025-10-16 grigia (crisi —)
+FAIL NDX 25 2024-12-18: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 28/04/2025 · 88 sedute»
+FAIL NDX 25 2024-12-18: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2024-12-18 grigia (crisi —)
+FAIL NDX 25 2024-08-05: riassunto per il telefono «null» atteso «massimo 38,6 il 05/08/2024 · fino al 07/08/2024 · 3 sedute»
+FAIL NDX 25 2021-09-20: riassunto per il telefono «null» atteso «massimo 36,5 il 07/03/2022 · fino al 17/03/2023 · 376 sedute»
+FAIL NDX 25 2021-09-20: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2021-09-20 grigia (crisi —)
+FAIL NDX 25 2020-02-24: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 12/05/2021 · 308 sedute»
+FAIL NDX 25 2018-10-24: riassunto per il telefono «null» atteso «massimo 36,1 il 24/12/2018 · fino al 03/01/2019 · 48 sedute»
+FAIL NDX 25 2018-02-05: riassunto per il telefono «null» atteso «massimo 37,3 il 05/02/2018 · fino al 12/02/2018 · 6 sedute»
+FAIL NDX 25 2016-06-24: riassunto per il telefono «null» atteso «massimo 25,8 il 24/06/2016 · fino al 24/06/2016 · 1 sedute»
+FAIL NDX 25 2016-06-24: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2016-06-24 grigia (crisi —)
+FAIL NDX 25 2016-01-08: riassunto per il telefono «null» atteso «massimo 28,1 il 11/02/2016 · fino al 12/02/2016 · 25 sedute»
+FAIL NDX 25 2015-08-21: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 29/09/2015 · 27 sedute»
+FAIL NDX 25 2014-10-15: riassunto per il telefono «null» atteso «massimo 26,3 il 15/10/2014 · fino al 16/10/2014 · 2 sedute»
+FAIL NDX 25 2014-10-15: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2014-10-15 grigia (crisi 2014 ottobre)
+FAIL NDX 25 2012-05-18: riassunto per il telefono «null» atteso «massimo 26,7 il 01/06/2012 · fino al 04/06/2012 · 11 sedute»
+FAIL NDX 25 2011-07-29: riassunto per il telefono «null» atteso «massimo 48,0 il 08/08/2011 · fino al 15/12/2011 · 98 sedute»
+FAIL NDX 25 2011-03-16: riassunto per il telefono «null» atteso «massimo 29,4 il 16/03/2011 · fino al 17/03/2011 · 2 sedute»
+FAIL NDX 25 2011-03-16: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 2011-03-16 grigia (crisi —)
+FAIL NDX 25 2008-07-02: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 31/08/2010 · 546 sedute»
+FAIL NDX 25 2007-08-03: riassunto per il telefono «null» atteso «massimo 32,2 il 17/03/2008 · fino al 31/03/2008 · 165 sedute»
+FAIL NDX 25 2002-06-13: riassunto per il telefono «null» atteso «massimo 45,1 il 05/08/2002 · fino al 10/04/2003 · 209 sedute»
+FAIL NDX 25 2000-10-11: riassunto per il telefono «null» atteso «massimo 43,7 il 20/09/2001 · fino al 07/02/2002 · 330 sedute»
+FAIL NDX 25 1998-04-27: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 23/05/2000 · 525 sedute»
+FAIL NDX 25 1998-04-27: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 1998-04-27 grigia (crisi —)
+FAIL NDX 25 1997-09-04: riassunto per il telefono «null» atteso «massimo 38,2 il 30/10/1997 · fino al 13/01/1998 · 91 sedute»
+FAIL NDX 25 1997-09-04: riga senza classe di colore (né gN né gnone)
+  nota: NDX 25 1997-09-04 grigia (crisi —)
+FAIL NDX 25 1990-08-03: riassunto per il telefono «null» atteso «massimo 36,5 il 23/08/1990 · fino al 18/01/1991 · 117 sedute»
+FAIL NDX 25 3A 2024-12-18: colore della fascia null diverso dalla riga null
+FAIL NDX 25 3A 2025-10-16: colore della fascia null diverso dalla riga null
+FAIL NDX 25 3A 2026-03-06: colore della fascia null diverso dalla riga null
+FAIL NDX 25 3A 2026-11-05: colore della fascia null diverso dalla riga null
+FAIL NDX 25 3A 2025-10-16: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 3A 2025-10-16: realizzata nel riquadro null, S&P 500 ricalcolata 12.90
+FAIL NDX 25 3A 2025-10-16: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 16/10/2025, finito il 20/11/2025»)
+   16/10/2025 / Nasdaq-100 24.657 / Nell'episodio a 25 o più dal 16/10/2025 al 20/11/2025 / VIX / 25,31 / Realizzata 21 sedute / 12,9 / Premio per la paura / +12,4 / Percentile del premio / 98° / VIX3M / 24,87 / VIX / VIX3M / 1,02 backwardation / HYG/IEF dal massimo 12 mesi / −3,0%
+FAIL NDX 25 3A 2025-11-20: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 3A 2025-11-20: realizzata nel riquadro null, S&P 500 ricalcolata 13.94
+FAIL NDX 25 3A 2025-11-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 16/10/2025, finito il 20/11/2025»)
+   20/11/2025 / Nasdaq-100 24.054 / Nell'episodio a 25 o più dal 16/10/2025 al 20/11/2025 / VIX / 26,42 / Realizzata 21 sedute / 13,9 / Premio per la paura / +12,5 / Percentile del premio / 98° / VIX3M / 25,76 / VIX / VIX3M / 1,03 backwardation / HYG/IEF dal massimo 12 mesi / −2,6%
+FAIL NDX 25 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL NDX 25 10A 2021-09-20: colore della fascia null diverso dalla riga null
+FAIL NDX 25 10A 2024-12-18: colore della fascia null diverso dalla riga null
+FAIL NDX 25 10A 2025-10-16: colore della fascia null diverso dalla riga null
+FAIL NDX 25 10A 2026-03-06: colore della fascia null diverso dalla riga null
+FAIL NDX 25 10A 2026-11-05: colore della fascia null diverso dalla riga null
+FAIL NDX 25 10A 2024-08-05: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 10A 2024-08-05: realizzata nel riquadro null, S&P 500 ricalcolata 19.04
+FAIL NDX 25 10A 2024-08-05: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 05/08/2024, finito il 07/08/2024»)
+   05/08/2024 / Nasdaq-100 17.895 / Nell'episodio a 25 o più dal 05/08/2024 al 07/08/2024 (2024 carry yen) / VIX / 38,57 / Realizzata 21 sedute / 19,0 / Premio per la paura / +19,5 / Percentile del premio / 100° / VIX3M / 33,71 / VIX / VIX3M / 1,14 backwardation / HYG/IEF dal massimo 12 mesi / −4,9%
+FAIL NDX 25 10A 2024-08-07: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 10A 2024-08-07: realizzata nel riquadro null, S&P 500 ricalcolata 19.59
+FAIL NDX 25 10A 2024-08-07: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 05/08/2024, finito il 07/08/2024»)
+   07/08/2024 / Nasdaq-100 17.867 / Nell'episodio a 25 o più dal 05/08/2024 al 07/08/2024 (2024 carry yen) / VIX / 27,85 / Realizzata 21 sedute / 19,6 / Premio per la paura / +8,3 / Percentile del premio / 88° / VIX3M / 27,01 / VIX / VIX3M / 1,03 backwardation / HYG/IEF dal massimo 12 mesi / −3,2%
+FAIL NDX 25 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL NDX 25 10A 2020-07-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 24/02/2020, finito il 12/05/2021»)
+   20/07/2020 / Nasdaq-100 10.952 / Nell'episodio a 25 o più dal 24/02/2020 al 12/05/2021 (2020 Covid) / VIX / 24,46 / Realizzata 21 sedute / 19,1 / Premio per la paura / +5,3 / Percentile del premio / 63° / VIX3M / 29,10 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −12,0%
+FAIL NDX 25 MAX 1997-09-04: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 1998-04-27: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2011-03-16: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2014-10-15: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2016-06-24: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2021-09-20: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2024-12-18: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2025-10-16: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2026-03-06: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2026-11-05: colore della fascia null diverso dalla riga null
+FAIL NDX 25 MAX 2015-08-21: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 MAX 2015-08-21: realizzata nel riquadro null, S&P 500 ricalcolata 16.38
+FAIL NDX 25 MAX 2015-08-21: riga dell'episodio nel riquadro (attesa «Nell'episodio a 25 o più iniziato il 21/08/2015, finito il 29/09/2015»)
+   21/08/2015 / Nasdaq-100 4.197 / Nell'episodio a 25 o più dal 21/08/2015 al 29/09/2015 (2015-16 Cina/petrolio) / VIX / 28,03 / Realizzata 21 sedute / 16,4 / Premio per la paura / +11,6 / Percentile del premio / 97° / VIX3M / 23,47 / VIX / VIX3M / 1,19 backwardation / HYG/IEF dal massimo 12 mesi / −9,8%
+FAIL NDX 25 MAX 2015-09-30: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 MAX 2015-09-30: realizzata nel riquadro null, S&P 500 ricalcolata 22.57
+FAIL NDX 25 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL NDX 25 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL NDX 30: intestazioni Primo giorno a 30 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 30 o più | Sedute
+FAIL NDX 30 2026-03-27: riassunto per il telefono «null» atteso «massimo 31,1 il 27/03/2026 · fino al 30/03/2026 · 2 sedute»
+FAIL NDX 30 2026-03-27: riga senza classe di colore (né gN né gnone)
+  nota: NDX 30 2026-03-27 grigia (crisi —)
+FAIL NDX 30 2025-04-03: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 22/04/2025 · 13 sedute»
+FAIL NDX 30 2024-08-05: riassunto per il telefono «null» atteso «massimo 38,6 il 05/08/2024 · fino al 05/08/2024 · 1 sedute»
+FAIL NDX 30 2022-09-26: riassunto per il telefono «null» atteso «massimo 33,6 il 11/10/2022 · fino al 19/10/2022 · 18 sedute»
+FAIL NDX 30 2021-12-01: riassunto per il telefono «null» atteso «massimo 36,5 il 07/03/2022 · fino al 21/06/2022 · 139 sedute»
+FAIL NDX 30 2020-02-27: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 01/02/2021 · 235 sedute»
+FAIL NDX 30 2018-12-21: riassunto per il telefono «null» atteso «massimo 36,1 il 24/12/2018 · fino al 26/12/2018 · 3 sedute»
+FAIL NDX 30 2018-02-05: riassunto per il telefono «null» atteso «massimo 37,3 il 05/02/2018 · fino al 08/02/2018 · 4 sedute»
+FAIL NDX 30 2015-08-24: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 01/09/2015 · 7 sedute»
+FAIL NDX 30 2011-08-04: riassunto per il telefono «null» atteso «massimo 48,0 il 08/08/2011 · fino al 08/12/2011 · 89 sedute»
+FAIL NDX 30 2010-05-06: riassunto per il telefono «null» atteso «massimo 45,8 il 20/05/2010 · fino al 02/07/2010 · 41 sedute»
+FAIL NDX 30 2009-10-30: riassunto per il telefono «null» atteso «massimo 30,7 il 30/10/2009 · fino al 30/10/2009 · 1 sedute»
+FAIL NDX 30 2008-09-15: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 08/07/2009 · 205 sedute»
+FAIL NDX 30 2007-08-15: riassunto per il telefono «null» atteso «massimo 32,2 il 17/03/2008 · fino al 17/03/2008 · 148 sedute»
+FAIL NDX 30 2002-07-09: riassunto per il telefono «null» atteso «massimo 45,1 il 05/08/2002 · fino al 24/03/2003 · 179 sedute»
+FAIL NDX 30 2001-09-07: riassunto per il telefono «null» atteso «massimo 43,7 il 20/09/2001 · fino al 05/11/2001 · 38 sedute»
+FAIL NDX 30 2000-10-12: riassunto per il telefono «null» atteso «massimo 34,7 il 03/04/2001 · fino al 09/04/2001 · 123 sedute»
+FAIL NDX 30 2000-04-14: riassunto per il telefono «null» atteso «massimo 33,5 il 14/04/2000 · fino al 04/05/2000 · 14 sedute»
+FAIL NDX 30 1998-08-04: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 18/02/1999 · 137 sedute»
+FAIL NDX 30 1997-10-27: riassunto per il telefono «null» atteso «massimo 38,2 il 30/10/1997 · fino al 24/12/1997 · 42 sedute»
+FAIL NDX 30 1990-08-06: riassunto per il telefono «null» atteso «massimo 36,5 il 23/08/1990 · fino al 16/01/1991 · 114 sedute»
+FAIL NDX 30 3A 2026-03-27: colore della fascia null diverso dalla riga null
+FAIL NDX 30 3A 2025-04-03: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 3A 2025-04-03: realizzata nel riquadro null, S&P 500 ricalcolata 25.57
+FAIL NDX 30 3A 2025-04-03: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 03/04/2025, finito il 22/04/2025»)
+   03/04/2025 / Nasdaq-100 18.521 / Nell'episodio a 30 o più dal 03/04/2025 al 22/04/2025 (2025 dazi) / VIX / 30,02 / Realizzata 21 sedute / 25,6 / Premio per la paura / +4,4 / Percentile del premio / 52° / VIX3M / 27,38 / VIX / VIX3M / 1,10 backwardation / HYG/IEF dal massimo 12 mesi / −5,9%
+FAIL NDX 30 3A 2025-04-22: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 3A 2025-04-22: realizzata nel riquadro null, S&P 500 ricalcolata 48.68
+FAIL NDX 30 3A 2025-04-22: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 03/04/2025, finito il 22/04/2025»)
+   22/04/2025 / Nasdaq-100 18.276 / Nell'episodio a 30 o più dal 03/04/2025 al 22/04/2025 (2025 dazi) / VIX / 30,57 / Realizzata 21 sedute / 48,7 / Premio per la paura / −18,1 / Percentile del premio / 0° / VIX3M / 29,45 / VIX / VIX3M / 1,04 backwardation / HYG/IEF dal massimo 12 mesi / −4,1%
+FAIL NDX 30 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL NDX 30 10A 2026-03-27: colore della fascia null diverso dalla riga null
+FAIL NDX 30 10A 2022-09-26: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 10A 2022-09-26: realizzata nel riquadro null, S&P 500 ricalcolata 23.67
+FAIL NDX 30 10A 2022-09-26: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 26/09/2022, finito il 19/10/2022»)
+   26/09/2022 / Nasdaq-100 11.254 / Nell'episodio a 30 o più dal 26/09/2022 al 19/10/2022 (2022 inflazione/tassi) / VIX / 32,26 / Realizzata 21 sedute / 23,7 / Premio per la paura / +8,6 / Percentile del premio / 89° / VIX3M / 31,77 / VIX / VIX3M / 1,02 backwardation / HYG/IEF dal massimo 12 mesi / −2,9%
+FAIL NDX 30 10A 2022-10-19: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 10A 2022-10-19: realizzata nel riquadro null, S&P 500 ricalcolata 28.48
+FAIL NDX 30 10A 2022-10-19: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 26/09/2022, finito il 19/10/2022»)
+   19/10/2022 / Nasdaq-100 11.103 / Nell'episodio a 30 o più dal 26/09/2022 al 19/10/2022 (2022 inflazione/tassi) / VIX / 30,76 / Realizzata 21 sedute / 28,5 / Premio per la paura / +2,3 / Percentile del premio / 26° / VIX3M / 31,35 / VIX / VIX3M / 0,98 contango / HYG/IEF dal massimo 12 mesi / 0,0%
+FAIL NDX 30 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL NDX 30 10A 2020-07-20: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 27/02/2020, finito il 01/02/2021»)
+   20/07/2020 / Nasdaq-100 10.952 / Nell'episodio a 30 o più dal 27/02/2020 al 01/02/2021 (2020 Covid) / VIX / 24,46 / Realizzata 21 sedute / 19,1 / Premio per la paura / +5,3 / Percentile del premio / 63° / VIX3M / 29,10 / VIX / VIX3M / 0,84 contango / HYG/IEF dal massimo 12 mesi / −12,0%
+FAIL NDX 30 MAX 2026-03-27: colore della fascia null diverso dalla riga null
+FAIL NDX 30 MAX 2010-05-07: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 MAX 2010-05-07: realizzata nel riquadro null, S&P 500 ricalcolata 21.16
+FAIL NDX 30 MAX 2010-05-07: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 06/05/2010, finito il 02/07/2010»)
+   07/05/2010 / Nasdaq-100 1.849 / Nell'episodio a 30 o più dal 06/05/2010 al 02/07/2010 (2010 euro/flash crash) / VIX / 40,95 / Realizzata 21 sedute / 21,2 / Premio per la paura / +19,8 / Percentile del premio / 100° / VIX3M / 36,62 / VIX / VIX3M / 1,12 backwardation / HYG/IEF dal massimo 12 mesi / −7,7%
+FAIL NDX 30 MAX 2010-07-02: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 MAX 2010-07-02: realizzata nel riquadro null, S&P 500 ricalcolata 23.60
+FAIL NDX 30 MAX 2010-07-02: riga dell'episodio nel riquadro (attesa «Nell'episodio a 30 o più iniziato il 06/05/2010, finito il 02/07/2010»)
+   02/07/2010 / Nasdaq-100 1.728 / Nell'episodio a 30 o più dal 06/05/2010 al 02/07/2010 (2010 euro/flash crash) / VIX / 30,12 / Realizzata 21 sedute / 23,6 / Premio per la paura / +6,5 / Percentile del premio / 73° / VIX3M / 33,29 / VIX / VIX3M / 0,90 contango / HYG/IEF dal massimo 12 mesi / −9,8%
+FAIL NDX 30 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL NDX 30 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL NDX 40: intestazioni Primo giorno a 40 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 40 o più | Sedute
+FAIL NDX 40 2025-04-04: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 10/04/2025 · 5 sedute»
+FAIL NDX 40 2020-10-28: riassunto per il telefono «null» atteso «massimo 40,3 il 28/10/2020 · fino al 28/10/2020 · 1 sedute»
+FAIL NDX 40 2020-02-28: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 11/06/2020 · 73 sedute»
+FAIL NDX 40 2015-08-24: riassunto per il telefono «null» atteso «massimo 40,7 il 24/08/2015 · fino al 24/08/2015 · 1 sedute»
+FAIL NDX 40 2011-08-08: riassunto per il telefono «null» atteso «massimo 48,0 il 08/08/2011 · fino al 04/10/2011 · 41 sedute»
+FAIL NDX 40 2010-05-07: riassunto per il telefono «null» atteso «massimo 45,8 il 20/05/2010 · fino al 21/05/2010 · 11 sedute»
+FAIL NDX 40 2008-09-29: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 07/04/2009 · 132 sedute»
+FAIL NDX 40 2002-07-22: riassunto per il telefono «null» atteso «massimo 45,1 il 05/08/2002 · fino al 09/10/2002 · 57 sedute»
+FAIL NDX 40 2001-09-17: riassunto per il telefono «null» atteso «massimo 43,7 il 20/09/2001 · fino al 21/09/2001 · 5 sedute»
+FAIL NDX 40 1998-08-31: riassunto per il telefono «null» atteso «massimo 45,7 il 08/10/1998 · fino al 13/10/1998 · 31 sedute»
+FAIL NDX 40 3A 2025-04-04: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 3A 2025-04-04: realizzata nel riquadro null, S&P 500 ricalcolata 32.23
+FAIL NDX 40 3A 2025-04-04: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 04/04/2025, finito il 10/04/2025»)
+   04/04/2025 / Nasdaq-100 17.398 / Nell'episodio a 40 o più dal 04/04/2025 al 10/04/2025 (2025 dazi) / VIX / 45,31 / Realizzata 21 sedute / 32,2 / Premio per la paura / +13,1 / Percentile del premio / 98° / VIX3M / 36,71 / VIX / VIX3M / 1,23 backwardation / HYG/IEF dal massimo 12 mesi / −7,5%
+FAIL NDX 40 3A 2025-04-10: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 3A 2025-04-10: realizzata nel riquadro null, S&P 500 ricalcolata 47.20
+FAIL NDX 40 3A 2025-04-10: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 04/04/2025, finito il 10/04/2025»)
+   10/04/2025 / Nasdaq-100 18.344 / Nell'episodio a 40 o più dal 04/04/2025 al 10/04/2025 (2025 dazi) / VIX / 40,72 / Realizzata 21 sedute / 47,2 / Premio per la paura / −6,5 / Percentile del premio / 2° / VIX3M / 35,71 / VIX / VIX3M / 1,14 backwardation / HYG/IEF dal massimo 12 mesi / −5,3%
+FAIL NDX 40 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL NDX 40 10A 2020-10-28: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 10A 2020-10-28: realizzata nel riquadro null, S&P 500 ricalcolata 20.89
+FAIL NDX 40 10A 2020-10-28: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 28/10/2020, finito il 28/10/2020»)
+   28/10/2020 / Nasdaq-100 11.143 / Nell'episodio a 40 o più dal 28/10/2020 al 28/10/2020 (2020 Covid) / VIX / 40,28 / Realizzata 21 sedute / 20,9 / Premio per la paura / +19,4 / Percentile del premio / 100° / VIX3M / 37,75 / VIX / VIX3M / 1,07 backwardation / HYG/IEF dal massimo 12 mesi / −10,9%
+FAIL NDX 40 10A 2020-10-28: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 10A 2020-10-28: realizzata nel riquadro null, S&P 500 ricalcolata 20.89
+FAIL NDX 40 10A 2020-10-28: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 28/10/2020, finito il 28/10/2020»)
+   28/10/2020 / Nasdaq-100 11.143 / Nell'episodio a 40 o più dal 28/10/2020 al 28/10/2020 (2020 Covid) / VIX / 40,28 / Realizzata 21 sedute / 20,9 / Premio per la paura / +19,4 / Percentile del premio / 100° / VIX3M / 37,75 / VIX / VIX3M / 1,07 backwardation / HYG/IEF dal massimo 12 mesi / −10,9%
+FAIL NDX 40 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL NDX 40 MAX 2011-08-09: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 MAX 2011-08-09: realizzata nel riquadro null, S&P 500 ricalcolata 36.35
+FAIL NDX 40 MAX 2011-08-09: riga dell'episodio nel riquadro (attesa «Nell'episodio a 40 o più iniziato il 08/08/2011, finito il 04/10/2011»)
+   09/08/2011 / Nasdaq-100 2.161 / Nell'episodio a 40 o più dal 08/08/2011 al 04/10/2011 (2011-12 debito USA/euro) / VIX / 35,06 / Realizzata 21 sedute / 36,4 / Premio per la paura / −1,3 / Percentile del premio / 7° / VIX3M / 31,07 / VIX / VIX3M / 1,13 backwardation / HYG/IEF dal massimo 12 mesi / −15,1%
+FAIL NDX 40 MAX 2011-10-05: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 MAX 2011-10-05: realizzata nel riquadro null, S&P 500 ricalcolata 31.28
+FAIL NDX 40 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL NDX 40 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+FAIL NDX 50: intestazioni Primo giorno a 50 o più | Crisi | Andamento del VIX | VIX quel giorno | Massimo | Ultimo giorno a 50 o più | Sedute
+FAIL NDX 50 2025-04-08: riassunto per il telefono «null» atteso «massimo 52,3 il 08/04/2025 · fino al 08/04/2025 · 1 sedute»
+FAIL NDX 50 2020-03-09: riassunto per il telefono «null» atteso «massimo 82,7 il 16/03/2020 · fino al 02/04/2020 · 19 sedute»
+FAIL NDX 50 2008-10-06: riassunto per il telefono «null» atteso «massimo 80,9 il 20/11/2008 · fino al 05/03/2009 · 104 sedute»
+FAIL NDX 50 3A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 3A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL NDX 50 3A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / Nasdaq-100 17.090 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL NDX 50 3A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 3A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL NDX 50 3A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / Nasdaq-100 17.090 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL NDX 50 3A 2024-12-16: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 3A 2024-12-16: realizzata nel riquadro null, S&P 500 ricalcolata 8.12
+FAIL NDX 50 10A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 10A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL NDX 50 10A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / Nasdaq-100 17.090 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL NDX 50 10A 2025-04-08: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 10A 2025-04-08: realizzata nel riquadro null, S&P 500 ricalcolata 31.27
+FAIL NDX 50 10A 2025-04-08: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 08/04/2025, finito il 08/04/2025»)
+   08/04/2025 / Nasdaq-100 17.090 / Nell'episodio a 50 o più dal 08/04/2025 al 08/04/2025 (2025 dazi) / VIX / 52,33 / Realizzata 21 sedute / 31,3 / Premio per la paura / +21,1 / Percentile del premio / 100° / VIX3M / 41,50 / VIX / VIX3M / 1,26 backwardation / HYG/IEF dal massimo 12 mesi / −7,1%
+FAIL NDX 50 10A 2020-07-20: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 10A 2020-07-20: realizzata nel riquadro null, S&P 500 ricalcolata 19.14
+FAIL NDX 50 MAX 2020-03-10: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 MAX 2020-03-10: realizzata nel riquadro null, S&P 500 ricalcolata 47.77
+FAIL NDX 50 MAX 2020-03-10: riga dell'episodio nel riquadro (attesa «Nell'episodio a 50 o più iniziato il 09/03/2020, finito il 02/04/2020»)
+   10/03/2020 / Nasdaq-100 8.372 / Nell'episodio a 50 o più dal 09/03/2020 al 02/04/2020 (2020 Covid) / VIX / 47,30 / Realizzata 21 sedute / 47,8 / Premio per la paura / −0,5 / Percentile del premio / 10° / VIX3M / 39,44 / VIX / VIX3M / 1,20 backwardation / HYG/IEF dal massimo 12 mesi / −13,8%
+FAIL NDX 50 MAX 2020-04-03: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 MAX 2020-04-03: realizzata nel riquadro null, S&P 500 ricalcolata 93.90
+FAIL NDX 50 MAX 2003-08-22: etichette della realizzata e del premio con S&P 500
+FAIL NDX 50 MAX 2003-08-22: realizzata nel riquadro null, S&P 500 ricalcolata 12.59
+{"rows":162,"sparkVerts":33300,"hiVerts":11612,"bands":244,"ixVerts":125480,"ticks":135,"tips":90,"rv":90}
+5089 controlli, 566 FAIL

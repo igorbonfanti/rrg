@@ -1,0 +1,38 @@
+<!doctype html><html lang="it" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prototipo · distanza dal massimo</title><link rel="stylesheet" href="../../../css/style.css">
+<style>
+body{padding:16px;max-width:1400px;margin:0 auto}
+.ath{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:13px}
+.ath th{font-family:var(--f-ui);font-weight:500;color:var(--ink-3);text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule);font-size:12px}
+.ath td{padding:7px 8px;border-bottom:1px solid var(--grid);white-space:nowrap}
+.ath td.r,.ath th.r{text-align:right}
+.ath .nm{font-family:var(--f-ui);font-size:14px;color:var(--ink)}
+.ath .nm small{display:block;color:var(--ink-3);font-size:11px}
+.ath .v{color:var(--down);font-weight:600;display:inline-block;width:64px;text-align:right;margin-right:10px}
+.ath .v.zero{color:var(--ink-2)}
+.athbar{position:relative;display:inline-block;vertical-align:middle;height:12px;width:260px;background:var(--panel-2)}
+.athbar i{position:absolute;top:0;bottom:0;right:0;background:var(--bar-fill)}
+.athbar .mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink-3)}
+.ath .muted{color:var(--ink-3)}
+.athnote{color:var(--ink-3);font-size:12px;margin-top:10px;font-family:var(--f-ui);line-height:1.45}
+.athsc{display:flex;justify-content:space-between;width:260px;color:var(--ink-3);font-size:10px;margin-left:74px}
+@media (max-width:640px){
+ .ath thead{display:none}.ath,.ath tbody,.ath tr,.ath td{display:block;width:100%}
+ .ath tr{border-bottom:1px solid var(--grid);padding:8px 0}.ath td{border:0;padding:2px 0}
+ .ath td.c-max,.ath td.c-last,.ath td.c-low{display:inline-block;width:auto;margin-right:12px;font-size:12px}
+ .ath .nm{display:flex;justify-content:space-between}.athbar{width:calc(100% - 76px)}
+ .ath td.r{text-align:left}.athsc{display:none}
+}
+</style></head><body>
+<div class="panel"><div class="ph"><h2>Distanza dal massimo storico · le bolle si sgonfiano a rotazione</h2>
+<span class="ctl"><span class="seg"><button aria-pressed="true">per distanza</button><button aria-pressed="false">per data del massimo</button></span></span></div>
+<div style="padding:4px 12px 12px">
+<table class="ath"><thead><tr><th>Mercato</th><th>Distanza dal massimo di chiusura <span class="muted">(barra da 0 a −60%; tacca: calo più profondo dopo il massimo)</span></th><th>Massimo</th><th class="r">Calo massimo</th><th>Ultima chiusura</th></tr></thead><tbody id="rows"></tbody></table>
+
+<p class="athnote">Massimo di chiusura dall'inizio della serie («dal …» nel suggerimento), solo prezzo, in valuta di quotazione (KOSPI in won). Oro e argento: ETF fisici GLD e SLV; rame e petrolio: future continuo (Yahoo). Il petrolio WTI ha chiuso sotto zero il 20/04/2020: per lui il calo massimo non si calcola. Solo contesto, nessun segnale. Idea da una slide di Francesco Caruso (Cicli&amp;Mercati).</p>
+</div></div>
+<script>
+const R=[["Argento","SLV · ETF fisico",-55.82,"28/01/2026",287,-57.77,"11/11"],["KOSPI (Corea)","^KS11 · in won",-41.38,"22/06/2026",143,-44.94,"12/11"],["Bitcoin","BTC-USD",-40.71,"06/10/2025",401,-53.06,"11/11"],["Petrolio WTI","CL=F · future",-40.44,"03/07/2008",6705,null,"11/11"],["Semiconduttori","SOXX",-28.83,"22/06/2026",142,-39.59,"11/11"],["Oro","GLD · ETF fisico",-26.36,"29/01/2026",286,-28.26,"11/11"],["Nasdaq-100","^NDX",-9.13,"06/10/2026",36,-14.71,"11/11"],["Rame","HG=F · future",-7.78,"09/09/2026",63,-8.61,"11/11"],["S&P 500","^GSPC",-2.55,"06/10/2026",36,-5.95,"11/11"]];
+const f=(x)=>(x>0?"+":"")+x.toFixed(2).replace(".",",")+"%";const W=60;
+document.getElementById("rows").innerHTML=R.map(([n,s,d,m,g,lo,l])=>`<tr><td class="nm">${n}<small>${s}</small></td><td><span class="v">${f(d)}</span><span class="athbar"><i style="width:${Math.min(100,-d/W*100)}%"></i>${lo==null?"":`<span class="mark" style="right:${Math.min(100,-lo/W*100)}%"></span>`}</span></td><td class="c-max">${m} <span class="muted">· ${g.toLocaleString("it-IT")} giorni fa</span></td><td class="r c-low">${lo==null?'<span class="muted">—</span>':f(lo)}</td><td class="c-last muted">${l}</td></tr>`).join("");
+</script></body></html>

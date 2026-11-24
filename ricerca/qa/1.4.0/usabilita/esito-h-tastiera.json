@@ -1,0 +1,420 @@
+[
+ {
+  "name": "[tastiera dark] scheda 8: role=tab, aria-controls=v-emg, tabpanel etichettato",
+  "ok": true,
+  "detail": {
+   "list": "tablist",
+   "tab": {
+    "role": "tab",
+    "controls": "v-emg",
+    "sel": "false",
+    "ti": -1
+   },
+   "panel": {
+    "role": "tabpanel",
+    "by": "tab-emg"
+   }
+  }
+ },
+ {
+  "name": "[tastiera dark] Fine sulle schede apre e mette il focus su «8 Emergenti» (un solo tabindex=0)",
+  "ok": true,
+  "detail": {
+   "id": "tab-emg",
+   "sel": "true",
+   "ti": 0,
+   "others": 1
+  }
+ },
+ {
+  "name": "[tastiera dark] focus visibile sulla scheda 8",
+  "ok": true,
+  "detail": {
+   "style": "solid",
+   "w": "2px",
+   "c": "rgb(232, 232, 232)",
+   "fv": true
+  }
+ },
+ {
+  "name": "[tastiera dark] Destra da 8 torna a 1",
+  "ok": true,
+  "detail": "tab-mon"
+ },
+ {
+  "name": "[tastiera dark] dalla scheda 8 la prima riga del tabellone si raggiunge in pochi Tab",
+  "ok": true,
+  "detail": {
+   "firstRow": 0,
+   "primi": [
+    "[tr CSI300]",
+    "[tr NIFTY50]",
+    "[tr IBOV]",
+    "[tr KOSPI200]",
+    "[tr TWN]",
+    "[tr HSI]"
+   ]
+  }
+ },
+ {
+  "name": "[tastiera dark] le 7 righe nell'ordine del tabellone",
+  "ok": false,
+  "detail": [
+   "CSI300",
+   "NIFTY50",
+   "IBOV",
+   "KOSPI200",
+   "TWN",
+   "HSI",
+   "EEM",
+   "CSI300",
+   "NIFTY50",
+   "IBOV",
+   "KOSPI200",
+   "TWN",
+   "HSI",
+   "EEM"
+  ]
+ },
+ {
+  "name": "[tastiera dark] poi periodo, «Apri nella vista 6», punti del quadrante (in quest'ordine)",
+  "ok": true,
+  "detail": {
+   "iRange": 7,
+   "iOpen": 10,
+   "iDot": 11
+  }
+ },
+ {
+  "name": "[tastiera dark] focus visibile su una riga del tabellone",
+  "ok": true,
+  "detail": {
+   "em": "IBOV",
+   "fv": true,
+   "style": "solid",
+   "w": "2px",
+   "c": "rgb(255, 160, 40)"
+  }
+ },
+ {
+  "name": "[tastiera dark] Invio sulla riga IBOV la seleziona e il focus resta lì",
+  "ok": true,
+  "detail": {
+   "hash": "#emg-IBOV",
+   "em": "IBOV",
+   "tag": "TR"
+  }
+ },
+ {
+  "name": "[tastiera dark] [esplorativo] Spazio sulla riga TWN la seleziona",
+  "ok": false,
+  "detail": {
+   "hash": "#emg-IBOV",
+   "y": 702
+  }
+ },
+ {
+  "name": "[tastiera dark] la riga selezionata è annunciata come tale (aria-selected/aria-current)",
+  "ok": false,
+  "detail": {
+   "role": null,
+   "sel": null,
+   "cur": null,
+   "label": null
+  }
+ },
+ {
+  "name": "[tastiera dark] focus visibile su un punto del quadrante",
+  "ok": true,
+  "detail": {
+   "em": "EEM",
+   "fv": true,
+   "style": "solid",
+   "w": "2px"
+  }
+ },
+ {
+  "name": "[tastiera dark] Invio sul punto EEM lo seleziona",
+  "ok": true,
+  "detail": {
+   "hash": "#emg-EEM",
+   "active": "body"
+  }
+ },
+ {
+  "name": "[tastiera dark] dopo Invio sul punto il focus non si perde (non torna al body)",
+  "ok": false,
+  "detail": {
+   "hash": "#emg-EEM",
+   "active": "body"
+  }
+ },
+ {
+  "name": "[tastiera dark] [esplorativo] Spazio sul punto HSI (role=button) lo seleziona",
+  "ok": false,
+  "detail": "#emg-EEM"
+ },
+ {
+  "name": "[tastiera dark] pulsanti del periodo in un gruppo etichettato (come #ixRange)",
+  "ok": false,
+  "detail": {
+   "role": null,
+   "label": null
+  }
+ },
+ {
+  "name": "[tastiera dark] tabellone con intestazioni di colonna",
+  "ok": true,
+  "detail": {
+   "caption": false,
+   "label": null,
+   "th": 9
+  }
+ },
+ {
+  "name": "[tastiera dark] grafico con role=img e descrizione",
+  "ok": true,
+  "detail": {
+   "role": "img",
+   "label": "Prezzo, breadth, cambio e dollaro contro gli emergenti sullo stesso asse del tempo"
+  }
+ },
+ {
+  "name": "[tastiera dark] riquadri con spiegazione (title)",
+  "ok": true,
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "name": "[tastiera dark] «?» apre la guida rapida anche con il focus su una riga",
+  "ok": true,
+  "detail": {
+   "open": true,
+   "href": "guida.html#emg"
+  }
+ },
+ {
+  "name": "[tastiera dark] chiusa la guida il focus torna alla riga",
+  "ok": true,
+  "detail": "CSI300"
+ },
+ {
+  "name": "[tastiera dark] console pulita",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[tastiera light] scheda 8: role=tab, aria-controls=v-emg, tabpanel etichettato",
+  "ok": true,
+  "detail": {
+   "list": "tablist",
+   "tab": {
+    "role": "tab",
+    "controls": "v-emg",
+    "sel": "false",
+    "ti": -1
+   },
+   "panel": {
+    "role": "tabpanel",
+    "by": "tab-emg"
+   }
+  }
+ },
+ {
+  "name": "[tastiera light] Fine sulle schede apre e mette il focus su «8 Emergenti» (un solo tabindex=0)",
+  "ok": true,
+  "detail": {
+   "id": "tab-emg",
+   "sel": "true",
+   "ti": 0,
+   "others": 1
+  }
+ },
+ {
+  "name": "[tastiera light] focus visibile sulla scheda 8",
+  "ok": true,
+  "detail": {
+   "style": "solid",
+   "w": "2px",
+   "c": "rgb(17, 17, 17)",
+   "fv": true
+  }
+ },
+ {
+  "name": "[tastiera light] Destra da 8 torna a 1",
+  "ok": true,
+  "detail": "tab-mon"
+ },
+ {
+  "name": "[tastiera light] dalla scheda 8 la prima riga del tabellone si raggiunge in pochi Tab",
+  "ok": true,
+  "detail": {
+   "firstRow": 0,
+   "primi": [
+    "[tr CSI300]",
+    "[tr NIFTY50]",
+    "[tr IBOV]",
+    "[tr KOSPI200]",
+    "[tr TWN]",
+    "[tr HSI]"
+   ]
+  }
+ },
+ {
+  "name": "[tastiera light] le 7 righe nell'ordine del tabellone",
+  "ok": false,
+  "detail": [
+   "CSI300",
+   "NIFTY50",
+   "IBOV",
+   "KOSPI200",
+   "TWN",
+   "HSI",
+   "EEM",
+   "CSI300",
+   "NIFTY50",
+   "IBOV",
+   "KOSPI200",
+   "TWN",
+   "HSI",
+   "EEM"
+  ]
+ },
+ {
+  "name": "[tastiera light] poi periodo, «Apri nella vista 6», punti del quadrante (in quest'ordine)",
+  "ok": true,
+  "detail": {
+   "iRange": 7,
+   "iOpen": 10,
+   "iDot": 11
+  }
+ },
+ {
+  "name": "[tastiera light] focus visibile su una riga del tabellone",
+  "ok": true,
+  "detail": {
+   "em": "IBOV",
+   "fv": true,
+   "style": "solid",
+   "w": "2px",
+   "c": "rgb(154, 74, 0)"
+  }
+ },
+ {
+  "name": "[tastiera light] Invio sulla riga IBOV la seleziona e il focus resta lì",
+  "ok": true,
+  "detail": {
+   "hash": "#emg-IBOV",
+   "em": "IBOV",
+   "tag": "TR"
+  }
+ },
+ {
+  "name": "[tastiera light] [esplorativo] Spazio sulla riga TWN la seleziona",
+  "ok": false,
+  "detail": {
+   "hash": "#emg-IBOV",
+   "y": 702
+  }
+ },
+ {
+  "name": "[tastiera light] la riga selezionata è annunciata come tale (aria-selected/aria-current)",
+  "ok": false,
+  "detail": {
+   "role": null,
+   "sel": null,
+   "cur": null,
+   "label": null
+  }
+ },
+ {
+  "name": "[tastiera light] focus visibile su un punto del quadrante",
+  "ok": true,
+  "detail": {
+   "em": "EEM",
+   "fv": true,
+   "style": "solid",
+   "w": "2px"
+  }
+ },
+ {
+  "name": "[tastiera light] Invio sul punto EEM lo seleziona",
+  "ok": true,
+  "detail": {
+   "hash": "#emg-EEM",
+   "active": "body"
+  }
+ },
+ {
+  "name": "[tastiera light] dopo Invio sul punto il focus non si perde (non torna al body)",
+  "ok": false,
+  "detail": {
+   "hash": "#emg-EEM",
+   "active": "body"
+  }
+ },
+ {
+  "name": "[tastiera light] [esplorativo] Spazio sul punto HSI (role=button) lo seleziona",
+  "ok": false,
+  "detail": "#emg-EEM"
+ },
+ {
+  "name": "[tastiera light] pulsanti del periodo in un gruppo etichettato (come #ixRange)",
+  "ok": false,
+  "detail": {
+   "role": null,
+   "label": null
+  }
+ },
+ {
+  "name": "[tastiera light] tabellone con intestazioni di colonna",
+  "ok": true,
+  "detail": {
+   "caption": false,
+   "label": null,
+   "th": 9
+  }
+ },
+ {
+  "name": "[tastiera light] grafico con role=img e descrizione",
+  "ok": true,
+  "detail": {
+   "role": "img",
+   "label": "Prezzo, breadth, cambio e dollaro contro gli emergenti sullo stesso asse del tempo"
+  }
+ },
+ {
+  "name": "[tastiera light] riquadri con spiegazione (title)",
+  "ok": true,
+  "detail": [
+   true,
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ {
+  "name": "[tastiera light] «?» apre la guida rapida anche con il focus su una riga",
+  "ok": true,
+  "detail": {
+   "open": true,
+   "href": "guida.html#emg"
+  }
+ },
+ {
+  "name": "[tastiera light] chiusa la guida il focus torna alla riga",
+  "ok": true,
+  "detail": "CSI300"
+ },
+ {
+  "name": "[tastiera light] console pulita",
+  "ok": true,
+  "detail": []
+ }
+]

@@ -1,0 +1,58 @@
+parole:1.00 numeri mancanti:[]
+   Sector Monitor (function(){try{var d=document.documentElement,t=localStorage.getItem('antigravity-theme')==='light'?'light':'dark';d.setAttribute('data-theme',t);if(t==='light')document.querySelector('meta[name="theme-color"]').setAttribute('content','#ffffff');if(localStorage.getItem('sm.cvd')==='true')d.classList.add('cvd');}catch(e){}})(); /* pagina della guida: una colonna di lettura, indice a lato sugli schermi larghi */ body { background: var(--bg); } .g-wrap { max-width: 1180px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; align-i
+parole:1.00 numeri mancanti:[]
+   Ogni voce con la sottolineatura a puntini ha una spiegazione: passa il mouse, oppure sul telefono toccala.
+parole:1.00 numeri mancanti:[]
+   Settori da osservare I settori non in stato Normale (o in avvicinamento), con il motivo in chiaro e, in arancione, cosa manca al prossimo stato: per esempio «per la zona blu: -3 titoli, 2 chiusure, drawdown oltre il 70°».
+parole:1.00 numeri mancanti:[]
+   Sotto, «Come si legge lo stato» riassume le regole. 2 Rotazione Apri la Rotazione → Il grafico di rotazione relativa di un intero universo contro un benchmark, con tabella, prezzi e performance.
+parole:1.00 numeri mancanti:[]
+   Le due formule danno lo stesso quadrante circa tre volte su quattro; la nota «come si calcola» sotto il grafico le confronta.
+parole:0.92 numeri mancanti:[]
+   A destra, Distanza dal livello blu : quanti punti e quanti titoli mancano a ogni settore per arrivare al livello.
+parole:1.00 numeri mancanti:[]
+   Livello blu Con - e + provi un livello diverso: grafico, stato ed episodi si ricalcolano subito.
+parole:1.00 numeri mancanti:[]
+   Episodi e confronto La tabella degli episodi elenca ogni zona blu dal 2005: data di ingresso, breadth minima, drawdown, rendimento a 3 mesi dall'ingresso, trigger (con gli eventuali segnali falliti), conferma, rendimenti a 1, 3 e 6 mesi dal trigger e peggior calo nei 3 mesi.
+parole:1.00 numeri mancanti:[]
+   Quante volte è andata bene è scritto come «5 su 6», non in percentuale: i casi sono pochi e spesso cadono nella stessa crisi per più settori.
+parole:1.00 numeri mancanti:[]
+   Le 3 divergenze più ampie hanno un anello; la scia grigia segna, con pallini sempre più piccoli, dove erano i due valori 1 settimana, 1 mese e 3 mesi fa; la freccia sottile è l'ultima settimana (verde se sale, rossa se scende).
+parole:1.00 numeri mancanti:[]
+   Si mostra per tutti, solo per il settore scelto o per nessuno; a destra la divergenza in punti e come è cambiata in un mese (▲ verso l'equal-weight, ▼ verso i grandi).
+parole:1.00 numeri mancanti:[]
+   I numeri sono il rendimento di indici simulati con i membri di ogni data: possono differire da quelli del grafico di Rea, che usa altre convenzioni (il riquadro «Come si legge» spiega perché).
+parole:1.00 numeri mancanti:[]
+   Storia della divergenza La stessa divergenza (equal - cap sul periodo scelto) alla fine di ognuna delle ultime 52 settimane, per il settore scelto, con l'S&P 500 tratteggiato per confronto.
+parole:1.00 numeri mancanti:[]
+   Titoli del settore e i più in pena Una bolla per titolo: in verticale il rendimento del periodo; in orizzontale, a scelta, la distanza dalla media 200, dal massimo a 52 settimane o il rendimento nel periodo precedente.
+parole:1.00 numeri mancanti:[]
+   I più in pena : i 12 titoli con la media più bassa delle posizioni nel settore per rendimento del periodo e distanza dal massimo.
+parole:1.00 numeri mancanti:[]
+   Indici mostrati : di partenza i 10 principali; un clic aggiunge o toglie un indice, «Principali» e «Tutti» sono le scelte rapide.
+parole:1.00 numeri mancanti:[]
+   Passando sopra un grafico vedi i valori di quella data; ogni serie ha il suo calendario, e dove quel giorno manca un dato compare «—».
+parole:1.00 numeri mancanti:[]
+   A destra la forza relativa dei sette ETF contro ACWI, con la scia di 10 settimane per l'indice scelto (clic o tocco su un punto per sceglierlo).
+parole:1.00 numeri mancanti:[]
+   Come leggerlo La valuta che ha smesso di scendere non è un segnale d'ingresso: nel campione si era già accesa nei sei mesi prima del minimo in 15 cali di borsa oltre il 25% su 17, e poi la borsa era scesa ancora (uno dei 15 è il calo del KOSPI ancora in corso).
+parole:1.00 numeri mancanti:[]
+   Il dollaro debole arriva in genere mesi dopo il minimo delle borse (mediana 110 sedute in 19 cali oltre il 25%; nel ventesimo, il KOSPI in corso, non ancora): conferma, non anticipa.
+parole:1.00 numeri mancanti:[]
+   VIX e indice nel tempo Nel grafico in fondo, sotto il VIX e la volatilità realizzata dell'S&P 500, c'è il prezzo dell'indice scelto in alto (S&P 500 o Nasdaq-100) in scala logaritmica, con in colore gli episodi della soglia scelta nella tabella, dal primo all'ultimo giorno, nel colore della loro crisi: si vede cosa faceva l'indice mentre il VIX era alto.
+parole:1.00 numeri mancanti:[]
+   Nella verifica nessuna delle due aggiunge una statistica affidabile: dal 2008 tutti gli episodi del VIX sopra 30 erano già in backwardation il giorno del segnale, il ritorno al contango non è stato un ingresso migliore del segnale del VIX sopra 30, e i casi con il credito in tensione (verificati con lo spread delle obbligazioni Baa sul campione dal 1990) sono troppo pochi.
+parole:1.00 numeri mancanti:[]
+   Fonti: VIX di chiusura di Cboe da FRED (dal 1990) e VIX3M di Cboe da FRED (dal 04/12/2007); l'ultima seduta, che FRED pubblica la mattina dopo, viene dal file ufficiale di Cboe (o da Yahoo se Cboe non l'ha ancora pubblicata) ed è provvisoria (la riga sotto i riquadri dice da dove viene).
+parole:1.00 numeri mancanti:[]
+   HYG e IEF da Yahoo, rettificati per i dividendi.
+parole:1.00 numeri mancanti:[]
+   S&P 500 e Nasdaq-100 di solo prezzo da Yahoo (senza dividendi: sull'S&P 500 circa 2 punti l'anno in meno; per il Nasdaq-100 la versione con i dividendi non è disponibile).
+parole:1.00 numeri mancanti:[]
+   Gli alert usano i livelli blu del repository, non quelli provati nel browser. 0 Massimi Apri i Massimi → Quanto i mercati che si gonfiano e si sgonfiano a rotazione (bitcoin, oro, argento, rame, petrolio, Nasdaq-100, S&P 500, semiconduttori e KOSPI) sono sotto il loro massimo, e in che ordine hanno fatto il massimo nei cali passati dell'S&P 500.
+parole:1.00 numeri mancanti:[]
+   In alto la data dell'ultima chiusura USA e un badge: «Aggiornato», oppure quante sedute mancano.
+parole:1.00 numeri mancanti:[]
+   Sono vicini ma calcolati in modo diverso: periodi in sedute invece che di calendario, pesi di inizio periodo invece che di oggi, membri di ogni data con il ribilanciamento trimestrale.
+parole:1.00 numeri mancanti:[]
+   Il riquadro «Come si legge» della vista 5 spiega le differenze.

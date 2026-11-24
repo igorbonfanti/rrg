@@ -1,0 +1,396 @@
+== Dati
+Barre mensili: 502 mesi chiusi dal 1985-01 al 2026-10; fonte: cache Yahoo ^GSPC giornaliera (10547 sedute dal 1985-01-02 al 2026-11-11); mese in corso scartato: 2026-11
+Chiusure mensili confrontate con data/vix.json: 442 mesi; diverse oltre 0,005 punti: 0; ultima seduta diversa: 0; scarto massimo 0.0000 2000-11 (1314.949951171875 contro 1314.95)
+Barre con massimo ≤ minimo: 0; chiusura fuori da [minimo, massimo]: 0
+CMO K=4 partendo dal 1985 o dal 1990, mesi dal 1993: 406; scarto massimo 0.000015 punti; direzione diversa 0; segno diverso 0
+CMO K=4 con stocastico «media semplice di %K» contro «rapporto di somme» (MetaStock): scarto massimo 2.76 punti; direzione diversa in 4 mesi su 406; segno diverso in 3
+Ricalcolo indipendente in Python (ricalcolo/oscillatori_py.json, 4 decimali), mesi dal 1990: CMO 442 mesi, scarto massimo 0.0001, direzione diversa 0; Coppock 442 mesi, scarto massimo 0.0001, direzione diversa 0; KST 442 mesi, scarto massimo 0.0001, direzione diversa 0; KSTsig 442 mesi, scarto massimo 0.0001, direzione diversa 0; MACD 442 mesi, scarto massimo 0, direzione diversa 0; MACDsig 442 mesi, scarto massimo 0.0015, direzione diversa 0
+
+== Eventi dal 1993 (chiusure giornaliere dell'S&P 500, data/vix.json)
+Cali ≥10%: 16
+  massimo 1997-10-07 (983.12) → minimo 1997-10-27 (876.99) -10.8%; ritorno sopra il massimo 1997-12-05
+  massimo 1998-07-17 (1186.75) → minimo 1998-08-31 (957.28) -19.3%; ritorno sopra il massimo 1998-11-23
+  massimo 1998-09-23 (1066.09) → minimo 1998-10-08 (959.44) -10.0%; ritorno sopra il massimo 1998-10-21 [dopo il minimo di un calo più lungo]
+  massimo 1999-07-16 (1418.78) → minimo 1999-10-15 (1247.41) -12.1%; ritorno sopra il massimo 1999-11-16
+  massimo 2000-03-24 (1527.46) → minimo 2002-10-09 (776.76) -49.1%; ritorno sopra il massimo 2007-05-30
+  massimo 2002-11-27 (938.87) → minimo 2003-03-11 (800.73) -14.7%; ritorno sopra il massimo 2003-05-12 [dopo il minimo di un calo più lungo]
+  massimo 2007-10-09 (1565.15) → minimo 2009-03-09 (676.53) -56.8%; ritorno sopra il massimo 2013-03-28
+  massimo 2010-04-23 (1217.28) → minimo 2010-07-02 (1022.58) -16.0%; ritorno sopra il massimo 2010-11-04 [dopo il minimo di un calo più lungo]
+  massimo 2011-04-29 (1363.61) → minimo 2011-10-03 (1099.23) -19.4%; ritorno sopra il massimo 2012-02-24 [dopo il minimo di un calo più lungo]
+  massimo 2015-05-21 (2130.82) → minimo 2016-02-11 (1829.08) -14.2%; ritorno sopra il massimo 2016-07-11
+  massimo 2018-01-26 (2872.87) → minimo 2018-02-08 (2581.00) -10.2%; ritorno sopra il massimo 2018-08-24
+  massimo 2018-09-20 (2930.75) → minimo 2018-12-24 (2351.10) -19.8%; ritorno sopra il massimo 2019-04-23
+  massimo 2020-02-19 (3386.15) → minimo 2020-03-23 (2237.40) -33.9%; ritorno sopra il massimo 2020-08-18
+  massimo 2022-01-03 (4796.56) → minimo 2022-10-12 (3577.03) -25.4%; ritorno sopra il massimo 2024-01-19
+  massimo 2023-07-31 (4588.96) → minimo 2023-10-27 (4117.37) -10.3%; ritorno sopra il massimo 2023-12-01 [dopo il minimo di un calo più lungo]
+  massimo 2025-02-19 (6144.15) → minimo 2025-04-08 (4982.77) -18.9%; ritorno sopra il massimo 2025-06-27
+Cali ≥20%: 4
+  massimo 2000-03-24 (1527.46) → minimo 2002-10-09 (776.76) -49.1%; ritorno sopra il massimo 2007-05-30
+  massimo 2007-10-09 (1565.15) → minimo 2009-03-09 (676.53) -56.8%; ritorno sopra il massimo 2013-03-28
+  massimo 2020-02-19 (3386.15) → minimo 2020-03-23 (2237.40) -33.9%; ritorno sopra il massimo 2020-08-18
+  massimo 2022-01-03 (4796.56) → minimo 2022-10-12 (3577.03) -25.4%; ritorno sopra il massimo 2024-01-19
+Massimo storico di chiusura 2026-10-06 (7818.9302); calo massimo dopo: -5.9% al 2026-11-05; ultima seduta 2026-11-10 (7520.9302)
+Calo massimo nelle sedute del 2026 dal massimo precedente: -9.1% (massimo 2026-01-27, minimo 2026-03-30)
+
+== Valutazione dal 1992-10 (primo mese valido per tutte le varianti) al 2026-10; esiti a 12 mesi completi fino al 2025-10
+
+== Varianti principali (CMO K4 >0, secondo oscillatore in discesa, zona alta p70) — periodo intero 1992-10…2026-10
+Variante                                       | seg | calo≥10%/12m      |              | scarto | bear | corr. | allarme | criteri
+CMO K4>0 + Coppock in discesa p70              |   9 |    3/8  37.5% | base  31.5% |    6.0 |  2/4 |  7/16 |   6.6% | --c
+CMO K4>0 + KST in discesa p70                  |  12 |   3/10  30.0% | base  31.5% |   -1.5 |  1/4 |  7/16 |   9.0% | --c
+CMO K4>0 + MACD in discesa p70                 |  25 |   8/23  34.8% | base  31.5% |    3.3 |  4/4 | 10/16 |  13.4% | -bc
+Solo CMO K4: inizio di DOWN (CMO>0 e in discesa) |  32 |   9/30  30.0% | base  31.5% |   -1.5 |  4/4 | 15/16 |  24.9% | -bc
+
+== Varianti principali (CMO K4 >0, secondo oscillatore in discesa, zona alta p70) — periodo campione 1992-10…2009-12
+Variante                                       | seg | calo≥10%/12m      |              | scarto | bear | corr. | allarme | criteri
+CMO K4>0 + Coppock in discesa p70              |   5 |    1/5  20.0% | base  29.0% |   -9.0 |  1/2 |   5/7 |   6.3% | --c
+CMO K4>0 + KST in discesa p70                  |   5 |    0/5   0.0% | base  29.0% |  -29.0 |  1/2 |   5/7 |   5.3% | --c
+CMO K4>0 + MACD in discesa p70                 |  12 |   3/12  25.0% | base  29.0% |   -4.0 |  2/2 |   6/7 |  13.5% | -bc
+Solo CMO K4: inizio di DOWN (CMO>0 e in discesa) |  16 |   3/16  18.8% | base  29.0% |  -10.2 |  2/2 |   7/7 |  23.7% | -bc
+
+== Varianti principali (CMO K4 >0, secondo oscillatore in discesa, zona alta p70) — periodo verifica 2010-01…2026-10
+Variante                                       | seg | calo≥10%/12m      |              | scarto | bear | corr. | allarme | criteri
+CMO K4>0 + Coppock in discesa p70              |   4 |    2/3  66.7% | base  34.2% |   32.5 |  1/2 |   2/9 |   6.9% | a-c
+CMO K4>0 + KST in discesa p70                  |   7 |    3/5  60.0% | base  34.2% |   25.8 |  0/2 |   2/9 |  12.9% | a-c
+CMO K4>0 + MACD in discesa p70                 |  13 |   5/11  45.5% | base  34.2% |   11.2 |  2/2 |   4/9 |  13.4% | -bc
+Solo CMO K4: inizio di DOWN (CMO>0 e in discesa) |  16 |   6/14  42.9% | base  34.2% |    8.6 |  2/2 |   8/9 |  26.2% | -bc
+
+== Tutte le varianti, periodo intero (ordinate per scarto (a)); [d] = supera anche (d)
+Variante                                       | seg | calo≥10%/12m      |              | scarto | bear | corr. | allarme | criteri
+CMO K3>50 + Coppock in discesa p80             |   1 |    1/1 100.0% | base  31.5% |   68.5 |  0/4 |  2/16 |   1.2% | a-c
+CMO K4>50 + Coppock in discesa p80             |   1 |    1/1 100.0% | base  31.5% |   68.5 |  1/4 |  1/16 |   0.7% | a-c
+CMO K5>50 + Coppock in discesa p80             |   1 |    1/1 100.0% | base  31.5% |   68.5 |  1/4 |  1/16 |   0.7% | a-c
+CMO K3>50 + Coppock in discesa p70             |   3 |    2/3  66.7% | base  31.5% |   35.2 |  0/4 |  5/16 |   2.7% | a-c
+CMO K5>50 + Coppock in discesa p70             |   3 |    2/3  66.7% | base  31.5% |   35.2 |  2/4 |  4/16 |   2.4% | a-c
+CMO K5>0 + MACD in discesa p80                 |  13 |   7/11  63.6% | base  31.5% |   32.2 |  4/4 | 10/16 |   7.8% | abc
+CMO K5>0 + PPO sotto segnale p70               |   7 |    3/5  60.0% | base  31.5% |   28.5 |  1/4 |  5/16 |   4.9% | a-c (PPO, aggiunta)
+CMO K3>0 + MACD in discesa p80                 |  19 |  10/17  58.8% | base  31.5% |   27.3 |  4/4 | 11/16 |  12.0% | abc
+CMO K3>0 + PPO in discesa p60                  |  21 |  11/19  57.9% | base  31.5% |   26.4 |  4/4 | 11/16 |  12.5% | abc (PPO, aggiunta)
+CMO K3>0 + MACD sotto segnale p80              |   8 |    4/7  57.1% | base  31.5% |   25.7 |  1/4 |  5/16 |   5.6% | a-c
+CMO K5>0 + PPO in discesa p60                  |  18 |   9/16  56.3% | base  31.5% |   24.8 |  4/4 | 11/16 |   9.3% | abc (PPO, aggiunta)
+CMO K3>0 + PPO in discesa p70                  |  18 |   8/16  50.0% | base  31.5% |   18.5 |  2/4 |  9/16 |   9.8% | a-c (PPO, aggiunta)
+CMO K3>0 + PPO sotto segnale p60               |  10 |    4/8  50.0% | base  31.5% |   18.5 |  3/4 |  8/16 |   7.8% | abc (PPO, aggiunta)
+CMO K3>0 + PPO sotto segnale p70               |   8 |    3/6  50.0% | base  31.5% |   18.5 |  1/4 |  6/16 |   5.9% | a-c (PPO, aggiunta)
+CMO K3>50 + Coppock in discesa p60             |   6 |    3/6  50.0% | base  31.5% |   18.5 |  1/4 |  7/16 |   3.4% | a-c
+CMO K3>50 + MACD in discesa p80                |   7 |    3/6  50.0% | base  31.5% |   18.5 |  1/4 |  6/16 |   4.2% | a-c
+CMO K3>50 + PPO in discesa p60                 |   7 |    3/6  50.0% | base  31.5% |   18.5 |  2/4 |  7/16 |   3.9% | a-c (PPO, aggiunta)
+CMO K4>0 + MACD in discesa p80                 |  16 |   7/14  50.0% | base  31.5% |   18.5 |  4/4 | 10/16 |   8.6% | abc
+CMO K4>0 + PPO in discesa p60                  |  18 |   8/16  50.0% | base  31.5% |   18.5 |  4/4 | 10/16 |   9.0% | abc (PPO, aggiunta)
+CMO K4>0 + PPO sotto segnale p70               |   8 |    3/6  50.0% | base  31.5% |   18.5 |  1/4 |  6/16 |   6.6% | a-c (PPO, aggiunta)
+CMO K4>50 + Coppock in discesa p70             |   4 |    2/4  50.0% | base  31.5% |   18.5 |  2/4 |  5/16 |   2.4% | a-c
+CMO K5>0 + PPO in discesa p70                  |  16 |   7/14  50.0% | base  31.5% |   18.5 |  2/4 |  9/16 |   8.1% | a-c (PPO, aggiunta)
+CMO K5>0 + PPO sotto segnale p60               |   8 |    3/6  50.0% | base  31.5% |   18.5 |  2/4 |  6/16 |   5.6% | a-c (PPO, aggiunta)
+CMO K5>50 + MACD in discesa p80                |   7 |    3/6  50.0% | base  31.5% |   18.5 |  3/4 |  8/16 |   4.2% | abc
+CMO K3>0 + MACD in discesa p70                 |  27 |  11/25  44.0% | base  31.5% |   12.5 |  4/4 | 11/16 |  16.6% | -bc
+CMO K3>0 + Coppock in discesa p80              |   7 |    3/7  42.9% | base  31.5% |   11.4 |  1/4 |  4/16 |   6.6% | --c
+CMO K3>0 + KST sotto segnale p60               |   9 |    3/7  42.9% | base  31.5% |   11.4 |  1/4 |  5/16 |   6.8% | --c
+CMO K3>0 + MACD in discesa >0                  |  30 |  12/28  42.9% | base  31.5% |   11.4 |  4/4 | 11/16 |  18.1% | -bc
+CMO K4>0 + PPO in discesa p70                  |  16 |   6/14  42.9% | base  31.5% |   11.4 |  2/4 |  8/16 |   7.8% | --c (PPO, aggiunta)
+CMO K4>0 + PPO sotto segnale p60               |   9 |    3/7  42.9% | base  31.5% |   11.4 |  2/4 |  7/16 |   7.3% | --c (PPO, aggiunta)
+CMO K4>50 + Coppock in discesa p60             |   8 |    3/7  42.9% | base  31.5% |   11.4 |  2/4 |  5/16 |   3.4% | --c
+CMO K4>50 + MACD in discesa p80                |   8 |    3/7  42.9% | base  31.5% |   11.4 |  3/4 |  6/16 |   4.4% | -bc
+CMO K4>50 + PPO in discesa p60                 |   8 |    3/7  42.9% | base  31.5% |   11.4 |  3/4 |  6/16 |   4.2% | -bc (PPO, aggiunta)
+CMO K5>50 + Coppock in discesa p60             |   8 |    3/7  42.9% | base  31.5% |   11.4 |  2/4 |  4/16 |   4.4% | --c
+CMO K5>50 + PPO in discesa p60                 |   8 |    3/7  42.9% | base  31.5% |   11.4 |  3/4 |  8/16 |   4.4% | -bc (PPO, aggiunta)
+CMO K3>0 + MACD in discesa p60                 |  28 |  11/26  42.3% | base  31.5% |   10.8 |  4/4 | 11/16 |  16.9% | -bc
+CMO K5>0 + MACD in discesa p70                 |  21 |   8/19  42.1% | base  31.5% |   10.6 |  4/4 | 10/16 |  12.7% | -bc
+CMO K5>0 + KST in discesa p60                  |  14 |   5/12  41.7% | base  31.5% |   10.2 |  2/4 |  8/16 |  10.5% | --c
+CMO K3>0 + Coppock in discesa p70              |  11 |   4/10  40.0% | base  31.5% |    8.5 |  2/4 |  9/16 |   8.8% | --c
+CMO K3>0 + KST in discesa p60                  |  17 |   6/15  40.0% | base  31.5% |    8.5 |  2/4 |  8/16 |  12.0% | --c
+CMO K3>0 + PPO in discesa p80                  |  12 |   4/10  40.0% | base  31.5% |    8.5 |  2/4 |  8/16 |   5.6% | --c (PPO, aggiunta)
+CMO K3>50 + PPO in discesa p70                 |   6 |    2/5  40.0% | base  31.5% |    8.5 |  1/4 |  6/16 |   3.2% | --c (PPO, aggiunta)
+CMO K4>0 + Coppock in discesa p80              |   5 |    2/5  40.0% | base  31.5% |    8.5 |  1/4 |  4/16 |   4.6% | --c
+CMO K5>0 + Coppock in discesa p60              |  17 |   6/15  40.0% | base  31.5% |    8.5 |  2/4 |  8/16 |  13.0% | --c
+CMO K5>0 + Coppock in discesa p70              |  11 |   4/10  40.0% | base  31.5% |    8.5 |  2/4 |  8/16 |  10.0% | --c
+CMO K5>0 + MACD sotto segnale p80              |   6 |    2/5  40.0% | base  31.5% |    8.5 |  2/4 |  5/16 |   4.2% | --c
+CMO K5>0 + PPO in discesa p80                  |  12 |   4/10  40.0% | base  31.5% |    8.5 |  2/4 |  8/16 |   5.1% | --c (PPO, aggiunta)
+CMO K5>50 + MACD in discesa p60                |  11 |   4/10  40.0% | base  31.5% |    8.5 |  3/4 |  8/16 |   6.8% | -bc
+CMO K5>50 + MACD in discesa p70                |  11 |   4/10  40.0% | base  31.5% |    8.5 |  3/4 |  8/16 |   6.8% | -bc
+CMO K5>50 + MACD in discesa >0                 |  11 |   4/10  40.0% | base  31.5% |    8.5 |  3/4 |  8/16 |   6.8% | -bc
+CMO K3>0 + PPO in discesa >0                   |  35 |  13/33  39.4% | base  31.5% |    7.9 |  4/4 | 11/16 |  20.0% | -bc (PPO, aggiunta)
+CMO K5>0 + MACD in discesa p60                 |  23 |   8/21  38.1% | base  31.5% |    6.6 |  4/4 | 10/16 |  13.4% | -bc
+CMO K5>0 + MACD in discesa >0                  |  23 |   8/21  38.1% | base  31.5% |    6.6 |  4/4 | 10/16 |  13.4% | -bc
+CMO K3>0 + Coppock in discesa p60              |  18 |   6/16  37.5% | base  31.5% |    6.0 |  2/4 | 10/16 |  13.0% | --c
+CMO K3>0 + PPO sotto segnale >0                |  18 |   6/16  37.5% | base  31.5% |    6.0 |  3/4 |  8/16 |  13.2% | -bc (PPO, aggiunta)
+CMO K4>0 + Coppock in discesa p70              |   9 |    3/8  37.5% | base  31.5% |    6.0 |  2/4 |  7/16 |   6.6% | --c
+CMO K5>0 + Coppock in discesa p80              |   8 |    3/8  37.5% | base  31.5% |    6.0 |  1/4 |  6/16 |   8.1% | --c
+CMO K5>0 + KST in discesa p70                  |  10 |    3/8  37.5% | base  31.5% |    6.0 |  1/4 |  7/16 |   7.3% | --c
+CMO K5>0 + PPO in discesa >0                   |  29 |  10/27  37.0% | base  31.5% |    5.6 |  4/4 | 11/16 |  15.9% | -bc (PPO, aggiunta)
+CMO K5>0 + Coppock in discesa >0               |  27 |   9/25  36.0% | base  31.5% |    4.5 |  4/4 | 10/16 |  18.8% | -bc
+CMO K3>0 + MACD sotto segnale >0               |  15 |   5/14  35.7% | base  31.5% |    4.2 |  1/4 |  5/16 |   9.5% | --c
+CMO K4>0 + Coppock in discesa p60              |  16 |   5/14  35.7% | base  31.5% |    4.2 |  2/4 |  8/16 |  11.5% | --c
+CMO K4>0 + KST in discesa p60                  |  16 |   5/14  35.7% | base  31.5% |    4.2 |  2/4 |  8/16 |  12.5% | --c
+CMO K4>0 + MACD in discesa p70                 |  25 |   8/23  34.8% | base  31.5% |    3.3 |  4/4 | 10/16 |  13.4% | -bc
+CMO K3>0 + Coppock in discesa >0               |  31 |  10/29  34.5% | base  31.5% |    3.0 |  4/4 | 12/16 |  21.0% | -bc
+CMO K3>0 + KST sotto segnale p70               |   5 |    1/3  33.3% | base  31.5% |    1.8 |  0/4 |  4/16 |   3.9% | --c
+CMO K3>0 + MACD sotto segnale p60              |  13 |   4/12  33.3% | base  31.5% |    1.8 |  1/4 |  5/16 |   8.1% | --c
+CMO K3>0 + MACD sotto segnale p70              |  13 |   4/12  33.3% | base  31.5% |    1.8 |  1/4 |  5/16 |   8.1% | --c
+CMO K3>50 + PPO in discesa p80                 |   4 |    1/3  33.3% | base  31.5% |    1.8 |  1/4 |  5/16 |   2.0% | --c (PPO, aggiunta)
+CMO K4>0 + MACD in discesa p60                 |  26 |   8/24  33.3% | base  31.5% |    1.8 |  4/4 | 10/16 |  13.7% | -bc
+CMO K4>0 + MACD sotto segnale p80              |   7 |    2/6  33.3% | base  31.5% |    1.8 |  2/4 |  6/16 |   4.2% | --c
+CMO K4>0 + PPO in discesa p80                  |  11 |    3/9  33.3% | base  31.5% |    1.8 |  2/4 |  7/16 |   4.6% | --c (PPO, aggiunta)
+CMO K4>50 + KST in discesa p70                 |   4 |    1/3  33.3% | base  31.5% |    1.8 |  1/4 |  3/16 |   2.7% | --c
+CMO K4>50 + KST in discesa p80                 |   4 |    1/3  33.3% | base  31.5% |    1.8 |  1/4 |  3/16 |   2.7% | --c
+CMO K4>50 + PPO in discesa p70                 |   7 |    2/6  33.3% | base  31.5% |    1.8 |  2/4 |  5/16 |   3.4% | --c (PPO, aggiunta)
+CMO K5>50 + Coppock in discesa >0              |  13 |   4/12  33.3% | base  31.5% |    1.8 |  4/4 |  6/16 |   6.8% | -bc
+CMO K5>50 + KST in discesa p70                 |   4 |    1/3  33.3% | base  31.5% |    1.8 |  1/4 |  5/16 |   3.4% | --c
+CMO K5>50 + KST in discesa p80                 |   4 |    1/3  33.3% | base  31.5% |    1.8 |  1/4 |  5/16 |   3.4% | --c
+CMO K5>50 + PPO in discesa p70                 |   7 |    2/6  33.3% | base  31.5% |    1.8 |  2/4 |  7/16 |   3.7% | --c (PPO, aggiunta)
+CMO K5>50 + PPO in discesa >0                  |  13 |   4/12  33.3% | base  31.5% |    1.8 |  3/4 |  8/16 |   7.8% | -bc (PPO, aggiunta)
+CMO K4>0 + MACD in discesa >0                  |  27 |   8/25  32.0% | base  31.5% |    0.5 |  4/4 | 10/16 |  13.9% | -bc
+CMO K4>0 + PPO in discesa >0                   |  31 |   9/29  31.0% | base  31.5% |   -0.5 |  4/4 | 10/16 |  15.9% | -bc (PPO, aggiunta)
+CMO K3>50 + Coppock in discesa >0              |  13 |   4/13  30.8% | base  31.5% |   -0.7 |  3/4 |  9/16 |   7.1% | -bc
+CMO K4>0 + Coppock in discesa >0               |  28 |   8/26  30.8% | base  31.5% |   -0.7 |  4/4 | 10/16 |  18.1% | -bc
+CMO K4>50 + MACD in discesa p60                |  14 |   4/13  30.8% | base  31.5% |   -0.7 |  3/4 |  6/16 |   7.3% | -bc
+CMO K4>50 + MACD in discesa p70                |  14 |   4/13  30.8% | base  31.5% |   -0.7 |  3/4 |  6/16 |   7.3% | -bc
+CMO K4>50 + MACD in discesa >0                 |  14 |   4/13  30.8% | base  31.5% |   -0.7 |  3/4 |  6/16 |   7.3% | -bc
+CMO K3>0 + KST in discesa p70                  |  12 |   3/10  30.0% | base  31.5% |   -1.5 |  1/4 |  7/16 |   7.8% | --c
+CMO K4>0 + KST in discesa p70                  |  12 |   3/10  30.0% | base  31.5% |   -1.5 |  1/4 |  7/16 |   9.0% | --c
+CMO K4>0 + PPO sotto segnale >0                |  16 |   4/14  28.6% | base  31.5% |   -2.9 |  2/4 |  7/16 |  12.5% | --c (PPO, aggiunta)
+CMO K4>50 + Coppock in discesa >0              |  15 |   4/14  28.6% | base  31.5% |   -2.9 |  4/4 |  7/16 |   7.1% | -bc
+CMO K5>0 + KST sotto segnale p60               |   9 |    2/7  28.6% | base  31.5% |   -2.9 |  1/4 |  4/16 |   6.4% | --c
+CMO K3>50 + MACD in discesa p60                |  12 |   3/11  27.3% | base  31.5% |   -4.2 |  1/4 |  6/16 |   6.4% | --c
+CMO K3>50 + MACD in discesa p70                |  12 |   3/11  27.3% | base  31.5% |   -4.2 |  1/4 |  6/16 |   6.4% | --c
+CMO K3>50 + MACD in discesa >0                 |  12 |   3/11  27.3% | base  31.5% |   -4.2 |  1/4 |  6/16 |   6.4% | --c
+CMO K5>0 + PPO sotto segnale >0                |  13 |   3/11  27.3% | base  31.5% |   -4.2 |  2/4 |  6/16 |  10.0% | --c (PPO, aggiunta)
+CMO K4>50 + PPO in discesa >0                  |  16 |   4/15  26.7% | base  31.5% |   -4.8 |  4/4 |  7/16 |   8.3% | -bc (PPO, aggiunta)
+CMO K4>0 + KST sotto segnale p60               |  10 |    2/8  25.0% | base  31.5% |   -6.5 |  1/4 |  5/16 |   7.8% | --c
+CMO K4>50 + PPO in discesa p80                 |   5 |    1/4  25.0% | base  31.5% |   -6.5 |  2/4 |  4/16 |   2.2% | --c (PPO, aggiunta)
+CMO K5>0 + KST sotto segnale p70               |   6 |    1/4  25.0% | base  31.5% |   -6.5 |  1/4 |  4/16 |   4.2% | --c
+CMO K5>50 + KST in discesa p60                 |   5 |    1/4  25.0% | base  31.5% |   -6.5 |  1/4 |  5/16 |   4.6% | --c
+CMO K5>50 + PPO in discesa p80                 |   5 |    1/4  25.0% | base  31.5% |   -6.5 |  2/4 |  6/16 |   2.4% | --c (PPO, aggiunta)
+CMO K3>50 + PPO in discesa >0                  |  14 |   3/13  23.1% | base  31.5% |   -8.4 |  3/4 |  8/16 |   7.3% | -bc (PPO, aggiunta)
+CMO K3>50 + PPO sotto segnale >0               |   5 |    1/5  20.0% | base  31.5% |  -11.5 |  1/4 |  1/16 |   2.9% | --c (PPO, aggiunta)
+CMO K4>0 + KST sotto segnale p70               |   7 |    1/5  20.0% | base  31.5% |  -11.5 |  1/4 |  5/16 |   5.6% | --c
+CMO K4>50 + KST in discesa p60                 |   6 |    1/5  20.0% | base  31.5% |  -11.5 |  1/4 |  3/16 |   5.1% | --c
+CMO K5>0 + MACD sotto segnale p60              |  12 |   2/11  18.2% | base  31.5% |  -13.3 |  2/4 |  5/16 |   7.3% | --c
+CMO K5>0 + MACD sotto segnale p70              |  12 |   2/11  18.2% | base  31.5% |  -13.3 |  2/4 |  5/16 |   7.3% | --c
+CMO K5>0 + MACD sotto segnale >0               |  12 |   2/11  18.2% | base  31.5% |  -13.3 |  2/4 |  5/16 |   7.3% | --c
+CMO K4>0 + MACD sotto segnale p60              |  13 |   2/12  16.7% | base  31.5% |  -14.8 |  2/4 |  6/16 |   7.1% | --c
+CMO K4>0 + MACD sotto segnale p70              |  13 |   2/12  16.7% | base  31.5% |  -14.8 |  2/4 |  6/16 |   7.1% | --c
+CMO K4>50 + PPO sotto segnale >0               |   7 |    1/6  16.7% | base  31.5% |  -14.8 |  2/4 |  3/16 |   5.1% | --c (PPO, aggiunta)
+CMO K5>0 + KST in discesa p80                  |   7 |    1/6  16.7% | base  31.5% |  -14.8 |  1/4 |  6/16 |   5.4% | --c
+CMO K4>0 + MACD sotto segnale >0               |  14 |   2/13  15.4% | base  31.5% |  -16.1 |  2/4 |  6/16 |   7.6% | --c
+CMO K3>0 + KST in discesa p80                  |   8 |    1/7  14.3% | base  31.5% |  -17.2 |  1/4 |  6/16 |   4.6% | --c
+CMO K4>0 + KST in discesa p80                  |   8 |    1/7  14.3% | base  31.5% |  -17.2 |  1/4 |  6/16 |   5.1% | --c
+CMO K3>0 + KST sotto segnale p80               |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  0/4 |  3/16 |   1.2% | --c
+CMO K3>0 + PPO sotto segnale p80               |   4 |    0/2   0.0% | base  31.5% |  -31.5 |  1/4 |  4/16 |   2.4% | --c (PPO, aggiunta)
+CMO K3>50 + KST in discesa p60                 |   4 |    0/3   0.0% | base  31.5% |  -31.5 |  0/4 |  1/16 |   2.4% | --c
+CMO K3>50 + KST in discesa p70                 |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  0/4 |  1/16 |   0.7% | --c
+CMO K3>50 + KST in discesa p80                 |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  0/4 |  1/16 |   0.7% | --c
+CMO K3>50 + KST sotto segnale p60              |   1 |    0/1   0.0% | base  31.5% |  -31.5 |  0/4 |  0/16 |   0.5% | --c
+CMO K3>50 + MACD sotto segnale p60             |   2 |    0/2   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   0.7% | --c
+CMO K3>50 + MACD sotto segnale p70             |   2 |    0/2   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   0.7% | --c
+CMO K3>50 + MACD sotto segnale p80             |   1 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   0.5% | --c
+CMO K3>50 + MACD sotto segnale >0              |   2 |    0/2   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   0.7% | --c
+CMO K3>50 + PPO sotto segnale p60              |   1 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   0.5% | --c (PPO, aggiunta)
+CMO K4>0 + KST sotto segnale p80               |   4 |    0/3   0.0% | base  31.5% |  -31.5 |  1/4 |  4/16 |   2.2% | --c
+CMO K4>0 + PPO sotto segnale p80               |   4 |    0/2   0.0% | base  31.5% |  -31.5 |  1/4 |  4/16 |   2.4% | --c (PPO, aggiunta)
+CMO K4>50 + KST sotto segnale p60              |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  0/4 |  0/16 |   1.5% | --c
+CMO K4>50 + MACD sotto segnale p60             |   4 |    0/3   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   1.7% | --c
+CMO K4>50 + MACD sotto segnale p70             |   4 |    0/3   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   1.7% | --c
+CMO K4>50 + MACD sotto segnale p80             |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   1.0% | --c
+CMO K4>50 + MACD sotto segnale >0              |   4 |    0/3   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   1.7% | --c
+CMO K4>50 + PPO sotto segnale p60              |   3 |    0/2   0.0% | base  31.5% |  -31.5 |  2/4 |  3/16 |   2.2% | --c (PPO, aggiunta)
+CMO K4>50 + PPO sotto segnale p70              |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  2/16 |   1.5% | --c (PPO, aggiunta)
+CMO K4>50 + PPO sotto segnale p80              |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  2/16 |   1.5% | --c (PPO, aggiunta)
+CMO K5>0 + KST sotto segnale p80               |   4 |    0/3   0.0% | base  31.5% |  -31.5 |  1/4 |  4/16 |   2.9% | --c
+CMO K5>0 + PPO sotto segnale p80               |   4 |    0/2   0.0% | base  31.5% |  -31.5 |  1/4 |  4/16 |   2.7% | --c (PPO, aggiunta)
+CMO K5>50 + KST sotto segnale p60              |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  0/4 |  0/16 |   1.7% | --c
+CMO K5>50 + MACD sotto segnale p60             |   5 |    0/4   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   2.0% | --c
+CMO K5>50 + MACD sotto segnale p70             |   5 |    0/4   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   2.0% | --c
+CMO K5>50 + MACD sotto segnale p80             |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   1.0% | --c
+CMO K5>50 + MACD sotto segnale >0              |   5 |    0/4   0.0% | base  31.5% |  -31.5 |  1/4 |  1/16 |   2.0% | --c
+CMO K5>50 + PPO sotto segnale p60              |   3 |    0/2   0.0% | base  31.5% |  -31.5 |  2/4 |  3/16 |   2.4% | --c (PPO, aggiunta)
+CMO K5>50 + PPO sotto segnale p70              |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  2/16 |   1.7% | --c (PPO, aggiunta)
+CMO K5>50 + PPO sotto segnale p80              |   2 |    0/1   0.0% | base  31.5% |  -31.5 |  1/4 |  2/16 |   1.7% | --c (PPO, aggiunta)
+CMO K5>50 + PPO sotto segnale >0               |   6 |    0/5   0.0% | base  31.5% |  -31.5 |  2/4 |  3/16 |   4.9% | --c (PPO, aggiunta)
+CMO K3>50 + KST sotto segnale p70              |   0 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.0% | --c
+CMO K3>50 + KST sotto segnale p80              |   0 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.0% | --c
+CMO K3>50 + PPO sotto segnale p70              |   0 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.0% | --c (PPO, aggiunta)
+CMO K3>50 + PPO sotto segnale p80              |   0 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.0% | --c (PPO, aggiunta)
+CMO K4>50 + KST sotto segnale p70              |   1 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.5% | --c
+CMO K4>50 + KST sotto segnale p80              |   1 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.5% | --c
+CMO K5>50 + KST sotto segnale p70              |   1 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.7% | --c
+CMO K5>50 + KST sotto segnale p80              |   1 |    0/0      — | base  31.5% |      — |  0/4 |  0/16 |   0.7% | --c
+
+== Sensibilità: stocastico «somme» e partenza dal 1990 (CMO K4 >0, p70, in discesa)
+CMO K4somme>0 + Coppock in discesa p70         |   9 |    3/8  37.5% | base  31.5% |    6.0 |  2/4 |  7/16 |   6.8% | --c
+CMO K4somme>0 + KST in discesa p70             |  12 |   3/10  30.0% | base  31.5% |   -1.5 |  1/4 |  7/16 |   9.3% | --c
+CMO K4somme>0 + MACD in discesa p70            |  26 |   8/24  33.3% | base  31.5% |    1.8 |  4/4 | 10/16 |  13.7% | -bc
+CMO K4da1990>0 + Coppock in discesa p70        |   9 |    3/8  37.5% | base  31.5% |    6.0 |  2/4 |  7/16 |   6.6% | --c
+CMO K4da1990>0 + KST in discesa p70            |  12 |   3/10  30.0% | base  31.5% |   -1.5 |  1/4 |  7/16 |   9.0% | --c
+CMO K4da1990>0 + MACD in discesa p70           |  25 |   8/23  34.8% | base  31.5% |    3.3 |  4/4 | 10/16 |  13.4% | -bc
+
+== Scelta nel campione 1992-10…2009-12: varianti (del brief, senza PPO) che superano a, b, c: 2 su 108
+  CMO K5>0 + MACD in discesa p80                 |   5 |    3/5  60.0% | base  29.0% |   31.0 |  2/2 |   6/7 |   6.8% | abc
+  CMO K3>0 + MACD in discesa p80                 |   8 |    4/8  50.0% | base  29.0% |   21.0 |  2/2 |   6/7 |  10.6% | abc
+Scelta: CMO K5>0 + MACD in discesa p80. Verifica 2010-2026:
+  CMO K5>0 + MACD in discesa p80                 |   8 |    4/6  66.7% | base  34.2% |   32.5 |  2/2 |   4/9 |   8.9% | abc
+  vicini: CMO K4>0 + MACD in discesa p80; CMO K5>0 + MACD in discesa p70; superano a-c sul periodo intero 1 (servono 2); (d) no
+
+Varianti che superano a, b, c sul periodo intero E (d): 0
+Varianti che superano a, b, c sul periodo intero (senza d): 8: CMO K3>0 + MACD in discesa p80; CMO K3>0 + PPO in discesa p60; CMO K3>0 + PPO sotto segnale p60; CMO K4>0 + MACD in discesa p80; CMO K4>0 + PPO in discesa p60; CMO K5>0 + MACD in discesa p80; CMO K5>0 + PPO in discesa p60; CMO K5>50 + MACD in discesa p80
+
+== Esiti: mediane (calo massimo, rendimenti, VIX massimo, mesi al minimo) — periodo intero
+Tutti i mesi (base)          calo 6m -3.8% (n 403) | 12m -5.0% | 18m -5.8% | rend 3m 3.0% (283/406 >0) | 6m 5.4% (299/403) | 12m 12.2% (312/397) | VIX max 12m 33.6 | mesi al minimo 3.0
+Coppock                      calo 6m -3.8% (n 8) | 12m -6.2% | 18m -6.5% | rend 3m 4.1% (6/8 >0) | 6m 8.7% (8/8) | 12m 12.8% (7/8) | VIX max 12m 36.3 | mesi al minimo 2.0
+KST                          calo 6m -2.7% (n 11) | 12m -5.5% | 18m -5.5% | rend 3m 7.2% (10/11 >0) | 6m 5.5% (10/11) | 12m 10.7% (9/10) | VIX max 12m 39.5 | mesi al minimo 3.0
+MACD                         calo 6m -3.4% (n 24) | 12m -4.4% | 18m -4.4% | rend 3m 4.5% (21/24 >0) | 6m 5.9% (20/24) | 12m 9.0% (18/23) | VIX max 12m 33.5 | mesi al minimo 2.0
+Solo CMO DOWN                calo 6m -2.6% (n 31) | 12m -3.9% | 18m -4.0% | rend 3m 4.0% (26/31 >0) | 6m 9.6% (25/31) | 12m 13.1% (25/30) | VIX max 12m 35.4 | mesi al minimo 1.5
+Scelta nel campione          calo 6m -6.8% (n 12) | 12m -14.6% | 18m -14.6% | rend 3m 5.5% (11/12 >0) | 6m 7.8% (9/12) | 12m 9.0% (8/11) | VIX max 12m 36.1 | mesi al minimo 3.0
+
+== Segnali: CMO K4>0 + Coppock in discesa p70
+  1997-03 chiusura 757.12 CMO 61.2 allarme 1m | calo 6/12/18m -2.6% -2.6% -2.6% | rend 3/6/12m 16.9% 25.1% 45.5% | VIX max 38.20 (1997-10-30) | minimo 1997-04-11 dopo 1m
+  1997-12 chiusura 970.43 CMO 8.9 allarme 2m | calo 6/12/18m -4.4% -4.4% -4.4% | rend 3/6/12m 13.5% 16.8% 26.7% | VIX max 45.74 (1998-10-08) | minimo 1998-01-09 dopo 1m
+  1998-07 chiusura 1120.67 CMO 36.7 allarme 4m | calo 6/12/18m -14.6% -14.6% -14.6% | rend 3/6/12m -2.0% 14.2% 18.6% | VIX max 45.74 (1998-10-08) | minimo 1998-08-31 dopo 1m
+  1999-08 chiusura 1320.41 CMO -19.4 allarme 2m | calo 6/12/18m -5.5% -5.5% -6.1% | rend 3/6/12m 5.2% 3.5% 14.9% | VIX max 33.49 (2000-04-14) | minimo 1999-10-15 dopo 2m
+  2004-06 chiusura 1140.84 CMO -30.4 allarme 4m | calo 6/12/18m -6.8% -6.8% -6.8% | rend 3/6/12m -2.3% 6.2% 4.4% | VIX max 19.34 (2004-08-06) | minimo 2004-08-12 dopo 2m
+  2014-04 chiusura 1883.95 CMO 24.1 allarme 6m | calo 6/12/18m -1.1% -1.1% -1.1% | rend 3/6/12m 2.5% 7.1% 10.7% | VIX max 26.25 (2014-10-15) | minimo 2014-10-15 dopo 6m
+  2018-03 chiusura 2640.87 CMO 34.7 allarme 4m | calo 6/12/18m -2.2% -11.0% -11.0% | rend 3/6/12m 2.9% 10.3% 7.3% | VIX max 36.07 (2018-12-24) | minimo 2018-12-24 dopo 9m
+  2021-09 chiusura 4307.54 CMO 17.8 allarme 3m | calo 6/12/18m -3.2% -16.8% -17.0% | rend 3/6/12m 10.7% 5.2% -16.8% | VIX max 36.45 (2022-03-07) | minimo 2022-09-30 dopo 12m
+  2026-10 chiusura 7580.07 CMO 39.1 allarme 1m | calo 6/12/18m -3.0% -3.0%* -3.0% | rend 3/6/12m — — — | VIX max 28.18 (2026-11-05) | minimo 2026-11-05 dopo 1m
+
+== Segnali: CMO K4>0 + KST in discesa p70
+  1997-03 chiusura 757.12 CMO 61.2 allarme 1m | calo 6/12/18m -2.6% -2.6% -2.6% | rend 3/6/12m 16.9% 25.1% 45.5% | VIX max 38.20 (1997-10-30) | minimo 1997-04-11 dopo 1m
+  1997-10 chiusura 914.62 CMO 35.6 allarme 2m | calo 6/12/18m -0.9% -0.9% -0.9% | rend 3/6/12m 7.2% 21.6% 20.1% | VIX max 45.74 (1998-10-08) | minimo 1997-11-12 dopo 1m
+  1998-01 chiusura 980.28 CMO -11.3 allarme 1m | calo 6/12/18m 2.1% -2.4% -2.4% | rend 3/6/12m 13.4% 14.3% 30.5% | VIX max 45.74 (1998-10-08) | minimo 1998-08-31 dopo 7m
+  1998-08 chiusura 957.28 CMO 7.7 allarme 3m | calo 6/12/18m 0.2% 0.2% 0.2% | rend 3/6/12m 21.6% 29.4% 37.9% | VIX max 45.74 (1998-10-08) | minimo 1998-10-08 dopo 2m
+  1999-07 chiusura 1328.72 CMO 15.0 allarme 4m | calo 6/12/18m -6.1% -6.1% -6.1% | rend 3/6/12m 2.6% 5.0% 7.7% | VIX max 33.49 (2000-04-14) | minimo 1999-10-15 dopo 3m
+  2011-07 chiusura 1292.28 CMO 5.1 allarme 4m | calo 6/12/18m -14.9% -14.9% -14.9% | rend 3/6/12m -3.0% 1.6% 6.7% | VIX max 48.00 (2011-08-08) | minimo 2011-10-03 dopo 3m
+  2014-06 chiusura 1960.23 CMO 2.1 allarme 4m | calo 6/12/18m -5.0% -5.0% -5.0% | rend 3/6/12m 0.6% 5.0% 5.3% | VIX max 26.25 (2014-10-15) | minimo 2014-10-15 dopo 4m
+  2015-01 chiusura 1994.99 CMO -2.4 allarme 9m | calo 6/12/18m 1.3% -6.8% -8.3% | rend 3/6/12m 4.5% 5.5% -2.7% | VIX max 40.74 (2015-08-24) | minimo 2016-01-20 dopo 12m
+  2018-05 chiusura 2705.27 CMO -18.6 allarme 2m | calo 6/12/18m -2.7% -13.1% -13.1% | rend 3/6/12m 7.2% 2.0% 1.7% | VIX max 36.07 (2018-12-24) | minimo 2018-12-24 dopo 7m
+  2018-11 chiusura 2760.17 CMO 11.6 allarme 4m | calo 6/12/18m -14.8% -14.8% -18.9% | rend 3/6/12m 0.9% -0.3% 13.8% | VIX max 36.07 (2018-12-24) | minimo 2018-12-24 dopo 1m
+  2026-02 chiusura 6878.88 CMO 38.5 allarme 2m | calo 6/12/18m -7.8% -7.8%* -7.8% | rend 3/6/12m 10.2% 11.7% — | VIX max 31.05 (2026-03-27) | minimo 2026-03-30 dopo 1m
+  2026-10 chiusura 7580.07 CMO 39.1 allarme 1m | calo 6/12/18m -3.0% -3.0%* -3.0% | rend 3/6/12m — — — | VIX max 28.18 (2026-11-05) | minimo 2026-11-05 dopo 1m
+
+== Segnali: CMO K4>0 + MACD in discesa p70
+  1993-04 chiusura 440.19 CMO 60.9 allarme 1m | calo 6/12/18m -0.2% -0.3% -0.3% | rend 3/6/12m 1.8% 6.3% 2.4% | VIX max 23.87 (1994-04-04) | minimo 1994-04-04 dopo 12m
+  1993-06 chiusura 450.53 CMO 28.5 allarme 2m | calo 6/12/18m -2.0% -2.6% -2.6% | rend 3/6/12m 1.9% 3.5% -1.4% | VIX max 23.87 (1994-04-04) | minimo 1994-04-04 dopo 10m
+  1993-09 chiusura 458.93 CMO -4.2 allarme 1m | calo 6/12/18m -2.9% -4.4% -4.4% | rend 3/6/12m 1.6% -2.9% 0.8% | VIX max 23.87 (1994-04-04) | minimo 1994-04-04 dopo 7m
+  1994-02 chiusura 467.14 CMO 20.1 allarme 5m | calo 6/12/18m -6.0% -6.0% -6.0% | rend 3/6/12m -2.3% 1.8% 4.3% | VIX max 23.87 (1994-04-04) | minimo 1994-04-04 dopo 2m
+  1997-03 chiusura 757.12 CMO 61.2 allarme 1m | calo 6/12/18m -2.6% -2.6% -2.6% | rend 3/6/12m 16.9% 25.1% 45.5% | VIX max 38.20 (1997-10-30) | minimo 1997-04-11 dopo 1m
+  1997-10 chiusura 914.62 CMO 35.6 allarme 1m | calo 6/12/18m -0.9% -0.9% -0.9% | rend 3/6/12m 7.2% 21.6% 20.1% | VIX max 45.74 (1998-10-08) | minimo 1997-11-12 dopo 1m
+  1998-07 chiusura 1120.67 CMO 36.7 allarme 4m | calo 6/12/18m -14.6% -14.6% -14.6% | rend 3/6/12m -2.0% 14.2% 18.6% | VIX max 45.74 (1998-10-08) | minimo 1998-08-31 dopo 1m
+  1999-07 chiusura 1328.72 CMO 15.0 allarme 4m | calo 6/12/18m -6.1% -6.1% -6.1% | rend 3/6/12m 2.6% 5.0% 7.7% | VIX max 33.49 (2000-04-14) | minimo 1999-10-15 dopo 3m
+  2000-05 chiusura 1420.60 CMO 18.2 allarme 3m | calo 6/12/18m -7.4% -22.3% -32.0% | rend 3/6/12m 6.8% -7.4% -11.6% | VIX max 34.72 (2001-04-03) | minimo 2001-04-04 dopo 11m
+  2005-04 chiusura 1156.85 CMO 39.0 allarme 1m | calo 6/12/18m -0.2% -0.2% -0.2% | rend 3/6/12m 6.7% 4.3% 13.3% | VIX max 16.47 (2005-10-13) | minimo 2005-05-13 dopo 1m
+  2006-05 chiusura 1270.09 CMO 51.2 allarme 3m | calo 6/12/18m -3.6% -3.6% -3.6% | rend 3/6/12m 2.7% 10.3% 20.5% | VIX max 23.81 (2006-06-13) | minimo 2006-06-13 dopo 1m
+  2007-07 chiusura 1455.27 CMO 9.7 allarme 2m | calo 6/12/18m -10.0% -16.5% -48.3% | rend 3/6/12m 6.5% -5.3% -12.9% | VIX max 32.24 (2008-03-17) | minimo 2008-07-15 dopo 12m
+  2011-07 chiusura 1292.28 CMO 5.1 allarme 4m | calo 6/12/18m -14.9% -14.9% -14.9% | rend 3/6/12m -3.0% 1.6% 6.7% | VIX max 48.00 (2011-08-08) | minimo 2011-10-03 dopo 3m
+  2012-05 chiusura 1310.33 CMO 71.0 allarme 1m | calo 6/12/18m -2.5% -2.5% -2.5% | rend 3/6/12m 7.3% 8.1% 24.4% | VIX max 26.66 (2012-06-01) | minimo 2012-06-01 dopo 1m
+  2012-11 chiusura 1416.18 CMO -9.7 allarme 2m | calo 6/12/18m -1.0% -1.0% -1.0% | rend 3/6/12m 7.0% 15.2% 27.5% | VIX max 22.72 (2012-12-28) | minimo 2012-12-28 dopo 1m
+  2014-07 chiusura 1930.67 CMO -12.1 allarme 1m | calo 6/12/18m -3.5% -3.5% -3.7% | rend 3/6/12m 4.5% 3.3% 9.0% | VIX max 26.25 (2014-10-15) | minimo 2014-10-15 dopo 3m
+  2015-01 chiusura 1994.99 CMO -2.4 allarme 1m | calo 6/12/18m 1.3% -6.8% -8.3% | rend 3/6/12m 4.5% 5.5% -2.7% | VIX max 40.74 (2015-08-24) | minimo 2016-01-20 dopo 12m
+  2016-10 chiusura 2126.15 CMO 70.2 allarme 1m | calo 6/12/18m -1.9% -1.9% -1.9% | rend 3/6/12m 7.2% 12.1% 21.1% | VIX max 22.51 (2016-11-04) | minimo 2016-11-04 dopo 1m
+  2018-03 chiusura 2640.87 CMO 34.7 allarme 4m | calo 6/12/18m -2.2% -11.0% -11.0% | rend 3/6/12m 2.9% 10.3% 7.3% | VIX max 36.07 (2018-12-24) | minimo 2018-12-24 dopo 9m
+  2018-11 chiusura 2760.17 CMO 11.6 allarme 4m | calo 6/12/18m -14.8% -14.8% -18.9% | rend 3/6/12m 0.9% -0.3% 13.8% | VIX max 36.07 (2018-12-24) | minimo 2018-12-24 dopo 1m
+  2020-02 chiusura 2954.22 CMO 43.4 allarme 3m | calo 6/12/18m -24.3% -24.3% -24.3% | rend 3/6/12m 3.0% 18.5% 29.0% | VIX max 82.69 (2020-03-16) | minimo 2020-03-23 dopo 1m
+  2021-09 chiusura 4307.54 CMO 17.8 allarme 1m | calo 6/12/18m -3.2% -16.8% -17.0% | rend 3/6/12m 10.7% 5.2% -16.8% | VIX max 36.45 (2022-03-07) | minimo 2022-09-30 dopo 12m
+  2023-09 chiusura 4288.05 CMO 72.0 allarme 2m | calo 6/12/18m -4.0% -4.0% -4.0% | rend 3/6/12m 11.2% 22.5% 34.4% | VIX max 38.57 (2024-08-05) | minimo 2023-10-27 dopo 1m
+  2026-02 chiusura 6878.88 CMO 38.5 allarme 2m | calo 6/12/18m -7.8% -7.8%* -7.8% | rend 3/6/12m 10.2% 11.7% — | VIX max 31.05 (2026-03-27) | minimo 2026-03-30 dopo 1m
+  2026-10 chiusura 7580.07 CMO 39.1 allarme 1m | calo 6/12/18m -3.0% -3.0%* -3.0% | rend 3/6/12m — — — | VIX max 28.18 (2026-11-05) | minimo 2026-11-05 dopo 1m
+
+== Segnali: CMO K5>0 + MACD in discesa p80
+  1997-10 chiusura 914.62 CMO 35.6 allarme 1m | calo 6/12/18m -0.9% -0.9% -0.9% | rend 3/6/12m 7.2% 21.6% 20.1% | VIX max 45.74 (1998-10-08) | minimo 1997-11-12 dopo 1m
+  1998-07 chiusura 1120.67 CMO 36.7 allarme 4m | calo 6/12/18m -14.6% -14.6% -14.6% | rend 3/6/12m -2.0% 14.2% 18.6% | VIX max 45.74 (1998-10-08) | minimo 1998-08-31 dopo 1m
+  1999-07 chiusura 1328.72 CMO 15.0 allarme 4m | calo 6/12/18m -6.1% -6.1% -6.1% | rend 3/6/12m 2.6% 5.0% 7.7% | VIX max 33.49 (2000-04-14) | minimo 1999-10-15 dopo 3m
+  2000-05 chiusura 1420.60 CMO 18.2 allarme 3m | calo 6/12/18m -7.4% -22.3% -32.0% | rend 3/6/12m 6.8% -7.4% -11.6% | VIX max 34.72 (2001-04-03) | minimo 2001-04-04 dopo 11m
+  2007-07 chiusura 1455.27 CMO 9.7 allarme 2m | calo 6/12/18m -10.0% -16.5% -48.3% | rend 3/6/12m 6.5% -5.3% -12.9% | VIX max 32.24 (2008-03-17) | minimo 2008-07-15 dopo 12m
+  2014-07 chiusura 1930.67 CMO -12.1 allarme 1m | calo 6/12/18m -3.5% -3.5% -3.7% | rend 3/6/12m 4.5% 3.3% 9.0% | VIX max 26.25 (2014-10-15) | minimo 2014-10-15 dopo 3m
+  2018-03 chiusura 2640.87 CMO 34.7 allarme 4m | calo 6/12/18m -2.2% -11.0% -11.0% | rend 3/6/12m 2.9% 10.3% 7.3% | VIX max 36.07 (2018-12-24) | minimo 2018-12-24 dopo 9m
+  2018-11 chiusura 2760.17 CMO 11.6 allarme 4m | calo 6/12/18m -14.8% -14.8% -18.9% | rend 3/6/12m 0.9% -0.3% 13.8% | VIX max 36.07 (2018-12-24) | minimo 2018-12-24 dopo 1m
+  2020-02 chiusura 2954.22 CMO 43.4 allarme 3m | calo 6/12/18m -24.3% -24.3% -24.3% | rend 3/6/12m 3.0% 18.5% 29.0% | VIX max 82.69 (2020-03-16) | minimo 2020-03-23 dopo 1m
+  2021-09 chiusura 4307.54 CMO 17.8 allarme 1m | calo 6/12/18m -3.2% -16.8% -17.0% | rend 3/6/12m 10.7% 5.2% -16.8% | VIX max 36.45 (2022-03-07) | minimo 2022-09-30 dopo 12m
+  2023-09 chiusura 4288.05 CMO 72.0 allarme 2m | calo 6/12/18m -4.0% -4.0% -4.0% | rend 3/6/12m 11.2% 22.5% 34.4% | VIX max 38.57 (2024-08-05) | minimo 2023-10-27 dopo 1m
+  2026-02 chiusura 6878.88 CMO 38.5 allarme 2m | calo 6/12/18m -7.8% -7.8%* -7.8% | rend 3/6/12m 10.2% 11.7% — | VIX max 31.05 (2026-03-27) | minimo 2026-03-30 dopo 1m
+  2026-10 chiusura 7580.07 CMO 39.1 allarme 1m | calo 6/12/18m -3.0% -3.0%* -3.0% | rend 3/6/12m — — — | VIX max 28.18 (2026-11-05) | minimo 2026-11-05 dopo 1m
+
+== Eventi e segnali nelle varianti principali (finestra: da 12 mesi prima del mese del massimo a 1 mese dopo; anticipo in mesi dall'ultimo segnale della finestra)
+Cali ≥10%
+  1997-10-07 -10.8% | Coppock: 1997-03 (anticipo 7m) | KST: 1997-03,1997-10 (anticipo 0m) | MACD: 1997-03,1997-10 (anticipo 0m) | soloCMO: 1997-03,1997-08,1997-10 (anticipo 0m)
+  1998-07-17 -19.3% | Coppock: 1997-12,1998-07 (anticipo 0m) | KST: 1997-10,1998-01,1998-08 (anticipo -1m) | MACD: 1997-10,1998-07 (anticipo 0m) | soloCMO: 1997-08,1997-10,1998-07 (anticipo 0m)
+  1998-09-23 -10.0% | Coppock: 1997-12,1998-07 (anticipo 2m) | KST: 1997-10,1998-01,1998-08 (anticipo 1m) | MACD: 1997-10,1998-07 (anticipo 2m) | soloCMO: 1997-10,1998-07 (anticipo 2m)
+  1999-07-16 -12.1% | Coppock: 1998-07,1999-08 (anticipo -1m) | KST: 1998-08,1999-07 (anticipo 0m) | MACD: 1998-07,1999-07 (anticipo 0m) | soloCMO: 1998-07,1999-05 (anticipo 2m)
+  2000-03-24 -49.1% | Coppock: 1999-08 (anticipo 7m) | KST: 1999-07 (anticipo 8m) | MACD: 1999-07 (anticipo 8m) | soloCMO: 1999-05 (anticipo 10m)
+  2002-11-27 -14.7% | Coppock: perso | KST: perso | MACD: perso | soloCMO: 2002-05 (anticipo 6m)
+  2007-10-09 -56.8% | Coppock: perso | KST: perso | MACD: 2007-07 (anticipo 3m) | soloCMO: 2007-02 (anticipo 8m)
+  2010-04-23 -16.0% | Coppock: perso | KST: perso | MACD: perso | soloCMO: 2009-11 (anticipo 5m)
+  2011-04-29 -19.4% | Coppock: perso | KST: perso | MACD: perso | soloCMO: 2011-05 (anticipo -1m)
+  2015-05-21 -14.2% | Coppock: perso | KST: 2014-06,2015-01 (anticipo 4m) | MACD: 2014-07,2015-01 (anticipo 4m) | soloCMO: perso
+  2018-01-26 -10.2% | Coppock: perso | KST: perso | MACD: perso | soloCMO: 2017-06 (anticipo 7m)
+  2018-09-20 -19.8% | Coppock: 2018-03 (anticipo 6m) | KST: 2018-05 (anticipo 4m) | MACD: 2018-03 (anticipo 6m) | soloCMO: 2018-03 (anticipo 6m)
+  2020-02-19 -33.9% | Coppock: perso | KST: perso | MACD: 2020-02 (anticipo 0m) | soloCMO: 2019-09,2020-02 (anticipo 0m)
+  2022-01-03 -25.4% | Coppock: 2021-09 (anticipo 4m) | KST: perso | MACD: 2021-09 (anticipo 4m) | soloCMO: 2021-02,2021-06 (anticipo 7m)
+  2023-07-31 -10.3% | Coppock: perso | KST: perso | MACD: perso | soloCMO: 2023-08 (anticipo -1m)
+  2025-02-19 -18.9% | Coppock: perso | KST: perso | MACD: perso | soloCMO: 2024-06 (anticipo 8m)
+Cali ≥20%
+  2000-03-24 -49.1% | Coppock: 1999-08 (anticipo 7m) | KST: 1999-07 (anticipo 8m) | MACD: 1999-07 (anticipo 8m) | soloCMO: 1999-05 (anticipo 10m)
+  2007-10-09 -56.8% | Coppock: perso | KST: perso | MACD: 2007-07 (anticipo 3m) | soloCMO: 2007-02 (anticipo 8m)
+  2020-02-19 -33.9% | Coppock: perso | KST: perso | MACD: 2020-02 (anticipo 0m) | soloCMO: 2019-09,2020-02 (anticipo 0m)
+  2022-01-03 -25.4% | Coppock: 2021-09 (anticipo 4m) | KST: perso | MACD: 2021-09 (anticipo 4m) | soloCMO: 2021-02,2021-06 (anticipo 7m)
+
+== Ultimo segnale nella finestra di ogni evento: se prima del massimo, quanto l'indice è ancora salito («poi su»); se dopo, il calo già avvenuto («già»); calo residuo dalla chiusura del segnale al minimo dell'evento
+  ≥10% 1997-10-07 -10.8%: Coppock 1997-03 poi su 29.8%, residuo 0.0% | KST 1997-10 già -7.0%, residuo -4.1% | MACD 1997-10 già -7.0%, residuo -4.1% | soloCMO 1997-10 già -7.0%, residuo -4.1%
+  ≥10% 1998-07-17 -19.3%: Coppock 1998-07 già -5.6%, residuo -14.6% | KST 1998-08 già -19.3%, residuo 0.0% | MACD 1998-07 già -5.6%, residuo -14.6% | soloCMO 1998-07 già -5.6%, residuo -14.6%
+  ≥10% 1998-09-23 -10.0%: Coppock 1998-07 poi su -4.9%, residuo -14.4% | KST 1998-08 poi su 11.4%, residuo 0.0% | MACD 1998-07 poi su -4.9%, residuo -14.4% | soloCMO 1998-07 poi su -4.9%, residuo -14.4%
+  ≥10% 1999-07-16 -12.1%: Coppock 1999-08 già -6.9%, residuo -5.5% | KST 1999-07 già -6.3%, residuo -6.1% | MACD 1999-07 già -6.3%, residuo -6.1% | soloCMO 1999-05 poi su 9.0%, residuo -4.2%
+  ≥10% 2000-03-24 -49.1%: Coppock 1999-08 poi su 15.7%, residuo -41.2% | KST 1999-07 poi su 15.0%, residuo -41.5% | MACD 1999-07 poi su 15.0%, residuo -41.5% | soloCMO 1999-05 poi su 17.3%, residuo -40.3%
+  ≥10% 2002-11-27 -14.7%: Coppock perso | KST perso | MACD perso | soloCMO 2002-05 poi su -12.0%, residuo -25.0%
+  ≥10% 2007-10-09 -56.8%: Coppock perso | KST perso | MACD 2007-07 poi su 7.5%, residuo -53.5% | soloCMO 2007-02 poi su 11.3%, residuo -51.9%
+  ≥10% 2010-04-23 -16.0%: Coppock perso | KST perso | MACD perso | soloCMO 2009-11 poi su 11.1%, residuo -6.7%
+  ≥10% 2011-04-29 -19.4%: Coppock perso | KST perso | MACD perso | soloCMO 2011-05 già -1.4%, residuo -18.3%
+  ≥10% 2015-05-21 -14.2%: Coppock perso | KST 2015-01 poi su 6.8%, residuo -8.3% | MACD 2015-01 poi su 6.8%, residuo -8.3% | soloCMO perso
+  ≥10% 2018-01-26 -10.2%: Coppock perso | KST perso | MACD perso | soloCMO 2017-06 poi su 18.6%, residuo 0.0%
+  ≥10% 2018-09-20 -19.8%: Coppock 2018-03 poi su 11.0%, residuo -11.0% | KST 2018-05 poi su 8.3%, residuo -13.1% | MACD 2018-03 poi su 11.0%, residuo -11.0% | soloCMO 2018-03 poi su 11.0%, residuo -11.0%
+  ≥10% 2020-02-19 -33.9%: Coppock perso | KST perso | MACD 2020-02 già -12.8%, residuo -24.3% | soloCMO 2020-02 già -12.8%, residuo -24.3%
+  ≥10% 2022-01-03 -25.4%: Coppock 2021-09 poi su 11.3%, residuo -17.0% | KST perso | MACD 2021-09 poi su 11.3%, residuo -17.0% | soloCMO 2021-06 poi su 11.6%, residuo -16.8%
+  ≥10% 2023-07-31 -10.3%: Coppock perso | KST perso | MACD perso | soloCMO 2023-08 già -1.8%, residuo -8.7%
+  ≥10% 2025-02-19 -18.9%: Coppock perso | KST perso | MACD perso | soloCMO 2024-06 poi su 12.5%, residuo -8.8%
+  ≥20% 2000-03-24 -49.1%: Coppock 1999-08 poi su 15.7%, residuo -41.2% | KST 1999-07 poi su 15.0%, residuo -41.5% | MACD 1999-07 poi su 15.0%, residuo -41.5% | soloCMO 1999-05 poi su 17.3%, residuo -40.3%
+  ≥20% 2007-10-09 -56.8%: Coppock perso | KST perso | MACD 2007-07 poi su 7.5%, residuo -53.5% | soloCMO 2007-02 poi su 11.3%, residuo -51.9%
+  ≥20% 2020-02-19 -33.9%: Coppock perso | KST perso | MACD 2020-02 già -12.8%, residuo -24.3% | soloCMO 2020-02 già -12.8%, residuo -24.3%
+  ≥20% 2022-01-03 -25.4%: Coppock 2021-09 poi su 11.3%, residuo -17.0% | KST perso | MACD 2021-09 poi su 11.3%, residuo -17.0% | soloCMO 2021-06 poi su 11.6%, residuo -16.8%
+
+== Base casuale: stesso numero di segnali in mesi a caso tra 1992-10 e 2026-10 (20.000 estrazioni, seme fisso): eventi avvisati attesi e probabilità di farne almeno quanti la regola
+  CMO K4>0 + Coppock in discesa p70: 9 segnali; correzioni avvisate 7/16 (a caso in media 4.35, P(≥7) 0.1036); bear 2/4 (a caso 1.08, P(≥2) 0.2911)
+  CMO K4>0 + KST in discesa p70: 12 segnali; correzioni avvisate 7/16 (a caso in media 5.54, P(≥7) 0.2954); bear 1/4 (a caso 1.38, P(≥1) 0.8325)
+  CMO K4>0 + MACD in discesa p70: 25 segnali; correzioni avvisate 10/16 (a caso in media 9.49, P(≥10) 0.5033); bear 4/4 (a caso 2.36, P(≥4) 0.1099)
+  CMO K5>0 + MACD in discesa p80: 13 segnali; correzioni avvisate 10/16 (a caso in media 5.89, P(≥10) 0.023); bear 4/4 (a caso 1.46, P(≥4) 0.0132)
+  Solo CMO K4: inizio di DOWN (CMO>0 e in discesa): 32 segnali; correzioni avvisate 15/16 (a caso in media 10.99, P(≥15) 0.0174); bear 4/4 (a caso 2.75, P(≥4) 0.2078)
+
+== Quota di mesi in zona alta (sopra il percentile 70 a finestra crescente), per decennio
+  Coppock  1990s 43/87 (49.4%) | 2000s 5/120 (4.2%) | 2010s 24/120 (20.0%) | 2020s 37/82 (45.1%)
+  KST      1990s 51/87 (58.6%) | 2000s 0/120 (0.0%) | 2010s 43/120 (35.8%) | 2020s 46/82 (56.1%)
+  MACD     1990s 62/87 (71.3%) | 2000s 47/120 (39.2%) | 2010s 97/120 (80.8%) | 2020s 73/82 (89.0%)
+  PPO      1990s 53/87 (60.9%) | 2000s 2/120 (1.7%) | 2010s 38/120 (31.7%) | 2020s 48/82 (58.5%)
+Falsi allarmi (nessun calo ≥10% nei 12 mesi dopo), CMO K4>0 + Coppock in discesa p70: 1997-03, 1997-12, 1999-08, 2004-06, 2014-04
+Falsi allarmi (nessun calo ≥10% nei 12 mesi dopo), CMO K4>0 + KST in discesa p70: 1997-03, 1997-10, 1998-01, 1998-08, 1999-07, 2014-06, 2015-01
+Falsi allarmi (nessun calo ≥10% nei 12 mesi dopo), CMO K4>0 + MACD in discesa p70: 1993-04, 1993-06, 1993-09, 1994-02, 1997-03, 1997-10, 1999-07, 2005-04, 2006-05, 2012-05, 2012-11, 2014-07, 2015-01, 2016-10, 2023-09
+Falsi allarmi, CMO K5>0 + MACD in discesa p80: 1997-10, 1999-07, 2014-07, 2023-09
+
+== Date di Caruso (CMO + C-Wave, dal video) contro i nostri segnali (distanza in mesi: nostro − suo)
+  1998-05: CMO 39.8 (mese prima 26.2) | inizio DOWN del solo CMO ±3m: 1998-07 (+2) | Coppock: 1998-07 (+2) | KST: 1998-08 (+3) | MACD: 1998-07 (+2) | scelta: 1998-07 (+2)
+  1999-11: CMO -55.5 (mese prima -59.6) | inizio DOWN del solo CMO ±3m: nessuno | Coppock: 1999-08 (-3) | KST: — | MACD: — | scelta: —
+  2007-11: CMO -14.2 (mese prima -10.6) | inizio DOWN del solo CMO ±3m: nessuno | Coppock: — | KST: — | MACD: — | scelta: —
+  2015-01: CMO -2.4 (mese prima 2.1) | inizio DOWN del solo CMO ±3m: nessuno | Coppock: — | KST: 2015-01 (+0) | MACD: 2015-01 (+0) | scelta: —
+  2018-09: CMO 7.5 (mese prima -16.6) | inizio DOWN del solo CMO ±3m: 2018-11 (+2) | Coppock: — | KST: 2018-11 (+2) | MACD: 2018-11 (+2) | scelta: 2018-11 (+2)
+  2020-01: CMO 69.3 (mese prima 64.9) | inizio DOWN del solo CMO ±3m: 2020-02 (+1) | Coppock: — | KST: — | MACD: 2020-02 (+1) | scelta: 2020-02 (+1)
+  2022-01: CMO -36.2 (mese prima -32.8) | inizio DOWN del solo CMO ±3m: nessuno | Coppock: — | KST: — | MACD: — | scelta: —
+  2026-07: CMO 17.3 (mese prima 2.0) | inizio DOWN del solo CMO ±3m: 2026-10 (+3) | Coppock: 2026-10 (+3) | KST: 2026-10 (+3) | MACD: 2026-10 (+3) | scelta: 2026-10 (+3)
+Inizi di DOWN del solo CMO K4 dal 1992-10: 32 (1993-04, 1994-02, 1994-12, 1995-09, 1997-03, 1997-08, 1997-10, 1998-07, 1999-05, 2000-05, 2002-05, 2003-09, 2005-04, 2006-05, 2007-02, 2009-11, 2011-05, 2012-05, 2013-07, 2014-04, 2016-10, 2017-06, 2018-03, 2018-11, 2019-09, 2020-02, 2021-02, 2021-06, 2023-08, 2024-06, 2025-12, 2026-10)
+
+== Per crisi (eventi ≥10% con massimo in quell'anno; varianti principali)
+  1998: 1998-07-17 -19.3% → Coppock 1997-12,1998-07; KST 1997-10,1998-01,1998-08; MACD 1997-10,1998-07; soloCMO 1997-08,1997-10,1998-07 || 1998-09-23 -10.0% → Coppock 1997-12,1998-07; KST 1997-10,1998-01,1998-08; MACD 1997-10,1998-07; soloCMO 1997-10,1998-07
+  2000-02: 2000-03-24 -49.1% → Coppock 1999-08; KST 1999-07; MACD 1999-07; soloCMO 1999-05
+  2007-09: 2007-10-09 -56.8% → Coppock perso; KST perso; MACD 2007-07; soloCMO 2007-02
+  2011: 2011-04-29 -19.4% → Coppock perso; KST perso; MACD perso; soloCMO 2011-05
+  2015-16: 2015-05-21 -14.2% → Coppock perso; KST 2014-06,2015-01; MACD 2014-07,2015-01; soloCMO perso
+  2018: 2018-01-26 -10.2% → Coppock perso; KST perso; MACD perso; soloCMO 2017-06 || 2018-09-20 -19.8% → Coppock 2018-03; KST 2018-05; MACD 2018-03; soloCMO 2018-03
+  2020: 2020-02-19 -33.9% → Coppock perso; KST perso; MACD 2020-02; soloCMO 2019-09,2020-02
+  2022: 2022-01-03 -25.4% → Coppock 2021-09; KST perso; MACD 2021-09; soloCMO 2021-02,2021-06
+  2025: 2025-02-19 -18.9% → Coppock perso; KST perso; MACD perso; soloCMO 2024-06
+  2026: nessun calo ≥10% con massimo in quell'anno; segnali nell'anno: Coppock 2026-10; KST 2026-02,2026-10; MACD 2026-02,2026-10; soloCMO 2026-10
+
+Scritti ricerca/oscillatori/backtest/valori_mensili.json e ricerca/oscillatori/backtest/risultati.json

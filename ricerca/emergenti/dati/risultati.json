@@ -1,0 +1,8743 @@
+{
+ "generato": "2026-11-05T13:47:02.384Z",
+ "oggi": "2026-11-05",
+ "scaricato": "2026-11-05T13:46:57.687Z",
+ "periodo": "dal 2006-01-01",
+ "yahoo": {
+  "CNY=X": {
+   "fuso": "Europe/London",
+   "prima": "2001-06-25",
+   "ultima": "2026-11-05",
+   "osservazioni": 6352,
+   "osservazioniDal2006": 5424,
+   "barreNulle": 267,
+   "barreNulleDal2006": 15,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 778,
+    "suDomenicaOSabato": 749,
+    "totale": 6352
+   },
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5439,
+    "mancanti": 15,
+    "mancantiPct": 0.28,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "altro": 10,
+     "Natale": 2,
+     "Capodanno": 3
+    },
+    "perAnno": {
+     "2008": 2,
+     "2009": 1,
+     "2010": 1,
+     "2011": 1,
+     "2013": 1,
+     "2017": 2,
+     "2019": 2,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2010-01-01",
+     "2011-04-15",
+     "2013-10-08",
+     "2017-07-11",
+     "2017-11-16",
+     "2019-05-22",
+     "2019-11-08",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 68,
+    "osservazioniInSerie": 266,
+    "piuLunga": {
+     "da": "2025-05-23",
+     "a": "2025-06-05",
+     "osservazioni": 10,
+     "valore": 7.203700065612793
+    },
+    "esempi": [
+     {
+      "da": "2025-05-23",
+      "a": "2025-06-05",
+      "osservazioni": 10,
+      "valore": 7.203700065612793
+     },
+     {
+      "da": "2006-04-28",
+      "a": "2006-05-05",
+      "osservazioni": 6,
+      "valore": 8.003899574279785
+     },
+     {
+      "da": "2006-09-29",
+      "a": "2006-10-06",
+      "osservazioni": 6,
+      "valore": 7.897299766540527
+     },
+     {
+      "da": "2007-02-16",
+      "a": "2007-02-23",
+      "osservazioni": 6,
+      "valore": 7.740200042724609
+     },
+     {
+      "da": "2007-04-30",
+      "a": "2007-05-07",
+      "osservazioni": 6,
+      "valore": 7.695499897003174
+     },
+     {
+      "da": "2007-09-28",
+      "a": "2007-10-05",
+      "osservazioni": 6,
+      "valore": 7.495999813079834
+     },
+     {
+      "da": "2008-09-26",
+      "a": "2008-10-03",
+      "osservazioni": 6,
+      "valore": 6.835100173950195
+     },
+     {
+      "da": "2009-01-23",
+      "a": "2009-01-30",
+      "osservazioni": 6,
+      "valore": 6.829699993133545
+     }
+    ],
+    "giorniUgualiAlPrecedente": 338,
+    "quotaUgualiPct": 6.23
+   },
+   "barrePiatteUgualiAlPrecedente": 182,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 203,
+    "oltre5sigmaE2pct": 4,
+    "piccoCheRientra": 32,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2006-01-18",
+      "rendPct": 0.03,
+      "sigma": 31.77,
+      "valore": 8.069299697875977,
+      "prima": 8.067000389099121,
+      "dopo": 8.066699981689453,
+      "dataDopo": "2006-01-19"
+     },
+     {
+      "data": "2006-01-24",
+      "rendPct": -0.01,
+      "sigma": 5.38,
+      "valore": 8.059700012207031,
+      "prima": 8.06089973449707,
+      "dopo": 8.062700271606445,
+      "dataDopo": "2006-01-25"
+     },
+     {
+      "data": "2006-01-25",
+      "rendPct": 0.04,
+      "sigma": 10.12,
+      "valore": 8.062700271606445,
+      "prima": 8.059700012207031,
+      "dopo": 8.060001373291016,
+      "dataDopo": "2006-01-26"
+     },
+     {
+      "data": "2006-01-27",
+      "rendPct": -0.1,
+      "sigma": 17.4,
+      "valore": 8.052301406860352,
+      "prima": 8.060001373291016,
+      "dopo": 8.062000274658203,
+      "dataDopo": "2006-01-30"
+     },
+     {
+      "data": "2009-12-24",
+      "rendPct": 0.22,
+      "sigma": 10.11,
+      "valore": 6.833000183105469,
+      "prima": 6.817999839782715,
+      "dopo": 6.819900035858154,
+      "dataDopo": "2009-12-28"
+     },
+     {
+      "data": "2009-12-31",
+      "rendPct": 0.2,
+      "sigma": 8.96,
+      "valore": 6.83050012588501,
+      "prima": 6.817200183868408,
+      "dopo": 6.81689977645874,
+      "dataDopo": "2010-01-04"
+     },
+     {
+      "data": "2010-08-17",
+      "rendPct": 0.12,
+      "sigma": 6.85,
+      "valore": 6.794099807739258,
+      "prima": 6.785999774932861,
+      "dopo": 6.782299995422363,
+      "dataDopo": "2010-08-18"
+     },
+     {
+      "data": "2010-11-01",
+      "rendPct": -0.24,
+      "sigma": 10.89,
+      "valore": 6.660699844360352,
+      "prima": 6.676499843597412,
+      "dopo": 6.6828999519348145,
+      "dataDopo": "2010-11-02"
+     },
+     {
+      "data": "2010-11-09",
+      "rendPct": 0.38,
+      "sigma": 15.94,
+      "valore": 6.671199798583984,
+      "prima": 6.6458001136779785,
+      "dopo": 6.633500099182129,
+      "dataDopo": "2010-11-10"
+     },
+     {
+      "data": "2010-11-12",
+      "rendPct": -0.14,
+      "sigma": 5.74,
+      "valore": 6.614999771118164,
+      "prima": 6.624499797821045,
+      "dopo": 6.628200054168701,
+      "dataDopo": "2010-11-15"
+     },
+     {
+      "data": "2010-12-17",
+      "rendPct": 0.17,
+      "sigma": 5.41,
+      "valore": 6.656000137329102,
+      "prima": 6.644999980926514,
+      "dopo": 6.645999908447266,
+      "dataDopo": "2010-12-20"
+     },
+     {
+      "data": "2010-12-21",
+      "rendPct": 0.28,
+      "sigma": 9.24,
+      "valore": 6.66480016708374,
+      "prima": 6.645999908447266,
+      "dopo": 6.648499965667725,
+      "dataDopo": "2010-12-22"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2011-07-19",
+      "rendPct": 10.33,
+      "valore": 6.468800067901611,
+      "prima": 5.86299991607666
+     },
+     {
+      "data": "2011-07-18",
+      "rendPct": -8.87,
+      "valore": 5.86299991607666,
+      "prima": 6.433800220489502
+     },
+     {
+      "data": "2023-10-30",
+      "rendPct": -2.14,
+      "valore": 7.158699989318848,
+      "prima": 7.314899921417236
+     },
+     {
+      "data": "2023-10-31",
+      "rendPct": 2.14,
+      "valore": 7.312099933624268,
+      "prima": 7.158699989318848
+     },
+     {
+      "data": "2023-10-17",
+      "rendPct": 1.97,
+      "valore": 7.309299945831299,
+      "prima": 7.168099880218506
+     },
+     {
+      "data": "2023-10-02",
+      "rendPct": -1.87,
+      "valore": 7.163599967956543,
+      "prima": 7.299900054931641
+     },
+     {
+      "data": "2023-10-16",
+      "rendPct": -1.83,
+      "valore": 7.168099880218506,
+      "prima": 7.301499843597412
+     },
+     {
+      "data": "2015-08-12",
+      "rendPct": 1.86,
+      "valore": 6.314899921417236,
+      "prima": 6.199699878692627
+     }
+    ]
+   }
+  },
+  "CNH=X": {
+   "fuso": "Europe/London",
+   "prima": "2026-11-05",
+   "ultima": "2026-11-05",
+   "osservazioni": 1,
+   "osservazioniDal2006": 1,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 1
+   },
+   "buchi": null,
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 0,
+    "quotaUgualiPct": 0
+   },
+   "barrePiatteUgualiAlPrecedente": 0,
+   "anomalie": null
+  },
+  "INR=X": {
+   "fuso": "Europe/London",
+   "prima": "2003-12-01",
+   "ultima": "2026-11-05",
+   "osservazioni": 5947,
+   "osservazioniDal2006": 5405,
+   "barreNulle": 37,
+   "barreNulleDal2006": 34,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 708,
+    "suDomenicaOSabato": 696,
+    "totale": 5947
+   },
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5439,
+    "mancanti": 34,
+    "mancantiPct": 0.63,
+    "periodiDiAlmeno3": 1,
+    "periodoPiuLungo": {
+     "da": "2008-08-01",
+     "a": "2008-08-25",
+     "giorni": 17
+    },
+    "periodiLunghi": [
+     {
+      "da": "2008-08-01",
+      "a": "2008-08-25",
+      "giorni": 17
+     }
+    ],
+    "perTipo": {
+     "altro": 30,
+     "Natale": 2,
+     "Capodanno": 2
+    },
+    "perAnno": {
+     "2007": 3,
+     "2008": 20,
+     "2009": 1,
+     "2011": 1,
+     "2013": 1,
+     "2017": 2,
+     "2019": 1,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2008-08-25",
+     "2009-12-25",
+     "2011-04-15",
+     "2013-10-08",
+     "2017-07-11",
+     "2017-11-16",
+     "2019-05-22",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 5,
+    "osservazioniInSerie": 16,
+    "piuLunga": {
+     "da": "2013-06-07",
+     "a": "2013-06-12",
+     "osservazioni": 4,
+     "valore": 56.8380012512207
+    },
+    "esempi": [
+     {
+      "da": "2013-06-07",
+      "a": "2013-06-12",
+      "osservazioni": 4,
+      "valore": 56.8380012512207
+     },
+     {
+      "da": "2006-12-22",
+      "a": "2006-12-26",
+      "osservazioni": 3,
+      "valore": 44.30500030517578
+     },
+     {
+      "da": "2007-12-28",
+      "a": "2008-01-01",
+      "osservazioni": 3,
+      "valore": 39.244998931884766
+     },
+     {
+      "da": "2015-04-03",
+      "a": "2015-04-07",
+      "osservazioni": 3,
+      "valore": 62.060001373291016
+     },
+     {
+      "da": "2016-03-25",
+      "a": "2016-03-29",
+      "osservazioni": 3,
+      "valore": 66.90699768066406
+     }
+    ],
+    "giorniUgualiAlPrecedente": 71,
+    "quotaUgualiPct": 1.31
+   },
+   "barrePiatteUgualiAlPrecedente": 1,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 52,
+    "oltre5sigmaE2pct": 22,
+    "piccoCheRientra": 8,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2012-01-27",
+      "rendPct": 4.99,
+      "sigma": 13.95,
+      "valore": 52.49300003051758,
+      "prima": 50,
+      "dopo": 49.38800048828125,
+      "dataDopo": "2012-01-30"
+     },
+     {
+      "data": "2012-01-30",
+      "rendPct": -5.92,
+      "sigma": 17.49,
+      "valore": 49.38800048828125,
+      "prima": 52.49300003051758,
+      "dopo": 52.49300003051758,
+      "dataDopo": "2012-01-31"
+     },
+     {
+      "data": "2012-01-31",
+      "rendPct": 6.29,
+      "sigma": 17.49,
+      "valore": 52.49300003051758,
+      "prima": 49.38800048828125,
+      "dopo": 49.5,
+      "dataDopo": "2012-02-01"
+     },
+     {
+      "data": "2013-09-04",
+      "rendPct": 3.16,
+      "sigma": 6.4,
+      "valore": 68.61000061035156,
+      "prima": 66.51000213623047,
+      "dopo": 66.2699966430664,
+      "dataDopo": "2013-09-05"
+     },
+     {
+      "data": "2023-11-02",
+      "rendPct": 2.3,
+      "sigma": 13.09,
+      "valore": 85.19400024414062,
+      "prima": 83.2771987915039,
+      "dopo": 83.24729919433594,
+      "dataDopo": "2023-11-03"
+     },
+     {
+      "data": "2023-12-29",
+      "rendPct": -1.16,
+      "sigma": 7,
+      "valore": 82.302001953125,
+      "prima": 83.26719665527344,
+      "dopo": 83.24859619140625,
+      "dataDopo": "2024-01-01"
+     },
+     {
+      "data": "2025-03-27",
+      "rendPct": 0.59,
+      "sigma": 6.12,
+      "valore": 86.09539794921875,
+      "prima": 85.59040069580078,
+      "dopo": 85.69490051269531,
+      "dataDopo": "2025-03-28"
+     },
+     {
+      "data": "2026-08-26",
+      "rendPct": -2.27,
+      "sigma": 7.92,
+      "valore": 93.54609680175781,
+      "prima": 95.72309875488281,
+      "dopo": 95.4302978515625,
+      "dataDopo": "2026-08-27"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2012-01-30",
+      "rendPct": -5.92,
+      "valore": 49.38800048828125,
+      "prima": 52.49300003051758
+     },
+     {
+      "data": "2012-01-31",
+      "rendPct": 6.29,
+      "valore": 52.49300003051758,
+      "prima": 49.38800048828125
+     },
+     {
+      "data": "2012-02-01",
+      "rendPct": -5.7,
+      "valore": 49.5,
+      "prima": 52.49300003051758
+     },
+     {
+      "data": "2012-01-27",
+      "rendPct": 4.99,
+      "valore": 52.49300003051758,
+      "prima": 50
+     },
+     {
+      "data": "2013-08-28",
+      "rendPct": 3.99,
+      "valore": 66.86000061035156,
+      "prima": 64.29299926757812
+     },
+     {
+      "data": "2009-05-18",
+      "rendPct": -3.69,
+      "valore": 47.5880012512207,
+      "prima": 49.4119987487793
+     },
+     {
+      "data": "2013-09-05",
+      "rendPct": -3.41,
+      "valore": 66.2699966430664,
+      "prima": 68.61000061035156
+     },
+     {
+      "data": "2013-09-04",
+      "rendPct": 3.16,
+      "valore": 68.61000061035156,
+      "prima": 66.51000213623047
+     }
+    ]
+   }
+  },
+  "BRL=X": {
+   "fuso": "Europe/London",
+   "prima": "2003-12-01",
+   "ultima": "2026-11-05",
+   "osservazioni": 5532,
+   "osservazioniDal2006": 5338,
+   "barreNulle": 452,
+   "barreNulleDal2006": 101,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 666,
+    "suDomenicaOSabato": 653,
+    "totale": 5532
+   },
+   "buchi": {
+    "da": "2006-03-24",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5380,
+    "mancanti": 42,
+    "mancantiPct": 0.78,
+    "periodiDiAlmeno3": 1,
+    "periodoPiuLungo": {
+     "da": "2008-08-01",
+     "a": "2008-08-25",
+     "giorni": 17
+    },
+    "periodiLunghi": [
+     {
+      "da": "2008-08-01",
+      "a": "2008-08-25",
+      "giorni": 17
+     }
+    ],
+    "perTipo": {
+     "altro": 36,
+     "Santo Stefano": 1,
+     "Natale": 2,
+     "Capodanno": 3
+    },
+    "perAnno": {
+     "2006": 3,
+     "2007": 4,
+     "2008": 20,
+     "2009": 3,
+     "2010": 1,
+     "2011": 1,
+     "2013": 2,
+     "2017": 2,
+     "2019": 1,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2010-01-01",
+     "2011-04-15",
+     "2013-01-16",
+     "2013-10-08",
+     "2017-07-11",
+     "2017-11-16",
+     "2019-05-22",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 10,
+    "osservazioniInSerie": 32,
+    "piuLunga": {
+     "da": "2008-12-23",
+     "a": "2008-12-26",
+     "osservazioni": 4,
+     "valore": 2.3261001110076904
+    },
+    "esempi": [
+     {
+      "da": "2008-12-23",
+      "a": "2008-12-26",
+      "osservazioni": 4,
+      "valore": 2.3261001110076904
+     },
+     {
+      "da": "2013-06-07",
+      "a": "2013-06-12",
+      "osservazioni": 4,
+      "valore": 2.1273999214172363
+     },
+     {
+      "da": "2006-12-22",
+      "a": "2006-12-26",
+      "osservazioni": 3,
+      "valore": 2.1475000381469727
+     },
+     {
+      "da": "2007-04-05",
+      "a": "2007-04-09",
+      "osservazioni": 3,
+      "valore": 2.027400016784668
+     },
+     {
+      "da": "2007-12-21",
+      "a": "2007-12-25",
+      "osservazioni": 3,
+      "valore": 1.7892999649047852
+     },
+     {
+      "da": "2007-12-28",
+      "a": "2008-01-01",
+      "osservazioni": 3,
+      "valore": 1.767300009727478
+     },
+     {
+      "da": "2008-03-20",
+      "a": "2008-03-24",
+      "osservazioni": 3,
+      "valore": 1.7379000186920166
+     },
+     {
+      "da": "2008-12-30",
+      "a": "2009-01-01",
+      "osservazioni": 3,
+      "valore": 2.3239998817443848
+     }
+    ],
+    "giorniUgualiAlPrecedente": 54,
+    "quotaUgualiPct": 1.01
+   },
+   "barrePiatteUgualiAlPrecedente": 19,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 41,
+    "oltre5sigmaE2pct": 41,
+    "piccoCheRientra": 9,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2006-05-08",
+      "rendPct": -5.34,
+      "sigma": 9.72,
+      "valore": 1.9471999406814575,
+      "prima": 2.056999921798706,
+      "dopo": 2.056999921798706,
+      "dataDopo": "2006-05-09"
+     },
+     {
+      "data": "2006-07-14",
+      "rendPct": -4.86,
+      "sigma": 7.77,
+      "valore": 2.0968000888824463,
+      "prima": 2.2039999961853027,
+      "dopo": 2.209700107574463,
+      "dataDopo": "2006-07-17"
+     },
+     {
+      "data": "2006-08-16",
+      "rendPct": -5.99,
+      "sigma": 10.44,
+      "valore": 2.014400005340576,
+      "prima": 2.1428000926971436,
+      "dopo": 2.1268999576568604,
+      "dataDopo": "2006-08-17"
+     },
+     {
+      "data": "2008-10-08",
+      "rendPct": 10.15,
+      "sigma": 12.1,
+      "valore": 2.4000000953674316,
+      "prima": 2.178800106048584,
+      "dopo": 2.1484999656677246,
+      "dataDopo": "2008-10-09"
+     },
+     {
+      "data": "2008-10-10",
+      "rendPct": 4.65,
+      "sigma": 5.44,
+      "valore": 2.248500108718872,
+      "prima": 2.1484999656677246,
+      "dopo": 2.126199960708618,
+      "dataDopo": "2008-10-13"
+     },
+     {
+      "data": "2008-10-14",
+      "rendPct": -4.71,
+      "sigma": 5.7,
+      "valore": 2.0260000228881836,
+      "prima": 2.126199960708618,
+      "dopo": 2.115299940109253,
+      "dataDopo": "2008-10-15"
+     },
+     {
+      "data": "2008-12-11",
+      "rendPct": -5.98,
+      "sigma": 6.55,
+      "valore": 2.239500045776367,
+      "prima": 2.381999969482422,
+      "dopo": 2.3494999408721924,
+      "dataDopo": "2008-12-12"
+     },
+     {
+      "data": "2012-01-27",
+      "rendPct": 5.26,
+      "sigma": 5.98,
+      "valore": 1.8524999618530273,
+      "prima": 1.7599999904632568,
+      "dopo": 1.7380000352859497,
+      "dataDopo": "2012-01-30"
+     },
+     {
+      "data": "2020-05-11",
+      "rendPct": -6.03,
+      "sigma": 7.52,
+      "valore": 5.4770002365112305,
+      "prima": 5.828719139099121,
+      "dopo": 5.8171000480651855,
+      "dataDopo": "2020-05-12"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2006-03-24",
+      "rendPct": -27.01,
+      "valore": 2.1547000408172607,
+      "prima": 2.9519999027252197
+     },
+     {
+      "data": "2008-10-09",
+      "rendPct": -10.48,
+      "valore": 2.1484999656677246,
+      "prima": 2.4000000953674316
+     },
+     {
+      "data": "2008-10-08",
+      "rendPct": 10.15,
+      "valore": 2.4000000953674316,
+      "prima": 2.178800106048584
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 9.35,
+      "valore": 2.368000030517578,
+      "prima": 2.1654999256134033
+     },
+     {
+      "data": "2026-10-27",
+      "rendPct": 8.31,
+      "valore": 5.372600078582764,
+      "prima": 4.96019983291626
+     },
+     {
+      "data": "2017-05-19",
+      "rendPct": 7.52,
+      "valore": 3.36899995803833,
+      "prima": 3.1333999633789062
+     },
+     {
+      "data": "2018-11-27",
+      "rendPct": 7.26,
+      "valore": 3.93969988822937,
+      "prima": 3.6730000972747803
+     },
+     {
+      "data": "2012-01-30",
+      "rendPct": -6.18,
+      "valore": 1.7380000352859497,
+      "prima": 1.8524999618530273
+     }
+    ]
+   }
+  },
+  "KRW=X": {
+   "fuso": "Europe/London",
+   "prima": "2003-12-01",
+   "ultima": "2026-11-05",
+   "osservazioni": 5948,
+   "osservazioniDal2006": 5405,
+   "barreNulle": 36,
+   "barreNulleDal2006": 34,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 708,
+    "suDomenicaOSabato": 697,
+    "totale": 5948
+   },
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5439,
+    "mancanti": 34,
+    "mancantiPct": 0.63,
+    "periodiDiAlmeno3": 1,
+    "periodoPiuLungo": {
+     "da": "2008-08-01",
+     "a": "2008-08-25",
+     "giorni": 17
+    },
+    "periodiLunghi": [
+     {
+      "da": "2008-08-01",
+      "a": "2008-08-25",
+      "giorni": 17
+     }
+    ],
+    "perTipo": {
+     "altro": 31,
+     "Capodanno": 2,
+     "Natale": 1
+    },
+    "perAnno": {
+     "2007": 3,
+     "2008": 20,
+     "2011": 1,
+     "2012": 1,
+     "2013": 1,
+     "2017": 2,
+     "2019": 1,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2008-08-25",
+     "2011-04-15",
+     "2012-12-04",
+     "2013-10-08",
+     "2017-07-11",
+     "2017-11-16",
+     "2019-05-22",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 6,
+    "osservazioniInSerie": 20,
+    "piuLunga": {
+     "da": "2007-06-11",
+     "a": "2007-06-14",
+     "osservazioni": 4,
+     "valore": 931.4099731445312
+    },
+    "esempi": [
+     {
+      "da": "2007-06-11",
+      "a": "2007-06-14",
+      "osservazioni": 4,
+      "valore": 931.4099731445312
+     },
+     {
+      "da": "2016-03-24",
+      "a": "2016-03-29",
+      "osservazioni": 4,
+      "valore": 1166.1500244140625
+     },
+     {
+      "da": "2007-05-29",
+      "a": "2007-05-31",
+      "osservazioni": 3,
+      "valore": 931.4099731445312
+     },
+     {
+      "da": "2007-09-11",
+      "a": "2007-09-13",
+      "osservazioni": 3,
+      "valore": 931.4099731445312
+     },
+     {
+      "da": "2013-06-10",
+      "a": "2013-06-12",
+      "osservazioni": 3,
+      "valore": 1097.0999755859375
+     },
+     {
+      "da": "2015-04-03",
+      "a": "2015-04-07",
+      "osservazioni": 3,
+      "valore": 1089.1199951171875
+     }
+    ],
+    "giorniUgualiAlPrecedente": 43,
+    "quotaUgualiPct": 0.8
+   },
+   "barrePiatteUgualiAlPrecedente": 0,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 112,
+    "oltre5sigmaE2pct": 107,
+    "piccoCheRientra": 40,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2006-01-06",
+      "rendPct": -4.15,
+      "sigma": 7.45,
+      "valore": 940.7100219726562,
+      "prima": 981.4500122070312,
+      "dopo": 970.719970703125,
+      "dataDopo": "2006-01-09"
+     },
+     {
+      "data": "2006-08-15",
+      "rendPct": -3.78,
+      "sigma": 5.68,
+      "valore": 917.6300048828125,
+      "prima": 953.6599731445312,
+      "dopo": 949.3400268554688,
+      "dataDopo": "2006-08-16"
+     },
+     {
+      "data": "2006-08-29",
+      "rendPct": -3.84,
+      "sigma": 6.21,
+      "valore": 916.6699829101562,
+      "prima": 953.27001953125,
+      "dopo": 949.530029296875,
+      "dataDopo": "2006-08-30"
+     },
+     {
+      "data": "2006-09-26",
+      "rendPct": -3.79,
+      "sigma": 6.55,
+      "valore": 901.3499755859375,
+      "prima": 936.8099975585938,
+      "dopo": 929.6400146484375,
+      "dataDopo": "2006-09-27"
+     },
+     {
+      "data": "2006-10-03",
+      "rendPct": -3.31,
+      "sigma": 5.65,
+      "valore": 900.5800170898438,
+      "prima": 931.4400024414062,
+      "dopo": 938.5599975585938,
+      "dataDopo": "2006-10-04"
+     },
+     {
+      "data": "2006-12-20",
+      "rendPct": -3.14,
+      "sigma": 5.63,
+      "valore": 886.6799926757812,
+      "prima": 915.4500122070312,
+      "dopo": 916.6699829101562,
+      "dataDopo": "2006-12-21"
+     },
+     {
+      "data": "2006-12-26",
+      "rendPct": -3.11,
+      "sigma": 5.52,
+      "valore": 892.8099975585938,
+      "prima": 921.469970703125,
+      "dopo": 921.0999755859375,
+      "dataDopo": "2006-12-27"
+     },
+     {
+      "data": "2007-02-20",
+      "rendPct": -3.08,
+      "sigma": 5.79,
+      "valore": 896.010009765625,
+      "prima": 924.489990234375,
+      "dopo": 927.6900024414062,
+      "dataDopo": "2007-02-21"
+     },
+     {
+      "data": "2007-02-21",
+      "rendPct": 3.54,
+      "sigma": 6.42,
+      "valore": 927.6900024414062,
+      "prima": 896.010009765625,
+      "dopo": 894.6599731445312,
+      "dataDopo": "2007-02-22"
+     },
+     {
+      "data": "2007-02-22",
+      "rendPct": -3.56,
+      "sigma": 6.6,
+      "valore": 894.6599731445312,
+      "prima": 927.6900024414062,
+      "dopo": 927.280029296875,
+      "dataDopo": "2007-02-23"
+     },
+     {
+      "data": "2007-05-01",
+      "rendPct": -4.18,
+      "sigma": 8.93,
+      "valore": 891.6199951171875,
+      "prima": 930.5499877929688,
+      "dopo": 929.8300170898438,
+      "dataDopo": "2007-05-02"
+     },
+     {
+      "data": "2007-05-17",
+      "rendPct": -3.53,
+      "sigma": 7.47,
+      "valore": 890.4199829101562,
+      "prima": 922.969970703125,
+      "dopo": 932.75,
+      "dataDopo": "2007-05-18"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-30",
+      "rendPct": -9.62,
+      "valore": 1246.0999755859375,
+      "prima": 1378.800048828125
+     },
+     {
+      "data": "2008-10-16",
+      "rendPct": 9.07,
+      "valore": 1362.5,
+      "prima": 1249.199951171875
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 8.29,
+      "valore": 1420.300048828125,
+      "prima": 1311.5999755859375
+     },
+     {
+      "data": "2008-08-26",
+      "rendPct": 7.76,
+      "valore": 1089.1600341796875,
+      "prima": 1010.7000122070312
+     },
+     {
+      "data": "2008-10-13",
+      "rendPct": -6.45,
+      "valore": 1229,
+      "prima": 1313.800048828125
+     },
+     {
+      "data": "2009-01-02",
+      "rendPct": 6.64,
+      "valore": 1322.5,
+      "prima": 1240.0999755859375
+     },
+     {
+      "data": "2008-09-16",
+      "rendPct": 5.57,
+      "valore": 1160,
+      "prima": 1098.800048828125
+     },
+     {
+      "data": "2008-10-10",
+      "rendPct": -5.25,
+      "valore": 1313.800048828125,
+      "prima": 1386.5999755859375
+     }
+    ]
+   }
+  },
+  "TWD=X": {
+   "fuso": "Europe/London",
+   "prima": "2004-03-24",
+   "ultima": "2026-11-05",
+   "osservazioni": 5455,
+   "osservazioniDal2006": 5309,
+   "barreNulle": 447,
+   "barreNulleDal2006": 130,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 668,
+    "suDomenicaOSabato": 655,
+    "totale": 5455
+   },
+   "buchi": {
+    "da": "2006-05-16",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5343,
+    "mancanti": 34,
+    "mancantiPct": 0.64,
+    "periodiDiAlmeno3": 1,
+    "periodoPiuLungo": {
+     "da": "2008-08-01",
+     "a": "2008-08-25",
+     "giorni": 17
+    },
+    "periodiLunghi": [
+     {
+      "da": "2008-08-01",
+      "a": "2008-08-25",
+      "giorni": 17
+     }
+    ],
+    "perTipo": {
+     "altro": 30,
+     "Capodanno": 3,
+     "Natale": 1
+    },
+    "perAnno": {
+     "2007": 3,
+     "2008": 20,
+     "2010": 1,
+     "2011": 1,
+     "2013": 1,
+     "2017": 2,
+     "2019": 1,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2008-08-25",
+     "2010-01-01",
+     "2011-04-15",
+     "2013-10-08",
+     "2017-07-11",
+     "2017-11-16",
+     "2019-05-22",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 21,
+    "osservazioniInSerie": 71,
+    "piuLunga": {
+     "da": "2012-08-23",
+     "a": "2012-08-29",
+     "osservazioni": 5,
+     "valore": 29.93000030517578
+    },
+    "esempi": [
+     {
+      "da": "2012-08-23",
+      "a": "2012-08-29",
+      "osservazioni": 5,
+      "valore": 29.93000030517578
+     },
+     {
+      "da": "2015-02-18",
+      "a": "2015-02-24",
+      "osservazioni": 5,
+      "valore": 31.6299991607666
+     },
+     {
+      "da": "2009-07-30",
+      "a": "2009-08-04",
+      "osservazioni": 4,
+      "valore": 32.79999923706055
+     },
+     {
+      "da": "2012-04-19",
+      "a": "2012-04-24",
+      "osservazioni": 4,
+      "valore": 29.469999313354492
+     },
+     {
+      "da": "2013-06-07",
+      "a": "2013-06-12",
+      "osservazioni": 4,
+      "valore": 28.770999908447266
+     },
+     {
+      "da": "2014-05-07",
+      "a": "2014-05-12",
+      "osservazioni": 4,
+      "valore": 30.110000610351562
+     },
+     {
+      "da": "2007-01-15",
+      "a": "2007-01-17",
+      "osservazioni": 3,
+      "valore": 32.79999923706055
+     },
+     {
+      "da": "2007-04-04",
+      "a": "2007-04-06",
+      "osservazioni": 3,
+      "valore": 33.125
+     }
+    ],
+    "giorniUgualiAlPrecedente": 162,
+    "quotaUgualiPct": 3.05
+   },
+   "barrePiatteUgualiAlPrecedente": 11,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 283,
+    "oltre5sigmaE2pct": 232,
+    "piccoCheRientra": 110,
+    "inversioni": 0,
+    "erroriDiScala": 2,
+    "esempiPicchi": [
+     {
+      "data": "2008-03-19",
+      "rendPct": 0.92,
+      "sigma": 5.09,
+      "valore": 30.860000610351562,
+      "prima": 30.579999923706055,
+      "dopo": 30.540000915527344,
+      "dataDopo": "2008-03-20"
+     },
+     {
+      "data": "2010-06-21",
+      "rendPct": -1.24,
+      "sigma": 5.38,
+      "valore": 31.729999542236328,
+      "prima": 32.130001068115234,
+      "dopo": 32.08000183105469,
+      "dataDopo": "2010-06-22"
+     },
+     {
+      "data": "2010-11-08",
+      "rendPct": 1.26,
+      "sigma": 5.43,
+      "valore": 30.549999237060547,
+      "prima": 30.170000076293945,
+      "dopo": 30.18000030517578,
+      "dataDopo": "2010-11-09"
+     },
+     {
+      "data": "2011-07-18",
+      "rendPct": -1.88,
+      "sigma": 6.59,
+      "valore": 28.26799964904785,
+      "prima": 28.809999465942383,
+      "dopo": 28.8799991607666,
+      "dataDopo": "2011-07-19"
+     },
+     {
+      "data": "2011-08-18",
+      "rendPct": 2.36,
+      "sigma": 7.71,
+      "valore": 28.860000610351562,
+      "prima": 28.19499969482422,
+      "dopo": 28.274999618530273,
+      "dataDopo": "2011-08-19"
+     },
+     {
+      "data": "2011-08-29",
+      "rendPct": -2.63,
+      "sigma": 8.32,
+      "valore": 28.236000061035156,
+      "prima": 29,
+      "dopo": 29.020000457763672,
+      "dataDopo": "2011-08-30"
+     },
+     {
+      "data": "2011-09-05",
+      "rendPct": -1.81,
+      "sigma": 5.65,
+      "valore": 28.4060001373291,
+      "prima": 28.93000030517578,
+      "dopo": 28.989999771118164,
+      "dataDopo": "2011-09-06"
+     },
+     {
+      "data": "2011-10-05",
+      "rendPct": -3.22,
+      "sigma": 9.93,
+      "valore": 29.54599952697754,
+      "prima": 30.530000686645508,
+      "dopo": 30.6200008392334,
+      "dataDopo": "2011-10-06"
+     },
+     {
+      "data": "2011-10-17",
+      "rendPct": -2.8,
+      "sigma": 8.37,
+      "valore": 29.42099952697754,
+      "prima": 30.270000457763672,
+      "dopo": 30.1200008392334,
+      "dataDopo": "2011-10-18"
+     },
+     {
+      "data": "2011-10-25",
+      "rendPct": -93.84,
+      "sigma": 790.49,
+      "valore": 1.8014999628067017,
+      "prima": 29.253999710083008,
+      "dopo": 30.110000610351562,
+      "dataDopo": "2011-10-26"
+     },
+     {
+      "data": "2011-11-01",
+      "rendPct": -2.03,
+      "sigma": 5.8,
+      "valore": 29.215999603271484,
+      "prima": 29.81999969482422,
+      "dopo": 30.079999923706055,
+      "dataDopo": "2011-11-02"
+     },
+     {
+      "data": "2011-11-02",
+      "rendPct": 2.96,
+      "sigma": 8.27,
+      "valore": 30.079999923706055,
+      "prima": 29.215999603271484,
+      "dopo": 29.375,
+      "dataDopo": "2011-11-03"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [
+     {
+      "data": "2011-10-25",
+      "valore": 1.8014999628067017,
+      "mediana": 30.020000457763672
+     },
+     {
+      "data": "2014-12-31",
+      "valore": 3.6700000762939453,
+      "mediana": 31.625
+     }
+    ],
+    "maggioriMovimenti": [
+     {
+      "data": "2011-10-26",
+      "rendPct": 1571.39,
+      "valore": 30.110000610351562,
+      "prima": 1.8014999628067017
+     },
+     {
+      "data": "2011-10-25",
+      "rendPct": -93.84,
+      "valore": 1.8014999628067017,
+      "prima": 29.253999710083008
+     },
+     {
+      "data": "2015-01-01",
+      "rendPct": 761.72,
+      "valore": 31.625,
+      "prima": 3.6700000762939453
+     },
+     {
+      "data": "2014-12-31",
+      "rendPct": -88.15,
+      "valore": 3.6700000762939453,
+      "prima": 30.95800018310547
+     },
+     {
+      "data": "2025-05-06",
+      "rendPct": -5.03,
+      "valore": 29.15999984741211,
+      "prima": 30.704299926757812
+     },
+     {
+      "data": "2015-10-12",
+      "rendPct": -4.71,
+      "valore": 31.291000366210938,
+      "prima": 32.8380012512207
+     },
+     {
+      "data": "2016-03-04",
+      "rendPct": -4.69,
+      "valore": 31.791000366210938,
+      "prima": 33.356998443603516
+     },
+     {
+      "data": "2012-01-30",
+      "rendPct": -4.61,
+      "valore": 28.951000213623047,
+      "prima": 30.350000381469727
+     }
+    ]
+   }
+  },
+  "MXN=X": {
+   "fuso": "Europe/London",
+   "prima": "2003-12-01",
+   "ultima": "2026-11-05",
+   "osservazioni": 5971,
+   "osservazioniDal2006": 5428,
+   "barreNulle": 13,
+   "barreNulleDal2006": 11,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 709,
+    "suDomenicaOSabato": 701,
+    "totale": 5971
+   },
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5439,
+    "mancanti": 11,
+    "mancantiPct": 0.2,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "altro": 8,
+     "Capodanno": 2,
+     "Natale": 1
+    },
+    "perAnno": {
+     "2007": 2,
+     "2008": 3,
+     "2019": 1,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2007-09-10",
+     "2007-11-26",
+     "2008-04-01",
+     "2008-05-01",
+     "2008-07-01",
+     "2019-05-22",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 12,
+    "quotaUgualiPct": 0.22
+   },
+   "barrePiatteUgualiAlPrecedente": 1,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 49,
+    "oltre5sigmaE2pct": 48,
+    "piccoCheRientra": 6,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-10-22",
+      "rendPct": 4.56,
+      "sigma": 12.29,
+      "valore": 13.81779956817627,
+      "prima": 13.21500015258789,
+      "dopo": 13.274999618530273,
+      "dataDopo": "2008-10-23"
+     },
+     {
+      "data": "2008-10-30",
+      "rendPct": -2.19,
+      "sigma": 5.83,
+      "valore": 12.600000381469727,
+      "prima": 12.881500244140625,
+      "dopo": 12.800000190734863,
+      "dataDopo": "2008-10-31"
+     },
+     {
+      "data": "2008-11-04",
+      "rendPct": -2.59,
+      "sigma": 6.92,
+      "valore": 12.430000305175781,
+      "prima": 12.760499954223633,
+      "dopo": 12.772299766540527,
+      "dataDopo": "2008-11-05"
+     },
+     {
+      "data": "2008-11-06",
+      "rendPct": 2.36,
+      "sigma": 6.1,
+      "valore": 13.074299812316895,
+      "prima": 12.772299766540527,
+      "dopo": 12.845000267028809,
+      "dataDopo": "2008-11-07"
+     },
+     {
+      "data": "2011-08-08",
+      "rendPct": 2.78,
+      "sigma": 5.1,
+      "valore": 12.31980037689209,
+      "prima": 11.986000061035156,
+      "dopo": 12.035200119018555,
+      "dataDopo": "2011-08-09"
+     },
+     {
+      "data": "2020-03-24",
+      "rendPct": 2.38,
+      "sigma": 5.04,
+      "valore": 25.336200714111328,
+      "prima": 24.7462100982666,
+      "dopo": 24.768699645996094,
+      "dataDopo": "2020-03-25"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-09",
+      "rendPct": 9.73,
+      "valore": 13.472000122070312,
+      "prima": 12.277000427246094
+     },
+     {
+      "data": "2016-11-09",
+      "rendPct": 8.65,
+      "valore": 19.88340950012207,
+      "prima": 18.300600051879883
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": 7.29,
+      "valore": 13.3149995803833,
+      "prima": 12.40999984741211
+     },
+     {
+      "data": "2008-10-13",
+      "rendPct": -6.66,
+      "valore": 12.152999877929688,
+      "prima": 13.020000457763672
+     },
+     {
+      "data": "2020-03-09",
+      "rendPct": 6.27,
+      "valore": 21.0575008392334,
+      "prima": 19.81450080871582
+     },
+     {
+      "data": "2008-10-06",
+      "rendPct": 5.75,
+      "valore": 11.838800430297852,
+      "prima": 11.194999694824219
+     },
+     {
+      "data": "2009-04-27",
+      "rendPct": 5.28,
+      "valore": 14.023599624633789,
+      "prima": 13.319999694824219
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 4.56,
+      "valore": 13.81779956817627,
+      "prima": 13.21500015258789
+     }
+    ]
+   }
+  },
+  "ZAR=X": {
+   "fuso": "Europe/London",
+   "prima": "2003-12-01",
+   "ultima": "2026-11-05",
+   "osservazioni": 5964,
+   "osservazioniDal2006": 5421,
+   "barreNulle": 20,
+   "barreNulleDal2006": 18,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 711,
+    "suDomenicaOSabato": 701,
+    "totale": 5964
+   },
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5439,
+    "mancanti": 18,
+    "mancantiPct": 0.33,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "altro": 15,
+     "Capodanno": 2,
+     "Natale": 1
+    },
+    "perAnno": {
+     "2007": 3,
+     "2008": 3,
+     "2011": 1,
+     "2012": 1,
+     "2013": 1,
+     "2014": 1,
+     "2017": 2,
+     "2019": 1,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2011-04-15",
+     "2012-12-04",
+     "2013-10-08",
+     "2014-01-13",
+     "2017-07-11",
+     "2017-11-16",
+     "2019-05-22",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 3,
+    "quotaUgualiPct": 0.06
+   },
+   "barrePiatteUgualiAlPrecedente": 0,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 14,
+    "oltre5sigmaE2pct": 14,
+    "piccoCheRientra": 5,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2020-04-06",
+      "rendPct": 4.2,
+      "sigma": 5.46,
+      "valore": 19.248600006103516,
+      "prima": 18.471900939941406,
+      "dopo": 18.58686065673828,
+      "dataDopo": "2020-04-07"
+     },
+     {
+      "data": "2024-11-15",
+      "rendPct": -18.46,
+      "sigma": 27.8,
+      "valore": 14.860369682312012,
+      "prima": 18.225299835205078,
+      "dopo": 18.166549682617188,
+      "dataDopo": "2024-11-18"
+     },
+     {
+      "data": "2025-01-15",
+      "rendPct": -13.1,
+      "sigma": 19.31,
+      "valore": 16.498899459838867,
+      "prima": 18.98550033569336,
+      "dopo": 18.756999969482422,
+      "dataDopo": "2025-01-16"
+     },
+     {
+      "data": "2025-01-16",
+      "rendPct": 13.69,
+      "sigma": 17.63,
+      "valore": 18.756999969482422,
+      "prima": 16.498899459838867,
+      "dopo": 15.43019962310791,
+      "dataDopo": "2025-01-17"
+     },
+     {
+      "data": "2025-01-17",
+      "rendPct": -17.74,
+      "sigma": 26.74,
+      "valore": 15.43019962310791,
+      "prima": 18.756999969482422,
+      "dopo": 18.731700897216797,
+      "dataDopo": "2025-01-20"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2024-11-15",
+      "rendPct": -18.46,
+      "valore": 14.860369682312012,
+      "prima": 18.225299835205078
+     },
+     {
+      "data": "2024-11-18",
+      "rendPct": 22.25,
+      "valore": 18.166549682617188,
+      "prima": 14.860369682312012
+     },
+     {
+      "data": "2025-01-17",
+      "rendPct": -17.74,
+      "valore": 15.43019962310791,
+      "prima": 18.756999969482422
+     },
+     {
+      "data": "2025-01-20",
+      "rendPct": 21.4,
+      "valore": 18.731700897216797,
+      "prima": 15.43019962310791
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": 16.86,
+      "valore": 10.601300239562988,
+      "prima": 9.071700096130371
+     },
+     {
+      "data": "2025-01-15",
+      "rendPct": -13.1,
+      "valore": 16.498899459838867,
+      "prima": 18.98550033569336
+     },
+     {
+      "data": "2025-01-16",
+      "rendPct": 13.69,
+      "valore": 18.756999969482422,
+      "prima": 16.498899459838867
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 8.11,
+      "valore": 11.469599723815918,
+      "prima": 10.609000205993652
+     }
+    ]
+   }
+  },
+  "HKD=X": {
+   "fuso": "Europe/London",
+   "prima": "2001-07-16",
+   "ultima": "2026-11-05",
+   "osservazioni": 6408,
+   "osservazioniDal2006": 5405,
+   "barreNulle": 196,
+   "barreNulleDal2006": 34,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 756,
+    "suDomenicaOSabato": 746,
+    "totale": 6408
+   },
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5439,
+    "mancanti": 34,
+    "mancantiPct": 0.63,
+    "periodiDiAlmeno3": 1,
+    "periodoPiuLungo": {
+     "da": "2008-08-01",
+     "a": "2008-08-25",
+     "giorni": 17
+    },
+    "periodiLunghi": [
+     {
+      "da": "2008-08-01",
+      "a": "2008-08-25",
+      "giorni": 17
+     }
+    ],
+    "perTipo": {
+     "altro": 31,
+     "Capodanno": 2,
+     "Natale": 1
+    },
+    "perAnno": {
+     "2007": 3,
+     "2008": 20,
+     "2011": 1,
+     "2012": 1,
+     "2013": 1,
+     "2017": 2,
+     "2019": 1,
+     "2025": 4,
+     "2026": 1
+    },
+    "esempiMancanti": [
+     "2008-08-25",
+     "2011-04-15",
+     "2012-12-04",
+     "2013-10-08",
+     "2017-07-11",
+     "2017-11-16",
+     "2019-05-22",
+     "2025-01-01",
+     "2025-04-18",
+     "2025-04-21",
+     "2025-12-25",
+     "2026-01-01"
+    ]
+   },
+   "ricopiati": {
+    "serie": 7,
+    "osservazioniInSerie": 21,
+    "piuLunga": {
+     "da": "2009-09-01",
+     "a": "2009-09-03",
+     "osservazioni": 3,
+     "valore": 7.750500202178955
+    },
+    "esempi": [
+     {
+      "da": "2009-09-01",
+      "a": "2009-09-03",
+      "osservazioni": 3,
+      "valore": 7.750500202178955
+     },
+     {
+      "da": "2009-10-20",
+      "a": "2009-10-22",
+      "osservazioni": 3,
+      "valore": 7.749800205230713
+     },
+     {
+      "da": "2012-11-01",
+      "a": "2012-11-05",
+      "osservazioni": 3,
+      "valore": 7.749899864196777
+     },
+     {
+      "da": "2013-02-19",
+      "a": "2013-02-21",
+      "osservazioni": 3,
+      "valore": 7.754300117492676
+     },
+     {
+      "da": "2018-04-16",
+      "a": "2018-04-18",
+      "osservazioni": 3,
+      "valore": 7.849699974060059
+     },
+     {
+      "da": "2020-09-22",
+      "a": "2020-09-24",
+      "osservazioni": 3,
+      "valore": 7.749899864196777
+     },
+     {
+      "da": "2022-10-26",
+      "a": "2022-10-28",
+      "osservazioni": 3,
+      "valore": 7.849299907684326
+     }
+    ],
+    "giorniUgualiAlPrecedente": 112,
+    "quotaUgualiPct": 2.07
+   },
+   "barrePiatteUgualiAlPrecedente": 2,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 219,
+    "oltre5sigmaE2pct": 0,
+    "piccoCheRientra": 46,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2006-01-13",
+      "rendPct": -0.2,
+      "sigma": 7.24,
+      "valore": 7.735499858856201,
+      "prima": 7.750999927520752,
+      "dopo": 7.752999782562256,
+      "dataDopo": "2006-01-16"
+     },
+     {
+      "data": "2006-02-10",
+      "rendPct": 1.29,
+      "sigma": 47.92,
+      "valore": 7.861299991607666,
+      "prima": 7.761300086975098,
+      "dopo": 7.7600998878479,
+      "dataDopo": "2006-02-13"
+     },
+     {
+      "data": "2006-03-10",
+      "rendPct": -0.22,
+      "sigma": 7.61,
+      "valore": 7.743899822235107,
+      "prima": 7.760799884796143,
+      "dopo": 7.757599830627441,
+      "dataDopo": "2006-03-13"
+     },
+     {
+      "data": "2006-05-19",
+      "rendPct": -0.14,
+      "sigma": 5.41,
+      "valore": 7.7428998947143555,
+      "prima": 7.7540998458862305,
+      "dopo": 7.754000186920166,
+      "dataDopo": "2006-05-22"
+     },
+     {
+      "data": "2006-06-16",
+      "rendPct": -0.16,
+      "sigma": 5.93,
+      "valore": 7.749100208282471,
+      "prima": 7.76140022277832,
+      "dopo": 7.765600204467773,
+      "dataDopo": "2006-06-19"
+     },
+     {
+      "data": "2006-09-29",
+      "rendPct": 0.2,
+      "sigma": 8.16,
+      "valore": 7.803599834442139,
+      "prima": 7.788400173187256,
+      "dopo": 7.789299964904785,
+      "dataDopo": "2006-10-02"
+     },
+     {
+      "data": "2007-04-06",
+      "rendPct": -0.15,
+      "sigma": 5.1,
+      "valore": 7.803199768066406,
+      "prima": 7.815000057220459,
+      "dopo": 7.816100120544434,
+      "dataDopo": "2007-04-09"
+     },
+     {
+      "data": "2007-11-30",
+      "rendPct": -0.42,
+      "sigma": 10.34,
+      "valore": 7.75439977645874,
+      "prima": 7.787199974060059,
+      "dopo": 7.787899971008301,
+      "dataDopo": "2007-12-03"
+     },
+     {
+      "data": "2008-03-14",
+      "rendPct": -1.26,
+      "sigma": 27.38,
+      "valore": 7.684899806976318,
+      "prima": 7.783199787139893,
+      "dopo": 7.763199806213379,
+      "dataDopo": "2008-03-17"
+     },
+     {
+      "data": "2008-03-21",
+      "rendPct": -1.72,
+      "sigma": 36.56,
+      "valore": 7.643099784851074,
+      "prima": 7.776700019836426,
+      "dopo": 7.779200077056885,
+      "dataDopo": "2008-03-24"
+     },
+     {
+      "data": "2008-03-28",
+      "rendPct": 0.27,
+      "sigma": 5.8,
+      "valore": 7.80049991607666,
+      "prima": 7.7795000076293945,
+      "dopo": 7.781799793243408,
+      "dataDopo": "2008-03-31"
+     },
+     {
+      "data": "2008-04-18",
+      "rendPct": 0.57,
+      "sigma": 12.2,
+      "valore": 7.83519983291626,
+      "prima": 7.790900230407715,
+      "dopo": 7.793000221252441,
+      "dataDopo": "2008-04-21"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-03-24",
+      "rendPct": 1.78,
+      "valore": 7.779200077056885,
+      "prima": 7.643099784851074
+     },
+     {
+      "data": "2008-03-21",
+      "rendPct": -1.72,
+      "valore": 7.643099784851074,
+      "prima": 7.776700019836426
+     },
+     {
+      "data": "2006-02-13",
+      "rendPct": -1.29,
+      "valore": 7.7600998878479,
+      "prima": 7.861299991607666
+     },
+     {
+      "data": "2006-02-10",
+      "rendPct": 1.29,
+      "valore": 7.861299991607666,
+      "prima": 7.761300086975098
+     },
+     {
+      "data": "2008-03-14",
+      "rendPct": -1.26,
+      "valore": 7.684899806976318,
+      "prima": 7.783199787139893
+     },
+     {
+      "data": "2008-03-17",
+      "rendPct": 1.02,
+      "valore": 7.763199806213379,
+      "prima": 7.684899806976318
+     },
+     {
+      "data": "2009-02-20",
+      "rendPct": -0.82,
+      "valore": 7.690700054168701,
+      "prima": 7.75439977645874
+     },
+     {
+      "data": "2009-02-23",
+      "rendPct": 0.81,
+      "valore": 7.752900123596191,
+      "prima": 7.690700054168701
+     }
+    ]
+   }
+  },
+  "DX-Y.NYB": {
+   "fuso": "America/New_York",
+   "prima": "1971-01-04",
+   "ultima": "2026-11-05",
+   "osservazioni": 14180,
+   "osservazioniDal2006": 5247,
+   "barreNulle": 3125,
+   "barreNulleDal2006": 1103,
+   "barreDuplicate": 0,
+   "barreSulFineSettimana": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 1738,
+    "suDomenicaOSabato": 1604,
+    "totale": 14180
+   },
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-11-05",
+    "giorniDiRiferimento": 5438,
+    "mancanti": 191,
+    "mancantiPct": 3.51,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "altro": 158,
+     "Natale": 15,
+     "Capodanno": 15,
+     "Santo Stefano": 3
+    },
+    "perAnno": {
+     "2006": 7,
+     "2007": 9,
+     "2008": 9,
+     "2009": 9,
+     "2010": 9,
+     "2011": 8,
+     "2012": 11,
+     "2013": 9,
+     "2014": 9,
+     "2015": 9,
+     "2016": 10,
+     "2017": 9,
+     "2018": 10,
+     "2019": 9,
+     "2020": 9,
+     "2021": 9,
+     "2022": 9,
+     "2023": 10,
+     "2024": 10,
+     "2025": 9,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-07-04",
+     "2025-09-01",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-04-03",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07"
+    ]
+   },
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 63,
+    "quotaUgualiPct": 1.2
+   },
+   "barrePiatteUgualiAlPrecedente": 0,
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 12,
+    "oltre5sigmaE2pct": 1,
+    "piccoCheRientra": 1,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2014-10-03",
+      "rendPct": 1.27,
+      "sigma": 5.73,
+      "valore": 86.69000244140625,
+      "prima": 85.5999984741211,
+      "dopo": 85.70999908447266,
+      "dataDopo": "2014-10-06"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2009-03-18",
+      "rendPct": -2.68,
+      "valore": 84.5999984741211,
+      "prima": 86.93000030517578
+     },
+     {
+      "data": "2008-09-30",
+      "rendPct": 2.56,
+      "valore": 79.44999694824219,
+      "prima": 77.47000122070312
+     },
+     {
+      "data": "2008-11-24",
+      "rendPct": -2.39,
+      "valore": 86.08000183105469,
+      "prima": 88.19000244140625
+     },
+     {
+      "data": "2015-12-03",
+      "rendPct": -2.37,
+      "valore": 97.62000274658203,
+      "prima": 99.98999786376953
+     },
+     {
+      "data": "2009-01-20",
+      "rendPct": 2.39,
+      "valore": 86.22000122070312,
+      "prima": 84.20999908447266
+     },
+     {
+      "data": "2008-10-29",
+      "rendPct": -2.25,
+      "valore": 85.06999969482422,
+      "prima": 87.02999877929688
+     },
+     {
+      "data": "2008-12-19",
+      "rendPct": 2.3,
+      "valore": 81.30000305175781,
+      "prima": 79.47000122070312
+     },
+     {
+      "data": "2008-10-10",
+      "rendPct": 2.27,
+      "valore": 83,
+      "prima": 81.16000366210938
+     }
+    ]
+   },
+   "rispettoNyse": {
+    "mancantiInSeduteNyse": 2,
+    "presentiFuoriSeduteNyse": 6
+   }
+  },
+  "EEM": {
+   "fuso": "America/New_York",
+   "prima": "2003-04-14",
+   "ultima": "2026-11-04",
+   "osservazioni": 5929,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 5929
+   },
+   "buchiRispettoNyse": {
+    "da": "2006-01-03",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 5243,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 36,
+    "quotaUgualiPct": 0.69
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 32,
+    "oltre5sigmaE2pct": 32,
+    "piccoCheRientra": 5,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-11-13",
+      "rendPct": 13.85,
+      "sigma": 5.76,
+      "valore": 24.579999923706055,
+      "prima": 21.59000015258789,
+      "dopo": 22.219999313354492,
+      "dataDopo": "2008-11-14"
+     },
+     {
+      "data": "2020-03-09",
+      "rendPct": -6.83,
+      "sigma": 7.73,
+      "valore": 37.38999938964844,
+      "prima": 40.130001068115234,
+      "dopo": 39.290000915527344,
+      "dataDopo": "2020-03-10"
+     },
+     {
+      "data": "2020-03-10",
+      "rendPct": 5.08,
+      "sigma": 5.4,
+      "valore": 39.290000915527344,
+      "prima": 37.38999938964844,
+      "dopo": 37.459999084472656,
+      "dataDopo": "2020-03-11"
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 7.21,
+      "sigma": 7.4,
+      "valore": 36.13999938964844,
+      "prima": 33.709999084472656,
+      "dopo": 31.6299991607666,
+      "dataDopo": "2020-03-16"
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 6.89,
+      "sigma": 7.04,
+      "valore": 33.810001373291016,
+      "prima": 31.6299991607666,
+      "dopo": 30.889999389648438,
+      "dataDopo": "2020-03-18"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-13",
+      "rendPct": 22.77,
+      "valore": 30.139999389648438,
+      "prima": 24.549999237060547
+     },
+     {
+      "data": "2008-10-28",
+      "rendPct": 20.93,
+      "valore": 23.34000015258789,
+      "prima": 19.299999237060547
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": -16.17,
+      "valore": 24.010000228881836,
+      "prima": 28.639999389648438
+     },
+     {
+      "data": "2008-11-05",
+      "rendPct": -12.73,
+      "valore": 24,
+      "prima": 27.5
+     },
+     {
+      "data": "2008-11-21",
+      "rendPct": 14.4,
+      "valore": 20.889999389648438,
+      "prima": 18.260000228881836
+     },
+     {
+      "data": "2020-03-16",
+      "rendPct": -12.48,
+      "valore": 31.6299991607666,
+      "prima": 36.13999938964844
+     },
+     {
+      "data": "2008-11-13",
+      "rendPct": 13.85,
+      "valore": 24.579999923706055,
+      "prima": 21.59000015258789
+     },
+     {
+      "data": "2008-10-30",
+      "rendPct": 13.5,
+      "valore": 25.649999618530273,
+      "prima": 22.600000381469727
+     }
+    ]
+   }
+  },
+  "MCHI": {
+   "fuso": "America/New_York",
+   "prima": "2011-03-31",
+   "ultima": "2026-11-04",
+   "osservazioni": 3923,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 3923
+   },
+   "buchiRispettoNyse": {
+    "da": "2011-03-31",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 3923,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 2,
+    "osservazioniInSerie": 6,
+    "piuLunga": {
+     "da": "2011-08-16",
+     "a": "2011-08-18",
+     "osservazioni": 3,
+     "valore": 44.400001525878906
+    },
+    "esempi": [
+     {
+      "da": "2011-08-16",
+      "a": "2011-08-18",
+      "osservazioni": 3,
+      "valore": 44.400001525878906
+     },
+     {
+      "da": "2011-09-06",
+      "a": "2011-09-08",
+      "osservazioni": 3,
+      "valore": 42.75
+     }
+    ],
+    "giorniUgualiAlPrecedente": 29,
+    "quotaUgualiPct": 0.74
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 19,
+    "oltre5sigmaE2pct": 19,
+    "piccoCheRientra": 1,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2015-07-08",
+      "rendPct": -6.66,
+      "sigma": 5.78,
+      "valore": 47.34000015258789,
+      "prima": 50.720001220703125,
+      "dopo": 49.720001220703125,
+      "dataDopo": "2015-07-09"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2022-03-16",
+      "rendPct": 20.94,
+      "valore": 54.70000076293945,
+      "prima": 45.22999954223633
+     },
+     {
+      "data": "2024-10-08",
+      "rendPct": -10.81,
+      "valore": 53.220001220703125,
+      "prima": 59.66999816894531
+     },
+     {
+      "data": "2020-03-16",
+      "rendPct": -9.77,
+      "valore": 52.56999969482422,
+      "prima": 58.2599983215332
+     },
+     {
+      "data": "2022-10-24",
+      "rendPct": -9.65,
+      "valore": 36.04999923706055,
+      "prima": 39.900001525878906
+     },
+     {
+      "data": "2011-10-24",
+      "rendPct": 9.38,
+      "valore": 40.81999969482422,
+      "prima": 37.31999969482422
+     },
+     {
+      "data": "2024-09-24",
+      "rendPct": 8.96,
+      "valore": 47.15999984741211,
+      "prima": 43.279998779296875
+     },
+     {
+      "data": "2011-09-22",
+      "rendPct": -8.21,
+      "valore": 36.33000183105469,
+      "prima": 39.58000183105469
+     },
+     {
+      "data": "2024-09-26",
+      "rendPct": 8.72,
+      "valore": 50.099998474121094,
+      "prima": 46.08000183105469
+     }
+    ]
+   }
+  },
+  "INDA": {
+   "fuso": "America/New_York",
+   "prima": "2012-02-03",
+   "ultima": "2026-11-04",
+   "osservazioni": 3710,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 3710
+   },
+   "buchiRispettoNyse": {
+    "da": "2012-02-03",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 3710,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 3,
+    "osservazioniInSerie": 9,
+    "piuLunga": {
+     "da": "2012-07-25",
+     "a": "2012-07-27",
+     "osservazioni": 3,
+     "valore": 21.520000457763672
+    },
+    "esempi": [
+     {
+      "da": "2012-07-25",
+      "a": "2012-07-27",
+      "osservazioni": 3,
+      "valore": 21.520000457763672
+     },
+     {
+      "da": "2012-09-07",
+      "a": "2012-09-11",
+      "osservazioni": 3,
+      "valore": 22.969999313354492
+     },
+     {
+      "da": "2012-09-20",
+      "a": "2012-09-24",
+      "osservazioni": 3,
+      "valore": 24.420000076293945
+     }
+    ],
+    "giorniUgualiAlPrecedente": 64,
+    "quotaUgualiPct": 1.73
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 21,
+    "oltre5sigmaE2pct": 21,
+    "piccoCheRientra": 5,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2020-03-12",
+      "rendPct": -12.29,
+      "sigma": 13.5,
+      "valore": 25.110000610351562,
+      "prima": 28.6299991607666,
+      "dopo": 28.309999465942383,
+      "dataDopo": "2020-03-13"
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 12.74,
+      "sigma": 12.32,
+      "valore": 28.309999465942383,
+      "prima": 25.110000610351562,
+      "dopo": 23.940000534057617,
+      "dataDopo": "2020-03-16"
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 9.98,
+      "sigma": 9.72,
+      "valore": 26.329999923706055,
+      "prima": 23.940000534057617,
+      "dopo": 23.350000381469727,
+      "dataDopo": "2020-03-18"
+     },
+     {
+      "data": "2020-03-26",
+      "rendPct": 8.55,
+      "sigma": 8.2,
+      "valore": 25.270000457763672,
+      "prima": 23.280000686645508,
+      "dopo": 23.739999771118164,
+      "dataDopo": "2020-03-27"
+     },
+     {
+      "data": "2024-06-03",
+      "rendPct": 3.38,
+      "sigma": 5.05,
+      "valore": 54.79999923706055,
+      "prima": 53.0099983215332,
+      "dopo": 51.459999084472656,
+      "dataDopo": "2024-06-04"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2020-03-16",
+      "rendPct": -15.44,
+      "valore": 23.940000534057617,
+      "prima": 28.309999465942383
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": -12.29,
+      "valore": 25.110000610351562,
+      "prima": 28.6299991607666
+     },
+     {
+      "data": "2020-03-18",
+      "rendPct": -11.32,
+      "valore": 23.350000381469727,
+      "prima": 26.329999923706055
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 12.74,
+      "valore": 28.309999465942383,
+      "prima": 25.110000610351562
+     },
+     {
+      "data": "2020-03-23",
+      "rendPct": -11.14,
+      "valore": 20.5,
+      "prima": 23.06999969482422
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 9.98,
+      "valore": 26.329999923706055,
+      "prima": 23.940000534057617
+     },
+     {
+      "data": "2020-03-26",
+      "rendPct": 8.55,
+      "valore": 25.270000457763672,
+      "prima": 23.280000686645508
+     },
+     {
+      "data": "2020-06-11",
+      "rendPct": -7.75,
+      "valore": 26.770000457763672,
+      "prima": 29.020000457763672
+     }
+    ]
+   }
+  },
+  "EWZ": {
+   "fuso": "America/New_York",
+   "prima": "2000-07-14",
+   "ultima": "2026-11-04",
+   "osservazioni": 6617,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 6617
+   },
+   "buchiRispettoNyse": {
+    "da": "2006-01-03",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 5243,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 29,
+    "quotaUgualiPct": 0.55
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 23,
+    "oltre5sigmaE2pct": 23,
+    "piccoCheRientra": 4,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2020-03-10",
+      "rendPct": 10.14,
+      "sigma": 6.12,
+      "valore": 32.810001373291016,
+      "prima": 29.790000915527344,
+      "dopo": 29.68000030517578,
+      "dataDopo": "2020-03-11"
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": -16.64,
+      "sigma": 11.42,
+      "valore": 24.739999771118164,
+      "prima": 29.68000030517578,
+      "dopo": 29.100000381469727,
+      "dataDopo": "2020-03-13"
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 17.62,
+      "sigma": 9.95,
+      "valore": 29.100000381469727,
+      "prima": 24.739999771118164,
+      "dopo": 22.3799991607666,
+      "dataDopo": "2020-03-16"
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 13.05,
+      "sigma": 7.46,
+      "valore": 25.299999237060547,
+      "prima": 22.3799991607666,
+      "dopo": 21.389999389648438,
+      "dataDopo": "2020-03-18"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2020-03-16",
+      "rendPct": -23.09,
+      "valore": 22.3799991607666,
+      "prima": 29.100000381469727
+     },
+     {
+      "data": "2008-10-13",
+      "rendPct": 25.58,
+      "valore": 43.25,
+      "prima": 34.439998626708984
+     },
+     {
+      "data": "2026-10-26",
+      "rendPct": -19.82,
+      "valore": 34.150001525878906,
+      "prima": 42.59000015258789
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": -19.63,
+      "valore": 34.970001220703125,
+      "prima": 43.5099983215332
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": -16.64,
+      "valore": 24.739999771118164,
+      "prima": 29.68000030517578
+     },
+     {
+      "data": "2017-05-18",
+      "rendPct": -16.33,
+      "valore": 32.75,
+      "prima": 39.13999938964844
+     },
+     {
+      "data": "2020-03-18",
+      "rendPct": -15.45,
+      "valore": 21.389999389648438,
+      "prima": 25.299999237060547
+     },
+     {
+      "data": "2008-09-29",
+      "rendPct": -15.41,
+      "valore": 50.9900016784668,
+      "prima": 60.279998779296875
+     }
+    ]
+   }
+  },
+  "EWY": {
+   "fuso": "America/New_York",
+   "prima": "2000-05-12",
+   "ultima": "2026-11-04",
+   "osservazioni": 6660,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 6660
+   },
+   "buchiRispettoNyse": {
+    "da": "2006-01-03",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 5243,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 34,
+    "quotaUgualiPct": 0.65
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 26,
+    "oltre5sigmaE2pct": 26,
+    "piccoCheRientra": 4,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-11-06",
+      "rendPct": -11.51,
+      "sigma": 5.19,
+      "valore": 25.3799991607666,
+      "prima": 28.68000030517578,
+      "dopo": 28.34000015258789,
+      "dataDopo": "2008-11-07"
+     },
+     {
+      "data": "2011-08-10",
+      "rendPct": -6.47,
+      "sigma": 5.32,
+      "valore": 51.439998626708984,
+      "prima": 55,
+      "dopo": 55.029998779296875,
+      "dataDopo": "2011-08-11"
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 6.58,
+      "sigma": 5.13,
+      "valore": 49.72999954223633,
+      "prima": 46.65999984741211,
+      "dopo": 41.869998931884766,
+      "dataDopo": "2020-03-16"
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 7.21,
+      "sigma": 5.55,
+      "valore": 44.88999938964844,
+      "prima": 41.869998931884766,
+      "dopo": 40.66999816894531,
+      "dataDopo": "2020-03-18"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-13",
+      "rendPct": 22.42,
+      "valore": 36.79999923706055,
+      "prima": 30.059999465942383
+     },
+     {
+      "data": "2008-10-30",
+      "rendPct": 22.07,
+      "valore": 29.920000076293945,
+      "prima": 24.510000228881836
+     },
+     {
+      "data": "2008-10-28",
+      "rendPct": 20.82,
+      "valore": 25.239999771118164,
+      "prima": 20.889999389648438
+     },
+     {
+      "data": "2008-11-21",
+      "rendPct": 18.79,
+      "valore": 22.56999969482422,
+      "prima": 19
+     },
+     {
+      "data": "2020-03-16",
+      "rendPct": -15.81,
+      "valore": 41.869998931884766,
+      "prima": 49.72999954223633
+     },
+     {
+      "data": "2026-06-05",
+      "rendPct": -14.11,
+      "valore": 175.19000244140625,
+      "prima": 203.97000122070312
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": -13.82,
+      "valore": 31.110000610351562,
+      "prima": 36.099998474121094
+     },
+     {
+      "data": "2026-06-23",
+      "rendPct": -12.25,
+      "valore": 192.1999969482422,
+      "prima": 219.02000427246094
+     }
+    ]
+   }
+  },
+  "EWT": {
+   "fuso": "America/New_York",
+   "prima": "2000-06-23",
+   "ultima": "2026-11-04",
+   "osservazioni": 6631,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 6631
+   },
+   "buchiRispettoNyse": {
+    "da": "2006-01-03",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 5243,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 1,
+    "osservazioniInSerie": 3,
+    "piuLunga": {
+     "da": "2016-04-21",
+     "a": "2016-04-25",
+     "osservazioni": 3,
+     "valore": 26.760000228881836
+    },
+    "esempi": [
+     {
+      "da": "2016-04-21",
+      "a": "2016-04-25",
+      "osservazioni": 3,
+      "valore": 26.760000228881836
+     }
+    ],
+    "giorniUgualiAlPrecedente": 87,
+    "quotaUgualiPct": 1.66
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 21,
+    "oltre5sigmaE2pct": 21,
+    "piccoCheRientra": 2,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2011-08-08",
+      "rendPct": -6.36,
+      "sigma": 6.31,
+      "valore": 25.6200008392334,
+      "prima": 27.360000610351562,
+      "dopo": 27.059999465942383,
+      "dataDopo": "2011-08-09"
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 5.27,
+      "sigma": 6.04,
+      "valore": 34.939998626708984,
+      "prima": 33.189998626708984,
+      "dopo": 31.139999389648438,
+      "dataDopo": "2020-03-16"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2022-12-13",
+      "rendPct": -15.63,
+      "valore": 41.939998626708984,
+      "prima": 49.709999084472656
+     },
+     {
+      "data": "2023-12-20",
+      "rendPct": -12.4,
+      "valore": 43.43000030517578,
+      "prima": 49.58000183105469
+     },
+     {
+      "data": "2008-11-21",
+      "rendPct": 14.16,
+      "valore": 15,
+      "prima": 13.140000343322754
+     },
+     {
+      "data": "2008-10-13",
+      "rendPct": 13.1,
+      "valore": 19.860000610351562,
+      "prima": 17.559999465942383
+     },
+     {
+      "data": "2008-10-28",
+      "rendPct": 12.91,
+      "valore": 16.440000534057617,
+      "prima": 14.5600004196167
+     },
+     {
+      "data": "2009-04-29",
+      "rendPct": 12.24,
+      "valore": 19.6200008392334,
+      "prima": 17.479999542236328
+     },
+     {
+      "data": "2020-03-16",
+      "rendPct": -10.88,
+      "valore": 31.139999389648438,
+      "prima": 34.939998626708984
+     },
+     {
+      "data": "2008-12-23",
+      "rendPct": -10.34,
+      "valore": 14.220000267028809,
+      "prima": 15.859999656677246
+     }
+    ]
+   }
+  },
+  "EWW": {
+   "fuso": "America/New_York",
+   "prima": "1996-03-18",
+   "ultima": "2026-11-04",
+   "osservazioni": 7709,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 7709
+   },
+   "buchiRispettoNyse": {
+    "da": "2006-01-03",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 5243,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 27,
+    "quotaUgualiPct": 0.51
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 30,
+    "oltre5sigmaE2pct": 30,
+    "piccoCheRientra": 4,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2011-08-09",
+      "rendPct": 5.79,
+      "sigma": 5.82,
+      "valore": 54.790000915527344,
+      "prima": 51.790000915527344,
+      "dopo": 52.150001525878906,
+      "dataDopo": "2011-08-10"
+     },
+     {
+      "data": "2011-08-10",
+      "rendPct": -4.82,
+      "sigma": 5.09,
+      "valore": 52.150001525878906,
+      "prima": 54.790000915527344,
+      "dopo": 54.84000015258789,
+      "dataDopo": "2011-08-11"
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 7.8,
+      "sigma": 6.12,
+      "valore": 31.389999389648438,
+      "prima": 29.1200008392334,
+      "dopo": 28.75,
+      "dataDopo": "2020-03-18"
+     },
+     {
+      "data": "2020-03-23",
+      "rendPct": -7.1,
+      "sigma": 6.08,
+      "valore": 25.1200008392334,
+      "prima": 27.040000915527344,
+      "dopo": 26.709999084472656,
+      "dataDopo": "2020-03-24"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-13",
+      "rendPct": 21.49,
+      "valore": 36.86000061035156,
+      "prima": 30.34000015258789
+     },
+     {
+      "data": "2020-03-16",
+      "rendPct": -15.25,
+      "valore": 29.1200008392334,
+      "prima": 34.36000061035156
+     },
+     {
+      "data": "2008-10-28",
+      "rendPct": 15.26,
+      "valore": 28.469999313354492,
+      "prima": 24.700000762939453
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": -10.99,
+      "valore": 27.709999084472656,
+      "prima": 31.1299991607666
+     },
+     {
+      "data": "2020-03-09",
+      "rendPct": -10.92,
+      "valore": 36.150001525878906,
+      "prima": 40.58000183105469
+     },
+     {
+      "data": "2024-06-03",
+      "rendPct": -10.74,
+      "valore": 57.93000030517578,
+      "prima": 64.9000015258789
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": -10.12,
+      "valore": 32.58000183105469,
+      "prima": 36.25
+     },
+     {
+      "data": "2008-10-06",
+      "rendPct": -9.07,
+      "valore": 37.61000061035156,
+      "prima": 41.36000061035156
+     }
+    ]
+   }
+  },
+  "EZA": {
+   "fuso": "America/New_York",
+   "prima": "2003-02-07",
+   "ultima": "2026-11-04",
+   "osservazioni": 5974,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 5974
+   },
+   "buchiRispettoNyse": {
+    "da": "2006-01-03",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 5243,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 18,
+    "quotaUgualiPct": 0.34
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 26,
+    "oltre5sigmaE2pct": 26,
+    "piccoCheRientra": 3,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-09-29",
+      "rendPct": -11.87,
+      "sigma": 5.78,
+      "valore": 43.04999923706055,
+      "prima": 48.849998474121094,
+      "dopo": 49.060001373291016,
+      "dataDopo": "2008-09-30"
+     },
+     {
+      "data": "2020-03-10",
+      "rendPct": 7.36,
+      "sigma": 5.18,
+      "valore": 38.63999938964844,
+      "prima": 35.9900016784668,
+      "dopo": 36.43000030517578,
+      "dataDopo": "2020-03-11"
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 8.12,
+      "sigma": 5.65,
+      "valore": 33.54999923706055,
+      "prima": 31.030000686645508,
+      "dopo": 29.170000076293945,
+      "dataDopo": "2020-03-16"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-15",
+      "rendPct": -20.08,
+      "valore": 31.200000762939453,
+      "prima": 39.040000915527344
+     },
+     {
+      "data": "2008-10-28",
+      "rendPct": 22.92,
+      "valore": 31.799999237060547,
+      "prima": 25.8700008392334
+     },
+     {
+      "data": "2008-11-21",
+      "rendPct": 18.84,
+      "valore": 30.90999984741211,
+      "prima": 26.010000228881836
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": -14.82,
+      "valore": 31.030000686645508,
+      "prima": 36.43000030517578
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": -14.3,
+      "valore": 26.239999771118164,
+      "prima": 30.6200008392334
+     },
+     {
+      "data": "2020-03-18",
+      "rendPct": -13.78,
+      "valore": 26.399999618530273,
+      "prima": 30.6200008392334
+     },
+     {
+      "data": "2020-03-16",
+      "rendPct": -13.06,
+      "valore": 29.170000076293945,
+      "prima": 33.54999923706055
+     },
+     {
+      "data": "2008-11-13",
+      "rendPct": 14.51,
+      "valore": 33.380001068115234,
+      "prima": 29.149999618530273
+     }
+    ]
+   }
+  },
+  "ACWI": {
+   "fuso": "America/New_York",
+   "prima": "2008-03-28",
+   "ultima": "2026-11-04",
+   "osservazioni": 4682,
+   "barreNulle": 0,
+   "barreNulleDal2006": 0,
+   "esempiBarreNulle": [],
+   "barreDuplicate": 0,
+   "dataConMetodoPipeline": {
+    "barreConDataDiversa": 0,
+    "suDomenicaOSabato": 0,
+    "totale": 4682
+   },
+   "buchiRispettoNyse": {
+    "da": "2008-03-28",
+    "a": "2026-11-04",
+    "giorniDiRiferimento": 4682,
+    "mancanti": 0,
+    "mancantiPct": 0,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perAnno": {},
+    "esempiMancanti": []
+   },
+   "giorniFuoriCalendario": 0,
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 31,
+    "quotaUgualiPct": 0.66
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 43,
+    "oltre5sigmaE2pct": 43,
+    "piccoCheRientra": 7,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2011-08-08",
+      "rendPct": -6.92,
+      "sigma": 8.6,
+      "valore": 40.380001068115234,
+      "prima": 43.380001068115234,
+      "dopo": 42.4900016784668,
+      "dataDopo": "2011-08-09"
+     },
+     {
+      "data": "2011-08-09",
+      "rendPct": 5.23,
+      "sigma": 6.11,
+      "valore": 42.4900016784668,
+      "prima": 40.380001068115234,
+      "dopo": 40.5099983215332,
+      "dataDopo": "2011-08-10"
+     },
+     {
+      "data": "2011-08-10",
+      "rendPct": -4.66,
+      "sigma": 5.57,
+      "valore": 40.5099983215332,
+      "prima": 42.4900016784668,
+      "dopo": 42.349998474121094,
+      "dataDopo": "2011-08-11"
+     },
+     {
+      "data": "2020-03-04",
+      "rendPct": 4.1,
+      "sigma": 6.05,
+      "valore": 75.86000061035156,
+      "prima": 72.87000274658203,
+      "dopo": 73.54000091552734,
+      "dataDopo": "2020-03-05"
+     },
+     {
+      "data": "2020-03-10",
+      "rendPct": 4.6,
+      "sigma": 6.62,
+      "valore": 69.86000061035156,
+      "prima": 66.79000091552734,
+      "dopo": 66.25,
+      "dataDopo": "2020-03-11"
+     },
+     {
+      "data": "2020-03-13",
+      "rendPct": 7.16,
+      "sigma": 10.1,
+      "valore": 64.0199966430664,
+      "prima": 59.7400016784668,
+      "dopo": 56.84000015258789,
+      "dataDopo": "2020-03-16"
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 6.25,
+      "sigma": 8.83,
+      "valore": 60.38999938964844,
+      "prima": 56.84000015258789,
+      "dopo": 56.7599983215332,
+      "dataDopo": "2020-03-18"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2020-03-16",
+      "rendPct": -11.22,
+      "valore": 56.84000015258789,
+      "prima": 64.0199966430664
+     },
+     {
+      "data": "2008-10-13",
+      "rendPct": 12.41,
+      "valore": 35.68000030517578,
+      "prima": 31.739999771118164
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": -9.83,
+      "valore": 59.7400016784668,
+      "prima": 66.25
+     },
+     {
+      "data": "2008-10-28",
+      "rendPct": 10.68,
+      "valore": 31.200000762939453,
+      "prima": 28.190000534057617
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": -9.53,
+      "valore": 32.06999969482422,
+      "prima": 35.45000076293945
+     },
+     {
+      "data": "2008-09-29",
+      "rendPct": -9.35,
+      "valore": 39.83000183105469,
+      "prima": 43.939998626708984
+     },
+     {
+      "data": "2008-12-01",
+      "rendPct": -8.46,
+      "valore": 28.139999389648438,
+      "prima": 30.739999771118164
+     },
+     {
+      "data": "2025-04-09",
+      "rendPct": 8.79,
+      "valore": 112.69999694824219,
+      "prima": 103.58999633789062
+     }
+    ]
+   }
+  }
+ },
+ "fred": {
+  "DEXCHUS": {
+   "prima": "1981-01-02",
+   "ultima": "2026-10-30",
+   "osservazioni": 11440,
+   "osservazioniDal2006": 5219,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 95.81,
+    "quotaIntervalli7giorni": 0.02,
+    "primaDataGiornaliera": "1981-01-05"
+   },
+   "righeVuoteDal2006": 216,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 20,
+    "Columbus Day": 20,
+    "Thanksgiving": 19,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 8,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 8,
+   "festiveConValore": 10,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-22",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 215,
+    "mancantiPct": 3.96,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 207,
+     "altro": 8
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 7,
+     "2008": 10,
+     "2009": 9,
+     "2010": 11,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 62,
+    "osservazioniInSerie": 273,
+    "piuLunga": {
+     "da": "2013-02-07",
+     "a": "2013-02-15",
+     "osservazioni": 7,
+     "valore": 6.2323
+    },
+    "esempi": [
+     {
+      "da": "2013-02-07",
+      "a": "2013-02-15",
+      "osservazioni": 7,
+      "valore": 6.2323
+     },
+     {
+      "da": "2006-09-29",
+      "a": "2006-10-06",
+      "osservazioni": 6,
+      "valore": 7.904
+     },
+     {
+      "da": "2009-01-23",
+      "a": "2009-01-30",
+      "osservazioni": 6,
+      "valore": 6.8392
+     },
+     {
+      "da": "2009-10-01",
+      "a": "2009-10-08",
+      "osservazioni": 6,
+      "valore": 6.826
+     },
+     {
+      "da": "2012-01-20",
+      "a": "2012-01-27",
+      "osservazioni": 6,
+      "valore": 6.333
+     },
+     {
+      "da": "2013-09-30",
+      "a": "2013-10-07",
+      "osservazioni": 6,
+      "valore": 6.12
+     },
+     {
+      "da": "2015-02-17",
+      "a": "2015-02-24",
+      "osservazioni": 6,
+      "valore": 6.2546
+     },
+     {
+      "da": "2016-02-05",
+      "a": "2016-02-12",
+      "osservazioni": 6,
+      "valore": 6.571
+     }
+    ],
+    "giorniUgualiAlPrecedente": 311,
+    "quotaUgualiPct": 5.96
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 185,
+    "oltre5sigmaE2pct": 0,
+    "piccoCheRientra": 21,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2006-02-09",
+      "rendPct": 0.02,
+      "sigma": 8.8,
+      "valore": 8.0558,
+      "prima": 8.0545,
+      "dopo": 8.0516,
+      "dataDopo": "2006-02-10"
+     },
+     {
+      "data": "2006-03-24",
+      "rendPct": 0.08,
+      "sigma": 5.43,
+      "valore": 8.0338,
+      "prima": 8.0274,
+      "dopo": 8.0245,
+      "dataDopo": "2006-03-27"
+     },
+     {
+      "data": "2006-10-13",
+      "rendPct": -0.18,
+      "sigma": 5.17,
+      "valore": 7.9,
+      "prima": 7.9143,
+      "dopo": 7.912,
+      "dataDopo": "2006-10-16"
+     },
+     {
+      "data": "2008-09-12",
+      "rendPct": -0.96,
+      "sigma": 8.36,
+      "valore": 6.781,
+      "prima": 6.8465,
+      "dopo": 6.8482,
+      "dataDopo": "2008-09-15"
+     },
+     {
+      "data": "2008-09-30",
+      "rendPct": -0.78,
+      "sigma": 6.66,
+      "valore": 6.7899,
+      "prima": 6.8431,
+      "dopo": 6.8485,
+      "dataDopo": "2008-10-01"
+     },
+     {
+      "data": "2010-07-02",
+      "rendPct": -0.14,
+      "sigma": 9.51,
+      "valore": 6.7709,
+      "prima": 6.7807,
+      "dopo": 6.7801,
+      "dataDopo": "2010-07-06"
+     },
+     {
+      "data": "2010-08-16",
+      "rendPct": 0.12,
+      "sigma": 6.1,
+      "valore": 6.8038,
+      "prima": 6.7957,
+      "dopo": 6.792,
+      "dataDopo": "2010-08-17"
+     },
+     {
+      "data": "2010-10-29",
+      "rendPct": -0.24,
+      "sigma": 11.03,
+      "valore": 6.6707,
+      "prima": 6.6867,
+      "dopo": 6.6892,
+      "dataDopo": "2010-11-01"
+     },
+     {
+      "data": "2010-11-08",
+      "rendPct": 0.36,
+      "sigma": 15.85,
+      "valore": 6.6791,
+      "prima": 6.655,
+      "dopo": 6.6424,
+      "dataDopo": "2010-11-09"
+     },
+     {
+      "data": "2010-11-18",
+      "rendPct": -0.13,
+      "sigma": 5.34,
+      "valore": 6.633,
+      "prima": 6.6415,
+      "dopo": 6.6398,
+      "dataDopo": "2010-11-19"
+     },
+     {
+      "data": "2010-12-13",
+      "rendPct": 0.15,
+      "sigma": 5.41,
+      "valore": 6.6652,
+      "prima": 6.655,
+      "dopo": 6.6563,
+      "dataDopo": "2010-12-14"
+     },
+     {
+      "data": "2010-12-20",
+      "rendPct": 0.3,
+      "sigma": 9.87,
+      "valore": 6.6745,
+      "prima": 6.6545,
+      "dopo": 6.658,
+      "dataDopo": "2010-12-21"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2015-08-11",
+      "rendPct": 1.83,
+      "valore": 6.3232,
+      "prima": 6.2094
+     },
+     {
+      "data": "2022-11-14",
+      "rendPct": -1.57,
+      "valore": 7.071,
+      "prima": 7.184
+     },
+     {
+      "data": "2019-08-05",
+      "rendPct": 1.58,
+      "valore": 7.0481,
+      "prima": 6.9387
+     },
+     {
+      "data": "2020-02-03",
+      "rendPct": 1.51,
+      "valore": 7.0208,
+      "prima": 6.9161
+     },
+     {
+      "data": "2020-10-09",
+      "rendPct": -1.42,
+      "valore": 6.6933,
+      "prima": 6.7896
+     },
+     {
+      "data": "2022-10-26",
+      "rendPct": -1.35,
+      "valore": 7.171,
+      "prima": 7.2688
+     },
+     {
+      "data": "2017-10-10",
+      "rendPct": -1.23,
+      "valore": 6.5712,
+      "prima": 6.6533
+     },
+     {
+      "data": "2024-08-02",
+      "rendPct": -1.16,
+      "valore": 7.16,
+      "prima": 7.2441
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:23.085Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DEXINUS": {
+   "prima": "1973-01-02",
+   "ultima": "2026-10-30",
+   "osservazioni": 13492,
+   "osservazioniDal2006": 5218,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 96,
+    "quotaIntervalli7giorni": 0,
+    "primaDataGiornaliera": "1973-01-02"
+   },
+   "righeVuoteDal2006": 217,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 20,
+    "Columbus Day": 20,
+    "Thanksgiving": 19,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 9,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2010-01-26",
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 9,
+   "festiveConValore": 10,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-22",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 216,
+    "mancantiPct": 3.97,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 207,
+     "altro": 9
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 7,
+     "2008": 10,
+     "2009": 9,
+     "2010": 12,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 6,
+    "osservazioniInSerie": 18,
+    "piuLunga": {
+     "da": "2014-01-15",
+     "a": "2014-01-17",
+     "osservazioni": 3,
+     "valore": 61.54
+    },
+    "esempi": [
+     {
+      "da": "2014-01-15",
+      "a": "2014-01-17",
+      "osservazioni": 3,
+      "valore": 61.54
+     },
+     {
+      "da": "2014-08-14",
+      "a": "2014-08-18",
+      "osservazioni": 3,
+      "valore": 60.77
+     },
+     {
+      "da": "2016-02-01",
+      "a": "2016-02-03",
+      "osservazioni": 3,
+      "valore": 67.92
+     },
+     {
+      "da": "2016-03-23",
+      "a": "2016-03-25",
+      "osservazioni": 3,
+      "valore": 66.82
+     },
+     {
+      "da": "2018-04-06",
+      "a": "2018-04-10",
+      "osservazioni": 3,
+      "valore": 64.95
+     },
+     {
+      "da": "2023-04-27",
+      "a": "2023-05-01",
+      "osservazioni": 3,
+      "valore": 81.84
+     }
+    ],
+    "giorniUgualiAlPrecedente": 173,
+    "quotaUgualiPct": 3.32
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 58,
+    "oltre5sigmaE2pct": 17,
+    "piccoCheRientra": 3,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-07-25",
+      "rendPct": -2.38,
+      "sigma": 7.09,
+      "valore": 41.1,
+      "prima": 42.1,
+      "dopo": 42.52,
+      "dataDopo": "2008-07-28"
+     },
+     {
+      "data": "2008-09-16",
+      "rendPct": 1.92,
+      "sigma": 5.09,
+      "valore": 46.81,
+      "prima": 45.93,
+      "dopo": 46.16,
+      "dataDopo": "2008-09-17"
+     },
+     {
+      "data": "2013-08-28",
+      "rendPct": 3.86,
+      "sigma": 7.47,
+      "valore": 68.8,
+      "prima": 66.24,
+      "dopo": 66.55,
+      "dataDopo": "2013-08-29"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-11-12",
+      "rendPct": 4.02,
+      "valore": 49.2,
+      "prima": 47.3
+     },
+     {
+      "data": "2013-08-28",
+      "rendPct": 3.86,
+      "valore": 68.8,
+      "prima": 66.24
+     },
+     {
+      "data": "2012-09-14",
+      "rendPct": -3.69,
+      "valore": 53.3,
+      "prima": 55.34
+     },
+     {
+      "data": "2009-05-18",
+      "rendPct": -3.65,
+      "valore": 47.58,
+      "prima": 49.38
+     },
+     {
+      "data": "2008-07-28",
+      "rendPct": 3.45,
+      "valore": 42.52,
+      "prima": 41.1
+     },
+     {
+      "data": "2013-08-29",
+      "rendPct": -3.27,
+      "valore": 66.55,
+      "prima": 68.8
+     },
+     {
+      "data": "2013-08-27",
+      "rendPct": 3.08,
+      "valore": 66.24,
+      "prima": 64.26
+     },
+     {
+      "data": "2013-09-03",
+      "rendPct": 3.04,
+      "valore": 67.71,
+      "prima": 65.71
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:24.157Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DEXBZUS": {
+   "prima": "1995-01-02",
+   "ultima": "2026-10-30",
+   "osservazioni": 7983,
+   "osservazioniDal2006": 5219,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 96.04,
+    "quotaIntervalli7giorni": 0,
+    "primaDataGiornaliera": "1995-01-02"
+   },
+   "righeVuoteDal2006": 216,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 20,
+    "Columbus Day": 20,
+    "Thanksgiving": 19,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 8,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 8,
+   "festiveConValore": 10,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-22",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 215,
+    "mancantiPct": 3.96,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 207,
+     "altro": 8
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 7,
+     "2008": 10,
+     "2009": 9,
+     "2010": 11,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 25,
+    "quotaUgualiPct": 0.48
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 34,
+    "oltre5sigmaE2pct": 34,
+    "piccoCheRientra": 5,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-10-08",
+      "rendPct": 7.84,
+      "sigma": 9.32,
+      "valore": 2.406,
+      "prima": 2.231,
+      "dopo": 2.2,
+      "dataDopo": "2008-10-09"
+     },
+     {
+      "data": "2008-10-10",
+      "rendPct": 4.42,
+      "sigma": 5.21,
+      "valore": 2.2972,
+      "prima": 2.2,
+      "dopo": 2.0855,
+      "dataDopo": "2008-10-14"
+     },
+     {
+      "data": "2008-10-24",
+      "rendPct": 4.88,
+      "sigma": 5.51,
+      "valore": 2.3881,
+      "prima": 2.277,
+      "dopo": 2.255,
+      "dataDopo": "2008-10-27"
+     },
+     {
+      "data": "2008-12-05",
+      "rendPct": 5.64,
+      "sigma": 5.92,
+      "valore": 2.6187,
+      "prima": 2.479,
+      "dopo": 2.4625,
+      "dataDopo": "2008-12-08"
+     },
+     {
+      "data": "2008-12-11",
+      "rendPct": -5.86,
+      "sigma": 6.33,
+      "valore": 2.2905,
+      "prima": 2.433,
+      "dopo": 2.399,
+      "dataDopo": "2008-12-12"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-14",
+      "rendPct": -9.22,
+      "valore": 2.0855,
+      "prima": 2.2972
+     },
+     {
+      "data": "2008-10-09",
+      "rendPct": -8.56,
+      "valore": 2.2,
+      "prima": 2.406
+     },
+     {
+      "data": "2017-05-18",
+      "rendPct": 9.05,
+      "valore": 3.3823,
+      "prima": 3.1015
+     },
+     {
+      "data": "2026-10-26",
+      "rendPct": 7.94,
+      "valore": 5.4415,
+      "prima": 5.041
+     },
+     {
+      "data": "2008-10-08",
+      "rendPct": 7.84,
+      "valore": 2.406,
+      "prima": 2.231
+     },
+     {
+      "data": "2008-10-06",
+      "rendPct": 7.8,
+      "valore": 2.1646,
+      "prima": 2.008
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 7.37,
+      "valore": 2.376,
+      "prima": 2.213
+     },
+     {
+      "data": "2008-12-08",
+      "rendPct": -5.96,
+      "valore": 2.4625,
+      "prima": 2.6187
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:25.329Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DEXKOUS": {
+   "prima": "1981-04-13",
+   "ultima": "2026-10-30",
+   "osservazioni": 11386,
+   "osservazioniDal2006": 5219,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 95.77,
+    "quotaIntervalli7giorni": 0,
+    "primaDataGiornaliera": "1981-04-13"
+   },
+   "righeVuoteDal2006": 216,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 20,
+    "Columbus Day": 20,
+    "Thanksgiving": 19,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 8,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 8,
+   "festiveConValore": 10,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-22",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 215,
+    "mancantiPct": 3.96,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 207,
+     "altro": 8
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 7,
+     "2008": 10,
+     "2009": 9,
+     "2010": 11,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 6,
+    "osservazioniInSerie": 21,
+    "piuLunga": {
+     "da": "2015-11-30",
+     "a": "2015-12-04",
+     "osservazioni": 5,
+     "valore": 1149.39
+    },
+    "esempi": [
+     {
+      "da": "2015-11-30",
+      "a": "2015-12-04",
+      "osservazioni": 5,
+      "valore": 1149.39
+     },
+     {
+      "da": "2011-02-01",
+      "a": "2011-02-04",
+      "osservazioni": 4,
+      "valore": 1113.6
+     },
+     {
+      "da": "2006-05-26",
+      "a": "2006-05-31",
+      "osservazioni": 3,
+      "valore": 945.3
+     },
+     {
+      "da": "2006-10-04",
+      "a": "2006-10-06",
+      "osservazioni": 3,
+      "valore": 948.9
+     },
+     {
+      "da": "2008-02-21",
+      "a": "2008-02-25",
+      "osservazioni": 3,
+      "valore": 948.2
+     },
+     {
+      "da": "2015-10-30",
+      "a": "2015-11-03",
+      "osservazioni": 3,
+      "valore": 1140.5
+     }
+    ],
+    "giorniUgualiAlPrecedente": 82,
+    "quotaUgualiPct": 1.57
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 47,
+    "oltre5sigmaE2pct": 32,
+    "piccoCheRientra": 3,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-03-25",
+      "rendPct": -1.8,
+      "sigma": 8.57,
+      "valore": 975.8,
+      "prima": 993.7,
+      "dopo": 993.1,
+      "dataDopo": "2008-03-26"
+     },
+     {
+      "data": "2008-09-16",
+      "rendPct": 3.75,
+      "sigma": 9.25,
+      "valore": 1159.75,
+      "prima": 1117.85,
+      "dopo": 1115.5,
+      "dataDopo": "2008-09-17"
+     },
+     {
+      "data": "2008-09-17",
+      "rendPct": -3.82,
+      "sigma": 9.78,
+      "valore": 1115.5,
+      "prima": 1159.75,
+      "dopo": 1152.4,
+      "dataDopo": "2008-09-18"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-30",
+      "rendPct": -12.38,
+      "valore": 1250.18,
+      "prima": 1426.9
+     },
+     {
+      "data": "2008-10-16",
+      "rendPct": 10.67,
+      "valore": 1369.5,
+      "prima": 1237.5
+     },
+     {
+      "data": "2008-10-14",
+      "rendPct": -7.59,
+      "valore": 1207.25,
+      "prima": 1306.4
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 7.45,
+      "valore": 1418.5,
+      "prima": 1320.1
+     },
+     {
+      "data": "2008-10-08",
+      "rendPct": 6.54,
+      "valore": 1415.25,
+      "prima": 1328.4
+     },
+     {
+      "data": "2008-10-10",
+      "rendPct": -5.43,
+      "valore": 1306.4,
+      "prima": 1381.4
+     },
+     {
+      "data": "2008-11-06",
+      "rendPct": 5.09,
+      "valore": 1330.8,
+      "prima": 1266.3
+     },
+     {
+      "data": "2008-10-07",
+      "rendPct": 4.81,
+      "valore": 1328.4,
+      "prima": 1267.4
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:26.382Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DEXTAUS": {
+   "prima": "1983-10-03",
+   "ultima": "2026-10-30",
+   "osservazioni": 10513,
+   "osservazioniDal2006": 5216,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 94.39,
+    "quotaIntervalli7giorni": 0.04,
+    "primaDataGiornaliera": "1983-10-03"
+   },
+   "righeVuoteDal2006": 219,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 21,
+    "Columbus Day": 21,
+    "Thanksgiving": 20,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 8,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 8,
+   "festiveConValore": 7,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 218,
+    "mancantiPct": 4.01,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 210,
+     "altro": 8
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 10,
+     "2008": 10,
+     "2009": 9,
+     "2010": 11,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 44,
+    "osservazioniInSerie": 144,
+    "piuLunga": {
+     "da": "2024-02-07",
+     "a": "2024-02-14",
+     "osservazioni": 6,
+     "valore": 31.36
+    },
+    "esempi": [
+     {
+      "da": "2024-02-07",
+      "a": "2024-02-14",
+      "osservazioni": 6,
+      "valore": 31.36
+     },
+     {
+      "da": "2008-02-05",
+      "a": "2008-02-11",
+      "osservazioni": 5,
+      "valore": 32
+     },
+     {
+      "da": "2015-11-30",
+      "a": "2015-12-04",
+      "osservazioni": 5,
+      "valore": 32.53
+     },
+     {
+      "da": "2026-02-13",
+      "a": "2026-02-20",
+      "osservazioni": 5,
+      "valore": 31.44
+     },
+     {
+      "da": "2009-01-23",
+      "a": "2009-01-28",
+      "osservazioni": 4,
+      "valore": 33.68
+     },
+     {
+      "da": "2019-11-15",
+      "a": "2019-11-20",
+      "osservazioni": 4,
+      "valore": 30.5
+     },
+     {
+      "da": "2023-03-30",
+      "a": "2023-04-04",
+      "osservazioni": 4,
+      "valore": 30.48
+     },
+     {
+      "da": "2006-01-30",
+      "a": "2006-02-01",
+      "osservazioni": 3,
+      "valore": 31.97
+     }
+    ],
+    "giorniUgualiAlPrecedente": 418,
+    "quotaUgualiPct": 8.01
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 61,
+    "oltre5sigmaE2pct": 6,
+    "piccoCheRientra": 5,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-03-03",
+      "rendPct": 0.55,
+      "sigma": 6.03,
+      "valore": 31.09,
+      "prima": 30.92,
+      "dopo": 30.91,
+      "dataDopo": "2008-03-04"
+     },
+     {
+      "data": "2008-06-02",
+      "rendPct": -0.72,
+      "sigma": 5.39,
+      "valore": 30.15,
+      "prima": 30.37,
+      "dopo": 30.37,
+      "dataDopo": "2008-06-03"
+     },
+     {
+      "data": "2008-12-17",
+      "rendPct": 1.7,
+      "sigma": 6.9,
+      "valore": 33.58,
+      "prima": 33.02,
+      "dopo": 32.45,
+      "dataDopo": "2008-12-18"
+     },
+     {
+      "data": "2009-04-17",
+      "rendPct": -2.4,
+      "sigma": 9.06,
+      "valore": 32.99,
+      "prima": 33.8,
+      "dopo": 33.82,
+      "dataDopo": "2009-04-20"
+     },
+     {
+      "data": "2010-06-21",
+      "rendPct": -1.18,
+      "sigma": 5.28,
+      "valore": 31.74,
+      "prima": 32.12,
+      "dopo": 32.08,
+      "dataDopo": "2010-06-22"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2025-05-02",
+      "rendPct": -3.99,
+      "valore": 30.79,
+      "prima": 32.07
+     },
+     {
+      "data": "2008-12-18",
+      "rendPct": -3.37,
+      "valore": 32.45,
+      "prima": 33.58
+     },
+     {
+      "data": "2025-05-05",
+      "rendPct": -2.79,
+      "valore": 29.93,
+      "prima": 30.79
+     },
+     {
+      "data": "2009-04-20",
+      "rendPct": 2.52,
+      "valore": 33.82,
+      "prima": 32.99
+     },
+     {
+      "data": "2009-04-17",
+      "rendPct": -2.4,
+      "valore": 32.99,
+      "prima": 33.8
+     },
+     {
+      "data": "2009-04-02",
+      "rendPct": -2.28,
+      "valore": 33.05,
+      "prima": 33.82
+     },
+     {
+      "data": "2009-04-30",
+      "rendPct": -1.72,
+      "valore": 33.06,
+      "prima": 33.64
+     },
+     {
+      "data": "2022-11-14",
+      "rendPct": -1.68,
+      "valore": 30.98,
+      "prima": 31.51
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:27.431Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DEXMXUS": {
+   "prima": "1993-11-08",
+   "ultima": "2026-10-30",
+   "osservazioni": 8268,
+   "osservazioniDal2006": 5219,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 96,
+    "quotaIntervalli7giorni": 0,
+    "primaDataGiornaliera": "1993-11-08"
+   },
+   "righeVuoteDal2006": 216,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 20,
+    "Columbus Day": 20,
+    "Thanksgiving": 19,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 8,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 8,
+   "festiveConValore": 10,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-22",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 215,
+    "mancantiPct": 3.96,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 207,
+     "altro": 8
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 7,
+     "2008": 10,
+     "2009": 9,
+     "2010": 11,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 14,
+    "quotaUgualiPct": 0.27
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 46,
+    "oltre5sigmaE2pct": 46,
+    "piccoCheRientra": 9,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-10-08",
+      "rendPct": 8.45,
+      "sigma": 25.65,
+      "valore": 13.139,
+      "prima": 12.115,
+      "dopo": 12.3788,
+      "dataDopo": "2008-10-09"
+     },
+     {
+      "data": "2008-10-09",
+      "rendPct": -5.79,
+      "sigma": 18.69,
+      "valore": 12.3788,
+      "prima": 13.139,
+      "dopo": 12.9806,
+      "dataDopo": "2008-10-10"
+     },
+     {
+      "data": "2008-10-10",
+      "rendPct": 4.86,
+      "sigma": 14.76,
+      "valore": 12.9806,
+      "prima": 12.3788,
+      "dopo": 12.4251,
+      "dataDopo": "2008-10-14"
+     },
+     {
+      "data": "2008-10-16",
+      "rendPct": 3.03,
+      "sigma": 9.18,
+      "valore": 13.11,
+      "prima": 12.724,
+      "dopo": 12.8303,
+      "dataDopo": "2008-10-17"
+     },
+     {
+      "data": "2008-11-21",
+      "rendPct": 2.76,
+      "sigma": 7.46,
+      "valore": 13.935,
+      "prima": 13.561,
+      "dopo": 13.462,
+      "dataDopo": "2008-11-24"
+     },
+     {
+      "data": "2008-12-05",
+      "rendPct": 2.15,
+      "sigma": 5.46,
+      "valore": 13.8002,
+      "prima": 13.51,
+      "dopo": 13.465,
+      "dataDopo": "2008-12-08"
+     },
+     {
+      "data": "2008-12-11",
+      "rendPct": -2.79,
+      "sigma": 7.04,
+      "valore": 13.091,
+      "prima": 13.4665,
+      "dopo": 13.53,
+      "dataDopo": "2008-12-12"
+     },
+     {
+      "data": "2020-03-30",
+      "rendPct": 3.65,
+      "sigma": 7.22,
+      "valore": 24.265,
+      "prima": 23.41,
+      "dopo": 23.448,
+      "dataDopo": "2020-03-31"
+     },
+     {
+      "data": "2020-03-31",
+      "rendPct": -3.37,
+      "sigma": 6.99,
+      "valore": 23.448,
+      "prima": 24.265,
+      "dopo": 24.453,
+      "dataDopo": "2020-04-01"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-08",
+      "rendPct": 8.45,
+      "valore": 13.139,
+      "prima": 12.115
+     },
+     {
+      "data": "2016-11-09",
+      "rendPct": 7.27,
+      "valore": 19.7745,
+      "prima": 18.435
+     },
+     {
+      "data": "2008-10-09",
+      "rendPct": -5.79,
+      "valore": 12.3788,
+      "prima": 13.139
+     },
+     {
+      "data": "2020-03-26",
+      "rendPct": -5.19,
+      "valore": 23.13,
+      "prima": 24.395
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": 5.29,
+      "valore": 22.326,
+      "prima": 21.205
+     },
+     {
+      "data": "2008-10-06",
+      "rendPct": 5.2,
+      "valore": 11.703,
+      "prima": 11.1245
+     },
+     {
+      "data": "2008-10-10",
+      "rendPct": 4.86,
+      "valore": 12.9806,
+      "prima": 12.3788
+     },
+     {
+      "data": "2020-03-23",
+      "rendPct": 4.58,
+      "valore": 25.127,
+      "prima": 24.026
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:28.482Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DEXSFUS": {
+   "prima": "1980-01-02",
+   "ultima": "2026-10-30",
+   "osservazioni": 11743,
+   "osservazioniDal2006": 5219,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 96.05,
+    "quotaIntervalli7giorni": 0.01,
+    "primaDataGiornaliera": "1980-01-02"
+   },
+   "righeVuoteDal2006": 216,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 20,
+    "Columbus Day": 20,
+    "Thanksgiving": 19,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 8,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 8,
+   "festiveConValore": 10,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-22",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 215,
+    "mancantiPct": 3.96,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 207,
+     "altro": 8
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 7,
+     "2008": 10,
+     "2009": 9,
+     "2010": 11,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 1,
+    "osservazioniInSerie": 3,
+    "piuLunga": {
+     "da": "2007-11-21",
+     "a": "2007-11-23",
+     "osservazioni": 3,
+     "valore": 6.815
+    },
+    "esempi": [
+     {
+      "da": "2007-11-21",
+      "a": "2007-11-23",
+      "osservazioni": 3,
+      "valore": 6.815
+     }
+    ],
+    "giorniUgualiAlPrecedente": 23,
+    "quotaUgualiPct": 0.44
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 7,
+    "oltre5sigmaE2pct": 7,
+    "piccoCheRientra": 0,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-16",
+      "rendPct": 8.25,
+      "valore": 10.278,
+      "prima": 9.495
+     },
+     {
+      "data": "2008-10-29",
+      "rendPct": -6.1,
+      "valore": 10,
+      "prima": 10.65
+     },
+     {
+      "data": "2016-03-17",
+      "rendPct": -6.07,
+      "valore": 15.161,
+      "prima": 16.14
+     },
+     {
+      "data": "2008-10-15",
+      "rendPct": 5.68,
+      "valore": 9.495,
+      "prima": 8.985
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 5.65,
+      "valore": 11.27,
+      "prima": 10.6675
+     },
+     {
+      "data": "2008-11-24",
+      "rendPct": -5.22,
+      "valore": 10.0675,
+      "prima": 10.6225
+     },
+     {
+      "data": "2011-09-22",
+      "rendPct": 5.28,
+      "valore": 8.2751,
+      "prima": 7.86
+     },
+     {
+      "data": "2008-10-06",
+      "rendPct": 5.06,
+      "valore": 8.8405,
+      "prima": 8.415
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:29.607Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DEXHKUS": {
+   "prima": "1981-01-02",
+   "ultima": "2026-10-30",
+   "osservazioni": 11500,
+   "osservazioniDal2006": 5219,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 96.08,
+    "quotaIntervalli7giorni": 0,
+    "primaDataGiornaliera": "1981-01-05"
+   },
+   "righeVuoteDal2006": 216,
+   "righeVuotePerTipo": {
+    "Capodanno": 21,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "Memorial Day": 21,
+    "Indipendenza": 20,
+    "Labor Day": 20,
+    "Columbus Day": 20,
+    "Thanksgiving": 19,
+    "Natale": 20,
+    "Veterans Day": 19,
+    "non festivo": 8,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2014-12-26",
+    "2017-01-20",
+    "2018-12-24",
+    "2019-01-14",
+    "2019-02-20",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 8,
+   "festiveConValore": 10,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-22",
+    "2009-07-03",
+    "2012-10-29",
+    "2012-10-30",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5434,
+    "mancanti": 215,
+    "mancantiPct": 3.96,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 207,
+     "altro": 8
+    },
+    "perAnno": {
+     "2006": 8,
+     "2007": 7,
+     "2008": 10,
+     "2009": 9,
+     "2010": 11,
+     "2011": 9,
+     "2012": 10,
+     "2013": 10,
+     "2014": 11,
+     "2015": 10,
+     "2016": 10,
+     "2017": 11,
+     "2018": 12,
+     "2019": 12,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 40,
+    "osservazioniInSerie": 140,
+    "piuLunga": {
+     "da": "2009-04-30",
+     "a": "2009-05-13",
+     "osservazioni": 10,
+     "valore": 7.75
+    },
+    "esempi": [
+     {
+      "da": "2009-04-30",
+      "a": "2009-05-13",
+      "osservazioni": 10,
+      "valore": 7.75
+     },
+     {
+      "da": "2025-07-28",
+      "a": "2025-08-04",
+      "osservazioni": 6,
+      "valore": 7.8499
+     },
+     {
+      "da": "2009-04-14",
+      "a": "2009-04-20",
+      "osservazioni": 5,
+      "valore": 7.7501
+     },
+     {
+      "da": "2009-10-22",
+      "a": "2009-10-28",
+      "osservazioni": 5,
+      "valore": 7.7495
+     },
+     {
+      "da": "2020-10-05",
+      "a": "2020-10-09",
+      "osservazioni": 5,
+      "valore": 7.75
+     },
+     {
+      "da": "2009-06-29",
+      "a": "2009-07-02",
+      "osservazioni": 4,
+      "valore": 7.75
+     },
+     {
+      "da": "2009-07-30",
+      "a": "2009-08-04",
+      "osservazioni": 4,
+      "valore": 7.75
+     },
+     {
+      "da": "2020-07-06",
+      "a": "2020-07-09",
+      "osservazioni": 4,
+      "valore": 7.7499
+     }
+    ],
+    "giorniUgualiAlPrecedente": 302,
+    "quotaUgualiPct": 5.79
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 226,
+    "oltre5sigmaE2pct": 0,
+    "piccoCheRientra": 28,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2010-01-25",
+      "rendPct": -0.04,
+      "sigma": 7.62,
+      "valore": 7.7679,
+      "prima": 7.7713,
+      "dopo": 7.7742,
+      "dataDopo": "2010-01-26"
+     },
+     {
+      "data": "2010-03-01",
+      "rendPct": 0.04,
+      "sigma": 6.28,
+      "valore": 7.7647,
+      "prima": 7.7619,
+      "dopo": 7.7623,
+      "dataDopo": "2010-03-02"
+     },
+     {
+      "data": "2010-04-28",
+      "rendPct": 0.05,
+      "sigma": 8.08,
+      "valore": 7.7675,
+      "prima": 7.7639,
+      "dopo": 7.7645,
+      "dataDopo": "2010-04-29"
+     },
+     {
+      "data": "2010-05-27",
+      "rendPct": 0.05,
+      "sigma": 6.88,
+      "valore": 7.789,
+      "prima": 7.7849,
+      "dopo": 7.785,
+      "dataDopo": "2010-05-28"
+     },
+     {
+      "data": "2010-05-28",
+      "rendPct": -0.05,
+      "sigma": 5.98,
+      "valore": 7.785,
+      "prima": 7.789,
+      "dopo": 7.7912,
+      "dataDopo": "2010-06-01"
+     },
+     {
+      "data": "2013-06-20",
+      "rendPct": -0.04,
+      "sigma": 5.06,
+      "valore": 7.7534,
+      "prima": 7.7564,
+      "dopo": 7.7583,
+      "dataDopo": "2013-06-21"
+     },
+     {
+      "data": "2014-10-10",
+      "rendPct": 0.05,
+      "sigma": 5.9,
+      "valore": 7.7595,
+      "prima": 7.756,
+      "dopo": 7.7564,
+      "dataDopo": "2014-10-14"
+     },
+     {
+      "data": "2014-12-24",
+      "rendPct": 0.06,
+      "sigma": 6.59,
+      "valore": 7.7616,
+      "prima": 7.7572,
+      "dopo": 7.7577,
+      "dataDopo": "2014-12-29"
+     },
+     {
+      "data": "2014-12-31",
+      "rendPct": -0.06,
+      "sigma": 6.75,
+      "valore": 7.7531,
+      "prima": 7.7576,
+      "dopo": 7.7563,
+      "dataDopo": "2015-01-02"
+     },
+     {
+      "data": "2015-05-27",
+      "rendPct": 0.09,
+      "sigma": 9.57,
+      "valore": 7.7594,
+      "prima": 7.7523,
+      "dopo": 7.7535,
+      "dataDopo": "2015-05-28"
+     },
+     {
+      "data": "2015-08-11",
+      "rendPct": 0.13,
+      "sigma": 9.44,
+      "valore": 7.7627,
+      "prima": 7.7529,
+      "dopo": 7.7555,
+      "dataDopo": "2015-08-12"
+     },
+     {
+      "data": "2016-01-20",
+      "rendPct": 0.12,
+      "sigma": 11.79,
+      "valore": 7.827,
+      "prima": 7.8173,
+      "dopo": 7.8144,
+      "dataDopo": "2016-01-21"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2018-09-21",
+      "rendPct": -0.44,
+      "valore": 7.808,
+      "prima": 7.8426
+     },
+     {
+      "data": "2022-12-01",
+      "rendPct": -0.35,
+      "valore": 7.7778,
+      "prima": 7.805
+     },
+     {
+      "data": "2016-01-14",
+      "rendPct": 0.34,
+      "valore": 7.7854,
+      "prima": 7.7594
+     },
+     {
+      "data": "2016-01-22",
+      "rendPct": -0.28,
+      "valore": 7.7922,
+      "prima": 7.8144
+     },
+     {
+      "data": "2024-08-05",
+      "rendPct": -0.28,
+      "valore": 7.7852,
+      "prima": 7.8072
+     },
+     {
+      "data": "2016-01-19",
+      "rendPct": 0.27,
+      "valore": 7.8173,
+      "prima": 7.7962
+     },
+     {
+      "data": "2022-11-21",
+      "rendPct": -0.27,
+      "valore": 7.802,
+      "prima": 7.8229
+     },
+     {
+      "data": "2010-05-17",
+      "rendPct": 0.25,
+      "valore": 7.8018,
+      "prima": 7.7822
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:30.652Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DTWEXEMEGS": {
+   "prima": "2006-01-02",
+   "ultima": "2026-10-30",
+   "osservazioni": 5222,
+   "osservazioniDal2006": 5222,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 96.17,
+    "quotaIntervalli7giorni": 0.02,
+    "primaDataGiornaliera": "2006-01-02"
+   },
+   "righeVuoteDal2006": 213,
+   "righeVuotePerTipo": {
+    "lutto Ford": 1,
+    "Capodanno": 18,
+    "Martin Luther King": 18,
+    "non festivo": 27,
+    "Presidents Day": 18,
+    "Memorial Day": 18,
+    "Indipendenza": 18,
+    "Labor Day": 18,
+    "Columbus Day": 18,
+    "Veterans Day": 17,
+    "Thanksgiving": 17,
+    "Natale": 17,
+    "uragano Sandy": 2,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2009-01-20",
+    "2009-12-21",
+    "2010-02-08",
+    "2010-02-09",
+    "2010-02-10",
+    "2010-02-11",
+    "2013-03-06",
+    "2013-12-10",
+    "2014-02-13",
+    "2014-02-21",
+    "2014-03-03",
+    "2014-03-17",
+    "2014-12-26",
+    "2015-02-17",
+    "2015-03-05",
+    "2016-01-22",
+    "2016-01-25",
+    "2016-01-26",
+    "2017-01-20",
+    "2018-03-02",
+    "2018-03-21",
+    "2019-01-14",
+    "2019-02-20",
+    "2019-12-24",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 27,
+   "festiveConValore": 32,
+   "esempiFestiveConValore": [
+    "2006-01-02",
+    "2006-01-16",
+    "2006-02-20",
+    "2006-05-29",
+    "2006-07-04",
+    "2006-09-04",
+    "2006-10-09",
+    "2006-11-10",
+    "2006-11-23",
+    "2006-12-25",
+    "2007-01-01",
+    "2007-01-15",
+    "2007-02-19",
+    "2007-05-28",
+    "2007-07-04",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-12",
+    "2007-11-22",
+    "2007-12-25",
+    "2008-01-01",
+    "2008-01-21",
+    "2008-02-18",
+    "2008-05-26",
+    "2008-07-04",
+    "2008-09-01",
+    "2008-10-13",
+    "2008-11-11",
+    "2008-11-27",
+    "2008-12-25",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5435,
+    "mancanti": 213,
+    "mancantiPct": 3.92,
+    "periodiDiAlmeno3": 2,
+    "periodoPiuLungo": {
+     "da": "2010-02-08",
+     "a": "2010-02-11",
+     "giorni": 4
+    },
+    "periodiLunghi": [
+     {
+      "da": "2010-02-08",
+      "a": "2010-02-11",
+      "giorni": 4
+     },
+     {
+      "da": "2016-01-22",
+      "a": "2016-01-26",
+      "giorni": 3
+     }
+    ],
+    "perTipo": {
+     "festività USA": 186,
+     "altro": 27
+    },
+    "perAnno": {
+     "2007": 1,
+     "2009": 12,
+     "2010": 15,
+     "2011": 9,
+     "2012": 12,
+     "2013": 12,
+     "2014": 15,
+     "2015": 12,
+     "2016": 13,
+     "2017": 11,
+     "2018": 13,
+     "2019": 13,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 2,
+    "quotaUgualiPct": 0.04
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 36,
+    "oltre5sigmaE2pct": 6,
+    "piccoCheRientra": 3,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [
+     {
+      "data": "2008-10-08",
+      "rendPct": 2.98,
+      "sigma": 15.64,
+      "valore": 102.146,
+      "prima": 99.1858,
+      "dopo": 100.0357,
+      "dataDopo": "2008-10-09"
+     },
+     {
+      "data": "2008-12-11",
+      "rendPct": -1.44,
+      "sigma": 6.54,
+      "valore": 102.6172,
+      "prima": 104.119,
+      "dopo": 103.7717,
+      "dataDopo": "2008-12-12"
+     },
+     {
+      "data": "2020-03-30",
+      "rendPct": 1.11,
+      "sigma": 5.04,
+      "valore": 135.3139,
+      "prima": 133.8318,
+      "dopo": 133.9314,
+      "dataDopo": "2020-03-31"
+     }
+    ],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2008-10-08",
+      "rendPct": 2.98,
+      "valore": 102.146,
+      "prima": 99.1858
+     },
+     {
+      "data": "2008-10-14",
+      "rendPct": -2.26,
+      "valore": 99.001,
+      "prima": 101.2877
+     },
+     {
+      "data": "2008-10-06",
+      "rendPct": 2.24,
+      "valore": 97.9849,
+      "prima": 95.8391
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": 2.18,
+      "valore": 131.0136,
+      "prima": 128.2195
+     },
+     {
+      "data": "2008-10-09",
+      "rendPct": -2.07,
+      "valore": 100.0357,
+      "prima": 102.146
+     },
+     {
+      "data": "2016-11-09",
+      "rendPct": 2.06,
+      "valore": 120.1813,
+      "prima": 117.7593
+     },
+     {
+      "data": "2020-03-26",
+      "rendPct": -1.86,
+      "valore": 133.2685,
+      "prima": 135.7903
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 1.85,
+      "valore": 103.7906,
+      "prima": 101.9028
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:31.722Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DTWEXBGS": {
+   "prima": "2006-01-02",
+   "ultima": "2026-10-30",
+   "osservazioni": 5222,
+   "osservazioniDal2006": 5222,
+   "ritardoGiorniCalendario": 6,
+   "ritardoGiorniLavorativi": 4,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 96.17,
+    "quotaIntervalli7giorni": 0.02,
+    "primaDataGiornaliera": "2006-01-02"
+   },
+   "righeVuoteDal2006": 213,
+   "righeVuotePerTipo": {
+    "lutto Ford": 1,
+    "Capodanno": 18,
+    "Martin Luther King": 18,
+    "non festivo": 27,
+    "Presidents Day": 18,
+    "Memorial Day": 18,
+    "Indipendenza": 18,
+    "Labor Day": 18,
+    "Columbus Day": 18,
+    "Veterans Day": 17,
+    "Thanksgiving": 17,
+    "Natale": 17,
+    "uragano Sandy": 2,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2009-01-20",
+    "2009-12-21",
+    "2010-02-08",
+    "2010-02-09",
+    "2010-02-10",
+    "2010-02-11",
+    "2013-03-06",
+    "2013-12-10",
+    "2014-02-13",
+    "2014-02-21",
+    "2014-03-03",
+    "2014-03-17",
+    "2014-12-26",
+    "2015-02-17",
+    "2015-03-05",
+    "2016-01-22",
+    "2016-01-25",
+    "2016-01-26",
+    "2017-01-20",
+    "2018-03-02",
+    "2018-03-21",
+    "2019-01-14",
+    "2019-02-20",
+    "2019-12-24",
+    "2020-11-27",
+    "2020-12-24",
+    "2021-01-20"
+   ],
+   "righeVuoteNonFestiveN": 27,
+   "festiveConValore": 32,
+   "esempiFestiveConValore": [
+    "2006-01-02",
+    "2006-01-16",
+    "2006-02-20",
+    "2006-05-29",
+    "2006-07-04",
+    "2006-09-04",
+    "2006-10-09",
+    "2006-11-10",
+    "2006-11-23",
+    "2006-12-25",
+    "2007-01-01",
+    "2007-01-15",
+    "2007-02-19",
+    "2007-05-28",
+    "2007-07-04",
+    "2007-09-03",
+    "2007-10-08",
+    "2007-11-12",
+    "2007-11-22",
+    "2007-12-25",
+    "2008-01-01",
+    "2008-01-21",
+    "2008-02-18",
+    "2008-05-26",
+    "2008-07-04",
+    "2008-09-01",
+    "2008-10-13",
+    "2008-11-11",
+    "2008-11-27",
+    "2008-12-25",
+    "2021-06-18",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-02",
+    "a": "2026-10-30",
+    "giorniDiRiferimento": 5435,
+    "mancanti": 213,
+    "mancantiPct": 3.92,
+    "periodiDiAlmeno3": 2,
+    "periodoPiuLungo": {
+     "da": "2010-02-08",
+     "a": "2010-02-11",
+     "giorni": 4
+    },
+    "periodiLunghi": [
+     {
+      "da": "2010-02-08",
+      "a": "2010-02-11",
+      "giorni": 4
+     },
+     {
+      "da": "2016-01-22",
+      "a": "2016-01-26",
+      "giorni": 3
+     }
+    ],
+    "perTipo": {
+     "festività USA": 186,
+     "altro": 27
+    },
+    "perAnno": {
+     "2007": 1,
+     "2009": 12,
+     "2010": 15,
+     "2011": 9,
+     "2012": 12,
+     "2013": 12,
+     "2014": 15,
+     "2015": 12,
+     "2016": 13,
+     "2017": 11,
+     "2018": 13,
+     "2019": 13,
+     "2020": 12,
+     "2021": 12,
+     "2022": 10,
+     "2023": 11,
+     "2024": 11,
+     "2025": 11,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 0,
+    "osservazioniInSerie": 0,
+    "piuLunga": null,
+    "esempi": [],
+    "giorniUgualiAlPrecedente": 0,
+    "quotaUgualiPct": 0
+   },
+   "anomalie": {
+    "unita": "%",
+    "oltre5sigma": 28,
+    "oltre5sigmaE2pct": 4,
+    "piccoCheRientra": 0,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2009-03-19",
+      "rendPct": -2.53,
+      "valore": 100.3951,
+      "prima": 103.0005
+     },
+     {
+      "data": "2008-10-29",
+      "rendPct": -2.27,
+      "valore": 100.0967,
+      "prima": 102.4236
+     },
+     {
+      "data": "2016-03-17",
+      "rendPct": -2.07,
+      "valore": 110.445,
+      "prima": 112.7759
+     },
+     {
+      "data": "2008-11-24",
+      "rendPct": -2.05,
+      "valore": 101.502,
+      "prima": 103.6289
+     },
+     {
+      "data": "2020-03-26",
+      "rendPct": -1.89,
+      "valore": 122.4308,
+      "prima": 124.7916
+     },
+     {
+      "data": "2011-09-22",
+      "rendPct": 1.91,
+      "valore": 92.075,
+      "prima": 90.3453
+     },
+     {
+      "data": "2020-03-12",
+      "rendPct": 1.89,
+      "valore": 120.4883,
+      "prima": 118.2505
+     },
+     {
+      "data": "2008-10-22",
+      "rendPct": 1.8,
+      "valore": 101.2131,
+      "prima": 99.4242
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:32.777Z",
+    "aggiornata": "Nov 2, 2026 3:51 PM CST",
+    "prossimaUscita": "Nov 9, 2026",
+    "frequenza": "Daily"
+   }
+  },
+  "DFII10": {
+   "prima": "2003-01-02",
+   "ultima": "2026-11-03",
+   "osservazioni": 5964,
+   "osservazioniDal2006": 5214,
+   "ritardoGiorniCalendario": 2,
+   "ritardoGiorniLavorativi": 2,
+   "frequenza": {
+    "intervalloMedianoGiorni": 1,
+    "intervalloMedianoDal2025": 1,
+    "quotaIntervalli1o3giorni": 95.72,
+    "quotaIntervalli7giorni": 0,
+    "primaDataGiornaliera": "2003-01-02"
+   },
+   "righeVuoteDal2006": 223,
+   "righeVuotePerTipo": {
+    "Capodanno": 19,
+    "Martin Luther King": 21,
+    "Presidents Day": 21,
+    "non festivo": 14,
+    "Memorial Day": 21,
+    "Indipendenza": 21,
+    "Labor Day": 21,
+    "Columbus Day": 21,
+    "Thanksgiving": 20,
+    "Natale": 20,
+    "Veterans Day": 17,
+    "uragano Sandy": 1,
+    "lutto Bush": 1,
+    "Juneteenth": 5
+   },
+   "righeVuoteNonFestive": [
+    "2006-04-14",
+    "2008-03-21",
+    "2009-04-10",
+    "2011-04-22",
+    "2013-03-29",
+    "2014-04-18",
+    "2016-03-25",
+    "2017-04-14",
+    "2018-03-30",
+    "2019-04-19",
+    "2020-04-10",
+    "2022-04-15",
+    "2024-03-29",
+    "2025-04-18"
+   ],
+   "righeVuoteNonFestiveN": 14,
+   "festiveConValore": 9,
+   "esempiFestiveConValore": [
+    "2006-11-10",
+    "2007-01-02",
+    "2010-12-31",
+    "2012-10-29",
+    "2017-11-10",
+    "2021-06-18",
+    "2021-12-31",
+    "2023-11-10",
+    "2025-01-09"
+   ],
+   "buchi": {
+    "da": "2006-01-03",
+    "a": "2026-11-03",
+    "giorniDiRiferimento": 5436,
+    "mancanti": 222,
+    "mancantiPct": 4.08,
+    "periodiDiAlmeno3": 0,
+    "periodoPiuLungo": null,
+    "periodiLunghi": [],
+    "perTipo": {
+     "festività USA": 208,
+     "altro": 14
+    },
+    "perAnno": {
+     "2006": 9,
+     "2007": 10,
+     "2008": 11,
+     "2009": 11,
+     "2010": 10,
+     "2011": 10,
+     "2012": 11,
+     "2013": 11,
+     "2014": 11,
+     "2015": 10,
+     "2016": 11,
+     "2017": 10,
+     "2018": 12,
+     "2019": 11,
+     "2020": 11,
+     "2021": 10,
+     "2022": 11,
+     "2023": 10,
+     "2024": 12,
+     "2025": 12,
+     "2026": 8
+    },
+    "esempiMancanti": [
+     "2025-10-13",
+     "2025-11-11",
+     "2025-11-27",
+     "2025-12-25",
+     "2026-01-01",
+     "2026-01-19",
+     "2026-02-16",
+     "2026-05-25",
+     "2026-06-19",
+     "2026-07-03",
+     "2026-09-07",
+     "2026-10-12"
+    ]
+   },
+   "ricopiati": {
+    "serie": 41,
+    "osservazioniInSerie": 129,
+    "piuLunga": {
+     "da": "2014-07-21",
+     "a": "2014-07-24",
+     "osservazioni": 4,
+     "valore": 0.25
+    },
+    "esempi": [
+     {
+      "da": "2014-07-21",
+      "a": "2014-07-24",
+      "osservazioni": 4,
+      "valore": 0.25
+     },
+     {
+      "da": "2014-10-31",
+      "a": "2014-11-05",
+      "osservazioni": 4,
+      "valore": 0.43
+     },
+     {
+      "da": "2015-11-24",
+      "a": "2015-11-30",
+      "osservazioni": 4,
+      "valore": 0.62
+     },
+     {
+      "da": "2020-12-16",
+      "a": "2020-12-21",
+      "osservazioni": 4,
+      "valore": -1
+     },
+     {
+      "da": "2023-04-07",
+      "a": "2023-04-12",
+      "osservazioni": 4,
+      "valore": 1.14
+     },
+     {
+      "da": "2024-03-05",
+      "a": "2024-03-08",
+      "osservazioni": 4,
+      "valore": 1.81
+     },
+     {
+      "da": "2006-05-09",
+      "a": "2006-05-11",
+      "osservazioni": 3,
+      "valore": 2.43
+     },
+     {
+      "da": "2006-09-28",
+      "a": "2006-10-02",
+      "osservazioni": 3,
+      "valore": 2.27
+     }
+    ],
+    "giorniUgualiAlPrecedente": 486,
+    "quotaUgualiPct": 9.32
+   },
+   "anomalie": {
+    "unita": "punti base",
+    "oltre5sigma": 14,
+    "oltre5sigmaE2pct": 8,
+    "piccoCheRientra": 0,
+    "inversioni": 0,
+    "erroriDiScala": 0,
+    "esempiPicchi": [],
+    "esempiInversioni": [],
+    "esempiScala": [],
+    "maggioriMovimenti": [
+     {
+      "data": "2009-03-18",
+      "rendPct": -62,
+      "valore": 1.28,
+      "prima": 1.9
+     },
+     {
+      "data": "2020-03-20",
+      "rendPct": -45,
+      "valore": 0.17,
+      "prima": 0.62
+     },
+     {
+      "data": "2020-03-17",
+      "rendPct": 39,
+      "valore": 0.39,
+      "prima": 0
+     },
+     {
+      "data": "2008-10-08",
+      "rendPct": 37,
+      "valore": 2.69,
+      "prima": 2.32
+     },
+     {
+      "data": "2008-10-24",
+      "rendPct": 35,
+      "valore": 3.02,
+      "prima": 2.67
+     },
+     {
+      "data": "2008-12-17",
+      "rendPct": -35,
+      "valore": 1.86,
+      "prima": 2.21
+     },
+     {
+      "data": "2008-11-25",
+      "rendPct": -32,
+      "valore": 2.79,
+      "prima": 3.11
+     },
+     {
+      "data": "2022-06-13",
+      "rendPct": 30,
+      "valore": 0.69,
+      "prima": 0.39
+     }
+    ]
+   },
+   "paginaFred": {
+    "letta": "2026-11-05T13:44:33.827Z",
+    "aggiornata": "Nov 4, 2026 3:16 PM CST",
+    "prossimaUscita": "Nov 5, 2026",
+    "frequenza": "Daily"
+   }
+  }
+ },
+ "confronto": {
+  "CNY=X~DEXCHUS": {
+   "dateComuniDal2006": 5209,
+   "diffMedianaPct": 0.1304,
+   "diffP95Pct": 0.4804,
+   "diffMaxPct": 9.36,
+   "dataDiffMax": "2011-07-18",
+   "giorniOltre05pct": 244,
+   "giorniOltre1pct": 53,
+   "oltre1pctPerTipo": {
+    "sfasamento di un giorno": 31,
+    "Yahoo ricopiato": 3,
+    "non spiegato": 19
+   },
+   "oltre1pctPerAnno": {
+    "2011": 1,
+    "2013": 2,
+    "2015": 2,
+    "2016": 1,
+    "2017": 1,
+    "2018": 2,
+    "2019": 1,
+    "2020": 2,
+    "2021": 1,
+    "2022": 3,
+    "2023": 12,
+    "2024": 22,
+    "2025": 2,
+    "2026": 1
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": -0.11,
+    "2007": -0.13,
+    "2008": -0.13,
+    "2009": -0.14,
+    "2010": -0.14,
+    "2011": -0.07,
+    "2012": 0.01,
+    "2013": -0.12,
+    "2014": -0.16,
+    "2015": -0.15,
+    "2016": -0.1,
+    "2017": 0.01,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0.03,
+    "2021": 0,
+    "2022": -0.02,
+    "2023": -0.08,
+    "2024": -0.03,
+    "2025": 0,
+    "2026": 0.03
+   },
+   "peggiori": [
+    {
+     "data": "2011-07-18",
+     "yahoo": 5.86299991607666,
+     "fred": 6.4688,
+     "diffPct": -9.36,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2023-10-30",
+     "yahoo": 7.158699989318848,
+     "fred": 7.3133,
+     "diffPct": -2.11,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2015-08-11",
+     "yahoo": 6.199699878692627,
+     "fred": 6.3232,
+     "diffPct": -1.95,
+     "tipo": "Yahoo ricopiato"
+    },
+    {
+     "data": "2023-10-16",
+     "yahoo": 7.168099880218506,
+     "fred": 7.3105,
+     "diffPct": -1.95,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2022-10-26",
+     "yahoo": 7.303800106048584,
+     "fred": 7.171,
+     "diffPct": 1.85,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2023-10-02",
+     "yahoo": 7.163599967956543,
+     "fred": 7.296,
+     "diffPct": -1.81,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2023-10-03",
+     "yahoo": 7.179900169372559,
+     "fred": 7.296,
+     "diffPct": -1.59,
+     "tipo": "non spiegato"
+    },
+    {
+     "data": "2019-08-05",
+     "yahoo": 6.939199924468994,
+     "fred": 7.0481,
+     "diffPct": -1.55,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2013-06-28",
+     "yahoo": 6.2297749519348145,
+     "fred": 6.1374,
+     "diffPct": 1.51,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2023-08-24",
+     "yahoo": 7.170499801635742,
+     "fred": 7.2786,
+     "diffPct": -1.49,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2023-11-13",
+     "yahoo": 7.18179988861084,
+     "fred": 7.289,
+     "diffPct": -1.47,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2024-02-02",
+     "yahoo": 7.088500022888184,
+     "fred": 7.192,
+     "diffPct": -1.44,
+     "tipo": "non spiegato"
+    },
+    {
+     "data": "2020-10-09",
+     "yahoo": 6.7891998291015625,
+     "fred": 6.6933,
+     "diffPct": 1.43,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2023-10-04",
+     "yahoo": 7.194300174713135,
+     "fred": 7.296,
+     "diffPct": -1.39,
+     "tipo": "non spiegato"
+    },
+    {
+     "data": "2023-10-06",
+     "yahoo": 7.197700023651123,
+     "fred": 7.296,
+     "diffPct": -1.35,
+     "tipo": "sfasamento di un giorno"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.1421,
+    "zero": 0.1304,
+    "piuUno": 0.0513
+   },
+   "corrRendimentiGiornalieri": 0.0664,
+   "diffRend20sedute": {
+    "medianaPunti": 0.1061,
+    "p95Punti": 0.6946,
+    "maxPunti": 10.06
+   },
+   "dateSoloFred": 10,
+   "dateSoloYahoo": 211,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2011-04-15",
+    "2013-10-08",
+    "2017-07-11",
+    "2017-11-16",
+    "2019-05-22",
+    "2019-11-08",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  },
+  "CNH=X~DEXCHUS": {
+   "nota": "serie Yahoo CNH=X senza storia giornaliera (1 barre): confronto impossibile"
+  },
+  "INR=X~DEXINUS": {
+   "dateComuniDal2006": 5188,
+   "diffMedianaPct": 0.169,
+   "diffP95Pct": 0.7946,
+   "diffMaxPct": 6.28,
+   "dataDiffMax": "2012-01-27",
+   "giorniOltre05pct": 731,
+   "giorniOltre1pct": 134,
+   "oltre1pctPerTipo": {
+    "non spiegato": 3,
+    "mercato mosso (ora diversa)": 13,
+    "sfasamento di un giorno": 105,
+    "Yahoo ricopiato": 7,
+    "picco Yahoo": 6
+   },
+   "oltre1pctPerAnno": {
+    "2007": 2,
+    "2008": 2,
+    "2009": 3,
+    "2010": 6,
+    "2011": 14,
+    "2012": 30,
+    "2013": 30,
+    "2014": 5,
+    "2015": 2,
+    "2018": 13,
+    "2019": 3,
+    "2020": 14,
+    "2021": 2,
+    "2022": 2,
+    "2023": 2,
+    "2026": 4
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": -0.02,
+    "2007": -0.14,
+    "2008": -0.1,
+    "2009": 0,
+    "2010": -0.02,
+    "2011": -0.11,
+    "2012": 0,
+    "2013": 0,
+    "2014": -0.06,
+    "2015": 0.04,
+    "2016": 0.01,
+    "2017": 0.02,
+    "2018": 0.04,
+    "2019": 0.19,
+    "2020": 0.12,
+    "2021": 0.02,
+    "2022": -0.01,
+    "2023": -0.01,
+    "2024": 0.02,
+    "2025": -0.04,
+    "2026": -0.03
+   },
+   "peggiori": [
+    {
+     "data": "2012-01-27",
+     "yahoo": 52.49300003051758,
+     "fred": 49.39,
+     "diffPct": 6.28,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2012-01-31",
+     "yahoo": 52.49300003051758,
+     "fred": 49.54,
+     "diffPct": 5.96,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2012-09-14",
+     "yahoo": 55.417999267578125,
+     "fred": 53.3,
+     "diffPct": 3.97,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2013-09-19",
+     "yahoo": 63.58000183105469,
+     "fred": 61.76,
+     "diffPct": 2.95,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2013-08-27",
+     "yahoo": 64.29299926757812,
+     "fred": 66.24,
+     "diffPct": -2.94,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-07-25",
+     "yahoo": 42.27799987792969,
+     "fred": 41.1,
+     "diffPct": 2.87,
+     "tipo": "mercato mosso (ora diversa)"
+    },
+    {
+     "data": "2013-08-28",
+     "yahoo": 66.86000061035156,
+     "fred": 68.8,
+     "diffPct": -2.82,
+     "tipo": "mercato mosso (ora diversa)"
+    },
+    {
+     "data": "2013-06-11",
+     "yahoo": 56.8380012512207,
+     "fred": 58.34,
+     "diffPct": -2.57,
+     "tipo": "Yahoo ricopiato"
+    },
+    {
+     "data": "2013-08-30",
+     "yahoo": 67.38999938964844,
+     "fred": 65.71,
+     "diffPct": 2.56,
+     "tipo": "mercato mosso (ora diversa)"
+    },
+    {
+     "data": "2011-09-22",
+     "yahoo": 48.209999084472656,
+     "fred": 49.47,
+     "diffPct": -2.55,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2011-10-28",
+     "yahoo": 49.790000915527344,
+     "fred": 48.63,
+     "diffPct": 2.39,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2023-11-02",
+     "yahoo": 85.19400024414062,
+     "fred": 83.22,
+     "diffPct": 2.37,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2013-07-30",
+     "yahoo": 59.4119987487793,
+     "fred": 60.8,
+     "diffPct": -2.28,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2013-09-04",
+     "yahoo": 68.61000061035156,
+     "fred": 67.08,
+     "diffPct": 2.28,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2013-06-10",
+     "yahoo": 56.8380012512207,
+     "fred": 58.13,
+     "diffPct": -2.22,
+     "tipo": "Yahoo ricopiato"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.2697,
+    "zero": 0.169,
+    "piuUno": 0.0881
+   },
+   "corrRendimentiGiornalieri": 0.2964,
+   "diffRend20sedute": {
+    "medianaPunti": 0.2544,
+    "p95Punti": 1.1151,
+    "maxPunti": 6.09
+   },
+   "dateSoloFred": 30,
+   "dateSoloYahoo": 213,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2008-08-25",
+    "2011-04-15",
+    "2013-10-08",
+    "2017-07-11",
+    "2017-11-16",
+    "2019-05-22",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  },
+  "BRL=X~DEXBZUS": {
+   "dateComuniDal2006": 5126,
+   "diffMedianaPct": 0.371,
+   "diffP95Pct": 1.8759,
+   "diffMaxPct": 8.84,
+   "dataDiffMax": "2026-10-26",
+   "giorniOltre05pct": 2102,
+   "giorniOltre1pct": 907,
+   "oltre1pctPerTipo": {
+    "mercato mosso (ora diversa)": 95,
+    "sfasamento di un giorno": 738,
+    "picco Yahoo": 8,
+    "Yahoo ricopiato": 14,
+    "non spiegato": 52
+   },
+   "oltre1pctPerAnno": {
+    "2006": 7,
+    "2008": 47,
+    "2009": 39,
+    "2010": 27,
+    "2011": 61,
+    "2012": 22,
+    "2013": 35,
+    "2014": 50,
+    "2015": 95,
+    "2016": 76,
+    "2017": 28,
+    "2018": 45,
+    "2019": 34,
+    "2020": 85,
+    "2021": 70,
+    "2022": 68,
+    "2023": 27,
+    "2024": 42,
+    "2025": 23,
+    "2026": 26
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": -0.12,
+    "2007": -0.16,
+    "2008": -0.23,
+    "2009": -0.13,
+    "2010": -0.1,
+    "2011": -0.09,
+    "2012": -0.11,
+    "2013": -0.14,
+    "2014": -0.16,
+    "2015": -0.19,
+    "2016": 0.02,
+    "2017": -0.03,
+    "2018": -0.09,
+    "2019": -0.05,
+    "2020": -0.14,
+    "2021": -0.05,
+    "2022": -0.02,
+    "2023": 0,
+    "2024": -0.1,
+    "2025": 0.03,
+    "2026": 0.11
+   },
+   "peggiori": [
+    {
+     "data": "2026-10-26",
+     "yahoo": 4.96019983291626,
+     "fred": 5.4415,
+     "diffPct": -8.84,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2017-05-18",
+     "yahoo": 3.1333999633789062,
+     "fred": 3.3823,
+     "diffPct": -7.36,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2012-01-27",
+     "yahoo": 1.8524999618530273,
+     "fred": 1.7401,
+     "diffPct": 6.46,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-05-08",
+     "yahoo": 1.9471999406814575,
+     "fred": 2.0605,
+     "diffPct": -5.5,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2020-05-11",
+     "yahoo": 5.4770002365112305,
+     "fred": 5.7958,
+     "diffPct": -5.5,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-08-16",
+     "yahoo": 2.014400005340576,
+     "fred": 2.129,
+     "diffPct": -5.38,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2018-11-26",
+     "yahoo": 3.6730000972747803,
+     "fred": 3.879,
+     "diffPct": -5.31,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2006-07-14",
+     "yahoo": 2.0968000888824463,
+     "fred": 2.213,
+     "diffPct": -5.25,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2026-10-05",
+     "yahoo": 5.223100185394287,
+     "fred": 4.9879,
+     "diffPct": 4.72,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-10-24",
+     "yahoo": 2.2767999172210693,
+     "fred": 2.3881,
+     "diffPct": -4.66,
+     "tipo": "mercato mosso (ora diversa)"
+    },
+    {
+     "data": "2022-10-03",
+     "yahoo": 5.414299964904785,
+     "fred": 5.1823,
+     "diffPct": 4.48,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2011-09-19",
+     "yahoo": 1.7105000019073486,
+     "fred": 1.7866,
+     "diffPct": -4.26,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2018-06-08",
+     "yahoo": 3.900700092315674,
+     "fred": 3.7429,
+     "diffPct": 4.22,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2017-06-12",
+     "yahoo": 3.1777000427246094,
+     "fred": 3.3097,
+     "diffPct": -3.99,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2016-11-10",
+     "yahoo": 3.2330000400543213,
+     "fred": 3.3653,
+     "diffPct": -3.93,
+     "tipo": "sfasamento di un giorno"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.6765,
+    "zero": 0.371,
+    "piuUno": 0.2915
+   },
+   "corrRendimentiGiornalieri": 0.3999,
+   "diffRend20sedute": {
+    "medianaPunti": 0.5306,
+    "p95Punti": 2.4752,
+    "maxPunti": 9.24
+   },
+   "dateSoloFred": 93,
+   "dateSoloYahoo": 208,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2011-04-15",
+    "2013-01-16",
+    "2013-10-08",
+    "2017-07-11",
+    "2017-11-16",
+    "2019-05-22",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  },
+  "KRW=X~DEXKOUS": {
+   "dateComuniDal2006": 5188,
+   "diffMedianaPct": 0.3054,
+   "diffP95Pct": 1.3861,
+   "diffMaxPct": 4.96,
+   "dataDiffMax": "2006-08-15",
+   "giorniOltre05pct": 1554,
+   "giorniOltre1pct": 577,
+   "oltre1pctPerTipo": {
+    "sfasamento di un giorno": 333,
+    "non spiegato": 206,
+    "picco Yahoo": 12,
+    "mercato mosso (ora diversa)": 21,
+    "Yahoo ricopiato": 5
+   },
+   "oltre1pctPerAnno": {
+    "2006": 194,
+    "2007": 66,
+    "2008": 18,
+    "2009": 19,
+    "2010": 24,
+    "2011": 33,
+    "2012": 25,
+    "2013": 32,
+    "2014": 17,
+    "2015": 14,
+    "2016": 24,
+    "2017": 12,
+    "2018": 12,
+    "2019": 2,
+    "2020": 10,
+    "2021": 3,
+    "2022": 13,
+    "2023": 7,
+    "2024": 10,
+    "2025": 18,
+    "2026": 24
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": -1.25,
+    "2007": -0.18,
+    "2008": -0.06,
+    "2009": -0.04,
+    "2010": -0.02,
+    "2011": -0.05,
+    "2012": -0.07,
+    "2013": -0.05,
+    "2014": -0.04,
+    "2015": -0.07,
+    "2016": -0.08,
+    "2017": 0.04,
+    "2018": 0,
+    "2019": -0.12,
+    "2020": -0.05,
+    "2021": -0.08,
+    "2022": -0.09,
+    "2023": -0.09,
+    "2024": -0.11,
+    "2025": -0.15,
+    "2026": -0.09
+   },
+   "peggiori": [
+    {
+     "data": "2006-08-15",
+     "yahoo": 917.6300048828125,
+     "fred": 965.5,
+     "diffPct": -4.96,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-10-03",
+     "yahoo": 900.5800170898438,
+     "fred": 947.6,
+     "diffPct": -4.96,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-01-06",
+     "yahoo": 940.7100219726562,
+     "fred": 989.2,
+     "diffPct": -4.9,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-03-17",
+     "yahoo": 925.22998046875,
+     "fred": 970.8,
+     "diffPct": -4.69,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2007-02-22",
+     "yahoo": 894.6599731445312,
+     "fred": 938.7,
+     "diffPct": -4.69,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-08-29",
+     "yahoo": 916.6699829101562,
+     "fred": 960.8,
+     "diffPct": -4.59,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2007-03-02",
+     "yahoo": 903.969970703125,
+     "fred": 947.4,
+     "diffPct": -4.58,
+     "tipo": "non spiegato"
+    },
+    {
+     "data": "2006-03-20",
+     "yahoo": 922.7100219726562,
+     "fred": 966.8,
+     "diffPct": -4.56,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2007-02-20",
+     "yahoo": 896.010009765625,
+     "fred": 938.2,
+     "diffPct": -4.5,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-09-26",
+     "yahoo": 901.3499755859375,
+     "fred": 943.7,
+     "diffPct": -4.49,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-07-14",
+     "yahoo": 912.9000244140625,
+     "fred": 953.7,
+     "diffPct": -4.28,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2006-12-20",
+     "yahoo": 886.6799926757812,
+     "fred": 925.7,
+     "diffPct": -4.22,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2007-05-01",
+     "yahoo": 891.6199951171875,
+     "fred": 930.7,
+     "diffPct": -4.2,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2007-03-05",
+     "yahoo": 909.8900146484375,
+     "fred": 949.1,
+     "diffPct": -4.13,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2007-05-17",
+     "yahoo": 890.4199829101562,
+     "fred": 927.8,
+     "diffPct": -4.03,
+     "tipo": "picco Yahoo"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.4625,
+    "zero": 0.3054,
+    "piuUno": 0.1697
+   },
+   "corrRendimentiGiornalieri": 0.4324,
+   "diffRend20sedute": {
+    "medianaPunti": 0.3976,
+    "p95Punti": 1.6856,
+    "maxPunti": 4.45
+   },
+   "dateSoloFred": 31,
+   "dateSoloYahoo": 213,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2011-04-15",
+    "2012-12-04",
+    "2013-10-08",
+    "2017-07-11",
+    "2017-11-16",
+    "2019-05-22",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  },
+  "TWD=X~DEXTAUS": {
+   "dateComuniDal2006": 5093,
+   "diffMedianaPct": 0.1655,
+   "diffP95Pct": 2.3852,
+   "diffMaxPct": 94.02,
+   "dataDiffMax": "2011-10-25",
+   "giorniOltre05pct": 784,
+   "giorniOltre1pct": 411,
+   "oltre1pctPerTipo": {
+    "sfasamento di un giorno": 180,
+    "mercato mosso (ora diversa)": 12,
+    "picco Yahoo": 7,
+    "non spiegato": 204,
+    "Yahoo ricopiato": 8
+   },
+   "oltre1pctPerAnno": {
+    "2008": 2,
+    "2009": 1,
+    "2010": 3,
+    "2011": 32,
+    "2012": 8,
+    "2013": 130,
+    "2014": 104,
+    "2015": 59,
+    "2016": 50,
+    "2017": 3,
+    "2018": 1,
+    "2020": 2,
+    "2021": 1,
+    "2022": 3,
+    "2023": 3,
+    "2024": 1,
+    "2025": 8
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": 0.09,
+    "2007": 0.05,
+    "2008": 0.02,
+    "2009": -0.06,
+    "2010": -0.06,
+    "2011": -0.14,
+    "2012": -0.03,
+    "2013": -1.6,
+    "2014": -0.19,
+    "2015": 0.29,
+    "2016": -0.01,
+    "2017": 0.01,
+    "2018": -0.1,
+    "2019": -0.08,
+    "2020": -0.1,
+    "2021": -0.14,
+    "2022": -0.15,
+    "2023": -0.1,
+    "2024": -0.13,
+    "2025": -0.05,
+    "2026": -0.03
+   },
+   "peggiori": [
+    {
+     "data": "2011-10-25",
+     "yahoo": 1.8014999628067017,
+     "fred": 30.11,
+     "diffPct": -94.02,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2014-12-31",
+     "yahoo": 3.6700000762939453,
+     "fred": 31.6,
+     "diffPct": -88.39,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2015-12-04",
+     "yahoo": 30.74799919128418,
+     "fred": 32.53,
+     "diffPct": -5.48,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2025-05-02",
+     "yahoo": 32.11159896850586,
+     "fred": 30.79,
+     "diffPct": 4.29,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2015-11-13",
+     "yahoo": 31.55699920654297,
+     "fred": 32.87,
+     "diffPct": -3.99,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2014-10-16",
+     "yahoo": 29.170000076293945,
+     "fred": 30.38,
+     "diffPct": -3.98,
+     "tipo": "non spiegato"
+    },
+    {
+     "data": "2016-01-20",
+     "yahoo": 32.444000244140625,
+     "fred": 33.74,
+     "diffPct": -3.84,
+     "tipo": "non spiegato"
+    },
+    {
+     "data": "2013-06-10",
+     "yahoo": 28.770999908447266,
+     "fred": 29.91,
+     "diffPct": -3.81,
+     "tipo": "Yahoo ricopiato"
+    },
+    {
+     "data": "2015-08-20",
+     "yahoo": 31.332000732421875,
+     "fred": 32.57,
+     "diffPct": -3.8,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2013-06-12",
+     "yahoo": 28.770999908447266,
+     "fred": 29.87,
+     "diffPct": -3.68,
+     "tipo": "Yahoo ricopiato"
+    },
+    {
+     "data": "2013-06-11",
+     "yahoo": 28.770999908447266,
+     "fred": 29.85,
+     "diffPct": -3.61,
+     "tipo": "Yahoo ricopiato"
+    },
+    {
+     "data": "2016-01-11",
+     "yahoo": 32.20100021362305,
+     "fred": 33.38,
+     "diffPct": -3.53,
+     "tipo": "non spiegato"
+    },
+    {
+     "data": "2011-10-05",
+     "yahoo": 29.54599952697754,
+     "fred": 30.62,
+     "diffPct": -3.51,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2013-04-05",
+     "yahoo": 28.902000427246094,
+     "fred": 29.95,
+     "diffPct": -3.5,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2015-04-17",
+     "yahoo": 29.993999481201172,
+     "fred": 31.05,
+     "diffPct": -3.4,
+     "tipo": "sfasamento di un giorno"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.2336,
+    "zero": 0.1655,
+    "piuUno": 0.1319
+   },
+   "corrRendimentiGiornalieri": 0.0039,
+   "diffRend20sedute": {
+    "medianaPunti": 0.2255,
+    "p95Punti": 2.3287,
+    "maxPunti": 1578.78
+   },
+   "dateSoloFred": 123,
+   "dateSoloYahoo": 212,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2008-08-25",
+    "2011-04-15",
+    "2013-10-08",
+    "2017-07-11",
+    "2017-11-16",
+    "2019-05-22",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  },
+  "MXN=X~DEXMXUS": {
+   "dateComuniDal2006": 5211,
+   "diffMedianaPct": 0.2632,
+   "diffP95Pct": 1.0872,
+   "diffMaxPct": 8.83,
+   "dataDiffMax": "2008-10-09",
+   "giorniOltre05pct": 1225,
+   "giorniOltre1pct": 310,
+   "oltre1pctPerTipo": {
+    "sfasamento di un giorno": 252,
+    "mercato mosso (ora diversa)": 35,
+    "picco Yahoo": 3,
+    "non spiegato": 20
+   },
+   "oltre1pctPerAnno": {
+    "2006": 1,
+    "2007": 1,
+    "2008": 22,
+    "2009": 18,
+    "2010": 4,
+    "2011": 16,
+    "2012": 5,
+    "2013": 4,
+    "2014": 2,
+    "2015": 7,
+    "2016": 9,
+    "2017": 8,
+    "2018": 25,
+    "2019": 8,
+    "2020": 60,
+    "2021": 23,
+    "2022": 24,
+    "2023": 24,
+    "2024": 26,
+    "2025": 12,
+    "2026": 11
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": -0.18,
+    "2007": -0.07,
+    "2008": -0.05,
+    "2009": -0.03,
+    "2010": -0.07,
+    "2011": -0.08,
+    "2012": -0.09,
+    "2013": -0.1,
+    "2014": -0.03,
+    "2015": 0.03,
+    "2016": -0.01,
+    "2017": -0.04,
+    "2018": -0.04,
+    "2019": 0.03,
+    "2020": 0.04,
+    "2021": 0.05,
+    "2022": 0.05,
+    "2023": 0.09,
+    "2024": -0.04,
+    "2025": 0.03,
+    "2026": 0.06
+   },
+   "peggiori": [
+    {
+     "data": "2008-10-09",
+     "yahoo": 13.472000122070312,
+     "fred": 12.3788,
+     "diffPct": 8.83,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-10-08",
+     "yahoo": 12.277000427246094,
+     "fred": 13.139,
+     "diffPct": -6.56,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-10-15",
+     "yahoo": 13.3149995803833,
+     "fred": 12.724,
+     "diffPct": 4.64,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-03-12",
+     "yahoo": 21.41659927368164,
+     "fred": 22.326,
+     "diffPct": -4.07,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-03-26",
+     "yahoo": 24.008100509643555,
+     "fred": 23.13,
+     "diffPct": 3.8,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-03-16",
+     "yahoo": 21.808610916137695,
+     "fred": 22.613,
+     "diffPct": -3.56,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2024-06-03",
+     "yahoo": 16.97260093688965,
+     "fred": 17.578,
+     "diffPct": -3.44,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-03-18",
+     "yahoo": 22.960599899291992,
+     "fred": 23.72,
+     "diffPct": -3.2,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2025-02-03",
+     "yahoo": 21.16939926147461,
+     "fred": 20.531,
+     "diffPct": 3.11,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-11-20",
+     "yahoo": 13.956700325012207,
+     "fred": 13.561,
+     "diffPct": 2.92,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-04-15",
+     "yahoo": 23.36199951171875,
+     "fred": 24.064,
+     "diffPct": -2.92,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-04-01",
+     "yahoo": 23.750999450683594,
+     "fred": 24.453,
+     "diffPct": -2.87,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-11-13",
+     "yahoo": 12.921099662780762,
+     "fred": 13.29,
+     "diffPct": -2.78,
+     "tipo": "mercato mosso (ora diversa)"
+    },
+    {
+     "data": "2008-11-19",
+     "yahoo": 13.517000198364258,
+     "fred": 13.1513,
+     "diffPct": 2.78,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-03-30",
+     "yahoo": 23.594600677490234,
+     "fred": 24.265,
+     "diffPct": -2.76,
+     "tipo": "mercato mosso (ora diversa)"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.3908,
+    "zero": 0.2632,
+    "piuUno": 0.2971
+   },
+   "corrRendimentiGiornalieri": 0.4609,
+   "diffRend20sedute": {
+    "medianaPunti": 0.3683,
+    "p95Punti": 1.5051,
+    "maxPunti": 11
+   },
+   "dateSoloFred": 8,
+   "dateSoloYahoo": 213,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2007-09-10",
+    "2007-11-26",
+    "2008-04-01",
+    "2008-05-01",
+    "2008-07-01",
+    "2019-05-22",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  },
+  "ZAR=X~DEXSFUS": {
+   "dateComuniDal2006": 5204,
+   "diffMedianaPct": 0.4696,
+   "diffP95Pct": 1.6495,
+   "diffMaxPct": 18.53,
+   "dataDiffMax": "2024-11-15",
+   "giorniOltre05pct": 2476,
+   "giorniOltre1pct": 978,
+   "oltre1pctPerTipo": {
+    "sfasamento di un giorno": 883,
+    "non spiegato": 22,
+    "Yahoo ricopiato": 2,
+    "mercato mosso (ora diversa)": 67,
+    "picco Yahoo": 4
+   },
+   "oltre1pctPerAnno": {
+    "2006": 11,
+    "2007": 7,
+    "2008": 36,
+    "2009": 26,
+    "2010": 18,
+    "2011": 73,
+    "2012": 54,
+    "2013": 41,
+    "2014": 26,
+    "2015": 63,
+    "2016": 87,
+    "2017": 65,
+    "2018": 63,
+    "2019": 44,
+    "2020": 72,
+    "2021": 59,
+    "2022": 69,
+    "2023": 78,
+    "2024": 39,
+    "2025": 23,
+    "2026": 24
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": -0.28,
+    "2007": -0.14,
+    "2008": -0.03,
+    "2009": -0.16,
+    "2010": -0.08,
+    "2011": -0.12,
+    "2012": -0.06,
+    "2013": -0.1,
+    "2014": -0.09,
+    "2015": -0.03,
+    "2016": 0.04,
+    "2017": 0.07,
+    "2018": 0,
+    "2019": -0.05,
+    "2020": 0.01,
+    "2021": -0.06,
+    "2022": -0.05,
+    "2023": -0.16,
+    "2024": -0.01,
+    "2025": 0.04,
+    "2026": -0.03
+   },
+   "peggiori": [
+    {
+     "data": "2024-11-15",
+     "yahoo": 14.860369682312012,
+     "fred": 18.2405,
+     "diffPct": -18.53,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2025-01-17",
+     "yahoo": 15.43019962310791,
+     "fred": 18.7297,
+     "diffPct": -17.62,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2025-01-15",
+     "yahoo": 16.498899459838867,
+     "fred": 18.7891,
+     "diffPct": -12.19,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2008-10-15",
+     "yahoo": 10.601300239562988,
+     "fred": 9.495,
+     "diffPct": 11.65,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2016-10-11",
+     "yahoo": 13.776700019836426,
+     "fred": 14.36,
+     "diffPct": -4.06,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2016-11-10",
+     "yahoo": 13.478500366210938,
+     "fred": 14.0425,
+     "diffPct": -4.02,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2017-12-18",
+     "yahoo": 13.085399627685547,
+     "fred": 12.595,
+     "diffPct": 3.89,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-12-01",
+     "yahoo": 10.671899795532227,
+     "fred": 10.275,
+     "diffPct": 3.86,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-10-09",
+     "yahoo": 9.337599754333496,
+     "fred": 9.0025,
+     "diffPct": 3.72,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2022-05-05",
+     "yahoo": 15.468799591064453,
+     "fred": 16.04,
+     "diffPct": -3.56,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2016-02-26",
+     "yahoo": 15.585180282592773,
+     "fred": 16.155,
+     "diffPct": -3.53,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2020-06-11",
+     "yahoo": 16.491500854492188,
+     "fred": 17.0834,
+     "diffPct": -3.46,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-11-13",
+     "yahoo": 10.119199752807617,
+     "fred": 10.48,
+     "diffPct": -3.44,
+     "tipo": "sfasamento di un giorno"
+    },
+    {
+     "data": "2008-10-28",
+     "yahoo": 10.28499984741211,
+     "fred": 10.65,
+     "diffPct": -3.43,
+     "tipo": "mercato mosso (ora diversa)"
+    },
+    {
+     "data": "2020-09-21",
+     "yahoo": 16.285490036010742,
+     "fred": 16.8625,
+     "diffPct": -3.42,
+     "tipo": "sfasamento di un giorno"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.7389,
+    "zero": 0.4696,
+    "piuUno": 0.2319
+   },
+   "corrRendimentiGiornalieri": 0.3212,
+   "diffRend20sedute": {
+    "medianaPunti": 0.6633,
+    "p95Punti": 2.3289,
+    "maxPunti": 22.15
+   },
+   "dateSoloFred": 15,
+   "dateSoloYahoo": 213,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2012-12-04",
+    "2013-10-08",
+    "2014-01-13",
+    "2017-07-11",
+    "2017-11-16",
+    "2019-05-22",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  },
+  "HKD=X~DEXHKUS": {
+   "dateComuniDal2006": 5188,
+   "diffMedianaPct": 0.0116,
+   "diffP95Pct": 0.0778,
+   "diffMaxPct": 1.72,
+   "dataDiffMax": "2008-03-21",
+   "giorniOltre05pct": 5,
+   "giorniOltre1pct": 3,
+   "oltre1pctPerTipo": {
+    "picco Yahoo": 3
+   },
+   "oltre1pctPerAnno": {
+    "2006": 1,
+    "2008": 2
+   },
+   "diffMedianaConSegnoPerAnnoPct": {
+    "2006": -0.01,
+    "2007": -0.01,
+    "2008": -0.01,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": -0.01,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": -0.01
+   },
+   "peggiori": [
+    {
+     "data": "2008-03-21",
+     "yahoo": 7.643099784851074,
+     "fred": 7.777,
+     "diffPct": -1.72,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2006-02-10",
+     "yahoo": 7.861299991607666,
+     "fred": 7.759,
+     "diffPct": 1.32,
+     "tipo": "picco Yahoo"
+    },
+    {
+     "data": "2008-03-14",
+     "yahoo": 7.684899806976318,
+     "fred": 7.7829,
+     "diffPct": -1.26,
+     "tipo": "picco Yahoo"
+    }
+   ],
+   "diffMedianaYahooSpostato": {
+    "menoUno": 0.0172,
+    "zero": 0.0116,
+    "piuUno": 0.0066
+   },
+   "corrRendimentiGiornalieri": 0.146,
+   "diffRend20sedute": {
+    "medianaPunti": 0.0189,
+    "p95Punti": 0.1132,
+    "maxPunti": 1.75
+   },
+   "dateSoloFred": 31,
+   "dateSoloYahoo": 213,
+   "esempiSoloYahoo": [
+    "2025-11-27",
+    "2026-01-19",
+    "2026-02-16",
+    "2026-05-25",
+    "2026-06-19",
+    "2026-07-03",
+    "2026-09-07",
+    "2026-10-12"
+   ],
+   "esempiSoloFred": [
+    "2011-04-15",
+    "2012-12-04",
+    "2013-10-08",
+    "2017-07-11",
+    "2017-11-16",
+    "2019-05-22",
+    "2025-04-18",
+    "2025-04-21"
+   ]
+  }
+ },
+ "cnh": {
+  "giornalieraYahoo": {
+   "barre": 1,
+   "prima": "2026-11-05",
+   "nota": "Yahoo non ha storia giornaliera di CNH=X (né settimanale o mensile); provato con range max/10y/5y/1y e period1, anche USDCNH=X"
+  },
+  "orariaYahoo": {
+   "barre": 17511,
+   "barreNulle": 381,
+   "prima": "2024-01-19",
+   "ultima": "2026-11-05",
+   "giorniLavorativi": 730
+  },
+  "cnhMenoCnyStessoGiorno": {
+   "giorni": 725,
+   "diffMedianaPct": 0.1561,
+   "diffMediaConSegnoPct": 0.0794,
+   "diffP95Pct": 0.7089,
+   "diffMaxPct": 1.92
+  },
+  "cnhMenoDexchus": {
+   "giorni": 698,
+   "diffMedianaPct": 0.0781,
+   "diffMaxPct": 1.1
+  },
+  "corrRendimentiGiornalieriCnhCny": -0.0657,
+  "diffRend20sedute": {
+   "medianaPunti": 0.1941,
+   "p95Punti": 0.988,
+   "maxPunti": 1.81
+  },
+  "cnyPrimaDel2005": {
+   "osservazioni": 811,
+   "valoriDistinti": 26,
+   "min": 8.246801376342773,
+   "max": 8.277799606323242
+  }
+ },
+ "festivita": {
+  "CNY=X": {
+   "borsaLocale": "000001.SS",
+   "periodo": "2006-01-01 → 2026-10-30",
+   "giorniBorsaChiusaNonFestiviUsa": 354,
+   "yahooConBarra": 354,
+   "yahooUgualeAlGiornoPrima": 131,
+   "fredConValore": 354,
+   "confrontoBorsaAperta": {
+    "giorni": 5053,
+    "yahooUgualeAlGiornoPrimaPct": 3.98
+   },
+   "yahooUgualeAlGiornoPrimaPctBorsaChiusa": 37.01
+  },
+  "INR=X": {
+   "borsaLocale": "^NSEI",
+   "periodo": "2007-09-17 → 2026-10-30",
+   "giorniBorsaChiusaNonFestiviUsa": 268,
+   "yahooConBarra": 265,
+   "yahooUgualeAlGiornoPrima": 7,
+   "fredConValore": 267,
+   "confrontoBorsaAperta": {
+    "giorni": 4690,
+    "yahooUgualeAlGiornoPrimaPct": 1.09
+   },
+   "yahooUgualeAlGiornoPrimaPctBorsaChiusa": 2.61
+  },
+  "BRL=X": {
+   "borsaLocale": "^BVSP",
+   "periodo": "2006-01-01 → 2026-10-30",
+   "giorniBorsaChiusaNonFestiviUsa": 225,
+   "yahooConBarra": 217,
+   "yahooUgualeAlGiornoPrima": 10,
+   "fredConValore": 223,
+   "confrontoBorsaAperta": {
+    "giorni": 5159,
+    "yahooUgualeAlGiornoPrimaPct": 0.72
+   },
+   "yahooUgualeAlGiornoPrimaPctBorsaChiusa": 4.44
+  },
+  "KRW=X": {
+   "borsaLocale": "^KS11",
+   "periodo": "2006-01-01 → 2026-10-30",
+   "giorniBorsaChiusaNonFestiviUsa": 263,
+   "yahooConBarra": 261,
+   "yahooUgualeAlGiornoPrima": 4,
+   "fredConValore": 263,
+   "confrontoBorsaAperta": {
+    "giorni": 5129,
+    "yahooUgualeAlGiornoPrimaPct": 0.76
+   },
+   "yahooUgualeAlGiornoPrimaPctBorsaChiusa": 1.52
+  },
+  "TWD=X": {
+   "borsaLocale": "^TWII",
+   "periodo": "2006-01-01 → 2026-10-30",
+   "giorniBorsaChiusaNonFestiviUsa": 308,
+   "yahooConBarra": 298,
+   "yahooUgualeAlGiornoPrima": 21,
+   "fredConValore": 308,
+   "confrontoBorsaAperta": {
+    "giorni": 5092,
+    "yahooUgualeAlGiornoPrimaPct": 2.73
+   },
+   "yahooUgualeAlGiornoPrimaPctBorsaChiusa": 6.82
+  },
+  "HKD=X": {
+   "borsaLocale": "^HSI",
+   "periodo": "2006-01-01 → 2026-10-30",
+   "giorniBorsaChiusaNonFestiviUsa": 260,
+   "yahooConBarra": 254,
+   "yahooUgualeAlGiornoPrima": 5,
+   "fredConValore": 259,
+   "confrontoBorsaAperta": {
+    "giorni": 5129,
+    "yahooUgualeAlGiornoPrimaPct": 2.05
+   },
+   "yahooUgualeAlGiornoPrimaPctBorsaChiusa": 1.92
+  }
+ },
+ "app": {
+  "asOf": "2026-10-30",
+  "CSI300": {
+   "simboloPrezzo": "510300.SS",
+   "primaSeduta": "2012-05-04",
+   "ultimaSeduta": "2026-10-30",
+   "sedute": 3506,
+   "chiusureNulle": 0,
+   "primaBreadth": "2012-06-01",
+   "seduteSenzaBreadthDopoLaPrima": 0,
+   "esempiSenzaBreadth": [],
+   "intervalliOltre5giorni": 42,
+   "intervalliLunghi": [
+    {
+     "da": "2020-01-23",
+     "a": "2020-02-03",
+     "giorni": 11
+    },
+    {
+     "da": "2023-09-28",
+     "a": "2023-10-09",
+     "giorni": 11
+    },
+    {
+     "da": "2024-02-08",
+     "a": "2024-02-19",
+     "giorni": 11
+    },
+    {
+     "da": "2026-02-13",
+     "a": "2026-02-24",
+     "giorni": 11
+    },
+    {
+     "da": "2012-09-28",
+     "a": "2012-10-08",
+     "giorni": 10
+    },
+    {
+     "da": "2013-02-08",
+     "a": "2013-02-18",
+     "giorni": 10
+    },
+    {
+     "da": "2016-02-05",
+     "a": "2016-02-15",
+     "giorni": 10
+    },
+    {
+     "da": "2016-09-30",
+     "a": "2016-10-10",
+     "giorni": 10
+    }
+   ],
+   "calodiN": {
+    "sedute": 0,
+    "perAnno": {},
+    "peggiori": []
+   },
+   "chiusuraUgualeAllaPrecedente": 57,
+   "esempiChiusuraUguale": [
+    "2024-09-10",
+    "2024-10-21",
+    "2024-10-31",
+    "2025-04-24",
+    "2025-04-25",
+    "2025-07-15",
+    "2026-04-27",
+    "2026-05-28"
+   ],
+   "ultimoN": 297,
+   "ultimiMembri": 300,
+   "confrontoYahooOggi": {
+    "seduteYahooAssentiNellApp": 0,
+    "esempiYahooAssenti": [],
+    "seduteAppAssentiSuYahoo": 0,
+    "esempiAppAssenti": [],
+    "chiusureDiverseOltre05pct": 0,
+    "esempiDiverse": [],
+    "barreYahooNulle": 13,
+    "esempiBarreNulle": [
+     "2012-05-10",
+     "2012-05-14",
+     "2012-05-15",
+     "2012-05-16",
+     "2012-05-17",
+     "2012-05-21",
+     "2012-05-22",
+     "2012-05-23",
+     "2012-05-24",
+     "2025-10-24"
+    ]
+   },
+   "etfFermoRispettoShanghai": {
+    "seduteShanghaiSenzaEtf": 13,
+    "diCuiBarraNullaSuYahoo": 13,
+    "esempi": [
+     "2012-05-10",
+     "2012-05-14",
+     "2012-05-15",
+     "2012-05-16",
+     "2012-05-17",
+     "2012-05-21",
+     "2012-05-22",
+     "2012-05-23",
+     "2012-05-24",
+     "2025-10-24"
+    ],
+    "appSenzaSedutaShanghai": 13,
+    "indice000300SuYahoo": "1 barre giornaliere"
+   }
+  },
+  "NIFTY50": {
+   "simboloPrezzo": "^NSEI",
+   "primaSeduta": "2007-09-17",
+   "ultimaSeduta": "2026-10-30",
+   "sedute": 4691,
+   "chiusureNulle": 0,
+   "primaBreadth": "2007-10-01",
+   "seduteSenzaBreadthDopoLaPrima": 0,
+   "esempiSenzaBreadth": [],
+   "intervalliOltre5giorni": 1,
+   "intervalliLunghi": [
+    {
+     "da": "2014-10-01",
+     "a": "2014-10-07",
+     "giorni": 6
+    }
+   ],
+   "calodiN": {
+    "sedute": 0,
+    "perAnno": {},
+    "peggiori": []
+   },
+   "chiusuraUgualeAllaPrecedente": 4,
+   "esempiChiusuraUguale": [
+    "2014-05-14",
+    "2016-10-27",
+    "2017-03-31",
+    "2024-05-08"
+   ],
+   "ultimoN": 50,
+   "ultimiMembri": 50,
+   "confrontoYahooOggi": {
+    "seduteYahooAssentiNellApp": 0,
+    "esempiYahooAssenti": [],
+    "seduteAppAssentiSuYahoo": 0,
+    "esempiAppAssenti": [],
+    "chiusureDiverseOltre05pct": 0,
+    "esempiDiverse": [],
+    "barreYahooNulle": 31,
+    "esempiBarreNulle": [
+     "2015-01-01",
+     "2015-02-28",
+     "2015-04-15",
+     "2016-01-01",
+     "2016-08-12",
+     "2018-01-01",
+     "2019-01-01",
+     "2019-10-27",
+     "2020-11-14",
+     "2026-01-15"
+    ]
+   }
+  },
+  "IBOV": {
+   "simboloPrezzo": "^BVSP",
+   "primaSeduta": "2000-01-03",
+   "ultimaSeduta": "2026-10-30",
+   "sedute": 6649,
+   "chiusureNulle": 0,
+   "primaBreadth": "2008-11-03",
+   "seduteSenzaBreadthDopoLaPrima": 0,
+   "esempiSenzaBreadth": [],
+   "intervalliOltre5giorni": 1,
+   "intervalliLunghi": [
+    {
+     "da": "2012-02-17",
+     "a": "2012-02-23",
+     "giorni": 6
+    }
+   ],
+   "calodiN": {
+    "sedute": 0,
+    "perAnno": {},
+    "peggiori": []
+   },
+   "chiusuraUgualeAllaPrecedente": 4,
+   "esempiChiusuraUguale": [
+    "2002-11-19",
+    "2004-08-12",
+    "2010-09-29",
+    "2017-12-29"
+   ],
+   "ultimoN": 76,
+   "ultimiMembri": 76,
+   "confrontoYahooOggi": {
+    "seduteYahooAssentiNellApp": 0,
+    "esempiYahooAssenti": [],
+    "seduteAppAssentiSuYahoo": 0,
+    "esempiAppAssenti": [],
+    "chiusureDiverseOltre05pct": 0,
+    "esempiDiverse": [],
+    "barreYahooNulle": 87,
+    "esempiBarreNulle": [
+     "2009-12-24",
+     "2012-01-02",
+     "2017-06-15",
+     "2017-09-07",
+     "2017-10-12",
+     "2017-11-02",
+     "2017-11-15",
+     "2017-11-20",
+     "2017-12-25",
+     "2018-01-25"
+    ]
+   }
+  },
+  "KOSPI200": {
+   "simboloPrezzo": "^KS11",
+   "primaSeduta": "2000-01-04",
+   "ultimaSeduta": "2026-10-30",
+   "sedute": 6605,
+   "chiusureNulle": 0,
+   "primaBreadth": "2006-12-01",
+   "seduteSenzaBreadthDopoLaPrima": 0,
+   "esempiSenzaBreadth": [],
+   "intervalliOltre5giorni": 26,
+   "intervalliLunghi": [
+    {
+     "da": "2017-09-29",
+     "a": "2017-10-10",
+     "giorni": 11
+    },
+    {
+     "da": "2025-10-02",
+     "a": "2025-10-10",
+     "giorni": 8
+    },
+    {
+     "da": "2000-12-26",
+     "a": "2001-01-02",
+     "giorni": 7
+    },
+    {
+     "da": "2023-09-27",
+     "a": "2023-10-04",
+     "giorni": 7
+    },
+    {
+     "da": "2025-01-24",
+     "a": "2025-01-31",
+     "giorni": 7
+    },
+    {
+     "da": "2000-09-08",
+     "a": "2000-09-14",
+     "giorni": 6
+    },
+    {
+     "da": "2001-09-28",
+     "a": "2001-10-04",
+     "giorni": 6
+    },
+    {
+     "da": "2002-02-08",
+     "a": "2002-02-14",
+     "giorni": 6
+    }
+   ],
+   "calodiN": {
+    "sedute": 0,
+    "perAnno": {},
+    "peggiori": []
+   },
+   "chiusuraUgualeAllaPrecedente": 4,
+   "esempiChiusuraUguale": [
+    "2000-02-18",
+    "2005-03-16",
+    "2008-02-26",
+    "2018-10-16"
+   ],
+   "ultimoN": 200,
+   "ultimiMembri": 200,
+   "confrontoYahooOggi": {
+    "seduteYahooAssentiNellApp": 0,
+    "esempiYahooAssenti": [],
+    "seduteAppAssentiSuYahoo": 0,
+    "esempiAppAssenti": [],
+    "chiusureDiverseOltre05pct": 0,
+    "esempiDiverse": [],
+    "barreYahooNulle": 100,
+    "esempiBarreNulle": [
+     "2008-05-05",
+     "2008-05-12",
+     "2008-06-06",
+     "2008-08-15",
+     "2008-09-15",
+     "2008-10-03",
+     "2008-12-25",
+     "2008-12-31",
+     "2011-10-04",
+     "2015-08-14"
+    ]
+   }
+  },
+  "TWN": {
+   "simboloPrezzo": "^TWII",
+   "primaSeduta": "2000-01-04",
+   "ultimaSeduta": "2026-10-30",
+   "sedute": 6576,
+   "chiusureNulle": 0,
+   "primaBreadth": "2003-01-02",
+   "seduteSenzaBreadthDopoLaPrima": 0,
+   "esempiSenzaBreadth": [],
+   "intervalliOltre5giorni": 31,
+   "intervalliLunghi": [
+    {
+     "da": "2023-01-17",
+     "a": "2023-01-30",
+     "giorni": 13
+    },
+    {
+     "da": "2002-02-06",
+     "a": "2002-02-18",
+     "giorni": 12
+    },
+    {
+     "da": "2007-02-14",
+     "a": "2007-02-26",
+     "giorni": 12
+    },
+    {
+     "da": "2009-01-21",
+     "a": "2009-02-02",
+     "giorni": 12
+    },
+    {
+     "da": "2010-02-10",
+     "a": "2010-02-22",
+     "giorni": 12
+    },
+    {
+     "da": "2012-01-18",
+     "a": "2012-01-30",
+     "giorni": 12
+    },
+    {
+     "da": "2013-02-06",
+     "a": "2013-02-18",
+     "giorni": 12
+    },
+    {
+     "da": "2016-02-03",
+     "a": "2016-02-15",
+     "giorni": 12
+    }
+   ],
+   "calodiN": {
+    "sedute": 0,
+    "perAnno": {},
+    "peggiori": []
+   },
+   "chiusuraUgualeAllaPrecedente": 3,
+   "esempiChiusuraUguale": [
+    "2001-09-18",
+    "2014-07-23",
+    "2016-07-08"
+   ],
+   "ultimoN": 74,
+   "ultimiMembri": 76,
+   "confrontoYahooOggi": {
+    "seduteYahooAssentiNellApp": 0,
+    "esempiYahooAssenti": [],
+    "seduteAppAssentiSuYahoo": 0,
+    "esempiAppAssenti": [],
+    "chiusureDiverseOltre05pct": 0,
+    "esempiDiverse": [],
+    "barreYahooNulle": 98,
+    "esempiBarreNulle": [
+     "2015-07-10",
+     "2015-09-29",
+     "2016-01-30",
+     "2016-06-04",
+     "2016-09-10",
+     "2016-09-27",
+     "2016-09-28",
+     "2017-02-18",
+     "2017-06-03",
+     "2026-10-23"
+    ]
+   }
+  },
+  "HSI": {
+   "simboloPrezzo": "^HSI",
+   "primaSeduta": "2000-01-03",
+   "ultimaSeduta": "2026-10-30",
+   "sedute": 6610,
+   "chiusureNulle": 0,
+   "primaBreadth": "2008-09-01",
+   "seduteSenzaBreadthDopoLaPrima": 0,
+   "esempiSenzaBreadth": [],
+   "intervalliOltre5giorni": 13,
+   "intervalliLunghi": [
+    {
+     "da": "2001-01-23",
+     "a": "2001-01-29",
+     "giorni": 6
+    },
+    {
+     "da": "2005-02-08",
+     "a": "2005-02-14",
+     "giorni": 6
+    },
+    {
+     "da": "2007-04-04",
+     "a": "2007-04-10",
+     "giorni": 6
+    },
+    {
+     "da": "2009-01-23",
+     "a": "2009-01-29",
+     "giorni": 6
+    },
+    {
+     "da": "2010-04-01",
+     "a": "2010-04-07",
+     "giorni": 6
+    },
+    {
+     "da": "2012-01-20",
+     "a": "2012-01-26",
+     "giorni": 6
+    },
+    {
+     "da": "2013-02-08",
+     "a": "2013-02-14",
+     "giorni": 6
+    },
+    {
+     "da": "2015-04-02",
+     "a": "2015-04-08",
+     "giorni": 6
+    }
+   ],
+   "calodiN": {
+    "sedute": 0,
+    "perAnno": {},
+    "peggiori": []
+   },
+   "chiusuraUgualeAllaPrecedente": 0,
+   "esempiChiusuraUguale": [],
+   "ultimoN": 85,
+   "ultimiMembri": 85,
+   "confrontoYahooOggi": {
+    "seduteYahooAssentiNellApp": 0,
+    "esempiYahooAssenti": [],
+    "seduteAppAssentiSuYahoo": 0,
+    "esempiAppAssenti": [],
+    "chiusureDiverseOltre05pct": 0,
+    "esempiDiverse": [],
+    "barreYahooNulle": 79,
+    "esempiBarreNulle": [
+     "2004-10-22",
+     "2004-12-27",
+     "2008-08-06",
+     "2008-08-22",
+     "2011-12-24",
+     "2011-12-31",
+     "2013-08-14",
+     "2016-08-02",
+     "2016-10-21",
+     "2017-08-23"
+    ]
+   }
+  },
+  "EEM": {
+   "simboloPrezzo": "EEM",
+   "primaSeduta": "2003-04-14",
+   "ultimaSeduta": "2026-10-30",
+   "sedute": 5926,
+   "chiusureNulle": 0,
+   "primaBreadth": "2011-03-01",
+   "seduteSenzaBreadthDopoLaPrima": 0,
+   "esempiSenzaBreadth": [],
+   "intervalliOltre5giorni": 0,
+   "intervalliLunghi": [],
+   "calodiN": {
+    "sedute": 68,
+    "perAnno": {
+     "2011": 2,
+     "2012": 4,
+     "2013": 3,
+     "2014": 4,
+     "2015": 4,
+     "2016": 4,
+     "2017": 4,
+     "2018": 4,
+     "2019": 5,
+     "2020": 6,
+     "2021": 4,
+     "2022": 4,
+     "2023": 5,
+     "2024": 4,
+     "2025": 6,
+     "2026": 5
+    },
+    "peggiori": [
+     {
+      "data": "2024-02-14",
+      "n": 612,
+      "medianaVicina": 1099
+     },
+     {
+      "data": "2023-01-26",
+      "n": 604,
+      "medianaVicina": 1078
+     },
+     {
+      "data": "2023-01-27",
+      "n": 604,
+      "medianaVicina": 1078
+     },
+     {
+      "data": "2025-10-08",
+      "n": 627,
+      "medianaVicina": 1116
+     },
+     {
+      "data": "2026-02-19",
+      "n": 633,
+      "medianaVicina": 1122
+     }
+    ]
+   },
+   "chiusuraUgualeAllaPrecedente": 49,
+   "esempiChiusuraUguale": [
+    "2020-07-09",
+    "2020-12-07",
+    "2021-05-03",
+    "2022-01-10",
+    "2022-07-08",
+    "2023-04-04",
+    "2024-06-24",
+    "2024-11-15"
+   ],
+   "ultimoN": 1122,
+   "ultimiMembri": 1180,
+   "confrontoYahooOggi": {
+    "seduteYahooAssentiNellApp": 0,
+    "esempiYahooAssenti": [],
+    "seduteAppAssentiSuYahoo": 0,
+    "esempiAppAssenti": [],
+    "chiusureDiverseOltre05pct": 0,
+    "esempiDiverse": [],
+    "barreYahooNulle": 0,
+    "esempiBarreNulle": []
+   },
+   "caliDiNConShanghaiChiusa": 68
+  }
+ },
+ "calendarioNyseDaEtf": {
+  "sedute": 7709,
+  "prima": "1996-03-18",
+  "ultima": "2026-11-04",
+  "sedute2006": 5243
+ },
+ "oraChiusuraYahoo": {
+  "metodo": "chiusura giornaliera contro chiusura della barra oraria che inizia k ore dopo la mezzanotte di Londra della barra giornaliera; ultimi 3 mesi",
+  "CNY=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": -4,
+    "diffMedianaPct": 0.0075,
+    "barre": 33
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": -3,
+    "diffMedianaPct": 0.0075,
+    "barre": 31
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": -15,
+    "diffMedianaPct": 0.0134,
+    "barre": 51
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.1484,
+    "barre": 66
+   }
+  },
+  "INR=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": -1,
+    "diffMedianaPct": 0.0297,
+    "barre": 15
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": 1,
+    "diffMedianaPct": 0.0315,
+    "barre": 28
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": 0,
+    "diffMedianaPct": 0.0444,
+    "barre": 17
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.1156,
+    "barre": 35
+   }
+  },
+  "BRL=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": 0,
+    "diffMedianaPct": 0.0219,
+    "barre": 21
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": -1,
+    "diffMedianaPct": 0.0236,
+    "barre": 50
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": 2,
+    "diffMedianaPct": 0.0261,
+    "barre": 47
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.4156,
+    "barre": 65
+   }
+  },
+  "KRW=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": -1,
+    "diffMedianaPct": 0.0498,
+    "barre": 52
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": 0,
+    "diffMedianaPct": 0.0541,
+    "barre": 64
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": -2,
+    "diffMedianaPct": 0.0551,
+    "barre": 52
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.2754,
+    "barre": 60
+   }
+  },
+  "TWD=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": 0,
+    "diffMedianaPct": 0.0038,
+    "barre": 63
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": -1,
+    "diffMedianaPct": 0.0223,
+    "barre": 51
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": -2,
+    "diffMedianaPct": 0.0299,
+    "barre": 52
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.1671,
+    "barre": 64
+   }
+  },
+  "MXN=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": 0,
+    "diffMedianaPct": 0.015,
+    "barre": 65
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": -1,
+    "diffMedianaPct": 0.0266,
+    "barre": 52
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": -3,
+    "diffMedianaPct": 0.0374,
+    "barre": 52
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.3385,
+    "barre": 66
+   }
+  },
+  "ZAR=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": 0,
+    "diffMedianaPct": 0.0092,
+    "barre": 65
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": -1,
+    "diffMedianaPct": 0.0353,
+    "barre": 52
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": -3,
+    "diffMedianaPct": 0.039,
+    "barre": 52
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.3028,
+    "barre": 66
+   }
+  },
+  "HKD=X": {
+   "migliore": {
+    "oreDopoMezzanotteLondra": -6,
+    "diffMedianaPct": 0.0027,
+    "barre": 52
+   },
+   "seconda": {
+    "oreDopoMezzanotteLondra": -14,
+    "diffMedianaPct": 0.0034,
+    "barre": 51
+   },
+   "terza": {
+    "oreDopoMezzanotteLondra": 0,
+    "diffMedianaPct": 0.0034,
+    "barre": 65
+   },
+   "fineGiornata23h": {
+    "oreDopoMezzanotteLondra": 22,
+    "diffMedianaPct": 0.0101,
+    "barre": 66
+   }
+  }
+ },
+ "fredErroriPagine": 0
+}

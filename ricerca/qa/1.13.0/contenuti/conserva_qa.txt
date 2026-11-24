@@ -1,0 +1,1309 @@
+{"frasi": 1287, "identiche": 633, "num_L0": 380, "num_L1": 6, "num_L2": 14, "num_persi": 1}
+DA GUARDARE [alr] numeri:L0 frase in L1:False in guida:False parole L1:0.33 guida:1.0 mancano L1:[] mancano guida:[]
+   Serve a vedere come si comporta il sistema, non è un backtest validato.
+DA GUARDARE [alr] numeri:L0 frase in L1:False in guida:False parole L1:0.76 guida:1.0 mancano L1:[] mancano guida:[]
+   inviato Le notifiche arrivano a chi gestisce il repository: la GitHub Action invia solo i nuovi cambi di stato dopo ogni aggiornamento dei dati (di solito tra la notte e la mattina).
+DA GUARDARE [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.75 guida:0.75 mancano L1:[] mancano guida:[]
+   stato e contestoultima seduta di ogni borsa, dal 19/11/2026 al 20/11/2026
+DA GUARDARE [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:1.0 mancano L1:[] mancano guida:[]
+   Valuta, dollaro e forza relativa sono solo contesto: non cambiano lo stato e non mandano alert.
+DA GUARDARE [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:0.67 mancano L1:[] mancano guida:[]
+   CSI 300Avvicinamento breadth 24,2%
+DA GUARDARE [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:0.33 mancano L1:[] mancano guida:[]
+   Forza relativaal 20/11/2026 LeadingImprovingLaggingWeakeningASHRCSI300
+DA GUARDARE [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.75 guida:1.0 mancano L1:[] mancano guida:[]
+   Come leggere il contesto Solo contesto, non un segnale.
+DA GUARDARE [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.62 guida:1.0 mancano L1:[] mancano guida:[]
+   Valuta, dollaro e forza relativa non cambiano lo stato e non mandano alert.
+DA GUARDARE [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.55 guida:1.0 mancano L1:[] mancano guida:[]
+   Valuta e dollaro, nella verifica sui dati, non hanno migliorato i segnali della breadth; la forza relativa non è stata provata.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.78 guida:0.92 mancano L1:[] mancano guida:[]
+   Guida× Guida completa ↗ ogni vista e ogni funzione spiegata passo per passo Sector Monitor segue due cose: i possibili bottom dei settori S&P 500, cioè quanti titoli di ogni settore stanno sopra la media a 200 sedute rispetto a un livello blu, insieme al drawdown dell'ETF; e la rotazione relativa di settori, titoli ed ETF in euro.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.63 guida:1.0 mancano L1:[] mancano guida:[]
+   Le viste 1 Monitor: gli 11 settori ordinati per stato, più i semiconduttori (SOXX) come industria, con breadth, livello blu e drawdown; a destra i settori da osservare, perché e cosa manca al prossimo stato.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.38 guida:0.92 mancano L1:[] mancano guida:[]
+   In alto, se sei già passato con i dati di un altro giorno, cosa è cambiato da allora (stati e breadth mossa di almeno 5 punti).
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:1.0 mancano L1:[] mancano guida:[]
+   Clic su un settore per il dettaglio, dove il riquadro Perché questo stato elenca le condizioni della zona blu o del trigger con ✓ e ✗.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.55 guida:0.82 mancano L1:[] mancano guida:[]
+   Sul telefono le spiegazioni delle intestazioni si aprono toccandole. 2 Rotazione: grafico di rotazione relativa con tabella e performance.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.78 guida:0.91 mancano L1:[] mancano guida:[]
+   Il colore è lo stato attuale. 4 Settore: prezzo, drawdown e breadth nel tempo, livello blu da provare con +/-, titoli del settore dal più sopra al più sotto la media, episodi passati e la scheda Cali forti (quanti titoli perdono almeno il 7% in una seduta, sommati su 5 sedute: un'allerta di contesto, non un segnale). 5 Titoli: dentro i settori.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.3 guida:0.96 mancano L1:['12'] mancano guida:[]
+   In alto «grandi contro piccoli»: per ogni settore il rendimento pesato per capitalizzazione e quello con ogni titolo a peso uguale (1, 3, 6 mesi, da inizio anno, 12 mesi), con la scia di 3 mesi, 1 mese e 1 settimana fa e la freccia dell'ultima settimana.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:1.0 mancano L1:[] mancano guida:[]
+   Sotto, le bolle dei titoli del settore scelto e la lista dei più in pena.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.53 guida:1.0 mancano L1:[] mancano guida:[]
+   I numeri sono il rendimento di indici simulati con i membri di ogni data e possono differire da quelli del grafico di Rea: il motivo è nel riquadro «Come si legge». 6 Indici: la stessa analisi su 22 indici azionari.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.3 guida:0.93 mancano L1:['2000', '600', '225'] mancano guida:[]
+   Di partenza si vedono i 10 principali (S&P 500, Nasdaq-100, Dow Jones, Russell 2000, STOXX Europe 600, DAX, FTSE MIB, Nikkei 225, KOSPI 200, MSCI Emerging Markets); gli altri si aggiungono o si tolgono con un clic nel riquadro «Indici mostrati», e la scelta resta nel browser.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.13 guida:1.0 mancano L1:['2000', '60', '600', '40', '35', '225', '300'] mancano guida:[]
+   Tutti gli indici: S&P 500, Nasdaq-100, Dow Jones, Russell 2000, S&P/TSX 60, STOXX Europe 600, Euro Stoxx 50, FTSE 100, DAX, CAC 40, SMI, FTSE MIB, IBEX 35, Nikkei 225, Hang Seng, CSI 300, KOSPI 200, Taiwan, Nifty 50, S&P/ASX 200, MSCI Emerging Markets e Ibovespa.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.5 guida:1.0 mancano L1:[] mancano guida:[]
+   Livelli di default dai grafici di Massimo Rea, altrimenti il 3° percentile della storia.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.5 guida:1.0 mancano L1:[] mancano guida:[]
+   «Con limiti» segna gli indici con una storia più corta o meno affidabile: il motivo è nel riquadro Situazione.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.52 guida:1.0 mancano L1:['2001', '89', '132', '83', '83'] mancano guida:[]
+   Anche qui l'anello tratteggiato e la voce «Avvicinamento» segnano gli indici sotto la loro soglia di avvicinamento (sulla storia di ciascuno dei 22 indici, la più lunga dal 2001, nel campione: insieme all'Attenzione 89 tocchi del livello su 132 avvisati, contro 83 della sola Attenzione; l'avvicinamento da solo 83).
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.56 guida:0.89 mancano L1:['99'] mancano guida:[]
+   La colonna e la scheda Cali forti contano i titoli che perdono almeno il 7% in una seduta, sommati su 5 sedute (preset di Rea): allerta sopra il 99° percentile della storia dell'indice.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.51 guida:0.95 mancano L1:['300'] mancano guida:[]
+   Un'allerta che si ripete per settimane segnala vendite forti e diffuse sotto la superficie; è contesto, non cambia stati né alert. 7 Emergenti: CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM con lo stato della vista 6 e, accanto, la valuta contro il dollaro, il dollaro contro le valute emergenti (FRED) e la forza relativa dell'ETF del paese contro ACWI.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.52 guida:1.0 mancano L1:['25', '30', '40', '30'] mancano guida:[]
+   Solo contesto: non cambia lo stato e non manda alert. 8 VIX: come sono andati S&P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi), lo scatter delle sedute con il VIX a 30 o più, il VIX contro la volatilità realizzata, la struttura a termine (VIX/VIX3M) e il credito high yield (HYG/IEF).
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.71 guida:1.0 mancano L1:[] mancano guida:[]
+   Solo contesto. 9 Alert: registro dei cambi di stato dal 2005 e regole. 0 Massimi (tasto 0): quanto bitcoin, oro, argento, rame, petrolio, Nasdaq-100, S&P 500, semiconduttori e KOSPI sono sotto il massimo degli ultimi 3 anni, con grafico e profilo dei volumi, e la linea del tempo dei massimi negli ultimi cali dell'S&P 500 con l'ordine tipico.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.79 guida:1.0 mancano L1:[] mancano guida:[]
+   Stati dei settori Avvicinamento (anello tratteggiato sulla Bottom Map): breadth sotto la soglia di avvicinamento del settore, cioè il livello blu più il calo forte della sua breadth in 10 sedute.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.45 guida:0.91 mancano L1:[] mancano guida:[]
+   In un calo deciso il livello blu è a circa due settimane: è il momento di mettere il settore in osservazione.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.45 guida:1.0 mancano L1:['2019', '2016', '43', '33'] mancano guida:[]
+   Dal 2005 (XLC dal 2019, XLRE dal 2016), insieme all'Attenzione ha avvisato 50 tocchi del livello su 63, 7 più della sola Attenzione (43); da solo ne ha avvisati 33.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.2 guida:1.0 mancano L1:[] mancano guida:[]
+   È un promemoria, non un segnale per comprare o vendere: come usarlo.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.5 guida:1.0 mancano L1:[] mancano guida:[]
+   Circa un avvicinamento su tre arriva al livello entro sei mesi.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.23 guida:0.92 mancano L1:[] mancano guida:[]
+   Sono numeri nel campione: la regola è stata scelta guardando questa stessa storia, quindi dal vivo ci si deve aspettare qualcosa di meno.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.64 guida:1.0 mancano L1:[] mancano guida:[]
+   Trigger: la breadth risale di almeno 5 punti sopra il livello (o 2 titoli, se valgono di più) e di almeno 2 titoli sopra il minimo della zona blu, con una conferma (due dopo un fallimento o una zona blu lunga): spinta di breadth, prezzo sopra una media 20 crescente o divergenza.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.5 guida:1.0 mancano L1:['40', '25'] mancano guida:[]
+   Il rimbalzo a V (breadth di nuovo sopra il più alto tra 40% e livello + 25) basta da solo.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.62 guida:1.0 mancano L1:[] mancano guida:[]
+   Fallito: il prezzo chiude sotto il minimo della zona blu, con un piccolo margine, entro 20 sedute dal trigger; oppure più tardi, finché la breadth non è tornata sopra il livello di riarmo, se anche la breadth è di nuovo sotto il livello blu.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.57 guida:1.0 mancano L1:[] mancano guida:[]
+   Nel grafico le bande blu a righe sono le sedute con la breadth sotto il livello ma fuori dalla zona blu: il motivo è nel riquadro al passaggio del mouse.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.77 guida:0.92 mancano L1:[] mancano guida:[]
+   Rotazione relativa Ogni titolo è confrontato con il benchmark su due assi: RS-Ratio (forza relativa) e RS-Momentum (slancio di quella forza).
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.33 guida:0.99 mancano L1:['225', '600', '40'] mancano guida:[]
+   Universi globali: 1 Asset class confronta le componenti di un portafoglio di esempio con il portafoglio stesso (o con la liquidità, o con l'MSCI World): sotto il grafico ci sono classi, pesi e ribilanciamento, con i cursori per adattare i pesi al tuo portafoglio; 2 Fattori gli stili con l'MSCI World; 3 Regioni e 4 Paesi con l'MSCI ACWI, il mondo con gli emergenti; 6 Indici gli ETF in euro su 9 indici della pagina Indici (S&P 500, Nasdaq-100, Dow Jones, Nikkei 225, STOXX Europe 600, FTSE 100, DAX, CAC 40 e la Svizzera con l'MSCI Switzerland), sempre con l'MSCI ACWI. 5 Asset reali, in dollari, c
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.33 guida:1.0 mancano L1:[] mancano guida:[]
+   Due formule per la rotazione.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.5 guida:0.95 mancano L1:[] mancano guida:[]
+   La nuova usa medie esponenziali sul logaritmo della forza relativa, normalizzate per la volatilità: tutti i titoli stanno sulla stessa scala, e più il trend relativo è forte, più il punto si allontana dal centro.
+DA GUARDARE [help] numeri:L2 frase in L1:False in guida:False parole L1:0.46 guida:1.0 mancano L1:['30'] mancano guida:[]
+   Medie semplici divide la media a 10 barre della forza relativa per quella a 30; il momentum confronta questo rapporto con la sua media a 9 barre.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:True parole L1:0.38 guida:1.0 mancano L1:[] mancano guida:[]
+   La distanza da 100 è in punti percentuali, quindi i titoli più volatili disegnano code più lunghe.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:True parole L1:0.2 guida:1.0 mancano L1:[] mancano guida:[]
+   Con l'indice S&P 500 come benchmark coincide al centesimo con StockCharts.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.14 guida:1.0 mancano L1:[] mancano guida:[]
+   Sotto il grafico, la nota «come si calcola» mette a confronto le due formule.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.41 guida:0.94 mancano L1:[] mancano guida:[]
+   Dati Chiusure di Yahoo Finance, aggiornate da una GitHub Action dopo la chiusura USA, con corse di recupero ogni ora nelle prime ore del mattino e una a metà giornata.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.37 guida:1.0 mancano L1:[] mancano guida:[]
+   GitHub fa partire le corse anche con qualche ora di ritardo e Yahoo pubblica le chiusure USA a ore diverse della notte: di solito i dati della seduta arrivano tra la notte e la mattina.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.64 guida:1.0 mancano L1:[] mancano guida:[]
+   In alto la data dell'ultima chiusura USA; per gli ETF in euro la data è sopra il grafico di rotazione.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.33 guida:1.0 mancano L1:[] mancano guida:[]
+   La breadth è calcolata sui costituenti dell'S&P 500, con lo storico dal 2005 ricostruito sulla composizione dell'epoca.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.71 guida:1.0 mancano L1:[] mancano guida:[]
+   Comandi e tasti Nella barra in alto scrivi un ETF settoriale (es.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.57 guida:0.86 mancano L1:[] mancano guida:[]
+   XLU) per aprirne il dettaglio, un altro ticker (anche senza borsa, es.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.53 guida:0.94 mancano L1:[] mancano guida:[]
+   ORO, INDIA, TESLA) per evidenziarlo nella rotazione, oppure MON, ROT, BTM, SEC, TIT, IDX, EMG, VIX, ALRT, MASSIMI, HELP; un indice (es.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.43 guida:1.0 mancano L1:[] mancano guida:[]
+   NDX, DAX) apre il suo dettaglio nella pagina Indici;
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.6 guida:0.8 mancano L1:[] mancano guida:[]
+   CHIARO o SCURO per il tema, TEMA per invertirlo.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:True parole L1:0.75 guida:1.0 mancano L1:[] mancano guida:[]
+   Esc toglie lo zoom, poi l'evidenza
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:True parole L1:0.33 guida:1.0 mancano L1:[] mancano guida:[]
+   Con il focus sulle schede, ← → passano da una vista all'altra.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.36 guida:1.0 mancano L1:[] mancano guida:[]
+   Nei grafici grandi con il tempo, trascina da una data all'altra per lo zoom su un tratto (sul telefono prima la lente).
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.7 guida:0.85 mancano L1:[] mancano guida:[]
+   Scorciatoie da un tasto attive (toglile se usi un lettore di schermo o la dettatura) Idee ispirate al lavoro di Massimo Rea (quant-rea.com): se vi interessano gli studi completi, li trovate lì.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:True parole L1:0.31 guida:1.0 mancano L1:[] mancano guida:[]
+   Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.75 guida:1.0 mancano L1:[] mancano guida:[]
+   La versione in uso è accanto al nome in alto (passa il mouse per le novità).
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.73 guida:1.0 mancano L1:[] mancano guida:[]
+   Se compare «Nuova versione: ricarica», il browser sta usando file vecchi: clic sul pulsante, oppure Ctrl+F5 (su Mac Cmd+Maiusc+R).
+DA GUARDARE [help] numeri:L0 frase in L1:False in guida:False parole L1:0.52 guida:1.0 mancano L1:[] mancano guida:[]
+   I livelli blu di default vengono dalla tabella «200 LEVEL SETTORI» di quant-rea; le regole di zona blu, trigger e cooldown sono di questa app. "Relative Rotation Graphs" è un marchio di RRG Research: la vista Rotazione è un'approssimazione indipendente. .
+DA GUARDARE [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:0.67 mancano L1:[] mancano guida:[]
+   stato dei bottomordinati per stato
+DA GUARDARE [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:0.62 guida:0.92 mancano L1:[] mancano guida:[]
+   Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.
+DA GUARDARE [intro] numeri:L0 frase in L1:False in guida:False parole L1:0.45 guida:1.0 mancano L1:[] mancano guida:[]
+   Apri 2 Rotazione e scegli un universo in euro: Asset class, Fattori, Regioni, Paesi o Indici.
+DA GUARDARE [mon] numeri:L0 frase in L1:False in guida:False parole L1:0.45 guida:1.0 mancano L1:[] mancano guida:[]
+   Apri 2 Rotazione e scegli un universo in euro: Asset class, Fattori, Regioni, Paesi o Indici.
+DA GUARDARE [mon] numeri:L0 frase in L1:False in guida:True parole L1:0.73 guida:1.0 mancano L1:[] mancano guida:[]
+   indici: livelli dai grafici di Massimo Rea dove ci sono, altrimenti il 3° percentile della storia dell'indice
+DA GUARDARE [mon] numeri:L0 frase in L1:False in guida:False parole L1:0.47 guida:1.0 mancano L1:[] mancano guida:[]
+   massimi (vista 0): idea di Francesco Caruso (Cicli&Mercati) Idee ispirate al lavoro di Massimo Rea (quant-rea.com): se vi interessano gli studi completi, li trovate lì.
+DA GUARDARE [mon] numeri:L0 frase in L1:False in guida:True parole L1:0.54 guida:1.0 mancano L1:[] mancano guida:[]
+   Questo è un mio strumento di studio, con calcoli miei su dati gratuiti: non sostituisce le sue analisi e i numeri possono differire.
+DA GUARDARE [mon] numeri:PERSO frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:['1.12.0', '22/11/2026'] mancano guida:['1.12.0', '22/11/2026']
+   I rendimenti passati non indicano quelli futuri. versione 1.12.0 del 22/11/2026
+DA GUARDARE [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:1.0 mancano L1:[] mancano guida:[]
+   Composizione e cursori sotto il grafico.
+DA GUARDARE [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:0.67 mancano L1:[] mancano guida:[]
+   Portafoglio di riferimento10 componenti
+DA GUARDARE [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:0.67 mancano L1:[] mancano guida:[]
+   Come leggere i benchmark6 benchmark
+DA GUARDARE [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:0.6 guida:0.6 mancano L1:[] mancano guida:[]
+   «Porta a 100%» riscrive i numeri mantenendo le proporzioni.
+DA GUARDARE [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:0.33 guida:0.67 mancano L1:[] mancano guida:[]
+   Clic su un'intestazione per ordinare.
+DA GUARDARE [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.54 guida:0.92 mancano L1:[] mancano guida:[]
+   Le modifiche valgono solo in questo browser: servono a provare livelli diversi e vedere come cambiano zone blu, trigger ed episodi.
+DA GUARDARE [tit-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:0.67 mancano L1:[] mancano guida:[]
+   SOXX Semiconductors30 titoli
+DA GUARDARE [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.75 guida:0.75 mancano L1:[] mancano guida:[]
+   cap-weighted vs equal-weightal 20/11/2026
+DA GUARDARE [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.75 guida:0.75 mancano L1:[] mancano guida:[]
+   Clic su un settore per vederne i titoli.
+DA GUARDARE [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.67 guida:0.67 mancano L1:[] mancano guida:[]
+   XLK Technology75 titoli
+DA GUARDARE [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.75 guida:1.0 mancano L1:[] mancano guida:[]
+   Come si legge Grandi contro piccoli.
+DA GUARDARE [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.5 guida:1.0 mancano L1:[] mancano guida:[]
+   I numeri non coincidono, per tre motivi.
+DA GUARDARE [tit-XLK] numeri:L2 frase in L1:False in guida:False parole L1:0.79 guida:1.0 mancano L1:['16/10/2026', '5,7'] mancano guida:[]
+   Il cap-weighted: Rea pesa i rendimenti con la capitalizzazione di oggi, che dà più peso a chi è già salito, quindi il suo valore di solito è più alto di quanto ha reso davvero un indice a capitalizzazione (3 mesi al 16/10/2026, Tecnologia: 8,2% con i pesi di fine periodo, 5,8% con quelli di inizio periodo dalla stessa data di partenza; 5,7% sulle nostre 63 sedute); noi usiamo i pesi di inizio periodo, che poi seguono i prezzi.
+DA GUARDARE [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.77 guida:1.0 mancano L1:[] mancano guida:[]
+   L'equal-weight: per Rea è la media semplice dei membri di oggi, per noi l'indice con i membri di ogni data e il ribilanciamento trimestrale.
+DA GUARDARE [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.65 guida:1.0 mancano L1:[] mancano guida:[]
+   Per questo i numeri possono differire, soprattutto nel cap-weighted, e in qualche settore può cambiare chi è davanti; più è lungo il periodo, più le differenze possono crescere. .
+DA GUARDARE [vix] numeri:L0 frase in L1:False in guida:True parole L1:0.7 guida:1.0 mancano L1:[] mancano guida:[]
+   Il VIX è la volatilità che il mercato delle opzioni si aspetta sull'S&P 500 nei prossimi 30 giorni: sale quando c'è paura.
+DA GUARDARE [vix] numeri:L2 frase in L1:False in guida:False parole L1:0.85 guida:0.85 mancano L1:['2005'] mancano guida:[]
+   Dal 2005 il VIX è stato sopra la volatilità poi realizzata nei 21 giorni successivi nell'83% delle sedute, in media di 3,4 punti: è il premio che si paga per assicurarsi.
+DA GUARDARE [vix] numeri:L2 frase in L1:False in guida:False parole L1:0.72 guida:1.0 mancano L1:['2005'] mancano guida:[]
+   Il VIX sale insieme ai ribassi, non prima: dal 2005 il premio alto (oltre l'80° percentile) si è acceso 204 volte, e solo in 12 entro 21 sedute è arrivato un picco della volatilità (la realizzata sopra il suo 90° percentile).
+DA GUARDARE [vix] numeri:L0 frase in L1:False in guida:True parole L1:0.12 guida:1.0 mancano L1:[] mancano guida:[]
+   Una stima GARCH è stata provata e scartata: segue la volatilità, non la anticipa.
+DA GUARDARE [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.73 guida:1.0 mancano L1:[] mancano guida:[]
+   Di solito il VIX sta sotto il VIX3M (rapporto sotto 1, contango): chi si assicura paga di più per le scadenze lunghe.
+DA GUARDARE [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.75 guida:1.0 mancano L1:[] mancano guida:[]
+   Nella verifica non aggiunge informazione al livello del VIX (dal 2008 tutti gli episodi del VIX sopra 30 erano già in backwardation il giorno del segnale) e il ritorno al contango non è stato un ingresso migliore del segnale del VIX sopra 30: solo contesto.
+DA GUARDARE [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.5 guida:1.0 mancano L1:[] mancano guida:[]
+   Nella verifica, fatta sul campione dal 1990 con lo spread delle obbligazioni Baa (il gradino più basso dell'«investment grade»; la prima serie considerata, poi scartata per la licenza), i casi con il credito in tensione sono troppo pochi per una statistica: solo contesto.
+DA GUARDARE [vix] numeri:L0 frase in L1:False in guida:True parole L1:0.64 guida:1.0 mancano L1:[] mancano guida:[]
+   Ricalcolo: ricerca/vix/ (ramo di sviluppo del repository): regimi/ per la tabella, volatilita/ per l'83%, i 3,4 punti e i 12 su 204, struttura/ per la struttura a termine e il credito.
+DA GUARDARE [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.71 guida:0.86 mancano L1:[] mancano guida:[]
+   Un premio alto da solo non ha annunciato i picchi di volatilità (vedi «Come leggere»). .
+ok [alr] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   drawdown -12,4% (89° percentile) Calcolato nel browser con i livelli blu attuali su tutta la storia dal 2005 (ricostruita).
+ok [alr] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Regole Alert solo sui cambi di stato: ingresso in zona blu, trigger, segnale fallito.Zona blu: breadth ≤ livello blu per 2 chiusure e drawdown oltre il 70° percentile.Trigger: breadth ≥ livello + max(5 punti, 2 titoli) e almeno 2 titoli sopra il minimo della zona blu, con una conferma (due se la zona blu dura più di 60 sedute o dopo un fallimento); il rimbalzo a V basta da solo.Fallito: il prezzo chiude sotto il minimo della zona blu meno un'escursione media giornaliera entro 20 sedute dal trigger, oppure più tardi, prima del riarmo, con la breadth di nuovo sotto il livello blu.Cooldown e riar
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:0.89 guida:0.67 mancano L1:[] mancano guida:[]
+   le bolle si sgonfiano a rotazioneper distanzaper data del massimo MercatoDistanza dal massimo dei 3 anni
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.88 mancano L1:[] mancano guida:[]
+   48 giorni fa-11,62%20/11/2026 Argento: prezzo (serie dal 2000), scala logaritmica3A10AMAX× ultimi 3 anni (dal 20/11/2023): qui si cerca il massimo201820202022202420262050100volumi 12 mesi Argento (SI=F), chiusureultimi 3 anni (dal 20/11/2023)massimo di chiusura dei 3 anni: 115,08 il 26/01/2026minimo dopo il massimo: 41,03 il 20/11/2026ultima chiusura: 41,03 il 20/11/2026a destra: volume per fascia di prezzo, dal 20/11/2025 al 20/11/2026 (future SI=F, dalle barre orarie)inizio dei 12 mesi Quanto ogni mercato è sotto il suo massimo di chiusura degli ultimi 3 anni, il picco dell'ultimo ciclo (il 
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   -46,6% finora massimo dell'S&P 500massimo di ciclo più alto entro 12 mesi (seguito da un calo ≥ 20%)altri massimi di cicloinsieme: entro 31 giorniaccanto o sotto la riga: data, giorni, caloCome si legge ↗ .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Barra da 0 a -60%; la tacca è il calo più profondo dopo il massimo .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il punto più basso di chiusura dopo il massimo, rispetto al massimo .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Clic per i dettagli e il grafico .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Argento: -64,34% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Bitcoin: -52,87% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   KOSPI (Corea): -46,57% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Semiconduttori: -43,48% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Oro: -33,90% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Petrolio WTI: -25,65% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Nasdaq-100: -19,84% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Rame: -19,50% dal massimo dei 3 anni .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo ¦ Zoom: scegli un tratto sul grafico .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Togli lo zoom e torna al periodo .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Prezzo di Argento dal 30/08/2000, con il massimo di chiusura degli ultimi 3 anni e il profilo dei volumi degli ultimi 12 mesi .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Dettagli nella guida. ¦ Solo descrizione: nel backtest nessun mercato anticipa i cali in modo affidabile.
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 7 cali su 8: 4 prima, 3 insieme, 0 dopo; scarto mediano -80 giorni; 1 calo senza un suo calo ≥ 20%. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 7 cali su 8: 4 prima, 2 insieme, 1 dopo; scarto mediano -71 giorni; 1 calo prima dell'inizio della serie. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 4 cali su 8: 2 prima, 0 insieme, 2 dopo; scarto mediano +86,5 giorni; 4 cali prima dell'inizio della serie. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 8 cali su 8: 0 prima, 8 insieme, 0 dopo; scarto mediano 0 giorni. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 6 cali su 8: 1 prima, 5 insieme, 0 dopo; scarto mediano 0 giorni; 2 cali senza un suo calo ≥ 20%. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 6 cali su 8: 2 prima, 0 insieme, 4 dopo; scarto mediano +107 giorni; 1 calo senza un suo calo ≥ 20%; 1 calo prima dell'inizio della serie. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 7 cali su 8: 2 prima, 1 insieme, 4 dopo; scarto mediano +148 giorni; 1 calo prima dell'inizio della serie. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 5 cali su 8: 0 prima, 3 insieme, 2 dopo; scarto mediano +13 giorni; 2 cali senza un suo calo ≥ 20%; 1 calo prima dell'inizio della serie. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo di ciclo nella finestra in 5 cali su 8: 0 prima, 0 insieme, 5 dopo; scarto mediano +161 giorni; 2 cali senza un suo calo ≥ 20%; 1 calo prima dell'inizio della serie. .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo dell'S&P 500 del 20/09/2018: giorno del massimo di ciclo di ogni mercato entro 12 mesi prima o dopo .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo dell'S&P 500 del 19/02/2020: giorno del massimo di ciclo di ogni mercato entro 12 mesi prima o dopo .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo dell'S&P 500 del 03/01/2022: giorno del massimo di ciclo di ogni mercato entro 12 mesi prima o dopo .
+ok [ath] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Massimo dell'S&P 500 del 19/02/2025: giorno del massimo di ciclo di ogni mercato entro 12 mesi prima o dopo .
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   colore del punto = stato attuale (in zona blu si entra dopo 2 chiusure sotto il livello) ▶ PLAY oggi
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.81 mancano L1:[] mancano guida:[]
+   20/11/2026 Oggi Zoom sulla zona Crisi passatenov 2008ott 2011feb 2016dic 2018mar 2020ott 2022apr 2025 0°25°50°75°100°-100+10+20+30+40+50+60+70+80+90ZONA BLUATTENZIONENORMALELIVELLO BLU← DRAWDOWN PIÙ PROFONDO (percentile storico del settore)BREADTH - LIVELLO BLU (punti) →XLKXLCXLYXLPXLEXLFXLVXLIXLBXLREXLUSOXX zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamento: breadth sotto la soglia del settore (livello blu + il suo calo forte in 10 sedute) industria (SOXX, semiconduttori): breadth con i membri di oggi coda = ultime 8 settimane
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   il percorso di un bottom scende a sinistra, poi risale
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:0.83 guida:0.83 mancano L1:[] mancano guida:[]
+   clic per il dettaglio Distanza dal livello blupunti di breadth
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.41 mancano L1:[] mancano guida:[]
+   dal più vicino ◆SOXX -3,0 ptsottoXLC +17,7 pt4 titoliXLRE +18,7 pt6 titoliXLK +24,7 pt19 titoliXLB +31,7 pt8 titoliXLI +32,3 pt27 titoliXLU +33,7 pt11 titoliXLY +34,6 pt17 titoliXLE +41,9 pt9 titoliXLF +44,0 pt34 titoliXLP +61,7 pt21 titoliXLV +69,0 pt42 titoli Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci.
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Un titolo vale 100/N punti: nei settori piccoli (Energy, Communication Services, Materials, Real Estate, Utilities: 21-31 titoli) uno solo sposta la breadth di 3–5 punti. .
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Rivedi le settimane una dopo l'altra fino a oggi .
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Data della Bottom Map .
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da -15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano .
+ok [btm] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Bottom Map: drawdown e breadth dei settori rispetto al livello blu . industria ¦ industria
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:0.95 guida:0.76 mancano L1:[] mancano guida:[]
+   ETF al 20/11/2026 IndiceStato% titoli sopra media 200BluDrawdownda max 52sValuta contro dollaro3 mesilocale3 mesiin $Forza rel.vs ACWI CSI300CSI 300 Avvicinamento 24,2% 14% -21,1% Normale -16,3% -15,4% Improving NIFTY50Nifty 50 Normale 68,0% 10% -2,0% Ha smesso di scendere +7,2% +10,0% Leading IBOVIbovespa Avvicinamento 21,1% 11% -20,4% In calo forte -0,9% -12,9% Lagging KOSPI200KOSPI 200 Zona blu 12,5% 15% -46,6% Ha smesso di scendere -24,7% -21,7% Lagging TWNTaiwan Attenzione 37,8% 8% -27,7% Normale -20,5% -23,1% Weakening HSIHang Seng Normale 27,1% 8% -19,9% Agganciato -13,8% -13,9% Leading
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Clic (o tocco) su una riga per il dettaglio.
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.95 mancano L1:[] mancano guida:[]
+   EEM contro ACWI al 20/11/2026: RS-Ratio 98,9, RS-Momentum 98,2 (Lagging) ETF in dollari contro ACWI, settimanale, formula «Nuova» della rotazione (vista 2); scia di 10 settimane solo per l'indice selezionato.
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Lo stato è quello della vista 6 (breadth e livello blu).
+ok [emg] numeri:L1 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Fonti: cambi in valuta locale per un dollaro della Federal Reserve (FRED H.10, dal 2000; il cambio della Fed è quello di mezzogiorno di New York dello stesso giorno: per l'Asia qualche ora dopo la chiusura della borsa, per il Brasile qualche ora prima); per gli ultimi giorni, che la Fed non ha ancora pubblicato, il cambio di Yahoo Finance, provvisorio (è in pratica il prezzo della sera prima, a mezzanotte di Londra) e sostituito da quello della Fed quando esce; dollaro contro le valute emergenti FRED DTWEXEMEGS (Federal Reserve H.10, serie giornaliera pubblicata una volta alla settimana, con q
+ok [emg] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ETF Yahoo Finance con i dividendi.
+ok [emg] numeri:L1 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   L'indice in dollari è il prezzo della vista 6 diviso per il cambio dello stesso giorno: per il CSI 300 il prezzo è l'ETF 510300 in yuan, per il KOSPI 200 il KOSPI intero, per Taiwan il TAIEX.
+ok [emg] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Gli ETF della forza relativa sono rettificati per i dividendi, gli indici no.
+ok [emg] numeri:L1 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Storie più corte: ASHR dal 2013, INDA dal 2012, ACWI dal 2008, DTWEXEMEGS dal 2006.
+ok [emg] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Un probabile errore di stampa nei giorni di Yahoo (un salto che si annulla il giorno dopo) diventa un giorno mancante; l'ultimo giorno non si può ancora controllare.
+ok [emg] numeri:L1 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   FRED a volte rivede DTWEXEMEGS (fino allo 0,6% nelle versioni 2024-2026): le fasce passate del dollaro usano i valori rivisti.
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Dove manca un dato si mostra «—». .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Esce una volta alla settimana: conta la data. .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Stato della vista 6 (breadth contro il livello blu): Zona blu e Fallito, come nella vista 6. .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni). .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Nel campione (cali oltre il 25% dal massimo storico) si era già accesa nei sei mesi prima del minimo in 15 cali su 17, e poi la borsa era scesa ancora: non è un segnale d'ingresso. . livello di default: 3° percentile della storia della breadth dell'indice .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte. . variazione del cambio in 13 settimane in deviazioni standard: -0,61 (a destra = valuta più debole; tacca = soglia 1)
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.93 mancano L1:[] mancano guida:[]
+   cambio 6,6623 al 21/11/2026 (Yahoo, provvisorio) . variazione in 63 sedute dell'indice in valuta locale . indice diviso per il cambio CNY=X dello stesso giorno .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ASHR contro ACWI, settimanale, al 20/11/2026 . livello di default: 3° percentile della storia della breadth dell'indice .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Nel campione (cali oltre il 25% dal massimo storico) si era già accesa nei sei mesi prima del minimo in 15 cali su 17, e poi la borsa era scesa ancora: non è un segnale d'ingresso. . variazione del cambio in 13 settimane in deviazioni standard: -1,94 (a destra = valuta più debole; tacca = soglia 1)
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.93 mancano L1:[] mancano guida:[]
+   cambio 92,67 al 21/11/2026 (Yahoo, provvisorio) . variazione in 63 sedute dell'indice in valuta locale . indice diviso per il cambio INR=X dello stesso giorno .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   INDA contro ACWI, settimanale, al 20/11/2026 . livello di default: 3° percentile della storia della breadth dell'indice .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni). . variazione del cambio in 13 settimane in deviazioni standard: 2,97 (a destra = valuta più debole; tacca = soglia 1)
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.93 mancano L1:[] mancano guida:[]
+   cambio 5,9074 al 21/11/2026 (Yahoo, provvisorio) . variazione in 63 sedute dell'indice in valuta locale . indice diviso per il cambio BRL=X dello stesso giorno .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   EWZ contro ACWI, settimanale, al 20/11/2026 . livello di default: 3° percentile della storia della breadth dell'indice .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Nel campione (cali oltre il 25% dal massimo storico) si era già accesa nei sei mesi prima del minimo in 15 cali su 17, e poi la borsa era scesa ancora: non è un segnale d'ingresso. . variazione del cambio in 13 settimane in deviazioni standard: -0,95 (a destra = valuta più debole; tacca = soglia 1)
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.93 mancano L1:[] mancano guida:[]
+   cambio 1334,79 al 20/11/2026 (Yahoo, provvisorio) . variazione in 63 sedute dell'indice in valuta locale . indice diviso per il cambio KRW=X dello stesso giorno .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   EWY contro ACWI, settimanale, al 20/11/2026 . livello di default: 3° percentile della storia della breadth dell'indice .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte. . variazione del cambio in 13 settimane in deviazioni standard: 0,93 (a destra = valuta più debole; tacca = soglia 1)
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.93 mancano L1:[] mancano guida:[]
+   cambio 33,03 al 20/11/2026 (Yahoo, provvisorio) . variazione in 63 sedute dell'indice in valuta locale . indice diviso per il cambio TWD=X dello stesso giorno .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   EWT contro ACWI, settimanale, al 20/11/2026 . livello di default dai grafici di Massimo Rea (quant-rea) .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.95 mancano L1:[] mancano guida:[]
+   Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni. . variazione in 63 sedute dell'indice in valuta locale . indice diviso per il cambio HKD=X dello stesso giorno .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   EWH contro ACWI, settimanale, al 20/11/2026 . livello di default dai grafici di Massimo Rea (quant-rea) .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti. . variazione in 63 sedute (EEM è in dollari) .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   EEM contro ACWI, settimanale, al 20/11/2026 .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Togli lo zoom e torna al periodo .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo ¦ Zoom: scegli un tratto sul grafico .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Prezzo, breadth, cambio e dollaro contro gli emergenti sullo stesso asse del tempo .
+ok [emg] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Forza relativa degli ETF dei paesi contro ACWI .
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il settore è lo stesso della vista 4.
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:0.86 guida:1.0 mancano L1:[] mancano guida:[]
+   Tabellone, Bottom Map e dettaglio con livello blu ed episodi.
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Non cambia lo stato e non manda alert.
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Cooldown: dopo un trigger, 63 sedute senza nuovi segnali.
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:0.8 guida:1.0 mancano L1:[] mancano guida:[]
+   Il centro 100/100 vuol dire "in linea con il benchmark".
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   Improving (alto a sinistra): più debole del benchmark ma lo slancio migliora.
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Leading (alto a destra): più forte e con slancio.
+ok [help] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   Weakening (basso a destra): ancora forte, lo slancio cala.
+ok [help] numeri:L0 frase in L1:False in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Strumento di studio: non è consulenza finanziaria né una raccomandazione di investimento; i rendimenti passati non indicano quelli futuri.
+ok [idx-DAX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.68 mancano L1:[] mancano guida:[]
+   LIVELLO BLU 7%peggiore nel periodo -16,0%gen 24apr 24lug 24ott 24gen 25apr 25lug 25ott 25gen 26apr 26lug 26ott 2624802,78-7,4%55,0% prezzo media 200 drawdown % sopra media 200 % sopra media 50 livello blu zona blu sotto il livello, fuori dalla zona blu (a righe) trigger Episodi in zona blu7 zone blu dal 02/01/2001 con livello 7%
+ok [idx-DAX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.69 mancano L1:[] mancano guida:[]
+   rendimenti a confronto sotto la tabella Zona blu dalBreadth minDD ingresso+3M da zona bluTriggerConferma+3M+6M+12MPeggior calo 3M13/03/20202,6%-33,0%+33,4% 16/04/2020spinta di breadth a 20 giorni + prezzo sopra la media 20g crescente +25,0%+26,4%+48,1%-0,5%09/08/20110,0%-21,4%+0,2% 20/09/2011spinta di breadth a 20 giorni + divergenza prezzo/breadth +1,8%+28,5%+31,2%-7,3%30/06/20080,0%-20,8%-3,8% 01/06/2009
+ok [idx-DAX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   1 fallitoprezzo sopra la media 20g crescente + breadth oltre 40% +6,4%+12,2%+15,5%-11,1%14/03/20083,1%-20,4%+4,3% 01/04/2008spinta di breadth a 20 giorni -4,5%-8,1%-37,5%-4,5%16/07/20020,0%-32,1%-26,3% 20/03/2003spinta di breadth a 20 giorni + divergenza prezzo/breadth +24,3%+36,7%+46,9%-6,9%13/09/20013,3%-38,4%+17,2% 04/10/2001spinta di breadth a 20 giorni +15,1%+13,7%-38,1%-1,7%23/03/20016,9%-30,1%+6,5% 12/04/2001spinta di breadth a 20 giorni -1,2%-23,1%-12,6%-3,3% Per confronto: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.
+ok [idx-DAX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.76 mancano L1:[] mancano guida:[]
+   MedianeCasi+3M+6M+12M+3M positiviDopo ogni trigger, anche quelli poi falliti8+4,1%+12,9%+1,4%5 su 8Dall'ingresso in zona blu7+4,3%-4,2%-14,9%3 su 7Una seduta qualsiasi dal 20016512 sedute+3,0%+5,6%+12,9%68% Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale.
+ok [idx-DAX] numeri:L0 frase in L1:False in guida:False parole L1:0.93 guida:0.8 mancano L1:[] mancano guida:[]
+   capitolazioneal 20/11/2026: 90° percentile Calo-5%-7%-10%Sedute3510Mostratitoli% titoliPreset di Rea (-7%, 5 sedute) Al 20/11/2026 2 cali nelle ultime 5 sedute: 90° percentile della storia dal 2004, soglia di allerta 14 cali.
+ok [idx-DAX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Fonte della lista: en.wikipedia DAX.DAX su TradingView ↗ .
+ok [idx-DAX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno . manca . manca . manca .
+ok [idx-KOSPI200] numeri:L0 frase in L1:False in guida:False parole L1:0.97 guida:0.68 mancano L1:[] mancano guida:[]
+   LIVELLO BLU 15%peggiore nel periodo -46,6%gen 24apr 24lug 24ott 24gen 25apr 25lug 25ott 25gen 26apr 26lug 26ott 264869,96-46,6%12,5% prezzo media 200 drawdown % sopra media 200 % sopra media 50 livello blu zona blu sotto il livello, fuori dalla zona blu (a righe) trigger Episodi in zona blu4 zone blu dal 01/12/2006 con livello 15%
+ok [idx-KOSPI200] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.64 mancano L1:[] mancano guida:[]
+   rendimenti a confronto sotto la tabella Zona blu dalBreadth minDD ingresso+3M da zona bluTriggerConferma+3M+6M+12MPeggior calo 3M26/10/202611,5%-40,0%— in attesa— ————27/01/202212,1%-20,9%+2,5% 28/10/2022
+ok [idx-KOSPI200] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.78 mancano L1:[] mancano guida:[]
+   2 fallitiprezzo sopra la media 20g crescente + divergenza prezzo/breadth +8,0%+10,3%+10,3%-2,2%12/03/20202,3%-19,1%+10,7% 20/04/2020prezzo sopra la media 20g crescente +17,4%+24,4%+69,4%-1,0%13/10/20080,8%-37,6%-9,4% 19/03/2009spinta di breadth a 20 giorni + prezzo sopra la media 20g crescente +18,4%+42,3%+44,2%0,0% Per confronto: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.
+ok [idx-KOSPI200] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.76 mancano L1:[] mancano guida:[]
+   MedianeCasi+3M+6M+12M+3M positiviDopo ogni trigger, anche quelli poi falliti5+8,0%+10,3%+10,3%4 su 5Dall'ingresso in zona blu3+2,5%+4,2%+27,3%2 su 3Una seduta qualsiasi dal 20064853 sedute+1,8%+2,2%+3,7%58% Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale.
+ok [idx-KOSPI200] numeri:L0 frase in L1:False in guida:False parole L1:0.93 guida:0.8 mancano L1:[] mancano guida:[]
+   capitolazioneal 20/11/2026: 97° percentile Calo-5%-7%-10%Sedute3510Mostratitoli% titoliPreset di Rea (-7%, 5 sedute) Al 20/11/2026 42 cali nelle ultime 5 sedute: 97° percentile della storia dal 2009, soglia di allerta 102 cali.
+ok [idx-KOSPI200] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Fonte della lista: en.wikipedia KOSPI 200.Cambio e dollaro: vista 7 Emergenti →KOSPI200 su TradingView ↗KOSPI su TradingView ↗ .
+ok [idx-KOSPI200] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno . manca . sì . manca . manca . sì . manca .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.74 mancano L1:[] mancano guida:[]
+   dati al 20/11/2026 IndiceStato% titoli sopra media 200BluDrawdown da max 52sStoriaCali fortiUltimo1G1M KOSPI200KOSPI 200 (Corea) Zona blu 12,5%25/200 15% -46,6% con limiti97° 4870-5,2%-12,0% EEMMSCI Emerging Markets Attenzione 30,1%338/1122 15% -24,4% con limiti98° 53,84-5,1%-12,8% NDXNasdaq-100 Normale 34,7%35/101 18% -19,8% d'epoca5 sed. 25029-5,6%-13,6% RUTRussell 2000 Normale 32,5%635/1951 15% -15,9% con limiti99° 2582-2,8%-7,3% N225Nikkei 225 Normale 36,4%82/225 8% -22,0% membri di oggi3 sed. 56437-5,1%-12,7% SPXS&P 500 Normale 45,4%228/502 13% -11,6% d'epoca95° 6910-3,7%-9,8% DJIDow Jone
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   20/11/2026 Oggi Zoom sulla zona Crisi passatenov 2008ott 2011feb 2016dic 2018mar 2020ott 2022apr 2025 0°25°50°75°100°-100+10+20+30+40+50+60+70+80ZONA BLUATTENZIONENORMALELIVELLO BLU← DRAWDOWN PIÙ PROFONDO (percentile storico dell'indice)BREADTH - LIVELLO BLU (punti) →SPXNDXDJIN225SXXPDAXRUTFTSEMIBKOSPI200EEM zona blu: breadth sotto il livello e drawdown profondo attenzione trigger fallito cooldown normale avvicinamento: breadth sotto la soglia dell'indice (livello blu + il suo calo forte in 10 sedute) coda = ultime 8 settimane
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:0.83 guida:0.83 mancano L1:[] mancano guida:[]
+   clic per il dettaglio Distanza dal livello blupunti di breadth
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.45 mancano L1:[] mancano guida:[]
+   dal più vicino KOSPI200 -2,5 ptsottoEEM +15,1 pt170 titoliNDX +16,7 pt17 titoliRUT +17,5 pt343 titoliN225 +28,4 pt64 titoliSPX +32,4 pt163 titoliDJI +38,3 pt12 titoliFTSEMIB +42,0 pt17 titoliSXXP +43,2 pt260 titoliDAX +48,0 pt20 titoli Differenza tra la % di titoli sopra la media 200 e il livello blu, e quanti titoli devono ancora scendere sotto la media per arrivarci.
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.68 mancano L1:[] mancano guida:[]
+   LIVELLO BLU 13%peggiore nel periodo -18,9%gen 24apr 24lug 24ott 24gen 25apr 25lug 25ott 25gen 26apr 26lug 26ott 266910,39-11,6%45,4% prezzo media 200 drawdown % sopra media 200 % sopra media 50 livello blu zona blu sotto il livello, fuori dalla zona blu (a righe) trigger Episodi in zona blu4 zone blu dal 03/01/2005 con livello 13%
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.62 mancano L1:[] mancano guida:[]
+   rendimenti a confronto sotto la tabella Zona blu dalBreadth minDD ingresso+3M da zona bluTriggerConferma+3M+6M+12MPeggior calo 3M17/06/202210,9%-23,4%+6,1% 18/10/2022
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   1 fallitospinta di breadth a 20 giorni + divergenza prezzo/breadth +8,1%+14,5%+20,6%-3,0%06/10/20080,8%-32,5%-11,6% 06/05/2009prezzo sopra la media 20g crescente + breadth oltre 40% +9,0%+13,7%+22,7%-4,4% Per confronto: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.76 mancano L1:[] mancano guida:[]
+   MedianeCasi+3M+6M+12M+3M positiviDopo ogni trigger, anche quelli poi falliti6+6,5%+13,3%+18,6%5 su 6Dall'ingresso in zona blu4+7,1%+12,8%+22,3%3 su 4Una seduta qualsiasi dal 20055444 sedute+3,5%+6,3%+12,6%76% Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale.
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:0.93 guida:0.8 mancano L1:[] mancano guida:[]
+   capitolazioneal 20/11/2026: 95° percentile Calo-5%-7%-10%Sedute3510Mostratitoli% titoliPreset di Rea (-7%, 5 sedute) Al 20/11/2026 66 cali nelle ultime 5 sedute: 95° percentile della storia dal 2008, soglia di allerta 267 cali.
+ok [idx-SPX] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Le regole di zona blu, trigger e cooldown sono quelle dei settori.
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.69 mancano L1:[] mancano guida:[]
+   +17,5 ptDrawdown da max 52s-11,6%Profondità storica DD79° percentileCopertura502 su 503 membri con prezziStoria con la composizione dell'indice di ogni data, dal 2005.
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.92 mancano L1:[] mancano guida:[]
+   Fonte della composizione: costituenti S&P 500 con la composizione di ogni data (la stessa serie della breadth dei settori).SPX su TradingView ↗S5TH su TradingView ↗ .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Indici da mostrare in tabellone, Bottom Map e schede .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Cali forti dei titoli (scheda «Cali forti» nel dettaglio): allerta oggi, sedute in allerta negli ultimi 3 mesi o percentile di oggi . 25 titoli su 200 . 25 titoli sopra la media 200 su 200: un titolo vale 0,5 punti . un mese fa 17,0% . più profondo del 99% delle sedute; peggiore a 5 anni -46,6% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Storia con i membri di oggi. .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 338 titoli su 1122
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 170 per il livello blu . 338 titoli sopra la media 200 su 1122: un titolo vale 0,1 punti . un mese fa 28,3% . più profondo del 91% delle sedute; peggiore a 5 anni -35,1% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.47 mancano L1:[] mancano guida:[]
+   La composizione è cambiata molto (azioni cinesi A dal 2018, Arabia Saudita dal 2019, Russia esclusa nel 2022) e alcuni mercati non hanno prezzi su Yahoo (Malesia, Filippine, Abu Dhabi). .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 35 titoli su 101
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 17 per il livello blu . 35 titoli sopra la media 200 su 101: un titolo vale 1,0 punti . un mese fa 55,4% . più profondo dell'82% delle sedute; peggiore a 5 anni -35,5% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   copertura oggi 101/101, all'inizio (2008) 59%: i titoli usciti senza prezzi su Yahoo mancano .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   5 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 635 titoli su 1951
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 343 per il livello blu . 635 titoli sopra la media 200 su 1951: un titolo vale 0,1 punti . un mese fa 45,4% . più profondo dell'80% delle sedute; peggiore a 5 anni -32,5% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   La breadth passata è indicativa; da ora la lista si salva ogni sera. .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 82 titoli su 225
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 64 per il livello blu . 82 titoli sopra la media 200 su 225: un titolo vale 0,4 punti . un mese fa 53,8% . più profondo dell'84% delle sedute; peggiore a 5 anni -26,3% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.9 mancano L1:[] mancano guida:[]
+   Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 3,6 punti più alta (da -6 a +17 nelle singole date); vicino ai minimi lo scarto medio è piccolo (+1,1 con la breadth sotto il 20%, da -4 a +8 nelle singole date) .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   3 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 228 titoli su 502
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 163 per il livello blu . 228 titoli sopra la media 200 su 502: un titolo vale 0,2 punti . un mese fa 56,7% . più profondo del 79% delle sedute; peggiore a 5 anni -25,4% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   copertura oggi 502/503, all'inizio (2005) 64%: i titoli usciti senza prezzi su Yahoo mancano .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 16 titoli su 30
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 12 per il livello blu . 16 titoli sopra la media 200 su 30: un titolo vale 3,3 punti . un mese fa 70,0% . più profondo dell'84% delle sedute; peggiore a 5 anni -21,9% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   copertura oggi 30/30, all'inizio (2000) 87%: i titoli usciti senza prezzi su Yahoo mancano .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 18 titoli su 40
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 17 per il livello blu . 18 titoli sopra la media 200 su 40: un titolo vale 2,5 punti . un mese fa 42,5% . più profondo del 56% delle sedute; peggiore a 5 anni -27,7% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Con 40 titoli il livello 3% vuol dire al massimo un titolo sopra la media. .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 314 titoli su 601
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 260 per il livello blu . 314 titoli sopra la media 200 su 601: un titolo vale 0,2 punti . un mese fa 56,5% . più profondo del 64% delle sedute; peggiore a 5 anni -22,5% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 . 22 titoli su 40
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ne devono scendere sotto la media ancora 20 per il livello blu . 22 titoli sopra la media 200 su 40: un titolo vale 2,5 punti . un mese fa 57,5% . più profondo del 60% delle sedute; peggiore a 5 anni -26,4% .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   0 sedute in allerta negli ultimi 3 mesi . chiusura del 20/11/2026 .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Rivedi le settimane una dopo l'altra fino a oggi .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Data della Bottom Map degli indici .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da -15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Bottom Map: drawdown e breadth degli indici rispetto al livello blu .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo ¦ Zoom: scegli un tratto sul grafico .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Togli lo zoom e torna al periodo .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Prezzo, drawdown e breadth dell'indice .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Episodi in zona blu dell'indice .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Episodi dell'indice a confronto con una seduta qualsiasi .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Cali forti dei titoli dell'indice e prezzo .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   Calo l'indice dal massimo a 52 settimane il primo giorno dell'allerta: solo informativo .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno . manca . manca . sì .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Abbassa il livello blu dell'indice .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Alza il livello blu dell'indice .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   È un promemoria, non un segnale per comprare o vendere. .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   Gli indici sono di solo prezzo: è il valore che si vede su TradingView (che però usa il massimo intraday). .
+ok [idx-SPX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.85 mancano L1:[] mancano guida:[]
+   Titoli dell'indice con i prezzi su Yahoo Finance: quelli tolti dal listino mancano, e nella storia la copertura è più bassa. .
+ok [idx-TSX60] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.68 mancano L1:[] mancano guida:[]
+   LIVELLO BLU 23%peggiore nel periodo -13,0%gen 24apr 24lug 24ott 24gen 25apr 25lug 25ott 25gen 26apr 26lug 26ott 2650,32-8,3%51,7% prezzo media 200 drawdown % sopra media 200 % sopra media 50 livello blu zona blu sotto il livello, fuori dalla zona blu (a righe) trigger Episodi in zona blu8 zone blu dal 01/02/2000 con livello 23%
+ok [idx-TSX60] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.6 mancano L1:[] mancano guida:[]
+   rendimenti a confronto sotto la tabella Zona blu dalBreadth minDD ingresso+3M da zona bluTriggerConferma+3M+6M+12MPeggior calo 3M27/10/202321,7%-10,2%+13,7% 03/11/2023prezzo sopra la media 20g crescente +5,7%+12,0%+22,4%-1,3%12/03/20201,7%-30,3%+21,4% 08/04/2020spinta di breadth a 20 giorni +10,6%+17,1%+35,6%-0,6%29/10/201818,6%-10,7%+5,8% 08/01/2019
+ok [idx-TSX60] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.78 mancano L1:[] mancano guida:[]
+   1 fallitoprezzo sopra la media 20g crescente + divergenza prezzo/breadth +14,2%+26,2%+29,8%-4,0%21/01/200814,6%-16,3%+19,5% 15/02/2008prezzo sopra la media 20g crescente +15,9%+1,3%-36,4%-2,9%07/10/200214,3%-28,1%+16,5% 25/10/2002spinta di breadth a 20 giorni + prezzo sopra la media 20g crescente +2,5%+2,8%+18,9%-2,5% Per confronto: gli stessi rendimenti dell'indice dopo una seduta qualsiasi della sua storia.
+ok [idx-TSX60] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.76 mancano L1:[] mancano guida:[]
+   MedianeCasi+3M+6M+12M+3M positiviDopo ogni trigger, anche quelli poi falliti10+7,6%+9,8%+18,2%9 su 10Dall'ingresso in zona blu8+14,3%+14,3%+20,9%7 su 8Una seduta qualsiasi dal 20006671 sedute+2,6%+4,6%+7,5%68% Rendimenti dell'indice (solo prezzo, nella valuta dell'indice) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale.
+ok [idx-TSX60] numeri:L0 frase in L1:False in guida:False parole L1:0.93 guida:0.8 mancano L1:[] mancano guida:[]
+   capitolazioneal 20/11/2026: 93° percentile Calo-5%-7%-10%Sedute3510Mostratitoli% titoliPreset di Rea (-7%, 5 sedute) Al 20/11/2026 4 cali nelle ultime 5 sedute: 93° percentile della storia dal 2003, soglia di allerta 16 cali.
+ok [idx-TSX60] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Fonte della lista: en.wikipedia S&P/TSX 60.TX60 su TradingView ↗XIU su TradingView ↗ .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:0.92 guida:0.96 mancano L1:[] mancano guida:[]
+   Caricamento dei dati… Sector Monitor cerca i possibili bottom dei settori S&P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro.
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:0.89 guida:1.0 mancano L1:[] mancano guida:[]
+   Leggi il Monitor: lo stato di ogni settore e, accanto (sul telefono sopra), quelli da osservare con il motivo.
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:0.83 guida:1.0 mancano L1:[] mancano guida:[]
+   Clic su un settore per il dettaglio: prova il livello blu con + e -.
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.91 mancano L1:[] mancano guida:[]
+   breadth ricostruita con i membri di oggi SOXXSemiconductorsindustria Attenzione 0,0%0/30 3% -43,4% -43,5% Lagging 123,40-10,5%-22,2%SPYS&P 500benchmark45,4%-11,5%-11,5%689,81-3,6%-9,7% % titoli sopra la media 200, sotto il livello blu livello blu del settore un mese fa drawdown più profondo dell'80% della storia del settore peggior drawdown a 5 anni Il drawdown conta i dividendi come reinvestiti: è la perdita di chi ha tenuto l'ETF e la base dei segnali.
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   «Solo prezzo» è lo stesso calcolo senza i dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo.
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.85 mancano L1:[] mancano guida:[]
+   in avvicinamento, attenzione, zona blu o dopo un trigger XLUUtilitiesCooldown trigger del 12/10/2026: nuovi segnali sospesi fino a 63 sedute dopo XLKTechnologyAttenzione drawdown -26,2%, più profondo del 96% delle sedute dal 2004per la zona blu: -19 titoli, 2 chiusure XLIIndustrialsAttenzione drawdown -15,9%, più profondo del 91% delle sedute dal 2004per la zona blu: -27 titoli, 2 chiusure XLCCommunication ServicesAvvicinamento breadth 22,7%, sotto la soglia di avvicinamento 26% (livello blu 5% + il calo forte del settore in 10 sedute, 21 punti): in un calo deciso il livello blu è a circa due 
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   drawdown -43,4%, più profondo del 95% delle sedute dal 2001per la zona blu: 1 chiusura Come si legge lo stato Avvicinamentobreadth sotto la soglia di avvicinamento: livello blu più il calo forte del settore in 10 sedute.
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.92 mancano L1:[] mancano guida:[]
+   Si torna in zona blu con regole più severe.Cooldownper 63 sedute dopo un trigger nessun nuovo alert sullo stesso settore. .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.94 mancano L1:[] mancano guida:[]
+   Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori. .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.97 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura. . vs SPY, settimanale, formula nuova (la formula si sceglie nella pagina Rotazione) . 12 titoli su 31 . 12 titoli sopra la media 200 su 31: nei settori piccoli un titolo vale 3,2 punti . un mese fa 41,9% . più profondo del 76% delle sedute; peggiore a 5 anni -20,7% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 47,80 del 27/02/2026: da lì il calo è -10,7%. . 23 titoli su 75 . 23 titoli sopra la media 200 su 75: nei settori piccoli un titolo vale 1,3 punti . un mese fa 60,0% . più profondo del 96% delle sedute; peggiore a 5 anni -33,6% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 203,25 del 06/10/2026: da lì il calo è -26,7%. . 31 titoli su 83 . 31 titoli sopra la media 200 su 83: nei settori piccoli un titolo vale 1,2 punti . un mese fa 39,8% . più profondo del 91% delle sedute; peggiore a 5 anni -21,6% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 188,19 del 05/08/2026: da lì il calo è -16,9%. . 5 titoli su 22 . 5 titoli sopra la media 200 su 22: nei settori piccoli un titolo vale 4,5 punti . un mese fa 36,4% . più profondo dell'83% delle sedute; peggiore a 5 anni -43,9% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 120,41 del 02/02/2026: da lì il calo è -16,9%. . 8 titoli su 30 . 8 titoli sopra la media 200 su 30: nei settori piccoli un titolo vale 3,3 punti . un mese fa 33,3% . più profondo del 63% delle sedute; peggiore a 5 anni -33,3% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 46,45 del 28/07/2026: da lì il calo è -8,6%. . 10 titoli su 24 . 10 titoli sopra la media 200 su 24: nei settori piccoli un titolo vale 4,2 punti . un mese fa 62,5% . più profondo del 77% delle sedute; peggiore a 5 anni -24,7% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 54,63 del 05/11/2026: da lì il calo è -11,5%. . 20 titoli su 47 . 20 titoli sopra la media 200 su 47: nei settori piccoli un titolo vale 2,1 punti . un mese fa 42,6% . più profondo del 77% delle sedute; peggiore a 5 anni -39,4% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 125,01 del 12/01/2026: da lì il calo è -10,0%. . 9 titoli su 21 . 9 titoli sopra la media 200 su 21: nei settori piccoli un titolo vale 4,8 punti . un mese fa 66,7% . più profondo del 72% delle sedute; peggiore a 5 anni -26,0% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 70,15 del 30/10/2026: da lì il calo è -13,7%. . 38 titoli su 76 . 38 titoli sopra la media 200 su 76: nei settori piccoli un titolo vale 1,3 punti . un mese fa 67,1% . più profondo del 65% delle sedute; peggiore a 5 anni -25,8% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 60,04 del 05/11/2026: da lì il calo è -9,1%. . 24 titoli su 33 . 24 titoli sopra la media 200 su 33: nei settori piccoli un titolo vale 3,0 punti . un mese fa 67,6% . più profondo del 51% delle sedute; peggiore a 5 anni -16,3% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 93,48 del 16/11/2026: da lì il calo è -3,2%. . 48 titoli su 60 . 48 titoli sopra la media 200 su 60: nei settori piccoli un titolo vale 1,7 punti . un mese fa 88,3% . più profondo del 70% delle sedute; peggiore a 5 anni -17,1% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 192,32 del 05/11/2026: da lì il calo è -7,8%. . 0 titoli su 30 . 0 titoli sopra la media 200 su 30: nei settori piccoli un titolo vale 3,3 punti . un mese fa 36,7% . più profondo del 95% delle sedute; peggiore a 5 anni -45,8% .
+ok [intro] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 218,65 del 22/06/2026: da lì il calo è -43,6%. .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:0.92 guida:0.96 mancano L1:[] mancano guida:[]
+   Caricamento dei dati… Sector Monitor cerca i possibili bottom dei settori S&P 500 (quanti titoli stanno sopra la media a 200 sedute rispetto a un livello blu, più il drawdown) e mostra la rotazione relativa di settori, titoli ed ETF in euro.
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:0.89 guida:1.0 mancano L1:[] mancano guida:[]
+   Leggi il Monitor: lo stato di ogni settore e, accanto (sul telefono sopra), quelli da osservare con il motivo.
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:0.83 guida:1.0 mancano L1:[] mancano guida:[]
+   Clic su un settore per il dettaglio: prova il livello blu con + e -.
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.91 mancano L1:[] mancano guida:[]
+   breadth ricostruita con i membri di oggi SOXXSemiconductorsindustria Attenzione 0,0%0/30 3% -43,4% -43,5% Lagging 123,40-10,5%-22,2%SPYS&P 500benchmark45,4%-11,5%-11,5%689,81-3,6%-9,7% % titoli sopra la media 200, sotto il livello blu livello blu del settore un mese fa drawdown più profondo dell'80% della storia del settore peggior drawdown a 5 anni Il drawdown conta i dividendi come reinvestiti: è la perdita di chi ha tenuto l'ETF e la base dei segnali.
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   «Solo prezzo» è lo stesso calcolo senza i dividendi, come sul grafico di TradingView: cambia solo per le cedole staccate dopo il massimo.
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.85 mancano L1:[] mancano guida:[]
+   in avvicinamento, attenzione, zona blu o dopo un trigger XLUUtilitiesCooldown trigger del 12/10/2026: nuovi segnali sospesi fino a 63 sedute dopo XLKTechnologyAttenzione drawdown -26,2%, più profondo del 96% delle sedute dal 2004per la zona blu: -19 titoli, 2 chiusure XLIIndustrialsAttenzione drawdown -15,9%, più profondo del 91% delle sedute dal 2004per la zona blu: -27 titoli, 2 chiusure XLCCommunication ServicesAvvicinamento breadth 22,7%, sotto la soglia di avvicinamento 26% (livello blu 5% + il calo forte del settore in 10 sedute, 21 punti): in un calo deciso il livello blu è a circa due 
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   drawdown -43,4%, più profondo del 95% delle sedute dal 2001per la zona blu: 1 chiusura Come si legge lo stato Avvicinamentobreadth sotto la soglia di avvicinamento: livello blu più il calo forte del settore in 10 sedute.
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.92 mancano L1:[] mancano guida:[]
+   Si torna in zona blu con regole più severe.Cooldownper 63 sedute dopo un trigger nessun nuovo alert sullo stesso settore. .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.94 mancano L1:[] mancano guida:[]
+   Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori. .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.97 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura. . vs SPY, settimanale, formula nuova (la formula si sceglie nella pagina Rotazione) . 12 titoli su 31 . 12 titoli sopra la media 200 su 31: nei settori piccoli un titolo vale 3,2 punti . un mese fa 41,9% . più profondo del 76% delle sedute; peggiore a 5 anni -20,7% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 47,80 del 27/02/2026: da lì il calo è -10,7%. . 23 titoli su 75 . 23 titoli sopra la media 200 su 75: nei settori piccoli un titolo vale 1,3 punti . un mese fa 60,0% . più profondo del 96% delle sedute; peggiore a 5 anni -33,6% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 203,25 del 06/10/2026: da lì il calo è -26,7%. . 31 titoli su 83 . 31 titoli sopra la media 200 su 83: nei settori piccoli un titolo vale 1,2 punti . un mese fa 39,8% . più profondo del 91% delle sedute; peggiore a 5 anni -21,6% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 188,19 del 05/08/2026: da lì il calo è -16,9%. . 5 titoli su 22 . 5 titoli sopra la media 200 su 22: nei settori piccoli un titolo vale 4,5 punti . un mese fa 36,4% . più profondo dell'83% delle sedute; peggiore a 5 anni -43,9% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 120,41 del 02/02/2026: da lì il calo è -16,9%. . 8 titoli su 30 . 8 titoli sopra la media 200 su 30: nei settori piccoli un titolo vale 3,3 punti . un mese fa 33,3% . più profondo del 63% delle sedute; peggiore a 5 anni -33,3% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 46,45 del 28/07/2026: da lì il calo è -8,6%. . 10 titoli su 24 . 10 titoli sopra la media 200 su 24: nei settori piccoli un titolo vale 4,2 punti . un mese fa 62,5% . più profondo del 77% delle sedute; peggiore a 5 anni -24,7% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 54,63 del 05/11/2026: da lì il calo è -11,5%. . 20 titoli su 47 . 20 titoli sopra la media 200 su 47: nei settori piccoli un titolo vale 2,1 punti . un mese fa 42,6% . più profondo del 77% delle sedute; peggiore a 5 anni -39,4% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 125,01 del 12/01/2026: da lì il calo è -10,0%. . 9 titoli su 21 . 9 titoli sopra la media 200 su 21: nei settori piccoli un titolo vale 4,8 punti . un mese fa 66,7% . più profondo del 72% delle sedute; peggiore a 5 anni -26,0% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 70,15 del 30/10/2026: da lì il calo è -13,7%. . 38 titoli su 76 . 38 titoli sopra la media 200 su 76: nei settori piccoli un titolo vale 1,3 punti . un mese fa 67,1% . più profondo del 65% delle sedute; peggiore a 5 anni -25,8% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 60,04 del 05/11/2026: da lì il calo è -9,1%. . 24 titoli su 33 . 24 titoli sopra la media 200 su 33: nei settori piccoli un titolo vale 3,0 punti . un mese fa 67,6% . più profondo del 51% delle sedute; peggiore a 5 anni -16,3% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 93,48 del 16/11/2026: da lì il calo è -3,2%. . 48 titoli su 60 . 48 titoli sopra la media 200 su 60: nei settori piccoli un titolo vale 1,7 punti . un mese fa 88,3% . più profondo del 70% delle sedute; peggiore a 5 anni -17,1% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 192,32 del 05/11/2026: da lì il calo è -7,8%. . 0 titoli su 30 . 0 titoli sopra la media 200 su 30: nei settori piccoli un titolo vale 3,3 punti . un mese fa 36,7% . più profondo del 95% delle sedute; peggiore a 5 anni -45,8% .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 218,65 del 22/06/2026: da lì il calo è -43,6%. .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 781,62 del 06/10/2026: da lì il calo è -11,7%. .
+ok [mon] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Dati di fine giornata: Yahoo Finance
+ok [mon] numeri:L0 frase in L1:False in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   livelli blu di default dalla tabella «200 LEVEL SETTORI» di quant-rea
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:0.95 guida:0.7 mancano L1:[] mancano guida:[]
+   Coda 4 10 16 26 Scala Adatta Massima ▶ PLAY 20/11/2026 979798989999101101102102103103100100IMPROVINGLEADINGLAGGINGWEAKENINGRS-RATIO → forza relativaRS-MOMENTUM → slancioWorldEmergentiGov 1-3Gov 7-10Gov 15+OroREITCommodityBitcoinTrend Improving Leading Weakening Lagging colore = quadrante
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:0.94 guida:0.94 mancano L1:[] mancano guida:[]
+   ribilanciato a fine mese Il benchmark è un portafoglio di esempio, fatto con le 10 componenti di questo universo e i pesi qui sotto: sposta i cursori per adattarlo al tuo portafoglio di lungo periodo.
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:0.94 guida:0.94 mancano L1:[] mancano guida:[]
+   Ogni punto del grafico confronta una componente con il portafoglio intero: a destra del centro la componente è più forte del portafoglio, in alto la sua forza relativa sta migliorando.
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Obiettivo: il peso ripristinato alla chiusura dell'ultima seduta di ogni mese.
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Oggi: il peso dopo i movimenti dei prezzi dall'ultimo ribilanciamento (30/10/2026).
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.9 mancano L1:[] mancano guida:[]
+   Tabella di rotazione20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima Gov 7-10 Improving 98,95 ▲0,90102,80 ▲1,74 27° 1,962,994 LAG Gov 15+ Improving 98,75 ▲0,74102,57 ▲1,37 29° 1,562,864 LAG Gov 1-3 Improving 99,66 ▲0,62102,11 ▲1,15 28° 1,312,146 LAG REIT Leading 100,09 ▲0,37101,68 ▲0,56 33° 0,671,681 IMP Trend Leading 101,32 ▲0,13100,53 ▲0,20 32° 0,241,4210 WEA World Weakening 101,64 ▼0,2099,35 ▼0,39 208° 0,441,763 LEA Commodity Weakening 101,07 ▼0,1299,48 ▼0,18 213° 0,221,183 LEA Emergenti Lagging 99,52 ▼0,3197,92 ▼0,30 227° 0,432,133 WEA Oro Lagging 98,76 ▼0
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.4 mancano L1:[] mancano guida:[]
+   Performance relativa 3M 6M 1A 2A × giu 26lug 26ago 26set 26ott 26nov 26Trend 109Portafoglio 96Oro 848090100120 Portafoglio (benchmark)altri titolidal 28/05/2026 .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares Core MSCI World (Acc) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di World (SWDA) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di World (SWDA), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares Core MSCI EM IMI (Acc) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Emergenti (EIMI) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Emergenti (EIMI), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.4 mancano L1:[] mancano guida:[]
+   Amundi Euro Government Bond 1-3Y (Acc) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Gov 1-3 (EM13) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Gov 1-3 (EM13), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.33 mancano L1:[] mancano guida:[]
+   Amundi Euro Government Bond 7-10Y (Acc) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Gov 7-10 (EM710) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Gov 7-10 (EM710), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.4 mancano L1:[] mancano guida:[]
+   Amundi Euro Government Bond 15+Y (Acc) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Gov 15+ (EM15) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Gov 15+ (EM15), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.33 mancano L1:[] mancano guida:[]
+   Invesco Physical Gold .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Oro (SGLD) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Oro (SGLD), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Invesco Bloomberg Commodity (Acc) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Commodity (CMOD) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Commodity (CMOD), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.6 mancano L1:[] mancano guida:[]
+   iShares Developed Markets Property Yield .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Peso obiettivo di REIT (IWDP) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Peso obiettivo di REIT (IWDP), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Bitcoin, prezzo spot in euro .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.8 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Bitcoin (BTC-EUR) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Bitcoin (BTC-EUR), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Periodi piatti di anni e cali del 20% sono normali per la strategia .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Trend (DBMFE) .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso obiettivo di Trend (DBMFE), in percentuale .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Gov 7-10 sul grafico . quadrante precedente: Lagging .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Gov 15+ sul grafico . quadrante precedente: Lagging .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Gov 1-3 sul grafico . quadrante precedente: Lagging .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra REIT sul grafico . quadrante precedente: Improving .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Trend sul grafico . quadrante precedente: Weakening .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra World sul grafico . quadrante precedente: Leading .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Commodity sul grafico . quadrante precedente: Leading .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Emergenti sul grafico . quadrante precedente: Weakening .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Oro sul grafico . quadrante precedente: Improving .
+ok [rrg-global1] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Bitcoin sul grafico . quadrante precedente: Leading .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.83 mancano L1:[] mancano guida:[]
+   Asset classultima chiusura 20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima Gov 7-10 Improving 98,95 ▲0,90102,80 ▲1,74 27° 1,962,994 LAG Gov 15+ Improving 98,75 ▲0,74102,57 ▲1,37 29° 1,562,864 LAG Gov 1-3 Improving 99,66 ▲0,62102,11 ▲1,15 28° 1,312,146 LAG REIT Leading 100,09 ▲0,37101,68 ▲0,56 33° 0,671,681 IMP Trend Leading 101,32 ▲0,13100,53 ▲0,20 32° 0,241,4210 WEA World Weakening 101,64 ▼0,2099,35 ▼0,39 208° 0,441,763 LEA Commodity Weakening 101,07 ▼0,1299,48 ▼0,18 213° 0,221,183 LEA Emergenti Lagging 99,52 ▼0,3197,92 ▼0,30 227° 0,432,133 WEA Oro Lagging 9
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.91 mancano L1:[] mancano guida:[]
+   benchmark 129,17-2,0%-4,4%-4,6%-5,4%+3,7% -6,2%—-2,9% Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°, cioè verso Leading.
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.91 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.56 mancano L1:[] mancano guida:[]
+   Amundi Euro Government Bond 7-10Y (Acc) . peggiore negli ultimi 5 anni -20,5% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Chiusura più alta 173,66 del 27/02/2026, ultima 165,03 del 20/11/2026: -5,0%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.62 mancano L1:[] mancano guida:[]
+   Amundi Euro Government Bond 15+Y (Acc) . peggiore negli ultimi 5 anni -39,6% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 182,25 del 02/03/2026: da lì il calo è -8,6%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.62 mancano L1:[] mancano guida:[]
+   Amundi Euro Government Bond 1-3Y (Acc) . peggiore negli ultimi 5 anni -5,5% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Chiusura più alta 128,43 del 27/02/2026, ultima 128,12 del 20/11/2026: -0,2%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   iShares Developed Markets Property Yield . peggiore negli ultimi 5 anni -25,3% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 23,91 del 27/07/2026: da lì il calo è -7,4%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Periodi piatti di anni e cali del 20% sono normali per la strategia . peggiore negli ultimi 5 anni -29,2% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 138,99 del 15/10/2026: da lì il calo è -5,0%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares Core MSCI World (Acc) . peggiore negli ultimi 5 anni -21,6% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 132,40 del 13/10/2026: da lì il calo è -7,3%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Invesco Bloomberg Commodity (Acc) . peggiore negli ultimi 5 anni -26,9% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 32,40 del 14/10/2026: da lì il calo è -10,6%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares Core MSCI EM IMI (Acc) . peggiore negli ultimi 5 anni -21,3% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 51,00 del 22/06/2026: da lì il calo è -19,7%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   Invesco Physical Gold . peggiore negli ultimi 5 anni -28,9% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 446,52 del 29/01/2026: da lì il calo è -30,5%. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   Bitcoin, prezzo spot in euro . peggiore negli ultimi 5 anni -69,9% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Quota tutti i giorni: contano anche i fine settimana. .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Pesi indicativi, non una raccomandazione . peggiore negli ultimi 5 anni -14,7% .
+ok [rrg-global1-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.88 mancano L1:[] mancano guida:[]
+   Serie calcolata dall'app: non c'è un grafico di prezzo con cui confrontarla. .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:0.96 guida:0.75 mancano L1:[] mancano guida:[]
+   ETF in euro, dati al 20/11/2026 Coda 4 10 16 26 Scala Adatta Massima ▶ PLAY 20/11/2026 98989999101101102102100100IMPROVINGLEADINGLAGGINGWEAKENINGRS-RATIO → forza relativaRS-MOMENTUM → slancioValueQualityMomentumMin VolSmall CapGrowth NDXDividendiEq Weight Improving Leading Weakening Lagging colore = quadrante
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.89 mancano L1:[] mancano guida:[]
+   Tabella di rotazione20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima Small Cap Improving 99,32 ▲0,13100,22 ▲0,30 23° 0,320,721 LAG Min Vol Leading 100,76 ▲0,36102,41 ▲0,34 47° 0,492,533 IMP Quality Leading 101,08 ▲0,21101,77 ▲0,08 69° 0,222,076 IMP Eq Weight Leading 100,10 ▲0,29101,44 ▲0,42 35° 0,511,441 IMP Dividendi Leading 100,54 ▲0,19101,01 ▲0,25 37° 0,321,153 IMP Value Weakening 100,55 ▼0,2398,02 ▼0,08 250° 0,242,0620 LEA Momentum Lagging 98,67 ▼0,2997,63 ▼0,14 244° 0,322,725 WEA Growth NDX Lagging 99,46 ▼0,2598,23 ▼0,20 231° 0,321,853 WEA Direzione: ulti
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.44 mancano L1:[] mancano guida:[]
+   Performance relativa 3M 6M 1A 2A × giu 26lug 26ago 26set 26ott 26nov 26Min Vol 112World 100Momentum 8690110 World (benchmark)altri titolidal 28/05/2026 .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   SPDR MSCI World Small Cap (Acc) .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Small Cap sul grafico . quadrante precedente: Lagging .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.71 mancano L1:[] mancano guida:[]
+   iShares Edge MSCI World Minimum Volatility (Acc) .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Min Vol sul grafico . quadrante precedente: Improving .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   iShares Edge MSCI World Quality Factor (Acc) .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Quality sul grafico . quadrante precedente: Improving .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Invesco MSCI World Equal Weight (Acc), quotato dal 2024 .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Eq Weight sul grafico . quadrante precedente: Improving .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   Vanguard FTSE All-World High Dividend Yield .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Dividendi sul grafico . quadrante precedente: Improving .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   iShares Edge MSCI World Value Factor (Acc) .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Value sul grafico . quadrante precedente: Leading .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   iShares Edge MSCI World Momentum Factor (Acc) .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Momentum sul grafico . quadrante precedente: Weakening .
+ok [rrg-global2] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Growth NDX sul grafico . quadrante precedente: Weakening .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:0.96 guida:0.63 mancano L1:[] mancano guida:[]
+   ETF in euro, dati al 20/11/2026 Coda 4 10 16 26 Scala Adatta Massima ▶ PLAY 20/11/2026 98989999101101102102100100IMPROVINGLEADINGLAGGINGWEAKENINGRS-RATIO → forza relativaRS-MOMENTUM → slancioS&P 500Nasdaq-100Dow JonesNikkei 225STOXX 600FTSE 100DAXCAC 40Svizzera Improving Leading Weakening Lagging colore = quadrante
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.89 mancano L1:[] mancano guida:[]
+   Tabella di rotazione20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima CAC 40 Improving 98,92 ▲0,27101,30 ▲0,40 34° 0,481,703 LAG DAX Improving 99,56 ▲0,14101,15 ▲0,08 62° 0,161,234 LAG STOXX 600 Improving 99,75 ▲0,20101,10 ▲0,24 39° 0,311,133 LAG Svizzera Leading 100,47 ▲0,28101,89 ▲0,26 47° 0,391,952 IMP Dow Jones Leading 100,19 ▲0,19101,33 ▲0,17 49° 0,251,342 IMP S&P 500 Leading 100,99 ▲0,08100,74 ▲0,01 86° 0,081,239 IMP FTSE 100 Leading 100,26 ▲0,17101,16 ▲0,14 50° 0,221,192 IMP Nikkei 225 Lagging 99,68 ▼0,1898,44 ▼0,06 252° 0,191,592 WEA Nasdaq-100 Lagging 
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.4 mancano L1:[] mancano guida:[]
+   Performance relativa 3M 6M 1A 2A × giu 26lug 26ago 26set 26ott 26nov 26Svizzera 107ACWI 98Nasdaq-100 90100110 ACWI (benchmark)altri titolidal 28/05/2026 .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra CAC 40 sul grafico . quadrante precedente: Lagging .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   Xtrackers DAX (Acc) .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra DAX sul grafico . quadrante precedente: Lagging .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares STOXX Europe 600 (DE) .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra STOXX 600 sul grafico . quadrante precedente: Lagging .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   Xtrackers Switzerland, Xetra .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Svizzera sul grafico . quadrante precedente: Improving .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   iShares Dow Jones Industrial Average (Acc) .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Dow Jones sul grafico . quadrante precedente: Improving .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares Core S&P 500 (Acc), Xetra .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra S&P 500 sul grafico . quadrante precedente: Improving .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.33 mancano L1:[] mancano guida:[]
+   Xtrackers FTSE 100 Income .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra FTSE 100 sul grafico . quadrante precedente: Improving .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares Nikkei 225 (Acc) .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Nikkei 225 sul grafico . quadrante precedente: Weakening .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   iShares Nasdaq 100 (Acc) .
+ok [rrg-global5] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Nasdaq-100 sul grafico . quadrante precedente: Weakening .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:0.95 guida:0.81 mancano L1:[] mancano guida:[]
+   CPI di ottobre 2026, uscito il 10/11/2026 Coda 4 10 16 26 Scala Adatta Massima ▶ PLAY 20/11/2026 98989999101101102102100100IMPROVINGLEADINGLAGGINGWEAKENINGRS-RATIO → forza relativaRS-MOMENTUM → slancioOroArgentoRamePetrolioCommodityBitcoinTIPSTreasury 7-10S&P 500 Improving Leading Weakening Lagging colore = quadrante
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.94 mancano L1:[] mancano guida:[]
+   clic su una riga per cambiarlo Ora il benchmark è Liquidità in dollari: a destra chi rende più dei T-bill a 1-3 mesi: in pratica il trend assoluto di ogni asset.
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.89 mancano L1:[] mancano guida:[]
+   Tabella di rotazione20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima TIPS Improving 98,44 ▲0,11100,50 ▲0,17 33° 0,201,644 LAG Treasury 7-10 Improving 98,79 ▲0,23100,97 ▲0,37 32° 0,441,554 LAG S&P 500 Weakening 100,02 ▼0,5497,94 ▼0,93 210° 1,072,0611 LEA Commodity Weakening 101,02 ▼0,4498,23 ▼0,75 211° 0,872,053 LEA Petrolio Weakening 101,17 ▼0,1999,36 ▼0,35 208° 0,391,332 LEA Argento Lagging 98,49 ▼0,2498,45 ▼0,25 225° 0,352,168 IMP Rame Lagging 99,68 ▼0,4498,15 ▼0,72 212° 0,841,871 WEA Oro Lagging 98,70 ▼0,2598,76 ▼0,34 216° 0,421,808 IMP Bitcoin Lagging 99,7
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.47 mancano L1:[] mancano guida:[]
+   Performance relativa 3M 6M 1A 2A × giu 26lug 26ago 26set 26ott 26nov 26Liquidità in dollari 102Treasury 7-10 100Argento 546080120 Liquidità in dollari (benchmark)altri titolidal 22/05/2026 .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   iShares TIPS Bond ETF .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra TIPS sul grafico . quadrante precedente: Lagging .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.6 mancano L1:[] mancano guida:[]
+   iShares 7-10 Year Treasury Bond ETF .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Treasury 7-10 sul grafico . quadrante precedente: Lagging .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra S&P 500 sul grafico . quadrante precedente: Leading .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.6 mancano L1:[] mancano guida:[]
+   Invesco DB Commodity Index Tracking Fund .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.0 mancano L1:[] mancano guida:[]
+   United States Oil Fund .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Petrolio sul grafico . quadrante precedente: Leading .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.33 mancano L1:[] mancano guida:[]
+   iShares Silver Trust .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Argento sul grafico . quadrante precedente: Improving .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.2 mancano L1:[] mancano guida:[]
+   United States Copper Index Fund .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Rame sul grafico . quadrante precedente: Weakening .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   SPDR Gold Shares .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Bitcoin in dollari (quota sempre: ultimo prezzo a ogni seduta) .
+ok [rrg-global6] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra Bitcoin sul grafico . quadrante precedente: Weakening .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:0.95 guida:0.84 mancano L1:[] mancano guida:[]
+   formula nuova Coda 4 10 16 26 Scala Adatta Massima ▶ PLAY 20/11/2026 98989999101101102102100100IMPROVINGLEADINGLAGGINGWEAKENINGRS-RATIO → forza relativaRS-MOMENTUM → slancioAAPLMSFTGOOGLAMZNNVDATSLAMETA Improving Leading Weakening Lagging colore = quadrante
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.76 mancano L1:[] mancano guida:[]
+   Tabella di rotazione20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima TSLA Improving 99,90 ▲0,13101,37 ▼0,03 103° 0,131,3811 LAG AAPL Leading 101,55 ▲0,23101,50 ▲0,23 45° 0,332,1619 IMP MSFT Leading 101,39 ▲0,10101,21 ▼0,05 115° 0,121,8413 IMP AMZN Leading 100,40 ▲0,23101,24 ▲0,29 38° 0,371,302 IMP META Leading 100,10 ▼0,01100,49 ▼0,17 183° 0,170,506 IMP NVDA Lagging 98,99 ▼0,5397,75 ▼0,85 212° 1,002,473 WEA GOOGL Lagging 99,08 ▼0,0399,35 ▲0,11 345° 0,111,1315 WEA Direzione: ultimo spostamento in gradi bussola (0° = su, 90° = destra); in grassetto tra 0° e 90°,
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.4 mancano L1:[] mancano guida:[]
+   Performance relativa 3M 6M 1A 2A × giu 26lug 26ago 26set 26ott 26nov 26MSFT 116QQQ 85NVDA 5880100 QQQ (benchmark)altri titolidal 22/05/2026 .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra TSLA sul grafico . quadrante precedente: Lagging .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra AAPL sul grafico . quadrante precedente: Improving .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra MSFT sul grafico . quadrante precedente: Improving .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra AMZN sul grafico . quadrante precedente: Improving .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra META sul grafico . quadrante precedente: Improving .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra NVDA sul grafico . quadrante precedente: Weakening .
+ok [rrg-mag7] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra GOOGL sul grafico . quadrante precedente: Weakening .
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:0.95 guida:0.84 mancano L1:[] mancano guida:[]
+   medie semplici Coda 4 10 16 26 Scala Adatta Massima ▶ PLAY 20/11/2026 92929696104104108108100100IMPROVINGLEADINGLAGGINGWEAKENINGRS-RATIO → forza relativaRS-MOMENTUM → slancioXLKXLCXLYXLPXLEXLFXLVXLIXLBXLREXLUSOXX Improving Leading Weakening Lagging colore = quadrante
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:0.89 guida:1.0 mancano L1:[] mancano guida:[]
+   ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio Medie semplici
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   come StockCharts, distanza da 100 in punti percentuali
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   come si calcola e cosa cambia con la nuova Nuova
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.84 mancano L1:[] mancano guida:[]
+   Tabella di rotazione20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima XLU Improving 96,22 ▲1,28103,62 ▲0,93 54° 1,585,244 LAG XLC Improving 96,91 ▲0,22101,17 ▼0,14 122° 0,263,3113 LAG XLRE Improving 97,05 ▲0,82101,32 ▲0,90 42° 1,223,232 LAG XLY Improving 97,84 ▲1,06102,20 ▲0,81 53° 1,333,084 LAG XLB Improving 98,53 ▲0,64101,56 ▲0,43 56° 0,772,145 LAG XLV Leading 107,18 ▲0,97102,61 ▲0,40 68° 1,057,6414 IMP XLE Leading 106,89 ▼0,04102,26 ▼0,73 183° 0,737,2510 IMP XLP Leading 101,77 ▲1,53103,83 ▲0,91 59° 1,784,222 IMP XLF Leading 100,82 ▲0,25100,15 ▲0,41 32° 0,480
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLE sul grafico . quadrante precedente: Improving .
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLF sul grafico . quadrante precedente: Weakening .
+ok [rrg-semplice] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra XLI sul grafico . quadrante precedente: Improving .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:0.95 guida:0.84 mancano L1:[] mancano guida:[]
+   formula nuova Coda 4 10 16 26 Scala Adatta Massima ▶ PLAY 20/11/2026 979798989999101101102102103103100100IMPROVINGLEADINGLAGGINGWEAKENINGRS-RATIO → forza relativaRS-MOMENTUM → slancioXLKXLCXLYXLPXLEXLFXLVXLIXLBXLREXLUSOXX Improving Leading Weakening Lagging colore = quadrante
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   passa sopra un punto o una riga per isolarlo, clic per fissarlo
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:0.89 guida:1.0 mancano L1:[] mancano guida:[]
+   ←→ scorre il tempo punto vuoto = settimana in corso, provvisorio Formula nuova
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   medie esponenziali divise per la volatilità
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   come si calcola e cosa cambia con le medie semplici Nuova
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   nostra, predefinita Forza relativa in logaritmo: ln(prezzo ÷ benchmark).
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   RS-Ratio: differenza tra la media esponenziale a 10 barre e quella a 30, divisa per la volatilità della forza relativa (emivita 26 barre) e riportata attorno a 100.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   RS-Momentum: scarto dell'RS-Ratio dalla sua media esponenziale a 8 barre, sulla stessa scala.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Dividendo per la volatilità, tutti i titoli stanno sulla stessa scala: un settore tranquillo e uno agitato con un trend ugualmente solido stanno alla stessa distanza dal centro, di solito entro 3 punti da 100.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Le medie esponenziali non fanno saltare il valore quando un dato vecchio esce dal calcolo.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   come StockCharts Forza relativa: prezzo ÷ benchmark.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   RS-Ratio = 100 × media semplice a 10 barre ÷ media semplice a 30.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   RS-Momentum = 100 × RS-Ratio ÷ sua media semplice a 9 barre.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Nessuna normalizzazione: la distanza da 100 è in punti percentuali, quindi i titoli più volatili vanno più lontano e disegnano code più lunghe (sui settori di solito entro 10 punti).
+ok [rrg-settori] numeri:L1 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Con l'indice S&P 500 come benchmark coincide al centesimo con StockCharts (verificato su 11 letture del 25/09/2026).
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Con SPY, il benchmark predefinito dell'app, l'RS-Ratio settimanale esce circa 0,2 più basso, per via dei dividendi.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   In pratica si leggono allo stesso modo: RS-Ratio sopra 100 = più forte del benchmark, RS-Momentum sopra 100 = forza in aumento.
+ok [rrg-settori] numeri:L1 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Sui settori USA dal 2022 le due formule danno lo stesso quadrante circa tre volte su quattro; le differenze stanno soprattutto vicino a 100.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Le medie semplici servono per confrontarsi con le piattaforme ufficiali; la nuova per confrontare asset con volatilità molto diverse, come le asset class.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Portafoglio di riferimento Porta a 100% Ripristina l'esempio Il tuo portafoglio
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   come adattare i pesi e cosa cambia nel grafico Sposta i cursori, oppure scrivi il numero nella casella accanto, per dare a ogni componente il peso che ha nel tuo portafoglio di lungo periodo.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Con la tastiera, sul cursore le frecce cambiano il peso di un punto e Pagina su/giù di dieci.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   A 0% una componente esce dal portafoglio ma resta sul grafico, confrontata con il resto.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Le componenti sono fisse: se hai un'attività che qui non c'è, dai il suo peso a quella più simile.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il totale dovrebbe fare 100%.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Se non torna, i pesi valgono in proporzione: con 60 e 60, per esempio, ciascuna componente conta per metà.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il portafoglio viene ricalcolato su tutta la storia con i nuovi pesi, come se li avessi sempre avuti, e riportato ai pesi scelti alla chiusura dell'ultima seduta di ogni mese.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   «Oggi» mostra i pesi dopo i movimenti dei prezzi dall'ultimo ribilanciamento.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Ogni punto del grafico confronta una componente con il tuo portafoglio: a destra del centro fa meglio del portafoglio, in alto la sua forza relativa migliora.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Così vedi quali parti lo trainano e quali lo frenano.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Tabella e performance relativa si aggiornano insieme al grafico.
+ok [rrg-settori] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   I cursori contano quando il benchmark è il portafoglio: con liquidità o MSCI World il confronto resta con quell'indice.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:0.9 guida:0.9 mancano L1:[] mancano guida:[]
+   I pesi restano salvati in questo browser: non li vede nessun altro e non cambiano gli altri universi.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   «Ripristina l'esempio» torna al portafoglio di partenza.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.81 mancano L1:[] mancano guida:[]
+   Come leggere i benchmark BenchmarkCosa mostra il grafico Liquidità in dollariBILA destra chi rende più dei T-bill a 1-3 mesi: in pratica il trend assoluto di ogni asset.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:0.95 guida:1.0 mancano L1:[] mancano guida:[]
+   dati, limiti e come usare questo universo Contro liquidità e inflazione il grafico legge soprattutto il trend assoluto: sono serie che crescono piano e con regolarità, quindi spostano il centro più che la rotazione.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.84 mancano L1:[] mancano guida:[]
+   Tabella di rotazione20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima XLY Improving 99,64 ▲0,41102,72 ▲0,38 47° 0,562,745 LAG XLC Improving 98,67 ▲0,17101,42 ▲0,07 69° 0,181,9513 LAG XLU Improving 99,59 ▲0,38101,82 ▲0,54 35° 0,661,875 LAG XLRE Improving 99,81 ▲0,34101,59 ▲0,50 34° 0,601,604 LAG XLI Improving 98,57 ▲0,20100,24 ▲0,51 22° 0,551,451 LAG XLB Improving 99,93 ▲0,14101,15 ▲0,08 61° 0,171,154 LAG XLP Leading 100,74 ▲0,39102,44 ▲0,42 43° 0,582,553 IMP XLV Leading 101,61 ▲0,22101,81 ▲0,11 63° 0,252,4214 IMP XLF Leading 100,53 ▲0,29101,69 ▲0,34 40° 0,451,7
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Sul telefono Vel., Dist., Prima e le variazioni sono nascoste: ruotalo o usa un computer per vederle.
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.4 mancano L1:[] mancano guida:[]
+   Performance relativa 3M 6M 1A 2A × giu 26lug 26ago 26set 26ott 26nov 26XLV 119SPY 93SOXX 6980100 SPY (benchmark)altri titolidal 22/05/2026 .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Adatta la scala alle code visibili .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Scala fissa su tutto il periodo: utile per l'animazione .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Grafico di rotazione relativa .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra XLY sul grafico . quadrante precedente: Lagging .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLC sul grafico . quadrante precedente: Lagging .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLU sul grafico . quadrante precedente: Lagging .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLRE sul grafico . quadrante precedente: Lagging .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra XLI sul grafico . quadrante precedente: Lagging .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLB sul grafico . quadrante precedente: Lagging .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra XLP sul grafico . quadrante precedente: Improving .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Mostra XLV sul grafico . quadrante precedente: Improving .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLF sul grafico . quadrante precedente: Improving .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLE sul grafico . quadrante precedente: Weakening .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra XLK sul grafico . quadrante precedente: Weakening .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Mostra SOXX sul grafico . quadrante precedente: Weakening .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo ¦ Zoom: scegli un tratto sul grafico .
+ok [rrg-settori] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Togli lo zoom e torna al periodo .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:0.98 guida:0.76 mancano L1:[] mancano guida:[]
+   Settori S&P 500ultima chiusura 20/11/2026 Rotazione Prezzi TitoloQuadranteRS-RatioRS-MomDirez.Vel.Dist.sett.Prima XLY Improving 99,64 ▲0,41102,72 ▲0,38 47° 0,562,745 LAG XLC Improving 98,67 ▲0,17101,42 ▲0,07 69° 0,181,9513 LAG XLU Improving 99,59 ▲0,38101,82 ▲0,54 35° 0,661,875 LAG XLRE Improving 99,81 ▲0,34101,59 ▲0,50 34° 0,601,604 LAG XLI Improving 98,57 ▲0,20100,24 ▲0,51 22° 0,551,451 LAG XLB Improving 99,93 ▲0,14101,15 ▲0,08 61° 0,171,154 LAG XLP Leading 100,74 ▲0,39102,44 ▲0,42 43° 0,582,553 IMP XLV Leading 101,61 ▲0,22101,81 ▲0,11 63° 0,252,4214 IMP XLF Leading 100,53 ▲0,29101,69 ▲0,34 
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.94 mancano L1:[] mancano guida:[]
+   Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori. .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.93 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura. . peggiore negli ultimi 5 anni -39,4% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 125,01 del 12/01/2026: da lì il calo è -10,0%. . peggiore negli ultimi 5 anni -42,0% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 120,41 del 02/02/2026: da lì il calo è -16,9%. . peggiore negli ultimi 5 anni -20,7% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 47,80 del 27/02/2026: da lì il calo è -10,7%. . peggiore negli ultimi 5 anni -33,3% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 46,45 del 28/07/2026: da lì il calo è -8,6%. . peggiore negli ultimi 5 anni -21,6% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 188,19 del 05/08/2026: da lì il calo è -16,9%. . peggiore negli ultimi 5 anni -24,7% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 54,63 del 05/11/2026: da lì il calo è -11,5%. . peggiore negli ultimi 5 anni -16,3% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 93,48 del 16/11/2026: da lì il calo è -3,2%. . peggiore negli ultimi 5 anni -17,1% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 192,32 del 05/11/2026: da lì il calo è -7,8%. . peggiore negli ultimi 5 anni -25,8% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 60,04 del 05/11/2026: da lì il calo è -9,1%. . peggiore negli ultimi 5 anni -26,0% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 70,15 del 30/10/2026: da lì il calo è -13,7%. . peggiore negli ultimi 5 anni -33,6% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 203,25 del 06/10/2026: da lì il calo è -26,7%. . peggiore negli ultimi 5 anni -45,8% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 218,65 del 22/06/2026: da lì il calo è -43,6%. . peggiore negli ultimi 5 anni -24,5% .
+ok [rrg-settori-prezzi] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» di TradingView è il picco intraday, 781,62 del 06/10/2026: da lì il calo è -11,7%. .
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.72 mancano L1:[] mancano guida:[]
+   LIVELLO BLU 3%peggiore nel periodo -43,4%gen 24apr 24lug 24ott 24gen 25apr 25lug 25ott 25gen 26apr 26lug 26ott 26123,40-43,4%0,0% prezzo media 200 drawdown % sopra media 200 % sopra media 50 livello blu fascia di attenzione (fino a 10 punti sopra il livello) breadth in avvicinamento zona blu sotto il livello, fuori dalla zona blu (a righe) trigger Episodi in zona blu7 zone blu dal 19/07/2002 con livello 3%
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.72 mancano L1:[] mancano guida:[]
+   rendimenti a confronto sotto la tabella Zona blu dalBreadth minDD ingresso+3M da zona bluTriggerConferma+1M+3M+6MPeggior calo 3M27/03/20250,0%-26,3%+23,0% 02/05/2025spinta di breadth a 20 giorni +12,4%+26,8%+62,0%-1,7%12/10/20220,0%-45,0%+27,3% 08/11/2022spinta di breadth a 20 giorni + prezzo sopra la media 20g crescente +10,0%+23,9%+20,3%-3,2%25/08/20150,0%-24,6%+17,8% 08/09/2015spinta di breadth a 20 giorni +1,0%+10,1%+3,7%-7,6%05/08/20110,0%-25,4%+10,6% 16/09/2011spinta di breadth a 50 giorni + prezzo sopra la media 20g crescente -3,0%-8,0%+15,5%-14,5%30/09/20080,0%-41,0%-30,1% 26/03/2009sp
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.76 mancano L1:[] mancano guida:[]
+   MedianeCasi+1M+3M+6M+3M positiviDopo ogni trigger, anche quelli poi falliti7+3,4%+11,7%+20,3%6 su 7Dall'ingresso in zona blu7-3,8%+10,6%+11,5%4 su 7Una seduta qualsiasi dal 20026105 sedute+1,9%+5,5%+10,5%67%SPY dopo gli stessi trigger6+2,4%+6,6%+13,0%6 su 6L'industria meno SPY, dopo il trigger6-0,2%+6,0%+4,6%meglio in 5 su 6 Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale.
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:0.92 guida:0.75 mancano L1:[] mancano guida:[]
+   capitolazioneallerta al 20/11/2026 Calo-5%-7%-10%Sedute3510Mostratitoli% titoliPreset di Rea (-7%, 5 sedute) Allerta al 20/11/2026: 40 cali nelle ultime 5 sedute, sopra la soglia di 23 cali.
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   7 sedute in allerta negli ultimi 3 mesi.
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Technology →Come è costruita questa storia.
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.83 mancano L1:[] mancano guida:[]
+   Statistiche del livello blu e degli episodi indicative: guida.
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.06 mancano L1:[] mancano guida:[]
+   2 con meno di 200 sedute5 Titoli → TitoloPesovs m.200vs m.50DD 52sTXN5,4%-1,0%-7,9%-20,6%AMD10,2%-1,3%-23,3%-34,7%NXPI4,3%-5,4%-2,9%-29,3%ADI5,1%-8,5%-12,6%-22,3%ENTG1,4%-11,1%-15,5%-32,3%QCOM4,7%-12,1%-15,4%-40,3%MPWR4,2%-14,2%-11,6%-32,4%AVGO9,2%-17,2%-11,2%-36,8%ASML1,5%-20,9%-22,1%-36,4%TSM3,2%-21,0%-24,5%-34,4%MU7,1%-23,0%-34,8%-51,0%ASX0,8%-23,7%-34,8%-44,8%STM0,5%-23,8%-19,3%-51,1%ON1,7%-26,6%-17,1%-54,6%MCHP2,1%-29,6%-23,3%-46,1%KLAC4,0%-30,2%-24,8%-57,9%ALAB2,0%-30,3%-36,8%-62,7%UMC0,5%-30,7%-39,7%-57,0%MTSI1,1%-31,3%-25,8%-52,4%AMAT3,6%-32,3%-28,9%-58,1%ARM0,4%-35,1%-36,5%-65,4%MRVL3
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   Calo l'industria dal massimo a 52 settimane il primo giorno dell'allerta: solo informativo .
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno . sì . manca . sì .
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   È un promemoria, non un segnale per comprare o vendere. .
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso nell'ETF SOXX (iShares) .
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   grafico su TradingView . meno di 200 sedute di storia .
+ok [sec-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   grafico su TradingView . meno di 200 sedute di storia
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.72 mancano L1:[] mancano guida:[]
+   LIVELLO BLU 6%peggiore nel periodo -26,2%gen 24apr 24lug 24ott 24gen 25apr 25lug 25ott 25gen 26apr 26lug 26ott 26149,01-26,2%30,7% prezzo media 200 drawdown % sopra media 200 % sopra media 50 livello blu fascia di attenzione (fino a 10 punti sopra il livello) breadth in avvicinamento zona blu sotto il livello, fuori dalla zona blu (a righe) trigger Episodi in zona blu4 zone blu dal 03/01/2005 con livello 6%
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.62 mancano L1:[] mancano guida:[]
+   rendimenti a confronto sotto la tabella Zona blu dalBreadth minDD ingresso+3M da zona bluTriggerConferma+1M+3M+6MPeggior calo 3M20/05/20221,6%-25,7%+10,1% 24/10/2022
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.88 mancano L1:[] mancano guida:[]
+   1 fallitoprezzo sopra la media 20g crescente + divergenza prezzo/breadth +3,4%+1,7%-11,9%-3,5% Per confronto: gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni.
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.74 mancano L1:[] mancano guida:[]
+   MedianeCasi+1M+3M+6M+3M positiviDopo ogni trigger, anche quelli poi falliti7+3,4%+1,7%-3,7%5 su 7Dall'ingresso in zona blu4-1,5%+7,4%-1,5%3 su 4Una seduta qualsiasi dal 20055486 sedute+1,8%+4,8%+9,4%73%SPY dopo gli stessi trigger7+2,1%-0,8%+0,7%3 su 7Il settore meno SPY, dopo il trigger7+1,3%+1,5%+1,4%meglio in 6 su 7 Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale.
+ok [sec-XLK] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Sul telefono DD ingresso, +3M da zona blu e Peggior calo sono nascoste.
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.92 guida:0.75 mancano L1:[] mancano guida:[]
+   capitolazioneallerta al 20/11/2026 Calo-5%-7%-10%Sedute3510Mostratitoli% titoliPreset di Rea (-7%, 5 sedute) Allerta al 20/11/2026: 50 cali nelle ultime 5 sedute, sopra la soglia di 29 cali.
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   10 sedute in allerta negli ultimi 3 mesi.
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.88 guida:0.75 mancano L1:[] mancano guida:[]
+   Informativo: non fa parte delle regole del semaforo (scheda «Cali forti» qui sotto).
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Livello blu% titoli sopra media 200 -6%+ Ripristina Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea.
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:True parole L1:0.83 guida:1.0 mancano L1:[] mancano guida:[]
+   Le regole di zona blu, trigger e cooldown sono di questa app.
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.19 mancano L1:[] mancano guida:[]
+   al 20/11/20265 Titoli → Titolovs m.200vs m.50DD 52sOKTA+45,4%-4,3%-17,5%PTC+30,3%+9,8%-0,7%CRWD+30,2%-7,1%-17,7%ROP+23,7%+11,6%-6,6%PANW+22,0%-6,6%-18,2%TYL+19,9%+9,6%-14,5%CDW+19,1%+6,1%-6,5%GEN+18,0%+10,2%-7,1%ACN+16,5%-0,2%-23,3%MSI+16,0%+8,6%-2,8%AAPL+13,0%+0,2%-3,8%WDAY+11,6%-9,4%-25,3%VRSN+11,1%+1,6%-3,5%HPQ+10,9%-9,7%-21,2%MSFT+9,2%-6,8%-12,8%GDDY+7,4%-5,6%-23,6%SWKS+6,2%-12,1%-19,2%ZBRA+5,4%-15,8%-22,9%ADSK+4,5%+2,6%-21,2%P+4,5%-24,2%-41,4%IT+4,0%-11,6%-31,5%NTAP+1,1%-22,0%-34,1%CTSH+1,0%-6,9%-33,0%ANET-0,6%-12,7%-22,7%TXN-1,0%-7,9%-20,6%AMD-1,3%-23,3%-34,7%HPE-4,2%-29,1%-44,3%NXPI-5,4
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo ¦ Zoom: scegli un tratto sul grafico .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Togli lo zoom e torna al periodo .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Prezzo, drawdown e breadth del settore .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Episodi in zona blu .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Episodi a confronto con una seduta qualsiasi e con SPY .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Cali forti dei titoli del settore e prezzo .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   Calo il settore dal massimo a 52 settimane il primo giorno dell'allerta: solo informativo .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno . manca . manca . sì .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   Abbassa il livello blu .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.67 mancano L1:[] mancano guida:[]
+   Alza il livello blu .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   È un promemoria, non un segnale per comprare o vendere (guida, «Come usarlo»). .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.94 mancano L1:[] mancano guida:[]
+   Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori. .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.91 mancano L1:[] mancano guida:[]
+   Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura. .
+ok [sec-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Bubble dei titoli e confronto tra grandi e piccoli .
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.72 mancano L1:[] mancano guida:[]
+   LIVELLO BLU 8%peggiore nel periodo -16,6%gen 24apr 24lug 24ott 24gen 25apr 25lug 25ott 25gen 26apr 26lug 26ott 2642,46-6,9%26,7% prezzo media 200 drawdown % sopra media 200 % sopra media 50 livello blu fascia di attenzione (fino a 10 punti sopra il livello) breadth in avvicinamento zona blu sotto il livello, fuori dalla zona blu (a righe) trigger Episodi in zona blu4 zone blu dal 07/10/2016 con livello 8%
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.62 mancano L1:[] mancano guida:[]
+   rendimenti a confronto sotto la tabella Zona blu dalBreadth minDD ingresso+3M da zona bluTriggerConferma+1M+3M+6MPeggior calo 3M20/03/20233,4%-25,5%+2,5% 31/03/2023spinta di breadth a 20 giorni -1,7%+2,6%-8,9%-5,8%14/06/20220,0%-24,5%+6,8% 10/11/2022
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.85 mancano L1:[] mancano guida:[]
+   1 fallitospinta di breadth a 50 giorni + prezzo sopra la media 20g crescente + divergenza prezzo/breadth -0,4%+5,7%-2,7%-4,9%20/03/20200,0%-35,2%+31,1% 08/04/2020spinta di breadth a 20 giorni -1,3%+4,2%+9,2%-8,3%11/11/20167,7%-14,6%+7,7% 01/12/2016divergenza prezzo/breadth +6,3%+9,3%+11,5%0,0% Per confronto: gli stessi rendimenti dopo una seduta qualsiasi e, per i trigger, quelli di SPY negli stessi giorni.
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.74 mancano L1:[] mancano guida:[]
+   MedianeCasi+1M+3M+6M+3M positiviDopo ogni trigger, anche quelli poi falliti5-0,4%+4,2%-2,7%4 su 5Dall'ingresso in zona blu4+6,1%+7,3%+5,9%4 su 4Una seduta qualsiasi dal 20162524 sedute+1,0%+2,1%+4,4%64%SPY dopo gli stessi trigger5+3,2%+8,8%+5,5%4 su 5Il settore meno SPY, dopo il trigger5-1,4%-6,2%-8,3%meglio in 2 su 5 Rendimenti del settore (ETF, dividendi inclusi) dall'ingresso in zona blu e dal trigger, dalla chiusura del giorno del segnale.
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:0.93 guida:0.8 mancano L1:[] mancano guida:[]
+   capitolazioneal 20/11/2026: 0° percentile Calo-5%-7%-10%Sedute3510Mostratitoli% titoliPreset di Rea (-7%, 5 sedute) Al 20/11/2026 0 cali nelle ultime 5 sedute: 0° percentile della storia dal 2008, soglia di allerta 17 cali.
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.96 mancano L1:[] mancano guida:[]
+   Perché questo statoe cosa manca al prossimo Avvicinamento: breadth 26,7%, sotto la soglia di avvicinamento 40% (livello blu 8% + il calo forte del settore in 10 sedute, 32 punti): in un calo deciso il livello blu è a circa due settimane.Per la zona blu servono tutte:✗breadth 26,7%: 18,7 punti sopra il livello blu (8%), cioè 6 titoli da portare sotto la media 200✗0 di 2 chiusure di fila al livello o sotto✗drawdown al 63° percentile: serve oltre il 70° Livello blu% titoli sopra media 200 -8%+ Ripristina Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea.
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.19 mancano L1:[] mancano guida:[]
+   al 20/11/20265 Titoli → Titolovs m.200vs m.50DD 52sEXR+7,9%+7,9%-3,8%WELL+7,8%+2,1%-4,7%HST+7,4%+1,0%-7,7%SPG+7,3%+5,7%-5,2%KIM+6,3%+7,6%-3,8%PSA+6,1%+6,1%-5,1%AMT+3,4%+2,5%-5,5%CCI0,0%+3,8%-12,8%DOC-0,4%-1,7%-15,7%ESS-0,6%-0,7%-9,6%VTR-0,9%+0,4%-13,9%BXP-1,2%-1,3%-16,1%VMRK-1,8%+1,0%-10,1%FRT-3,1%+0,5%-13,3%UDR-3,5%+1,5%-14,0%REG-4,3%-0,1%-10,9%O-5,6%+2,4%-14,1%INVH-5,7%-2,2%-14,3%EQIX-5,8%-4,8%-13,2%CBRE-8,9%-4,5%-26,2%SBAC-8,9%-3,0%-22,5%CPT-9,0%-3,5%-18,5%VICI-9,3%+1,3%-20,3%PLD-11,0%-5,4%-18,4%MAA-11,7%-4,3%-20,6%DLR-11,9%-8,9%-20,3%IRM-12,4%-9,5%-23,2%CSGP-13,8%-1,7%-57,2%WY-15,6%-2,4%-2
+ok [sec-XLRE] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno . manca . manca . manca .
+ok [tit-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   2 senza il dato dell'asse orizzontale, solo nella lista Asse orizzontale Distanza da media 200 Distanza dal massimo 52 sett.
+ok [tit-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:0.87 guida:0.89 mancano L1:[] mancano guida:[]
+   Rendimento nel periodo precedente Bolle Peso Uguali -40%-30%-20%-10%010%-50%-40%-30%-20%-10%010%distanza dalla media a 200 sedute →↑ rendimento 3Mequal -26,8%cap -26,9%CRDOTSEMINTCMRVLARMTERAMATAMDAVGOMUTSMASMLASXSTM gli 8 più in pena (segnati nella lista) altri titoli settore equal-weight settore cap-weighted sotto zero su entrambi gli assi bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione titolo estero quotato negli Stati Uniti (ADR o azioni quotate a New York), con la bandiera del paese secondo iShares I più in penaSOXX
+ok [tit-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.51 mancano L1:[] mancano guida:[]
+   3M Titolo3MDal max 52sM. 200PesoCBRSCEREBRAS SYSTEMS INC CLASS A-55,4%-73,4%—0,61%CRDOCREDO TECHNOLOGY GROUP HOLDING LTD-55,1%-67,0%-44,8%1,28%TSEM IsraeleTOWER SEMICONDUCTOR-45,3%-63,5%-43,9%0,92%INTCINTEL CORPORATION-41,2%-63,6%-41,4%6,29%MRVLMARVELL TECHNOLOGY-46,7%-61,4%-35,2%3,17%ARM Regno UnitoARM HOLDINGS AMERICAN DEPOSITARY S-36,3%-65,4%-35,1%0,40%TERTERADYNE-43,9%-57,7%-41,4%2,41%AMATAPPLIED MATERIAL INC-37,5%-58,1%-32,3%3,63%LRCXLAM RESEARCH-40,9%-57,7%-35,3%3,34%ALABASTERA LABS-35,0%-62,7%-30,3%1,95%UMC TaiwanUNITED MICRO ELECTRONICS ADR REP-36,8%-57,0%-30,7%0,51%KLACKLA-30,1%-57,9%
+ok [tit-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Peso nell'ETF SOXX .
+ok [tit-SOXX] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   grafico su TradingView . meno di 200 sedute di storia .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.47 mancano L1:[] mancano guida:[]
+   ultimi 3 mesi, dal 24/08/2026 Scia Tutti Settore scelto No Ordine Divergenza Settore -30%-20%-10%010%20%30%EW - CWin 1 meseXLIIndustrials+4,6▲ +1,8XLCCommunication Services+3,7▲ +5,9XLVHealth Care+1,3▼ -4,9XLKTechnology+0,6▼ -2,5XLUUtilities+0,4= +0,5XLBMaterials-0,1▲ +1,8XLFFinancials-0,6= -0,4XLREReal Estate-1,4▼ -1,9XLYConsumer Discretionary-1,5▲ +3,9XLEEnergy-3,5= -0,3XLPConsumer Staples-6,5▼ -3,3SPXS&P 500+3,0▲ +4,2INDUSTRIASOXXSemiconductors+0,1▲ +0,9 cap-weighted
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   guidano i grandi scia: 3 mesi, 1 mese, 1 settimana fa (pallini sempre più grandi) e freccia dell'ultima settimana, verde (blu con CVD) se sale, rossa se scende le 3 divergenze più ampie Equal-weight davanti in 5 settori su 11.
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   3M Asse orizzontale Distanza da media 200 Distanza dal massimo 52 sett.
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.87 guida:0.89 mancano L1:[] mancano guida:[]
+   Rendimento nel periodo precedente Bolle Peso Uguali -40%-20%020%40%-60%-40%-20%020%40%distanza dalla media a 200 sedute →↑ rendimento 3Mequal -15,2%cap -15,8%INTCMRVLWDCLITEFICOCIENGLWAAPLMSFT gli 8 più in pena (segnati nella lista) altri titoli settore equal-weight settore cap-weighted sotto zero su entrambi gli assi bolla grande quanto il peso nell'ETF SOXX, con i tetti per titolo dell'indice: non è la capitalizzazione titolo estero quotato negli Stati Uniti (ADR o azioni quotate a New York), con la bandiera del paese secondo iShares I più in penaXLK
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.47 mancano L1:[] mancano guida:[]
+   3M Titolo3MDal max 52sM. 200PesoINTCIntel-41,2%-63,6%-41,4%0,43%MRVLMarvell Technology-46,7%-61,4%-35,2%0,18%WDCWestern Digital-40,0%-65,0%-38,2%0,16%LITELumentum-44,5%-59,4%-43,6%0,07%FICOFair Isaac-40,5%-62,4%-34,8%0,03%STXSeagate Technology-42,5%-58,2%-35,0%0,17%CIENCiena-37,0%-62,6%-42,4%0,06%GLWCorning Inc.-35,2%-63,1%-39,7%0,13%TERTeradyne-43,9%-57,7%-41,4%0,05%LRCXLam Research-40,9%-57,7%-35,3%0,39%FLEXFlex Ltd.-37,9%-59,1%-36,3%0,04%AMATApplied Materials-37,5%-58,1%-32,3%0,40% Ordine: media della posizione nel settore per rendimento del periodo e per distanza dal massimo a 52 settimane
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Perché non coincide con il grafico di Rea.
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:0.82 guida:1.0 mancano L1:[] mancano guida:[]
+   Il periodo: per noi 3 mesi sono 63 sedute, per Rea 3 mesi di calendario, quindi si parte da una o due sedute diverse.
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Scia del settore scelto e dell'S&P 500 .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Rendimento cap-weighted ed equal-weight di ogni settore nel periodo .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Divergenza tra equal-weight e cap-weighted del settore scelto nelle ultime 52 settimane .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.86 mancano L1:[] mancano guida:[]
+   Area proporzionale al peso nell'S&P 500 (per il SOXX nell'ETF) .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Titoli del settore: rendimento del periodo e distanza .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   I titoli più in pena del settore .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Distanza dalla chiusura più alta delle 52 settimane .
+ok [tit-XLK] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Distanza dalla media a 200 sedute .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.73 mancano L1:[] mancano guida:[]
+   Caricamento dei dati del VIX… Distanza dal massimo: ora nella scheda 0 Massimi → VIX35,89paura forte
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.8 guida:0.6 mancano L1:[] mancano guida:[]
+   Nasdaq-100 al 20/11/2026 Indice S&P 500Nasdaq-100 Dopo i picchi del VIXS&P 500
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   medianacalo dopomedianaminimo doposeduteUna seduta qualsiasi—64% +1,2%70% +3,2%75% +5,7%81% +11,9%-4,8%—202421/23 +4,3%20/23 +6,7%22/23 +9,4%21/23 +16,4%-1,2%5252314/22 +1,4%12/22 +2,4%16/22 +4,8%17/21 +12,3%-12,8%81302212/21 +3,2%15/21 +4,2%15/21 +9,9%14/20 +16,1%-11,6%9140 robusto106/10 +2,3%7/10 +10,8%9/10 +12,5%8/10 +21,8%-4,9%385031/3 -4,4%2/3 +11,3%2/3 +15,6%3/3 +26,2%-22,4%9 Ogni riga conta gli episodi: un episodio inizia con la prima chiusura del VIX alla soglia o più dopo almeno 63 sedute sotto, e finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila (in mezzo può sce
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Clic (o tocco) su una riga per i suoi episodi.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   S&P 500 Andamento del VIX: la linea tratteggiata è la soglia, colorati i tratti alla soglia o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno; da 3 mesi prima a un mese dopo, ogni mini-grafico con la sua scala.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Asterisco: episodio non ancora finito.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.89 guida:0.78 mancano L1:[] mancano guida:[]
+   31 seduteVIX da 02/06/1998: 22,0; primo giorno a 40 o più il 31/08/1998 (44,3); massimo 45,7 il 08/10/1998; ultimo giorno a 40 o più il 13/10/1998; poi fino al 11/11/1998: 28,544,345,7 08/10/199813/10/199831-0,8%+18,2%+25,4%+33,9%-3,5% VIX e rendimento a 12 mesiS&P 500
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   ogni punto è una seduta con il VIX a 30 o più
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.62 mancano L1:[] mancano guida:[]
+   in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo 30405060708090-40%-20%0%+20%+40%+60%+80% 1990 Golfo1997 Asia1998 Russia/LTCM2000-03 bolla internet2007-09 crisi finanziariaAltro episodio
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.82 mancano L1:[] mancano guida:[]
+   12/20212022 inflazione/tassi2024 carry yen2025 dazi Giorni contro episodi. 734 sedute, positive dopo 12 mesi 644 (88%); ma vengono da 20 episodi con già 12 mesi di dati, positivi 14 su 20, e i due episodi più lunghi da soli fanno 42% dei punti.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.97 guida:0.85 mancano L1:[] mancano guida:[]
+   IN COLORE GLI EPISODI CON IL VIX A 40 O PIÙ DELLA TABELLAPREMIO PER LA PAURA (VIX - REALIZZATA)STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)20182020202220242026204060801002,5k3k4k5k6k8k-40-200+200,81,01,20-10-20-30 VIX (implicita, prossimi 30 giorni)realizzata dell'S&P 500 nelle ultime 21 seduteS&P 500episodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi; grigi se la crisi non è nello scatterpremio per la paurapremio oltre l'80° percentile della sua storiaVIX / VIX3Mbackwardation 
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Non cambia stati né alert.
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Nella verifica, con un criterio deciso prima (almeno 8 episodi, chiaramente meglio di una seduta qualsiasi, in almeno 2 periodi su 3), solo la soglia 40 lo supera in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo), per entrambi gli indici: è segnata «robusto».
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Sul Nasdaq-100 anche 30 (5 varianti su 6) e 20 (2 su 6) lo superano con le regole della tabella, ma non in tutte.
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il 40 ha 10 episodi: numeri indicativi.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.94 guida:0.94 mancano L1:[] mancano guida:[]
+   Lo scatter conta i giorni, come il grafico di Massimo Rea da cui viene l'idea: le crisi lunghe mettono tanti punti, quindi sembra più sicuro di quanto sia.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   La tabella conta gli episodi.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX contro realizzata.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.88 guida:1.0 mancano L1:[] mancano guida:[]
+   Il VIX misura la paura per i prossimi 30 giorni, il VIX3M per i prossimi 3 mesi.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Quando il VIX arriva al VIX3M o lo supera (rapporto da 1 in su, backwardation) la paura è per i prossimi giorni: succede nei ribassi bruschi.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Credito high yield.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.96 guida:1.0 mancano L1:[] mancano guida:[]
+   Il rapporto tra l'ETF delle obbligazioni societarie più rischiose (HYG, high yield) e quello dei titoli di Stato USA a 7-10 anni (IEF), con i dividendi reinvestiti: il pannello mostra quanto ha perso dal massimo dell'ultimo anno.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.83 guida:1.0 mancano L1:[] mancano guida:[]
+   Se il VIX sale e il credito resta vicino a 0 la paura è solo in borsa; se anche il credito scende il mercato teme i fallimenti, come nel 2008 e nel 2020.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:0.83 guida:1.0 mancano L1:[] mancano guida:[]
+   Non è uno spread ufficiale (il rendimento in più chiesto alle obbligazioni high yield rispetto ai titoli di Stato): quello non si può ripubblicare.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Fonti: VIX di chiusura © Cboe, dalla serie VIXCLS di FRED (Federal Reserve Bank of St.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Louis), che la ripubblica con il permesso di Cboe, dal 02/01/1990, e VIX3M © Cboe dalla serie VXVCLS di FRED, dal 04/12/2007; l'ultima seduta, che FRED pubblica la mattina dopo, viene dal file ufficiale di Cboe (o da Yahoo Finance se Cboe non l'ha ancora pubblicata) ed è provvisoria.
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Credito: chiusure di HYG e IEF rettificate per i dividendi, da Yahoo Finance, dal 2007 (la distanza dal massimo di 12 mesi dal 2008).
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   S&P 500 e Nasdaq-100 di solo prezzo da Yahoo Finance (senza dividendi: sull'S&P 500 circa 2 punti l'anno in meno; per il Nasdaq-100 la versione con i dividendi non è disponibile).
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Il VIX chiude alle 16:15 di New York, l'indice alle 16:00: per non usare quel quarto d'ora i rendimenti partono dalla chiusura della seduta dopo il segnale.
+ok [vix] numeri:L0 frase in L1:True in guida:True parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Solo mercato USA, che dopo ogni crisi del campione è risalito; soglie a numeri tondi.
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Idea di Massimo Rea (quant-rea.com); struttura a termine e credito da un grafico di Stefano Serafini (Swiss Capital School) al Morning Trading Show di BNP Paribas; calcoli nostri su dati pubblici. .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.93 mancano L1:[] mancano guida:[]
+   «Provvisorio»: FRED pubblica la seduta la mattina dopo; fino ad allora il valore viene dal file di Cboe (o da Yahoo) e di solito la corsa della sera dopo lo sostituisce. .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Quota delle chiusure del VIX fino a oggi minori o uguali a quella di oggi (solo storia passata). .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.71 mancano L1:[] mancano guida:[]
+   Deviazione standard dei rendimenti logaritmici giornalieri delle ultime 21 sedute, ×√252. .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Indice della tabella, dello scatter e del pannello del prezzo nel grafico in fondo .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Pochi casi: numeri indicativi. .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Primo giorno dell'episodio: la prima chiusura del VIX a 40 o più dopo almeno 63 sedute sotto .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Ogni mini-grafico ha la sua scala di tempo e di valori: per confrontare la durata guarda il numero di sedute .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Chiusura del VIX nel primo giorno dell'episodio .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Ultima chiusura del VIX a 40 o più prima di 63 sedute di fila sotto (l'episodio in corso non è ancora finito) .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Sedute dal primo all'ultimo giorno a 40 o più (in mezzo il VIX può essere sceso sotto la soglia) .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Clic per evidenziare la crisi nello scatter .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 02/01/2025: 17,9; primo giorno a 40 o più il 04/04/2025 (45,3); massimo 52,3 il 08/04/2025; ultimo giorno a 40 o più il 10/04/2025; poi fino al 12/05/2025: 18,4 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 30/07/2020: 24,8; primo giorno a 40 o più il 28/10/2020 (40,3); massimo 40,3 il 28/10/2020; ultimo giorno a 40 o più il 28/10/2020; poi fino al 27/11/2020: 20,8 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 26/11/2019: 11,5; primo giorno a 40 o più il 28/02/2020 (40,1); massimo 82,7 il 16/03/2020; ultimo giorno a 40 o più il 11/06/2020; poi fino al 13/07/2020: 32,2 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 26/05/2015: 14,1; primo giorno a 40 o più il 24/08/2015 (40,7); massimo 40,7 il 24/08/2015; ultimo giorno a 40 o più il 24/08/2015; poi fino al 23/09/2015: 22,1 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 09/05/2011: 17,2; primo giorno a 40 o più il 08/08/2011 (48,0); massimo 48,0 il 08/08/2011; ultimo giorno a 40 o più il 04/10/2011; poi fino al 02/11/2011: 32,7 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 05/02/2010: 26,1; primo giorno a 40 o più il 07/05/2010 (41,0); massimo 45,8 il 20/05/2010; ultimo giorno a 40 o più il 21/05/2010; poi fino al 22/06/2010: 27,1 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 30/06/2008: 23,9; primo giorno a 40 o più il 29/09/2008 (46,7); massimo 80,9 il 20/11/2008; ultimo giorno a 40 o più il 07/04/2009; poi fino al 07/05/2009: 33,4 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 22/04/2002: 19,8; primo giorno a 40 o più il 22/07/2002 (41,9); massimo 45,1 il 05/08/2002; ultimo giorno a 40 o più il 09/10/2002; poi fino al 07/11/2002: 31,4 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 12/06/2001: 20,7; primo giorno a 40 o più il 17/09/2001 (41,8); massimo 43,7 il 20/09/2001; ultimo giorno a 40 o più il 21/09/2001; poi fino al 22/10/2001: 32,3 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   VIX da 02/06/1998: 22,0; primo giorno a 40 o più il 31/08/1998 (44,3); massimo 45,7 il 08/10/1998; ultimo giorno a 40 o più il 13/10/1998; poi fino al 11/11/1998: 28,5 .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.89 mancano L1:[] mancano guida:[]
+   Sedute con il VIX a 30 o più: VIX contro rendimento dell'indice nei 12 mesi successivi .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:0.75 mancano L1:[] mancano guida:[]
+   Crisi: clic per evidenziarne i punti .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo ¦ Zoom: scegli un tratto sul grafico .
+ok [vix] numeri:L0 frase in L1:False in guida:False parole L1:1.0 guida:1.0 mancano L1:[] mancano guida:[]
+   Togli lo zoom e torna al periodo .

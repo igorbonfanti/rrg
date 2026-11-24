@@ -1,0 +1,102 @@
+Scaricato: 2026-11-06T14:44:52.521Z
+
+1. Copertura
+  FRED VIXCLS        1990-01-02 → 2026-11-04  9310 sedute, 302 giorni vuoti
+  FRED VXNCLS        2001-02-02 → 2026-11-04  6478 sedute, 242 giorni vuoti
+  Cboe VIX_History   1990-01-02 → 2026-11-05  9310 sedute
+  Cboe VXN_History   2009-09-14 → 2026-11-05  4316 sedute
+  Yahoo ^VIX         1990-01-02 → 2026-11-05  9282 sedute, fuso America/Chicago
+  Yahoo ^VXN         2001-01-23 → 2026-11-05  6486 sedute, fuso America/New_York
+  Yahoo ^GSPC        1985-01-02 → 2026-11-05  10543 sedute, fuso America/New_York
+  Yahoo ^NDX         1985-10-01 → 2026-11-05  10355 sedute, fuso America/New_York
+  FRED SP500         2016-11-07 → 2026-11-04  2512 sedute
+  FRED NASDAQ100     1986-01-02 → 2026-11-05  10293 sedute
+  Calendario: chiusure feriali non regolari 1994-04-27 2001-09-11 2001-09-12 2001-09-13 2001-09-14 2004-06-11 2007-01-02 2012-10-29 2012-10-30 2018-12-05 2025-01-09; festività regolari con seduta: 1990-01-15 1991-01-21 1992-01-20 1993-01-18 1994-01-17 1995-01-16 1996-01-15 1997-01-20
+
+2. Buchi (sedute NYSE senza valore / valori in giorni senza NYSE)
+  FRED VIXCLS  3 [1991-03-01 1997-01-31 1997-11-26] / 34 [2004-06-11 2022-05-30 2022-06-20 2022-07-04 2022-09-05 2022-11-24 2023-01-16 2023-02-20 2023-05-29 2023-06-19 2023-07-04 2023-09-04]
+  Cboe VIX     4 [1991-03-01 1997-01-31 1997-11-26 1999-12-31] / 34 [2004-06-11 2022-05-30 2022-06-20 2022-07-04 2022-09-05 2022-11-24 2023-01-16 2023-02-20 2023-05-29 2023-06-19 2023-07-04 2023-09-04]
+  Yahoo ^VIX   0 [] / 2 [2026-05-25 2026-09-07]
+  FRED VXNCLS  2 [2003-08-22 2004-09-10] / 3 [2003-08-24 2021-04-02 2021-12-24]
+  Cboe VXN     0 [] / 2 [2021-04-02 2021-12-24]
+  Yahoo ^VXN   0 [] / 0 []
+  Yahoo ^NDX   0 [] / 0 []
+  FRED vuoti: VIXCLS {"totale":302,"in_giorni_senza_NYSE":299,"in_sedute_NYSE":["1991-03-01","1997-01-31","1997-11-26"]}
+  FRED vuoti: VXNCLS {"totale":242,"in_giorni_senza_NYSE":240,"in_sedute_NYSE":["2003-08-22","2004-09-10"]}
+  Giorni speciali:
+   1994-04-27 funerale di Nixon        NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED assente Yahoo assente
+   2001-09-11 11 settembre             NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2001-09-12 11 settembre             NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2001-09-13 11 settembre             NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2001-09-14 11 settembre             NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2001-09-17 riapertura               NYSE sì · FRED 41.76 · Cboe 41.76 · Yahoo 41.76 · VXN FRED 67.99 Yahoo 73.26
+   2004-06-11 funerale di Reagan       NYSE no · FRED 15.04 · Cboe 15.04 · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2007-01-02 funerale di Ford         NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2012-10-29 uragano Sandy            NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2012-10-30 uragano Sandy            NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2012-10-31 riapertura dopo Sandy    NYSE sì · FRED 18.6 · Cboe 18.6 · Yahoo 18.60 · VXN FRED 20.33 Yahoo 20.33
+   2018-12-05 funerale di G.H.W. Bush  NYSE no · FRED vuoto · Cboe assente · Yahoo assente · VXN FRED vuoto Yahoo assente
+   2025-01-09 funerale di Carter       NYSE no · FRED 18.07 · Cboe 18.07 · Yahoo assente · VXN FRED vuoto Yahoo assente
+
+3. Valori ricopiati
+  FRED VIXCLS  50 sedute uguali alla prima; serie di 3+: 1995-07-26→1995-07-28 (3, 13.18); 2005-08-18→2005-08-22 (3, 13.42)
+  Cboe VIX     50 sedute uguali alla prima; serie di 3+: 1995-07-26→1995-07-28 (3, 13.18); 2005-08-18→2005-08-22 (3, 13.42)
+  Yahoo ^VIX   51 sedute uguali alla prima; serie di 3+: 1995-07-26→1995-07-28 (3, 13.180000305175781); 2005-08-18→2005-08-22 (3, 13.420000076293945)
+  FRED VXNCLS  32 sedute uguali alla prima; serie di 3+: nessuna
+  Yahoo ^VXN   35 sedute uguali alla prima; serie di 3+: 2017-02-10→2017-02-21 (7, 12.3100004196167)
+  Cboe VIX con OHLC piatte per anno: {"1990":253,"1991":252,"2004":1}
+
+4. Confronto delle fonti
+  VIX FRED-Cboe   comuni 9309; diverse >0,005: 0, >0,05: 0, >0,5: 0; max 0 il 1990-01-02 (17.24 / 17.24); solo nella prima 1, solo nella seconda 1
+  VIX Yahoo-Cboe  comuni 9278; diverse >0,005: 13, >0,05: 9, >0,5: 3; max 2.61 il 2026-02-06 (20.37 / 17.76); solo nella prima 4, solo nella seconda 32
+  VIX Yahoo-FRED  comuni 9278; diverse >0,005: 13, >0,05: 9, >0,5: 3; max 2.61 il 2026-02-06 (20.37 / 17.76); solo nella prima 4, solo nella seconda 32
+  VXN FRED-Cboe   comuni 4315; diverse >0,005: 0, >0,05: 0, >0,5: 0; max 0 il 2009-09-14 (24.93 / 24.93); solo nella prima 2163, solo nella seconda 1
+  VXN Yahoo-Cboe  comuni 4314; diverse >0,005: 14, >0,05: 10, >0,5: 3; max 3.49 il 2010-04-27 (21.3 / 17.81); solo nella prima 2172, solo nella seconda 2
+  VXN Yahoo-FRED  comuni 6475; diverse >0,005: 694, >0,05: 680, >0,5: 650; max 12.32 il 2001-04-06 (79.56 / 67.24); solo nella prima 11, solo nella seconda 3
+  Soglie: {"20":[3436,3436,3431,0,1,0],"25":[1604,1605,1602,0,0,0],"30":[737,737,736,0,0,0],"40":[208,208,208,0,0,0],"50":[75,75,75,0,0,0]} (FRED, Cboe, Yahoo, FRED sì/Cboe no, Yahoo sì/Cboe no, Cboe sì/Yahoo no)
+  VXN FRED contro Yahoo: {"oltre_mezzo_punto":650,"prima_del_2004":646,"ultima_prima_del_2004":"2003-09-19","dal_2004_in_poi":4,"date_dal_2004":["2008-10-22","2010-04-27","2017-02-14","2017-02-21"],"differenza_media_Yahoo_meno_FRED_2001_2003":4.89,"rapporto_medio_Yahoo_su_FRED_2001_2003":1.106}
+  VIX in giorni senza NYSE (Cboe): 34, dal 2022 33, piatte 2004-06-11; con Yahoo: 2026-05-25 2026-09-07
+  Feste NYSE dal 2022 senza VIX: 2022-01-17 2022-02-21 2022-04-15 2022-12-26 2023-01-02 2023-04-07 2023-12-25 2024-01-01 2024-03-29 2024-12-25 2025-01-01 2025-04-18 2025-12-25 2026-01-01 2026-04-03
+
+5. 16:00 contro 16:15
+  58 giorni; mediana |16:15−16:00| 0.05, max 0.75, oltre 0,25: 5, oltre 0,5: 2; soglia diversa: nessuno; barre VIX {"giorno":"2026-11-05","prima":"03:15","ultima":"16:10","barre":156}, VXN {"giorno":"2026-11-04","prima":"09:30","ultima":"15:55","barre":78}
+
+6. FRED
+  ritardo (sedute) {"0":125} su 125 vintage; prima comparsa (giorni di calendario dopo la seduta) {"0":81}; oggi {"FRED_VIXCLS":"2026-11-04","Cboe":"2026-11-05","Yahoo":"2026-11-05","scaricato":"2026-11-06T14:44:52.521Z"}
+  revisioni VIX 2012-01-03: 4 valori cambiati su 5544 (es. 2004-11-26 12.78→12.79, 2008-07-03 24.78→24.79, 2008-11-28 55.28→55.84, 2009-11-27 24.74→24.85); spariti oggi 0
+  revisioni VIX 2015-01-05: 4 valori cambiati su 6299 (es. 2004-11-26 12.78→12.79, 2008-07-03 24.78→24.79, 2008-11-28 55.28→55.84, 2009-11-27 24.74→24.85); spariti oggi 0
+  revisioni VIX 2018-01-02: 4 valori cambiati su 7054 (es. 2004-11-26 12.78→12.79, 2008-07-03 24.78→24.79, 2008-11-28 55.28→55.84, 2009-11-27 24.74→24.85); spariti oggi 0
+  revisioni VIX 2020-01-02: 4 valori cambiati su 7557 (es. 2004-11-26 12.78→12.79, 2008-07-03 24.78→24.79, 2008-11-28 55.28→55.84, 2009-11-27 24.74→24.85); spariti oggi 0
+  revisioni VIX 2022-01-03: 8 valori cambiati su 8063 (es. 2004-09-10 14.01→13.76, 2008-07-03 24.8→24.79, 2008-09-16 31.54→30.3, 2008-12-16 51.29→52.37, 2012-07-02 16.74→16.8); spariti oggi 0
+  revisioni VIX 2024-01-02: 8 valori cambiati su 8576 (es. 2004-09-10 14.01→13.76, 2008-07-03 24.8→24.79, 2008-09-16 31.54→30.3, 2008-12-16 51.29→52.37, 2012-07-02 16.74→16.8); spariti oggi 0
+  revisioni VIX 2025-01-02: 0 valori cambiati su 8835; spariti oggi 0
+  revisioni VIX 2026-01-01: 0 valori cambiati su 9092; spariti oggi 0
+  revisioni VIX 2026-01-02: 0 valori cambiati su 9093; spariti oggi 0
+  revisioni VIX 2026-01-03: 0 valori cambiati su 9093; spariti oggi 0
+  revisioni VIX 2026-01-04: 0 valori cambiati su 9093; spariti oggi 0
+  revisioni VIX 2026-01-05: 0 valori cambiati su 9094; spariti oggi 0
+  revisioni VIX 2026-01-06: 0 valori cambiati su 9095; spariti oggi 0
+  revisioni VIX 2026-01-07: 0 valori cambiati su 9096; spariti oggi 0
+  revisioni VIX 2026-01-08: 0 valori cambiati su 9097; spariti oggi 0
+  revisioni VIX 2026-01-09: 0 valori cambiati su 9098; spariti oggi 0
+  revisioni VXN 2012-01-03: 0 valori cambiati su 6478; spariti oggi 1
+  revisioni VXN 2015-01-05: 2 valori cambiati su 3499 (es. 2009-11-27 25.4→25.41, 2010-04-27 21.3→17.81); spariti oggi 0
+  revisioni VXN 2018-01-02: 3 valori cambiati su 4254 (es. 2009-11-27 25.4→25.41, 2010-04-27 21.3→17.81, 2015-07-23 14.16→14.14); spariti oggi 0
+  revisioni VXN 2020-01-02: 6 valori cambiati su 4757 (es. 2009-11-27 25.4→25.41, 2010-04-27 21.3→17.81, 2015-07-23 14.16→14.14, 2018-01-19 16.15→16.17, 2019-03-05 17.06→17.51); spariti oggi 0
+  revisioni VXN 2022-01-03: 0 valori cambiati su 5264; spariti oggi 0
+  revisioni VXN 2024-01-02: 0 valori cambiati su 5765; spariti oggi 0
+  revisioni VXN 2025-01-02: 1 valori cambiati su 6017 (es. 2024-02-01 11.2→17.33); spariti oggi 0
+  revisioni VXN 2026-01-02: 1 valori cambiati su 6267 (es. 2024-02-01 11.2→17.33); spariti oggi 0
+
+7. Indici
+  SPX: Yahoo ^GSPC contro data/indices.json: per anno oltre 0,1% {}; comuni 6751, diverse oltre un centesimo 0, oltre 0,01% 0, oltre 0,1% 0; max 0% il 2015-12-03 (2049.62 / 2049.62); solo prima ; solo seconda 
+  NDX: Yahoo ^NDX contro data/indices.json: per anno oltre 0,1% {}; comuni 6751, diverse oltre un centesimo 0, oltre 0,01% 0, oltre 0,1% 0; max 0% il 2007-11-16 (2048.62 / 2048.62); solo prima ; solo seconda 
+  SPX: Yahoo ^GSPC contro FRED SP500: per anno oltre 0,1% {"2021":1}; comuni 2512, diverse oltre un centesimo 9, oltre 0,01% 2, oltre 0,1% 1; max 0.1189% il 2021-08-11 (4442.41 / 4447.7); solo prima ; solo seconda 
+  NDX: Yahoo ^NDX contro FRED NASDAQ100: per anno oltre 0,1% {"1986":4,"1987":6,"1988":1,"1989":4,"1992":3,"1994":1,"1995":1,"1997":2,"2000":1,"2001":2,"2003":175,"2004":175,"2005":58}; comuni 10290, diverse oltre un centesimo 746, oltre 0,01% 555, oltre 0,1% 433; max 2.4426% il 2001-09-26 (1143.48 / 1172.11); solo prima 2002-01-29; solo seconda 1998-07-03 2001-01-01 2019-04-19
+  NDX contro QQQ nei giorni contestati: {"giorni_contestati_dal_1999":411,"piu_vicino_Yahoo":327,"piu_vicino_FRED":59,"pari":25,"esempi":[{"d":"2001-09-26","QQQ_pct":-3.47,"Yahoo_pct":-3.73,"FRED_pct":-1.32},{"d":"2003-01-22","QQQ_pct":-0.4,"Yahoo_pct":-0.24,"FRED_pct":1.8},{"d":"2003-01-23","QQQ_pct":2.33,"Yahoo_pct":2.6,"FRED_pct":1.18},{"d":"2003-01-24","QQQ_pct":-2.7,"Yahoo_pct":-3.53,"FRED_pct":-4.46},{"d":"2003-01-28","QQQ_pct":1.02,"Yahoo_pct":1.52,"FRED_pct":2.49},{"d":"2003-01-31","QQQ_pct":-0.24,"Yahoo_pct":-0.25,"FRED_pct":1.1}]}
+  indices.json: {"asOf":"2026-11-05","SPX_da":"2000-01-03","NDX_da":"2000-01-03"}; NDX Yahoo buchi oltre 5 giorni: [["2001-09-10","2001-09-17",7]]
+
+8. Dimensione
+  VIX+VXN (Cboe/FRED, 2 decimali): 74 KB, 24 KB compressi
+  VIX+VXN + SPX e NDX dal 1990 (Yahoo, 2 decimali): 182 KB, 63 KB compressi
+  VIX+VXN + SPX e NDX solo 1990-1999 (il resto da indices.json): 101 KB, 33 KB compressi

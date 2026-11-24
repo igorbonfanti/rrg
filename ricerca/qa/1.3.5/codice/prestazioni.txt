@@ -1,0 +1,5 @@
+6500 barre per titolo, 4000 titoli
+vecchio, realistico { ms: 25345, bars: 25996000, heapMB: 0.2 }
+nuovo,   realistico { ms: 2228, bars: 25996000, heapMB: 0.5 }
+vecchio, peggiore   { ms: 22594, bars: 25996000, heapMB: 0.1 }
+nuovo,   peggiore   { ms: 308439, bars: 25996000, heapMB: 1006.2 } (heap = crescita della cache rimasta dopo il gc)

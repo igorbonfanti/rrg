@@ -1,0 +1,8 @@
+CSI300 settimane 2026-09-04 … 2026-11-04 meta al 04/11/2026
+NIFTY50 settimane 2026-09-04 … 2026-11-04 meta al 04/11/2026
+IBOV settimane 2026-09-04 … 2026-11-04 meta al 04/11/2026
+KOSPI200 settimane 2026-09-04 … 2026-11-04 meta al 04/11/2026
+TWN settimane 2026-09-04 … 2026-11-04 meta al 04/11/2026
+HSI settimane 2026-09-04 … 2026-11-04 meta al 04/11/2026
+EEM settimane 2026-09-04 … 2026-11-04 meta al 04/11/2026
+punti della scia controllati 70, diversi 0

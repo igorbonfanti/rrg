@@ -1,0 +1,292 @@
+[
+ {
+  "name": "[emerging.json 404] la vista dice che i dati mancano",
+  "ok": true,
+  "detail": {
+   "msg": "Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli stati degli indici restano nella vista 6.",
+   "shown": true,
+   "body": false
+  }
+ },
+ {
+  "name": "[emerging.json 404] nessun errore JavaScript non gestito",
+  "ok": true,
+  "detail": [
+   "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "requestfailed: http://127.0.0.1:8794/data/emerging.json net::ERR_ABORTED"
+  ]
+ },
+ {
+  "name": "[emerging.json 404] [esplorativo] riaprendo la vista il messaggio resta coerente",
+  "ok": true,
+  "detail": "Dati della vista Emergenti non disponibili (data/emerging.json: HTTP 404). Gli stati degli indici restano nella vista 6."
+ },
+ {
+  "name": "[emerging.json 404] il resto dell'app funziona (vista 6 con 10 righe, vista 7 aperta)",
+  "ok": true,
+  "detail": {
+   "vis": [
+    "v-tit"
+   ],
+   "idxRows": 10
+  }
+ },
+ {
+  "name": "[emerging.json troncato] la vista dice che i dati mancano",
+  "ok": true,
+  "detail": {
+   "msg": "Dati della vista Emergenti non disponibili (data/emerging.json: file illeggibile). Gli stati degli indici restano nella vista 6.",
+   "shown": true,
+   "body": false
+  }
+ },
+ {
+  "name": "[emerging.json troncato] nessun errore JavaScript non gestito",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[emerging.json troncato] [esplorativo] riaprendo la vista il messaggio resta coerente",
+  "ok": true,
+  "detail": "Dati della vista Emergenti non disponibili (data/emerging.json: file illeggibile). Gli stati degli indici restano nella vista 6."
+ },
+ {
+  "name": "[emerging.json troncato] il resto dell'app funziona (vista 6 con 10 righe, vista 7 aperta)",
+  "ok": true,
+  "detail": {
+   "vis": [
+    "v-tit"
+   ],
+   "idxRows": 10
+  }
+ },
+ {
+  "name": "[emerging.json rete interrotta] la vista dice che i dati mancano",
+  "ok": true,
+  "detail": {
+   "msg": "Dati della vista Emergenti non disponibili (data/emerging.json: non raggiungibile). Gli stati degli indici restano nella vista 6.",
+   "shown": true,
+   "body": false
+  }
+ },
+ {
+  "name": "[emerging.json rete interrotta] nessun errore JavaScript non gestito",
+  "ok": true,
+  "detail": [
+   "requestfailed: http://127.0.0.1:8794/data/emerging.json net::ERR_FAILED",
+   "error: Failed to load resource: net::ERR_FAILED"
+  ]
+ },
+ {
+  "name": "[emerging.json rete interrotta] [esplorativo] riaprendo la vista il messaggio resta coerente",
+  "ok": true,
+  "detail": "Dati della vista Emergenti non disponibili (data/emerging.json: non raggiungibile). Gli stati degli indici restano nella vista 6."
+ },
+ {
+  "name": "[emerging.json rete interrotta] il resto dell'app funziona (vista 6 con 10 righe, vista 7 aperta)",
+  "ok": true,
+  "detail": {
+   "vis": [
+    "v-tit"
+   ],
+   "idxRows": 10
+  }
+ },
+ {
+  "name": "[emerging.json senza series] la vista dice che i dati mancano",
+  "ok": true,
+  "detail": {
+   "msg": "Dati della vista Emergenti non disponibili (data/emerging.json: file incompleto (manca series)). Gli stati degli indici restano nella vista 6.",
+   "shown": true,
+   "body": false
+  }
+ },
+ {
+  "name": "[emerging.json senza series] nessun errore JavaScript non gestito",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[emerging.json senza series] [esplorativo] riaprendo la vista il messaggio resta coerente",
+  "ok": true,
+  "detail": "Dati della vista Emergenti non disponibili (data/emerging.json: file incompleto (manca series)). Gli stati degli indici restano nella vista 6."
+ },
+ {
+  "name": "[emerging.json senza series] il resto dell'app funziona (vista 6 con 10 righe, vista 7 aperta)",
+  "ok": true,
+  "detail": {
+   "vis": [
+    "v-tit"
+   ],
+   "idxRows": 10
+  }
+ },
+ {
+  "name": "[serie KRW e FRED mancanti] cella valuta «—» e 3 mesi in $ «—»",
+  "ok": true,
+  "detail": {
+   "fx": "—",
+   "usd": "—",
+   "kpi": "DOLLARO CONTRO EMERGENTI — FRED non disponibile",
+   "chartMeta": "cambio al — · dollaro FRED al —",
+   "svg": [
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS",
+    "Cambio non disponibile",
+    "FRED non disponibile"
+   ]
+  }
+ },
+ {
+  "name": "[serie KRW e FRED mancanti] riquadro del dollaro «FRED non disponibile»",
+  "ok": true,
+  "detail": "DOLLARO CONTRO EMERGENTI — FRED non disponibile"
+ },
+ {
+  "name": "[serie KRW e FRED mancanti] il grafico dice cosa manca",
+  "ok": true,
+  "detail": [
+   "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS",
+   "Cambio non disponibile",
+   "FRED non disponibile"
+  ]
+ },
+ {
+  "name": "[serie KRW e FRED mancanti] nessun errore",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[cambi vecchi di ~3 mesi] la data dei cambi in testa al tabellone è quella vera dell'ultimo dato",
+  "ok": false,
+  "detail": {
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "chartMeta": "cambio al 12/08/2026 · dollaro FRED al 17/09/2026",
+   "fxTitle": "variazione del cambio in 13 settimane in deviazioni standard: −1,63 (a destra = valuta più debole; tacca = soglia 1) · cambio 1412,18 al 12/08/2026",
+   "kpi": "DOLLARO CONTRO EMERGENTI 127,5 sotto la media 200 · −0,4% in 3 mesi · favorevole · FRED al 17/09/2026",
+   "stale": []
+  }
+ },
+ {
+  "name": "[cambi vecchi di ~3 mesi] un avviso visibile segnala i cambi vecchi",
+  "ok": false,
+  "detail": []
+ },
+ {
+  "name": "[config/emerging.json 404] scheda 8 nascosta",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[config/emerging.json 404] il tasto 8 non apre una pagina vuota",
+  "ok": false,
+  "detail": {
+   "vis": [
+    "v-emg"
+   ],
+   "hash": "#emg",
+   "txt": ""
+  }
+ },
+ {
+  "name": "[config/emerging.json 404] il comando EMG non apre una pagina vuota",
+  "ok": false,
+  "detail": {
+   "vis": [
+    "v-emg"
+   ],
+   "hash": "#emg"
+  }
+ },
+ {
+  "name": "[config/emerging.json 404] l'indirizzo #emg-KOSPI200 ripiega sul Monitor",
+  "ok": true,
+  "detail": {
+   "vis": [
+    "v-mon"
+   ],
+   "hash": "#mon"
+  }
+ },
+ {
+  "name": "[config/emerging.json 404] nessun errore",
+  "ok": true,
+  "detail": [
+   "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "warning: config/emerging.json: HTTP 404",
+   "requestfailed: http://127.0.0.1:8794/config/emerging.json net::ERR_ABORTED",
+   "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "warning: config/emerging.json: HTTP 404",
+   "requestfailed: http://127.0.0.1:8794/config/emerging.json net::ERR_ABORTED"
+  ]
+ },
+ {
+  "name": "[data/indices.json 404] la vista 8 dice che mancano gli stati della vista 6",
+  "ok": true,
+  "detail": {
+   "msg": "Dati degli indici non disponibili: la vista Emergenti usa gli stati della vista 6.",
+   "shown": true
+  }
+ },
+ {
+  "name": "[data/indices.json 404] nessun errore",
+  "ok": true,
+  "detail": [
+   "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+   "requestfailed: http://127.0.0.1:8794/data/indices.json net::ERR_ABORTED"
+  ]
+ },
+ {
+  "name": "[tempi locale] apertura della vista 8 (mediana di 3): 467 ms",
+  "ok": true,
+  "detail": [
+   {
+    "ms": 467,
+    "loadingShown": true
+   },
+   {
+    "ms": 497,
+    "loadingShown": true
+   },
+   {
+    "ms": 433,
+    "loadingShown": true
+   }
+  ]
+ },
+ {
+  "name": "[tempi rete lenta 1,6 Mbit/s] apertura della vista 8 (mediana di 3): 4494 ms",
+  "ok": true,
+  "detail": [
+   {
+    "ms": 4564,
+    "loadingShown": true
+   },
+   {
+    "ms": 4479,
+    "loadingShown": true
+   },
+   {
+    "ms": 4494,
+    "loadingShown": true
+   }
+  ]
+ },
+ {
+  "name": "[tempi rete lenta 1,6 Mbit/s] durante l'attesa compare «Caricamento…»",
+  "ok": true,
+  "detail": [
+   {
+    "ms": 4564,
+    "loadingShown": true
+   },
+   {
+    "ms": 4479,
+    "loadingShown": true
+   },
+   {
+    "ms": 4494,
+    "loadingShown": true
+   }
+  ]
+ }
+]

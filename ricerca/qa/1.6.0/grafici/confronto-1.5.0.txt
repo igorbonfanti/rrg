@@ -1,0 +1,820 @@
+OK   390-chiaro: riquadri 6 in righe 2+2+2 (attese 2+2+2)
+OK   390-chiaro: nessun testo dei riquadri che esce 
+     390-chiaro: riquadri: VIX | 25,64 | paura · al 06/11/2026 · provvisorio || PERCENTILE DEL VIX | 84° | nella storia dal 02/01/1990 || VOLATILITÀ REALIZZATA | 19,8 | S&P 500, 21 sedute al 06/11/2026, annualizzata || PREMIO PER LA PAURA | +5,8 | VIX − realizzata · 68° percentile || VIX / VIX3M | 1,04 | backwardation | VIX 25,64 / VIX3M 24,60 · al 06/11/2026 · 95° percentile · provvisorio || CREDITO HIGH YIELD | −3,1% | HYG/IEF dal massimo di 12 mesi · −2,5% in un mese · 57° percentile · al 06/11/2026
+     390-chiaro: altezze 89,89,117,117,134,134
+OK   periodo 3A selezionato
+OK   390-chiaro-3A: 4 pannelli (attesi 4)
+OK   390-chiaro-3A: 3 anni sull'asse x (2024,2025,2026)
+OK   390-chiaro-3A: anni equidistanti nel tempo (scarto 0.000)
+OK   390-chiaro-3A: linea verticale per ogni anno in ogni pannello
+OK   390-chiaro-3A: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-chiaro-3A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-chiaro-3A: finestra 2023-11-06 → 2026-11-06 (3.00 anni)
+OK   390-chiaro-3A: periodo 3 anni
+OK   390-chiaro-3A: asse del VIX lineare (10 20 30 40 50)
+OK   390-chiaro-3A: VIX: 753 vertici, 753 sedute con dato nel periodo
+OK   390-chiaro-3A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-01-30)
+     390-chiaro-3A: VIX al 2025-04-08: disegnato 52.3409 atteso 52.3300 (x 138.7 vs 138.7)
+     390-chiaro-3A: VIX al 2026-11-06: disegnato 25.6499 atteso 25.6400 (x 284.0 vs 284.0)
+     390-chiaro-3A: VIX al 2026-11-05: disegnato 28.1818 atteso 28.1800 (x 283.7 vs 283.7)
+OK   390-chiaro-3A: VIX: 1 tratti (attesi 1)
+OK   390-chiaro-3A: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-chiaro-3A: etichette VIX/VIX3M 0,8 1,0 1,2
+OK   390-chiaro-3A: VIX/VIX3M 3 etichette
+OK   390-chiaro-3A: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-chiaro-3A: etichette VIX/VIX3M tutte diverse
+OK   390-chiaro-3A: VIX/VIX3M: 753 vertici, 753 sedute con dato nel periodo
+OK   390-chiaro-3A: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-12-31)
+     390-chiaro-3A: VIX/VIX3M al 2025-04-08: disegnato 1.2610 atteso 1.2610 (x 138.7 vs 138.7)
+     390-chiaro-3A: VIX/VIX3M al 2026-11-06: disegnato 1.0422 atteso 1.0423 (x 284.0 vs 284.0)
+     390-chiaro-3A: VIX/VIX3M al 2026-11-05: disegnato 1.1029 atteso 1.1029 (x 283.7 vs 283.7)
+OK   390-chiaro-3A: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-chiaro-3A: linea a 1 al posto giusto (462.2 vs 462.2)
+OK   390-chiaro-3A: linea a 1 inizia dove inizia il VIX3M o al bordo (8.0)
+OK   390-chiaro-3A: 18 fasce di backwardation, 18 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-chiaro-3A: fasce alle date giuste e alte quanto il pannello (18/18)
+OK   390-chiaro-3A: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-chiaro-3A: fasce larghe 1 px (minimo): 14 su 18; la più larga 5.5 px
+     390-chiaro-3A: ultima fascia 2026-11-05→2026-11-06: x 283.75 largh. 1.00 (bordo destro 284); px per seduta 0.25
+OK   390-chiaro-3A: ultima fascia non esce dal pannello
+OK   390-chiaro-3A: punto finale al 2026-11-06 su 1.042 (284.0,453.8)
+OK   390-chiaro-3A: punto pieno solo se backwardation (vxrdot back)
+OK   390-chiaro-3A: nessuna fascia grigia nel VIX3M (periodo dopo il 2007)
+OK   390-chiaro-3A: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-chiaro-3A: etichette credito 0 −2 −4 −6
+OK   390-chiaro-3A: asse del credito (4 etichette, scarto 0.00)
+OK   390-chiaro-3A: credito: 753 vertici, 753 sedute con dato nel periodo
+OK   390-chiaro-3A: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-01-09)
+     390-chiaro-3A: credito al 2025-04-08: disegnato -7.1214 atteso -7.1189 (x 138.7 vs 138.7)
+     390-chiaro-3A: credito al 2026-11-06: disegnato -3.0912 atteso -3.0925 (x 284.0 vs 284.0)
+     390-chiaro-3A: credito al 2026-11-05: disegnato -3.1450 atteso -3.1467 (x 283.7 vs 283.7)
+OK   390-chiaro-3A: credito: 1 tratti (attesi 1)
+OK   390-chiaro-3A: linea dello 0 del credito al posto giusto
+OK   390-chiaro-3A: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-chiaro-3A: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-chiaro-3A: nessuna scritta sovrapposta (24 scritte) 
+OK   390-chiaro-3A: nessuna scritta tagliata ai bordi 
+OK   390-chiaro-3A: titoli dei pannelli dentro la larghezza 
+     390-chiaro-3A: anni 2024 2025 2026; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-chiaro-3A: legenda con 7 voci
+OK   390-chiaro-3A: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 6 sedute)
+OK   390-chiaro-3A: mirino alla x della seduta del riquadro (138.7)
+OK   390-chiaro-3A: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-3A: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-chiaro-3A: mirino su 2026-11-06 → riquadro del 2026-11-06 (tolleranza 6 sedute)
+OK   390-chiaro-3A: mirino alla x della seduta del riquadro (284.0)
+OK   390-chiaro-3A: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-3A: riquadro del 2026-11-06: VIX 25,64 provv. VIX3M 24,60 provv. rapporto 1,04 backwardation credito −3,1% (attesi 25,64 24,60 1,04 backwardation −3,1%)
+OK   390-chiaro-3A: mirino su 2026-11-05 → riquadro del 2026-11-05 (tolleranza 6 sedute)
+OK   390-chiaro-3A: mirino alla x della seduta del riquadro (283.7)
+OK   390-chiaro-3A: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-3A: riquadro del 2026-11-05: VIX 28,18 VIX3M 25,55 rapporto 1,10 backwardation credito −3,1% (attesi 28,18 25,55 1,10 backwardation −3,1%)
+OK   390-chiaro-3A: nessuno scorrimento orizzontale (390/390)
+OK   periodo 10A selezionato
+OK   390-chiaro-10A: 4 pannelli (attesi 4)
+OK   390-chiaro-10A: 3 anni sull'asse x (2019,2022,2025)
+OK   390-chiaro-10A: anni equidistanti nel tempo (scarto 0.000)
+OK   390-chiaro-10A: linea verticale per ogni anno in ogni pannello
+OK   390-chiaro-10A: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-chiaro-10A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-chiaro-10A: finestra 2016-11-05 → 2026-11-06 (10.00 anni)
+OK   390-chiaro-10A: periodo 10 anni
+OK   390-chiaro-10A: asse del VIX lineare (20 40 60 80 100)
+OK   390-chiaro-10A: VIX: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-chiaro-10A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2017-04-12)
+     390-chiaro-10A: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 100.7 vs 100.7)
+     390-chiaro-10A: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 240.4 vs 240.4)
+     390-chiaro-10A: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     390-chiaro-10A: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 283.9 vs 283.9)
+OK   390-chiaro-10A: VIX: 1 tratti (attesi 1)
+OK   390-chiaro-10A: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-chiaro-10A: etichette VIX/VIX3M 0,8 1,0 1,2
+OK   390-chiaro-10A: VIX/VIX3M 3 etichette
+OK   390-chiaro-10A: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-chiaro-10A: etichette VIX/VIX3M tutte diverse
+OK   390-chiaro-10A: VIX/VIX3M: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-chiaro-10A: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2022-09-01)
+     390-chiaro-10A: VIX/VIX3M al 2020-03-16: disegnato 1.2212 atteso 1.2214 (x 100.7 vs 100.7)
+     390-chiaro-10A: VIX/VIX3M al 2025-04-08: disegnato 1.2612 atteso 1.2610 (x 240.4 vs 240.4)
+     390-chiaro-10A: VIX/VIX3M al 2026-11-06: disegnato 1.0422 atteso 1.0423 (x 284.0 vs 284.0)
+     390-chiaro-10A: VIX/VIX3M al 2026-11-05: disegnato 1.1028 atteso 1.1029 (x 283.9 vs 283.9)
+OK   390-chiaro-10A: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-chiaro-10A: linea a 1 al posto giusto (465.8 vs 465.8)
+OK   390-chiaro-10A: linea a 1 inizia dove inizia il VIX3M o al bordo (8.0)
+OK   390-chiaro-10A: 58 fasce di backwardation, 58 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-chiaro-10A: fasce alle date giuste e alte quanto il pannello (58/58)
+OK   390-chiaro-10A: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-chiaro-10A: fasce larghe 1 px (minimo): 55 su 58; la più larga 4.5 px
+     390-chiaro-10A: la prima seduta del periodo (2016-11-07) è in backwardation da 2016-11-02 (3 sedute prima del bordo): fascia disegnata da x=8.1 (bordo 8)
+     390-chiaro-10A: ultima fascia 2026-11-05→2026-11-06: x 283.92 largh. 1.00 (bordo destro 284); px per seduta 0.08
+OK   390-chiaro-10A: ultima fascia non esce dal pannello
+OK   390-chiaro-10A: punto finale al 2026-11-06 su 1.042 (284.0,458.6)
+OK   390-chiaro-10A: punto pieno solo se backwardation (vxrdot back)
+OK   390-chiaro-10A: nessuna fascia grigia nel VIX3M (periodo dopo il 2007)
+OK   390-chiaro-10A: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-chiaro-10A: etichette credito 0 −10 −20 −30
+OK   390-chiaro-10A: asse del credito (4 etichette, scarto 0.00)
+OK   390-chiaro-10A: credito: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-chiaro-10A: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2023-12-08)
+     390-chiaro-10A: credito al 2020-03-16: disegnato -21.8387 atteso -21.8393 (x 100.7 vs 100.7)
+     390-chiaro-10A: credito al 2025-04-08: disegnato -7.1251 atteso -7.1189 (x 240.4 vs 240.4)
+     390-chiaro-10A: credito al 2026-11-06: disegnato -3.0963 atteso -3.0925 (x 284.0 vs 284.0)
+     390-chiaro-10A: credito al 2026-11-05: disegnato -3.1314 atteso -3.1467 (x 283.9 vs 283.9)
+OK   390-chiaro-10A: credito: 1 tratti (attesi 1)
+OK   390-chiaro-10A: linea dello 0 del credito al posto giusto
+OK   390-chiaro-10A: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-chiaro-10A: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-chiaro-10A: nessuna scritta sovrapposta (23 scritte) 
+OK   390-chiaro-10A: nessuna scritta tagliata ai bordi 
+OK   390-chiaro-10A: titoli dei pannelli dentro la larghezza 
+     390-chiaro-10A: anni 2019 2022 2025; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-chiaro-10A: legenda con 7 voci
+OK   390-chiaro-10A: mirino su 2020-03-16 → riquadro del 2020-03-16 (tolleranza 20 sedute)
+OK   390-chiaro-10A: mirino alla x della seduta del riquadro (100.7)
+OK   390-chiaro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-10A: riquadro del 2020-03-16: VIX 82,69 VIX3M 67,70 rapporto 1,22 backwardation credito −21,8% (attesi 82,69 67,70 1,22 backwardation −21,8%)
+OK   390-chiaro-10A: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 20 sedute)
+OK   390-chiaro-10A: mirino alla x della seduta del riquadro (240.4)
+OK   390-chiaro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-10A: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-chiaro-10A: mirino su 2026-11-06 → riquadro del 2026-11-06 (tolleranza 20 sedute)
+OK   390-chiaro-10A: mirino alla x della seduta del riquadro (284.0)
+OK   390-chiaro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-10A: riquadro del 2026-11-06: VIX 25,64 provv. VIX3M 24,60 provv. rapporto 1,04 backwardation credito −3,1% (attesi 25,64 24,60 1,04 backwardation −3,1%)
+OK   390-chiaro-10A: mirino su 2026-11-05 → riquadro del 2026-11-05 (tolleranza 20 sedute)
+OK   390-chiaro-10A: mirino alla x della seduta del riquadro (283.9)
+OK   390-chiaro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-10A: riquadro del 2026-11-05: VIX 28,18 VIX3M 25,55 rapporto 1,10 backwardation credito −3,1% (attesi 28,18 25,55 1,10 backwardation −3,1%)
+OK   390-chiaro-10A: nessuno scorrimento orizzontale (390/390)
+OK   periodo MAX selezionato
+OK   390-chiaro-MAX: 4 pannelli (attesi 4)
+OK   390-chiaro-MAX: 3 anni sull'asse x (2000,2010,2020)
+OK   390-chiaro-MAX: anni equidistanti nel tempo (scarto 0.000)
+OK   390-chiaro-MAX: linea verticale per ogni anno in ogni pannello
+OK   390-chiaro-MAX: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-chiaro-MAX: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-chiaro-MAX: finestra 1990-01-02 → 2026-11-06 (36.84 anni)
+OK   390-chiaro-MAX: MAX parte dal 1990-01-02
+OK   390-chiaro-MAX: asse del VIX lineare (20 40 60 80 100)
+OK   390-chiaro-MAX: VIX: 9278 vertici, 9278 sedute con dato nel periodo
+OK   390-chiaro-MAX: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 1991-07-18)
+     390-chiaro-MAX: VIX al 2008-10-24: disegnato 79.1368 atteso 79.1300 (x 148.9 vs 148.9)
+     390-chiaro-MAX: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 234.2 vs 234.2)
+     390-chiaro-MAX: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 272.2 vs 272.2)
+     390-chiaro-MAX: VIX al 2007-12-03: disegnato 23.5999 atteso 23.6100 (x 142.2 vs 142.2)
+     390-chiaro-MAX: VIX al 2007-12-04: disegnato 23.7763 atteso 23.7900 (x 142.2 vs 142.2)
+     390-chiaro-MAX: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     390-chiaro-MAX: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 284.0 vs 284.0)
+OK   390-chiaro-MAX: VIX: 4 tratti (attesi 4)
+OK   390-chiaro-MAX: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-chiaro-MAX: etichette VIX/VIX3M 0,8 1,0 1,2 1,4
+OK   390-chiaro-MAX: VIX/VIX3M 4 etichette
+OK   390-chiaro-MAX: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-chiaro-MAX: etichette VIX/VIX3M tutte diverse
+OK   390-chiaro-MAX: VIX/VIX3M: 4762 vertici, 4762 sedute con dato nel periodo
+OK   390-chiaro-MAX: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2019-06-18)
+     390-chiaro-MAX: VIX/VIX3M al 2008-10-24: disegnato 1.4309 atteso 1.4309 (x 148.9 vs 148.9)
+     390-chiaro-MAX: VIX/VIX3M al 2020-03-16: disegnato 1.2214 atteso 1.2214 (x 234.2 vs 234.2)
+     390-chiaro-MAX: VIX/VIX3M al 2025-04-08: disegnato 1.2608 atteso 1.2610 (x 272.2 vs 272.2)
+     390-chiaro-MAX: VIX/VIX3M al 2007-12-04: disegnato 0.9649 atteso 0.9651 (x 142.2 vs 142.2)
+     390-chiaro-MAX: VIX/VIX3M al 2026-11-06: disegnato 1.0423 atteso 1.0423 (x 284.0 vs 284.0)
+     390-chiaro-MAX: VIX/VIX3M al 2026-11-05: disegnato 1.1031 atteso 1.1029 (x 284.0 vs 284.0)
+OK   390-chiaro-MAX: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-chiaro-MAX: linea a 1 al posto giusto (469.2 vs 469.2)
+OK   390-chiaro-MAX: linea a 1 inizia dove inizia il VIX3M o al bordo (142.2)
+OK   390-chiaro-MAX: 133 fasce di backwardation, 133 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-chiaro-MAX: fasce alle date giuste e alte quanto il pannello (133/133)
+OK   390-chiaro-MAX: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-chiaro-MAX: fasce larghe 1 px (minimo): 131 su 133; la più larga 1.8 px
+     390-chiaro-MAX: ultima fascia 2026-11-05→2026-11-06: x 283.98 largh. 1.00 (bordo destro 284); px per seduta 0.02
+OK   390-chiaro-MAX: ultima fascia non esce dal pannello
+OK   390-chiaro-MAX: punto finale al 2026-11-06 su 1.042 (284.0,463.1)
+OK   390-chiaro-MAX: punto pieno solo se backwardation (vxrdot back)
+OK   390-chiaro-MAX: fascia grigia del VIX3M fino al 04/12/2007 (142.2 vs 142.2)
+OK   390-chiaro-MAX: scritta «VIX3M dal 04/12/2007»
+OK   390-chiaro-MAX: scritta del VIX3M dentro la fascia grigia
+OK   390-chiaro-MAX: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-chiaro-MAX: etichette credito 0 −20 −40
+OK   390-chiaro-MAX: asse del credito (3 etichette, scarto 0.00)
+OK   390-chiaro-MAX: credito: 4676 vertici, 4676 sedute con dato nel periodo
+OK   390-chiaro-MAX: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2010-04-01)
+     390-chiaro-MAX: credito al 2008-10-24: disegnato -33.9421 atteso -33.9374 (x 148.9 vs 148.9)
+     390-chiaro-MAX: credito al 2020-03-16: disegnato -21.8551 atteso -21.8393 (x 234.2 vs 234.2)
+     390-chiaro-MAX: credito al 2025-04-08: disegnato -7.1320 atteso -7.1189 (x 272.2 vs 272.2)
+     390-chiaro-MAX: credito al 2026-11-06: disegnato -3.1030 atteso -3.0925 (x 284.0 vs 284.0)
+     390-chiaro-MAX: credito al 2026-11-05: disegnato -3.1528 atteso -3.1467 (x 284.0 vs 284.0)
+OK   390-chiaro-MAX: credito: 1 tratti (attesi 1)
+OK   390-chiaro-MAX: linea dello 0 del credito al posto giusto
+OK   390-chiaro-MAX: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-chiaro-MAX: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-chiaro-MAX: fascia grigia del credito fino al 2008-04-09
+     390-chiaro-MAX: scritta del credito «HYG/IEF dal 09/04/2008»
+OK   390-chiaro-MAX: nessuna scritta sovrapposta (25 scritte) 
+OK   390-chiaro-MAX: nessuna scritta tagliata ai bordi 
+OK   390-chiaro-MAX: titoli dei pannelli dentro la larghezza 
+     390-chiaro-MAX: anni 2000 2010 2020; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-chiaro-MAX: legenda con 7 voci
+OK   390-chiaro-MAX: mirino su 2008-10-24 → riquadro del 2008-10-24 (tolleranza 74 sedute)
+OK   390-chiaro-MAX: mirino alla x della seduta del riquadro (148.9)
+OK   390-chiaro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-MAX: riquadro del 2008-10-24: VIX 79,13 VIX3M 55,30 rapporto 1,43 backwardation credito −33,9% (attesi 79,13 55,30 1,43 backwardation −33,9%)
+OK   390-chiaro-MAX: mirino su 2020-03-16 → riquadro del 2020-03-16 (tolleranza 74 sedute)
+OK   390-chiaro-MAX: mirino alla x della seduta del riquadro (234.2)
+OK   390-chiaro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-MAX: riquadro del 2020-03-16: VIX 82,69 VIX3M 67,70 rapporto 1,22 backwardation credito −21,8% (attesi 82,69 67,70 1,22 backwardation −21,8%)
+OK   390-chiaro-MAX: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 74 sedute)
+OK   390-chiaro-MAX: mirino alla x della seduta del riquadro (272.2)
+OK   390-chiaro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-MAX: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-chiaro-MAX: mirino su 2007-12-04 → riquadro del 2007-12-04 (tolleranza 74 sedute)
+OK   390-chiaro-MAX: mirino alla x della seduta del riquadro (142.2)
+OK   390-chiaro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-MAX: riquadro del 2007-12-04: VIX 23,79 VIX3M 24,65 rapporto 0,97 contango credito — (attesi 23,79 24,65 0,97 contango —)
+OK   390-chiaro-MAX: mirino su 2026-11-06 → riquadro del 2026-11-06 (tolleranza 74 sedute)
+OK   390-chiaro-MAX: mirino alla x della seduta del riquadro (284.0)
+OK   390-chiaro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-MAX: riquadro del 2026-11-06: VIX 25,64 provv. VIX3M 24,60 provv. rapporto 1,04 backwardation credito −3,1% (attesi 25,64 24,60 1,04 backwardation −3,1%)
+OK   390-chiaro-MAX: mirino su 2026-11-05 → riquadro del 2026-11-05 (tolleranza 74 sedute)
+OK   390-chiaro-MAX: mirino alla x della seduta del riquadro (284.0)
+OK   390-chiaro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-MAX: riquadro del 2026-11-05: VIX 28,18 VIX3M 25,55 rapporto 1,10 backwardation credito −3,1% (attesi 28,18 25,55 1,10 backwardation −3,1%)
+OK   390-chiaro-MAX: nessuno scorrimento orizzontale (390/390)
+OK   periodo 10A selezionato
+OK   390-chiaro-10A-hover: 4 pannelli (attesi 4)
+OK   390-chiaro-10A-hover: 3 anni sull'asse x (2019,2022,2025)
+OK   390-chiaro-10A-hover: anni equidistanti nel tempo (scarto 0.000)
+OK   390-chiaro-10A-hover: linea verticale per ogni anno in ogni pannello
+OK   390-chiaro-10A-hover: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-chiaro-10A-hover: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-chiaro-10A-hover: finestra 2016-11-05 → 2026-11-06 (10.00 anni)
+OK   390-chiaro-10A-hover: periodo 10 anni
+OK   390-chiaro-10A-hover: asse del VIX lineare (20 40 60 80 100)
+OK   390-chiaro-10A-hover: VIX: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-chiaro-10A-hover: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2017-04-12)
+     390-chiaro-10A-hover: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 100.7 vs 100.7)
+     390-chiaro-10A-hover: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 240.4 vs 240.4)
+     390-chiaro-10A-hover: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     390-chiaro-10A-hover: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 283.9 vs 283.9)
+OK   390-chiaro-10A-hover: VIX: 1 tratti (attesi 1)
+OK   390-chiaro-10A-hover: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-chiaro-10A-hover: etichette VIX/VIX3M 0,8 1,0 1,2
+OK   390-chiaro-10A-hover: VIX/VIX3M 3 etichette
+OK   390-chiaro-10A-hover: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-chiaro-10A-hover: etichette VIX/VIX3M tutte diverse
+OK   390-chiaro-10A-hover: VIX/VIX3M: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-chiaro-10A-hover: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2022-09-01)
+     390-chiaro-10A-hover: VIX/VIX3M al 2020-03-16: disegnato 1.2212 atteso 1.2214 (x 100.7 vs 100.7)
+     390-chiaro-10A-hover: VIX/VIX3M al 2025-04-08: disegnato 1.2612 atteso 1.2610 (x 240.4 vs 240.4)
+     390-chiaro-10A-hover: VIX/VIX3M al 2026-11-06: disegnato 1.0422 atteso 1.0423 (x 284.0 vs 284.0)
+     390-chiaro-10A-hover: VIX/VIX3M al 2026-11-05: disegnato 1.1028 atteso 1.1029 (x 283.9 vs 283.9)
+OK   390-chiaro-10A-hover: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-chiaro-10A-hover: linea a 1 al posto giusto (465.8 vs 465.8)
+OK   390-chiaro-10A-hover: linea a 1 inizia dove inizia il VIX3M o al bordo (8.0)
+OK   390-chiaro-10A-hover: 58 fasce di backwardation, 58 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-chiaro-10A-hover: fasce alle date giuste e alte quanto il pannello (58/58)
+OK   390-chiaro-10A-hover: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-chiaro-10A-hover: fasce larghe 1 px (minimo): 55 su 58; la più larga 4.5 px
+     390-chiaro-10A-hover: la prima seduta del periodo (2016-11-07) è in backwardation da 2016-11-02 (3 sedute prima del bordo): fascia disegnata da x=8.1 (bordo 8)
+     390-chiaro-10A-hover: ultima fascia 2026-11-05→2026-11-06: x 283.92 largh. 1.00 (bordo destro 284); px per seduta 0.08
+OK   390-chiaro-10A-hover: ultima fascia non esce dal pannello
+OK   390-chiaro-10A-hover: punto finale al 2026-11-06 su 1.042 (284.0,458.6)
+OK   390-chiaro-10A-hover: punto pieno solo se backwardation (vxrdot back)
+OK   390-chiaro-10A-hover: nessuna fascia grigia nel VIX3M (periodo dopo il 2007)
+OK   390-chiaro-10A-hover: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-chiaro-10A-hover: etichette credito 0 −10 −20 −30
+OK   390-chiaro-10A-hover: asse del credito (4 etichette, scarto 0.00)
+OK   390-chiaro-10A-hover: credito: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-chiaro-10A-hover: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2023-12-08)
+     390-chiaro-10A-hover: credito al 2020-03-16: disegnato -21.8387 atteso -21.8393 (x 100.7 vs 100.7)
+     390-chiaro-10A-hover: credito al 2025-04-08: disegnato -7.1251 atteso -7.1189 (x 240.4 vs 240.4)
+     390-chiaro-10A-hover: credito al 2026-11-06: disegnato -3.0963 atteso -3.0925 (x 284.0 vs 284.0)
+     390-chiaro-10A-hover: credito al 2026-11-05: disegnato -3.1314 atteso -3.1467 (x 283.9 vs 283.9)
+OK   390-chiaro-10A-hover: credito: 1 tratti (attesi 1)
+OK   390-chiaro-10A-hover: linea dello 0 del credito al posto giusto
+OK   390-chiaro-10A-hover: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-chiaro-10A-hover: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-chiaro-10A-hover: nessuna scritta sovrapposta (23 scritte) 
+OK   390-chiaro-10A-hover: nessuna scritta tagliata ai bordi 
+OK   390-chiaro-10A-hover: titoli dei pannelli dentro la larghezza 
+     390-chiaro-10A-hover: anni 2019 2022 2025; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-chiaro-10A-hover: legenda con 7 voci
+OK   390-chiaro-10A-hover: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 20 sedute)
+OK   390-chiaro-10A-hover: mirino alla x della seduta del riquadro (240.4)
+OK   390-chiaro-10A-hover: un solo mirino dal primo all'ultimo pannello
+OK   390-chiaro-10A-hover: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-chiaro: riquadro dei valori dentro lo schermo (34,289,497,633 / 390)
+OK   390-chiaro: console senza errori 
+OK   390-scuro: riquadri 6 in righe 2+2+2 (attese 2+2+2)
+OK   390-scuro: nessun testo dei riquadri che esce 
+OK   periodo 3A selezionato
+OK   390-scuro-3A: 4 pannelli (attesi 4)
+OK   390-scuro-3A: 3 anni sull'asse x (2024,2025,2026)
+OK   390-scuro-3A: anni equidistanti nel tempo (scarto 0.000)
+OK   390-scuro-3A: linea verticale per ogni anno in ogni pannello
+OK   390-scuro-3A: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-scuro-3A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-scuro-3A: finestra 2023-11-06 → 2026-11-06 (3.00 anni)
+OK   390-scuro-3A: periodo 3 anni
+OK   390-scuro-3A: asse del VIX lineare (10 20 30 40 50)
+OK   390-scuro-3A: VIX: 753 vertici, 753 sedute con dato nel periodo
+OK   390-scuro-3A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-01-30)
+     390-scuro-3A: VIX al 2025-04-08: disegnato 52.3409 atteso 52.3300 (x 138.7 vs 138.7)
+     390-scuro-3A: VIX al 2026-11-06: disegnato 25.6499 atteso 25.6400 (x 284.0 vs 284.0)
+     390-scuro-3A: VIX al 2026-11-05: disegnato 28.1818 atteso 28.1800 (x 283.7 vs 283.7)
+OK   390-scuro-3A: VIX: 1 tratti (attesi 1)
+OK   390-scuro-3A: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-scuro-3A: etichette VIX/VIX3M 0,8 1,0 1,2
+OK   390-scuro-3A: VIX/VIX3M 3 etichette
+OK   390-scuro-3A: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-scuro-3A: etichette VIX/VIX3M tutte diverse
+OK   390-scuro-3A: VIX/VIX3M: 753 vertici, 753 sedute con dato nel periodo
+OK   390-scuro-3A: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-12-31)
+     390-scuro-3A: VIX/VIX3M al 2025-04-08: disegnato 1.2610 atteso 1.2610 (x 138.7 vs 138.7)
+     390-scuro-3A: VIX/VIX3M al 2026-11-06: disegnato 1.0422 atteso 1.0423 (x 284.0 vs 284.0)
+     390-scuro-3A: VIX/VIX3M al 2026-11-05: disegnato 1.1029 atteso 1.1029 (x 283.7 vs 283.7)
+OK   390-scuro-3A: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-scuro-3A: linea a 1 al posto giusto (462.2 vs 462.2)
+OK   390-scuro-3A: linea a 1 inizia dove inizia il VIX3M o al bordo (8.0)
+OK   390-scuro-3A: 18 fasce di backwardation, 18 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-scuro-3A: fasce alle date giuste e alte quanto il pannello (18/18)
+OK   390-scuro-3A: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-scuro-3A: fasce larghe 1 px (minimo): 14 su 18; la più larga 5.5 px
+     390-scuro-3A: ultima fascia 2026-11-05→2026-11-06: x 283.75 largh. 1.00 (bordo destro 284); px per seduta 0.25
+OK   390-scuro-3A: ultima fascia non esce dal pannello
+OK   390-scuro-3A: punto finale al 2026-11-06 su 1.042 (284.0,453.8)
+OK   390-scuro-3A: punto pieno solo se backwardation (vxrdot back)
+OK   390-scuro-3A: nessuna fascia grigia nel VIX3M (periodo dopo il 2007)
+OK   390-scuro-3A: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-scuro-3A: etichette credito 0 −2 −4 −6
+OK   390-scuro-3A: asse del credito (4 etichette, scarto 0.00)
+OK   390-scuro-3A: credito: 753 vertici, 753 sedute con dato nel periodo
+OK   390-scuro-3A: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-01-09)
+     390-scuro-3A: credito al 2025-04-08: disegnato -7.1214 atteso -7.1189 (x 138.7 vs 138.7)
+     390-scuro-3A: credito al 2026-11-06: disegnato -3.0912 atteso -3.0925 (x 284.0 vs 284.0)
+     390-scuro-3A: credito al 2026-11-05: disegnato -3.1450 atteso -3.1467 (x 283.7 vs 283.7)
+OK   390-scuro-3A: credito: 1 tratti (attesi 1)
+OK   390-scuro-3A: linea dello 0 del credito al posto giusto
+OK   390-scuro-3A: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-scuro-3A: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-scuro-3A: nessuna scritta sovrapposta (24 scritte) 
+OK   390-scuro-3A: nessuna scritta tagliata ai bordi 
+OK   390-scuro-3A: titoli dei pannelli dentro la larghezza 
+     390-scuro-3A: anni 2024 2025 2026; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-scuro-3A: legenda con 7 voci
+OK   390-scuro-3A: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 6 sedute)
+OK   390-scuro-3A: mirino alla x della seduta del riquadro (138.7)
+OK   390-scuro-3A: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-3A: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-scuro-3A: mirino su 2026-11-06 → riquadro del 2026-11-06 (tolleranza 6 sedute)
+OK   390-scuro-3A: mirino alla x della seduta del riquadro (284.0)
+OK   390-scuro-3A: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-3A: riquadro del 2026-11-06: VIX 25,64 provv. VIX3M 24,60 provv. rapporto 1,04 backwardation credito −3,1% (attesi 25,64 24,60 1,04 backwardation −3,1%)
+OK   390-scuro-3A: mirino su 2026-11-05 → riquadro del 2026-11-05 (tolleranza 6 sedute)
+OK   390-scuro-3A: mirino alla x della seduta del riquadro (283.7)
+OK   390-scuro-3A: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-3A: riquadro del 2026-11-05: VIX 28,18 VIX3M 25,55 rapporto 1,10 backwardation credito −3,1% (attesi 28,18 25,55 1,10 backwardation −3,1%)
+OK   390-scuro-3A: nessuno scorrimento orizzontale (390/390)
+OK   periodo 10A selezionato
+OK   390-scuro-10A: 4 pannelli (attesi 4)
+OK   390-scuro-10A: 3 anni sull'asse x (2019,2022,2025)
+OK   390-scuro-10A: anni equidistanti nel tempo (scarto 0.000)
+OK   390-scuro-10A: linea verticale per ogni anno in ogni pannello
+OK   390-scuro-10A: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-scuro-10A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-scuro-10A: finestra 2016-11-05 → 2026-11-06 (10.00 anni)
+OK   390-scuro-10A: periodo 10 anni
+OK   390-scuro-10A: asse del VIX lineare (20 40 60 80 100)
+OK   390-scuro-10A: VIX: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-scuro-10A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2017-04-12)
+     390-scuro-10A: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 100.7 vs 100.7)
+     390-scuro-10A: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 240.4 vs 240.4)
+     390-scuro-10A: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     390-scuro-10A: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 283.9 vs 283.9)
+OK   390-scuro-10A: VIX: 1 tratti (attesi 1)
+OK   390-scuro-10A: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-scuro-10A: etichette VIX/VIX3M 0,8 1,0 1,2
+OK   390-scuro-10A: VIX/VIX3M 3 etichette
+OK   390-scuro-10A: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-scuro-10A: etichette VIX/VIX3M tutte diverse
+OK   390-scuro-10A: VIX/VIX3M: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-scuro-10A: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2022-09-01)
+     390-scuro-10A: VIX/VIX3M al 2020-03-16: disegnato 1.2212 atteso 1.2214 (x 100.7 vs 100.7)
+     390-scuro-10A: VIX/VIX3M al 2025-04-08: disegnato 1.2612 atteso 1.2610 (x 240.4 vs 240.4)
+     390-scuro-10A: VIX/VIX3M al 2026-11-06: disegnato 1.0422 atteso 1.0423 (x 284.0 vs 284.0)
+     390-scuro-10A: VIX/VIX3M al 2026-11-05: disegnato 1.1028 atteso 1.1029 (x 283.9 vs 283.9)
+OK   390-scuro-10A: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-scuro-10A: linea a 1 al posto giusto (465.8 vs 465.8)
+OK   390-scuro-10A: linea a 1 inizia dove inizia il VIX3M o al bordo (8.0)
+OK   390-scuro-10A: 58 fasce di backwardation, 58 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-scuro-10A: fasce alle date giuste e alte quanto il pannello (58/58)
+OK   390-scuro-10A: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-scuro-10A: fasce larghe 1 px (minimo): 55 su 58; la più larga 4.5 px
+     390-scuro-10A: la prima seduta del periodo (2016-11-07) è in backwardation da 2016-11-02 (3 sedute prima del bordo): fascia disegnata da x=8.1 (bordo 8)
+     390-scuro-10A: ultima fascia 2026-11-05→2026-11-06: x 283.92 largh. 1.00 (bordo destro 284); px per seduta 0.08
+OK   390-scuro-10A: ultima fascia non esce dal pannello
+OK   390-scuro-10A: punto finale al 2026-11-06 su 1.042 (284.0,458.6)
+OK   390-scuro-10A: punto pieno solo se backwardation (vxrdot back)
+OK   390-scuro-10A: nessuna fascia grigia nel VIX3M (periodo dopo il 2007)
+OK   390-scuro-10A: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-scuro-10A: etichette credito 0 −10 −20 −30
+OK   390-scuro-10A: asse del credito (4 etichette, scarto 0.00)
+OK   390-scuro-10A: credito: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-scuro-10A: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2023-12-08)
+     390-scuro-10A: credito al 2020-03-16: disegnato -21.8387 atteso -21.8393 (x 100.7 vs 100.7)
+     390-scuro-10A: credito al 2025-04-08: disegnato -7.1251 atteso -7.1189 (x 240.4 vs 240.4)
+     390-scuro-10A: credito al 2026-11-06: disegnato -3.0963 atteso -3.0925 (x 284.0 vs 284.0)
+     390-scuro-10A: credito al 2026-11-05: disegnato -3.1314 atteso -3.1467 (x 283.9 vs 283.9)
+OK   390-scuro-10A: credito: 1 tratti (attesi 1)
+OK   390-scuro-10A: linea dello 0 del credito al posto giusto
+OK   390-scuro-10A: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-scuro-10A: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-scuro-10A: nessuna scritta sovrapposta (23 scritte) 
+OK   390-scuro-10A: nessuna scritta tagliata ai bordi 
+OK   390-scuro-10A: titoli dei pannelli dentro la larghezza 
+     390-scuro-10A: anni 2019 2022 2025; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-scuro-10A: legenda con 7 voci
+OK   390-scuro-10A: mirino su 2020-03-16 → riquadro del 2020-03-16 (tolleranza 20 sedute)
+OK   390-scuro-10A: mirino alla x della seduta del riquadro (100.7)
+OK   390-scuro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-10A: riquadro del 2020-03-16: VIX 82,69 VIX3M 67,70 rapporto 1,22 backwardation credito −21,8% (attesi 82,69 67,70 1,22 backwardation −21,8%)
+OK   390-scuro-10A: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 20 sedute)
+OK   390-scuro-10A: mirino alla x della seduta del riquadro (240.4)
+OK   390-scuro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-10A: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-scuro-10A: mirino su 2026-11-06 → riquadro del 2026-11-06 (tolleranza 20 sedute)
+OK   390-scuro-10A: mirino alla x della seduta del riquadro (284.0)
+OK   390-scuro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-10A: riquadro del 2026-11-06: VIX 25,64 provv. VIX3M 24,60 provv. rapporto 1,04 backwardation credito −3,1% (attesi 25,64 24,60 1,04 backwardation −3,1%)
+OK   390-scuro-10A: mirino su 2026-11-05 → riquadro del 2026-11-05 (tolleranza 20 sedute)
+OK   390-scuro-10A: mirino alla x della seduta del riquadro (283.9)
+OK   390-scuro-10A: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-10A: riquadro del 2026-11-05: VIX 28,18 VIX3M 25,55 rapporto 1,10 backwardation credito −3,1% (attesi 28,18 25,55 1,10 backwardation −3,1%)
+OK   390-scuro-10A: nessuno scorrimento orizzontale (390/390)
+OK   periodo MAX selezionato
+OK   390-scuro-MAX: 4 pannelli (attesi 4)
+OK   390-scuro-MAX: 3 anni sull'asse x (2000,2010,2020)
+OK   390-scuro-MAX: anni equidistanti nel tempo (scarto 0.000)
+OK   390-scuro-MAX: linea verticale per ogni anno in ogni pannello
+OK   390-scuro-MAX: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-scuro-MAX: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-scuro-MAX: finestra 1990-01-02 → 2026-11-06 (36.84 anni)
+OK   390-scuro-MAX: MAX parte dal 1990-01-02
+OK   390-scuro-MAX: asse del VIX lineare (20 40 60 80 100)
+OK   390-scuro-MAX: VIX: 9278 vertici, 9278 sedute con dato nel periodo
+OK   390-scuro-MAX: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 1991-07-18)
+     390-scuro-MAX: VIX al 2008-10-24: disegnato 79.1368 atteso 79.1300 (x 148.9 vs 148.9)
+     390-scuro-MAX: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 234.2 vs 234.2)
+     390-scuro-MAX: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 272.2 vs 272.2)
+     390-scuro-MAX: VIX al 2007-12-03: disegnato 23.5999 atteso 23.6100 (x 142.2 vs 142.2)
+     390-scuro-MAX: VIX al 2007-12-04: disegnato 23.7763 atteso 23.7900 (x 142.2 vs 142.2)
+     390-scuro-MAX: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     390-scuro-MAX: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 284.0 vs 284.0)
+OK   390-scuro-MAX: VIX: 4 tratti (attesi 4)
+OK   390-scuro-MAX: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-scuro-MAX: etichette VIX/VIX3M 0,8 1,0 1,2 1,4
+OK   390-scuro-MAX: VIX/VIX3M 4 etichette
+OK   390-scuro-MAX: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-scuro-MAX: etichette VIX/VIX3M tutte diverse
+OK   390-scuro-MAX: VIX/VIX3M: 4762 vertici, 4762 sedute con dato nel periodo
+OK   390-scuro-MAX: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2019-06-18)
+     390-scuro-MAX: VIX/VIX3M al 2008-10-24: disegnato 1.4309 atteso 1.4309 (x 148.9 vs 148.9)
+     390-scuro-MAX: VIX/VIX3M al 2020-03-16: disegnato 1.2214 atteso 1.2214 (x 234.2 vs 234.2)
+     390-scuro-MAX: VIX/VIX3M al 2025-04-08: disegnato 1.2608 atteso 1.2610 (x 272.2 vs 272.2)
+     390-scuro-MAX: VIX/VIX3M al 2007-12-04: disegnato 0.9649 atteso 0.9651 (x 142.2 vs 142.2)
+     390-scuro-MAX: VIX/VIX3M al 2026-11-06: disegnato 1.0423 atteso 1.0423 (x 284.0 vs 284.0)
+     390-scuro-MAX: VIX/VIX3M al 2026-11-05: disegnato 1.1031 atteso 1.1029 (x 284.0 vs 284.0)
+OK   390-scuro-MAX: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-scuro-MAX: linea a 1 al posto giusto (469.2 vs 469.2)
+OK   390-scuro-MAX: linea a 1 inizia dove inizia il VIX3M o al bordo (142.2)
+OK   390-scuro-MAX: 133 fasce di backwardation, 133 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-scuro-MAX: fasce alle date giuste e alte quanto il pannello (133/133)
+OK   390-scuro-MAX: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-scuro-MAX: fasce larghe 1 px (minimo): 131 su 133; la più larga 1.8 px
+     390-scuro-MAX: ultima fascia 2026-11-05→2026-11-06: x 283.98 largh. 1.00 (bordo destro 284); px per seduta 0.02
+OK   390-scuro-MAX: ultima fascia non esce dal pannello
+OK   390-scuro-MAX: punto finale al 2026-11-06 su 1.042 (284.0,463.1)
+OK   390-scuro-MAX: punto pieno solo se backwardation (vxrdot back)
+OK   390-scuro-MAX: fascia grigia del VIX3M fino al 04/12/2007 (142.2 vs 142.2)
+OK   390-scuro-MAX: scritta «VIX3M dal 04/12/2007»
+OK   390-scuro-MAX: scritta del VIX3M dentro la fascia grigia
+OK   390-scuro-MAX: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-scuro-MAX: etichette credito 0 −20 −40
+OK   390-scuro-MAX: asse del credito (3 etichette, scarto 0.00)
+OK   390-scuro-MAX: credito: 4676 vertici, 4676 sedute con dato nel periodo
+OK   390-scuro-MAX: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2010-04-01)
+     390-scuro-MAX: credito al 2008-10-24: disegnato -33.9421 atteso -33.9374 (x 148.9 vs 148.9)
+     390-scuro-MAX: credito al 2020-03-16: disegnato -21.8551 atteso -21.8393 (x 234.2 vs 234.2)
+     390-scuro-MAX: credito al 2025-04-08: disegnato -7.1320 atteso -7.1189 (x 272.2 vs 272.2)
+     390-scuro-MAX: credito al 2026-11-06: disegnato -3.1030 atteso -3.0925 (x 284.0 vs 284.0)
+     390-scuro-MAX: credito al 2026-11-05: disegnato -3.1528 atteso -3.1467 (x 284.0 vs 284.0)
+OK   390-scuro-MAX: credito: 1 tratti (attesi 1)
+OK   390-scuro-MAX: linea dello 0 del credito al posto giusto
+OK   390-scuro-MAX: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-scuro-MAX: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-scuro-MAX: fascia grigia del credito fino al 2008-04-09
+     390-scuro-MAX: scritta del credito «HYG/IEF dal 09/04/2008»
+OK   390-scuro-MAX: nessuna scritta sovrapposta (25 scritte) 
+OK   390-scuro-MAX: nessuna scritta tagliata ai bordi 
+OK   390-scuro-MAX: titoli dei pannelli dentro la larghezza 
+     390-scuro-MAX: anni 2000 2010 2020; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-scuro-MAX: legenda con 7 voci
+OK   390-scuro-MAX: mirino su 2008-10-24 → riquadro del 2008-10-24 (tolleranza 74 sedute)
+OK   390-scuro-MAX: mirino alla x della seduta del riquadro (148.9)
+OK   390-scuro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-MAX: riquadro del 2008-10-24: VIX 79,13 VIX3M 55,30 rapporto 1,43 backwardation credito −33,9% (attesi 79,13 55,30 1,43 backwardation −33,9%)
+OK   390-scuro-MAX: mirino su 2020-03-16 → riquadro del 2020-03-16 (tolleranza 74 sedute)
+OK   390-scuro-MAX: mirino alla x della seduta del riquadro (234.2)
+OK   390-scuro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-MAX: riquadro del 2020-03-16: VIX 82,69 VIX3M 67,70 rapporto 1,22 backwardation credito −21,8% (attesi 82,69 67,70 1,22 backwardation −21,8%)
+OK   390-scuro-MAX: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 74 sedute)
+OK   390-scuro-MAX: mirino alla x della seduta del riquadro (272.2)
+OK   390-scuro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-MAX: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-scuro-MAX: mirino su 2007-12-04 → riquadro del 2007-12-04 (tolleranza 74 sedute)
+OK   390-scuro-MAX: mirino alla x della seduta del riquadro (142.2)
+OK   390-scuro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-MAX: riquadro del 2007-12-04: VIX 23,79 VIX3M 24,65 rapporto 0,97 contango credito — (attesi 23,79 24,65 0,97 contango —)
+OK   390-scuro-MAX: mirino su 2026-11-06 → riquadro del 2026-11-06 (tolleranza 74 sedute)
+OK   390-scuro-MAX: mirino alla x della seduta del riquadro (284.0)
+OK   390-scuro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-MAX: riquadro del 2026-11-06: VIX 25,64 provv. VIX3M 24,60 provv. rapporto 1,04 backwardation credito −3,1% (attesi 25,64 24,60 1,04 backwardation −3,1%)
+OK   390-scuro-MAX: mirino su 2026-11-05 → riquadro del 2026-11-05 (tolleranza 74 sedute)
+OK   390-scuro-MAX: mirino alla x della seduta del riquadro (284.0)
+OK   390-scuro-MAX: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-MAX: riquadro del 2026-11-05: VIX 28,18 VIX3M 25,55 rapporto 1,10 backwardation credito −3,1% (attesi 28,18 25,55 1,10 backwardation −3,1%)
+OK   390-scuro-MAX: nessuno scorrimento orizzontale (390/390)
+OK   periodo 10A selezionato
+OK   390-scuro-10A-hover: 4 pannelli (attesi 4)
+OK   390-scuro-10A-hover: 3 anni sull'asse x (2019,2022,2025)
+OK   390-scuro-10A-hover: anni equidistanti nel tempo (scarto 0.000)
+OK   390-scuro-10A-hover: linea verticale per ogni anno in ogni pannello
+OK   390-scuro-10A-hover: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   390-scuro-10A-hover: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     390-scuro-10A-hover: finestra 2016-11-05 → 2026-11-06 (10.00 anni)
+OK   390-scuro-10A-hover: periodo 10 anni
+OK   390-scuro-10A-hover: asse del VIX lineare (20 40 60 80 100)
+OK   390-scuro-10A-hover: VIX: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-scuro-10A-hover: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2017-04-12)
+     390-scuro-10A-hover: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 100.7 vs 100.7)
+     390-scuro-10A-hover: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 240.4 vs 240.4)
+     390-scuro-10A-hover: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     390-scuro-10A-hover: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 283.9 vs 283.9)
+OK   390-scuro-10A-hover: VIX: 1 tratti (attesi 1)
+OK   390-scuro-10A-hover: pannello VIX/VIX3M presente («VIX / VIX3M»)
+     390-scuro-10A-hover: etichette VIX/VIX3M 0,8 1,0 1,2
+OK   390-scuro-10A-hover: VIX/VIX3M 3 etichette
+OK   390-scuro-10A-hover: etichette VIX/VIX3M coerenti con le loro posizioni (scarto 0.00 px)
+OK   390-scuro-10A-hover: etichette VIX/VIX3M tutte diverse
+OK   390-scuro-10A-hover: VIX/VIX3M: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-scuro-10A-hover: VIX/VIX3M: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2022-09-01)
+     390-scuro-10A-hover: VIX/VIX3M al 2020-03-16: disegnato 1.2212 atteso 1.2214 (x 100.7 vs 100.7)
+     390-scuro-10A-hover: VIX/VIX3M al 2025-04-08: disegnato 1.2612 atteso 1.2610 (x 240.4 vs 240.4)
+     390-scuro-10A-hover: VIX/VIX3M al 2026-11-06: disegnato 1.0422 atteso 1.0423 (x 284.0 vs 284.0)
+     390-scuro-10A-hover: VIX/VIX3M al 2026-11-05: disegnato 1.1028 atteso 1.1029 (x 283.9 vs 283.9)
+OK   390-scuro-10A-hover: VIX/VIX3M: 1 tratti (attesi 1)
+OK   390-scuro-10A-hover: linea a 1 al posto giusto (465.8 vs 465.8)
+OK   390-scuro-10A-hover: linea a 1 inizia dove inizia il VIX3M o al bordo (8.0)
+OK   390-scuro-10A-hover: 58 fasce di backwardation, 58 tratti di sedute con rapporto ≥ 1 nel periodo
+OK   390-scuro-10A-hover: fasce alle date giuste e alte quanto il pannello (58/58)
+OK   390-scuro-10A-hover: nessuna seduta in backwardation fuori dalle fasce (0)
+     390-scuro-10A-hover: fasce larghe 1 px (minimo): 55 su 58; la più larga 4.5 px
+     390-scuro-10A-hover: la prima seduta del periodo (2016-11-07) è in backwardation da 2016-11-02 (3 sedute prima del bordo): fascia disegnata da x=8.1 (bordo 8)
+     390-scuro-10A-hover: ultima fascia 2026-11-05→2026-11-06: x 283.92 largh. 1.00 (bordo destro 284); px per seduta 0.08
+OK   390-scuro-10A-hover: ultima fascia non esce dal pannello
+OK   390-scuro-10A-hover: punto finale al 2026-11-06 su 1.042 (284.0,458.6)
+OK   390-scuro-10A-hover: punto pieno solo se backwardation (vxrdot back)
+OK   390-scuro-10A-hover: nessuna fascia grigia nel VIX3M (periodo dopo il 2007)
+OK   390-scuro-10A-hover: pannello del credito presente («CREDITO: HYG/IEF DAL MASSIMO»)
+     390-scuro-10A-hover: etichette credito 0 −10 −20 −30
+OK   390-scuro-10A-hover: asse del credito (4 etichette, scarto 0.00)
+OK   390-scuro-10A-hover: credito: 2514 vertici, 2514 sedute con dato nel periodo
+OK   390-scuro-10A-hover: credito: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2023-12-08)
+     390-scuro-10A-hover: credito al 2020-03-16: disegnato -21.8387 atteso -21.8393 (x 100.7 vs 100.7)
+     390-scuro-10A-hover: credito al 2025-04-08: disegnato -7.1251 atteso -7.1189 (x 240.4 vs 240.4)
+     390-scuro-10A-hover: credito al 2026-11-06: disegnato -3.0963 atteso -3.0925 (x 284.0 vs 284.0)
+     390-scuro-10A-hover: credito al 2026-11-05: disegnato -3.1314 atteso -3.1467 (x 283.9 vs 283.9)
+OK   390-scuro-10A-hover: credito: 1 tratti (attesi 1)
+OK   390-scuro-10A-hover: linea dello 0 del credito al posto giusto
+OK   390-scuro-10A-hover: linea del credito tutta sotto lo 0 e dentro il pannello
+OK   390-scuro-10A-hover: lo 0 è in alto nel pannello (3.5 px dal bordo)
+OK   390-scuro-10A-hover: nessuna scritta sovrapposta (23 scritte) 
+OK   390-scuro-10A-hover: nessuna scritta tagliata ai bordi 
+OK   390-scuro-10A-hover: titoli dei pannelli dentro la larghezza 
+     390-scuro-10A-hover: anni 2019 2022 2025; dimensione dei testi 1.00× (px CSS per unità)
+OK   390-scuro-10A-hover: legenda con 7 voci
+OK   390-scuro-10A-hover: mirino su 2025-04-08 → riquadro del 2025-04-08 (tolleranza 20 sedute)
+OK   390-scuro-10A-hover: mirino alla x della seduta del riquadro (240.4)
+OK   390-scuro-10A-hover: un solo mirino dal primo all'ultimo pannello
+OK   390-scuro-10A-hover: riquadro del 2025-04-08: VIX 52,33 VIX3M 41,50 rapporto 1,26 backwardation credito −7,1% (attesi 52,33 41,50 1,26 backwardation −7,1%)
+OK   390-scuro: riquadro dei valori dentro lo schermo (34,289,497,633 / 390)
+OK   390-scuro: console senza errori 
+OK   periodo MAX selezionato
+OK   colori-light: modalità CVD spenta
+     colori-light: sfondo 255,255,255; vix 154,74,0 contrasto 6.26; rv 31,90,214 contrasto 6.01; prem 58,58,58 contrasto 11.37; r 158,63,120 contrasto 6.11; cr 0,120,90 contrasto 5.48
+     colori-light: fascia backwardation rgba(158, 63, 120, 0.26) (op 1) → 230,205,220, contrasto fascia/sfondo 1.49, linea del rapporto sulla fascia 4.11; fascia premio rgb(194, 39, 39) op 0.16; nessun dato rgb(98, 98, 98) op 0.08; linea a 1 rgb(98, 98, 98) contrasto 6.10; scritte rgb(98, 98, 98) contrasto 6.10
+OK   colori-light: tutte le linee con contrasto ≥ 3 sullo sfondo
+OK   colori-light: linea del rapporto leggibile sopra la fascia di backwardation (4.11)
+OK   colori-light: fascia di backwardation distinguibile dallo sfondo (1.49)
+OK   colori-light: scritte degli assi ≥ 4,5
+     colori-light deut: ΔE vix/rv 122, r/cr 14, vix/r 59, rv/cr 78, vix/cr 45
+OK   colori-light deut: VIX e realizzata distinte nello stesso pannello
+     colori-light prot: ΔE vix/rv 110, r/cr 36, vix/r 65, rv/cr 79, vix/cr 33
+OK   colori-light prot: VIX e realizzata distinte nello stesso pannello
+OK   colori-light: legenda con i colori delle linee
+OK   colori-light: legenda della backwardation col colore della fascia (rgba(158, 63, 120, 0.26) vs rgba(158, 63, 120, 0.26))
+OK   colori-light: legenda del premio alto col colore della fascia (rgb(194, 39, 39) op 0.16 vs rgb(194, 39, 39) op 0.16)
+OK   colori-light: console senza errori 
+OK   periodo MAX selezionato
+OK   colori-light-CVD: modalità CVD attiva
+     colori-light-CVD: sfondo 255,255,255; vix 154,74,0 contrasto 6.26; rv 31,90,214 contrasto 6.01; prem 58,58,58 contrasto 11.37; r 158,63,120 contrasto 6.11; cr 0,120,90 contrasto 5.48
+     colori-light-CVD: fascia backwardation rgba(158, 63, 120, 0.26) (op 1) → 230,205,220, contrasto fascia/sfondo 1.49, linea del rapporto sulla fascia 4.11; fascia premio rgb(187, 52, 30) op 0.16; nessun dato rgb(98, 98, 98) op 0.08; linea a 1 rgb(98, 98, 98) contrasto 6.10; scritte rgb(98, 98, 98) contrasto 6.10
+OK   colori-light-CVD: tutte le linee con contrasto ≥ 3 sullo sfondo
+OK   colori-light-CVD: linea del rapporto leggibile sopra la fascia di backwardation (4.11)
+OK   colori-light-CVD: fascia di backwardation distinguibile dallo sfondo (1.49)
+OK   colori-light-CVD: scritte degli assi ≥ 4,5
+     colori-light-CVD deut: ΔE vix/rv 122, r/cr 14, vix/r 59, rv/cr 78, vix/cr 45
+OK   colori-light-CVD deut: VIX e realizzata distinte nello stesso pannello
+     colori-light-CVD prot: ΔE vix/rv 110, r/cr 36, vix/r 65, rv/cr 79, vix/cr 33
+OK   colori-light-CVD prot: VIX e realizzata distinte nello stesso pannello
+OK   colori-light-CVD: legenda con i colori delle linee
+OK   colori-light-CVD: legenda della backwardation col colore della fascia (rgba(158, 63, 120, 0.26) vs rgba(158, 63, 120, 0.26))
+OK   colori-light-CVD: legenda del premio alto col colore della fascia (rgb(187, 52, 30) op 0.16 vs rgb(187, 52, 30) op 0.16)
+OK   colori-light-CVD: console senza errori 
+OK   periodo MAX selezionato
+OK   colori-dark: modalità CVD spenta
+     colori-dark: sfondo 0,0,0; vix 255,160,40 contrasto 10.31; rv 127,166,255 contrasto 8.80; prem 180,180,180 contrasto 10.13; r 204,121,167 contrasto 6.86; cr 47,191,143 contrasto 8.97
+     colori-dark: fascia backwardation rgba(204, 121, 167, 0.36) (op 1) → 73,44,60, contrasto fascia/sfondo 1.71, linea del rapporto sulla fascia 4.02; fascia premio rgb(239, 68, 68) op 0.3; nessun dato rgb(138, 138, 138) op 0.08; linea a 1 rgb(138, 138, 138) contrasto 6.08; scritte rgb(138, 138, 138) contrasto 6.08
+OK   colori-dark: tutte le linee con contrasto ≥ 3 sullo sfondo
+OK   colori-dark: linea del rapporto leggibile sopra la fascia di backwardation (4.02)
+OK   colori-dark: fascia di backwardation distinguibile dallo sfondo (1.71)
+OK   colori-dark: scritte degli assi ≥ 4,5
+     colori-dark deut: ΔE vix/rv 122, r/cr 18, vix/r 79, rv/cr 61, vix/cr 62
+OK   colori-dark deut: VIX e realizzata distinte nello stesso pannello
+     colori-dark prot: ΔE vix/rv 116, r/cr 40, vix/r 89, rv/cr 65, vix/cr 51
+OK   colori-dark prot: VIX e realizzata distinte nello stesso pannello
+OK   colori-dark: legenda con i colori delle linee
+OK   colori-dark: legenda della backwardation col colore della fascia (rgba(204, 121, 167, 0.36) vs rgba(204, 121, 167, 0.36))
+OK   colori-dark: legenda del premio alto col colore della fascia (rgb(239, 68, 68) op 0.3 vs rgb(239, 68, 68) op 0.3)
+OK   colori-dark: console senza errori 
+OK   periodo MAX selezionato
+OK   colori-dark-CVD: modalità CVD attiva
+     colori-dark-CVD: sfondo 0,0,0; vix 255,160,40 contrasto 10.31; rv 127,166,255 contrasto 8.80; prem 180,180,180 contrasto 10.13; r 204,121,167 contrasto 6.86; cr 47,191,143 contrasto 8.97
+     colori-dark-CVD: fascia backwardation rgba(204, 121, 167, 0.36) (op 1) → 73,44,60, contrasto fascia/sfondo 1.71, linea del rapporto sulla fascia 4.02; fascia premio rgb(255, 92, 77) op 0.3; nessun dato rgb(138, 138, 138) op 0.08; linea a 1 rgb(138, 138, 138) contrasto 6.08; scritte rgb(138, 138, 138) contrasto 6.08
+OK   colori-dark-CVD: tutte le linee con contrasto ≥ 3 sullo sfondo
+OK   colori-dark-CVD: linea del rapporto leggibile sopra la fascia di backwardation (4.02)
+OK   colori-dark-CVD: fascia di backwardation distinguibile dallo sfondo (1.71)
+OK   colori-dark-CVD: scritte degli assi ≥ 4,5
+     colori-dark-CVD deut: ΔE vix/rv 122, r/cr 18, vix/r 79, rv/cr 61, vix/cr 62
+OK   colori-dark-CVD deut: VIX e realizzata distinte nello stesso pannello
+     colori-dark-CVD prot: ΔE vix/rv 116, r/cr 40, vix/r 89, rv/cr 65, vix/cr 51
+OK   colori-dark-CVD prot: VIX e realizzata distinte nello stesso pannello
+OK   colori-dark-CVD: legenda con i colori delle linee
+OK   colori-dark-CVD: legenda della backwardation col colore della fascia (rgba(204, 121, 167, 0.36) vs rgba(204, 121, 167, 0.36))
+OK   colori-dark-CVD: legenda del premio alto col colore della fascia (rgb(255, 92, 77) op 0.3 vs rgb(255, 92, 77) op 0.3)
+OK   colori-dark-CVD: console senza errori 
+OK   periodo 3A selezionato
+OK   senza-serie-1440-3A: 2 pannelli (attesi 2)
+OK   senza-serie-1440-3A: 3 anni sull'asse x (2024,2025,2026)
+OK   senza-serie-1440-3A: anni equidistanti nel tempo (scarto 0.000)
+OK   senza-serie-1440-3A: linea verticale per ogni anno in ogni pannello
+OK   senza-serie-1440-3A: ultima seduta sul bordo destro (1541.0 vs 1541.0)
+OK   senza-serie-1440-3A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     senza-serie-1440-3A: finestra 2023-11-06 → 2026-11-06 (3.00 anni)
+OK   senza-serie-1440-3A: periodo 3 anni
+OK   senza-serie-1440-3A: asse del VIX lineare (10 20 30 40 50)
+OK   senza-serie-1440-3A: VIX: 753 vertici, 753 sedute con dato nel periodo
+OK   senza-serie-1440-3A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-01-30)
+     senza-serie-1440-3A: VIX al 2025-04-08: disegnato 52.3409 atteso 52.3300 (x 733.8 vs 733.8)
+     senza-serie-1440-3A: VIX al 2026-11-06: disegnato 25.6499 atteso 25.6400 (x 1541.0 vs 1541.0)
+     senza-serie-1440-3A: VIX al 2026-11-05: disegnato 28.1818 atteso 28.1800 (x 1539.6 vs 1539.6)
+OK   senza-serie-1440-3A: VIX: 1 tratti (attesi 1)
+OK   senza-serie-1440-3A: legenda di 4 voci (VIX (implicita, prossimi 30 giorni) | realizzata delle ultime 21 sedute | premio per la paura | premio oltre l'80° percentile della sua storia)
+OK   senza-serie-1440-3A: nessun elemento nuovo
+OK   senza-serie-1440-3A: riquadro dei valori senza righe nuove
+OK   periodo 10A selezionato
+OK   senza-serie-1440-10A: 2 pannelli (attesi 2)
+OK   senza-serie-1440-10A: 5 anni sull'asse x (2018,2020,2022,2024,2026)
+OK   senza-serie-1440-10A: anni equidistanti nel tempo (scarto 0.000)
+OK   senza-serie-1440-10A: linea verticale per ogni anno in ogni pannello
+OK   senza-serie-1440-10A: ultima seduta sul bordo destro (1541.0 vs 1541.0)
+OK   senza-serie-1440-10A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     senza-serie-1440-10A: finestra 2016-11-05 → 2026-11-06 (10.00 anni)
+OK   senza-serie-1440-10A: periodo 10 anni
+OK   senza-serie-1440-10A: asse del VIX lineare (20 40 60 80 100)
+OK   senza-serie-1440-10A: VIX: 2514 vertici, 2514 sedute con dato nel periodo
+OK   senza-serie-1440-10A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2017-04-12)
+     senza-serie-1440-10A: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 522.8 vs 522.8)
+     senza-serie-1440-10A: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 1298.8 vs 1298.8)
+     senza-serie-1440-10A: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 1541.0 vs 1541.0)
+     senza-serie-1440-10A: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 1540.6 vs 1540.6)
+OK   senza-serie-1440-10A: VIX: 1 tratti (attesi 1)
+OK   senza-serie-1440-10A: legenda di 4 voci (VIX (implicita, prossimi 30 giorni) | realizzata delle ultime 21 sedute | premio per la paura | premio oltre l'80° percentile della sua storia)
+OK   senza-serie-1440-10A: nessun elemento nuovo
+OK   senza-serie-1440-10A: riquadro dei valori senza righe nuove
+OK   periodo MAX selezionato
+OK   senza-serie-1440-MAX: 2 pannelli (attesi 2)
+OK   senza-serie-1440-MAX: 9 anni sull'asse x (1994,1998,2002,2006,2010,2014,2018,2022,2026)
+OK   senza-serie-1440-MAX: anni equidistanti nel tempo (scarto 0.000)
+OK   senza-serie-1440-MAX: linea verticale per ogni anno in ogni pannello
+OK   senza-serie-1440-MAX: ultima seduta sul bordo destro (1541.0 vs 1541.0)
+OK   senza-serie-1440-MAX: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     senza-serie-1440-MAX: finestra 1990-01-02 → 2026-11-06 (36.84 anni)
+OK   senza-serie-1440-MAX: MAX parte dal 1990-01-02
+OK   senza-serie-1440-MAX: asse del VIX lineare (20 40 60 80 100)
+OK   senza-serie-1440-MAX: VIX: 9278 vertici, 9278 sedute con dato nel periodo
+OK   senza-serie-1440-MAX: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 1991-07-18)
+     senza-serie-1440-MAX: VIX al 2008-10-24: disegnato 79.1368 atteso 79.1300 (x 790.6 vs 790.6)
+     senza-serie-1440-MAX: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 1264.6 vs 1264.6)
+     senza-serie-1440-MAX: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 1475.3 vs 1475.3)
+     senza-serie-1440-MAX: VIX al 2007-12-03: disegnato 23.5999 atteso 23.6100 (x 753.5 vs 753.5)
+     senza-serie-1440-MAX: VIX al 2007-12-04: disegnato 23.7763 atteso 23.7900 (x 753.6 vs 753.6)
+     senza-serie-1440-MAX: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 1541.0 vs 1541.0)
+     senza-serie-1440-MAX: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 1540.9 vs 1540.9)
+OK   senza-serie-1440-MAX: VIX: 4 tratti (attesi 4)
+OK   senza-serie-1440-MAX: legenda di 4 voci (VIX (implicita, prossimi 30 giorni) | realizzata delle ultime 21 sedute | premio per la paura | premio oltre l'80° percentile della sua storia)
+OK   senza-serie-1440-MAX: nessun elemento nuovo
+OK   senza-serie-1440-MAX: riquadro dei valori senza righe nuove
+     senza-serie-1440: riquadri VIX | 25,64 | paura · al 06/11/2026 · provvisorio || PERCENTILE DEL VIX | 84° | nella storia dal 02/01/1990 || VOLATILITÀ REALIZZATA | 19,8 | S&P 500, 21 sedute al 06/11/2026, annualizzata || PREMIO PER LA PAURA | +5,8 | VIX − realizzata · 68° percentile || VIX / VIX3M | — | dato non disponibile || CREDITO HIGH YIELD | — | dato non disponibile
+     senza-serie-1440: meta «VIX al 06/11/2026 (FRED al 05/11/2026, poi Cboe provvisorio) · S&P 500 al 06/11/2026 · Nasdaq-100 al 06/11/2026»
+OK   1.6.0-senza 1440: console senza errori 
+OK   periodo 3A selezionato
+OK   periodo 10A selezionato
+OK   periodo MAX selezionato
+OK   1.5.0 1440: console senza errori 
+OK   senza-serie-1440-3A: SVG identico alla 1.5.0
+OK   senza-serie-1440-10A: SVG identico alla 1.5.0
+OK   senza-serie-1440-MAX: SVG identico alla 1.5.0
+OK   periodo 3A selezionato
+OK   senza-serie-390-3A: 2 pannelli (attesi 2)
+OK   senza-serie-390-3A: 3 anni sull'asse x (2024,2025,2026)
+OK   senza-serie-390-3A: anni equidistanti nel tempo (scarto 0.000)
+OK   senza-serie-390-3A: linea verticale per ogni anno in ogni pannello
+OK   senza-serie-390-3A: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   senza-serie-390-3A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     senza-serie-390-3A: finestra 2023-11-06 → 2026-11-06 (3.00 anni)
+OK   senza-serie-390-3A: periodo 3 anni
+OK   senza-serie-390-3A: asse del VIX lineare (10 20 30 40 50)
+OK   senza-serie-390-3A: VIX: 753 vertici, 753 sedute con dato nel periodo
+OK   senza-serie-390-3A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2024-01-30)
+     senza-serie-390-3A: VIX al 2025-04-08: disegnato 52.3409 atteso 52.3300 (x 138.7 vs 138.7)
+     senza-serie-390-3A: VIX al 2026-11-06: disegnato 25.6499 atteso 25.6400 (x 284.0 vs 284.0)
+     senza-serie-390-3A: VIX al 2026-11-05: disegnato 28.1818 atteso 28.1800 (x 283.7 vs 283.7)
+OK   senza-serie-390-3A: VIX: 1 tratti (attesi 1)
+OK   senza-serie-390-3A: legenda di 4 voci (VIX (implicita, prossimi 30 giorni) | realizzata delle ultime 21 sedute | premio per la paura | premio oltre l'80° percentile della sua storia)
+OK   senza-serie-390-3A: nessun elemento nuovo
+OK   senza-serie-390-3A: riquadro dei valori senza righe nuove
+OK   periodo 10A selezionato
+OK   senza-serie-390-10A: 2 pannelli (attesi 2)
+OK   senza-serie-390-10A: 3 anni sull'asse x (2019,2022,2025)
+OK   senza-serie-390-10A: anni equidistanti nel tempo (scarto 0.000)
+OK   senza-serie-390-10A: linea verticale per ogni anno in ogni pannello
+OK   senza-serie-390-10A: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   senza-serie-390-10A: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     senza-serie-390-10A: finestra 2016-11-05 → 2026-11-06 (10.00 anni)
+OK   senza-serie-390-10A: periodo 10 anni
+OK   senza-serie-390-10A: asse del VIX lineare (20 40 60 80 100)
+OK   senza-serie-390-10A: VIX: 2514 vertici, 2514 sedute con dato nel periodo
+OK   senza-serie-390-10A: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 2017-04-12)
+     senza-serie-390-10A: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 100.7 vs 100.7)
+     senza-serie-390-10A: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 240.4 vs 240.4)
+     senza-serie-390-10A: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     senza-serie-390-10A: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 283.9 vs 283.9)
+OK   senza-serie-390-10A: VIX: 1 tratti (attesi 1)
+OK   senza-serie-390-10A: legenda di 4 voci (VIX (implicita, prossimi 30 giorni) | realizzata delle ultime 21 sedute | premio per la paura | premio oltre l'80° percentile della sua storia)
+OK   senza-serie-390-10A: nessun elemento nuovo
+OK   senza-serie-390-10A: riquadro dei valori senza righe nuove
+OK   periodo MAX selezionato
+OK   senza-serie-390-MAX: 2 pannelli (attesi 2)
+OK   senza-serie-390-MAX: 3 anni sull'asse x (2000,2010,2020)
+OK   senza-serie-390-MAX: anni equidistanti nel tempo (scarto 0.000)
+OK   senza-serie-390-MAX: linea verticale per ogni anno in ogni pannello
+OK   senza-serie-390-MAX: ultima seduta sul bordo destro (284.0 vs 284.0)
+OK   senza-serie-390-MAX: bordo destro alla data 2026-11-06 (attesa 2026-11-06)
+     senza-serie-390-MAX: finestra 1990-01-02 → 2026-11-06 (36.84 anni)
+OK   senza-serie-390-MAX: MAX parte dal 1990-01-02
+OK   senza-serie-390-MAX: asse del VIX lineare (20 40 60 80 100)
+OK   senza-serie-390-MAX: VIX: 9278 vertici, 9278 sedute con dato nel periodo
+OK   senza-serie-390-MAX: VIX: tutti i vertici alla data e al valore giusti (scarto max x 0.05, y 0.05 1991-07-18)
+     senza-serie-390-MAX: VIX al 2008-10-24: disegnato 79.1368 atteso 79.1300 (x 148.9 vs 148.9)
+     senza-serie-390-MAX: VIX al 2020-03-16: disegnato 82.7098 atteso 82.6900 (x 234.2 vs 234.2)
+     senza-serie-390-MAX: VIX al 2025-04-08: disegnato 52.3167 atteso 52.3300 (x 272.2 vs 272.2)
+     senza-serie-390-MAX: VIX al 2007-12-03: disegnato 23.5999 atteso 23.6100 (x 142.2 vs 142.2)
+     senza-serie-390-MAX: VIX al 2007-12-04: disegnato 23.7763 atteso 23.7900 (x 142.2 vs 142.2)
+     senza-serie-390-MAX: VIX al 2026-11-06: disegnato 25.6290 atteso 25.6400 (x 284.0 vs 284.0)
+     senza-serie-390-MAX: VIX al 2026-11-05: disegnato 28.1875 atteso 28.1800 (x 284.0 vs 284.0)
+OK   senza-serie-390-MAX: VIX: 4 tratti (attesi 4)
+OK   senza-serie-390-MAX: legenda di 4 voci (VIX (implicita, prossimi 30 giorni) | realizzata delle ultime 21 sedute | premio per la paura | premio oltre l'80° percentile della sua storia)
+OK   senza-serie-390-MAX: nessun elemento nuovo
+OK   senza-serie-390-MAX: riquadro dei valori senza righe nuove
+     senza-serie-390: riquadri VIX | 25,64 | paura · al 06/11/2026 · provvisorio || PERCENTILE DEL VIX | 84° | nella storia dal 02/01/1990 || VOLATILITÀ REALIZZATA | 19,8 | S&P 500, 21 sedute al 06/11/2026, annualizzata || PREMIO PER LA PAURA | +5,8 | VIX − realizzata · 68° percentile || VIX / VIX3M | — | dato non disponibile || CREDITO HIGH YIELD | — | dato non disponibile
+     senza-serie-390: meta «VIX al 06/11/2026 (FRED al 05/11/2026, poi Cboe provvisorio) · S&P 500 al 06/11/2026 · Nasdaq-100 al 06/11/2026»
+OK   1.6.0-senza 390: console senza errori 
+OK   periodo 3A selezionato
+OK   periodo 10A selezionato
+OK   periodo MAX selezionato
+OK   1.5.0 390: console senza errori 
+OK   senza-serie-390-3A: SVG identico alla 1.5.0
+OK   senza-serie-390-10A: SVG identico alla 1.5.0
+OK   senza-serie-390-MAX: SVG identico alla 1.5.0
+
+606 OK, 0 FAIL

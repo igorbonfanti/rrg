@@ -1,0 +1,53 @@
+OK   350 pb: segnali 7 = «7 volte»
+OK   350 pb: 4 su 7 con calo ≥10% in 6 mesi
+OK   350 pb: in allarme 74.2%
+OK   nessun segnale tra 24/07/2007 e 26/11/2021
+OK   eventi ≥10% avvisati 6/27
+OK   eventi ≥20% avvisati 2/6
+OK   soglie vicine 300/400/500: nessuna passa insieme (a) e (b)
+OK   HYG/IEF −3%…−10%: nessuna delle 6 soglie supera il criterio
+FAIL note di versione «non anticipano i cali dell'S&P 500 meglio del caso»: per i 350 pb la (a) passa (4/7 contro 26.7%, +30.4 punti, p=0.087); a non passare è la (b)
+OK   48 regole decise prima
+OK   nessuna regola supera il criterio
+OK   WTI sopra il massimo dei 12 mesi: 9/30
+OK   base 280/910 (30,8%)
+FAIL «Il Brent sopra 100 dollari per due mesi è successo solo 3 volte (2008, 2011, 2022)»: segnali nei risultati ['2008-04', '2011-03', '2022-04', '2026-04'] → 4 volte, l'ultimo (2026-04) è quello in corso
+FAIL «nessuna … anticipa meglio di un mese qualsiasi»: WTI +20% sopra il massimo dei 12 mesi +35.9 punti, Brent sopra 100 per 2 mesi 69.2 punti (meglio della base, ma pochi casi: il testo dovrebbe dire «nessuna supera il criterio»)
+OK   1973-74: -48.2%
+OK   primo segnale 08/1973, 7 mesi dopo il massimo del 01/1973
+OK   recessioni 7 su 11
+OK   S&P 500 massimo di chiusura 7.818,93 il 06/10/2026
+OK   S&P 500 massimo durante la seduta 7.844,52
+OK   petrolio: massimo dei 3 anni ad aprile 2026
+OK   bitcoin: picco di ottobre 2025
+OK   bitcoin: picco di 401 giorni fa = 13 mesi, fuori dalle 52 settimane
+OK   bitcoin +26.31% dal minimo del 2026-06-30
+NOTA «sarebbe sembrato quasi intatto»: con la regola del 20% il bitcoin sarebbe a -14.6% (non «quasi intatto»): da sfumare
+OK   massimo di sempre del petrolio nel 2008
+NOTA «i numeri possono differire di qualche decimo»: S&P 500 −3,44% contro −3,76% (0,32 punti), ma oro GC=F −22,64% contro −26,35% (3,7 punti) in sintesi.md §4: da sfumare
+OK   «Francesco Caruso» presente in index.html
+OK   «Francesco Caruso» presente in README.md
+OK   «Francesco Caruso» presente in js/version.js
+OK   «Francesco Caruso» presente in guida #massimi
+OK   «Cicli&» presente in index.html
+OK   «Cicli&» presente in README.md
+OK   «Cicli&» presente in js/version.js
+OK   «Cicli&» presente in guida #massimi
+OK   «Francesco Caruso» presente in guida #credito-petrolio
+OK   «0 a −60%» presente in nota del pannello
+OK   «0 a −60%» presente in guida #massimi
+OK   README «~340 KB»: data/ath_history.json 341988 byte
+OK   README: maxAge 4, KOSPI 12
+
+Distanza dal massimo di chiusura dei 3 anni contro quella dal massimo durante la seduta (punti percentuali):
+  BTC      -40.71   -41.39  differenza  0.68
+  GOLD     -26.36   -28.36  differenza  2.00
+  SILVER   -55.82   -57.53  differenza  1.71
+  COPPER    -7.78    -8.13  differenza  0.35
+  WTI      -23.39   -27.58  differenza  4.19
+  NDX       -9.13    -9.52  differenza  0.39
+  SPX       -2.55    -2.87  differenza  0.32
+  SOXX     -28.83   -28.93  differenza  0.10
+  KOSPI    -41.02   -42.73  differenza  1.71
+
+38 controlli, 3 falliti

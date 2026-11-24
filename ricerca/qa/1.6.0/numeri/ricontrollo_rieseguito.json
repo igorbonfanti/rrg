@@ -1,0 +1,152 @@
+{
+ "ultima_seduta": "2026-11-06",
+ "vix3m": {
+  "fred_valori": 4761,
+  "fred_primo": "2007-12-04",
+  "cboe_primo": "2009-09-18",
+  "comuni": 4310,
+  "uguali_centesimo": 4310,
+  "fred_sedute_mancanti": [
+   "2026-11-06"
+  ],
+  "fred_fuori_seduta": 0,
+  "vixcls_fuori_seduta_dal_2007_12_04": 33
+ },
+ "yahoo_vix3m": {
+  "60g_comuni": 44,
+  "60g_uguali": 44,
+  "storia_diversi": 12,
+  "max": [
+   1.0499995422363284,
+   "2014-10-15"
+  ]
+ },
+ "futures": {
+  "scadenze": 275,
+  "cdn_ultima_riga_uguale_al_nome_per_scaduti": 166,
+  "cdn_scaduti": 166,
+  "elenco_uguale_ai_file": true
+ },
+ "struttura": {
+  "sedute": 4761,
+  "dal": "2007-12-04",
+  "al": "2026-11-05",
+  "uguali": 4336,
+  "quota": 0.9107,
+  "entrambi": 424,
+  "solo_indici": 54,
+  "solo_futures": 371,
+  "corr_livelli": 0.8548,
+  "corr_variazioni": 0.5856,
+  "coppie": 4760,
+  "ingressi_indici": [
+   132,
+   69
+  ],
+  "ingressi_futures": [
+   126,
+   64
+  ],
+  "ingressi_filtrati_10": [
+   58,
+   29,
+   63,
+   29
+  ],
+  "altro_in_backwardation_entro_2": [
+   115,
+   68,
+   47,
+   35
+  ],
+  "periodi_disaccordo": 185,
+  "almeno_5": 18,
+  "almeno_10": 5,
+  "scadenze": 227,
+  "salto_roll_mediano": 1.6000000000000014,
+  "salto_roll_max": 9.750000000000007
+ },
+ "credito": {
+  "BAA10Y": {
+   "livelli": [
+    0.4401,
+    747
+   ],
+   "v5": [
+    0.6876,
+    737
+   ],
+   "v21": [
+    0.6736,
+    723
+   ]
+  },
+  "AAA10Y": {
+   "livelli": [
+    -0.1782,
+    747
+   ],
+   "v5": [
+    0.629,
+    737
+   ],
+   "v21": [
+    0.5475,
+    723
+   ]
+  },
+  "IG": {
+   "livelli": [
+    0.9287,
+    751
+   ],
+   "v5": [
+    0.822,
+    745
+   ],
+   "v21": [
+    0.8843,
+    729
+   ]
+  },
+  "HYG/IEF": {
+   "livelli": [
+    0.6921,
+    752
+   ],
+   "v5": [
+    0.6986,
+    747
+   ],
+   "v21": [
+    0.7062,
+    731
+   ]
+  },
+  "Baa-Aaa": {
+   "livelli": [
+    0.7005,
+    747
+   ],
+   "v5": [
+    0.1277,
+    737
+   ],
+   "v21": [
+    0.4376,
+    723
+   ]
+  },
+  "BAA10Y_contro_HYG_IEF_dal_2007_v21": [
+   0.7394,
+   4831
+  ],
+  "baa10y_sedute_mancanti_dal_1990": 79
+ },
+ "peso_kb": {
+  "VIX3M_ps10000": 30.9,
+  "VIX3M_ps100": 21.68,
+  "BAA10Y_ps10000": 45.66,
+  "BAA10Y_ps100": 30.93
+ }
+}

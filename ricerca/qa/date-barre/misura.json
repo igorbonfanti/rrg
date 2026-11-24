@@ -1,0 +1,1479 @@
+{
+ "range": "5y",
+ "run": "2026-11-05T14:24:28.471Z",
+ "symbols": {
+  "SWDA.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "IUSQ.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "XEON.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "EIMI.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "EM13.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "EM710.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "EM15.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "SGLD.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "IWDP.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "CMOD.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "BTC-EUR": {
+   "group": "global",
+   "tz": "UTC",
+   "gmtoffset": 0,
+   "bars": 1827,
+   "shifted": 0,
+   "weekendOld": 522,
+   "weekendTz": 522,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1827
+   },
+   "examples": []
+  },
+  "DBMFE.PA": {
+   "group": "global",
+   "tz": "Europe/Paris",
+   "gmtoffset": 3600,
+   "bars": 392,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 392
+   },
+   "examples": []
+  },
+  "DBMF": {
+   "group": "global",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "IWVL.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "IWQU.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "IWMO.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "MVOL.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "ZPRS.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "EQQQ.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "VHYL.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "MWEQ.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 527,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 527
+   },
+   "examples": []
+  },
+  "CSSPX.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "SMEA.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "SJPA.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "CSPXJ.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "CSCA.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "ISF.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "XSMI.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "EXS1.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "CACC.PA": {
+   "group": "global",
+   "tz": "Europe/Paris",
+   "gmtoffset": 3600,
+   "bars": 1281,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1281
+   },
+   "examples": []
+  },
+  "XMIB.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "LYXIB.MC": {
+   "group": "global",
+   "tz": "Europe/Madrid",
+   "gmtoffset": 3600,
+   "bars": 1279,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1279
+   },
+   "examples": []
+  },
+  "IAEX.AS": {
+   "group": "global",
+   "tz": "Europe/Amsterdam",
+   "gmtoffset": 3600,
+   "bars": 1281,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1281
+   },
+   "examples": []
+  },
+  "XCS6.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "QDV5.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "IQQT.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "IQQK.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "IBZL.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "SXR8.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "CSNDX.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "SXRU.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "CSNKY.MI": {
+   "group": "global",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "EXSA.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "XUKX.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "DBXD.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "CAC.PA": {
+   "group": "global",
+   "tz": "Europe/Paris",
+   "gmtoffset": 3600,
+   "bars": 1281,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1281
+   },
+   "examples": []
+  },
+  "XSMI.DE": {
+   "group": "global",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "EURUSD=X": {
+   "group": "fx",
+   "tz": "Europe/London",
+   "gmtoffset": 0,
+   "bars": 1305,
+   "shifted": 760,
+   "weekendOld": 152,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1305
+   },
+   "examples": [
+    {
+     "ts": 1648422000,
+     "utc": "2022-03-27T23:00:00.000Z",
+     "old": "2022-03-27",
+     "tz": "2022-03-28"
+    },
+    {
+     "ts": 1648508400,
+     "utc": "2022-03-28T23:00:00.000Z",
+     "old": "2022-03-28",
+     "tz": "2022-03-29"
+    },
+    {
+     "ts": 1792710000,
+     "utc": "2026-10-22T23:00:00.000Z",
+     "old": "2026-10-22",
+     "tz": "2026-10-23"
+    }
+   ]
+  },
+  "EURGBP=X": {
+   "group": "fx",
+   "tz": "Europe/London",
+   "gmtoffset": 0,
+   "bars": 1305,
+   "shifted": 760,
+   "weekendOld": 152,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1305
+   },
+   "examples": [
+    {
+     "ts": 1648422000,
+     "utc": "2022-03-27T23:00:00.000Z",
+     "old": "2022-03-27",
+     "tz": "2022-03-28"
+    },
+    {
+     "ts": 1648508400,
+     "utc": "2022-03-28T23:00:00.000Z",
+     "old": "2022-03-28",
+     "tz": "2022-03-29"
+    },
+    {
+     "ts": 1792710000,
+     "utc": "2026-10-22T23:00:00.000Z",
+     "old": "2026-10-22",
+     "tz": "2026-10-23"
+    }
+   ]
+  },
+  "EURCHF=X": {
+   "group": "fx",
+   "tz": "Europe/London",
+   "gmtoffset": 0,
+   "bars": 1305,
+   "shifted": 760,
+   "weekendOld": 152,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1305
+   },
+   "examples": [
+    {
+     "ts": 1648422000,
+     "utc": "2022-03-27T23:00:00.000Z",
+     "old": "2022-03-27",
+     "tz": "2022-03-28"
+    },
+    {
+     "ts": 1648508400,
+     "utc": "2022-03-28T23:00:00.000Z",
+     "old": "2022-03-28",
+     "tz": "2022-03-29"
+    },
+    {
+     "ts": 1792710000,
+     "utc": "2026-10-22T23:00:00.000Z",
+     "old": "2026-10-22",
+     "tz": "2026-10-23"
+    }
+   ]
+  },
+  "EURJPY=X": {
+   "group": "fx",
+   "tz": "Europe/London",
+   "gmtoffset": 0,
+   "bars": 1305,
+   "shifted": 760,
+   "weekendOld": 152,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1305
+   },
+   "examples": [
+    {
+     "ts": 1648422000,
+     "utc": "2022-03-27T23:00:00.000Z",
+     "old": "2022-03-27",
+     "tz": "2022-03-28"
+    },
+    {
+     "ts": 1648508400,
+     "utc": "2022-03-28T23:00:00.000Z",
+     "old": "2022-03-28",
+     "tz": "2022-03-29"
+    },
+    {
+     "ts": 1792710000,
+     "utc": "2026-10-22T23:00:00.000Z",
+     "old": "2026-10-22",
+     "tz": "2026-10-23"
+    }
+   ]
+  },
+  "EURCAD=X": {
+   "group": "fx",
+   "tz": "Europe/London",
+   "gmtoffset": 0,
+   "bars": 1305,
+   "shifted": 760,
+   "weekendOld": 152,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1305
+   },
+   "examples": [
+    {
+     "ts": 1648422000,
+     "utc": "2022-03-27T23:00:00.000Z",
+     "old": "2022-03-27",
+     "tz": "2022-03-28"
+    },
+    {
+     "ts": 1648508400,
+     "utc": "2022-03-28T23:00:00.000Z",
+     "old": "2022-03-28",
+     "tz": "2022-03-29"
+    },
+    {
+     "ts": 1792710000,
+     "utc": "2026-10-22T23:00:00.000Z",
+     "old": "2026-10-22",
+     "tz": "2026-10-23"
+    }
+   ]
+  },
+  "EURSEK=X": {
+   "group": "fx",
+   "tz": "Europe/London",
+   "gmtoffset": 0,
+   "bars": 1305,
+   "shifted": 760,
+   "weekendOld": 152,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1305
+   },
+   "examples": [
+    {
+     "ts": 1648422000,
+     "utc": "2022-03-27T23:00:00.000Z",
+     "old": "2022-03-27",
+     "tz": "2022-03-28"
+    },
+    {
+     "ts": 1648508400,
+     "utc": "2022-03-28T23:00:00.000Z",
+     "old": "2022-03-28",
+     "tz": "2022-03-29"
+    },
+    {
+     "ts": 1792710000,
+     "utc": "2026-10-22T23:00:00.000Z",
+     "old": "2026-10-22",
+     "tz": "2026-10-23"
+    }
+   ]
+  },
+  "BIL": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "GLD": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "SLV": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "CPER": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "USO": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "DBC": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "BTC-USD": {
+   "group": "macro",
+   "tz": "UTC",
+   "gmtoffset": 0,
+   "bars": 1827,
+   "shifted": 0,
+   "weekendOld": 522,
+   "weekendTz": 522,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1827
+   },
+   "examples": []
+  },
+  "TIP": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "IEF": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "SPY": {
+   "group": "settori",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "DX-Y.NYB": {
+   "group": "macro",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1521,
+   "shifted": 997,
+   "weekendOld": 418,
+   "weekendTz": 261,
+   "dupOld": 6,
+   "dupTz": 0,
+   "localBarHours": {
+    "00:00": 1511,
+    "09:30": 10
+   },
+   "examples": [
+    {
+     "ts": 1636084800,
+     "utc": "2021-11-05T04:00:00.000Z",
+     "old": "2021-11-04",
+     "tz": "2021-11-05"
+    },
+    {
+     "ts": 1636257600,
+     "utc": "2021-11-07T04:00:00.000Z",
+     "old": "2021-11-06",
+     "tz": "2021-11-07"
+    },
+    {
+     "ts": 1793505600,
+     "utc": "2026-11-01T04:00:00.000Z",
+     "old": "2026-10-31",
+     "tz": "2026-11-01"
+    }
+   ]
+  },
+  "^GSPC": {
+   "group": "indici",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "^NDX": {
+   "group": "indici",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "^DJI": {
+   "group": "indici",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "^N225": {
+   "group": "indici",
+   "tz": "Asia/Tokyo",
+   "gmtoffset": 32400,
+   "bars": 1221,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1221
+   },
+   "examples": []
+  },
+  "^STOXX": {
+   "group": "indici",
+   "tz": "Europe/Zurich",
+   "gmtoffset": 3600,
+   "bars": 1257,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1257
+   },
+   "examples": []
+  },
+  "^FTSE": {
+   "group": "indici",
+   "tz": "Europe/London",
+   "gmtoffset": 0,
+   "bars": 1262,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "08:00": 1262
+   },
+   "examples": []
+  },
+  "^GDAXI": {
+   "group": "indici",
+   "tz": "Europe/Berlin",
+   "gmtoffset": 3600,
+   "bars": 1275,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1261,
+    "08:00": 14
+   },
+   "examples": []
+  },
+  "^FCHI": {
+   "group": "indici",
+   "tz": "Europe/Paris",
+   "gmtoffset": 3600,
+   "bars": 1281,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1281
+   },
+   "examples": []
+  },
+  "^SSMI": {
+   "group": "indici",
+   "tz": "Europe/Zurich",
+   "gmtoffset": 3600,
+   "bars": 1257,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1257
+   },
+   "examples": []
+  },
+  "^RUT": {
+   "group": "indici",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "XIU.TO": {
+   "group": "indici",
+   "tz": "America/Toronto",
+   "gmtoffset": -18000,
+   "bars": 1255,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1255
+   },
+   "examples": []
+  },
+  "^STOXX50E": {
+   "group": "indici",
+   "tz": "Europe/Zurich",
+   "gmtoffset": 3600,
+   "bars": 1257,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1257
+   },
+   "examples": []
+  },
+  "FTSEMIB.MI": {
+   "group": "indici",
+   "tz": "Europe/Rome",
+   "gmtoffset": 3600,
+   "bars": 1271,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1271
+   },
+   "examples": []
+  },
+  "^IBEX": {
+   "group": "indici",
+   "tz": "Europe/Madrid",
+   "gmtoffset": 3600,
+   "bars": 1279,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1279
+   },
+   "examples": []
+  },
+  "^HSI": {
+   "group": "indici",
+   "tz": "Asia/Hong_Kong",
+   "gmtoffset": 28800,
+   "bars": 1229,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1229
+   },
+   "examples": []
+  },
+  "510300.SS": {
+   "group": "indici",
+   "tz": "Asia/Shanghai",
+   "gmtoffset": 28800,
+   "bars": 1212,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1212
+   },
+   "examples": []
+  },
+  "^KS11": {
+   "group": "indici",
+   "tz": "Asia/Seoul",
+   "gmtoffset": 32400,
+   "bars": 1221,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1221
+   },
+   "examples": []
+  },
+  "^TWII": {
+   "group": "indici",
+   "tz": "Asia/Taipei",
+   "gmtoffset": 28800,
+   "bars": 1213,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:00": 1213
+   },
+   "examples": []
+  },
+  "^NSEI": {
+   "group": "indici",
+   "tz": "Asia/Kolkata",
+   "gmtoffset": 19800,
+   "bars": 1236,
+   "shifted": 0,
+   "weekendOld": 1,
+   "weekendTz": 1,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:15": 1234,
+    "18:15": 1,
+    "09:00": 1
+   },
+   "examples": []
+  },
+  "^AXJO": {
+   "group": "indici",
+   "tz": "Australia/Sydney",
+   "gmtoffset": 39600,
+   "bars": 1266,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 1,
+   "dupTz": 1,
+   "localBarHours": {
+    "10:00": 1265,
+    "17:08": 1
+   },
+   "examples": []
+  },
+  "EEM": {
+   "group": "indici",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "^BVSP": {
+   "group": "indici",
+   "tz": "America/Sao_Paulo",
+   "gmtoffset": -10800,
+   "bars": 1248,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "10:00": 1240,
+    "19:05": 3,
+    "13:00": 5
+   },
+   "examples": []
+  },
+  "XLK": {
+   "group": "settori",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  },
+  "AAPL": {
+   "group": "settori",
+   "tz": "America/New_York",
+   "gmtoffset": -18000,
+   "bars": 1254,
+   "shifted": 0,
+   "weekendOld": 0,
+   "weekendTz": 0,
+   "dupOld": 0,
+   "dupTz": 0,
+   "localBarHours": {
+    "09:30": 1254
+   },
+   "examples": []
+  }
+ }
+}

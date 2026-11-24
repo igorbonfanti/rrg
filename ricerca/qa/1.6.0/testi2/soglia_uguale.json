@@ -1,0 +1,26 @@
+{
+ "regola della ricerca (> 1)": {
+  "sedute": 4761,
+  "dal": "2007-12-04",
+  "al": "2026-11-05",
+  "vix_vix3m": 478,
+  "vx1_vx2": 795,
+  "entrambi": 424,
+  "uguali": 4336,
+  "quota": 0.9107,
+  "R_uguale_1": 1,
+  "VX1_uguale_VX2": 26
+ },
+ "regola dell'app (>= 1)": {
+  "sedute": 4761,
+  "dal": "2007-12-04",
+  "al": "2026-11-05",
+  "vix_vix3m": 479,
+  "vx1_vx2": 821,
+  "entrambi": 430,
+  "uguali": 4321,
+  "quota": 0.9076,
+  "R_uguale_1": 1,
+  "VX1_uguale_VX2": 26
+ }
+}

@@ -1,0 +1,14 @@
+"Mars/Olympus" gmtoffset 3600: uguale al vecchio (184.7 ms, 1300 barre)
+"" gmtoffset 3600: uguale al vecchio (4.1 ms, 1300 barre)
+null gmtoffset -18000: uguale al vecchio (3.9 ms, 1300 barre)
+undefined gmtoffset 19800: uguale al vecchio (7.6 ms, 1300 barre)
+"Etc/Unknown" gmtoffset 0: uguale al vecchio (205.7 ms, 1300 barre)
+123 gmtoffset 3600: uguale al vecchio (199.4 ms, 1300 barre)
+Asia/Calcutta: accettato da Intl
+Europe/Kiev: accettato da Intl
+Asia/Saigon: accettato da Intl
+America/Buenos_Aires: accettato da Intl
+GMT: accettato da Intl
+EST5EDT: accettato da Intl
+US/Eastern: accettato da Intl
+13 su 13 casi come atteso

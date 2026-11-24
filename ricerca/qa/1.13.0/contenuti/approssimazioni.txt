@@ -1,0 +1,124 @@
+mon                  membri di oggi                 1.12.0:H    1.13.0:H   
+mon                  solo prezzo                    1.12.0:VA   1.13.0:VA  
+mon                  dividendi                      1.12.0:VA   1.13.0:A     <-- CAMBIA
+mon                  ricostruit                     1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-settori          ultimo prezzo noto             1.12.0:H    1.13.0:H   
+rrg-settori          CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-settori          solo prezzo                    1.12.0:H    1.13.0:H   
+rrg-settori          dividendi                      1.12.0:H    1.13.0:H   
+rrg-settori          provvisorio                    1.12.0:H    1.13.0:H   
+rrg-settori-prezzi   ultimo prezzo noto             1.12.0:H    1.13.0:H   
+rrg-settori-prezzi   CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-settori-prezzi   solo prezzo                    1.12.0:VA   1.13.0:AI    <-- CAMBIA
+rrg-settori-prezzi   dividendi                      1.12.0:VA   1.13.0:AI    <-- CAMBIA
+rrg-settori-prezzi   provvisorio                    1.12.0:H    1.13.0:H   
+rrg-mag7             ultimo prezzo noto             1.12.0:H    1.13.0:H   
+rrg-mag7             CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-mag7             solo prezzo                    1.12.0:H    1.13.0:H   
+rrg-mag7             dividendi                      1.12.0:H    1.13.0:H   
+rrg-mag7             provvisorio                    1.12.0:H    1.13.0:H   
+rrg-global1          DBMF 28/04/2025                1.12.0:VA   1.13.0:VA  
+rrg-global1          ultimo prezzo noto             1.12.0:H    1.13.0:H   
+rrg-global1          CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-global1          solo prezzo                    1.12.0:H    1.13.0:H   
+rrg-global1          dividendi                      1.12.0:H    1.13.0:H   
+rrg-global1          provvisorio                    1.12.0:H    1.13.0:H   
+rrg-global1-prezzi   DBMF 28/04/2025                1.12.0:VA   1.13.0:VA  
+rrg-global1-prezzi   ultimo prezzo noto             1.12.0:V    1.13.0:VI    <-- CAMBIA
+rrg-global1-prezzi   bitcoin mezzanotte             1.12.0:V    1.13.0:VI    <-- CAMBIA
+rrg-global1-prezzi   CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-global1-prezzi   solo prezzo                    1.12.0:VA   1.13.0:AI    <-- CAMBIA
+rrg-global1-prezzi   dividendi                      1.12.0:VA   1.13.0:AI    <-- CAMBIA
+rrg-global1-prezzi   provvisorio                    1.12.0:H    1.13.0:H   
+rrg-global1-prezzi   asterisco 3 mesi $             1.12.0:-    1.13.0:V     <-- CAMBIA
+rrg-global2          ultimo prezzo noto             1.12.0:H    1.13.0:H   
+rrg-global2          CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-global2          solo prezzo                    1.12.0:H    1.13.0:H   
+rrg-global2          dividendi                      1.12.0:H    1.13.0:H   
+rrg-global2          provvisorio                    1.12.0:H    1.13.0:H   
+rrg-global5          ultimo prezzo noto             1.12.0:H    1.13.0:H   
+rrg-global5          CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-global5          solo prezzo                    1.12.0:H    1.13.0:H   
+rrg-global5          dividendi                      1.12.0:H    1.13.0:H   
+rrg-global5          provvisorio                    1.12.0:H    1.13.0:H   
+rrg-global6          ultimo prezzo noto             1.12.0:A    1.13.0:AI    <-- CAMBIA
+rrg-global6          CPI a gradini                  1.12.0:V    1.13.0:VI    <-- CAMBIA
+rrg-global6          solo prezzo                    1.12.0:H    1.13.0:H   
+rrg-global6          dividendi                      1.12.0:H    1.13.0:H   
+rrg-global6          provvisorio                    1.12.0:H    1.13.0:H   
+rrg-semplice         ultimo prezzo noto             1.12.0:H    1.13.0:H   
+rrg-semplice         CPI a gradini                  1.12.0:H    1.13.0:V     <-- CAMBIA
+rrg-semplice         solo prezzo                    1.12.0:H    1.13.0:H   
+rrg-semplice         dividendi                      1.12.0:H    1.13.0:H   
+rrg-semplice         provvisorio                    1.12.0:H    1.13.0:H   
+btm                  membri di oggi                 1.12.0:V    1.13.0:V   
+sec-XLK              membri di oggi                 1.12.0:-    1.13.0:V     <-- CAMBIA
+sec-XLK              solo prezzo                    1.12.0:VA   1.13.0:VA  
+sec-XLK              dividendi                      1.12.0:VA   1.13.0:AI    <-- CAMBIA
+sec-XLK              errori di stampa               1.12.0:V    1.13.0:I     <-- CAMBIA
+sec-XLK              ricostruit                     1.12.0:V    1.13.0:VI    <-- CAMBIA
+sec-SOXX             membri di oggi                 1.12.0:V    1.13.0:VI    <-- CAMBIA
+sec-SOXX             solo prezzo                    1.12.0:VA   1.13.0:VA  
+sec-SOXX             dividendi                      1.12.0:VA   1.13.0:AI    <-- CAMBIA
+sec-SOXX             errori di stampa               1.12.0:V    1.13.0:I     <-- CAMBIA
+sec-SOXX             ricostruit                     1.12.0:V    1.13.0:VI    <-- CAMBIA
+sec-XLRE             membri di oggi                 1.12.0:-    1.13.0:V     <-- CAMBIA
+sec-XLRE             solo prezzo                    1.12.0:VA   1.13.0:VA  
+sec-XLRE             dividendi                      1.12.0:VA   1.13.0:AI    <-- CAMBIA
+sec-XLRE             errori di stampa               1.12.0:V    1.13.0:I     <-- CAMBIA
+sec-XLRE             ricostruit                     1.12.0:V    1.13.0:VI    <-- CAMBIA
+tit-XLK              membri di oggi                 1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-XLK              solo prezzo                    1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-XLK              dividendi                      1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-XLK              asterisco 3 mesi $             1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-XLK              una stima (pesi)               1.12.0:V    1.13.0:AI    <-- CAMBIA
+tit-SOXX             membri di oggi                 1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-SOXX             solo prezzo                    1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-SOXX             dividendi                      1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-SOXX             asterisco 3 mesi $             1.12.0:V    1.13.0:I     <-- CAMBIA
+tit-SOXX             una stima (pesi)               1.12.0:V    1.13.0:AI    <-- CAMBIA
+idx-SPX              membri di oggi                 1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-SPX              copertura                      1.12.0:A    1.13.0:A   
+idx-SPX              solo prezzo                    1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-SPX              errori di stampa               1.12.0:V    1.13.0:I     <-- CAMBIA
+idx-SPX              ricostruit                     1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-DAX              membri di oggi                 1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-DAX              copertura                      1.12.0:A    1.13.0:A   
+idx-DAX              solo prezzo                    1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-DAX              errori di stampa               1.12.0:V    1.13.0:I     <-- CAMBIA
+idx-DAX              ricostruit                     1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-KOSPI200         membri di oggi                 1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-KOSPI200         copertura                      1.12.0:A    1.13.0:A   
+idx-KOSPI200         solo prezzo                    1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-KOSPI200         errori di stampa               1.12.0:V    1.13.0:I     <-- CAMBIA
+idx-KOSPI200         ricostruit                     1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-TSX60            membri di oggi                 1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-TSX60            copertura                      1.12.0:A    1.13.0:A   
+idx-TSX60            solo prezzo                    1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+idx-TSX60            errori di stampa               1.12.0:V    1.13.0:I     <-- CAMBIA
+idx-TSX60            ricostruit                     1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+emg                  membri di oggi                 1.12.0:V    1.13.0:I     <-- CAMBIA
+emg                  dividendi                      1.12.0:V    1.13.0:V   
+emg                  provvisorio                    1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+emg                  errori di stampa               1.12.0:V    1.13.0:-     <-- CAMBIA
+emg                  cambio Fed stesso giorno       1.12.0:V    1.13.0:I     <-- CAMBIA
+emg-CSI300           membri di oggi                 1.12.0:V    1.13.0:I     <-- CAMBIA
+emg-CSI300           dividendi                      1.12.0:V    1.13.0:V   
+emg-CSI300           provvisorio                    1.12.0:VA   1.13.0:VAI   <-- CAMBIA
+emg-CSI300           errori di stampa               1.12.0:V    1.13.0:-     <-- CAMBIA
+emg-CSI300           cambio Fed stesso giorno       1.12.0:V    1.13.0:I     <-- CAMBIA
+vix                  solo prezzo                    1.12.0:V    1.13.0:VI    <-- CAMBIA
+vix                  dividendi                      1.12.0:VA   1.13.0:A     <-- CAMBIA
+vix                  provvisorio                    1.12.0:V    1.13.0:V   
+alr                  livelli blu di oggi (storico)  1.12.0:V    1.13.0:V   
+alr                  ricostruit                     1.12.0:V    1.13.0:V   
+ath                  solo prezzo                    1.12.0:V    1.13.0:VI    <-- CAMBIA
+ath                  dividendi                      1.12.0:V    1.13.0:I     <-- CAMBIA
+help                 solo prezzo                    1.12.0:V    1.13.0:V   
+help                 dividendi                      1.12.0:V    1.13.0:V   
+help                 ricostruit                     1.12.0:V    1.13.0:-     <-- CAMBIA
+help                 in-sample                      1.12.0:V    1.13.0:-     <-- CAMBIA
+intro                membri di oggi                 1.12.0:H    1.13.0:H   
+intro                solo prezzo                    1.12.0:VA   1.13.0:VA  
+intro                dividendi                      1.12.0:VA   1.13.0:A     <-- CAMBIA
+intro                ricostruit                     1.12.0:H    1.13.0:V     <-- CAMBIA

@@ -1,0 +1,20 @@
+OK   320: righe 2+2+2 (attese 2+2+2), larghezza minima 130 px, testo fuori: nessuno, scorrimento 320/320
+OK   360: righe 2+2+2 (attese 2+2+2), larghezza minima 150 px, testo fuori: nessuno, scorrimento 360/360
+OK   600: righe 2+2+2 (attese 2+2+2), larghezza minima 270 px, testo fuori: nessuno, scorrimento 600/600
+OK   601: righe 3+3 (attese 3+3), larghezza minima 180 px, testo fuori: nessuno, scorrimento 601/601
+OK   768: righe 3+3 (attese 3+3), larghezza minima 235 px, testo fuori: nessuno, scorrimento 768/768
+OK   820: righe 3+3 (attese 3+3), larghezza minima 253 px, testo fuori: nessuno, scorrimento 820/820
+OK   1100: righe 3+3 (attese 3+3), larghezza minima 346 px, testo fuori: nessuno, scorrimento 1100/1100
+OK   1101: righe 6 (attese 6), larghezza minima 173 px, testo fuori: nessuno, scorrimento 1101/1101
+OK   1120: righe 6 (attese 6), larghezza minima 176 px, testo fuori: nessuno, scorrimento 1120/1120
+OK   1180: righe 6 (attese 6), larghezza minima 186 px, testo fuori: nessuno, scorrimento 1180/1180
+OK   1440: righe 6 (attese 6), larghezza minima 229 px, testo fuori: nessuno, scorrimento 1440/1440
+OK   1920: righe 6 (attese 6), larghezza minima 241 px, testo fuori: nessuno, scorrimento 1920/1920
+     MAX al 30.0%: 19/01/2001: S&P 500 1.343 | VIX: 23,24 | Realizzata 21 sedute: 28,9 | Premio per la paura: −5,6 | Percentile del premio: 1° | VIX3M: — | VIX / VIX3M: — | HYG/IEF dal massimo 12 mesi: —
+OK   riquadro del 2001-01-19: «—» per VIX3M, rapporto e credito
+     MAX al 47.4%: 20/06/2007: S&P 500 1.513 | VIX: 14,67 | Realizzata 21 sedute: 13,1 | Premio per la paura: +1,6 | Percentile del premio: 15° | VIX3M: — | VIX / VIX3M: — | HYG/IEF dal massimo 12 mesi: —
+OK   riquadro del 2007-06-20: «—» per VIX3M, rapporto e credito
+     MAX al 49.0%: 18/01/2008: S&P 500 1.325 | VIX: 27,18 | Realizzata 21 sedute: 21,0 | Premio per la paura: +6,1 | Percentile del premio: 70° | VIX3M: 25,99 | VIX / VIX3M: 1,05 backwardation | HYG/IEF dal massimo 12 mesi: —
+OK   riquadro del 2008-01-18: VIX3M sì, credito «—»
+
+FAIL: 0

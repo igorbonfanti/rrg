@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prototipo struttura a termine</title>
+<!--
+  PROTOTIPO di ricerca (fase 1), non è l'app. Usa il CSS e js/vix.js dell'app, più le regole nuove proposte qui sotto
+  (blocco «PROPOSTA»), e i dati reali scaricati da scarica.mjs in cache/ (cartella ignorata da git: i valori ICE e
+  Moody's non finiscono nel repository).
+  Aprire servito dalla radice del repository:  node ricerca/qa/server/gzserve.mjs . 8797
+  poi http://127.0.0.1:8797/ricerca/vix/struttura/inserimento/prototipo.html
+  Parametri: ?theme=light  ?range=3A|10A|MAX  ?hy=1 (HY OAS ICE tratteggiato, solo per prova interna)
+             ?miss3m=1 (ultima seduta senza VIX3M)  ?prov3m=1 (VIX3M dell'ultima seduta provvisorio)  ?old=1 (file 1.5.0, senza serie nuove)
+             ?stat=1 (variante con una riga di statistica: segnaposto, il numero lo dà il backtest)
+-->
+<link rel="stylesheet" href="../../../../css/style.css" />
+<style>
+  /* ---------- PROPOSTA per css/style.css (blocco «vista 8 VIX») ---------- */
+  :root { --vx-r: #cc79a7; --vx-back: rgba(204, 121, 167, 0.36); --vx-cr: #2fbf8f; --vx-hy: #56b4e9; }
+  :root[data-theme="light"] { --vx-r: #9e3f78; --vx-back: rgba(158, 63, 120, 0.26); --vx-cr: #00785a; --vx-hy: #1f78b4; }
+  .ts .vxr { fill: none; stroke: var(--vx-r); stroke-width: 1.2; }
+  .ts .vxback { fill: var(--vx-back); }
+  .ts .vxrdot { fill: var(--bg); stroke: var(--vx-r); stroke-width: 1.5; } .ts .vxrdot.on { fill: var(--vx-r); }
+  .ts .vxone { stroke: var(--ink-2); stroke-width: 1; stroke-dasharray: 4 3; }
+  .ts .vxcr { fill: none; stroke: var(--vx-cr); stroke-width: 1.2; }
+  .ts .vxhy { fill: none; stroke: var(--vx-hy); stroke-width: 1.1; stroke-dasharray: 3 2; }
+  .ts .vxnodata { fill: var(--panel-2); }
+  .ts .vxnodata-t { fill: var(--ink-3); font: 10.5px var(--f-mono); }
+  .kl.vxk-r { background: var(--vx-r); } .kb.vxk-back { background: var(--vx-back); box-shadow: inset 0 0 0 1px var(--vx-r); }
+  .kl.vxk-cr { background: var(--vx-cr); } .kl.vxk-hy { background: none; border-top: 1.5px dashed var(--vx-hy); height: 0; }
+  .kpi .v .vxst { font: 500 12px var(--f-mono); color: var(--ink-2); margin-left: 6px; }
+  .kpi .v .vxst.back { color: var(--vx-r); }
+  /* 6 riquadri: 3 + 3 sul tablet, 2 + 2 + 2 sul telefono (oggi 1 colonna) */
+  @media (min-width: 601px) and (max-width: 1100px) { #vxKpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { #vxKpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } #vxKpis .kpi .s { overflow-wrap: anywhere; } .kpi .v .vxst { display: block; margin-left: 0; } }
+  .vxstat { border: 1px dashed var(--amber); padding: 6px 8px; color: var(--ink-2); }
+  /* solo prototipo */
+  #pBody > * + * { margin-top: 12px; }
+  .proto { font: 11px var(--f-mono); color: var(--ink-3); padding: 6px 12px; border-bottom: 1px dashed var(--rule); }
+</style>
+</head>
+<body>
+<div class="term">
+  <div class="proto">PROTOTIPO (ricerca, non è l'app) · dati reali FRED/Yahoo fino al <span id="pAsOf"></span> · <span id="pMode"></span></div>
+  <section class="view" id="v-vix">
+    <div id="pBody">
+      <div>
+        <div class="kpis" id="vxKpis"></div>
+        <p class="note pb vxmeta" id="vxMeta"></p>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>VIX, struttura a termine e credito · S&amp;P 500</h2><span class="ctl"><span class="seg" id="vxRange" role="group" aria-label="Periodo"><button type="button" data-range="3A">3A</button><button type="button" data-range="10A">10A</button><button type="button" data-range="MAX">MAX</button></span></span></div>
+        <div class="chart-wrap" id="vxWrap">
+          <svg class="ts" id="vxChart" role="img" aria-label="VIX, volatilità realizzata, premio per la paura, rapporto VIX/VIX3M e spread di credito nel tempo"></svg>
+          <div class="tip" id="vxTip" hidden></div>
+        </div>
+        <div class="legend" id="vxLegend"></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><h2>Come leggere (bozza dei paragrafi nuovi)</h2></div>
+        <div class="emread">
+          <p><b>Struttura a termine.</b> Il VIX misura la paura per i prossimi 30 giorni, il VIX3M per i prossimi 3 mesi. Di solito il VIX sta sotto il VIX3M (rapporto sotto 1, <b>contango</b>): chi compra protezione paga di più per le scadenze lunghe. Quando il VIX supera il VIX3M (rapporto da 1 in su, <b>backwardation</b>) la paura è per i prossimi giorni: succede nei ribassi bruschi. Solo contesto: non cambia stati né alert.</p>
+          <p><b>Credito.</b> Quanto rendono in più delle obbligazioni di Stato a 10 anni le obbligazioni societarie con rating Baa (le più basse dell'«investment grade»): sale quando il mercato teme i fallimenti. Si muove più lento del VIX e spesso dopo.</p>
+          <p class="vxstat" id="pStat" hidden>Variante B, riga di statistica: «[numero dal backtest, con lo script citato]». Si scrive solo se il backtest lo approva.</p>
+          <p class="muted">Idea della struttura a termine e del credito da un grafico di Stefano Serafini (Swiss Capital School) al Morning Trading Show di BNP Paribas; calcoli nostri su dati pubblici.</p>
+        </div>
+      </div>
+      <p class="note pb">Fonti (bozza): VIX e VIX3M di chiusura © Cboe, dalle serie VIXCLS e VXVCLS di FRED (Federal Reserve Bank of St. Louis), che le ripubblica con il permesso di Cboe; VIX3M dal 04/12/2007; l'ultima seduta, che FRED pubblica la mattina dopo, viene da Yahoo Finance ed è provvisoria. Credito: Moody's Seasoned Baa Corporate Bond Yield Relative to Yield on 10-Year Treasury Constant Maturity (BAA10Y), © Moody's, da FRED; solo nelle sedute dell'S&amp;P 500, «—» nei giorni in cui il mercato obbligazionario è chiuso.</p>
+    </div>
+  </section>
+</div>
+<script type="module">
+import * as V from '../../../../js/vix.js';
+import { context } from './bozza_vix_ctx.js';
+import { esc, fmt, sgn, sgnP, dIT, placeTip, bindTip, chartWidth } from '../../../../js/format.js';
+const Q = new URLSearchParams(location.search);
+document.documentElement.setAttribute('data-theme', Q.get('theme') === 'light' ? 'light' : 'dark');
+const $ = (id) => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg', DAY = 864e5;
+const el = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+const csv = async (id) => { const t = await (await fetch(`cache/${id}.csv`)).text(); const dates = [], val = []; for (const l of t.trim().split(/\r?\n/).slice(1)) { const [d, v] = l.split(','); if (v !== '' && v !== '.' && Number.isFinite(+v)) { dates.push(d); val.push(+v); } } return { dates, val }; };
+const app = await (await fetch('cache/app_vix.json')).json();
+const SPX = V.vxSeries(app.series.SPX), VIX = V.vxSeries(app.series.VIX);
+const S = new Set(SPX.dates);
+const onS = (s) => { const d = [], v = []; s.dates.forEach((x, i) => { if (S.has(x)) { d.push(x); v.push(s.val[i]); } }); return { dates: d, val: v }; };
+let v3 = onS(await csv('VXVCLS')); v3.fred = v3.dates.at(-1);
+let cr = onS(await csv('BAA10Y')); cr = { dates: cr.dates.filter((d) => d >= '1990-01-02'), val: cr.val.slice(cr.dates.findIndex((d) => d >= '1990-01-02')) };
+const hy = Q.get('hy') ? onS(await csv('BAMLH0A0HYM2')) : null;
+const mode = [];
+if (Q.get('miss3m')) { v3 = { dates: v3.dates.slice(0, -1), val: v3.val.slice(0, -1), fred: v3.dates.at(-2) }; mode.push('ultima seduta senza VIX3M'); }
+if (Q.get('prov3m')) { v3.fred = v3.dates.at(-2); mode.push('VIX3M dell\'ultima seduta provvisorio'); }
+if (Q.get('old')) { v3 = null; cr = null; mode.push('file della 1.5.0 senza serie nuove'); }
+if (Q.get('stat')) { $('pStat').hidden = false; mode.push('variante B con riga di statistica'); }
+$('pMode').textContent = mode.join(' · ') || 'caso normale';
+$('pAsOf').textContent = dIT(SPX.dates.at(-1));
+const A = V.align(SPX, VIX), T0 = V.today(A), X = context(A, v3, cr);
+const hyA = hy ? (() => { const m = new Map(hy.dates.map((d, i) => [d, hy.val[i]])); return A.dates.map((d) => (m.has(d) ? m.get(d) : null)); })() : null;
+let range = ['3A', '10A', 'MAX'].includes(Q.get('range')) ? Q.get('range') : '10A';
+
+function kpis() {
+  const kpi = (k, v, s, t) => `<div class="kpi" title="${esc(t)}"><span class="k">${k}</span><span class="v">${v}</span><span class="s">${s}</span></div>`;
+  const prov = T0.provisional ? ' · Yahoo, provvisorio' : '';
+  const n = X.now, r = n.r, c = n.credit;
+  // se il VIX3M della seduta del VIX manca, il valore è «—»: l'ultimo R noto si dice con la sua data, non si spaccia per oggi
+  // (il 05/11/2026 il VIX è salito da 16,61 a 28,18: l'R del giorno prima, 0,88 contango, direbbe il contrario di oggi)
+  const rK = !X.has3m || !r ? kpi('VIX / VIX3M', '—', 'dato non disponibile', '')
+    : !r.sameDay ? kpi('VIX / VIX3M', '—', `VIX3M del ${dIT(n.vixDate)} non ancora arrivato · al ${dIT(r.date)} era ${fmt(r.r, 2)} (${r.state})`, 'Rapporto tra il VIX (paura a 30 giorni) e il VIX3M (paura a 3 mesi).')
+    : kpi('VIX / VIX3M', `${fmt(r.r, 2)}<span class="vxst ${r.state === 'backwardation' ? 'back' : ''}">${r.state}</span>`,
+      `VIX ${fmt(r.vix, 2)} / VIX3M ${fmt(r.v3, 2)} · al ${dIT(r.date)}${r.provisional ? ' · provvisorio' : ''}${r.pct == null ? '' : ` · ${fmt(r.pct, 0)}° percentile`}`,
+      'Rapporto tra il VIX (paura a 30 giorni) e il VIX3M (paura a 3 mesi), Cboe da FRED. Da 1 in su backwardation (paura immediata), sotto 1 contango (normale). Percentile sulla storia fino a quel giorno, dal 04/12/2007.');
+  const cK = !X.hasCredit ? kpi('Spread di credito Baa', '—', 'dato non disponibile', '')
+    : kpi('Spread di credito Baa', `${fmt(c.v, 2)}<small> punti</small>`, `${c.ch == null ? '—' : sgn(c.ch * 100, 0) + ' pb'} in un mese · ${c.pct == null ? '—' : fmt(c.pct, 0) + '° percentile'} · al ${dIT(c.date)}`,
+      'Rendimento delle obbligazioni societarie Baa di Moody\'s meno quello dei titoli di Stato USA a 10 anni (FRED BAA10Y), in punti percentuali. Variazione: rispetto a 21 osservazioni prima (pb = punti base, centesimi di punto). Percentile sulla storia fino a quel giorno, dal 1990.');
+  $('vxKpis').innerHTML = [
+    kpi('VIX', fmt(T0.vix, 2), `${esc(T0.band[2])} · al ${dIT(T0.date)}${prov}`, ''),
+    kpi('Percentile del VIX', `${fmt(T0.pct, 0)}°`, 'nella storia dal 02/01/1990', ''),
+    kpi('Volatilità realizzata', fmt(T0.rv, 1), `S&P 500, 21 sedute al ${dIT(T0.date)}, annualizzata`, ''),
+    kpi('Premio per la paura', sgnP(T0.prem, 1).replace('%', ''), `VIX − realizzata · ${fmt(T0.premPct, 0)}° percentile`, ''),
+    rK, cK,
+  ].join('');
+  $('vxMeta').textContent = `VIX al ${dIT(app.asOf.vix)} · VIX3M al ${X.has3m ? dIT(v3.dates.at(-1)) : '—'} · credito al ${X.hasCredit ? dIT(cr.dates.at(-1)) : '—'} · S&P 500 al ${dIT(app.asOf.spx)}`;
+}
+
+function chart() {
+  const svg = $('vxChart'); svg.innerHTML = '';
+  const dates = A.dates, n = dates.length;
+  const W = chartWidth(svg, 1600), L = 8, R = 46, PW = W - L - R, narrow = PW < 440;
+  const t1 = Date.parse(dates[n - 1]), span = range === '3A' ? 3 : range === '10A' ? 10 : null;
+  const t0 = span ? Math.max(Date.parse(dates[0]), t1 - span * 365.25 * DAY) : Date.parse(dates[0]);
+  const x = (d) => L + ((Date.parse(d) - t0) / (t1 - t0)) * PW, inWin = (d) => { const t = Date.parse(d); return t >= t0 && t <= t1; };
+  const P = [{ k: 'vix', h: 230, title: narrow ? 'VIX E REALIZZATA (21 SEDUTE)' : 'VIX E VOLATILITÀ REALIZZATA DELL\'S&P 500 (21 SEDUTE, ANNUALIZZATA)' }, { k: 'prem', h: 110, title: narrow ? 'PREMIO PER LA PAURA' : 'PREMIO PER LA PAURA (VIX − REALIZZATA)' }];
+  if (X.has3m) P.push({ k: 'r', h: 110, title: narrow ? 'VIX / VIX3M' : 'STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)' });
+  if (X.hasCredit) P.push({ k: 'cr', h: 90, title: narrow ? 'CREDITO BAA − STATO 10A' : 'CREDITO: OBBLIGAZIONI BAA MENO TITOLI DI STATO A 10 ANNI (PUNTI)' });
+  let y = 4; for (const p of P) { p.y0 = y + 16; p.y1 = p.y0 + p.h; y = p.y1 + 6; }
+  const H = y + 16, pane = Object.fromEntries(P.map((p) => [p.k, p]));
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
+  const sy = (p, lo, hi) => (v) => p.y0 + ((hi - v) / (hi - lo)) * p.h;
+  const path = (vs, f2) => { let d = '', on = false; for (let i = 0; i < n; i++) { if (vs[i] == null || !inWin(dates[i])) { on = false; continue; } d += (on ? 'L' : 'M') + x(dates[i]).toFixed(1) + ' ' + f2(vs[i]).toFixed(1); on = true; } return d; };
+  const vis = (a) => a.filter((v, i) => v != null && inWin(dates[i]));
+  const zones = (on, p, cls) => { let s = null, prev = null; const flush = () => { if (s != null) el('rect', { x: x(s), y: p.y0, width: Math.max(1, x(prev) - x(s)), height: p.h, class: cls }, svg); s = null; }; for (let i = 0; i < n; i++) { if (!inWin(dates[i])) continue; if (on(i)) { if (s == null) s = dates[i]; prev = dates[i]; } else flush(); } flush(); };
+  for (const p of P) { el('rect', { x: L, y: p.y0, width: PW, height: p.h, class: 'frame' }, svg); el('text', { x: L, y: p.y0 - 5, class: 'pane-t' }, svg).textContent = p.title; }
+  const yy0 = new Date(t0).getUTCFullYear(), yy1 = new Date(t1).getUTCFullYear(), every = Math.max(1, Math.ceil((yy1 - yy0 + 1) / (narrow ? 4 : 10)));
+  for (let yr = yy0 + 1; yr <= yy1; yr++) { if ((yr - yy0) % every) continue; const xx = x(`${yr}-01-01`); for (const p of P) el('line', { x1: xx, x2: xx, y1: p.y0, y2: p.y1, class: 'gridl' }, svg); el('text', { x: xx, y: H - 4, class: 'axt', 'text-anchor': 'middle' }, svg).textContent = String(yr); }
+  const nice = (lo, hi, h, minPx = 22) => [0.05, 0.1, 0.2, 0.25, 0.5, 1, 2, 5, 10, 20, 50].find((s) => (s / (hi - lo)) * h >= minPx) || 100;
+  const yAxis = (p, f, lo, hi, step, lab) => { for (let v = Math.ceil(lo / step) * step; v < hi - 1e-9; v += step) { el('line', { x1: L, x2: L + PW, y1: f(v), y2: f(v), class: 'gridl' }, svg); el('text', { x: L + PW + 4, y: f(v) + 3, class: 'axt' }, svg).textContent = lab(v); } };
+  // 1. VIX e realizzata (come la 1.5.0)
+  { const p = pane.vix, hi = Math.max(...vis(A.vix), ...vis(T0.rvSeries)) * 1.04, f = sy(p, 0, hi); yAxis(p, f, 10, hi, hi > 70 ? 20 : 10, String); el('path', { d: path(T0.rvSeries, f), class: 'vxrv' }, svg); el('path', { d: path(A.vix, f), class: 'vxvix' }, svg); }
+  // 2. premio (come la 1.5.0)
+  { const p = pane.prem, pv = vis(T0.premSeries), lo = Math.min(-10, ...pv), hi = Math.max(10, ...pv), f = sy(p, lo, hi);
+    zones((i) => T0.premPctSeries[i] != null && T0.premPctSeries[i] >= 80, p, 'vxhigh');
+    el('line', { x1: L, x2: L + PW, y1: f(0), y2: f(0), class: 'vxzero' }, svg);
+    const st = hi - lo > 50 ? 20 : 10; for (let v = Math.ceil(lo / st) * st; v < hi; v += st) el('text', { x: L + PW + 4, y: f(v) + 3, class: 'axt' }, svg).textContent = (v > 0 ? '+' : '') + v;
+    el('path', { d: path(T0.premSeries, f), class: 'vxprem' }, svg); }
+  // 3. struttura a termine: zone di backwardation, linea a 1, rapporto
+  if (pane.r) {
+    const p = pane.r, rv = vis(X.r), lo = Math.min(0.8, Math.floor(Math.min(...rv) * 10) / 10), hi = Math.max(1.2, Math.ceil(Math.max(...rv) * 10) / 10), f = sy(p, lo, hi);
+    // prima del VIX3M (04/12/2007): fascia grigia e scritta, non una linea che parte dal nulla
+    if (X.from3m && Date.parse(X.from3m) > t0) { const xe = x(X.from3m); el('rect', { x: L, y: p.y0, width: xe - L, height: p.h, class: 'vxnodata' }, svg); if (xe - L > 150) el('text', { x: L + 6, y: p.y0 + p.h / 2 + 3, class: 'vxnodata-t' }, svg).textContent = `VIX3M dal ${dIT(X.from3m)}`; }
+    zones((i) => X.r[i] != null && X.r[i] >= 1, p, 'vxback');
+    yAxis(p, f, lo, hi + 1e-9, nice(lo, hi, p.h), (v) => fmt(v, 1));
+    const x1 = X.from3m && Date.parse(X.from3m) > t0 ? x(X.from3m) : L; el('line', { x1, x2: L + PW, y1: f(1), y2: f(1), class: 'vxone' }, svg);
+    el('path', { d: path(X.r, f), class: 'vxr' }, svg);
+    // ultimo valore: un punto pieno se è backwardation, vuoto se contango (una zona di un giorno sul bordo destro è larga 1 px)
+    { let k = n - 1; while (k >= 0 && X.r[k] == null) k--; if (k >= 0 && inWin(dates[k])) el('circle', { cx: x(dates[k]), cy: f(X.r[k]), r: 3.2, class: X.r[k] >= 1 ? 'vxrdot on' : 'vxrdot' }, svg); }
+  }
+  // 4. credito
+  if (pane.cr) {
+    const p = pane.cr, cv = vis(X.credit).concat(hyA ? vis(hyA) : []), lo = Math.max(0, Math.floor(Math.min(...cv) * 2) / 2 - 0.25), hi = Math.ceil(Math.max(...cv) * 2) / 2 + 0.25, f = sy(p, lo, hi);
+    yAxis(p, f, lo, hi, nice(lo, hi, p.h), (v) => fmt(v, Math.abs(v % 1) > 1e-9 ? 1 : 0));
+    el('path', { d: path(X.credit, f), class: 'vxcr' }, svg);
+    if (hyA) el('path', { d: path(hyA, f), class: 'vxhy' }, svg);
+  }
+  // riquadro dei valori, linea su tutti i pannelli
+  let i0 = 0; while (i0 < n - 1 && !inWin(dates[i0])) i0++;
+  const yTop = P[0].y0, yBot = P.at(-1).y1;
+  const xh = el('line', { x1: 0, x2: 0, y1: yTop, y2: yBot, class: 'xhair', visibility: 'hidden' }, svg);
+  const hit = el('rect', { x: L, y: yTop, width: PW + R, height: yBot - yTop, fill: 'transparent' }, svg);
+  const show = (e) => {
+    const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const q = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const tq = t0 + ((Math.max(L, Math.min(L + PW, q.x)) - L) / PW) * (t1 - t0);
+    let i = i0; while (i + 1 < n && Date.parse(dates[i + 1]) <= tq) i++;
+    const xx = x(dates[i]); xh.setAttribute('x1', xx); xh.setAttribute('x2', xx); xh.setAttribute('visibility', 'visible');
+    const prov = A.fred && dates[i] > A.fred && A.vix[i] != null ? ' <span class="muted">provv.</span>' : '';
+    const rr = X.r[i], rProv = rr != null && X.provisional(i) ? ' <span class="muted">provv.</span>' : '';
+    $('vxTip').innerHTML = `<div class="row"><b>${dIT(dates[i])}</b><span>S&amp;P 500 ${fmt(A.close[i], 0).replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</span></div>
+      <div class="row"><span>VIX</span><b>${A.vix[i] == null ? '—' : fmt(A.vix[i], 2) + prov}</b></div>
+      <div class="row"><span>Realizzata 21 sedute</span><b>${fmt(T0.rvSeries[i], 1)}</b></div>
+      <div class="row"><span>Premio per la paura</span><b>${T0.premSeries[i] == null ? '—' : sgnP(T0.premSeries[i], 1).replace('%', '')}</b></div>
+      ${X.has3m ? `<div class="row"><span>VIX3M</span><b>${fmt(X.v3[i], 2)}</b></div><div class="row"><span>VIX / VIX3M</span><b>${rr == null ? '—' : fmt(rr, 2) + ' ' + (rr >= 1 ? 'backw.' : 'contango') + rProv}</b></div>` : ''}
+      ${X.hasCredit ? `<div class="row"><span>Credito Baa − 10A</span><b>${fmt(X.credit[i], 2)}</b></div>` : ''}${hyA ? `<div class="row"><span>HY OAS (ICE)</span><b>${fmt(hyA[i], 2)}</b></div>` : ''}`;
+    placeTip($('vxTip'), $('vxWrap'), e, 12);
+  };
+  bindTip(hit, svg, show, () => { xh.setAttribute('visibility', 'hidden'); $('vxTip').hidden = true; });
+  $('vxLegend').innerHTML = '<span><span class="kl vxk-vix"></span>VIX (30 giorni)</span><span><span class="kl vxk-rv"></span>realizzata 21 sedute</span><span><span class="kl vxk-prem"></span>premio per la paura</span><span><span class="kb vxk-high"></span>premio oltre l\'80° percentile</span>'
+    + (X.has3m ? '<span><span class="kl vxk-r"></span>VIX / VIX3M</span><span><span class="kb vxk-back"></span>backwardation (VIX ≥ VIX3M)</span>' : '')
+    + (X.hasCredit ? '<span><span class="kl vxk-cr"></span>credito Baa − Stato 10A</span>' : '') + (hyA ? '<span><span class="kl vxk-hy"></span>HY OAS ICE (prova interna)</span>' : '');
+  document.querySelectorAll('#vxRange button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.range === range)));
+}
+document.querySelectorAll('#vxRange button').forEach((b) => b.onclick = () => { range = b.dataset.range; chart(); });
+kpis(); chart();
+window.__ready = true;
+</script>
+</body>
+</html>

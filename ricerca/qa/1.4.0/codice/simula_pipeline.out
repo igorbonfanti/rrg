@@ -1,0 +1,56 @@
+== S1 prima corsa, file assente, tutto arriva: uscita 0 in 3 s
+   Scritto data/emerging.json (458 KB): cambi al 2026-11-04, ETF al 2026-11-04, FRED al 2026-10-30
+   file: asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} · missing [] · KRW=X 5947 righe dal 2003-12-01, F ultimo 1, z ultimo -1.273
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0
+== S2 prima corsa, file assente, 3 cambi non arrivano (12/15): uscita 0 in 25 s
+   BRL=X       mancante
+   KRW=X       mancante
+   TWD=X       mancante
+   Errori:
+   Scritto data/emerging.json (369 KB): cambi al 2026-11-04, ETF al 2026-11-04, FRED al 2026-10-30
+   file: asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} · missing ["BRL=X","KRW=X","TWD=X"]
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0
+== S3 prima corsa, file assente, 4 serie non arrivano (11/15): uscita 1 in 27 s
+   Arrivate solo 11 serie su 15: data/emerging.json non si aggiorna.
+   file: assente
+   check_fresh: ::error::Dati non aggiornati: emerging.json (cambi): senza data
+   check_fresh: ::error::Dati non aggiornati: emerging.json (ETF in dollari): senza data
+   check_fresh: ::error::Dati non aggiornati: emerging.json (FRED DTWEXEMEGS): senza data
+   check_fresh uscita 1
+== S4 file pubblicato, FRED non risponde: uscita 0 in 26 s
+   DTWEXEMEGS  fino al 2026-10-30 (tenuta la serie pubblicata)
+   Errori:
+   Scritto data/emerging.json (458 KB): cambi al 2026-11-04, ETF al 2026-11-04, FRED al 2026-10-30
+   file: asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} · missing [] · KRW=X 5947 righe dal 2003-12-01, F ultimo 1, z ultimo -1.273
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0
+== S5 file pubblicato, Yahoo restituisce serie più vecchie di 2 sedute: uscita 0 in 4 s
+   CNY=X       fino al 2026-11-04 (tenuta la serie pubblicata)
+   INR=X       fino al 2026-11-04 (tenuta la serie pubblicata)
+   BRL=X       fino al 2026-11-04 (tenuta la serie pubblicata)
+   KRW=X       fino al 2026-11-04 (tenuta la serie pubblicata)
+   TWD=X       fino al 2026-11-04 (tenuta la serie pubblicata)
+   HKD=X       fino al 2026-11-04 (tenuta la serie pubblicata)
+   ASHR        fino al 2026-11-04 (tenuta la serie pubblicata)
+   INDA        fino al 2026-11-04 (tenuta la serie pubblicata)
+   file: asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} · missing [] · KRW=X 5947 righe dal 2003-12-01, F ultimo 1, z ultimo -1.273
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0
+   keep_unchanged: data/emerging.json: cambia solo l'ora di generazione, non si pubblica
+== S6 file pubblicato, KRW=X con solo 300 sedute: uscita 0 in 3 s
+   Scritto data/emerging.json (427 KB): cambi al 2026-11-04, ETF al 2026-11-04, FRED al 2026-10-30
+   file: asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} · missing [] · KRW=X 297 righe dal 2025-09-12, F ultimo null, z ultimo undefined
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0
+== S7 file pubblicato, KRW=X con un buco di 50 giorni nel 2024: uscita 0 in 3 s
+   Scritto data/emerging.json (429 KB): cambi al 2026-11-04, ETF al 2026-11-04, FRED al 2026-10-30
+   file: asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} · missing [] · KRW=X 658 righe dal 2024-04-22, F ultimo null, z ultimo undefined
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0
+== S8 file pubblicato, Yahoo non risponde affatto: uscita 1 in 85 s
+   Arrivate solo 1 serie su 15: data/emerging.json non si aggiorna.
+   file: asOf {"fx":"2026-11-04","etf":"2026-11-04","fred":"2026-10-30"} · missing [] · KRW=X 5947 righe dal 2003-12-01, F ultimo 1, z ultimo -1.273
+   check_fresh: Dati aggiornati.
+   check_fresh uscita 0

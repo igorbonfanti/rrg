@@ -1,0 +1,8 @@
+Coppock: mesi chiusi dal 1994 con valore 394
+  alla 5ª seduta del mese: direzione diversa da quella di fine mese in 44 mesi su 394 (11.2%)
+  alla 10ª seduta del mese: direzione diversa da quella di fine mese in 36 mesi su 394 (9.1%)
+  alla 15ª seduta del mese: direzione diversa da quella di fine mese in 33 mesi su 393 (8.4%)
+KST: mesi chiusi dal 1994 con valore 394
+  alla 5ª seduta del mese: direzione diversa da quella di fine mese in 37 mesi su 394 (9.4%)
+  alla 10ª seduta del mese: direzione diversa da quella di fine mese in 37 mesi su 394 (9.4%)
+  alla 15ª seduta del mese: direzione diversa da quella di fine mese in 24 mesi su 393 (6.1%)

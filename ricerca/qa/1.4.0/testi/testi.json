@@ -1,0 +1,2386 @@
+{
+ "1440-scuro": {
+  "errs": [],
+  "KOSPI200": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "KOSPI200 · KOSPI 200",
+   "dmeta": "ZONA BLU breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri KOSPI200 nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+    "CAMBIO KRW PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "18 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | KOSPI200 · normale | Prezzo | 2565 | In dollari (base 100) | 93,4 | Sopra media 200 | 47,5% | KRW per dollaro | 1435,88 | Valuta | Ha smesso di scendere | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | KOSPI200 · zona blu | Prezzo | 6012 | In dollari (base 100) | 236,8 | Sopra media 200 | 16,5% | KRW per dollaro | 1326,81 | Valuta | Ha smesso di scendere | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  },
+  "EEM": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "EEM · MSCI EMERGING MARKETS",
+   "dmeta": "NORMALE breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri EEM nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+    "CAMBIO",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [
+    "EEM è quotato in dollari: conta il dollaro contro gli emergenti, qui sotto"
+   ],
+   "legend": "in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+    "Forza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | EEM · normale | Prezzo | 43,65 | Sopra media 200 | 53,4% | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | EEM · normale | Prezzo | 63,52 | Sopra media 200 | 28,4% | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  },
+  "HSI": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "HSI · HANG SENG",
+   "dmeta": "NORMALE breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+   "btn": "Apri HSI nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 8%",
+    "CAMBIO",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [
+    "Dollaro di Hong Kong agganciato al dollaro americano: il cambio non dà informazioni"
+   ],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+    "3 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | HSI · normale | Prezzo | 22008 | In dollari (base 100) | 123,6 | Sopra media 200 | 58,8% | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | HSI · normale | Prezzo | 23095 | In dollari (base 100) | 128,2 | Sopra media 200 | 25,9% | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  },
+  "IBOV": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "IBOV · IBOVESPA",
+   "dmeta": "ATTENZIONE breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+   "btn": "Apri IBOV nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 11%",
+    "CAMBIO BRL PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "16 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | IBOV · normale | Prezzo | 135093 | In dollari (base 100) | 98,8 | Sopra media 200 | 61,3% | BRL per dollaro | 5,6529 | Valuta | Ha smesso di scendere | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | IBOV · attenzione | Prezzo | 171006 | In dollari (base 100) | 132,2 | Sopra media 200 | 15,8% | BRL per dollaro | 5,3503 | Valuta | In calo forte | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  }
+ },
+ "1440-chiaro": {
+  "errs": [],
+  "KOSPI200": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "KOSPI200 · KOSPI 200",
+   "dmeta": "ZONA BLU breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri KOSPI200 nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+    "CAMBIO KRW PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "18 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | KOSPI200 · normale | Prezzo | 2565 | In dollari (base 100) | 93,4 | Sopra media 200 | 47,5% | KRW per dollaro | 1435,88 | Valuta | Ha smesso di scendere | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | KOSPI200 · zona blu | Prezzo | 6012 | In dollari (base 100) | 236,8 | Sopra media 200 | 16,5% | KRW per dollaro | 1326,81 | Valuta | Ha smesso di scendere | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  },
+  "EEM": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "EEM · MSCI EMERGING MARKETS",
+   "dmeta": "NORMALE breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri EEM nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 15%",
+    "CAMBIO",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [
+    "EEM è quotato in dollari: conta il dollaro contro gli emergenti, qui sotto"
+   ],
+   "legend": "in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+    "Forza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | EEM · normale | Prezzo | 43,65 | Sopra media 200 | 53,4% | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | EEM · normale | Prezzo | 63,52 | Sopra media 200 | 28,4% | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  },
+  "HSI": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "HSI · HANG SENG",
+   "dmeta": "NORMALE breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+   "btn": "Apri HSI nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 8%",
+    "CAMBIO",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [
+    "Dollaro di Hong Kong agganciato al dollaro americano: il cambio non dà informazioni"
+   ],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+    "3 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | HSI · normale | Prezzo | 22008 | In dollari (base 100) | 123,6 | Sopra media 200 | 58,8% | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | HSI · normale | Prezzo | 23095 | In dollari (base 100) | 128,2 | Sopra media 200 | 25,9% | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  },
+  "IBOV": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300 | ATTENZIONE\t22,2% | 14%\t−19,6%\tNORMALE | −12,1%\t−10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50 | NORMALE\t46,0% | 10%\t−9,0%\tHA SMESSO DI SCENDERE | −2,7%\t−2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOV | ATTENZIONE\t18,4% | 11%\t−19,9%\tIN CALO FORTE | −5,8%\t−12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200 | ZONA BLU\t17,5% | 15%\t−37,6%\tHA SMESSO DI SCENDERE | −13,8%\t−8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWN | NORMALE\t68,9% | 8%\t−13,8%\tNORMALE | −0,4%\t−1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSI | NORMALE\t35,3% | 8%\t−14,5%\tAGGANCIATO\t−7,7%\t−7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEM | NORMALE\t30,2% | 15%\t−13,5%\tIN DOLLARI\t−5,2%\t−5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "INDICE",
+    "STATO",
+    "% TITOLI SOPRA MEDIA 200",
+    "BLU",
+    "DRAWDOWN DA MAX 52S",
+    "VALUTA CONTRO DOLLARO",
+    "3 MESI LOCALE",
+    "3 MESI IN $",
+    "FORZA REL. VS ACWI"
+   ],
+   "title": "IBOV · IBOVESPA",
+   "dmeta": "ATTENZIONE breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+   "btn": "Apri IBOV nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100 · IN VALUTA LOCALE E IN DOLLARI",
+    "% TITOLI SOPRA LA MEDIA 200 · LIVELLO BLU 11%",
+    "CAMBIO BRL PER DOLLARO · SU = VALUTA PIÙ DEBOLE",
+    "DOLLARO CONTRO LE VALUTE EMERGENTI · FRED DTWEXEMEGS"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "16 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "29/04/2025 | IBOV · normale | Prezzo | 135093 | In dollari (base 100) | 98,8 | Sopra media 200 | 61,3% | BRL per dollaro | 5,6529 | Valuta | Ha smesso di scendere | Dollaro vs emergenti | 135,28",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "28/10/2026 | IBOV · attenzione | Prezzo | 171006 | In dollari (base 100) | 132,2 | Sopra media 200 | 15,8% | BRL per dollaro | 5,3503 | Valuta | In calo forte | Dollaro vs emergenti | 130,71",
+    "fuori": false
+   }
+  }
+ },
+ "390-scuro": {
+  "errs": [],
+  "KOSPI200": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "KOSPI200 · KOSPI 200",
+   "dmeta": "ZONA BLU breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri KOSPI200 nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 15%",
+    "KRW PER DOLLARO · SU = PIÙ DEBOLE",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "18 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  },
+  "EEM": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "EEM · MSCI EMERGING MARKETS",
+   "dmeta": "NORMALE breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri EEM nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 15%",
+    "CAMBIO",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [
+    "EEM è in dollari"
+   ],
+   "legend": "in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+    "Forza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  },
+  "HSI": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "HSI · HANG SENG",
+   "dmeta": "NORMALE breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+   "btn": "Apri HSI nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 8%",
+    "CAMBIO",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [
+    "HKD agganciato al dollaro"
+   ],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+    "3 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  },
+  "IBOV": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "IBOV · IBOVESPA",
+   "dmeta": "ATTENZIONE breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+   "btn": "Apri IBOV nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 11%",
+    "BRL PER DOLLARO · SU = PIÙ DEBOLE",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "16 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  }
+ },
+ "390-chiaro": {
+  "errs": [],
+  "KOSPI200": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "KOSPI200 · KOSPI 200",
+   "dmeta": "ZONA BLU breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri KOSPI200 nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 15%",
+    "KRW PER DOLLARO · SU = PIÙ DEBOLE",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "18 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  },
+  "EEM": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "EEM · MSCI EMERGING MARKETS",
+   "dmeta": "NORMALE breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+   "btn": "Apri EEM nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 15%",
+    "CAMBIO",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [
+    "EEM è in dollari"
+   ],
+   "legend": "in valuta locale | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+    "Forza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  },
+  "HSI": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "HSI · HANG SENG",
+   "dmeta": "NORMALE breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+   "btn": "Apri HSI nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 8%",
+    "CAMBIO",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [
+    "HKD agganciato al dollaro"
+   ],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+    "3 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  },
+  "IBOV": {
+   "kpis": [
+    {
+     "testo": "DOLLARO CONTRO EMERGENTI | 130,9 | sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+     "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+    },
+    {
+     "testo": "EMERGENTI IN ZONA BLU | 1 / 7 | KOSPI200",
+     "title": "Stato della vista 6 (breadth contro il livello blu)."
+    },
+    {
+     "testo": "IN ATTENZIONE | 2 / 7 | CSI300 · IBOV",
+     "title": "Stato della vista 6."
+    },
+    {
+     "testo": "VALUTE IN CALO FORTE | 1 / 5 con dati | IBOV",
+     "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia)."
+    },
+    {
+     "testo": "VALUTE FERME DOPO UN CALO | 2 / 5 con dati | NIFTY50 · KOSPI200",
+     "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+    }
+   ],
+   "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 04/11/2026 · ETF al 04/11/2026",
+   "miss": null,
+   "rows": [
+    {
+     "testo": "CSI300CSI 300 | ATTENZIONE | 22,2% | 14% | −19,6% | NORMALE | −12,1% | −10,5% | LAGGING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,77 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6701 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio CNY=X dello stesso giorno",
+      "ASHR contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "NIFTY50Nifty 50 | NORMALE | 46,0% | 10% | −9,0% | HA SMESSO DI SCENDERE | −2,7% | −2,1% | IMPROVING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −0,36 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,75 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio INR=X dello stesso giorno",
+      "INDA contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "IBOVIbovespa | ATTENZIONE | 18,4% | 11% | −19,9% | IN CALO FORTE | −5,8% | −12,4% | LAGGING",
+     "titles": [
+      "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard della sua storia).",
+      "variazione del cambio in 13 settimane in deviazioni standard: 1,53 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4870 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio BRL=X dello stesso giorno",
+      "EWZ contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "KOSPI200KOSPI 200 | ZONA BLU | 17,5% | 15% | −37,6% | HA SMESSO DI SCENDERE | −13,8% | −8,8% | LAGGING",
+     "titles": [
+      "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso.",
+      "variazione del cambio in 13 settimane in deviazioni standard: −1,27 (a destra = valuta più debole; tacca = soglia 1) · cambio 1342,90 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio KRW=X dello stesso giorno",
+      "EWY contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "TWNTaiwan | NORMALE | 68,9% | 8% | −13,8% | NORMALE | −0,4% | −1,4% | WEAKENING",
+     "titles": [
+      "Nessun calo forte della valuta nelle ultime 13 settimane.",
+      "variazione del cambio in 13 settimane in deviazioni standard: 0,45 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,73 al 04/11/2026",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio TWD=X dello stesso giorno",
+      "EWT contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "HSIHang Seng | NORMALE | 35,3% | 8% | −14,5% | AGGANCIATO | −7,7% | −7,8% | IMPROVING",
+     "titles": [
+      "Il dollaro di Hong Kong è agganciato al dollaro americano (tra 7,75 e 7,85): il cambio non dà informazioni.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "indice diviso per il cambio HKD=X dello stesso giorno",
+      "EWH contro ACWI, settimanale, al 04/11/2026"
+     ]
+    },
+    {
+     "testo": "EEMMSCI Emerging Markets | NORMALE | 30,2% | 15% | −13,5% | IN DOLLARI | −5,2% | −5,2% | LAGGING",
+     "titles": [
+      "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+      "variazione in 63 sedute dell'indice in valuta locale",
+      "EEM è già in dollari",
+      "EEM contro ACWI, settimanale, al 04/11/2026"
+     ]
+    }
+   ],
+   "head": [
+    "Indice",
+    "Stato",
+    "% titoli sopra media 200",
+    "Blu",
+    "Drawdownda max 52s",
+    "Valuta contro dollaro",
+    "3 mesilocale",
+    "3 mesiin $",
+    "Forza rel.vs ACWI"
+   ],
+   "title": "IBOV · IBOVESPA",
+   "dmeta": "ATTENZIONE breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+   "btn": "Apri IBOV nella vista 6 →",
+   "panes": [
+    "PREZZO, BASE 100",
+    "% SOPRA MEDIA 200 · BLU 11%",
+    "BRL PER DOLLARO · SU = PIÙ DEBOLE",
+    "DOLLARO VS EMERGENTI (FRED)"
+   ],
+   "fxmsg": [],
+   "legend": "in valuta locale | in dollari | zona blu | trigger | valuta in calo forte | valuta che ha smesso di scendere | dollaro contro emergenti | sua media 200 | dollaro favorevole (sotto la media e in calo in 3 mesi)",
+   "chartMeta": "cambio al 04/11/2026 · dollaro FRED al 30/10/2026. Ogni serie ha il suo calendario: il riquadro dei valori mostra il dato della stessa data, «—» se quel giorno manca (feste, cambio senza quotazione, FRED che esce una volta alla settimana).",
+   "notes": [
+    "16 sedute del cambio tolte perché errori di stampa di Yahoo (salto che si annulla il giorno dopo): lì il cambio è «—».",
+    "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "rsMeta": "al 04/11/2026",
+   "rsTitles": [
+    "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+    "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+    "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+    "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)",
+    "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+    "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+    "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   ],
+   "over": [],
+   "svgOut": [],
+   "svgLap": [],
+   "cellOut": [],
+   "kpiOut": [],
+   "hscroll": false,
+   "tip0.5": {
+    "testo": "",
+    "fuori": false
+   },
+   "tip0.995": {
+    "testo": "",
+    "fuori": false
+   }
+  }
+ }
+}

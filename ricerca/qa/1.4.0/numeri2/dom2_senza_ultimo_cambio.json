@@ -1,0 +1,459 @@
+{
+ "url": "http://127.0.0.1:8794/",
+ "drop": "ALL",
+ "width": 1600,
+ "errors": [],
+ "kpis": [
+  {
+   "k": "Dollaro contro emergenti",
+   "v": "130,9",
+   "s": "sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+   "title": "Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data."
+  },
+  {
+   "k": "Emergenti in zona blu",
+   "v": "1 / 7",
+   "s": "KOSPI200",
+   "title": "Stato della vista 6 (breadth contro il livello blu)."
+  },
+  {
+   "k": "In attenzione",
+   "v": "2 / 7",
+   "s": "CSI300 · IBOV",
+   "title": "Stato della vista 6."
+  },
+  {
+   "k": "Valute in calo forte",
+   "v": "1 / 5 con dati",
+   "s": "IBOV",
+   "title": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni)."
+  },
+  {
+   "k": "Valute che hanno smesso di scendere",
+   "v": "2 / 5 con dati",
+   "s": "NIFTY50 · KOSPI200",
+   "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione si era accesa prima del vero minimo in 15 cali di borsa su 17: non è un segnale d'ingresso."
+  }
+ ],
+ "meta": "ultima seduta di ogni borsa, dal 03/11/2026 al 04/11/2026 · cambi al 03/11/2026 · ETF al 04/11/2026",
+ "table": [
+  {
+   "k": "CSI300",
+   "state": "Attenzione",
+   "breadth": "22,2%",
+   "blue": "14%",
+   "dd": "−19,6%",
+   "fx": "Normale",
+   "fxTitle": "La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte.",
+   "zTitle": "variazione del cambio in 13 settimane in deviazioni standard: −1,08 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6480 al 03/11/2026",
+   "m3": "−12,1%",
+   "m3u": "−10,6%",
+   "m3uTitle": "indice diviso per il cambio CNY=X dello stesso giorno",
+   "rs": "Lagging",
+   "rsTitle": "ASHR contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "NIFTY50",
+   "state": "Normale",
+   "breadth": "46,0%",
+   "blue": "10%",
+   "dd": "−9,0%",
+   "fx": "Ha smesso di scendere",
+   "fxTitle": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione si era accesa prima del vero minimo in 15 cali di borsa su 17: non è un segnale d'ingresso.",
+   "zTitle": "variazione del cambio in 13 settimane in deviazioni standard: −0,43 (a destra = valuta più debole; tacca = soglia 1) · cambio 94,73 al 03/11/2026",
+   "m3": "−2,7%",
+   "m3u": "−3,3%*",
+   "m3uTitle": "indice diviso per il cambio INR=X dello stesso giorno; al 03/11/2026, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)",
+   "rs": "Improving",
+   "rsTitle": "INDA contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "IBOV",
+   "state": "Attenzione",
+   "breadth": "18,4%",
+   "blue": "11%",
+   "dd": "−19,9%",
+   "fx": "In calo forte",
+   "fxTitle": "La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni).",
+   "zTitle": "variazione del cambio in 13 settimane in deviazioni standard: 1,38 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,4363 al 03/11/2026",
+   "m3": "−5,8%",
+   "m3u": "−13,2%*",
+   "m3uTitle": "indice diviso per il cambio BRL=X dello stesso giorno; al 03/11/2026, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)",
+   "rs": "Lagging",
+   "rsTitle": "EWZ contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "KOSPI200",
+   "state": "Zona blu",
+   "breadth": "17,5%",
+   "blue": "15%",
+   "dd": "−37,6%",
+   "fx": "Ha smesso di scendere",
+   "fxTitle": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione si era accesa prima del vero minimo in 15 cali di borsa su 17: non è un segnale d'ingresso.",
+   "zTitle": "variazione del cambio in 13 settimane in deviazioni standard: −1,33 (a destra = valuta più debole; tacca = soglia 1) · cambio 1344,81 al 03/11/2026",
+   "m3": "−13,8%",
+   "m3u": "+6,9%*",
+   "m3uTitle": "indice diviso per il cambio KRW=X dello stesso giorno; al 03/11/2026, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)",
+   "rs": "Lagging",
+   "rsTitle": "EWY contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "TWN",
+   "state": "Normale",
+   "breadth": "68,9%",
+   "blue": "8%",
+   "dd": "−13,8%",
+   "fx": "Normale",
+   "fxTitle": "La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte.",
+   "zTitle": "variazione del cambio in 13 settimane in deviazioni standard: 0,16 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,59 al 03/11/2026",
+   "m3": "−0,4%",
+   "m3u": "+7,8%*",
+   "m3uTitle": "indice diviso per il cambio TWD=X dello stesso giorno; al 03/11/2026, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)",
+   "rs": "Weakening",
+   "rsTitle": "EWT contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "HSI",
+   "state": "Normale",
+   "breadth": "35,3%",
+   "blue": "8%",
+   "dd": "−14,5%",
+   "fx": "Agganciato",
+   "fxTitle": "Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.",
+   "zTitle": null,
+   "m3": "−7,7%",
+   "m3u": "−9,0%*",
+   "m3uTitle": "indice diviso per il cambio HKD=X dello stesso giorno; al 03/11/2026, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)",
+   "rs": "Improving",
+   "rsTitle": "EWH contro ACWI, settimanale, al 04/11/2026"
+  },
+  {
+   "k": "EEM",
+   "state": "Normale",
+   "breadth": "30,2%",
+   "blue": "15%",
+   "dd": "−13,5%",
+   "fx": "In dollari",
+   "fxTitle": "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+   "zTitle": null,
+   "m3": "−5,2%",
+   "m3u": "−5,2%",
+   "m3uTitle": "EEM è già in dollari",
+   "rs": "Lagging",
+   "rsTitle": "EEM contro ACWI, settimanale, al 04/11/2026"
+  }
+ ],
+ "rsDots": [
+  {
+   "k": "CSI300",
+   "title": "CSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)",
+   "cx": 73.22172416737077,
+   "cy": 219.0192298280569
+  },
+  {
+   "k": "NIFTY50",
+   "title": "NIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)",
+   "cx": 108.53566297185712,
+   "cy": 98.55045219979834
+  },
+  {
+   "k": "IBOV",
+   "title": "IBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)",
+   "cx": 165.4828611140392,
+   "cy": 188.01697144017243
+  },
+  {
+   "k": "KOSPI200",
+   "title": "KOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 99,99, RS-Momentum 98,4 (Lagging)",
+   "cx": 168.6910283029928,
+   "cy": 237.2876432927564
+  },
+  {
+   "k": "TWN",
+   "title": "TWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)",
+   "cx": 222.3961290389574,
+   "cy": 260.6074338167
+  },
+  {
+   "k": "HSI",
+   "title": "HSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)",
+   "cx": 149.0202179541483,
+   "cy": 128.21208629110023
+  },
+  {
+   "k": "EEM",
+   "title": "EEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)",
+   "cx": 138.5474347016072,
+   "cy": 237.72744557228674
+  }
+ ],
+ "rsW": 338,
+ "detail": {
+  "CSI300": {
+   "title": "CSI300 · CSI 300",
+   "state": "Attenzione",
+   "dmeta": "breadth 22,2% · livello blu 14% · dati al 03/11/2026",
+   "notes": [
+    "Il cambio CNY è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».",
+    "Forza relativa con ASHR (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 03/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M118.4 210.5L114.2 210.5L113.5 202.8L109.0 205.2L102.6 211.1L96.4 215.4L89.2 221.1L82.3 224.7L74.9 228.4L73.2 219.0",
+   "tips": {}
+  },
+  "NIFTY50": {
+   "title": "NIFTY50 · Nifty 50",
+   "state": "Normale",
+   "dmeta": "breadth 46,0% · livello blu 10% · dati al 04/11/2026",
+   "notes": [
+    "Il cambio INR è gestito dalla banca centrale e si muove poco: z si misura sulla volatilità della valuta stessa, quindi anche un movimento piccolo può dare «in calo forte».",
+    "Forza relativa con INDA (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 03/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M75.1 146.4L74.9 151.8L73.5 158.7L70.8 167.1L65.9 178.2L58.8 191.7L78.0 144.5L81.0 143.3L92.6 123.6L108.5 98.6",
+   "tips": {}
+  },
+  "IBOV": {
+   "title": "IBOV · Ibovespa",
+   "state": "Attenzione",
+   "dmeta": "breadth 18,4% · livello blu 11% · dati al 04/11/2026",
+   "notes": [
+    "Forza relativa con EWZ (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 03/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M141.5 165.8L150.1 147.7L155.4 140.6L156.2 145.2L162.3 137.2L180.2 104.8L191.2 94.9L202.0 87.6L177.3 159.9L165.5 188.0",
+   "tips": {}
+  },
+  "KOSPI200": {
+   "title": "KOSPI200 · KOSPI 200",
+   "state": "Zona blu",
+   "dmeta": "breadth 17,5% · livello blu 15% · dati al 04/11/2026",
+   "notes": [
+    "Forza relativa con EWY (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 03/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M216.6 208.9L218.0 197.0L216.0 195.2L215.6 190.2L217.0 182.4L210.2 194.3L193.1 226.4L182.8 236.1L175.7 236.8L168.7 237.3",
+   "tips": {}
+  },
+  "TWN": {
+   "title": "TWN · Taiwan",
+   "state": "Normale",
+   "dmeta": "breadth 68,9% · livello blu 8% · dati al 04/11/2026",
+   "notes": [
+    "Forza relativa con EWT (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 03/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M268.3 196.2L270.6 185.1L273.0 176.3L276.0 168.1L279.7 160.0L278.1 165.5L264.6 196.2L255.9 209.1L242.8 229.2L222.4 260.6",
+   "tips": {}
+  },
+  "HSI": {
+   "title": "HSI · Hang Seng",
+   "state": "Normale",
+   "dmeta": "breadth 35,3% · livello blu 8% · dati al 04/11/2026",
+   "notes": [
+    "Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni.",
+    "Forza relativa con EWH (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al 03/11/2026 (Fed fino al 30/10/2026, poi Yahoo provvisorio) · dollaro FRED al 30/10/2026",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M133.9 145.0L133.6 151.0L133.9 154.4L131.5 162.9L126.0 176.3L124.9 177.1L128.3 167.9L129.2 166.1L138.5 146.3L149.0 128.2",
+   "tips": {}
+  },
+  "EEM": {
+   "title": "EEM · MSCI Emerging Markets",
+   "state": "Normale",
+   "dmeta": "breadth 30,2% · livello blu 15% · dati al 04/11/2026",
+   "notes": [
+    "EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.",
+    "Forza relativa con EEM (ETF in dollari, dividendi inclusi) contro ACWI."
+   ],
+   "chartMeta": "cambio al — · dollaro FRED al 30/10/2026",
+   "rsMeta": "al 04/11/2026",
+   "trail": "M180.7 189.2L183.0 179.6L183.3 176.5L184.2 173.0L185.0 170.2L181.3 178.2L169.0 203.1L158.4 218.8L147.9 230.8L138.5 237.7",
+   "tips": {}
+  }
+ },
+ "v6": [
+  {
+   "k": "KOSPI200",
+   "state": "Zona blu",
+   "breadth": "17,5%",
+   "blue": "15%",
+   "dd": "−37,6%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "IBOV",
+   "state": "Attenzione",
+   "breadth": "18,4%",
+   "blue": "11%",
+   "dd": "−19,9%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "CSI300",
+   "state": "Attenzione",
+   "breadth": "22,2%",
+   "blue": "14%",
+   "dd": "−19,6%",
+   "lastTitle": "chiusura del 03/11/2026"
+  },
+  {
+   "k": "EEM",
+   "state": "Normale",
+   "breadth": "30,2%",
+   "blue": "15%",
+   "dd": "−13,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "ASX200",
+   "state": "Normale",
+   "breadth": "40,0%",
+   "blue": "14%",
+   "dd": "−4,7%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "HSI",
+   "state": "Normale",
+   "breadth": "35,3%",
+   "blue": "8%",
+   "dd": "−14,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "RUT",
+   "state": "Normale",
+   "breadth": "49,2%",
+   "blue": "15%",
+   "dd": "−6,9%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "NIFTY50",
+   "state": "Normale",
+   "breadth": "46,0%",
+   "blue": "10%",
+   "dd": "−9,0%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "NDX",
+   "state": "Normale",
+   "breadth": "54,5%",
+   "blue": "18%",
+   "dd": "−8,9%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "N225",
+   "state": "Normale",
+   "breadth": "48,0%",
+   "blue": "8%",
+   "dd": "−14,1%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "CAC",
+   "state": "Normale",
+   "breadth": "45,0%",
+   "blue": "4%",
+   "dd": "−6,3%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "SX5E",
+   "state": "Normale",
+   "breadth": "58,0%",
+   "blue": "7%",
+   "dd": "−4,4%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "IBEX",
+   "state": "Normale",
+   "breadth": "57,1%",
+   "blue": "6%",
+   "dd": "−4,2%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "TSX60",
+   "state": "Normale",
+   "breadth": "75,0%",
+   "blue": "23%",
+   "dd": "−0,2%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "SPX",
+   "state": "Normale",
+   "breadth": "65,5%",
+   "blue": "13%",
+   "dd": "−1,7%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "UKX",
+   "state": "Normale",
+   "breadth": "69,0%",
+   "blue": "12%",
+   "dd": "−0,7%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "FTSEMIB",
+   "state": "Normale",
+   "breadth": "60,0%",
+   "blue": "3%",
+   "dd": "−5,0%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "SXXP",
+   "state": "Normale",
+   "breadth": "67,2%",
+   "blue": "9%",
+   "dd": "−0,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "DJI",
+   "state": "Normale",
+   "breadth": "73,3%",
+   "blue": "15%",
+   "dd": "−1,8%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "TWN",
+   "state": "Normale",
+   "breadth": "68,9%",
+   "blue": "8%",
+   "dd": "−13,8%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "DAX",
+   "state": "Normale",
+   "breadth": "72,5%",
+   "blue": "7%",
+   "dd": "−0,5%",
+   "lastTitle": "chiusura del 04/11/2026"
+  },
+  {
+   "k": "SMI",
+   "state": "Normale",
+   "breadth": "85,0%",
+   "blue": "3%",
+   "dd": "0,0%",
+   "lastTitle": "chiusura del 04/11/2026"
+  }
+ ]
+}

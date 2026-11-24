@@ -1,0 +1,24 @@
+OK   paese per tutti i titoli del SOXX, 8 esteri (TSM TW, SKHY KR, ASML NL, TSEM IL, ASX TW, UMC TW, STM FR, ARM GB)
+OK   1440-scuro: anello sui titoli esteri (TSM, ASML, TSEM, ASX, UMC, STM, ARM)
+OK   1440-scuro: 6 bandiere accanto alle etichette
+OK   1440-scuro: legenda con bandiera e dimensione delle bolle
+OK   1440-scuro: bandiere nella lista solo per gli esteri (TSEM, ARM, UMC)
+OK   1440-scuro: riquadro di TSM con il paese e la nota sul peso
+OK   1440-scuro: XLK senza bandiere né nota
+OK   1440-scuro: nessuno scorrimento orizzontale
+OK   1440-scuro: console 
+OK   1280-chiaro: anello sui titoli esteri (TSM, ASML, TSEM, ASX, UMC, STM, ARM)
+OK   1280-chiaro: 6 bandiere accanto alle etichette
+OK   1280-chiaro: legenda con bandiera e dimensione delle bolle
+OK   1280-chiaro: bandiere nella lista solo per gli esteri (TSEM, ARM, UMC)
+OK   1280-chiaro: riquadro di TSM con il paese e la nota sul peso
+OK   1280-chiaro: XLK senza bandiere né nota
+OK   1280-chiaro: nessuno scorrimento orizzontale
+OK   1280-chiaro: console 
+OK   390-scuro: anello sui titoli esteri (TSM, ASML, TSEM, ASX, UMC, STM, ARM)
+OK   390-scuro: 6 bandiere accanto alle etichette
+OK   390-scuro: legenda con bandiera e dimensione delle bolle
+OK   390-scuro: bandiere nella lista solo per gli esteri (TSEM, ARM, UMC)
+OK   390-scuro: nessuno scorrimento orizzontale
+OK   390-scuro: console 
+0 FAIL

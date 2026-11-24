@@ -1,0 +1,297 @@
+{
+ "B": {
+  "BTC": [
+   {
+    "vol": "BTC-USD",
+    "scale": "chart",
+    "pocB100": 64143.5585,
+    "spreadPct": 41.67,
+    "robust": false,
+    "maxRelDiffPoc": 7.029360427068809e-10,
+    "maxRelDiffVa": 5.584062101604559e-10,
+    "ok": true
+   }
+  ],
+  "GOLD": [
+   {
+    "vol": "GC=F",
+    "scale": "chart",
+    "pocB100": 4077.9624,
+    "spreadPct": 7.87,
+    "robust": false,
+    "maxRelDiffPoc": 1.1005678146602804e-08,
+    "maxRelDiffVa": 9.867455519341206e-09,
+    "ok": true
+   },
+   {
+    "vol": "GC=F",
+    "scale": "contract",
+    "pocB100": 4398.8155,
+    "spreadPct": 6.41,
+    "robust": false,
+    "maxRelDiffPoc": 1.131199023340912e-08,
+    "maxRelDiffVa": 3.96686228310017e-09,
+    "ok": true
+   },
+   {
+    "vol": "GLD",
+    "scale": "chart",
+    "pocB100": 4448.6372,
+    "spreadPct": 12.68,
+    "robust": false,
+    "maxRelDiffPoc": 1.1188758364255591e-08,
+    "maxRelDiffVa": 1.029369478544595e-08,
+    "ok": true
+   },
+   {
+    "vol": "GLD",
+    "scale": "contract",
+    "pocB100": 4412.0959,
+    "spreadPct": 15.56,
+    "robust": false,
+    "maxRelDiffPoc": 1.1188758364255591e-08,
+    "maxRelDiffVa": 7.864353168685057e-09,
+    "ok": true
+   }
+  ],
+  "SILVER": [
+   {
+    "vol": "SI=F",
+    "scale": "chart",
+    "pocB100": 58.0042,
+    "spreadPct": 33.26,
+    "robust": false,
+    "maxRelDiffPoc": 8.642645052958642e-07,
+    "maxRelDiffVa": 8.853829702726301e-07,
+    "ok": true
+   },
+   {
+    "vol": "SI=F",
+    "scale": "contract",
+    "pocB100": 65.3043,
+    "spreadPct": 48.65,
+    "robust": false,
+    "maxRelDiffPoc": 7.991201360635358e-07,
+    "maxRelDiffVa": 4.592917787205053e-07,
+    "ok": true
+   },
+   {
+    "vol": "SLV",
+    "scale": "chart",
+    "pocB100": 76.4091,
+    "spreadPct": 23.24,
+    "robust": false,
+    "maxRelDiffPoc": 6.177975053756057e-07,
+    "maxRelDiffVa": 4.105951599830959e-07,
+    "ok": true
+   },
+   {
+    "vol": "SLV",
+    "scale": "contract",
+    "pocB100": 79.6469,
+    "spreadPct": 24.06,
+    "robust": false,
+    "maxRelDiffPoc": 6.034761468320937e-07,
+    "maxRelDiffVa": 6.708657218634784e-07,
+    "ok": true
+   }
+  ],
+  "COPPER": [
+   {
+    "vol": "HG=F",
+    "scale": "chart",
+    "pocB100": 6.5963,
+    "spreadPct": 2.25,
+    "robust": false,
+    "maxRelDiffPoc": 4.1477452100702195e-06,
+    "maxRelDiffVa": 5.198747598855746e-06,
+    "ok": true
+   },
+   {
+    "vol": "HG=F",
+    "scale": "contract",
+    "pocB100": 6.5377,
+    "spreadPct": 6.15,
+    "robust": false,
+    "maxRelDiffPoc": 7.720048673554025e-06,
+    "maxRelDiffVa": 1.6823573657509527e-06,
+    "ok": true
+   }
+  ],
+  "WTI": [
+   {
+    "vol": "CL=F",
+    "scale": "chart",
+    "pocB100": 58.4424,
+    "spreadPct": 62.61,
+    "robust": false,
+    "maxRelDiffPoc": 8.488331950662342e-07,
+    "maxRelDiffVa": 1.8901579634800214e-08,
+    "ok": true
+   },
+   {
+    "vol": "CL=F",
+    "scale": "contract",
+    "pocB100": 58.5943,
+    "spreadPct": 38.62,
+    "robust": false,
+    "maxRelDiffPoc": 8.498994414907202e-07,
+    "maxRelDiffVa": 3.8191981299728894e-07,
+    "ok": true
+   }
+  ],
+  "NDX": [
+   {
+    "vol": "NQ=F",
+    "scale": "chart",
+    "pocB100": 29429.958,
+    "spreadPct": 18.34,
+    "robust": false,
+    "maxRelDiffPoc": 1.4445979967803169e-09,
+    "maxRelDiffVa": 1.7991030887287707e-09,
+    "ok": true
+   },
+   {
+    "vol": "QQQ",
+    "scale": "chart",
+    "pocB100": 24758.5741,
+    "spreadPct": 1.41,
+    "robust": true,
+    "maxRelDiffPoc": 1.898902035613048e-09,
+    "maxRelDiffVa": 3.613098709109863e-10,
+    "ok": true
+   },
+   {
+    "vol": "^NDX",
+    "scale": "chart",
+    "pocB100": 29444.3806,
+    "spreadPct": 17.9,
+    "robust": false,
+    "maxRelDiffPoc": 1.3389516162476411e-09,
+    "maxRelDiffVa": 1.1553322742940964e-09,
+    "ok": true
+   }
+  ],
+  "SPX": [
+   {
+    "vol": "ES=F",
+    "scale": "chart",
+    "pocB100": 6840.2154,
+    "spreadPct": 13.36,
+    "robust": false,
+    "maxRelDiffPoc": 6.119966533546517e-09,
+    "maxRelDiffVa": 3.41217720745135e-09,
+    "ok": true
+   },
+   {
+    "vol": "SPY",
+    "scale": "chart",
+    "pocB100": 6843.7414,
+    "spreadPct": 1.74,
+    "robust": true,
+    "maxRelDiffPoc": 6.688698039880592e-09,
+    "maxRelDiffVa": 4.4987680247743356e-09,
+    "ok": true
+   },
+   {
+    "vol": "^GSPC",
+    "scale": "chart",
+    "pocB100": 6843.9356,
+    "spreadPct": 13.21,
+    "robust": false,
+    "maxRelDiffPoc": 5.978719075372396e-09,
+    "maxRelDiffVa": 6.58118848306799e-09,
+    "ok": true
+   }
+  ],
+  "SOXX": [
+   {
+    "vol": "SOXX",
+    "scale": "chart",
+    "pocB100": 113.8398,
+    "spreadPct": 57.76,
+    "robust": false,
+    "maxRelDiffPoc": 4.32318493670536e-07,
+    "maxRelDiffVa": 3.6404564629499703e-07,
+    "ok": true
+   }
+  ],
+  "KOSPI": [
+   {
+    "vol": "069500.KS",
+    "scale": "chart",
+    "pocB100": 5528.1891,
+    "spreadPct": 26.57,
+    "robust": false,
+    "maxRelDiffPoc": 8.055283773344968e-09,
+    "maxRelDiffVa": 9.807417211682434e-09,
+    "ok": true
+   },
+   {
+    "vol": "EWY",
+    "scale": "chart",
+    "pocB100": 5635.167,
+    "spreadPct": 23.43,
+    "robust": false,
+    "maxRelDiffPoc": 7.98851984562532e-09,
+    "maxRelDiffVa": 3.046040197851596e-09,
+    "ok": true
+   },
+   {
+    "vol": "^KS11",
+    "scale": "chart",
+    "pocB100": 5804.3952,
+    "spreadPct": 13.95,
+    "robust": false,
+    "maxRelDiffPoc": 8.343607804661701e-09,
+    "maxRelDiffVa": 9.525981337077383e-09,
+    "ok": true
+   }
+  ]
+ },
+ "A": {
+  "GLD": {
+   "refDate": "2026-01-29",
+   "ref": 495.8999938964844,
+   "distPct": -28.44,
+   "cycleLowDate": "2026-11-12",
+   "cycleLowPct": -28.44,
+   "ok": true
+  },
+  "SLV": {
+   "refDate": "2026-01-28",
+   "ref": 105.5999984741211,
+   "distPct": -57.27,
+   "cycleLowDate": "2026-10-30",
+   "cycleLowPct": -57.77,
+   "ok": true
+  },
+  "GC=F": {
+   "refDate": "2026-01-29",
+   "ref": 5318.39990234375,
+   "distPct": -26.95,
+   "cycleLowDate": "2026-11-12",
+   "cycleLowPct": -26.95,
+   "ok": true
+  },
+  "SI=F": {
+   "refDate": "2026-01-26",
+   "ref": 115.08000183105469,
+   "distPct": -56.58,
+   "cycleLowDate": "2026-10-30",
+   "cycleLowPct": -57.34,
+   "ok": true
+  }
+ },
+ "indexVolume": {
+  "^GSPC": {
+   "sessions": 252,
+   "equal": 252
+  },
+  "^NDX": {
+   "sessions": 252,
+   "equal": 252
+  }
+ },
+ "problems": []
+}

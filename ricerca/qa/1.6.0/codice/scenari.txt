@@ -1,0 +1,459 @@
+
+== ok | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== ok | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== ok | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== fredDown | prev nessuno | exit 1 | attesa 22.5s | richieste 8 | file invariato
+   ! Mancano VIX: data/vix.json non si aggiorna.
+   ! VIXCLS (FRED): HTTP 503
+   ! VIX: nessun dato di FRED
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+   ! VIX3M: nessun dato di FRED
+
+== fredDown | prev 1.5.0 | exit 0 | attesa 22.5s | richieste 9 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":"2026-11-06"} missing ["VIX3M"] vs prev {"VIX":"=","SPX":"=","NDX":"=","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+   ! VIX: tenuta la parte FRED pubblicata
+   ! Serie facoltative mancanti: VIX3M
+   ! VIXCLS (FRED): HTTP 503
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+   ! VIX3M: nessun dato di FRED
+
+== fredDown | prev 1.6.0 | exit 0 | attesa 22.5s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: tenuta la parte FRED pubblicata
+   ! VIX3M: tenuta la parte FRED pubblicata
+   ! VIXCLS (FRED): HTTP 503
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+
+== fredHang | prev nessuno | exit 1 | attesa 142.5s | richieste 8 | file invariato
+   ! Mancano VIX: data/vix.json non si aggiorna.
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VIX: nessun dato di FRED
+   ! VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)
+   ! VIX3M: nessun dato di FRED
+
+== fredHang | prev 1.5.0 | exit 0 | attesa 142.5s | richieste 9 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":"2026-11-06"} missing ["VIX3M"] vs prev {"VIX":"=","SPX":"=","NDX":"=","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+   ! VIX: tenuta la parte FRED pubblicata
+   ! Serie facoltative mancanti: VIX3M
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)
+   ! VIX3M: nessun dato di FRED
+
+== fredHang | prev 1.6.0 | exit 0 | attesa 142.5s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: tenuta la parte FRED pubblicata
+   ! VIX3M: tenuta la parte FRED pubblicata
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)
+
+== cboeDown | prev nessuno | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): HTTP 403
+   ! VIX3M (Cboe): HTTP 403
+
+== cboeDown | prev 1.5.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): HTTP 403
+   ! VIX3M (Cboe): HTTP 403
+
+== cboeDown | prev 1.6.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): HTTP 403
+   ! VIX3M (Cboe): HTTP 403
+
+== cboeHang | prev nessuno | exit 0 | attesa 201s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): The operation was aborted due to timeout
+   ! VIX3M (Cboe): The operation was aborted due to timeout
+
+== cboeHang | prev 1.5.0 | exit 0 | attesa 201s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): The operation was aborted due to timeout
+   ! VIX3M (Cboe): The operation was aborted due to timeout
+
+== cboeHang | prev 1.6.0 | exit 0 | attesa 201s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): The operation was aborted due to timeout
+   ! VIX3M (Cboe): The operation was aborted due to timeout
+
+== yahooDown | prev nessuno | exit 1 | attesa 12s | richieste 4 | file invariato
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+
+== yahooDown | prev 1.5.0 | exit 0 | attesa 12s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! HYG/IEF: non richiesto, Yahoo già giù (fetch failed)
+
+== yahooDown | prev 1.6.0 | exit 0 | attesa 12s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! HYG/IEF: non richiesto, Yahoo già giù (fetch failed)
+
+== yahooHang | prev nessuno | exit 1 | attesa 132s | richieste 4 | file invariato
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+
+== yahooHang | prev 1.5.0 | exit 0 | attesa 132s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! HYG/IEF: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+
+== yahooHang | prev 1.6.0 | exit 0 | attesa 132s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! HYG/IEF: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+
+== allDown | prev nessuno | exit 1 | attesa 12s | richieste 4 | file invariato
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+
+== allDown | prev 1.5.0 | exit 0 | attesa 45s | richieste 11 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":null} missing ["VIX3M","HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+   ! VIX: tenuta la parte FRED pubblicata
+   ! Serie facoltative mancanti: VIX3M, HYGIEF
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIXCLS (FRED): HTTP 503
+   ! VIX (Cboe): HTTP 503
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+
+== allDown | prev 1.6.0 | exit 0 | attesa 55.5s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: tenuta la parte FRED pubblicata
+   ! VIX3M: tenuta la parte FRED pubblicata
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIXCLS (FRED): HTTP 503
+   ! VIX (Cboe): HTTP 503
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+
+== allHang | prev nessuno | exit 1 | attesa 132s | richieste 4 | file invariato
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+
+== allHang | prev 1.5.0 | exit 0 | attesa 375s | richieste 11 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":null} missing ["VIX3M","HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+   ! VIX: tenuta la parte FRED pubblicata
+   ! Serie facoltative mancanti: VIX3M, HYGIEF
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VIX (Cboe): The operation was aborted due to timeout
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)
+
+== allHang | prev 1.6.0 | exit 0 | attesa 475.5s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: tenuta la parte FRED pubblicata
+   ! VIX3M: tenuta la parte FRED pubblicata
+   ! ^GSPC: The operation was aborted due to timeout
+   ! ^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VIXCLS (FRED): The operation was aborted due to timeout
+   ! VIX (Cboe): The operation was aborted due to timeout
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (The operation was aborted due to timeout)
+   ! VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)
+
+== fredCboeDown | prev nessuno | exit 1 | attesa 22.5s | richieste 8 | file invariato
+   ! Mancano VIX: data/vix.json non si aggiorna.
+   ! VIXCLS (FRED): HTTP 503
+   ! VIX: nessun dato di FRED
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+   ! VIX3M: nessun dato di FRED
+
+== fredCboeDown | prev 1.5.0 | exit 0 | attesa 33s | richieste 12 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":"2026-11-06"} missing ["VIX3M"] vs prev {"VIX":"=","SPX":"=","NDX":"=","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+   ! VIX: tenuta la parte FRED pubblicata
+   ! Serie facoltative mancanti: VIX3M
+   ! VIXCLS (FRED): HTTP 503
+   ! VIX (Cboe): HTTP 503
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+   ! VIX3M: nessun dato di FRED
+
+== fredCboeDown | prev 1.6.0 | exit 0 | attesa 43.5s | richieste 16 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: tenuta la parte FRED pubblicata
+   ! VIX3M: tenuta la parte FRED pubblicata
+   ! VIXCLS (FRED): HTTP 503
+   ! VIX (Cboe): HTTP 503
+   ! VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)
+   ! VIX3M (Cboe): HTTP 503
+
+== cboeYahooDown | prev nessuno | exit 1 | attesa 12s | richieste 4 | file invariato
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+
+== cboeYahooDown | prev 1.5.0 | exit 0 | attesa 33s | richieste 12 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-04/2026-11-05",25.55]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX (Cboe): HTTP 503
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! VIX3M (Cboe): HTTP 503
+   ! ^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! HYG/IEF: non richiesto, Yahoo già giù (fetch failed)
+
+== cboeYahooDown | prev 1.6.0 | exit 0 | attesa 33s | richieste 12 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX (Cboe): HTTP 503
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! VIX3M (Cboe): HTTP 503
+   ! ^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! HYG/IEF: non richiesto, Yahoo già giù (fetch failed)
+
+== cboeLate | prev nessuno | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeLate | prev 1.5.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeLate | prev 1.6.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeLateYahooDown | prev nessuno | exit 1 | attesa 12s | richieste 4 | file invariato
+   ! Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! VIX: senza le sedute dell'S&P 500
+   ! VIX3M: senza le sedute dell'S&P 500
+   ! HYG/IEF: senza le sedute dell'S&P 500
+
+== cboeLateYahooDown | prev 1.5.0 | exit 0 | attesa 12s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-04/2026-11-05",25.55]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! ^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! HYG/IEF: non richiesto, Yahoo già giù (fetch failed)
+
+== cboeLateYahooDown | prev 1.6.0 | exit 0 | attesa 12s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! ^GSPC: fetch failed
+   ! ^NDX: non richiesto, Yahoo già giù (fetch failed)
+   ! ^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! ^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)
+   ! HYG/IEF: non richiesto, Yahoo già giù (fetch failed)
+
+== cboeExtra | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeExtra | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeExtra | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeHtml | prev nessuno | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): intestazione inattesa
+   ! VIX3M (Cboe): intestazione inattesa
+
+== cboeHtml | prev 1.5.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): intestazione inattesa
+   ! VIX3M (Cboe): intestazione inattesa
+
+== cboeHtml | prev 1.6.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): intestazione inattesa
+   ! VIX3M (Cboe): intestazione inattesa
+
+== cboeDisclaimer | prev nessuno | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): intestazione inattesa
+   ! VIX3M (Cboe): intestazione inattesa
+
+== cboeDisclaimer | prev 1.5.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): intestazione inattesa
+   ! VIX3M (Cboe): intestazione inattesa
+
+== cboeDisclaimer | prev 1.6.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): intestazione inattesa
+   ! VIX3M (Cboe): intestazione inattesa
+
+== cboeIso | prev nessuno | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): nessun dato
+   ! VIX3M (Cboe): nessun dato
+
+== cboeIso | prev 1.5.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): nessun dato
+   ! VIX3M (Cboe): nessun dato
+
+== cboeIso | prev 1.6.0 | exit 0 | attesa 21s | richieste 14 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX (Cboe): nessun dato
+   ! VIX3M (Cboe): nessun dato
+
+== cboeZero | prev nessuno | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeZero | prev 1.5.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeZero | prev 1.6.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeNeg | prev nessuno | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeNeg | prev 1.5.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeNeg | prev 1.6.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeDup | prev nessuno | exit 1 | attesa 0s | richieste 8 | file invariato
+   ! Mancano VIX: data/vix.json non si aggiorna.
+   ! VIX: intervallo di 0 giorni tra 2026-11-06 e 2026-11-06
+   ! VIX3M: intervallo di 0 giorni tra 2026-11-06 e 2026-11-06
+
+== cboeDup | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":null,"fred3m":null,"credit":"2026-11-06"} missing ["VIX3M"] vs prev {"VIX":"=","SPX":"=","NDX":"=","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M null
+   ! Serie facoltative mancanti: VIX3M
+   ! VIX: intervallo di 0 giorni tra 2026-11-06 e 2026-11-06
+   ! VIX3M: intervallo di 0 giorni tra 2026-11-06 e 2026-11-06
+
+== cboeDup | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: intervallo di 0 giorni tra 2026-11-06 e 2026-11-06
+   ! VIX3M: intervallo di 0 giorni tra 2026-11-06 e 2026-11-06
+
+== cboeShort | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeShort | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeShort | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeCols | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeCols | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeCols | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeOldFred | prev nessuno | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeOldFred | prev 1.5.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeOldFred | prev 1.6.0 | exit 0 | attesa 0s | richieste 10 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== cboeWild | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",2564] VIX3M ["2026-11-05/2026-11-06",2564]
+
+== cboeWild | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"≠","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",2564] VIX3M ["2026-11-05/2026-11-06",2564]
+
+== cboeWild | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"≠","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",2564] VIX3M ["2026-11-05/2026-11-06",2564]
+
+== fredBack | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-10-30","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-10-30","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== fredBack | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-10-30","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato
+
+== fredBack | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato
+   ! VIX3M: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato
+
+== fredBack3m | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-10-30","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== fredBack3m | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-10-30","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== fredBack3m | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! VIX3M: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato
+
+== vix3m404 | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-04/2026-11-05",25.55]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^VIX3M (Yahoo): HTTP 404
+   ! HYG/IEF: non richiesto, Yahoo già giù (HTTP 404)
+
+== vix3m404 | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-05","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-04/2026-11-05",25.55]
+   ! Serie facoltative mancanti: HYGIEF
+   ! ^VIX3M (Yahoo): HTTP 404
+   ! HYG/IEF: non richiesto, Yahoo già giù (HTTP 404)
+
+== vix3m404 | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! ^VIX3M (Yahoo): HTTP 404
+   ! HYG/IEF: non richiesto, Yahoo già giù (HTTP 404)
+
+== hygShort | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! Serie facoltative mancanti: HYGIEF
+   ! HYG/IEF: solo 3000 sedute
+
+== hygShort | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":null} missing ["HYGIEF"] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! Serie facoltative mancanti: HYGIEF
+   ! HYG/IEF: solo 3000 sedute
+
+== hygShort | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"="} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+   ! HYG/IEF: solo 3000 sedute
+
+== hygDiv | prev nessuno | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== hygDiv | prev 1.5.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"≠","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]
+
+== hygDiv | prev 1.6.0 | exit 0 | attesa 0s | richieste 8 | file scritto
+   asOf {"vix":"2026-11-06","fred":"2026-11-05","spx":"2026-11-06","ndx":"2026-11-06","vix3m":"2026-11-06","fred3m":"2026-11-05","credit":"2026-11-06"} missing [] vs prev {"VIX":"=","SPX":"=","NDX":"=","VIX3M":"=","HYGIEF":"≠"} VIX ["2026-11-05/2026-11-06",25.64] VIX3M ["2026-11-05/2026-11-06",24.6]

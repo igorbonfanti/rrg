@@ -1,0 +1,36 @@
+FAIL 320 px: «VIX3M dal 04/12/2007» 0-126 nella fascia grigia 8-118 (font 10.5px)
+FAIL 320 px: «HYG/IEF dal 09/04/2008» -5-133 nella fascia grigia 8-120 (font 10.5px)
+FAIL 340 px: «VIX3M dal 04/12/2007» -0-126 nella fascia grigia 8-118 (font 10.5px)
+FAIL 340 px: «HYG/IEF dal 09/04/2008» -5-133 nella fascia grigia 8-120 (font 10.5px)
+FAIL 360 px: «VIX3M dal 04/12/2007» 5-131 nella fascia grigia 8-128 (font 10.5px)
+FAIL 360 px: «HYG/IEF dal 09/04/2008» -0-138 nella fascia grigia 8-130 (font 10.5px)
+OK   375 px: «VIX3M dal 04/12/2007» 8-134 nella fascia grigia 8-135 (font 10.5px)
+FAIL 375 px: «HYG/IEF dal 09/04/2008» 3-142 nella fascia grigia 8-137 (font 10.5px)
+OK   390 px: «VIX3M dal 04/12/2007» 12-138 nella fascia grigia 8-142 (font 10.5px)
+FAIL 390 px: «HYG/IEF dal 09/04/2008» 7-146 nella fascia grigia 8-145 (font 10.5px)
+OK   412 px: «VIX3M dal 04/12/2007» 17-143 nella fascia grigia 8-153 (font 10.5px)
+OK   412 px: «HYG/IEF dal 09/04/2008» 13-151 nella fascia grigia 8-156 (font 10.5px)
+OK   430 px: «VIX3M dal 04/12/2007» 22-148 nella fascia grigia 8-162 (font 10.5px)
+OK   430 px: «HYG/IEF dal 09/04/2008» 17-156 nella fascia grigia 8-165 (font 10.5px)
+OK   480 px: «VIX3M dal 04/12/2007» 34-160 nella fascia grigia 8-186 (font 10.5px)
+OK   480 px: «HYG/IEF dal 09/04/2008» 29-168 nella fascia grigia 8-189 (font 10.5px)
+OK   540 px: «VIX3M dal 04/12/2007» 49-175 nella fascia grigia 8-215 (font 10.5px)
+OK   540 px: «HYG/IEF dal 09/04/2008» 44-183 nella fascia grigia 8-219 (font 10.5px)
+OK   600 px: «VIX3M dal 04/12/2007» 63-189 nella fascia grigia 8-244 (font 10.5px)
+OK   600 px: «HYG/IEF dal 09/04/2008» 59-198 nella fascia grigia 8-249 (font 10.5px)
+OK   700 px: «VIX3M dal 04/12/2007» 88-214 nella fascia grigia 8-293 (font 10.5px)
+OK   700 px: «HYG/IEF dal 09/04/2008» 84-223 nella fascia grigia 8-299 (font 10.5px)
+OK   820 px: «VIX3M dal 04/12/2007» 117-243 nella fascia grigia 8-351 (font 10.5px)
+OK   820 px: «HYG/IEF dal 09/04/2008» 114-252 nella fascia grigia 8-358 (font 10.5px)
+OK   1024 px: «VIX3M dal 04/12/2007» 166-292 nella fascia grigia 8-451 (font 10.5px)
+OK   1024 px: «HYG/IEF dal 09/04/2008» 164-303 nella fascia grigia 8-459 (font 10.5px)
+OK   1280 px: «VIX3M dal 04/12/2007» 273-399 nella fascia grigia 8-664 (font 10.5px)
+OK   1280 px: «HYG/IEF dal 09/04/2008» 273-412 nella fascia grigia 8-677 (font 10.5px)
+OK   1440 px: «VIX3M dal 04/12/2007» 318-444 nella fascia grigia 8-754 (font 10.5px)
+OK   1440 px: «HYG/IEF dal 09/04/2008» 319-457 nella fascia grigia 8-768 (font 10.5px)
+OK   1440 light 3A: punto finale non tocca le etichette dell'asse 
+OK   1440 light 10A: punto finale non tocca le etichette dell'asse 
+OK   1440 dark 3A: punto finale non tocca le etichette dell'asse 
+OK   1440 dark 10A: punto finale non tocca le etichette dell'asse 
+
+FAIL: 8

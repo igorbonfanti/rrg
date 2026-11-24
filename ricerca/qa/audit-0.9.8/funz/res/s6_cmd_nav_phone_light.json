@@ -1,0 +1,848 @@
+[
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «XLU»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":null,\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «xlk»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLK\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLK · Technology\",\"ix\":null,\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «XLK TIT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLK\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLK · Technology\",\"ix\":null,\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «XLU SEC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":null,\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «ORO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":null,\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «NDX»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"NDX\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «N225»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"N225\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «DAX»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"DAX\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «SMI»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"SMI\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «SPY»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"SMI\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «CAC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «CAC.PA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"6 · Indici\",\"bench\":\"IUSQ.DE\",\"pin\":\"CAC.PA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «cac»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"6 · Indici\",\"bench\":\"IUSQ.DE\",\"pin\":\"CAC.PA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «ORO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SGLD.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «SPY»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"CAC\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «FTSEMIB»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"FTSEMIB\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «TWN»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"Settori S&P 500\",\"bench\":\"SPY\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «QQQ»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"Settori S&P 500\",\"bench\":\"QQQ\",\"pin\":null,\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «INDIA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"4 · Paesi\",\"bench\":\"IUSQ.DE\",\"pin\":\"QDV5.DE\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «TESLA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"MAG7\",\"bench\":\"QQQ\",\"pin\":\"TSLA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «nvda»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"MAG7\",\"bench\":\"QQQ\",\"pin\":\"NVDA\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «SWDA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SWDA.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «PTF»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"1 · Asset class\",\"bench\":\"PTF\",\"pin\":\"SWDA.MI\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «GLD»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"GLD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «BITCOIN»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «BTC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":true,\"ph\":\"\\\"BTC\\\" non trovato · prova HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «XLU GO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «MON»",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «ROT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «RRG»",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «BTM»",
+  "ok": "OK",
+  "detail": "{\"view\":\"btm\",\"hash\":\"#btm\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «SEC»",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «ALRT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"alr\",\"hash\":\"#alr\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «ALERT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"alr\",\"hash\":\"#alr\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «IDX»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLK\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «TIT»",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLU\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «indici»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «HELP»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":true,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «GUIDA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":true,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «CHIARO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"light\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «TEMA»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «SCURO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «ZZZZ»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":true,\"ph\":\"\\\"ZZZZ\\\" non trovato · prova HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «XLK FOO»",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":true,\"ph\":\"\\\"XLK FOO\\\" non trovato · prova HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K1",
+  "area": "comandi",
+  "test": "phone comando «   »",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"group\":\"5 · Asset reali\",\"bench\":\"BIL\",\"pin\":\"BTC-USD\",\"help\":false,\"theme\":\"dark\",\"sec\":\"XLU · Utilities\",\"ix\":\"TWN\",\"tit\":\"XLU\",\"err\":false,\"ph\":\"Ticker o nome: XLU, ORO, HELP\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K2",
+  "area": "comandi",
+  "test": "phone avviso «non trovato» sparisce dopo 4 s",
+  "ok": "OK",
+  "detail": "Ticker o nome: XLU, ORO, HELP",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "phone tasto 2 → rrg",
+  "ok": "OK",
+  "detail": "rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "phone tasto 3 → btm",
+  "ok": "OK",
+  "detail": "btm",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "phone tasto 4 → sec",
+  "ok": "OK",
+  "detail": "sec",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "phone tasto 5 → alr",
+  "ok": "OK",
+  "detail": "alr",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "phone tasto 6 → idx",
+  "ok": "OK",
+  "detail": "idx",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "phone tasto 7 → tit",
+  "ok": "OK",
+  "detail": "tit",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K3",
+  "area": "tasti",
+  "test": "phone tasto 1 → mon",
+  "ok": "OK",
+  "detail": "mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K4",
+  "area": "tasti",
+  "test": "phone ? apre la guida, Esc la chiude",
+  "ok": "OK",
+  "detail": "true false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K5",
+  "area": "tasti",
+  "test": "phone / porta alla barra; scrivendo un numero non cambia vista",
+  "ok": "OK",
+  "detail": "cmd mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K6",
+  "area": "tasti",
+  "test": "phone frecce/Home/Fine sulle schede",
+  "ok": "OK",
+  "detail": "{\"a1\":{\"f\":\"tab-rrg\",\"v\":\"v-rrg\"},\"a2\":{\"f\":\"tab-tit\",\"v\":\"v-tit\"},\"a3\":{\"f\":\"tab-mon\"},\"a4\":{\"f\":\"tab-tit\"}}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K7",
+  "area": "accessibilità",
+  "test": "phone schede con tabindex «roving»",
+  "ok": "OK",
+  "detail": "-1,-1,-1,-1,-1,-1,0",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K8",
+  "area": "tasti",
+  "test": "phone scorciatoie spente dalla guida: 3 e ? non fanno niente",
+  "ok": "OK",
+  "detail": "tit help=false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #mon",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #rrg",
+  "ok": "OK",
+  "detail": "{\"view\":\"rrg\",\"hash\":\"#rrg\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #btm",
+  "ok": "OK",
+  "detail": "{\"view\":\"btm\",\"hash\":\"#btm\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #sec",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #alr",
+  "ok": "OK",
+  "detail": "{\"view\":\"alr\",\"hash\":\"#alr\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #idx",
+  "ok": "OK",
+  "detail": "{\"view\":\"idx\",\"hash\":\"#idx\",\"sec\":\"\",\"ix\":\"TWN\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #tit",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLU\",\"sec\":\"\",\"tit\":\"XLU\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #xlu",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #XLE",
+  "ok": "OK",
+  "detail": "{\"view\":\"sec\",\"hash\":\"#XLE\",\"sec\":\"XLE · Energy\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #tit-XLK",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLK\",\"sec\":\"\",\"tit\":\"XLK\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #tit-xlb",
+  "ok": "OK",
+  "detail": "{\"view\":\"tit\",\"hash\":\"#tit-XLB\",\"sec\":\"\",\"tit\":\"XLB\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #TIT-ZZZ",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #pippo",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K9",
+  "area": "indirizzi",
+  "test": "phone apertura diretta #NDX",
+  "ok": "OK",
+  "detail": "{\"view\":\"mon\",\"hash\":\"#mon\",\"sec\":\"\",\"ix\":null}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K10",
+  "area": "indirizzi",
+  "test": "phone cambio dell'hash a mano apre la vista",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K11",
+  "area": "indirizzi",
+  "test": "phone Indietro: btm → XLK → XLU → rrg → mon; Avanti → rrg",
+  "ok": "OK",
+  "detail": "sec#XLK sec#XLU rrg#rrg mon#mon · avanti rrg#rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K12",
+  "area": "ricarica",
+  "test": "phone universo, benchmark, formula, coda, timeframe, tema, CVD restano",
+  "ok": "OK",
+  "detail": "prima {\"g\":\"MAG7\",\"b\":\"QQQ\",\"f\":\"semplice\",\"t\":\"16\",\"tf\":\"daily\",\"th\":\"light\",\"cvd\":true,\"cvdA\":\"true\",\"thA\":\"true\"} dopo {\"g\":\"MAG7\",\"b\":\"QQQ\",\"f\":\"semplice\",\"t\":\"16\",\"tf\":\"daily\",\"th\":\"light\",\"cvd\":true,\"cvdA\":\"true\",\"thA\":\"true\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "K12b",
+  "area": "tema",
+  "test": "phone tema chiaro: color-scheme e theme-color coerenti",
+  "ok": "OK",
+  "detail": "{\"cs\":\"light\",\"meta\":\"dark\",\"tc\":\"#ffffff\"}",
+  "shot": "shots/k-phone-light-rrg.png",
+  "sev": ""
+ },
+ {
+  "id": "K13",
+  "area": "ricarica",
+  "test": "phone scala Massima resta dopo la ricarica (guida: «La scelta resta nel browser»)",
+  "ok": "OK",
+  "detail": "dopo ricarica: max",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z1",
+  "area": "console",
+  "test": "phone nessun errore (comandi/tasti)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V1",
+  "area": "versione",
+  "test": "phone version.json diversa: compare «Nuova versione»",
+  "ok": "OK",
+  "detail": "{\"h\":false,\"t\":\"Nuova versione 9.9.9: ricarica\",\"title\":\"Stai usando la 0.9.9. Se dopo il clic resta questo avviso, ricarica con Ctrl+F5 (su Mac Cmd+Maiusc+R).\"}",
+  "shot": "shots/v-phone-banner.png",
+  "sev": ""
+ },
+ {
+  "id": "V2",
+  "area": "versione",
+  "test": "phone clic: riscarica i file e ricarica la pagina",
+  "ok": "OK",
+  "detail": "ricariche=1 richieste=66",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V3",
+  "area": "versione",
+  "test": "phone versione uguale: niente avviso",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V4",
+  "area": "versione",
+  "test": "phone version.json non valida: niente avviso, niente errori",
+  "ok": "OK",
+  "detail": "[reqfail] http://127.0.0.1:8805/js/indices.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/data/sectors.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/cap-view.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/config/indices.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/titles.js net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/data/breadth_latest.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/data/prices_macro.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/data/alerts.json net::ERR_ABORTED|[reqfail] http://127.0.0.1:8805/js/cap-chart.js net::ERR_ABORTE",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V5",
+  "area": "versione",
+  "test": "phone version.json irraggiungibile: niente avviso",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V6",
+  "area": "versione",
+  "test": "phone controllo al ritorno sulla scheda (visibilitychange)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "V7",
+  "area": "versione",
+  "test": "phone numero di versione e novità al passaggio",
+  "ok": "OK",
+  "detail": "{\"t\":\"v0.9.9\",\"title\":\"Versione 0.9.9 del 20/10/2026\\nNovità:\\n· Aggiornamento notturno più robusto: una corsa partita in coda usa i dati appena pubblicati; il registro degli alert si salva anche se un invio Telegram fallisce, e un evento annullato non viene più rimandato\\n· Dati USA più presto la mattina: corse di recupero ogni ora nelle prime ore, che si fermano se la seduta c'è già; testi con gli orari reali dell'aggiornamento\\n· Settore e Indici: «Episodi in zona blu» richiudibile; grafico dei cali forti sulle stesse date del grafico principale, linea del cursore in tutti i grafici, scala ",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N1",
+  "area": "intro",
+  "test": "phone intro alla prima visita, «Apri la guida», «Ho capito» e non ricompare",
+  "ok": "OK",
+  "detail": "{\"in0\":true,\"in1\":true,\"fIntro\":\"introHelp\",\"in2\":{\"h\":true,\"ls\":\"true\",\"f\":\"BUTTON#tab-mon\"},\"in3\":true}",
+  "shot": "shots/i-phone-intro.png",
+  "sev": ""
+ },
+ {
+  "id": "N2",
+  "area": "accessibilità",
+  "test": "phone dopo «Ho capito» il focus non si perde sul body",
+  "ok": "OK",
+  "detail": "BUTTON#tab-mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N3",
+  "area": "monitor",
+  "test": "phone striscia «cosa è cambiato»",
+  "ok": "OK",
+  "detail": "{\"h\":false,\"t\":\"DALLA TUA VISITA CON I DATI AL 09/10/2026 XLRE Normale → Attenzione XLU Zona blu → Trigger breadth XLRE 25 → 10% XLU 9 → 16%\",\"items\":[\"XLRE\",\"XLU\",\"XLRE\",\"XLU\"]}",
+  "shot": "shots/n-phone-changes.png",
+  "sev": ""
+ },
+ {
+  "id": "N4",
+  "area": "monitor",
+  "test": "phone voce della striscia apre il settore",
+  "ok": "OK",
+  "detail": "#XLRE",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N5",
+  "area": "monitor",
+  "test": "phone clic su riga del Monitor apre il dettaglio",
+  "ok": "OK",
+  "detail": "XLU → #XLU",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N6",
+  "area": "accessibilità",
+  "test": "phone riga del Monitor apribile con Invio",
+  "ok": "OK",
+  "detail": "#XLRE",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "N7",
+  "area": "monitor",
+  "test": "phone scheda «Settori da osservare» apre il settore",
+  "ok": "OK",
+  "detail": "#XLU",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z2",
+  "area": "console",
+  "test": "phone nessun errore (intro/striscia)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

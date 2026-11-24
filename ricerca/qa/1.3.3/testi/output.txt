@@ -1,0 +1,36 @@
+dati al 2026-10-30 · prima seduta con stato: XLK 2005-01-03, XLC 2019-06-20, XLY 2005-01-03, XLP 2005-01-03, XLE 2005-01-03, XLF 2005-01-03, XLV 2005-01-03, XLI 2005-01-03, XLB 2005-01-03, XLRE 2016-10-07, XLU 2005-01-03
+controllo soglia: 264 sedute, 0 diverse
+
+== SETTORI
+  C {"tocchiAvvisati":"33/63","allarmi":158,"arrivano":"50/158 = 32%","anticipoMediano":30,"anticipoDeiTocchiAvvisati":49}
+  D {"tocchiAvvisati":"50/63","allarmi":256,"arrivano":"71/256 = 28%","anticipoMediano":24,"anticipoDeiTocchiAvvisati":39}
+  E {"tocchiAvvisati":"43/63","allarmi":212,"arrivano":"65/212 = 31%","anticipoMediano":12,"anticipoDeiTocchiAvvisati":31}
+
+== USO PRATICO (settori, ingressi in avvicinamento)
+  ingressi: 158
+  zona blu entro 126: ingressi 35/150 = 23.3% · base (Normale non in avvicinamento) 3651/39638 = 9.2%
+  zona blu entro 63:  ingressi 26/152 = 17.1% · base 1505/40318 = 3.7%
+  calo massimo 63 (mediana bassa / mediana classica): ingressi -3.34 / -3.30 · base -3.34 / -3.34
+  rendimento 63 (mediana bassa / classica): ingressi 4.61 / 4.78 (n 152) · base Normale non avv. 2.97 / 2.97 · tutte le sedute 3.29 / 3.29 (n 53117)
+  condizionato (arriva in zona blu e al trigger entro 252): 42 episodi, calo massimo mediano dall'ingresso al trigger -14.0 (bassa -14.3)
+  terza seduta: tornato sopra 15/55 = 27.3% · ≠ Attenzione 31/113 = 27.4% · Attenzione 17/37 = 45.9% · = Attenzione 17/37 = 45.9% · ancora giallo 16/58 = 27.6%
+  tocco recente: nessun tocco nei 126 prima 43/126 = 34.1% · tocco nei 126 prima 5/24 = 20.8%
+  per settore (ingressi · zona blu 126 ingressi/base · R126 · R63 · soglia oggi · % sedute in avvicinamento):
+   XLK     9 · 1/9 vs 6.5% · R126 1.70 · R63 4.64 · soglia 26 · 1.1%
+   XLC     5 · 0/3 vs 8.4% · R126 0.00 · R63 0.00 · soglia 25.8 · 0.5%
+   XLY     9 · 1/8 vs 4.3% · R126 2.90 · R63 9.28 · soglia 25.8 · 0.8%
+   XLP    11 · 2/10 vs 6.2% · R126 3.22 · R63 3.76 · soglia 30.4 · 1.2%
+   XLE    19 · 6/19 vs 9.4% · R126 3.35 · R63 5.75 · soglia 29.6 · 8.6%
+   XLF    18 · 5/18 vs 10.1% · R126 2.75 · R63 5.45 · soglia 27.9 · 2.9%
+   XLV     9 · 2/9 vs 11.4% · R126 1.95 · R63 4.14 · soglia 28.1 · 1.3%
+   XLI    12 · 2/12 vs 8.1% · R126 2.07 · R63 5.10 · soglia 26.3 · 1.1%
+   XLB    27 · 9/26 vs 12.7% · R126 2.72 · R63 4.40 · soglia 33.1 · 4.1%
+   XLRE   15 · 2/14 vs 12.9% · R126 1.10 · R63 1.30 · soglia 39.8 · 12.1%
+   XLU    24 · 5/22 vs 14.0% · R126 1.63 · R63 3.49 · soglia 36 · 4%
+
+indici: 22
+
+== INDICI
+  C {"tocchiAvvisati":"83/132","allarmi":330,"arrivano":"133/330 = 40%","anticipoMediano":27,"anticipoDeiTocchiAvvisati":60}
+  D {"tocchiAvvisati":"89/132","allarmi":367,"arrivano":"148/367 = 40%","anticipoMediano":23,"anticipoDeiTocchiAvvisati":63}
+  E {"tocchiAvvisati":"83/132","allarmi":304,"arrivano":"151/304 = 50%","anticipoMediano":13,"anticipoDeiTocchiAvvisati":56}

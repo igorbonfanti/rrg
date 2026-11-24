@@ -1,0 +1,298 @@
+{
+ "tolleranze": {
+  "garch21_punti": 0.05,
+  "metriche": 0.01
+ },
+ "indici": {
+  "sp500": {
+   "garch": {
+    "stime": 383,
+    "sedute_confrontate_fuori_campione": 5496,
+    "diff_max_garch21_fuori_campione": 0.00001,
+    "data_diff_max": "2008-10-28",
+    "diff_p99_garch21": 0,
+    "diff_mediana_garch21": 0,
+    "diff_max_garch21_tutte": 0.00001,
+    "diff_max_garch22_63_fuori_campione": 0.00001,
+    "diff_max_alpha": 0,
+    "diff_max_beta": 0,
+    "diff_max_nll": 0,
+    "stime_con_nll_node_migliore": 0,
+    "stime_con_nll_python_migliore": 0,
+    "entro_tolleranza": true
+   },
+   "serie_di_base_diff_max": {
+    "RVp": 1.4210854715202004e-14,
+    "RVf": 1.4210854715202004e-14,
+    "EWMA": 7.105427357601002e-14
+   },
+   "metriche": {
+    "fino al 2012": {
+     "n": 2013,
+     "implicita": {
+      "rmse": 8.6329,
+      "mae": 6.1709,
+      "corr": 0.789
+     },
+     "RVp": {
+      "rmse": 8.6586,
+      "mae": 5.4052,
+      "corr": 0.7776
+     },
+     "EWMA": {
+      "rmse": 8.3228,
+      "mae": 5.1211,
+      "corr": 0.7856
+     },
+     "GARCH": {
+      "rmse": 8.0301,
+      "mae": 5.0201,
+      "corr": 0.7909
+     }
+    },
+    "2013-2019": {
+     "n": 1762,
+     "implicita": {
+      "rmse": 5.8245,
+      "mae": 4.9096,
+      "corr": 0.4932
+     },
+     "RVp": {
+      "rmse": 6.2653,
+      "mae": 4.5806,
+      "corr": 0.3455
+     },
+     "EWMA": {
+      "rmse": 5.6932,
+      "mae": 4.1954,
+      "corr": 0.3844
+     },
+     "GARCH": {
+      "rmse": 5.7044,
+      "mae": 4.6772,
+      "corr": 0.3904
+     }
+    },
+    "2020-oggi": {
+     "n": 1700,
+     "implicita": {
+      "rmse": 10.2266,
+      "mae": 6.8593,
+      "corr": 0.5618
+     },
+     "RVp": {
+      "rmse": 11.7736,
+      "mae": 6.4563,
+      "corr": 0.4655
+     },
+     "EWMA": {
+      "rmse": 11.2004,
+      "mae": 6.1868,
+      "corr": 0.4808
+     },
+     "GARCH": {
+      "rmse": 9.6962,
+      "mae": 5.5981,
+      "corr": 0.5489
+     }
+    }
+   },
+   "criterio_sottoperiodi_vinti": 2,
+   "criterio_uguale_a_python": true,
+   "metriche_diff_max_da_python": 0.00005,
+   "eventi": [
+    "2007-08-09",
+    "2008-07-30",
+    "2010-05-10",
+    "2011-08-08",
+    "2015-08-26",
+    "2018-02-12",
+    "2018-11-07",
+    "2020-02-27",
+    "2022-03-09",
+    "2025-04-03"
+   ],
+   "eventi_uguali_a_python": true,
+   "segnali": {
+    "P1_impl_meno_GARCH": {
+     "preceduti": 5,
+     "anticipo_mediano": 7,
+     "base_giornaliera": 0.1372,
+     "inizi_valutabili": 182,
+     "inizi_seguiti": 10,
+     "uguale_a_python": true
+    },
+    "P2_impl_meno_RVp": {
+     "preceduti": 7,
+     "anticipo_mediano": 7,
+     "base_giornaliera": 0.1672,
+     "inizi_valutabili": 204,
+     "inizi_seguiti": 12,
+     "uguale_a_python": true
+    },
+    "GARCH_livello": {
+     "preceduti": 9,
+     "anticipo_mediano": 4,
+     "base_giornaliera": 0.1567,
+     "inizi_valutabili": 86,
+     "inizi_seguiti": 19,
+     "uguale_a_python": true
+    }
+   },
+   "oggi": {
+    "data": "2026-11-04",
+    "implicita": 16.61,
+    "RVp": 12.6,
+    "GARCH_21g": 16.5,
+    "P1": 0.11,
+    "P2": 4.01,
+    "uguale_a_python": true
+   },
+   "secondi_totali": 6.516
+  },
+  "ndx": {
+   "garch": {
+    "stime": 374,
+    "sedute_confrontate_fuori_campione": 4742,
+    "diff_max_garch21_fuori_campione": 0.00212,
+    "data_diff_max": "2008-10-31",
+    "diff_p99_garch21": 0,
+    "diff_mediana_garch21": 0.000001,
+    "diff_max_garch21_tutte": 0.00212,
+    "diff_max_garch22_63_fuori_campione": 0.00228,
+    "diff_max_alpha": 0.00001,
+    "diff_max_beta": 0.00001,
+    "diff_max_nll": 0.000002,
+    "stime_con_nll_node_migliore": 1,
+    "stime_con_nll_python_migliore": 0,
+    "entro_tolleranza": true
+   },
+   "serie_di_base_diff_max": {
+    "RVp": 1.4210854715202004e-14,
+    "RVf": 1.4210854715202004e-14,
+    "EWMA": 5.684341886080802e-14
+   },
+   "metriche": {
+    "fino al 2012": {
+     "n": 1259,
+     "implicita": {
+      "rmse": 10.1214,
+      "mae": 7.4624,
+      "corr": 0.7321
+     },
+     "RVp": {
+      "rmse": 10.4334,
+      "mae": 6.7974,
+      "corr": 0.716
+     },
+     "EWMA": {
+      "rmse": 9.9051,
+      "mae": 6.459,
+      "corr": 0.7294
+     },
+     "GARCH": {
+      "rmse": 9.9164,
+      "mae": 6.4422,
+      "corr": 0.7258
+     }
+    },
+    "2013-2019": {
+     "n": 1762,
+     "implicita": {
+      "rmse": 6.1159,
+      "mae": 5.0232,
+      "corr": 0.5483
+     },
+     "RVp": {
+      "rmse": 7.2969,
+      "mae": 5.5673,
+      "corr": 0.3907
+     },
+     "EWMA": {
+      "rmse": 6.6748,
+      "mae": 5.0507,
+      "corr": 0.4177
+     },
+     "GARCH": {
+      "rmse": 6.3932,
+      "mae": 5.1453,
+      "corr": 0.4319
+     }
+    },
+    "2020-oggi": {
+     "n": 1700,
+     "implicita": {
+      "rmse": 10.0939,
+      "mae": 6.8219,
+      "corr": 0.5557
+     },
+     "RVp": {
+      "rmse": 12.266,
+      "mae": 7.4238,
+      "corr": 0.45
+     },
+     "EWMA": {
+      "rmse": 11.7155,
+      "mae": 7.1903,
+      "corr": 0.4465
+     },
+     "GARCH": {
+      "rmse": 10.3746,
+      "mae": 6.3853,
+      "corr": 0.4892
+     }
+    }
+   },
+   "criterio_sottoperiodi_vinti": 0,
+   "criterio_uguale_a_python": true,
+   "metriche_diff_max_da_python": 0.00005,
+   "eventi": [
+    "2008-09-29",
+    "2011-08-18",
+    "2019-01-04",
+    "2020-03-09",
+    "2022-05-05",
+    "2022-11-10",
+    "2025-04-09"
+   ],
+   "eventi_uguali_a_python": true,
+   "segnali": {
+    "P1_impl_meno_GARCH": {
+     "preceduti": 6,
+     "anticipo_mediano": 10,
+     "base_giornaliera": 0.2041,
+     "inizi_valutabili": 214,
+     "inizi_seguiti": 13,
+     "uguale_a_python": true
+    },
+    "P2_impl_meno_RVp": {
+     "preceduti": 5,
+     "anticipo_mediano": 9,
+     "base_giornaliera": 0.2166,
+     "inizi_valutabili": 166,
+     "inizi_seguiti": 7,
+     "uguale_a_python": true
+    },
+    "GARCH_livello": {
+     "preceduti": 6,
+     "anticipo_mediano": 7,
+     "base_giornaliera": 0.0643,
+     "inizi_valutabili": 54,
+     "inizi_seguiti": 10,
+     "uguale_a_python": true
+    }
+   },
+   "oggi": {
+    "data": "2026-11-04",
+    "implicita": 25.08,
+    "RVp": 22.8,
+    "GARCH_21g": 24.89,
+    "P1": 0.19,
+    "P2": 2.28,
+    "uguale_a_python": true
+   },
+   "secondi_totali": 6.74
+  }
+ },
+ "tutto_coincide": true
+}

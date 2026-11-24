@@ -1,0 +1,434 @@
+[
+ {
+  "id": "H1",
+  "area": "guida rapida",
+  "test": "desktop/dark pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+  "ok": "BUG",
+  "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+  "shot": "shots/h-desktop-dark-modal.png",
+  "sev": ""
+ },
+ {
+  "id": "H2",
+  "area": "guida rapida",
+  "test": "desktop/dark chiusura con × e con clic sullo sfondo",
+  "ok": "OK",
+  "detail": "dopo ×: false, dopo clic fuori: false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H3",
+  "area": "guida rapida",
+  "test": "desktop/dark la modale sta nello schermo",
+  "ok": "OK",
+  "detail": "{\"w\":640,\"right\":1040,\"iw\":1440,\"sw\":638,\"cw\":638,\"h\":810,\"ih\":900}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/dark link «Guida completa» dalla vista mon",
+  "ok": "OK",
+  "detail": "guida.html#mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/dark link «Guida completa» dalla vista rrg",
+  "ok": "OK",
+  "detail": "guida.html#rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/dark link «Guida completa» dalla vista btm",
+  "ok": "OK",
+  "detail": "guida.html#btm",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/dark link «Guida completa» dalla vista sec",
+  "ok": "OK",
+  "detail": "guida.html#sec",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/dark link «Guida completa» dalla vista alr",
+  "ok": "OK",
+  "detail": "guida.html#alr",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/dark link «Guida completa» dalla vista idx",
+  "ok": "OK",
+  "detail": "guida.html#idx",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/dark link «Guida completa» dalla vista tit",
+  "ok": "OK",
+  "detail": "guida.html#tit",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H5",
+  "area": "guida",
+  "test": "desktop/dark «Guida completa» dalla Bottom Map apre guida.html#btm alla sezione",
+  "ok": "OK",
+  "detail": "{\"hash\":\"#btm\",\"top\":12,\"ih\":900,\"sy\":4841,\"toc\":true,\"theme\":\"dark\"}",
+  "shot": "shots/g-desktop-dark-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "G1",
+  "area": "guida",
+  "test": "desktop/dark tutte le ancore interne esistono",
+  "ok": "OK",
+  "detail": "ancore=32 mancanti=",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G2",
+  "area": "guida",
+  "test": "desktop/dark versione e niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "versione 0.9.9 del 20/10/2026 ov=0",
+  "shot": "shots/g-desktop-dark-top.png",
+  "sev": ""
+ },
+ {
+  "id": "G3",
+  "area": "guida",
+  "test": "desktop/dark voci dell'indice portano alla sezione (26)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «SECTOR·MON» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «← Torna all'app» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «Apri il Monitor →» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «Apri la Rotazione →» (./#rrg)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-rrg\",\"hash\":\"#rrg\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «Apri la Bottom Map →» (./#btm)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-btm\",\"hash\":\"#btm\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «Apri un settore (XLU) →» (./#XLU)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «Apri gli Alert →» (./#alr)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-alr\",\"hash\":\"#alr\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «Apri gli Indici →» (./#idx)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-idx\",\"hash\":\"#idx\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/dark link «Apri i Titoli →» (./#tit)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-tit\",\"hash\":\"#tit-XLU\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "desktop/dark nessun errore (app + guida)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H1",
+  "area": "guida rapida",
+  "test": "desktop/light pulsante apre, focus su ×, Tab resta dentro, Esc chiude e torna al pulsante",
+  "ok": "BUG",
+  "detail": "{\"h0\":{\"open\":true,\"f\":\"helpClose\",\"inert\":false},\"tabbed\":[\"in\",\"in\",\"in\",\"OUT:BODY#\",\"in\",\"in\",\"in\",\"in\"],\"h1\":{\"open\":false,\"f\":\"helpBtn\"}}",
+  "shot": "shots/h-desktop-light-modal.png",
+  "sev": ""
+ },
+ {
+  "id": "H2",
+  "area": "guida rapida",
+  "test": "desktop/light chiusura con × e con clic sullo sfondo",
+  "ok": "OK",
+  "detail": "dopo ×: false, dopo clic fuori: false",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H3",
+  "area": "guida rapida",
+  "test": "desktop/light la modale sta nello schermo",
+  "ok": "OK",
+  "detail": "{\"w\":640,\"right\":1040,\"iw\":1440,\"sw\":638,\"cw\":638,\"h\":810,\"ih\":900}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/light link «Guida completa» dalla vista mon",
+  "ok": "OK",
+  "detail": "guida.html#mon",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/light link «Guida completa» dalla vista rrg",
+  "ok": "OK",
+  "detail": "guida.html#rrg",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/light link «Guida completa» dalla vista btm",
+  "ok": "OK",
+  "detail": "guida.html#btm",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/light link «Guida completa» dalla vista sec",
+  "ok": "OK",
+  "detail": "guida.html#sec",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/light link «Guida completa» dalla vista alr",
+  "ok": "OK",
+  "detail": "guida.html#alr",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/light link «Guida completa» dalla vista idx",
+  "ok": "OK",
+  "detail": "guida.html#idx",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H4",
+  "area": "guida rapida",
+  "test": "desktop/light link «Guida completa» dalla vista tit",
+  "ok": "OK",
+  "detail": "guida.html#tit",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "H5",
+  "area": "guida",
+  "test": "desktop/light «Guida completa» dalla Bottom Map apre guida.html#btm alla sezione",
+  "ok": "OK",
+  "detail": "{\"hash\":\"#btm\",\"top\":12,\"ih\":900,\"sy\":4841,\"toc\":true,\"theme\":\"light\"}",
+  "shot": "shots/g-desktop-light-btm.png",
+  "sev": ""
+ },
+ {
+  "id": "G1",
+  "area": "guida",
+  "test": "desktop/light tutte le ancore interne esistono",
+  "ok": "OK",
+  "detail": "ancore=32 mancanti=",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G2",
+  "area": "guida",
+  "test": "desktop/light versione e niente scroll orizzontale",
+  "ok": "OK",
+  "detail": "versione 0.9.9 del 20/10/2026 ov=0",
+  "shot": "shots/g-desktop-light-top.png",
+  "sev": ""
+ },
+ {
+  "id": "G3",
+  "area": "guida",
+  "test": "desktop/light voci dell'indice portano alla sezione (26)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «SECTOR·MON» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «← Torna all'app» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «Apri il Monitor →» (./#mon)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-mon\",\"hash\":\"#mon\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «Apri la Rotazione →» (./#rrg)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-rrg\",\"hash\":\"#rrg\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «Apri la Bottom Map →» (./#btm)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-btm\",\"hash\":\"#btm\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «Apri un settore (XLU) →» (./#XLU)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-sec\",\"hash\":\"#XLU\",\"sec\":\"XLU · Utilities\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «Apri gli Alert →» (./#alr)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-alr\",\"hash\":\"#alr\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «Apri gli Indici →» (./#idx)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-idx\",\"hash\":\"#idx\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "G4",
+  "area": "guida",
+  "test": "desktop/light link «Apri i Titoli →» (./#tit)",
+  "ok": "OK",
+  "detail": "{\"v\":\"v-tit\",\"hash\":\"#tit-XLU\",\"sec\":\"\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "desktop/light nessun errore (app + guida)",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

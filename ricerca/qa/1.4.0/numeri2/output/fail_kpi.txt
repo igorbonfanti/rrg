@@ -1,0 +1,55 @@
+{
+ "K": "KOSPI200",
+ "T": "2022-09-30",
+ "vista8": {
+  "riga": [
+   "Fallito",
+   "14,7%"
+  ],
+  "kpi": [
+   [
+    "Emergenti in zona blu",
+    "0 / 7",
+    "nessuno"
+   ],
+   [
+    "In attenzione",
+    "2 / 7",
+    "CSI300 · IBOV"
+   ]
+  ]
+ },
+ "vista6": {
+  "riga": [
+   "Fallito",
+   "14,7%"
+  ],
+  "kpi": [
+   [
+    "Indici in zona blu",
+    "1 / 22",
+    "KOSPI200"
+   ],
+   [
+    "Trigger nelle ultime 63 sedute",
+    "0 / 22",
+    "nessuno"
+   ],
+   [
+    "Indici in attenzione",
+    "2 / 22",
+    "IBOV · CSI300"
+   ],
+   [
+    "Cali forti in allerta",
+    "1 / 21",
+    "NDX · negli ultimi 3 mesi: KOSPI200 · IBOV"
+   ],
+   [
+    "Più vicino al livello blu",
+    "KOSPI200",
+    "14,7% contro un livello di 15% (−0,3 punti)"
+   ]
+  ]
+ }
+}

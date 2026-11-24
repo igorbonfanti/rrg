@@ -1,0 +1,3087 @@
+[
+ {
+  "s": "ok",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "ok",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "ok",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "fredDown",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 22.5,
+  "req": "8",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX: data/vix.json non si aggiorna.",
+   "VIXCLS (FRED): HTTP 503",
+   "VIX: nessun dato di FRED",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)",
+   "VIX3M: nessun dato di FRED"
+  ]
+ },
+ {
+  "s": "fredDown",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 22.5,
+  "req": "9",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": null,
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": null,
+   "fred3m": null,
+   "credit": "2026-11-06"
+  },
+  "missing": [
+   "VIX3M"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": null,
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "Serie facoltative mancanti: VIX3M",
+   "VIXCLS (FRED): HTTP 503",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)",
+   "VIX3M: nessun dato di FRED"
+  ]
+ },
+ {
+  "s": "fredDown",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 22.5,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "VIX3M: tenuta la parte FRED pubblicata",
+   "VIXCLS (FRED): HTTP 503",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)"
+  ]
+ },
+ {
+  "s": "fredHang",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 142.5,
+  "req": "8",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX: data/vix.json non si aggiorna.",
+   "VIXCLS (FRED): The operation was aborted due to timeout",
+   "VIX: nessun dato di FRED",
+   "VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)",
+   "VIX3M: nessun dato di FRED"
+  ]
+ },
+ {
+  "s": "fredHang",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 142.5,
+  "req": "9",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": null,
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": null,
+   "fred3m": null,
+   "credit": "2026-11-06"
+  },
+  "missing": [
+   "VIX3M"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": null,
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "Serie facoltative mancanti: VIX3M",
+   "VIXCLS (FRED): The operation was aborted due to timeout",
+   "VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)",
+   "VIX3M: nessun dato di FRED"
+  ]
+ },
+ {
+  "s": "fredHang",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 142.5,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "VIX3M: tenuta la parte FRED pubblicata",
+   "VIXCLS (FRED): The operation was aborted due to timeout",
+   "VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "cboeDown",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): HTTP 403",
+   "VIX3M (Cboe): HTTP 403"
+  ]
+ },
+ {
+  "s": "cboeDown",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): HTTP 403",
+   "VIX3M (Cboe): HTTP 403"
+  ]
+ },
+ {
+  "s": "cboeDown",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): HTTP 403",
+   "VIX3M (Cboe): HTTP 403"
+  ]
+ },
+ {
+  "s": "cboeHang",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 94.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): The operation was aborted due to timeout",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "cboeHang",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 94.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): The operation was aborted due to timeout",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "cboeHang",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 94.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): The operation was aborted due to timeout",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "yahooDown",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 12,
+  "req": "4",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIX: senza le sedute dell'S&P 500",
+   "VIX3M: senza le sedute dell'S&P 500",
+   "HYG/IEF: senza le sedute dell'S&P 500"
+  ]
+ },
+ {
+  "s": "yahooDown",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 12,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": null
+  },
+  "missing": [
+   "HYGIEF"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "Serie facoltative mancanti: HYGIEF",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "yahooDown",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 12,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "yahooHang",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 132,
+  "req": "4",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.",
+   "^GSPC: The operation was aborted due to timeout",
+   "^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "VIX: senza le sedute dell'S&P 500",
+   "VIX3M: senza le sedute dell'S&P 500",
+   "HYG/IEF: senza le sedute dell'S&P 500"
+  ]
+ },
+ {
+  "s": "yahooHang",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 132,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": null
+  },
+  "missing": [
+   "HYGIEF"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "Serie facoltative mancanti: HYGIEF",
+   "^GSPC: The operation was aborted due to timeout",
+   "^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "HYG/IEF: non richiesto, Yahoo già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "yahooHang",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 132,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "^GSPC: The operation was aborted due to timeout",
+   "^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "HYG/IEF: non richiesto, Yahoo già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "allDown",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 12,
+  "req": "4",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIX: senza le sedute dell'S&P 500",
+   "VIX3M: senza le sedute dell'S&P 500",
+   "HYG/IEF: senza le sedute dell'S&P 500"
+  ]
+ },
+ {
+  "s": "allDown",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 39,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": null,
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": null,
+   "fred3m": null,
+   "credit": null
+  },
+  "missing": [
+   "VIX3M",
+   "HYGIEF"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": null,
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "Serie facoltative mancanti: VIX3M, HYGIEF",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIXCLS (FRED): HTTP 503",
+   "VIX (Cboe): HTTP 503",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)",
+   "VIX3M: nessun dato di FRED",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "allDown",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 39,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "VIX3M: tenuta la parte FRED pubblicata",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIXCLS (FRED): HTTP 503",
+   "VIX (Cboe): HTTP 503",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (HTTP 503)",
+   "^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "allHang",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 132,
+  "req": "4",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.",
+   "^GSPC: The operation was aborted due to timeout",
+   "^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "VIX: senza le sedute dell'S&P 500",
+   "VIX3M: senza le sedute dell'S&P 500",
+   "HYG/IEF: senza le sedute dell'S&P 500"
+  ]
+ },
+ {
+  "s": "allHang",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 369,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": null,
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": null,
+   "fred3m": null,
+   "credit": null
+  },
+  "missing": [
+   "VIX3M",
+   "HYGIEF"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": null,
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "Serie facoltative mancanti: VIX3M, HYGIEF",
+   "^GSPC: The operation was aborted due to timeout",
+   "^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "VIXCLS (FRED): The operation was aborted due to timeout",
+   "VIX (Cboe): The operation was aborted due to timeout",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)",
+   "VIX3M: nessun dato di FRED",
+   "HYG/IEF: non richiesto, Yahoo già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "allHang",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 369,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "VIX3M: tenuta la parte FRED pubblicata",
+   "^GSPC: The operation was aborted due to timeout",
+   "^NDX: non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "VIXCLS (FRED): The operation was aborted due to timeout",
+   "VIX (Cboe): The operation was aborted due to timeout",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "VXVCLS (FRED): non richiesto, FRED già giù (The operation was aborted due to timeout)",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (The operation was aborted due to timeout)",
+   "^VIX3M (Yahoo): non richiesto, Yahoo già giù (The operation was aborted due to timeout)",
+   "HYG/IEF: non richiesto, Yahoo già giù (The operation was aborted due to timeout)"
+  ]
+ },
+ {
+  "s": "fredCboeDown",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 22.5,
+  "req": "8",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX: data/vix.json non si aggiorna.",
+   "VIXCLS (FRED): HTTP 503",
+   "VIX: nessun dato di FRED",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)",
+   "VIX3M: nessun dato di FRED"
+  ]
+ },
+ {
+  "s": "fredCboeDown",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 27,
+  "req": "12",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": null,
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": null,
+   "fred3m": null,
+   "credit": "2026-11-06"
+  },
+  "missing": [
+   "VIX3M"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": null,
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "Serie facoltative mancanti: VIX3M",
+   "VIXCLS (FRED): HTTP 503",
+   "VIX (Cboe): HTTP 503",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)",
+   "VIX3M: nessun dato di FRED"
+  ]
+ },
+ {
+  "s": "fredCboeDown",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 27,
+  "req": "13",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: tenuta la parte FRED pubblicata",
+   "VIX3M: tenuta la parte FRED pubblicata",
+   "VIXCLS (FRED): HTTP 503",
+   "VIX (Cboe): HTTP 503",
+   "VXVCLS (FRED): non richiesto, FRED già giù (HTTP 503)",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (HTTP 503)"
+  ]
+ },
+ {
+  "s": "cboeYahooDown",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 12,
+  "req": "4",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIX: senza le sedute dell'S&P 500",
+   "VIX3M: senza le sedute dell'S&P 500",
+   "HYG/IEF: senza le sedute dell'S&P 500"
+  ]
+ },
+ {
+  "s": "cboeYahooDown",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 16.5,
+  "req": "9",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": null
+  },
+  "missing": [
+   "HYGIEF"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "Serie facoltative mancanti: HYGIEF",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIX (Cboe): HTTP 503",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (HTTP 503)",
+   "^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "cboeYahooDown",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 16.5,
+  "req": "9",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIX (Cboe): HTTP 503",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (HTTP 503)",
+   "^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "cboeLate",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeLate",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeLate",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeLateYahooDown",
+  "pn": "nessuno",
+  "exit": "1",
+  "wait": 12,
+  "req": "4",
+  "written": false,
+  "asOf": null,
+  "missing": null,
+  "same": {},
+  "vix": null,
+  "v3": null,
+  "errs": [
+   "Mancano VIX, SPX, NDX: data/vix.json non si aggiorna.",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "VIX: senza le sedute dell'S&P 500",
+   "VIX3M: senza le sedute dell'S&P 500",
+   "HYG/IEF: senza le sedute dell'S&P 500"
+  ]
+ },
+ {
+  "s": "cboeLateYahooDown",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 12,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": null,
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": null
+  },
+  "missing": [
+   "HYGIEF"
+  ],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "Serie facoltative mancanti: HYGIEF",
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "cboeLateYahooDown",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 12,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "^GSPC: fetch failed",
+   "^NDX: non richiesto, Yahoo già giù (fetch failed)",
+   "^VIX (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "^VIX3M (Yahoo): non richiesto, Yahoo già giù (fetch failed)",
+   "HYG/IEF: non richiesto, Yahoo già giù (fetch failed)"
+  ]
+ },
+ {
+  "s": "cboeExtra",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeExtra",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeExtra",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeHtml",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): intestazione inattesa",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (intestazione inattesa)"
+  ]
+ },
+ {
+  "s": "cboeHtml",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): intestazione inattesa",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (intestazione inattesa)"
+  ]
+ },
+ {
+  "s": "cboeHtml",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): intestazione inattesa",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (intestazione inattesa)"
+  ]
+ },
+ {
+  "s": "cboeDisclaimer",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): intestazione inattesa",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (intestazione inattesa)"
+  ]
+ },
+ {
+  "s": "cboeDisclaimer",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): intestazione inattesa",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (intestazione inattesa)"
+  ]
+ },
+ {
+  "s": "cboeDisclaimer",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): intestazione inattesa",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (intestazione inattesa)"
+  ]
+ },
+ {
+  "s": "cboeIso",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): nessun dato",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (nessun dato)"
+  ]
+ },
+ {
+  "s": "cboeIso",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): nessun dato",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (nessun dato)"
+  ]
+ },
+ {
+  "s": "cboeIso",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 4.5,
+  "req": "11",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX (Cboe): nessun dato",
+   "VIX3M (Cboe): non richiesto, Cboe già giù (nessun dato)"
+  ]
+ },
+ {
+  "s": "cboeZero",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeZero",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeZero",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeNeg",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeNeg",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeNeg",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeDup",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-05",
+   "fred": "2026-11-05",
+   "vixSrc": "FRED",
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-04/2026-11-05",
+   28.18
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "VIX: sedute provvisorie non plausibili scartate (2026-11-06 99.99)",
+   "VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 99.99)"
+  ]
+ },
+ {
+  "s": "cboeDup",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": null,
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "VIX: sedute provvisorie non plausibili scartate (2026-11-06 99.99)",
+   "VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 99.99)"
+  ]
+ },
+ {
+  "s": "cboeDup",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: sedute provvisorie non plausibili scartate (2026-11-06 99.99)",
+   "VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 99.99)"
+  ]
+ },
+ {
+  "s": "cboeShort",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeShort",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeShort",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeCols",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeCols",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeCols",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeOldFred",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeOldFred",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeOldFred",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Yahoo",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "cboeWild",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-05",
+   "fred": "2026-11-05",
+   "vixSrc": "FRED",
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-04/2026-11-05",
+   28.18
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "VIX: sedute provvisorie non plausibili scartate (2026-11-06 2564)",
+   "VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 2564)"
+  ]
+ },
+ {
+  "s": "cboeWild",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": null,
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "VIX: sedute provvisorie non plausibili scartate (2026-11-06 2564)",
+   "VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 2564)"
+  ]
+ },
+ {
+  "s": "cboeWild",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: sedute provvisorie non plausibili scartate (2026-11-06 2564)",
+   "VIX3M: sedute provvisorie non plausibili scartate (2026-11-06 2564)"
+  ]
+ },
+ {
+  "s": "fredBack",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-10-30",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-10-30",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "fredBack",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": null,
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-10-30",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato"
+  ]
+ },
+ {
+  "s": "fredBack",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato",
+   "VIX3M: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato"
+  ]
+ },
+ {
+  "s": "fredBack3m",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-10-30",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "fredBack3m",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-10-30",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "fredBack3m",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "VIX3M: FRED arriva al 2026-10-30, prima del 2026-11-05 pubblicato"
+  ]
+ },
+ {
+  "s": "vix3m404",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "^VIX3M (Yahoo): HTTP 404"
+  ]
+ },
+ {
+  "s": "vix3m404",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "FRED",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-05",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-04/2026-11-05",
+   25.55
+  ],
+  "errs": [
+   "^VIX3M (Yahoo): HTTP 404"
+  ]
+ },
+ {
+  "s": "vix3m404",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "10",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Yahoo",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "^VIX3M (Yahoo): HTTP 404"
+  ]
+ },
+ {
+  "s": "hygShort",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": null
+  },
+  "missing": [
+   "HYGIEF"
+  ],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "Serie facoltative mancanti: HYGIEF",
+   "HYG/IEF: solo 3000 sedute"
+  ]
+ },
+ {
+  "s": "hygShort",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": null
+  },
+  "missing": [
+   "HYGIEF"
+  ],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "Serie facoltative mancanti: HYGIEF",
+   "HYG/IEF: solo 3000 sedute"
+  ]
+ },
+ {
+  "s": "hygShort",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "="
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": [
+   "HYG/IEF: solo 3000 sedute"
+  ]
+ },
+ {
+  "s": "hygDiv",
+  "pn": "nessuno",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {},
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "hygDiv",
+  "pn": "1.5.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "≠",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "≠",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ },
+ {
+  "s": "hygDiv",
+  "pn": "1.6.0",
+  "exit": "0",
+  "wait": 0,
+  "req": "8",
+  "written": true,
+  "asOf": {
+   "vix": "2026-11-06",
+   "fred": "2026-11-05",
+   "vixSrc": "Cboe",
+   "vix3mSrc": "Cboe",
+   "spx": "2026-11-06",
+   "ndx": "2026-11-06",
+   "vix3m": "2026-11-06",
+   "fred3m": "2026-11-05",
+   "credit": "2026-11-06"
+  },
+  "missing": [],
+  "same": {
+   "VIX": "=",
+   "SPX": "=",
+   "NDX": "=",
+   "VIX3M": "=",
+   "HYGIEF": "≠"
+  },
+  "vix": [
+   "2026-11-05/2026-11-06",
+   25.64
+  ],
+  "v3": [
+   "2026-11-05/2026-11-06",
+   24.6
+  ],
+  "errs": []
+ }
+]

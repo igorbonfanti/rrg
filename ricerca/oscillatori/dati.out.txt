@@ -1,0 +1,83 @@
+== Fonti nell'app
+data/vix.json SPX: Yahoo Finance ^GSPC e ^NDX (solo prezzo); 9283 sedute dal 1990-01-02 al 2026-11-10 (giornaliera, solo prezzo)
+data/vix.json VIX: FRED fino al 2026-11-10; 9280 sedute dal 1990-01-02 al 2026-11-10
+data/indices.json SPX: dal 2000-01-03 al 2026-11-10; sedute comuni con vix.json 6755, diverse oltre 0,005 punti 0, differenza massima 0.0002, sedute solo in indices.json 0
+
+== Buchi nella serie giornaliera dell'S&P 500 (più di 4 giorni di calendario tra due sedute)
+  2001-09-10 → 2001-09-17: 7 giorni
+  2006-12-29 → 2007-01-03: 5 giorni
+  2012-10-26 → 2012-10-31: 5 giorni
+Sedute dell'S&P 500 senza VIX: 3 (1991-03-01, 1997-01-31, 1997-11-26)
+
+== Chiusure mensili (ultima seduta del mese nei dati)
+Mesi: 443, dal 1990-01 (ultima seduta 1990-01-31) al 2026-11 (ultima seduta 2026-11-10)
+Mesi mancanti nella sequenza: 0
+Mesi non ancora chiusi: 2026-11 (ultima seduta nei dati 2026-11-10, ultima attesa 2026-11-30, 7 sedute finora)
+Mesi chiusi la cui ultima seduta nei dati non è l'ultima seduta NYSE di js/calendar.js: 0
+Sedute per mese chiuso: da 15 a 23
+
+== VIX: massimo di chiusura per anno (FRED VIXCLS in data/vix.json; confronto Cboe VIX_History.csv: https://cdn.cboe.com/api/global/us_indices/daily_prices/VIX_History.csv (scaricato ora))
+anno  max chiusura  data         Cboe chiusura max  Cboe massimo intraday (data)
+1998         45.74  1998-10-08              45.74  49.53 (1998-10-08)
+1999         32.98  1999-01-14              32.98  33.66 (1999-01-14)
+2000         33.49  2000-04-14              33.49  34.31 (2000-04-17)
+2001         43.74  2001-09-20              43.74  49.35 (2001-09-21)
+2002         45.08  2002-08-05              45.08  48.46 (2002-07-24)
+2003         34.69  2003-01-27              34.69  35.66 (2003-02-10)
+2004         21.58  2004-03-22              21.58  36.55 (2004-01-21)
+2005         17.74  2005-04-15              17.74  36.56 (2005-07-25)
+2006         23.81  2006-06-13              23.81  23.81 (2006-06-13)
+2007         31.09  2007-11-12              31.09  37.50 (2007-08-16)
+2008         80.86  2008-11-20              80.86  89.53 (2008-10-24)
+2009         56.65  2009-01-20              56.65  57.36 (2009-01-20)
+2010         45.79  2010-05-20              45.79  48.20 (2010-05-21)
+2011         48.00  2011-08-08              48.00  48.00 (2011-08-08)
+2012         26.66  2012-06-01              26.66  27.73 (2012-06-04)
+2013         20.49  2013-06-20              20.49  21.91 (2013-06-24)
+2014         26.25  2014-10-15              26.25  31.06 (2014-10-15)
+2015         40.74  2015-08-24              40.74  53.29 (2015-08-24)
+2016         28.14  2016-02-11              28.14  32.09 (2016-01-20)
+2017         16.04  2017-08-10              16.04  17.28 (2017-08-11)
+2018         37.32  2018-02-05              37.32  50.30 (2018-02-06)
+2019         25.45  2019-01-03              25.45  28.53 (2019-01-02)
+2020         82.69  2020-03-16              82.69  85.47 (2020-03-18)
+2021         37.21  2021-01-27              37.21  37.51 (2021-01-29)
+2022         36.45  2022-03-07              36.45  38.94 (2022-01-24)
+
+== Confronto delle chiusure mensili con Cboe SPX_History.csv (https://cdn.cboe.com/api/global/us_indices/daily_prices/SPX_History.csv (scaricato ora))
+Cboe SPX: 13075 sedute dal 1975-01-02 al 2026-11-11
+Cboe: mesi chiusi confrontati 442, stessa ultima seduta 441, chiusure diverse oltre 0,005 punti 11, scarto massimo 7.8900 punti (0.2834%) in 2019-02 (2019-02-28: Yahoo 2784.49, Cboe 2792.38)
+  ultima seduta diversa: 1999-12 (Yahoo 1999-12-31, Cboe 1999-12-30)
+  chiusure diverse (Yahoo/Cboe): 1991-04-30 375.34/375.35 (0.003%); 1991-10-31 392.45/392.46 (0.003%); 1992-01-31 408.78/408.79 (0.002%); 1994-09-30 462.71/462.69 (-0.004%); 1996-09-30 687.33/687.31 (-0.003%); 1997-02-28 790.82/791.09 (0.034%); 1997-07-31 954.31/954.29 (-0.002%); 2006-03-31 1294.87/1294.83 (-0.003%); 2016-05-31 2096.95/2096.96 (0.000%); 2018-11-30 2760.17/2760.16 (-0.000%); 2019-02-28 2784.49/2792.38 (0.283%)
+campione   ultima seduta  Yahoo (vix.json)  Cboe
+1990-01    1990-01-31         329.08      329.08 (1990-01-31)
+1994-12    1994-12-30         459.27      459.27 (1994-12-30)
+1998-06    1998-06-30        1133.84     1133.84 (1998-06-30)
+1998-07    1998-07-31        1120.67     1120.67 (1998-07-31)
+1998-08    1998-08-31         957.28      957.28 (1998-08-31)
+2000-03    2000-03-31        1498.58     1498.58 (2000-03-31)
+2000-08    2000-08-31        1517.68     1517.68 (2000-08-31)
+2001-09    2001-09-28        1040.94     1040.94 (2001-09-28)
+2007-10    2007-10-31        1549.38     1549.38 (2007-10-31)
+2008-12    2008-12-31         903.25      903.25 (2008-12-31)
+2011-07    2011-07-29        1292.28     1292.28 (2011-07-29)
+2015-07    2015-07-31        2103.84     2103.84 (2015-07-31)
+2018-09    2018-09-28        2913.98     2913.98 (2018-09-28)
+2020-01    2020-01-31        3225.52     3225.52 (2020-01-31)
+2020-02    2020-02-28        2954.22     2954.22 (2020-02-28)
+2021-12    2021-12-31        4766.18     4766.18 (2021-12-31)
+2022-01    2022-01-31        4515.55     4515.55 (2022-01-31)
+2026-10    2026-10-30        7580.07     7580.07 (2026-10-30)
+Sedute solo in Cboe: 0; solo in Yahoo: 1 (1999-12-31)
+
+== Confronto con FRED SP500 (FRED SP500 (scaricato ora)): dal 2016-11-11 al 2026-11-10, solo 10 anni per la licenza S&P
+FRED: mesi chiusi confrontati 120, stessa ultima seduta 120, chiusure diverse oltre 0,005 punti 0, scarto massimo 0.0002 punti (0.0000%) in 2022-04 (2022-04-29: Yahoo 4131.93, FRED 4131.93)
+
+== Yahoo ^GSPC nella copia ricerca/vix/cache/_GSPC.json: 10543 sedute dal 1985-01-02 al 2026-11-05 (scripts/fetch_vix.js chiede solo dal 1990-01-01, costante SINCE)
+
+== Primo mese con un valore, per oscillatori mensili generici (stima dei mesi di riscaldamento)
+Coppock (ROC 14 + ROC 11, WMA 10): 1991-12 (dopo 24 mesi)
+KST mensile di Pring (ROC 9/12/18/24, medie 6/6/6/9): 1992-09 (dopo 33 mesi); segnale SMA 9: 1993-05 (dopo 41 mesi)
+MACD 12/26/9 e RSI 14 mensili: medie esponenziali, il primo valore esiste dopo 26 (+9) e 15 mesi, ma dipende dal seme per molti mesi in più: più storia prima del 1996 serve (Yahoo ha ^GSPC dal 1985, Cboe dal 1975).
+
+Scritto ricerca/oscillatori/cache/spx_mensile.json (443 mesi)

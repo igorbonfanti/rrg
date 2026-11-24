@@ -1,0 +1,3 @@
+C tocchi avvisati 33 · anticipo mediano dal primo allarme 49 · dall'ultimo allarme 28
+D tocchi avvisati 50 · anticipo mediano dal primo allarme 39 · dall'ultimo allarme 23
+E tocchi avvisati 43 · anticipo mediano dal primo allarme 31 · dall'ultimo allarme 22

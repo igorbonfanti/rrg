@@ -1,0 +1,72 @@
+{
+ "sym": "EURUSD=X",
+ "tz": "Europe/London",
+ "barre": 507,
+ "quasiEsatte": 126,
+ "oreDallInizioBarra_piuFrequenti": [
+  [
+   "0",
+   59
+  ],
+  [
+   "1",
+   25
+  ],
+  [
+   "-4",
+   25
+  ],
+  [
+   "-2",
+   24
+  ],
+  [
+   "-1",
+   23
+  ],
+  [
+   "-5",
+   23
+  ],
+  [
+   "2",
+   20
+  ],
+  [
+   "-6",
+   18
+  ]
+ ],
+ "campione": [
+  {
+   "d": "2025-04-25",
+   "close": 1.1371906995773315,
+   "oraPiuVicinaRispettoAllInizioBarra": -6,
+   "scarto": 0.000045495299675124556
+  },
+  {
+   "d": "2025-04-28",
+   "close": 1.1343141794204712,
+   "oraPiuVicinaRispettoAllInizioBarra": 9,
+   "scarto": 0.0003290484174094388
+  },
+  {
+   "d": "2025-04-29",
+   "close": 1.1409143209457397,
+   "oraPiuVicinaRispettoAllInizioBarra": 0,
+   "scarto": 0.0002168079331432704
+  },
+  {
+   "d": "2025-07-15",
+   "close": 1.1666297912597656,
+   "oraPiuVicinaRispettoAllInizioBarra": -7,
+   "scarto": 0.00003504863892744847
+  },
+  {
+   "d": "2026-01-14",
+   "close": 1.164252758026123,
+   "oraPiuVicinaRispettoAllInizioBarra": 25,
+   "scarto": 0.000023345203891578237
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+OK   storico lento, primo clic: «Caricamento dello storico…»
+FAIL storico lento, secondo mercato aperto durante il caricamento: «Storico non disponibile (data/ath_history.json).» (atteso «Caricamento dello storico…»)
+FAIL storico lento, cambio di periodo durante il caricamento: «Storico non disponibile (data/ath_history.json).»
+OK   storico arrivato: grafico disegnato (52423 caratteri), messaggio nascosto
+OK   nessun errore in console ()
+OK   zoom attivo dopo il trascinamento (Zoom: dal 03/01/2022 al 31/01/2024)
+OK   altro mercato: zoom tolto
+OK   Invio chiude la riga, focus sulla stessa riga (NDX, aria-expanded=false)
+OK   Spazio riapre la riga
+OK   ordine per data: BTC SILVER GOLD WTI SOXX KOSPI COPPER NDX SPX, grafico ancora aperto
+OK   nessun errore in console ()
+OK   ath.json mancante: messaggio «Dati della distanza dal massimo non disponibili (data/ath.json): il pannello tornerà dopo il prossimo aggiornamento.», resto della vista visibile
+OK   nessun errore oltre al 404 (Failed to load resource: the server responded with a status of 404 (Not Found))
+OK   vix.json mancante: pannello dei massimi NASCOSTO (sta dentro #vxBody) — solo informativo
+OK   storico mancante: «Storico non disponibile (data/ath_history.json).»
+OK   nessun errore oltre al 404 (Failed to load resource: the server responded with a status of 404 (Not Found))
+OK   HTML nell'etichetta mostrato come testo
+OK   nessun NaN/undefined nella tabella
+OK   riga senza dati: «OroGLD · ETF fisico—dati non disponibili———»
+OK   riga senza dati in fondo (GOLD)
+OK   riga più vecchia in grigio (c-last mono muted)
+OK   dettaglio con HTML nella nota: niente NaN, niente codice eseguito
+OK   formato vecchio: dettaglio «Argento · SLV (ETF fisico) · ultima chiusura 46,65 il 11/11/2026 · massimo di chiusura degli ultimi 3 anni (dal —) — il — · calo più profondo dopo il massimo −5…»
+OK   formato vecchio: legenda «Argento (SLV), chiusureultimi 3 annimassimo di chiusura dei 3 anniminimo dopo il massimomassimo di sempre: 105,60 il 28/»
+OK   nessun errore in console ()
+FAIL storico rovinato: messaggio «(nessun messaggio)», errori: Cannot read properties of undefined (reading 'map')
+
+26 controlli, 3 falliti

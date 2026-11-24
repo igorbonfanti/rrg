@@ -1,0 +1,1055 @@
+{
+ "base": "http://127.0.0.1:8795/",
+ "voci": 91,
+ "ok": 91,
+ "risultati": [
+  {
+   "id": 1,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#srcLine",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 2,
+   "vista": "globale",
+   "proposta": "TOGLIERE",
+   "posizione": "#term > footer.statusline > span.discl",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 5,
+   "vista": "globale",
+   "proposta": "TOGLIERE",
+   "posizione": "#helpModal > div.pb.help > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 6,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > div.pb.help > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Se compare «Nuova versione: ricarica», il browser sta usando",
+     "accorciata nella guida rapida; la scorciatoia del Mac è in guida.html#faq («Non vedo le ultime novità»)"
+    ]
+   ]
+  },
+  {
+   "id": 7,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > div.pb.help > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 9,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > div.pb.help > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Sector Monitor segue due cose: i possibili bottom dei settor",
+     "guida rapida accorciata; stesso contenuto in guida.html#inizio («fa due lavori»)"
+    ]
+   ]
+  },
+  {
+   "id": 10,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "1 Monitor: gli 11 settori ordinati per stato, più i semicond",
+     "guida rapida accorciata; dettaglio in guida.html#mon"
+    ],
+    [
+     "In alto, se sei già passato con i dati di un altro giorno, c",
+     "guida.html#mon, «Cosa è cambiato dall'ultima visita» (con i 5 punti)"
+    ],
+    [
+     "Clic su un settore per il dettaglio, dove il riquadro Perché",
+     "guida.html#sec, «Perché questo stato» (con ✓ e ✗)"
+    ],
+    [
+     "Sul telefono le spiegazioni delle intestazioni si aprono toc",
+     "guida.html#schermo (tocco sui valori con la sottolineatura a puntini) e #inizio (bottone «i»)"
+    ]
+   ]
+  },
+  {
+   "id": 13,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "4 Settore: prezzo, drawdown e breadth nel tempo, livello blu",
+     "guida rapida accorciata; dettaglio in guida.html#sec e #cali"
+    ]
+   ]
+  },
+  {
+   "id": 14,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Sotto, le bolle dei titoli del settore scelto e la lista dei",
+     "guida rapida accorciata; dettaglio in guida.html#tit-bolle"
+    ]
+   ]
+  },
+  {
+   "id": 15,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "La colonna e la scheda Cali forti contano i titoli che perdo",
+     "guida.html#cali (preset di Rea, 99° percentile, allerta che si ripete)"
+    ]
+   ]
+  },
+  {
+   "id": 16,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 17,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 19,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 22,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 23,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > ul > li",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 29,
+   "vista": "globale",
+   "proposta": "GUIDA",
+   "posizione": "#helpModal > div.pb.help > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "1 Asset class confronta le componenti di un portafoglio di e",
+     "tabella degli universi in guida.html#universi e #portafoglio"
+    ],
+    [
+     "2 Fattori gli stili con l'MSCI World;",
+     "guida.html#universi"
+    ],
+    [
+     "3 Regioni e 4 Paesi con l'MSCI ACWI, il mondo con gli emerge",
+     "guida.html#universi"
+    ],
+    [
+     "Sotto il grafico, la nota «come si calcola» mette a confront",
+     "il riquadro sotto il grafico non c'è più: il confronto è in guida.html#formule, aperto dal «i» accanto a Formula"
+    ]
+   ]
+  },
+  {
+   "id": 30,
+   "vista": "globale",
+   "proposta": "GUIDA",
+   "posizione": "#helpModal > div.pb.help > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 39,
+   "vista": "globale",
+   "proposta": "ACCORCIARE",
+   "posizione": "#helpModal > div.pb.help > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Nella barra in alto scrivi un ETF settoriale (es.",
+     "guida rapida accorciata; tabella completa dei comandi in guida.html#comandi"
+    ],
+    [
+     "XLU) per aprirne il dettaglio, un altro ticker (anche senza ",
+     "guida.html#comandi"
+    ],
+    [
+     "ORO, INDIA, TESLA) per evidenziarlo nella rotazione, oppure ",
+     "guida.html#comandi"
+    ],
+    [
+     "NDX, DAX) apre il suo dettaglio nella pagina Indici;",
+     "guida.html#comandi"
+    ],
+    [
+     "CHIARO o SCURO per il tema, TEMA per invertirlo.",
+     "guida.html#comandi («sceglie o inverte il tema»)"
+    ]
+   ]
+  },
+  {
+   "id": 41,
+   "vista": "mon",
+   "proposta": "TOGLIERE",
+   "posizione": "#v-mon > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 48,
+   "vista": "mon",
+   "proposta": "ACCORCIARE",
+   "posizione": "#activeMeta",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 49,
+   "vista": "mon",
+   "proposta": "ACCORCIARE",
+   "posizione": "#intro",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Sector Monitor cerca i possibili bottom dei settori S&P 500 ",
+     "introduzione accorciata; guida.html#inizio"
+    ],
+    [
+     "Leggi il Monitor: lo stato di ogni settore e, accanto (sul t",
+     "introduzione accorciata; «sul telefono sopra» in guida.html#schermo"
+    ],
+    [
+     "Apri 2 Rotazione e scegli un universo in euro:",
+     "introduzione accorciata; universi in guida.html#universi"
+    ]
+   ]
+  },
+  {
+   "id": 50,
+   "vista": "rrg",
+   "proposta": "TOOLTIP",
+   "posizione": "#rotNote",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 51,
+   "vista": "rrg",
+   "proposta": "TOOLTIP",
+   "posizione": "#pxNote",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Clic su un'intestazione per ordinare.",
+     "tolta dalla pagina (regola 4 del piano); guida.html#rrg-tabelle «un clic sulle intestazioni ordina la tabella»"
+    ]
+   ]
+  },
+  {
+   "id": 56,
+   "vista": "rrg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#v-rrg > div.legend > span.muted",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "colore = quadrante · passa sopra un punto o una riga per iso",
+     "la legenda dei quattro quadranti è subito a sinistra, con il loro colore"
+    ]
+   ]
+  },
+  {
+   "id": 63,
+   "vista": "rrg",
+   "proposta": "GUIDA",
+   "posizione": "#fxBox",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Formula nuova · medie esponenziali divise per la volatilità ",
+     "era il titolo del riquadro piegato, che non c'è più; il contenuto è in guida.html#formule"
+    ]
+   ]
+  },
+  {
+   "id": 64,
+   "vista": "rrg",
+   "proposta": "GUIDA",
+   "posizione": "#ptfHow",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Il tuo portafoglio · come adattare i pesi e cosa cambia nel ",
+     "titolo del riquadro piegato tolto; contenuto in guida.html#portafoglio"
+    ],
+    [
+     "«Porta a 100%» riscrive i numeri mantenendo le proporzioni.",
+     "guida.html#portafoglio («Porta a 100%» riscrive i numeri)"
+    ],
+    [
+     "I pesi restano salvati in questo browser: non li vede nessun",
+     "guida.html#portafoglio e riquadro «i» («I pesi restano in questo browser»)"
+    ]
+   ]
+  },
+  {
+   "id": 65,
+   "vista": "rrg",
+   "proposta": "GUIDA",
+   "posizione": "#mxHow",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Da sapere · dati, limiti e come usare questo universo Contro",
+     "titolo del riquadro piegato tolto; contenuto in guida.html#asset-reali"
+    ]
+   ]
+  },
+  {
+   "id": 66,
+   "vista": "rrg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ptfWhat",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Il benchmark è un portafoglio di esempio, fatto con le 10 co",
+     "accorciata nella pagina («Benchmark: un portafoglio di esempio con le 10 componenti qui sotto…»); il resto in guida.html#portafoglio"
+    ]
+   ]
+  },
+  {
+   "id": 67,
+   "vista": "rrg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ptfFoot",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 71,
+   "vista": "rrg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ptfLine",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Composizione e cursori sotto il grafico.",
+     "tolta: il pannello del portafoglio è subito sotto il grafico"
+    ]
+   ]
+  },
+  {
+   "id": 72,
+   "vista": "rrg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#mxNow",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Ora il benchmark è Liquidità in dollari: a destra chi rende ",
+     "la spiegazione resta nella riga del benchmark scelto, evidenziata; la riga sopra dice quale è"
+    ],
+    [
+     "Vale anche come confronto con il tasso Fed, che si muove con",
+     "la frase resta nella riga BIL della tabella dei benchmark, evidenziata quando è il benchmark"
+    ]
+   ]
+  },
+  {
+   "id": 75,
+   "vista": "btm",
+   "proposta": "TOOLTIP",
+   "posizione": "#v-btm > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 82,
+   "vista": "btm",
+   "proposta": "ACCORCIARE",
+   "posizione": "#v-btm > div.legend > span",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 84,
+   "vista": "btm",
+   "proposta": "ACCORCIARE",
+   "posizione": "#v-btm > div.legend > span.muted",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "coda = ultime 8 settimane · il percorso di un bottom scende ",
+     "legenda accorciata; il percorso del bottom nel riquadro «i» della legenda e in guida.html#btm"
+    ]
+   ]
+  },
+  {
+   "id": 85,
+   "vista": "btm",
+   "proposta": "ACCORCIARE",
+   "posizione": "#bmMeta",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 87,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#secEpiBox > p.note.pb.ctx-h",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 88,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#secEpiBox > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 91,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#secCapNote",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 93,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#secCheck > p.note.capinfo",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Informativo: non fa parte delle regole del semaforo (scheda ",
+     "accorciata: «(solo contesto, non fa parte delle regole)»"
+    ]
+   ]
+  },
+  {
+   "id": 94,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#blueSrc",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 96,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#v-sec > div.pb.blue-box > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Le modifiche valgono solo in questo browser: servono a prova",
+     "accorciata: «Vale solo in questo browser»; prova dei livelli in guida.html#sec-livello"
+    ]
+   ]
+  },
+  {
+   "id": 112,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#epiMeta",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "4 zone blu dal 03/01/2005 con livello 6% · 7 trigger, 3 fall",
+     "tolto solo «rendimenti a confronto sotto la tabella»: il confronto è subito sotto; il resto è generato dai dati di oggi"
+    ]
+   ]
+  },
+  {
+   "id": 119,
+   "vista": "tit",
+   "proposta": "ACCORCIARE",
+   "posizione": "#titSpreadNote",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Clic su un settore per vederne i titoli.",
+     "accorciata: «Clic su un settore per i suoi titoli»"
+    ]
+   ]
+  },
+  {
+   "id": 121,
+   "vista": "tit",
+   "proposta": "TOOLTIP",
+   "posizione": "#titHistPanel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 122,
+   "vista": "tit",
+   "proposta": "TOOLTIP",
+   "posizione": "#titBody > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 123,
+   "vista": "tit",
+   "proposta": "TOGLIERE",
+   "posizione": "#titBody > div.pb.how > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Grandi contro piccoli.",
+     "titolo del paragrafo"
+    ]
+   ]
+  },
+  {
+   "id": 124,
+   "vista": "tit",
+   "proposta": "TOGLIERE",
+   "posizione": "#titBody > div.pb.how > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Titoli del settore.",
+     "titolo del paragrafo"
+    ]
+   ]
+  },
+  {
+   "id": 125,
+   "vista": "tit",
+   "proposta": "GUIDA",
+   "posizione": "#titBody > div.pb.how > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 126,
+   "vista": "tit",
+   "proposta": "GUIDA",
+   "posizione": "#titBody > div.pb.how > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Perché non coincide con il grafico di Rea.",
+     "titolo del paragrafo, che è anche la domanda della FAQ"
+    ],
+    [
+     "I numeri non coincidono, per tre motivi.",
+     "guida.html#faq-rea: «Sono vicini ma calcolati in modo diverso, per tre motivi»"
+    ]
+   ]
+  },
+  {
+   "id": 131,
+   "vista": "tit",
+   "proposta": "ACCORCIARE",
+   "posizione": "#titBody > div.legend > span",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 142,
+   "vista": "tit",
+   "proposta": "ACCORCIARE",
+   "posizione": "#titFlagLeg",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "titolo estero quotato negli Stati Uniti (ADR o azioni quotat",
+     "legenda accorciata («quotato negli USA»); ADR in guida.html#industrie"
+    ]
+   ]
+  },
+  {
+   "id": 148,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixBody > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 149,
+   "vista": "idx",
+   "proposta": "TOOLTIP",
+   "posizione": "#ixBody > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 150,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixEpiBox > p.note.pb.ctx-h",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 151,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixEpiBox > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 154,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixCapNote",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 156,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixBlueSrc",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 158,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixBody > div.pb.blue-box > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Le modifiche valgono solo in questo browser: servono a prova",
+     "accorciata: «Vale solo in questo browser»; prova dei livelli in guida.html#sec-livello"
+    ]
+   ]
+  },
+  {
+   "id": 159,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixQuality",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 171,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixBody > div.legend > span",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 189,
+   "vista": "idx",
+   "proposta": "ACCORCIARE",
+   "posizione": "#ixEpiMeta",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "4 zone blu dal 03/01/2005 con livello 13% · 6 trigger, 2 fal",
+     "tolto solo «rendimenti a confronto sotto la tabella»: il confronto è subito sotto; il resto è generato dai dati di oggi"
+    ]
+   ]
+  },
+  {
+   "id": 194,
+   "vista": "emg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#emBody > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 195,
+   "vista": "emg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#emBody > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "cambio al 12/11/2026 (Fed fino al 06/11/2026, poi Yahoo prov",
+     "date generate dai dati (oggi sono altre); la riga resta nella pagina"
+    ]
+   ]
+  },
+  {
+   "id": 196,
+   "vista": "emg",
+   "proposta": "ACCORCIARE",
+   "posizione": "#emRSWrap > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 197,
+   "vista": "emg",
+   "proposta": "GUIDA",
+   "posizione": "#emBody > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 198,
+   "vista": "emg",
+   "proposta": "TOGLIERE",
+   "posizione": "#emBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 199,
+   "vista": "emg",
+   "proposta": "TOOLTIP",
+   "posizione": "#emBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 200,
+   "vista": "emg",
+   "proposta": "TOOLTIP",
+   "posizione": "#emBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 201,
+   "vista": "emg",
+   "proposta": "TOGLIERE",
+   "posizione": "#emBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 202,
+   "vista": "emg",
+   "proposta": "GUIDA",
+   "posizione": "#emBody > div.emread > p.muted",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 219,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#vxBody > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 220,
+   "vista": "vix",
+   "proposta": "TOGLIERE",
+   "posizione": "#vxBody > div.panel > p.note.pb.vxsplegend",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 221,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#vxScNote",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 222,
+   "vista": "vix",
+   "proposta": "TOOLTIP",
+   "posizione": "#vxBody > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 223,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#athNote",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 224,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#athNoteVp",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 225,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#vxBody > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 226,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#vxBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 227,
+   "vista": "vix",
+   "proposta": "GUIDA",
+   "posizione": "#vxBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 228,
+   "vista": "vix",
+   "proposta": "TOGLIERE",
+   "posizione": "#vxBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Lo scatter conta i giorni, come il grafico di Massimo Rea da",
+     "riquadro «i» dello scatter («come il grafico di Massimo Rea», «Contare i giorni dà più peso alle crisi lunghe») e guida.html#vix-scatter"
+    ]
+   ]
+  },
+  {
+   "id": 229,
+   "vista": "vix",
+   "proposta": "GUIDA",
+   "posizione": "#vxBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "VIX contro realizzata.",
+     "titolo del paragrafo (in guida «VIX contro volatilità realizzata»)"
+    ]
+   ]
+  },
+  {
+   "id": 230,
+   "vista": "vix",
+   "proposta": "GUIDA",
+   "posizione": "#vxBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Struttura a termine.",
+     "titolo del paragrafo"
+    ]
+   ]
+  },
+  {
+   "id": 231,
+   "vista": "vix",
+   "proposta": "GUIDA",
+   "posizione": "#vxBody > div.emread > p",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": [
+    [
+     "Credito high yield.",
+     "titolo del paragrafo"
+    ]
+   ]
+  },
+  {
+   "id": 232,
+   "vista": "vix",
+   "proposta": "GUIDA",
+   "posizione": "#vxBody > div.emread > p.muted",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 236,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#vxLegend > span",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 244,
+   "vista": "vix",
+   "proposta": "ACCORCIARE",
+   "posizione": "#vxScMeta",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 253,
+   "vista": "alr",
+   "proposta": "ACCORCIARE",
+   "posizione": "#v-alr > div.panel > p.note.pb",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 255,
+   "vista": "alr",
+   "proposta": "ACCORCIARE",
+   "posizione": "#v-alr > div.pb > p.note",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 258,
+   "vista": "mon",
+   "proposta": "ACCORCIARE",
+   "posizione": "#stateLegend",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 259,
+   "vista": "sec",
+   "proposta": "ACCORCIARE",
+   "posizione": "#secQuality",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  },
+  {
+   "id": 260,
+   "vista": "rrg",
+   "proposta": "TOOLTIP",
+   "posizione": "#pxCopied",
+   "ok": true,
+   "mancano": [],
+   "eccezioni": []
+  }
+ ]
+}

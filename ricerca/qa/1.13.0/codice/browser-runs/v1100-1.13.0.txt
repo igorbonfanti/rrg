@@ -1,0 +1,67 @@
+OK   data/ath.json con 9 mercati (9)
+OK   niente USO tra i mercati
+OK   1440-scuro: 9 righe (9)
+OK   1440-scuro: ordine per distanza SILVER BTC KOSPI SOXX GOLD WTI NDX COPPER SPX
+OK   1440-scuro: distanza, barra, data del massimo e tacca uguali al file 
+OK   1440-scuro: ordine per data del massimo BTC SILVER GOLD WTI SOXX KOSPI COPPER NDX SPX
+OK   1440-scuro: ordine ricordato dopo il ricaricamento
+OK   1440-scuro: dettaglio S&P 500 «S&P 500 · ^GSPC (indice, solo prezzo) · ultima chiusura 6.910,39 il 20/11/2026 · massimo d…»
+OK   1440-scuro: grafico dello S&P 500 «S&P 500: prezzo (serie dal 2000), scala logaritmica» con finestra e massimo (massimo di chiusura dei 3 anni: 7.818,93 il 06/10/2026)
+OK   1440-scuro: periodo MAX del grafico
+OK   1440-scuro: dettaglio WTI con il massimo dei 3 anni, quello di sempre (2008-07-03) e la nota su USO
+OK   1440-scuro: il grafico passa al petrolio
+OK   1440-scuro: un solo dettaglio aperto
+OK   1440-scuro: secondo clic chiude dettaglio e grafico
+OK   1440-scuro: nessuno scorrimento orizzontale (1440,1440)
+OK   1440-scuro: idea citata nel riquadro «i» e nella riga di fonti
+OK   1440-scuro: console 
+OK   1280-chiaro: 9 righe (9)
+OK   1280-chiaro: ordine per distanza SILVER BTC KOSPI SOXX GOLD WTI NDX COPPER SPX
+OK   1280-chiaro: distanza, barra, data del massimo e tacca uguali al file 
+OK   1280-chiaro: ordine per data del massimo BTC SILVER GOLD WTI SOXX KOSPI COPPER NDX SPX
+OK   1280-chiaro: ordine ricordato dopo il ricaricamento
+OK   1280-chiaro: dettaglio S&P 500 «S&P 500 · ^GSPC (indice, solo prezzo) · ultima chiusura 6.910,39 il 20/11/2026 · massimo d…»
+OK   1280-chiaro: grafico dello S&P 500 «S&P 500: prezzo (serie dal 2000), scala logaritmica» con finestra e massimo (massimo di chiusura dei 3 anni: 7.818,93 il 06/10/2026)
+OK   1280-chiaro: periodo MAX del grafico
+OK   1280-chiaro: dettaglio WTI con il massimo dei 3 anni, quello di sempre (2008-07-03) e la nota su USO
+OK   1280-chiaro: il grafico passa al petrolio
+OK   1280-chiaro: un solo dettaglio aperto
+OK   1280-chiaro: secondo clic chiude dettaglio e grafico
+OK   1280-chiaro: nessuno scorrimento orizzontale (1280,1280)
+OK   1280-chiaro: idea citata nel riquadro «i» e nella riga di fonti
+OK   1280-chiaro: console 
+OK   390-scuro: 9 righe (9)
+OK   390-scuro: ordine per distanza SILVER BTC KOSPI SOXX GOLD WTI NDX COPPER SPX
+OK   390-scuro: distanza, barra, data del massimo e tacca uguali al file 
+OK   390-scuro: ordine per data del massimo BTC SILVER GOLD WTI SOXX KOSPI COPPER NDX SPX
+OK   390-scuro: ordine ricordato dopo il ricaricamento
+OK   390-scuro: dettaglio S&P 500 «S&P 500 · ^GSPC (indice, solo prezzo) · ultima chiusura 6.910,39 il 20/11/2026 · massimo d…»
+OK   390-scuro: grafico dello S&P 500 «S&P 500: prezzo (serie dal 2000), scala logaritmica» con finestra e massimo (massimo di chiusura dei 3 anni: 7.818,93 il 06/10/2026)
+OK   390-scuro: periodo MAX del grafico
+OK   390-scuro: dettaglio WTI con il massimo dei 3 anni, quello di sempre (2008-07-03) e la nota su USO
+OK   390-scuro: il grafico passa al petrolio
+OK   390-scuro: un solo dettaglio aperto
+OK   390-scuro: secondo clic chiude dettaglio e grafico
+OK   390-scuro: nessuno scorrimento orizzontale (390,390)
+OK   390-scuro: idea citata nel riquadro «i» e nella riga di fonti
+OK   390-scuro: console 
+OK   360-chiaro: 9 righe (9)
+OK   360-chiaro: ordine per distanza SILVER BTC KOSPI SOXX GOLD WTI NDX COPPER SPX
+OK   360-chiaro: distanza, barra, data del massimo e tacca uguali al file 
+OK   360-chiaro: ordine per data del massimo BTC SILVER GOLD WTI SOXX KOSPI COPPER NDX SPX
+OK   360-chiaro: ordine ricordato dopo il ricaricamento
+OK   360-chiaro: dettaglio S&P 500 «S&P 500 · ^GSPC (indice, solo prezzo) · ultima chiusura 6.910,39 il 20/11/2026 · massimo d…»
+OK   360-chiaro: grafico dello S&P 500 «S&P 500: prezzo (serie dal 2000), scala logaritmica» con finestra e massimo (massimo di chiusura dei 3 anni: 7.818,93 il 06/10/2026)
+OK   360-chiaro: periodo MAX del grafico
+OK   360-chiaro: dettaglio WTI con il massimo dei 3 anni, quello di sempre (2008-07-03) e la nota su USO
+OK   360-chiaro: il grafico passa al petrolio
+OK   360-chiaro: un solo dettaglio aperto
+OK   360-chiaro: secondo clic chiude dettaglio e grafico
+OK   360-chiaro: nessuno scorrimento orizzontale (360,360)
+OK   360-chiaro: idea citata nel riquadro «i» e nella riga di fonti
+OK   360-chiaro: console 
+OK   senza data/ath.json: messaggio nel pannello, vista VIX funzionante (6 riquadri)
+OK   senza data/ath.json: nessun errore 
+OK   guida: distanza dal massimo dei 3 anni, spread a 350 pb e petrolio
+OK   version.json 1.13.0
+0 FAIL

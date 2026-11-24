@@ -1,0 +1,62 @@
+INFO «i» dentro intestazioni di tabella (th/thead), tutte le viste: 0
+OK   Massimi: il «i» nel titolo non cambia ordinamento né righe
+INFO vista 4: clic sull'intestazione «vs m.50» cambia ordine: false
+OK   #XLK secEpiBox (chiuso): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #XLK secEpiBox (aperto): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #XLK secEpiBox: il clic sul titolo apre ancora il riquadro piegato
+OK   #XLK secCap (chiuso): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #XLK secCap (aperto): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #XLK secCap: il clic sul titolo apre ancora il riquadro piegato
+OK   #SOXX secEpiBox (chiuso): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #SOXX secEpiBox (aperto): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #SOXX secEpiBox: il clic sul titolo apre ancora il riquadro piegato
+OK   #SOXX secCap (chiuso): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #SOXX secCap (aperto): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #SOXX secCap: il clic sul titolo apre ancora il riquadro piegato
+OK   #idx ixEpiBox (chiuso): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #idx ixEpiBox (aperto): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #idx ixEpiBox: il clic sul titolo apre ancora il riquadro piegato
+OK   #idx ixCap (chiuso): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #idx ixCap (aperto): clic, Invio e Spazio sul «i» aprono il riquadro e non toccano il <summary>
+OK   #idx ixCap: il clic sul titolo apre ancora il riquadro piegato
+OK   #vix #vxChart: zoom true, riquadro true → 1° Esc: riquadro false, zoom true → 2° Esc: zoom false
+OK   #XLK #ts: zoom true, riquadro true → 1° Esc: riquadro false, zoom true → 2° Esc: zoom false
+OK   #idx #ixTs: zoom true, riquadro true → 1° Esc: riquadro false, zoom true → 2° Esc: zoom false
+OK   #emg #emChart: zoom true, riquadro true → 1° Esc: riquadro false, zoom true → 2° Esc: zoom false
+OK   #ath #athChart: zoom true, riquadro true → 1° Esc: riquadro false, zoom true → 2° Esc: zoom false
+FAIL scorrendo di 250 px il riquadro segue il bottone (prima {"d":-136,"bt":884,"pt":764}, dopo {"d":6,"bt":634,"pt":656})
+INFO scorrendo finché il bottone esce dallo schermo: {"d":6,"bt":-223,"pt":-201}
+OK   tornando su il riquadro è ancora accanto al bottone
+INFO aperto col passaggio del mouse, poi rotella di 300 px: aperto prima false, dopo false
+OK   cambio vista con clic su una scheda (3 Bottom Map) (→ v-btm): riquadro aperto prima true, dopo chiuso
+FAIL cambio vista con tasto 3 (→ v-btm): riquadro aperto prima true, dopo ANCORA APERTO: «AVVICINAMENTO
+breadth sotto la soglia di avvicinam…»
+INFO    bottone ancora aria-expanded=true: Spiegazione: regole degli stati (nascosto)
+OK   cambio vista con comando VIX nella barra (→ v-vix): riquadro aperto prima true, dopo chiuso
+OK   cambio vista con tasto Indietro del browser (→ v-mon): riquadro aperto prima true, dopo chiuso
+INFO tastiera: Invio sul «i», poi Tab → focus nel riquadro false, riquadro aperto false, focus su <tr data-x="20" class="" tabindex="0"><td><b>20</b></td><td class="r">24</td><td
+FAIL il link «Nella guida ↗» del riquadro si raggiunge con la tastiera
+INFO guida rapida aperta con «?» mentre un riquadro è aperto: guida true, riquadro ancora visibile false; 1° Esc → guida aperta false; 2° Esc → guida aperta false
+OK   aprendo la guida rapida il riquadro si chiude e il primo Esc chiude la guida
+INFO guida rapida: sezioni Le viste, Stati dei settori, Glossario, Comandi e tasti; 666 parole; bottoni «i» 0; link guida.html#vix, guida.html#stati, guida.html#comandi; parla dei «i» true
+OK   ridimensionando a 900×700 il riquadro resta nello schermo (200–560/900)
+OK   computer: console senza errori 
+OK   390 secEpiBox (chiuso): il tocco sul «i» apre il riquadro e non tocca il <summary>
+OK   390 secEpiBox (aperto): il tocco sul «i» apre il riquadro e non tocca il <summary>
+INFO 390 secEpiBox: tocco 14 px a sinistra del «i» → riquadro «i» true, piegato aperto false
+OK   390 secCap (chiuso): il tocco sul «i» apre il riquadro e non tocca il <summary>
+OK   390 secCap (aperto): il tocco sul «i» apre il riquadro e non tocca il <summary>
+INFO 390 secCap: tocco 14 px a sinistra del «i» → riquadro «i» true, piegato aperto false
+INFO 390: scorrendo di 200 px con il riquadro aperto: prima top 104, dopo 317
+OK   390: toccando una scheda il riquadro si chiude
+OK   390: console senza errori 
+OK   360 secEpiBox (chiuso): il tocco sul «i» apre il riquadro e non tocca il <summary>
+OK   360 secEpiBox (aperto): il tocco sul «i» apre il riquadro e non tocca il <summary>
+INFO 360 secEpiBox: tocco 14 px a sinistra del «i» → riquadro «i» true, piegato aperto false
+OK   360 secCap (chiuso): il tocco sul «i» apre il riquadro e non tocca il <summary>
+OK   360 secCap (aperto): il tocco sul «i» apre il riquadro e non tocca il <summary>
+INFO 360 secCap: tocco 14 px a sinistra del «i» → riquadro «i» true, piegato aperto false
+INFO 360: scorrendo di 200 px con il riquadro aperto: prima top 15, dopo 265
+OK   360: toccando una scheda il riquadro si chiude
+OK   360: console senza errori 
+43 ok, 3 falliti

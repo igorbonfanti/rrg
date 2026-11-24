@@ -1,0 +1,398 @@
+vista,dove,elemento,posizione,etichetta,parole,testo
+globale,valore in tabella o scheda,span,#verTag,v1.11.0,839,"Versione 1.11.0 del 13/11/2026 Novità: · VIX (vista 8), distanza dal massimo: accanto al grafico del prezzo il profilo dei volumi degli ultimi 12 mesi (dove si è scambiato di più), solo la forma, con un riquadro al passaggio del mouse o al tocco; per oro, Nasdaq-100 e KOSPI con l'avvertenza «profilo poco stabile» · Aggiornamento notturno: un mercato del pannello dei massimi che Yahoo ridà con una seduta in meno non fa più risultare fallita la corsa (si tiene la riga pubblicata, con un avviso) · VIX (vista 8), distanza dal massimo: oro e argento con i future (GC=F, SI=F) invece degli ETF GLD e SLV; chiusura al prezzo di regolamento verso le 13:30 di New York, spiegato nel dettaglio e nella guida · VIX (vista 8): nuovo pannello «Distanza dal massimo degli ultimi 3 anni», solo contesto: Bitcoin, oro, argento, rame, petrolio, Nasdaq-100, S&P 500, semiconduttori e KOSPI, quanto sono sotto il picco dell'ultimo ciclo, da quando e il calo più profondo; ordinabile per distanza o per data del massimo; al clic il dettaglio e il grafico del prezzo dal 2000. Idea da una slide di Francesco Caruso (Cicli&Mercati) · Guida: lo spread high yield a 350 punti base e il petrolio come innesco dei ribassi, verificati sui dati con un criterio deciso prima: nessuna delle regole provate lo supera, quindi restano fuori dall'app · Titoli (vista 5) del SOXX: bandiera del paese e anello per i titoli esteri quotati negli Stati Uniti (TSMC, ASML, SK hynix…); spiegato che la bolla è il peso nell'ETF, con i tetti dell'indice, non la capitalizzazione · Semiconduttori (SOXX) come industria accanto agli 11 settori: Monitor, Bottom Map (rombo), vista Settore (scrivi SOXX o SEMI), Titoli e rotazione; livello blu 3% di Massimo Rea, breadth con i membri di oggi, alert Telegram · Guida: come confrontare la rotazione con Bloomberg e StockCharts (Medie semplici, settimanale) · Zoom su un tratto nei grafici con il tempo (Performance relativa, Settore e Indici con i Cali forti, Emergenti, VIX): sul computer trascina sul grafico, sul telefono tocca prima la lente; si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo · VIX: nella tabella degli episodi il mini-grafico del VIX (salita, primo giorno, massimo, fine), «VIX massimo» con la data, l'ultimo giorno alla soglia o più e le sedute; sotto il VIX il grafico dell'indice scelto con gli episodi colorati · VIX: i punti grandi dello scatter sono il primo giorno dell'episodio alla soglia scelta nella tabella (prima sempre a 30); colonne «Primo giorno a X o più», «VIX quel giorno», «VIX massimo dell'episodio» con la sua data; spiegato quanto dura un episodio e che i nomi delle crisi sono etichette di periodo · VIX: scatter a tutta larghezza, un colore per crisi; clic su un punto, sull'elenco delle crisi o su una riga degli episodi per evidenziare la crisi con un alone, anche nella tabella · VIX: struttura a termine (VIX / VIX3M, backwardation da 1 in su) e credito high yield (HYG contro IEF, distanza dal massimo di 12 mesi), solo contesto, idea di Stefano Serafini; l'ultima seduta del VIX ora dal file ufficiale di Cboe quando c'è (altrimenti Yahoo), con la fonte indicata · Nuova vista 8 VIX, solo contesto: come sono andati S&P 500 e Nasdaq-100 dopo che il VIX ha superato 20, 25, 30, 40 o 50 (per episodi, dalla seduta dopo), lo scatter in stile Rea e il VIX contro la volatilità realizzata; Alert passa alla 9 · Schede in un nuovo ordine, dal settore ai suoi titoli e poi al resto del mondo: 5 Titoli subito dopo 4 Settore, 6 Indici, 7 Emergenti, 8 Alert per ultima; indirizzi e comandi invariati, cambiano solo i tasti 5, 7 e 8 · Nuova vista Emergenti, solo contesto: per CSI 300, Nifty 50, Ibovespa, KOSPI 200, Taiwan, Hang Seng ed EEM lo stato della vista 6 con la valuta (in calo forte o che ha smesso di scendere), il dollaro contro le valute emergenti e la forza relativa contro ACWI; cambi della Federal Reserve (gli ultimi giorni da Yahoo, provvisori); nessuna regola nuova e nessun alert · Dati: le chiusure di Yahoo sono datate nel fuso della borsa con l'ora legale di quel giorno; dal 26/10 (cambi) e dal 2/11 (dollaro) erano sbagliati il dollaro (DXY_INV) e la storia di DBMFE.PA prima del 28/04/2025 · Indici: bias dei membri di oggi ricalcolato con la regola dell'app (in media +3,6 punti nella prova sul Nasdaq-100, non +4,5) · Avvicinamento: statistiche sul periodo che l'app mostra (settori: con l'Attenzione 50 tocchi del livello su 63, 7 più della sola Attenzione; da solo 33) e, nella guida, come usarlo · Settore: nessun pallino d'ingresso sul bordo sinistro quando l'avvicinamento era già iniziato prima del periodo mostrato · Settore: la linea della breadth diventa gialla nelle sedute in avvicinamento, con un pallino all'ingresso e la soglia di quel giorno nel riquadro dei valori · Settore: tolta la linea tratteggiata della soglia di avvicinamento di oggi · Settore: nel grafico della breadth una fascia gialla dal livello blu a 10 punti sopra, la parte di breadth dello stato Attenzione"
+globale,valore in tabella o scheda,span,#clock,EOD 12/11/2026 6 sedute indietro,34,Chiusure USA · aggiornamento automatico dopo la chiusura USA: di solito i dati della seduta arrivano tra la notte e la mattina in Italia (GitHub fa partire le corse anche con qualche ora di ritardo)
+globale,pulsante,button,#helpBtn,? Guida,4,Guida e scorciatoie (tasto ?)
+globale,pulsante,button,#cvdBtn,CVD,6,Colori per daltonici: su/giù in blu/rosso
+globale,pulsante,button,#themeBtn,Chiaro,9,"Tema chiaro: fondo bianco, stessi colori per i dati"
+globale,pulsante,button,#formulaSeg > button,Nuova,32,"Nostra formula: medie esponenziali a 10 e 30 barre sul logaritmo della forza relativa, divise per la sua volatilità. Tutti i titoli sulla stessa scala, di solito entro 3 punti da 100"
+globale,pulsante,button,#formulaSeg > button,Medie semplici,28,Come StockCharts: RS-Ratio = 100 × media semplice a 10 barre ÷ media a 30 della forza relativa; RS-Momentum = 100 × RS-Ratio ÷ sua media a 9. Distanza da 100 in punti percentuali
+mon,intestazione,th,#boardTable > tr > th.wrap-l,Drawdown da max 52s,33,"Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori."
+mon,intestazione,th,#boardTable > tr > th.r.wrap,Solo prezzo,67,"Stesso calcolo sul solo prezzo, senza i dividendi: calo dalla chiusura più alta delle ultime 52 settimane, come sul grafico di TradingView. Rispetto all'altro valore cambia solo per le cedole staccate dopo il massimo: per chi non ne paga (oro, bitcoin) i due valori coincidono. Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura."
+mon,intestazione,th,#boardTable > tr > th,Rotazione,12,"vs SPY, settimanale, formula nuova (la formula si sceglie nella pagina Rotazione)"
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"54,8%17/31",4,17 titoli su 31
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,17/31,16,"17 titoli sopra la media 200 su 31: nei settori piccoli un titolo vale 3,2 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 12,9%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 64% delle sedute; peggiore a 5 anni −20,7%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−8,2%",46,"Chiusura più alta 47,73 del 27/02/2026, ultima 43,81 del 12/11/2026: −8,2%. Con i dividendi reinvestiti −6,3%: la differenza sono le 3 cedole staccate dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 47,80 del 27/02/2026: da lì il calo è −8,3%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"53,9%41/76",4,41 titoli su 76
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,41/76,16,"41 titoli sopra la media 200 su 76: nei settori piccoli un titolo vale 1,3 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 66,7%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,10,"più profondo dell'87% delle sedute; peggiore a 5 anni −33,6%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−14,0%",43,"Chiusura più alta 202,00 del 06/10/2026, ultima 173,77 del 12/11/2026: −14,0%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 203,25 del 06/10/2026: da lì il calo è −14,5%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"31,8%7/22",4,7 titoli su 22
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,7/22,16,"7 titoli sopra la media 200 su 22: nei settori piccoli un titolo vale 4,5 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 36,4%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 74% delle sedute; peggiore a 5 anni −43,9%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−10,4%",46,"Chiusura più alta 120,08 del 30/01/2026, ultima 107,56 del 12/11/2026: −10,4%. Con i dividendi reinvestiti −9,6%: la differenza sono le 3 cedole staccate dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 120,41 del 02/02/2026: da lì il calo è −10,7%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"43,3%13/30",4,13 titoli su 30
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,13/30,16,"13 titoli sopra la media 200 su 30: nei settori piccoli un titolo vale 3,3 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 13,3%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 34% delle sedute; peggiore a 5 anni −33,3%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−3,6%",45,"Chiusura più alta 46,01 del 28/07/2026, ultima 44,36 del 12/11/2026: −3,6%. Con i dividendi reinvestiti −2,8%: la differenza è la cedola staccata dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 46,45 del 28/07/2026: da lì il calo è −4,5%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"47,6%10/21",4,10 titoli su 21
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,10/21,16,"10 titoli sopra la media 200 su 21: nei settori piccoli un titolo vale 4,8 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 71,4%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 54% delle sedute; peggiore a 5 anni −26,0%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−8,1%",43,"Chiusura più alta 70,02 del 30/10/2026, ultima 64,33 del 12/11/2026: −8,1%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 70,15 del 30/10/2026: da lì il calo è −8,3%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"55,4%46/83",4,46 titoli su 83
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,46/83,16,"46 titoli sopra la media 200 su 83: nei settori piccoli un titolo vale 1,2 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 37,3%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,10,"più profondo dell'80% delle sedute; peggiore a 5 anni −21,6%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−9,2%",45,"Chiusura più alta 186,51 del 14/08/2026, ultima 169,44 del 12/11/2026: −9,2%. Con i dividendi reinvestiti −8,9%: la differenza è la cedola staccata dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 188,19 del 05/08/2026: da lì il calo è −10,0%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"59,6%28/47",4,28 titoli su 47
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,28/47,16,"28 titoli sopra la media 200 su 47: nei settori piccoli un titolo vale 2,1 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 34,0%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 43% delle sedute; peggiore a 5 anni −39,4%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−3,3%",46,"Chiusura più alta 124,52 del 12/01/2026, ultima 120,46 del 12/11/2026: −3,3%. Con i dividendi reinvestiti −2,7%: la differenza sono le 3 cedole staccate dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 125,01 del 12/01/2026: da lì il calo è −3,6%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"66,7%22/33",4,22 titoli su 33
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,22/33,16,"22 titoli sopra la media 200 su 33: nei settori piccoli un titolo vale 3,0 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 52,9%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 31% delle sedute; peggiore a 5 anni −16,3%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−1,0%",43,"Chiusura più alta 91,94 del 04/11/2026, ultima 91,06 del 12/11/2026: −1,0%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 93,40 del 05/11/2026: da lì il calo è −2,5%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"66,7%16/24",4,16 titoli su 24
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,16/24,16,"16 titoli sopra la media 200 su 24: nei settori piccoli un titolo vale 4,2 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 41,7%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 36% delle sedute; peggiore a 5 anni −24,7%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−2,9%",43,"Chiusura più alta 53,90 del 04/11/2026, ultima 52,34 del 12/11/2026: −2,9%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 54,63 del 05/11/2026: da lì il calo è −4,2%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"72,4%55/76",4,55 titoli su 76
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,55/76,16,"55 titoli sopra la media 200 su 76: nei settori piccoli un titolo vale 1,3 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 47,4%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 28% delle sedute; peggiore a 5 anni −25,8%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−1,7%",43,"Chiusura più alta 59,20 del 04/11/2026, ultima 58,21 del 12/11/2026: −1,7%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 60,04 del 05/11/2026: da lì il calo è −3,0%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"88,3%53/60",4,53 titoli su 60
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,53/60,16,"53 titoli sopra la media 200 su 60: nei settori piccoli un titolo vale 1,7 punti"
+mon,valore in tabella o scheda,span,#boardTable > span.bullet > span.ago,,4,"un mese fa 80,0%"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,11,"più profondo del 24% delle sedute; peggiore a 5 anni −17,1%"
+mon,valore in tabella o scheda,td,#boardTable > tr > td.num.r.c-ddp,"−1,0%",43,"Chiusura più alta 189,66 del 04/11/2026, ultima 187,83 del 12/11/2026: −1,0%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 192,32 del 05/11/2026: da lì il calo è −2,3%."
+mon,valore in tabella o scheda,span,#boardTable > td.c-br > span.cellv.num,"33,3%10/30",4,10 titoli su 30
+mon,valore in tabella o scheda,span,#boardTable > span.cellv.num > span.cnt,10/30,16,"10 titoli sopra la media 200 su 30: nei settori piccoli un titolo vale 3,3 punti"
+mon,valore in tabella o scheda,span,#boardTable > td.c-dd > span.bar,,10,"più profondo dell'88% delle sedute; peggiore a 5 anni −45,8%"
+mon,valore in tabella o scheda,td,#boardTable > tr.ind > td.num.r.c-ddp,"−29,0%",45,"Chiusura più alta 218,34 del 22/06/2026, ultima 154,99 del 12/11/2026: −29,0%. Con i dividendi reinvestiti −29,0%: la differenza è la cedola staccata dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 218,65 del 22/06/2026: da lì il calo è −29,1%."
+mon,valore in tabella o scheda,td,#boardTable > tr.bench > td.num.r.c-ddp,"−2,8%",43,"Chiusura più alta 779,09 del 06/10/2026, ultima 757,12 del 12/11/2026: −2,8%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 781,62 del 06/10/2026: da lì il calo è −3,1%."
+rrg,pulsante,button,#scaleSeg > button,Adatta,6,Adatta la scala alle code visibili
+rrg,pulsante,button,#scaleSeg > button,Massima,9,Scala fissa su tutto il periodo: utile per l'animazione
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLY,2,Consumer Discretionary
+rrg,valore in tabella o scheda,span,#rotTable > td > span.q-lag-c.mini,LAG,3,quadrante precedente: Lagging
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLC,2,Communication Services
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLU,1,Utilities
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLRE,2,Real Estate
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLB,1,Materials
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLV,2,Health Care
+rrg,valore in tabella o scheda,span,#rotTable > td > span.q-imp-c.mini,IMP,3,quadrante precedente: Improving
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLP,2,Consumer Staples
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLF,1,Financials
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLE,1,Energy
+rrg,valore in tabella o scheda,span,#rotTable > td > span.q-weak-c.mini,WEA,3,quadrante precedente: Weakening
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLK,1,Technology
+rrg,valore in tabella o scheda,span,#rotTable > td > span.q-lead-c.mini,LEA,3,quadrante precedente: Leading
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,SOXX,2,Semiconductors (industria)
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,XLI,1,Industrials
+rrg,pulsante,button,#perfLens,,34,"Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,WorldSWDA,8,Azioni paesi sviluppati · iShares Core MSCI World (Acc)
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,EmergentiEIMI,8,Paesi emergenti · iShares Core MSCI EM IMI (Acc)
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,Gov 1-3EM13,13,Titoli di Stato area euro 1-3 anni · Amundi Euro Government Bond 1-3Y (Acc)
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,Gov 7-10EM710,13,Titoli di Stato area euro 7-10 anni · Amundi Euro Government Bond 7-10Y (Acc)
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,Gov 15+EM15,15,Titoli di Stato area euro oltre 15 anni · Amundi Euro Government Bond 15+Y (Acc)
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,OroSGLD,5,Oro fisico · Invesco Physical Gold
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,CommodityCMOD,6,Materie prime · Invesco Bloomberg Commodity (Acc)
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,REITIWDP,8,Immobiliare paesi sviluppati · iShares Developed Markets Property Yield
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,BitcoinBTC-EUR,5,"Bitcoin, prezzo spot in euro"
+rrg,valore in tabella o scheda,td,#ptfTable > tr.sub > td,TrendDBMFE,47,"Managed futures (trend following) · iMGP DBi Managed Futures R EUR UCITS ETF (Acc), Euronext Parigi, non coperto dal cambio. Prima del 28/04/2025 la storia è quella del DBMF americano (stessa strategia) convertito in euro. Periodi piatti di anni e cali del 20% sono normali per la strategia"
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,TIPS,8,TIP · Treasury indicizzati all'inflazione · iShares TIPS Bond ETF
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,Treasury 7-10,11,IEF · Treasury USA 7-10 anni · iShares 7-10 Year Treasury Bond ETF
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,Commodity,13,"DBC · Materie prime ampie (energia, metalli, agricoltura) · Invesco DB Commodity Index Tracking Fund"
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,Petrolio,7,USO · Petrolio WTI · United States Oil Fund
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,S&P 500,8,SPY · Azioni USA · SPDR S&P 500 ETF
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,Rame,7,CPER · Rame · United States Copper Index Fund
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,Bitcoin,11,BTC-USD · Bitcoin in dollari (quota sempre: ultimo prezzo a ogni seduta)
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,Argento,5,SLV · Argento · iShares Silver Trust
+rrg,valore in tabella o scheda,td,#rotTable > tr > td,Oro,5,GLD · Oro · SPDR Gold Shares
+rrg,intestazione,th,#monTable > tr > th,Drawdown da max 52s,33,"Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori."
+rrg,intestazione,th,#monTable > tr > th.r.wrap,Solo prezzo,67,"Stesso calcolo sul solo prezzo, senza i dividendi: calo dalla chiusura più alta delle ultime 52 settimane, come sul grafico di TradingView. Rispetto all'altro valore cambia solo per le cedole staccate dopo il massimo: per chi non ne paga (oro, bitcoin) i due valori coincidono. Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,TIPS,7,Treasury indicizzati all'inflazione · iShares TIPS Bond ETF
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −14,3%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−6,4%",46,"Chiusura più alta 111,88 del 27/02/2026, ultima 104,77 del 12/11/2026: −6,4%. Con i dividendi reinvestiti −3,1%: la differenza sono le 5 cedole staccate dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 111,98 del 27/02/2026: da lì il calo è −6,4%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Treasury 7-10,10,Treasury USA 7-10 anni · iShares 7-10 Year Treasury Bond ETF
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −19,1%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−7,9%",46,"Chiusura più alta 97,99 del 27/02/2026, ultima 90,21 del 12/11/2026: −7,9%. Con i dividendi reinvestiti −5,1%: la differenza sono le 9 cedole staccate dopo il massimo. Il «massimo a 52 settimane» di TradingView è il picco intraday, 98,05 del 27/02/2026: da lì il calo è −8,0%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Commodity,12,"Materie prime ampie (energia, metalli, agricoltura) · Invesco DB Commodity Index Tracking Fund"
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −27,3%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−9,4%",43,"Chiusura più alta 34,10 del 23/10/2026, ultima 30,91 del 12/11/2026: −9,4%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 34,14 del 23/10/2026: da lì il calo è −9,5%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Petrolio,6,Petrolio WTI · United States Oil Fund
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −36,2%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−13,8%",31,"Chiusura più alta 169,53 del 23/10/2026, ultima 146,07 del 12/11/2026: −13,8%. Il «massimo a 52 settimane» di TradingView è il picco intraday, 171,82 del 30/10/2026: da lì il calo è −15,0%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,S&P 500,7,Azioni USA · SPDR S&P 500 ETF
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −24,5%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−2,8%",43,"Chiusura più alta 779,09 del 06/10/2026, ultima 757,12 del 12/11/2026: −2,8%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 781,62 del 06/10/2026: da lì il calo è −3,1%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Rame,6,Rame · United States Copper Index Fund
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −34,7%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−10,1%",31,"Chiusura più alta 41,43 del 22/09/2026, ultima 37,24 del 12/11/2026: −10,1%. Il «massimo a 52 settimane» di TradingView è il picco intraday, 41,52 del 22/09/2026: da lì il calo è −10,3%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Bitcoin,10,Bitcoin in dollari (quota sempre: ultimo prezzo a ogni seduta)
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −75,0%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−29,8%",40,"Chiusura più alta 101663,19 del 12/11/2025, ultima 71342,97 del 12/11/2026: −29,8%. Il «massimo a 52 settimane» di TradingView è il picco intraday, 105297,23 del 12/11/2025: da lì il calo è −32,2%. Quota tutti i giorni: contano anche i fine settimana."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Argento,4,Argento · iShares Silver Trust
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −57,8%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−57,3%",31,"Chiusura più alta 105,60 del 28/01/2026, ultima 45,12 del 12/11/2026: −57,3%. Il «massimo a 52 settimane» di TradingView è il picco intraday, 109,83 del 29/01/2026: da lì il calo è −58,9%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Oro,4,Oro · SPDR Gold Shares
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni −28,4%"
+rrg,valore in tabella o scheda,td,#monTable > tr > td.num.r,"−28,4%",31,"Chiusura più alta 495,90 del 29/01/2026, ultima 354,89 del 12/11/2026: −28,4%. Il «massimo a 52 settimane» di TradingView è il picco intraday, 509,70 del 29/01/2026: da lì il calo è −30,4%."
+rrg,valore in tabella o scheda,span,#monTable > td > span.sym,Liquidità in dollari,18,Liquidità in dollari: T-bill a 1-3 mesi · SPDR Bloomberg 1-3 Month T-Bill ETF (segue anche il tasso Fed)
+rrg,valore in tabella o scheda,span,#monTable > td > span.bar,,6,"peggiore negli ultimi 5 anni 0,0%"
+rrg,valore in tabella o scheda,td,#monTable > tr.bench > td.num.r,"−0,2%",26,"Chiusura più alta 91,72 del 28/11/2025, ultima 91,50 del 12/11/2026: −0,2%. Con i dividendi reinvestiti 0,0%: la differenza sono le 12 cedole staccate dopo il massimo."
+btm,pulsante,button,#bmPlay,▶ PLAY,9,Rivedi le settimane una dopo l'altra fino a oggi
+btm,pulsante,button,#bmZoom,Zoom sulla zona,32,"Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano"
+btm,valore in tabella o scheda,span,#distList > span.sym > span.dia,◆,1,industria
+sec,pulsante,button,#secLens,,34,"Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"
+sec,intestazione,th,#secCapTable > tr > th.r,Dal max 52s,14,Calo il settore dal massimo a 52 settimane il primo giorno dell'allerta: solo informativo
+sec,intestazione,th,#secCapTable > tr > th.r,"Calo dopo, 3M",15,"Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno"
+sec,voce della Situazione,dt,#secFacts > dt,Soglia di avvicinamento,100,"Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione dal 2005 (XLC dal 2019, XLRE dal 2016; regola scelta su questa stessa storia): insieme all'Attenzione ha avvisato 50 tocchi del livello su 63, 7 più della sola Attenzione (43); da solo ne ha avvisati 33. Circa un avvicinamento su tre arriva al livello entro sei mesi. È un promemoria, non un segnale per comprare o vendere (guida, «Come usarlo»)."
+sec,voce della Situazione,dt,#secFacts > dt,Drawdown da max 52s,33,"Calo dalla chiusura più alta delle ultime 52 settimane, con i dividendi reinvestiti (prezzi rettificati): è la perdita effettiva di chi ha tenuto il titolo e la base di segnali, percentili e colori."
+sec,voce della Situazione,dt,#secFacts > dt,Sul solo prezzo,110,"Chiusura più alta 202,00 del 06/10/2026, ultima 173,77 del 12/11/2026: −14,0%. Nessuna cedola dopo il massimo: stesso valore del drawdown con i dividendi. Il «massimo a 52 settimane» di TradingView è il picco intraday, 203,25 del 06/10/2026: da lì il calo è −14,5%. Stesso calcolo sul solo prezzo, senza i dividendi: calo dalla chiusura più alta delle ultime 52 settimane, come sul grafico di TradingView. Rispetto all'altro valore cambia solo per le cedole staccate dopo il massimo: per chi non ne paga (oro, bitcoin) i due valori coincidono. Il «massimo a 52 settimane» della scheda di TradingView è invece il picco intraday, che può stare più in alto della chiusura."
+sec,pulsante,button,#toTit,5 Titoli →,9,Bubble dei titoli e confronto tra grandi e piccoli
+sec,link (TradingView),a,#memTable > td > a.sym,OKTA,5,"Okta, Inc. · grafico su TradingView"
+sec,link (TradingView),a,#memTable > td > a.sym,AMD,6,Advanced Micro Devices · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,CRWD,4,CrowdStrike · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,PTC,5,PTC Inc. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ACN,4,Accenture · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,SWKS,5,Skyworks Solutions · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ROP,5,Roper Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,CDW,5,CDW Corporation · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,P,4,Everpure · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,TYL,5,Tyler Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ANET,5,Arista Networks · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,WDAY,5,"Workday, Inc. · grafico su TradingView"
+sec,link (TradingView),a,#memTable > td > a.sym,GDDY,4,GoDaddy · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,NTAP,4,NetApp · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,GEN,5,Gen Digital · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,HPE,6,Hewlett Packard Enterprise · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,MSI,5,Motorola Solutions · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,MSFT,4,Microsoft · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,TXN,5,Texas Instruments · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,AAPL,5,Apple Inc. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,PANW,6,Palo Alto Networks · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,HPQ,5,HP Inc. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,VRSN,4,Verisign · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,IT,4,Gartner · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ZBRA,5,Zebra Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,PLTR,5,Palantir Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ADSK,4,Autodesk · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,TWLO,4,Twilio · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,CRM,4,Salesforce · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,CTSH,4,Cognizant · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,MPWR,6,Monolithic Power Systems · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ADI,5,Analog Devices · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,DELL,5,Dell Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,NXPI,5,NXP Semiconductors · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,APH,4,Amphenol · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,SNPS,4,Synopsys · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,MU,5,Micron Technology · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,QCOM,4,Qualcomm · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,TEL,5,TE Connectivity · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,TDY,5,Teledyne Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,CDNS,6,Cadence Design Systems · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,CSCO,4,Cisco · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,FTNT,4,Fortinet · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,AVGO,4,Broadcom · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,IBM,4,IBM · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,INTU,4,Intuit · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ADBE,5,Adobe Inc. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,KEYS,5,Keysight Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,Q,5,Qnity Electronics · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,TRMB,5,Trimble Inc. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,DDOG,4,Datadog · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ON,5,ON Semiconductor · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,NOW,4,ServiceNow · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,MRVL,5,Marvell Technology · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,FFIV,5,"F5, Inc. · grafico su TradingView"
+sec,link (TradingView),a,#memTable > td > a.sym,KLAC,5,KLA Corporation · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,AMAT,5,Applied Materials · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,JBL,4,Jabil · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,SMCI,4,Supermicro · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,ORCL,5,Oracle Corporation · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,LRCX,5,Lam Research · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,NVDA,4,Nvidia · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,FSLR,5,First Solar · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,MCHP,5,Microchip Technology · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,COHR,5,Coherent Corp. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,STX,5,Seagate Technology · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,AKAM,5,Akamai Technologies · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,LITE,4,Lumentum · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,GLW,5,Corning Inc. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,FLEX,5,Flex Ltd. · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,TER,4,Teradyne · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,WDC,5,Western Digital · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,SNDK,4,Sandisk · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,CIEN,4,Ciena · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,INTC,4,Intel · grafico su TradingView
+sec,link (TradingView),a,#memTable > td > a.sym,FICO,5,Fair Isaac · grafico su TradingView
+tit,pulsante,button,#titChips > button.chip,XLK,1,Technology
+tit,pulsante,button,#titChips > button.chip,XLC,2,Communication Services
+tit,pulsante,button,#titChips > button.chip,XLY,2,Consumer Discretionary
+tit,pulsante,button,#titChips > button.chip,XLP,2,Consumer Staples
+tit,pulsante,button,#titChips > button.chip,XLE,1,Energy
+tit,pulsante,button,#titChips > button.chip,XLF,1,Financials
+tit,pulsante,button,#titChips > button.chip,XLV,2,Health Care
+tit,pulsante,button,#titChips > button.chip,XLI,1,Industrials
+tit,pulsante,button,#titChips > button.chip,XLB,1,Materials
+tit,pulsante,button,#titChips > button.chip,XLRE,2,Real Estate
+tit,pulsante,button,#titChips > button.chip,XLU,1,Utilities
+tit,pulsante,button,#titChips > span.chipgrp > button.chip,SOXX,1,Semiconductors
+tit,pulsante,button,#titTrailSeg > button,Settore scelto,8,Scia del settore scelto e dell'S&P 500
+tit,pulsante,button,#titSizeSeg > button,Peso,11,Area proporzionale al peso nell'S&P 500 (per il SOXX nell'ETF)
+tit,intestazione,th,#titPain > tr > th.r,Dal max 52s,8,Distanza dalla chiusura più alta delle 52 settimane
+tit,intestazione,th,#titPain > tr > th.r,M. 200,6,Distanza dalla media a 200 sedute
+tit,intestazione,th,#titPain > tr > th.r,Peso,4,Peso nell'S&P 500
+tit,link (TradingView),a,#titPain > td > a.sym,SNDK,4,Sandisk · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,INTC,4,Intel · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,WDC,5,Western Digital · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,FICO,5,Fair Isaac · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,STX,5,Seagate Technology · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,FLEX,5,Flex Ltd. · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,CIEN,4,Ciena · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,GLW,5,Corning Inc. · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,SMCI,4,Supermicro · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,AKAM,5,Akamai Technologies · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,TER,4,Teradyne · grafico su TradingView
+tit,link (TradingView),a,#titPain > td > a.sym,LRCX,5,Lam Research · grafico su TradingView
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,SPX,3,S&P 500
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,NDX,1,Nasdaq-100
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,DJI,2,Dow Jones
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,RUT,4,Russell 2000 · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,TSX60,5,S&P/TSX 60 · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,SXXP,3,STOXX Europe 600
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,UKX,2,FTSE 100
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,DAX,1,DAX
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,CAC,2,CAC 40
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,SMI,1,SMI
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,SX5E,5,Euro Stoxx 50 · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,FTSEMIB,4,FTSE MIB · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,IBEX,4,IBEX 35 · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,N225,2,Nikkei 225
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,HSI,4,Hang Seng · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,CSI300,5,CSI 300 (Cina) · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,KOSPI200,5,KOSPI 200 (Corea) · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,TWN,4,Taiwan (MSCI) · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,NIFTY50,5,Nifty 50 (India) · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,ASX200,5,S&P/ASX 200 · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,EEM,5,MSCI Emerging Markets · con limiti
+idx,pulsante,button,#ixPick > div.ixarea > button.chip,IBOV,4,Ibovespa (Brasile) · con limiti
+idx,intestazione,th,#ixTable > tr > th.r,Cali forti,22,"Cali forti dei titoli (scheda «Cali forti» nel dettaglio): allerta oggi, sedute in allerta negli ultimi 3 mesi o percentile di oggi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"13,0%26/200",4,26 titoli su 200
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,26/200,13,"26 titoli sopra la media 200 su 200: un titolo vale 0,5 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet.below > span.ago,,4,"un mese fa 20,0%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 98% delle sedute; peggiore a 5 anni −44,9%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.loc,con limiti,23,"Storia dal 2006 · Prezzo: KOSPI (tutto il listino), perché il KOSPI 200 non ha storico su Yahoo. Storia con i membri di oggi."
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,95°,32,"Cali forti al 13/11/2026: 24 cali nelle ultime 5 sedute (calo di almeno il 7%), 95° percentile della storia · soglia di allerta 102 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.num.r.c-last,5291,3,chiusura del 13/11/2026
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"32,9%369/1122",16,369 titoli su 1122 · ne devono scendere sotto la media ancora 201 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,369/1122,13,"369 titoli sopra la media 200 su 1122: un titolo vale 0,1 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 35,9%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 73% delle sedute; peggiore a 5 anni −35,1%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.loc,con limiti,40,"Storia dal 2011 · Prezzo: ETF EEM in dollari, solo prezzo. La composizione è cambiata molto (azioni cinesi A dal 2018, Arabia Saudita dal 2019, Russia esclusa nel 2022) e alcuni mercati non hanno prezzi su Yahoo (Malesia, Filippine, Abu Dhabi)."
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,89°,32,"Cali forti al 12/11/2026: 82 cali nelle ultime 5 sedute (calo di almeno il 7%), 89° percentile della storia · soglia di allerta 351 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.num.r.c-last,"61,14",3,chiusura del 12/11/2026
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"45,3%885/1954",16,885 titoli su 1954 · ne devono scendere sotto la media ancora 592 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,885/1954,13,"885 titoli sopra la media 200 su 1954: un titolo vale 0,1 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 41,0%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 60% delle sedute; peggiore a 5 anni −32,5%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.loc,con limiti,45,"Storia dal 2017 · Composizione storica non disponibile gratis: la storia usa i membri di oggi, e per le small cap, che entrano ed escono dall'indice ogni anno, la distorsione è più forte. La breadth passata è indicativa; da ora la lista si salva ogni sera."
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,95°,32,"Cali forti al 12/11/2026: 447 cali nelle ultime 5 sedute (calo di almeno il 7%), 95° percentile della storia · soglia di allerta 1160 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"52,5%53/101",16,53 titoli su 101 · ne devono scendere sotto la media ancora 35 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,53/101,13,"53 titoli sopra la media 200 su 101: un titolo vale 1,0 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 59,4%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 70% delle sedute; peggiore a 5 anni −35,5%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.muted,d'epoca,21,"Storia con i membri di ogni data · copertura oggi 101/101, all'inizio (2008) 59%: i titoli usciti senza prezzi su Yahoo mancano"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,5 sed.,32,"Cali forti al 12/11/2026: 4 cali nelle ultime 5 sedute (calo di almeno il 7%), 76° percentile della storia · soglia di allerta 44 cali · 5 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"50,7%114/225",16,114 titoli su 225 · ne devono scendere sotto la media ancora 96 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,114/225,13,"114 titoli sopra la media 200 su 225: un titolo vale 0,4 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 59,6%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 73% delle sedute; peggiore a 5 anni −26,3%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.muted,membri di oggi,49,"Storia ricostruita con i membri di oggi: nella prova sul Nasdaq-100 la breadth risulta in media 3,6 punti più alta (da −6 a +17 nelle singole date); vicino ai minimi lo scarto medio è piccolo (+1,1 con la breadth sotto il 20%, da −4 a +8 nelle singole date)"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,3 sed.,32,"Cali forti al 13/11/2026: 11 cali nelle ultime 5 sedute (calo di almeno il 7%), 89° percentile della storia · soglia di allerta 112 cali · 3 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"61,2%308/503",16,308 titoli su 503 · ne devono scendere sotto la media ancora 243 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,308/503,13,"308 titoli sopra la media 200 su 503: un titolo vale 0,2 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 47,7%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 51% delle sedute; peggiore a 5 anni −25,4%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.muted,d'epoca,21,"Storia con i membri di ogni data · copertura oggi 503/503, all'inizio (2005) 64%: i titoli usciti senza prezzi su Yahoo mancano"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,52°,32,"Cali forti al 12/11/2026: 6 cali nelle ultime 5 sedute (calo di almeno il 7%), 52° percentile della storia · soglia di allerta 267 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"63,3%19/30",16,19 titoli su 30 · ne devono scendere sotto la media ancora 15 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,19/30,13,"19 titoli sopra la media 200 su 30: un titolo vale 3,3 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 63,3%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 53% delle sedute; peggiore a 5 anni −21,9%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.muted,d'epoca,21,"Storia con i membri di ogni data · copertura oggi 30/30, all'inizio (2000) 87%: i titoli usciti senza prezzi su Yahoo mancano"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,0°,32,"Cali forti al 12/11/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0° percentile della storia · soglia di allerta 13 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"69,7%419/601",16,419 titoli su 601 · ne devono scendere sotto la media ancora 365 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,419/601,13,"419 titoli sopra la media 200 su 601: un titolo vale 0,2 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 59,0%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo dello 0% delle sedute; peggiore a 5 anni −22,5%"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,43°,32,"Cali forti al 13/11/2026: 6 cali nelle ultime 5 sedute (calo di almeno il 7%), 43° percentile della storia · soglia di allerta 188 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"70,0%28/40",16,28 titoli su 40 · ne devono scendere sotto la media ancora 27 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,28/40,13,"28 titoli sopra la media 200 su 40: un titolo vale 2,5 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 52,5%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 35% delle sedute; peggiore a 5 anni −27,7%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-hist > span.loc,con limiti,33,Storia dal 2005 · Molti membri di oggi non hanno prezzi prima del 2005: la storia parte più tardi. Con 40 titoli il livello 3% vuol dire al massimo un titolo sopra la media.
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,0°,32,"Cali forti al 13/11/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0° percentile della storia · soglia di allerta 13 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,valore in tabella o scheda,span,#ixTable > td.c-br > span.cellv.num,"75,0%30/40",16,30 titoli su 40 · ne devono scendere sotto la media ancora 28 per il livello blu
+idx,valore in tabella o scheda,span,#ixTable > span.cellv.num > span.cnt,30/40,13,"30 titoli sopra la media 200 su 40: un titolo vale 2,5 punti"
+idx,valore in tabella o scheda,span,#ixTable > span.bullet > span.ago,,4,"un mese fa 62,5%"
+idx,valore in tabella o scheda,span,#ixTable > td.c-dd > span.bar,,11,"più profondo del 10% delle sedute; peggiore a 5 anni −26,4%"
+idx,valore in tabella o scheda,td,#ixTable > tr > td.r.c-cap,0°,32,"Cali forti al 13/11/2026: 0 cali nelle ultime 5 sedute (calo di almeno il 7%), 0° percentile della storia · soglia di allerta 14 cali · 0 sedute in allerta negli ultimi 3 mesi"
+idx,pulsante,button,#ixPlay,▶ PLAY,9,Rivedi le settimane una dopo l'altra fino a oggi
+idx,pulsante,button,#ixZoom,Zoom sulla zona,32,"Ingrandisce la zona dei bottom (drawdown oltre il 50° percentile, breadth da −15 a +40 punti dal livello blu) con gli assi fissi: utile nelle crisi passate, quando i punti si ammucchiano"
+idx,pulsante,button,#ixLens,,34,"Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"
+idx,intestazione,th,#ixCapTable > tr > th.r,Dal max 52s,13,Calo l'indice dal massimo a 52 settimane il primo giorno dell'allerta: solo informativo
+idx,intestazione,th,#ixCapTable > tr > th.r,"Calo dopo, 3M",15,"Il punto più basso nelle 63 sedute dopo il primo giorno, rispetto a quel giorno"
+idx,voce della Situazione,dt,#ixFacts > dt,Soglia di avvicinamento,104,"Livello blu più il calo forte della breadth in 10 sedute (90° percentile della storia): sotto questa soglia, in un calo deciso, il livello blu è a circa due settimane. Non è uno stato e non manda alert. Nel campione, sulla storia di ciascuno dei 22 indici dalla prima seduta con uno stato (dal 2001 per i più lunghi; regola scelta su questa stessa storia): insieme all'Attenzione avvisati 89 tocchi del livello su 132, 6 più della sola Attenzione (83); l'avvicinamento da solo 83; il 40% degli avvicinamenti arriva al livello entro sei mesi. È un promemoria, non un segnale per comprare o vendere."
+idx,voce della Situazione,dt,#ixFacts > dt,Drawdown da max 52s,28,Dalla chiusura più alta delle ultime 252 sedute. Gli indici sono di solo prezzo: è il valore che si vede su TradingView (che però usa il massimo intraday).
+idx,voce della Situazione,dt,#ixFacts > dt,Copertura,21,"Titoli dell'indice con i prezzi su Yahoo Finance: quelli tolti dal listino mancano, e nella storia la copertura è più bassa."
+emg,riquadro in alto (kpi),div,#emKpis > div.kpi,"Dollaro contro emergenti130,8sopra la media 200 · +2,5% in 3",33,Indice della Federal Reserve del dollaro contro le valute emergenti (FRED DTWEXEMEGS). «Favorevole»: sotto la media a 200 sedute e in calo in 3 mesi. Esce una volta alla settimana: conta la data.
+emg,riquadro in alto (kpi),div,#emKpis > div.kpi,Emergenti in zona blu1 / 7KOSPI200,17,"Stato della vista 6 (breadth contro il livello blu): Zona blu e Fallito, come nella vista 6."
+emg,riquadro in alto (kpi),div,#emKpis > div.kpi,In attenzione1 / 7CSI300,4,Stato della vista 6.
+emg,riquadro in alto (kpi),div,#emKpis > div.kpi,Valute in calo forte1 / 5 con datiIBOV,27,La valuta ha perso molto contro il dollaro nelle ultime 13 settimane (variazione oltre 1 deviazione standard delle sue variazioni a 13 settimane negli ultimi 3 anni).
+emg,riquadro in alto (kpi),div,#emKpis > div.kpi,Valute che hanno smesso di scendere2 / 5 con datiNIFTY50 · K,65,"Dopo un calo forte negli ultimi 6 mesi, il cambio è sceso di almeno mezza deviazione standard dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione (cali oltre il 25% dal massimo storico) si era già accesa nei sei mesi prima del minimo in 15 cali su 17, e poi la borsa era scesa ancora: non è un segnale d'ingresso."
+emg,valore in tabella o scheda,td,#emTable > tr.sel > td.num.r.c-blue,14%,10,livello di default: 3° percentile della storia della breadth dell'indice
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.fxp.fx-normale,Normale,26,La valuta oggi non è in calo forte (variazione in 13 settimane sotto 1 deviazione standard) e non ha smesso di scendere dopo un calo forte.
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.zbar,,24,"variazione del cambio in 13 settimane in deviazioni standard: −0,75 (a destra = valuta più debole; tacca = soglia 1) · cambio 6,6703 al 12/11/2026 (Yahoo, provvisorio)"
+emg,valore in tabella o scheda,td,#emTable > tr.sel > td.num.r.c-m3,"−13,4%",8,variazione in 63 sedute dell'indice in valuta locale
+emg,valore in tabella o scheda,td,#emTable > tr.sel > td.num.r.c-m3u,"−12,4%",10,indice diviso per il cambio CNY=X dello stesso giorno
+emg,valore in tabella o scheda,td,#emTable > tr.sel > td.c-rs,Lagging,6,"ASHR contro ACWI, settimanale, al 12/11/2026"
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.zbar,,24,"variazione del cambio in 13 settimane in deviazioni standard: −1,13 (a destra = valuta più debole; tacca = soglia 1) · cambio 93,70 al 12/11/2026 (Yahoo, provvisorio)"
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3u,"+5,3%",10,indice diviso per il cambio INR=X dello stesso giorno
+emg,valore in tabella o scheda,td,#emTable > tr > td.c-rs,Improving,6,"INDA contro ACWI, settimanale, al 12/11/2026"
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.zbar,,24,"variazione del cambio in 13 settimane in deviazioni standard: 1,62 (a destra = valuta più debole; tacca = soglia 1) · cambio 5,5821 al 12/11/2026 (Yahoo, provvisorio)"
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3u,"−5,4%",10,indice diviso per il cambio BRL=X dello stesso giorno
+emg,valore in tabella o scheda,td,#emTable > tr > td.c-rs,Lagging,6,"EWZ contro ACWI, settimanale, al 12/11/2026"
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.zbar,,24,"variazione del cambio in 13 settimane in deviazioni standard: −1,32 (a destra = valuta più debole; tacca = soglia 1) · cambio 1336,26 al 12/11/2026 (Yahoo, provvisorio)"
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3,"−15,2%*",22,"variazione in 63 sedute dell'indice in valuta locale; al 12/11/2026, come la colonna in $ (il cambio di oggi non è ancora arrivato)"
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3u,"−10,0%*",24,"indice diviso per il cambio KRW=X dello stesso giorno; al 12/11/2026, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)"
+emg,valore in tabella o scheda,td,#emTable > tr > td.c-rs,Lagging,6,"EWY contro ACWI, settimanale, al 12/11/2026"
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.zbar,,24,"variazione del cambio in 13 settimane in deviazioni standard: 0,61 (a destra = valuta più debole; tacca = soglia 1) · cambio 32,86 al 12/11/2026 (Yahoo, provvisorio)"
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3u,"−6,0%*",24,"indice diviso per il cambio TWD=X dello stesso giorno; al 12/11/2026, l'ultima seduta con il cambio (quello di oggi non è ancora arrivato)"
+emg,valore in tabella o scheda,td,#emTable > tr > td.c-rs,Weakening,6,"EWT contro ACWI, settimanale, al 12/11/2026"
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-blue,8%,9,livello di default dai grafici di Massimo Rea (quant-rea)
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.fxp.fx-na,Agganciato,22,"Il dollaro di Hong Kong è agganciato al dollaro americano (il cambio può muoversi solo tra 7,75 e 7,85): non dà informazioni."
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3u,"−5,4%",10,indice diviso per il cambio HKD=X dello stesso giorno
+emg,valore in tabella o scheda,td,#emTable > tr > td.c-rs,Improving,6,"EWH contro ACWI, settimanale, al 12/11/2026"
+emg,valore in tabella o scheda,span,#emTable > td.c-fx > span.fxp.fx-na,In dollari,14,EEM è quotato in dollari: per lui conta il dollaro contro le valute emergenti.
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3,"−8,2%",8,variazione in 63 sedute (EEM è in dollari)
+emg,valore in tabella o scheda,td,#emTable > tr > td.num.r.c-m3u,"−8,2%",5,EEM è già in dollari
+emg,valore in tabella o scheda,td,#emTable > tr > td.c-rs,Lagging,6,"EEM contro ACWI, settimanale, al 12/11/2026"
+emg,pulsante,button,#emLens,,34,"Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"
+vix,riquadro in alto (kpi),div,#vxKpis > div.kpi,"VIX18,70normale · al 12/11/2026",63,"Volatilità implicita dell'S&P 500 per i prossimi 30 giorni (Cboe, da FRED). Fasce: sotto 15 calmo, 15-20 normale, 20-25 nervoso, 25-30 paura, 30-40 paura forte, 40-50 panico, oltre 50 panico estremo. «Provvisorio»: FRED pubblica la seduta la mattina dopo; fino ad allora il valore viene dal file di Cboe (o da Yahoo) e di solito la corsa della sera dopo lo sostituisce."
+vix,riquadro in alto (kpi),div,#vxKpis > div.kpi,Percentile del VIX56°nella storia dal 02/01/1990,18,Quota delle chiusure del VIX fino a oggi minori o uguali a quella di oggi (solo storia passata).
+vix,riquadro in alto (kpi),div,#vxKpis > div.kpi,"Volatilità realizzata21,9S&P 500, 21 sedute al 12/11/2026, a",11,"Deviazione standard dei rendimenti logaritmici giornalieri delle ultime 21 sedute, ×√252."
+vix,riquadro in alto (kpi),div,#vxKpis > div.kpi,"Premio per la paura−3,2VIX − realizzata · 5° percentile",26,Quanto il VIX sta sopra la volatilità delle ultime 21 sedute. Un premio alto da solo non ha annunciato i picchi di volatilità (vedi «Come leggere»).
+vix,riquadro in alto (kpi),div,#vxKpis > div.kpi,"VIX / VIX3M0,93 contangoVIX 18,70 / VIX3M 20,06 · al 12/11/2",80,"Rapporto tra il VIX (paura per i prossimi 30 giorni) e il VIX3M (prossimi 3 mesi), dal 04/12/2007. Sotto 1 «contango», la situazione normale; da 1 in su «backwardation»: la paura è per i prossimi giorni, succede nei ribassi bruschi. Percentile sulla storia fino a quel giorno. Solo contesto. «Provvisorio»: FRED pubblica la seduta la mattina dopo; fino ad allora il valore viene dal file di Cboe (o da Yahoo) e di solito la corsa della sera dopo lo sostituisce."
+vix,riquadro in alto (kpi),div,#vxKpis > div.kpi,"Credito high yield−1,5%HYG/IEF dal massimo di 12 mesi · −0,2",71,"Rapporto tra gli ETF HYG (obbligazioni societarie high yield) e IEF (titoli di Stato USA a 7-10 anni), con i dividendi reinvestiti: quanto ha perso dal massimo delle ultime 252 sedute. Vicino a 0 il credito è calmo; molto sotto zero il mercato teme i fallimenti. Il percentile dice quanto è profondo il calo rispetto alla storia fino a quel giorno (alto = più profondo). Non è uno spread ufficiale. Solo contesto."
+vix,valore in tabella o scheda,span,#vxTable > td > span.pill.vxrob,robusto,44,"Supera il criterio deciso prima (almeno 8 episodi, chiaramente meglio della base, in almeno 2 periodi su 3) in tutte le varianti provate (attesa di 21, 63 o 126 sedute sotto la soglia, ingresso lo stesso giorno o quello dopo). Pochi casi: numeri indicativi."
+vix,intestazione,th,#vxEps > tr > th,Primo giorno a 40 o più,17,Primo giorno dell'episodio: la prima chiusura del VIX a 40 o più dopo almeno 63 sedute sotto
+vix,intestazione,th,#vxEps > tr > th.vxspc,Andamento del VIX,61,"Il VIX da 3 mesi prima del primo giorno a un mese dopo l'ultimo giorno a 40 o più: linea tratteggiata la soglia, colorati i tratti a 40 o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno. Ogni mini-grafico ha la sua scala di tempo e di valori: per confrontare la durata guarda il numero di sedute"
+vix,intestazione,th,#vxEps > tr > th.r,VIX quel giorno,7,Chiusura del VIX nel primo giorno dell'episodio
+vix,intestazione,th,#vxEps > tr > th.r.hmin,VIX massimo,36,"Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+vix,intestazione,th,#vxEps > tr > th.hend,Ultimo giorno a 40 o più,22,Ultima chiusura del VIX a 40 o più prima di 63 sedute di fila sotto (l'episodio in corso non è ancora finito)
+vix,intestazione,th,#vxEps > tr > th.r.hend,Sedute,19,Sedute dal primo all'ultimo giorno a 40 o più (in mezzo il VIX può essere sceso sotto la soglia)
+vix,riga cliccabile,tr,#vxEps > tbody > tr.vxgrow.g14,"04/04/20252025 dazimassimo 52,3 il 08/04/2025 · fino al 10/0",7,Clic per evidenziare la crisi nello scatter
+vix,pulsante,button,#vxLens,,34,"Zoom su un tratto: sul computer trascina sul grafico da una data all'altra; sul telefono tocca la lente e poi trascina. Si torna al periodo con ×, doppio clic, Esc o un pulsante del periodo"
+vix,intestazione,th,#athTable > tr > th,Distanza dal massimo dei 3 anni · tacca: calo più profondo,26,Ultima chiusura contro il massimo di chiusura degli ultimi 3 anni. Barra da 0 a −60%; la tacca è il calo più profondo dopo il massimo
+vix,intestazione,th,#athTable > tr > th.r,Calo più profondo,12,"Il punto più basso di chiusura dopo il massimo, rispetto al massimo"
+vix,riga cliccabile,tr,#athTable > tbody > tr.athr,"ArgentoSI=F · future continuo−56,58%massimo il 26/01/2026 · ",7,Clic per i dettagli e il grafico

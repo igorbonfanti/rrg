@@ -1,0 +1,90 @@
+OK   1440 #formule (data-guide): H3 «Le due formule», top 12/900
+OK   1440 #mon-osservare (data-guide): H3 «Settori da osservare», top 12/900
+OK   1440 #stati (data-guide): H3 «Stati di un settore», top 12/900
+OK   1440 #portafoglio (data-guide): H3 «Portafoglio di riferimento (1 · Asset class)», top 12/900
+OK   1440 #asset-reali (data-guide): H3 «Asset reali: dati e limiti (5 · Asset reali)», top 12/900
+OK   1440 #rrg-tabelle (data-guide): H3 «Tabelle e performance», top 12/900
+OK   1440 #avvicinamento (data-guide): H3 «Avvicinamento», top 12/900
+OK   1440 #btm (data-guide): SECTION «3 Bottom Map
+    Apri la Bottom Map →
+    Ogni set», top 12/900
+OK   1440 #btm-distanza (data-guide): P «A destra, Distanza dal livello blu: la differenza », top 0/900
+OK   1440 #sec-episodi (data-guide): H3 «Episodi e confronto», top 12/900
+OK   1440 #cali (data-guide): H3 «Cali forti (capitolazione)», top 12/900
+OK   1440 #vix-picchi (data-guide): H3 «Dopo i picchi del VIX», top 12/900
+OK   1440 #vix-scatter (data-guide): H3 «Scatter», top 12/900
+OK   1440 #massimi (data-guide): H3 «Distanza dal massimo degli ultimi 3 anni», top 12/900
+OK   1440 #profilo-volumi (data-guide): H3 «Profilo dei volumi», top 12/900
+OK   1440 #linea-massimi (data-guide): H3 «Linea del tempo dei massimi», top 12/900
+OK   1440 #idx (data-guide): SECTION «6 Indici
+    Apri gli Indici →
+    La stessa anali», top 12/900
+OK   1440 #idx-avvicinamento (data-guide): P «Avvicinamento: anche qui l'anello tratteggiato e l», top 0/900
+OK   1440 #idx-distanza (data-guide): P «Distanza dal livello blu: la differenza tra la % d», top 0/900
+OK   1440 #idx-episodi (data-guide): P «Episodi: rendimenti dell'indice (solo prezzo, nell», top 0/900
+OK   1440 #tit-grandi (data-guide): H3 «Grandi contro piccoli», top 12/900
+OK   1440 #tit-storia (data-guide): H3 «Storia della divergenza», top 12/900
+OK   1440 #tit-bolle (data-guide): H3 «Titoli del settore e i più in pena», top 12/900
+OK   1440 #emg-leggere (data-guide): H3 «Come leggerlo», top 12/900
+OK   1440 #emg-dettaglio (data-guide): H3 «Dettaglio», top 12/900
+OK   1440 #emg-forza (data-guide): P «A destra la forza relativa dei sette ETF in dollar», top 0/900
+OK   1440 #industrie (data-guide): H3 «Industrie: SOXX, semiconduttori», top 12/900
+OK   1440 #fonti-mon (link): H3 «1 Monitor», top 12/900
+OK   1440 #fonti-rrg (link): H3 «2 Rotazione», top 12/900
+OK   1440 #fonti-btm (link): H3 «3 Bottom Map», top 12/900
+OK   1440 #fonti-sec (link): H3 «4 Settore», top 12/900
+OK   1440 #fonti-vix (link): H3 «8 VIX», top 12/900
+OK   1440 #fonti-ath (link): H3 «0 Massimi», top 12/900
+OK   1440 #fonti-alr (link): H3 «9 Alert», top 12/900
+OK   1440 #fonti-idx (link): H3 «6 Indici», top 12/900
+OK   1440 #faq-rea (link): H3 «I numeri della vista 5 non coincidono con il grafi», top 381/900
+OK   1440 #fonti-tit (link): H3 «5 Titoli», top 12/900
+OK   1440 #fonti-emg (link): H3 «7 Emergenti», top 12/900
+OK   1440 #comandi (link): SECTION «Comandi e tasti
+    Nella barra dei comandi in alt», top 12/900
+1440: guida senza scorrimento orizzontale true (1440,1440)
+OK   390 #formule (data-guide): H3 «Le due formule», top 12/844
+OK   390 #mon-osservare (data-guide): H3 «Settori da osservare», top 12/844
+OK   390 #stati (data-guide): H3 «Stati di un settore», top 12/844
+OK   390 #portafoglio (data-guide): H3 «Portafoglio di riferimento (1 · Asset class)», top 12/844
+OK   390 #asset-reali (data-guide): H3 «Asset reali: dati e limiti (5 · Asset reali)», top 12/844
+OK   390 #rrg-tabelle (data-guide): H3 «Tabelle e performance», top 12/844
+OK   390 #avvicinamento (data-guide): H3 «Avvicinamento», top 12/844
+OK   390 #btm (data-guide): SECTION «3 Bottom Map
+    Apri la Bottom Map →
+    Ogni set», top 12/844
+OK   390 #btm-distanza (data-guide): P «A destra, Distanza dal livello blu: la differenza », top 0/844
+OK   390 #sec-episodi (data-guide): H3 «Episodi e confronto», top 12/844
+OK   390 #cali (data-guide): H3 «Cali forti (capitolazione)», top 12/844
+OK   390 #vix-picchi (data-guide): H3 «Dopo i picchi del VIX», top 12/844
+OK   390 #vix-scatter (data-guide): H3 «Scatter», top 12/844
+OK   390 #massimi (data-guide): H3 «Distanza dal massimo degli ultimi 3 anni», top 12/844
+OK   390 #profilo-volumi (data-guide): H3 «Profilo dei volumi», top 12/844
+OK   390 #linea-massimi (data-guide): H3 «Linea del tempo dei massimi», top 12/844
+OK   390 #idx (data-guide): SECTION «6 Indici
+    Apri gli Indici →
+    La stessa anali», top 12/844
+OK   390 #idx-avvicinamento (data-guide): P «Avvicinamento: anche qui l'anello tratteggiato e l», top 0/844
+OK   390 #idx-distanza (data-guide): P «Distanza dal livello blu: la differenza tra la % d», top 0/844
+OK   390 #idx-episodi (data-guide): P «Episodi: rendimenti dell'indice (solo prezzo, nell», top 0/844
+OK   390 #tit-grandi (data-guide): H3 «Grandi contro piccoli», top 12/844
+OK   390 #tit-storia (data-guide): H3 «Storia della divergenza», top 12/844
+OK   390 #tit-bolle (data-guide): H3 «Titoli del settore e i più in pena», top 12/844
+OK   390 #emg-leggere (data-guide): H3 «Come leggerlo», top 12/844
+OK   390 #emg-dettaglio (data-guide): H3 «Dettaglio», top 12/844
+OK   390 #emg-forza (data-guide): P «A destra la forza relativa dei sette ETF in dollar», top 0/844
+OK   390 #industrie (data-guide): H3 «Industrie: SOXX, semiconduttori», top 12/844
+OK   390 #fonti-mon (link): H3 «1 Monitor», top 12/844
+OK   390 #fonti-rrg (link): H3 «2 Rotazione», top 12/844
+OK   390 #fonti-btm (link): H3 «3 Bottom Map», top 12/844
+OK   390 #fonti-sec (link): H3 «4 Settore», top 12/844
+OK   390 #fonti-vix (link): H3 «8 VIX», top 12/844
+OK   390 #fonti-ath (link): H3 «0 Massimi», top 12/844
+OK   390 #fonti-alr (link): H3 «9 Alert», top 12/844
+OK   390 #fonti-idx (link): H3 «6 Indici», top 12/844
+OK   390 #faq-rea (link): H3 «I numeri della vista 5 non coincidono con il grafi», top 12/844
+OK   390 #fonti-tit (link): H3 «5 Titoli», top 12/844
+OK   390 #fonti-emg (link): H3 «7 Emergenti», top 12/844
+OK   390 #comandi (link): SECTION «Comandi e tasti
+    Nella barra dei comandi in alt», top 12/844
+390: guida senza scorrimento orizzontale true (390,390)

@@ -1,0 +1,425 @@
+[
+ {
+  "id": "B1",
+  "area": "bottom map",
+  "test": "phone stato iniziale «oggi»",
+  "ok": "OK",
+  "detail": "{\"val\":\"oggi · 19/10/2026\",\"today\":true,\"n\":99,\"rows\":11,\"meta\":\"settimanale · coda 8 settimane · al 19/10/2026 · colore del punto = stato attuale (in zona blu si entra dopo 2 chiusure sotto il livello)\"}",
+  "shot": "shots/b-phone-oggi.png",
+  "sev": ""
+ },
+ {
+  "id": "B2",
+  "area": "bottom map",
+  "test": "phone cursore: settimana passata, pulsante Oggi",
+  "ok": "OK",
+  "detail": "{\"val\":\"settimana al 22/11/2024\",\"today\":true,\"meta\":\"settimanale · coda 8 settimane · al 22/11/2024 (storico) · colore del punto = stato di quel giorno (in zona blu si entra dopo 2 chiusure sotto il livello) · livelli blu di oggi, scelti conoscendo anche quella crisi\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B3",
+  "area": "bottom map",
+  "test": "phone crisi «nov 2008» (minimo 2008-11-20): settimana che contiene il minimo, chip premuto",
+  "ok": "OK",
+  "detail": "mostra settimana al 21/11/2008, fine settimana 1 giorni dopo il minimo; chip premuti=2008-11-20",
+  "shot": "shots/b-phone-jump-2008-11-20.png",
+  "sev": ""
+ },
+ {
+  "id": "B3",
+  "area": "bottom map",
+  "test": "phone crisi «ott 2011» (minimo 2011-10-03): settimana che contiene il minimo, chip premuto",
+  "ok": "OK",
+  "detail": "mostra settimana al 07/10/2011, fine settimana 4 giorni dopo il minimo; chip premuti=2011-10-03",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B3",
+  "area": "bottom map",
+  "test": "phone crisi «feb 2016» (minimo 2016-02-11): settimana che contiene il minimo, chip premuto",
+  "ok": "OK",
+  "detail": "mostra settimana al 12/02/2016, fine settimana 1 giorni dopo il minimo; chip premuti=2016-02-11",
+  "shot": "shots/b-phone-jump-2016-02-11.png",
+  "sev": ""
+ },
+ {
+  "id": "B3",
+  "area": "bottom map",
+  "test": "phone crisi «dic 2018» (minimo 2018-12-24): settimana che contiene il minimo, chip premuto",
+  "ok": "OK",
+  "detail": "mostra settimana al 28/12/2018, fine settimana 4 giorni dopo il minimo; chip premuti=2018-12-24",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B3",
+  "area": "bottom map",
+  "test": "phone crisi «mar 2020» (minimo 2020-03-23): settimana che contiene il minimo, chip premuto",
+  "ok": "OK",
+  "detail": "mostra settimana al 27/03/2020, fine settimana 4 giorni dopo il minimo; chip premuti=2020-03-23",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B3",
+  "area": "bottom map",
+  "test": "phone crisi «ott 2022» (minimo 2022-10-12): settimana che contiene il minimo, chip premuto",
+  "ok": "OK",
+  "detail": "mostra settimana al 14/10/2022, fine settimana 2 giorni dopo il minimo; chip premuti=2022-10-12",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B3",
+  "area": "bottom map",
+  "test": "phone crisi «apr 2025» (minimo 2025-04-08): settimana che contiene il minimo, chip premuto",
+  "ok": "OK",
+  "detail": "mostra settimana al 11/04/2025, fine settimana 3 giorni dopo il minimo; chip premuti=2025-04-08",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B4",
+  "area": "bottom map",
+  "test": "phone PLAY parte da un anno fa, avanza, si ferma lasciando la vista",
+  "ok": "OK",
+  "detail": "{\"p0\":\"settimana al 31/10/2025\",\"p1\":{\"t\":\"❚❚ STOP\",\"v\":\"settimana al 05/12/2025\"},\"p2\":{\"t\":\"▶ PLAY\",\"v\":\"settimana al 05/12/2025\"},\"p3\":\"settimana al 05/12/2025\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B5",
+  "area": "bottom map",
+  "test": "phone freccia sul cursore cambia settimana",
+  "ok": "OK",
+  "detail": "settimana al 26/12/2025 → settimana al 19/12/2025",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "B7",
+  "area": "bottom map",
+  "test": "phone clic su riga apre il settore",
+  "ok": "OK",
+  "detail": "#XLRE",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S1",
+  "area": "settore",
+  "test": "phone 11 chip dei settori",
+  "ok": "OK",
+  "detail": "XLK,XLC,XLY,XLP,XLE,XLF,XLV,XLI,XLB,XLRE,XLU",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLK",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLK · Technology\",\"h\":\"#XLK\",\"p\":[\"XLK\"],\"chk\":505,\"mem\":75,\"epi\":5}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLC",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLC · Communication Services\",\"h\":\"#XLC\",\"p\":[\"XLC\"],\"chk\":324,\"mem\":22,\"epi\":2}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLY",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLY · Consumer Discretionary\",\"h\":\"#XLY\",\"p\":[\"XLY\"],\"chk\":332,\"mem\":47,\"epi\":5}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLP",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLP · Consumer Staples\",\"h\":\"#XLP\",\"p\":[\"XLP\"],\"chk\":326,\"mem\":34,\"epi\":4}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLE",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLE · Energy\",\"h\":\"#XLE\",\"p\":[\"XLE\"],\"chk\":325,\"mem\":21,\"epi\":6}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLF",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLF · Financials\",\"h\":\"#XLF\",\"p\":[\"XLF\"],\"chk\":325,\"mem\":76,\"epi\":6}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLV",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLV · Health Care\",\"h\":\"#XLV\",\"p\":[\"XLV\"],\"chk\":326,\"mem\":60,\"epi\":7}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLI",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLI · Industrials\",\"h\":\"#XLI\",\"p\":[\"XLI\"],\"chk\":332,\"mem\":83,\"epi\":5}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLB",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLB · Materials\",\"h\":\"#XLB\",\"p\":[\"XLB\"],\"chk\":326,\"mem\":24,\"epi\":7}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLRE",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLRE · Real Estate\",\"h\":\"#XLRE\",\"p\":[\"XLRE\"],\"chk\":276,\"mem\":30,\"epi\":5}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S2",
+  "area": "settore",
+  "test": "phone chip XLU",
+  "ok": "OK",
+  "detail": "{\"t\":\"XLU · Utilities\",\"h\":\"#XLU\",\"p\":[\"XLU\"],\"chk\":387,\"mem\":31,\"epi\":8}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S3",
+  "area": "settore",
+  "test": "phone periodo 10A",
+  "ok": "OK",
+  "detail": "{\"p\":[\"10A\"],\"yrs\":[\"2018\",\"2020\",\"2022\",\"2024\",\"2026\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S3",
+  "area": "settore",
+  "test": "phone periodo MAX",
+  "ok": "OK",
+  "detail": "{\"p\":[\"MAX\"],\"yrs\":[\"2008\",\"2012\",\"2016\",\"2020\",\"2024\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S3",
+  "area": "settore",
+  "test": "phone periodo 3A",
+  "ok": "OK",
+  "detail": "{\"p\":[\"3A\"],\"yrs\":[\"2024\",\"2025\",\"2026\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S4",
+  "area": "livello blu",
+  "test": "phone + alza di 1 per clic, Ripristina visibile, salvato",
+  "ok": "OK",
+  "detail": "{\"b0\":\"5%\",\"b1\":{\"v\":\"7%\",\"reset\":true,\"src\":\"modificato in questo browser · livello di default 5%\",\"info\":\"Il 4,4% delle sedute dal 2005 è stato sotto questo livello. Con 31 titoli, uno vale 3,2 punti.\",\"minus\":false,\"plus\":false,\"epiMeta\":\"10 zone blu dal 03/01/2005 con livello 7% · 13 trigger, 3 falliti · rendimenti a confronto sotto la tabella\",\"ls\":\"{\\\"XLU\\\":7}\"}}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S5",
+  "area": "livello blu",
+  "test": "phone asterisco nel Monitor dopo la modifica",
+  "ok": "OK",
+  "detail": "XLUUtilities TRIGGER 16,1%5/31 7%* −11,5% LAGGING −2,0% +1,4%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S6",
+  "area": "livello blu",
+  "test": "phone «Copia configurazione» (messaggio + JSON valido col livello nuovo)",
+  "ok": "OK",
+  "detail": "Copia il testo selezionato in config/thresholds.json. · textarea=true · {\n  \"_comment\": \"Livelli blu (% di titoli sopra la media a 200 sedute) sotto i quali un settore entra in zona blu, e parametri della macchina a stati. Default dei livelli: quant-rea '200 LEVEL SETTORI",
+  "shot": "shots/s-phone-copycfg.png",
+  "sev": ""
+ },
+ {
+  "id": "S7",
+  "area": "livello blu",
+  "test": "phone Ripristina torna al default",
+  "ok": "OK",
+  "detail": "{\"v\":\"5%\",\"reset\":false,\"src\":\"Livello di default dalla tabella «200 LEVEL SETTORI» di quant-rea. Le regole di zona blu, trigger e cooldown sono di questa app.\",\"info\":\"Il 3,7% delle sedute dal 2005 è stato sotto questo livello. Con 31 titoli, uno vale 3,2 punti.\",\"minus\":false,\"plus\":false,\"epiMeta\":\"7 zone blu dal 03/01/2005 con livello 5% · 9 trigger, 2 falliti · rendimenti a confronto sotto la tabella\",\"ls\":\"{}\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S8",
+  "area": "livello blu",
+  "test": "phone limite 0%: − disattivato",
+  "ok": "OK",
+  "detail": "{\"b3\":\"0%\",\"minus\":true,\"b4\":\"0%\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S9",
+  "area": "livello blu",
+  "test": "phone limite 60%: + disattivato",
+  "ok": "OK",
+  "detail": "{\"v\":\"60%\",\"plus\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S10",
+  "area": "livello blu",
+  "test": "phone livelli non validi in localStorage ignorati",
+  "ok": "OK",
+  "detail": "{\"v\":\"5%\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S12",
+  "area": "coerenza",
+  "test": "phone XLU: breadth e drawdown uguali tra Monitor e Situazione",
+  "ok": "OK",
+  "detail": "situazione:  16,1% / −11,5% · monitor: XLUUtilities TRIGGER 16,1%5/31 5% −11,5% LAGGING −2,0% +1,4%",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "S13",
+  "area": "settore",
+  "test": "phone «7 Titoli →» apre i titoli dello stesso settore",
+  "ok": "OK",
+  "detail": "{\"h\":\"#tit-XLU\",\"v\":true,\"chip\":[\"XLU\"]}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C1",
+  "area": "cali forti",
+  "test": "phone scheda si apre con preset −7%/5/titoli",
+  "ok": "OK",
+  "detail": "{\"open\":true,\"meta\":\"al 19/10/2026: 0° percentile\",\"now\":\"Al 19/10/2026 0 cali nelle ultime 5 sedute: 0° percentile della storia dal 2008, soglia di allerta 5 cali. In allerta 0 sedute negli ultimi 3 mesi.\",\"rows\":6,\"ctl\":\"thr=5:false thr=7:true thr=10:false win=3:false win=5:true win=10:false mode=count:true mode=pct:false\",\"preset\":false}",
+  "shot": "shots/c-phone-sec-open.png",
+  "sev": ""
+ },
+ {
+  "id": "C2",
+  "area": "cali forti",
+  "test": "phone scelta thr=5",
+  "ok": "OK",
+  "detail": "{\"p\":\"true\",\"now\":\"Al 19/10/2026 3 cali nelle ultime 5 sedute: 93° percentile della storia dal 2008, soglia di allerta 18 cali. In allerta 0 sedute negli ultimi 3 mesi.\",\"preset\":true,\"ls\":\"{\\\"thr\\\":5,\\\"win\\\":5,\\\"mode\\\":\\\"count\\\"}\",\"focus\":\"5\",\"open\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C2",
+  "area": "cali forti",
+  "test": "phone scelta thr=10",
+  "ok": "OK",
+  "detail": "{\"p\":\"true\",\"now\":\"Al 19/10/2026 0 cali nelle ultime 5 sedute: 0° percentile della storia dal 2008, soglia di allerta 2 cali. In allerta 0 sedute negli ultimi 3 mesi.\",\"preset\":true,\"ls\":\"{\\\"thr\\\":10,\\\"win\\\":5,\\\"mode\\\":\\\"count\\\"}\",\"focus\":\"10\",\"open\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C2",
+  "area": "cali forti",
+  "test": "phone scelta win=3",
+  "ok": "OK",
+  "detail": "{\"p\":\"true\",\"now\":\"Al 19/10/2026 0 cali nelle ultime 3 sedute: 0° percentile della storia dal 2008, soglia di allerta 2 cali. In allerta 0 sedute negli ultimi 3 mesi.\",\"preset\":true,\"ls\":\"{\\\"thr\\\":10,\\\"win\\\":3,\\\"mode\\\":\\\"count\\\"}\",\"focus\":\"3\",\"open\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C2",
+  "area": "cali forti",
+  "test": "phone scelta win=10",
+  "ok": "OK",
+  "detail": "{\"p\":\"true\",\"now\":\"Al 19/10/2026 0 cali nelle ultime 10 sedute: 0° percentile della storia dal 2008, soglia di allerta 3 cali. In allerta 0 sedute negli ultimi 3 mesi.\",\"preset\":true,\"ls\":\"{\\\"thr\\\":10,\\\"win\\\":10,\\\"mode\\\":\\\"count\\\"}\",\"focus\":\"10\",\"open\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C2",
+  "area": "cali forti",
+  "test": "phone scelta mode=pct",
+  "ok": "OK",
+  "detail": "{\"p\":\"true\",\"now\":\"Al 19/10/2026 0,0% nelle ultime 10 sedute: 0° percentile della storia dal 2008, soglia di allerta 12,5%. In allerta 0 sedute negli ultimi 3 mesi.\",\"preset\":true,\"ls\":\"{\\\"thr\\\":10,\\\"win\\\":10,\\\"mode\\\":\\\"pct\\\"}\",\"focus\":\"pct\",\"open\":true}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C3",
+  "area": "cali forti",
+  "test": "phone «Preset di Rea» ripristina −7%, 5, titoli",
+  "ok": "OK",
+  "detail": "{\"ctl\":\"thr=7 win=5 mode=count\",\"preset\":false,\"focus\":\"BUTTON#.\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C3b",
+  "area": "accessibilità",
+  "test": "phone focus dopo «Preset di Rea» non va perso sul body",
+  "ok": "OK",
+  "detail": "BUTTON#.",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C5",
+  "area": "cali forti",
+  "test": "phone scheda si richiude",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "C6",
+  "area": "cali forti",
+  "test": "phone cambiando settore la scheda mostra il nuovo settore",
+  "ok": "OK",
+  "detail": "{\"open\":true,\"meta\":\"al 19/10/2026: 0° percentile\",\"k\":\"XLE\"}",
+  "shot": "",
+  "sev": ""
+ },
+ {
+  "id": "Z",
+  "area": "console",
+  "test": "phone nessun errore",
+  "ok": "OK",
+  "detail": "",
+  "shot": "",
+  "sev": ""
+ }
+]

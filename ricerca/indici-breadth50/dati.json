@@ -1,0 +1,7673 @@
+{
+ "copertura": {
+  "SPX": {
+   "nome": "S&P 500",
+   "composizione": "epoca",
+   "limiti": false,
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 500,
+    "ultimo": 503
+   },
+   "nMediana": 462,
+   "puntiPerTitolo": 0.2,
+   "nMin": 320,
+   "copertura": {
+    "inizio": 0.64,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1131,
+    "primaSopra80": "2009-07-01",
+    "primaSopra90": "2013-12-02"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.3
+   },
+   "ricopiate": {
+    "conteggiUguali": 1,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 2,
+    "festeTipiche": 0,
+    "esempi": [
+     "2013-02-12"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.74,
+    "d20_retPrima": -0.06,
+    "d20_retDopo": -0.03,
+    "d50_ret0": 0.75
+   },
+   "salti": {
+    "p99": 19.3,
+    "max": 39.7,
+    "grandi": 50,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 3,
+    "fine": "2005-06-21",
+    "valore": 82.6
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -34.5,
+     "p99": 40.8,
+     "estremo": {
+      "valore": 81.8,
+      "data": "2020-04-13"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -42.4,
+     "p99": 49.7,
+     "estremo": {
+      "valore": 77.3,
+      "data": "2009-01-06"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.63
+   }
+  },
+  "NDX": {
+   "nome": "Nasdaq-100",
+   "composizione": "epoca",
+   "limiti": false,
+   "breadthDal": "2008-01-02",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 4738,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 99,
+    "ultimo": 101
+   },
+   "nMediana": 83,
+   "puntiPerTitolo": 1.2,
+   "nMin": 57,
+   "copertura": {
+    "inizio": 0.59,
+    "fine": 1,
+    "sedutaSotto60": 246,
+    "sedutaSotto80": 2382,
+    "primaSopra80": "2017-06-19",
+    "primaSopra90": "2019-03-12"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.8
+   },
+   "ricopiate": {
+    "conteggiUguali": 24,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 1,
+    "festeTipiche": 2,
+    "esempi": [
+     "2011-04-05",
+     "2012-01-06",
+     "2012-05-11",
+     "2013-06-03",
+     "2013-11-12",
+     "2013-12-10",
+     "2015-06-02",
+     "2016-01-20",
+     "2016-03-30",
+     "2018-01-12",
+     "2018-05-08",
+     "2018-05-25",
+     "2022-08-08",
+     "2024-09-10",
+     "2026-05-15"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.73,
+    "d20_retPrima": -0.05,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.72
+   },
+   "salti": {
+    "p99": 21.7,
+    "max": 38.5,
+    "grandi": 49,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 1,
+    "esempiSaltiDiN": [
+     {
+      "data": "2008-12-22",
+      "dPct50": -14.5,
+      "rendimento": -2.3,
+      "dN": 4
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 10,
+    "fine": "2008-10-27",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -35.7,
+     "p99": 43,
+     "estremo": {
+      "valore": 73.9,
+      "data": "2020-04-07"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -44.6,
+     "p99": 51.4,
+     "estremo": {
+      "valore": 79,
+      "data": "2009-01-05"
+     }
+    },
+    "corr20_50": 0.79,
+    "corr50_200": 0.65
+   }
+  },
+  "DJI": {
+   "nome": "Dow Jones",
+   "composizione": "epoca",
+   "limiti": false,
+   "breadthDal": "2000-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 6748,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2001-09-10 → 2001-09-17 (7 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 30,
+    "ultimo": 30
+   },
+   "nMediana": 29,
+   "puntiPerTitolo": 3.4,
+   "nMin": 26,
+   "copertura": {
+    "inizio": 0.87,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2000-01-03",
+    "primaSopra90": "2001-01-02"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.5
+   },
+   "ricopiate": {
+    "conteggiUguali": 221,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 4,
+    "festeTipiche": 11,
+    "esempi": [
+     "2024-10-30",
+     "2024-11-20",
+     "2024-11-29",
+     "2025-05-14",
+     "2025-06-20",
+     "2025-09-23",
+     "2025-12-08",
+     "2025-12-23",
+     "2026-02-09",
+     "2026-02-10",
+     "2026-03-19",
+     "2026-06-26",
+     "2026-08-14",
+     "2026-08-25",
+     "2026-10-29"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.68,
+    "d20_retPrima": -0.05,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.64
+   },
+   "salti": {
+    "p99": 24.1,
+    "max": 50,
+    "grandi": 85,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 1,
+    "esempiSaltiDiN": [
+     {
+      "data": "2004-04-08",
+      "dPct50": -10.2,
+      "rendimento": -0.36,
+      "dN": 2
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 12,
+    "fine": "2003-05-15",
+    "valore": 92.6
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -40,
+     "p99": 48.3,
+     "estremo": {
+      "valore": 82.8,
+      "data": "2020-04-07"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -51.9,
+     "p99": 51.9,
+     "estremo": {
+      "valore": 75.9,
+      "data": "2009-04-29"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.63
+   }
+  },
+  "N225": {
+   "nome": "Nikkei 225",
+   "composizione": "oggi",
+   "limiti": false,
+   "breadthDal": "2001-01-04",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 6322,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2001-12-28 → 2002-01-04 (7 giorni)",
+    "2002-12-30 → 2003-01-06 (7 giorni)",
+    "2003-12-30 → 2004-01-05 (6 giorni)",
+    "2004-04-30 → 2004-05-06 (6 giorni)",
+    "2006-05-02 → 2006-05-08 (6 giorni)",
+    "2006-12-29 → 2007-01-04 (6 giorni)",
+    "2007-12-28 → 2008-01-04 (7 giorni)",
+    "2008-12-30 → 2009-01-05 (6 giorni)",
+    "2009-05-01 → 2009-05-07 (6 giorni)",
+    "2009-09-18 → 2009-09-24 (6 giorni)",
+    "2010-04-30 → 2010-05-06 (6 giorni)",
+    "2012-12-28 → 2013-01-04 (7 giorni)",
+    "2013-12-30 → 2014-01-06 (7 giorni)",
+    "2014-12-30 → 2015-01-05 (6 giorni)",
+    "2015-05-01 → 2015-05-07 (6 giorni)",
+    "2015-09-18 → 2015-09-24 (6 giorni)",
+    "2017-05-02 → 2017-05-08 (6 giorni)",
+    "2017-12-29 → 2018-01-04 (6 giorni)",
+    "2018-12-28 → 2019-01-04 (7 giorni)",
+    "2019-04-26 → 2019-05-07 (11 giorni)",
+    "2019-12-30 → 2020-01-06 (7 giorni)",
+    "2020-05-01 → 2020-05-07 (6 giorni)",
+    "2021-04-30 → 2021-05-06 (6 giorni)",
+    "2023-05-02 → 2023-05-08 (6 giorni)",
+    "2023-12-29 → 2024-01-04 (6 giorni)",
+    "2024-12-30 → 2025-01-06 (7 giorni)",
+    "2025-12-30 → 2026-01-05 (6 giorni)",
+    "2026-05-01 → 2026-05-07 (6 giorni)",
+    "2026-09-18 → 2026-09-24 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 245,
+   "membri": {
+    "primo": 225,
+    "ultimo": 225
+   },
+   "nMediana": 214,
+   "puntiPerTitolo": 0.5,
+   "nMin": 188,
+   "copertura": {
+    "inizio": 0.84,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2001-01-04",
+    "primaSopra90": "2005-09-29"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.8
+   },
+   "ricopiate": {
+    "conteggiUguali": 1,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 1,
+    "festeTipiche": 0,
+    "esempi": [
+     "2024-04-03"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 1.5,
+     "data": "2003-09-29"
+    },
+    "max200": {
+     "quota": 2.5,
+     "data": "2003-10-28"
+    },
+    "mediana50": 0,
+    "mediana200": 0.5,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 188,
+    "nFine": 225,
+    "membri": 225
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.75,
+    "d20_retPrima": -0.03,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.74
+   },
+   "salti": {
+    "p99": 20.5,
+    "max": 42.9,
+    "grandi": 64,
+    "strani": 1,
+    "esempiStrani": [
+     {
+      "data": "2020-11-10",
+      "dPct50": 18.6,
+      "rendimento": 0.26,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 4,
+    "fine": "2008-10-27",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -38.8,
+     "p99": 45.6,
+     "estremo": {
+      "valore": 72.9,
+      "data": "2020-04-10"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -52.7,
+     "p99": 56.4,
+     "estremo": {
+      "valore": -79.3,
+      "data": "2013-06-13"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.64
+   }
+  },
+  "SXXP": {
+   "nome": "STOXX Europe 600",
+   "composizione": "oggi",
+   "limiti": false,
+   "breadthDal": "2006-01-02",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5228,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2012-12-21 → 2012-12-27 (6 giorni)",
+    "2012-12-28 → 2013-01-03 (6 giorni)",
+    "2014-12-23 → 2014-12-30 (7 giorni)",
+    "2014-12-30 → 2015-01-05 (6 giorni)",
+    "2018-12-21 → 2018-12-27 (6 giorni)",
+    "2018-12-28 → 2019-01-03 (6 giorni)",
+    "2025-12-23 → 2025-12-29 (6 giorni)",
+    "2025-12-30 → 2026-01-05 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 251,
+   "membri": {
+    "primo": 604,
+    "ultimo": 603
+   },
+   "nMediana": 536,
+   "puntiPerTitolo": 0.2,
+   "nMin": 447,
+   "copertura": {
+    "inizio": 0.74,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1087,
+    "primaSopra80": "2010-04-29",
+    "primaSopra90": "2017-06-15"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.9
+   },
+   "ricopiate": {
+    "conteggiUguali": 0,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 12,
+    "festeTipiche": 0,
+    "esempi": []
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 1.7,
+     "data": "2006-12-11"
+    },
+    "max200": {
+     "quota": 3.4,
+     "data": "2006-12-11"
+    },
+    "mediana50": 0.2,
+    "mediana200": 1,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 447,
+    "nFine": 603,
+    "membri": 603
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.79,
+    "d20_retPrima": 0.03,
+    "d20_retDopo": 0.02,
+    "d50_ret0": 0.81
+   },
+   "salti": {
+    "p99": 16.6,
+    "max": 35.7,
+    "grandi": 24,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 2,
+    "fine": "2006-02-24",
+    "valore": 87.1
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -29.7,
+     "p99": 38.8,
+     "estremo": {
+      "valore": 80.6,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -42.6,
+     "p99": 50.9,
+     "estremo": {
+      "valore": 66.6,
+      "data": "2009-01-07"
+     }
+    },
+    "corr20_50": 0.79,
+    "corr50_200": 0.65
+   }
+  },
+  "UKX": {
+   "nome": "FTSE 100",
+   "composizione": "oggi",
+   "limiti": false,
+   "breadthDal": "2001-01-02",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 6525,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 253,
+   "membri": {
+    "primo": 100,
+    "ultimo": 100
+   },
+   "nMediana": 89,
+   "puntiPerTitolo": 1.1,
+   "nMin": 72,
+   "copertura": {
+    "inizio": 0.72,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 942,
+    "primaSopra80": "2004-09-23",
+    "primaSopra90": "2013-12-09"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.6
+   },
+   "ricopiate": {
+    "conteggiUguali": 16,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 8,
+    "festeTipiche": 1,
+    "esempi": [
+     "2004-08-20",
+     "2004-11-29",
+     "2005-02-14",
+     "2005-12-22",
+     "2006-01-31",
+     "2006-07-20",
+     "2008-06-27",
+     "2009-06-09",
+     "2009-08-24",
+     "2010-12-24",
+     "2012-09-24",
+     "2020-11-25",
+     "2021-01-05",
+     "2021-01-18",
+     "2022-09-30"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 3.9,
+     "data": "2002-07-22"
+    },
+    "max200": {
+     "quota": 5.2,
+     "data": "2003-01-02"
+    },
+    "mediana50": 0,
+    "mediana200": 1.1,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 72,
+    "nFine": 100,
+    "membri": 100
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.72,
+    "d20_retPrima": 0,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.7
+   },
+   "salti": {
+    "p99": 18.7,
+    "max": 40.7,
+    "grandi": 50,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 6,
+    "fine": "2002-07-26",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -32.2,
+     "p99": 42.1,
+     "estremo": {
+      "valore": 84.5,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -44.3,
+     "p99": 48.9,
+     "estremo": {
+      "valore": 64.5,
+      "data": "2002-11-21"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.64
+   }
+  },
+  "DAX": {
+   "nome": "DAX",
+   "composizione": "oggi",
+   "limiti": false,
+   "breadthDal": "2001-01-02",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 6559,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2001-12-21 → 2001-12-27 (6 giorni)",
+    "2003-12-23 → 2003-12-29 (6 giorni)",
+    "2007-12-21 → 2007-12-27 (6 giorni)",
+    "2008-12-23 → 2008-12-29 (6 giorni)",
+    "2012-12-21 → 2012-12-27 (6 giorni)",
+    "2014-12-23 → 2014-12-29 (6 giorni)",
+    "2018-12-21 → 2018-12-27 (6 giorni)",
+    "2025-12-23 → 2025-12-29 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 254,
+   "membri": {
+    "primo": 40,
+    "ultimo": 40
+   },
+   "nMediana": 35,
+   "puntiPerTitolo": 2.9,
+   "nMin": 28,
+   "copertura": {
+    "inizio": 0.7,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1515,
+    "primaSopra80": "2006-12-11",
+    "primaSopra90": "2014-10-01"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.3
+   },
+   "ricopiate": {
+    "conteggiUguali": 186,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 0,
+    "festeTipiche": 3,
+    "esempi": [
+     "2023-11-22",
+     "2023-12-19",
+     "2024-01-19",
+     "2024-01-25",
+     "2024-04-12",
+     "2024-08-20",
+     "2024-08-28",
+     "2024-09-16",
+     "2024-11-20",
+     "2025-07-10",
+     "2025-08-11",
+     "2025-10-03",
+     "2026-04-10",
+     "2026-04-29",
+     "2026-09-23"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 3.4,
+     "data": "2001-03-12"
+    },
+    "max200": {
+     "quota": 6.7,
+     "data": "2001-10-11"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 28,
+    "nFine": 40,
+    "membri": 40
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.7,
+    "d20_retPrima": -0.01,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.65
+   },
+   "salti": {
+    "p99": 23.6,
+    "max": 50,
+    "grandi": 66,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 21,
+    "fine": "2020-04-06",
+    "valore": 2.6
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -40,
+     "p99": 50,
+     "estremo": {
+      "valore": 92.1,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -58.3,
+     "p99": 63.2,
+     "estremo": {
+      "valore": -83.3,
+      "data": "2015-05-05"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.62
+   }
+  },
+  "CAC": {
+   "nome": "CAC 40",
+   "composizione": "oggi",
+   "limiti": false,
+   "breadthDal": "2001-01-02",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 6604,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2012-12-21 → 2012-12-27 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 255,
+   "membri": {
+    "primo": 40,
+    "ultimo": 40
+   },
+   "nMediana": 38,
+   "puntiPerTitolo": 2.6,
+   "nMin": 31,
+   "copertura": {
+    "inizio": 0.78,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 170,
+    "primaSopra80": "2001-09-03",
+    "primaSopra90": "2005-07-25"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.6
+   },
+   "ricopiate": {
+    "conteggiUguali": 146,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 2,
+    "festeTipiche": 8,
+    "esempi": [
+     "2023-05-29",
+     "2023-11-15",
+     "2023-11-28",
+     "2023-12-12",
+     "2024-03-13",
+     "2024-03-28",
+     "2024-08-27",
+     "2024-09-16",
+     "2024-12-12",
+     "2025-01-14",
+     "2025-06-11",
+     "2025-07-14",
+     "2025-12-24",
+     "2026-02-03",
+     "2026-10-05"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 8.8,
+     "data": "2001-09-03"
+    },
+    "max200": {
+     "quota": 11.4,
+     "data": "2001-12-14"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 49,
+    "sedute200sopra10": 125,
+    "nInizio": 31,
+    "nFine": 40,
+    "membri": 40
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.72,
+    "d20_retPrima": 0,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.69
+   },
+   "salti": {
+    "p99": 26.3,
+    "max": 51.3,
+    "grandi": 68,
+    "strani": 1,
+    "esempiStrani": [
+     {
+      "data": "2013-08-28",
+      "dPct50": -21.1,
+      "rendimento": -0.21,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 1,
+    "esempiSaltiDiN": [
+     {
+      "data": "2001-09-03",
+      "dPct50": -4.4,
+      "rendimento": -1.27,
+      "dN": 3
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 19,
+    "fine": "2011-08-30",
+    "valore": 2.6
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -42.1,
+     "p99": 48.7,
+     "estremo": {
+      "valore": 92.3,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -54.3,
+     "p99": 63.2,
+     "estremo": {
+      "valore": -82.1,
+      "data": "2015-06-19"
+     }
+    },
+    "corr20_50": 0.76,
+    "corr50_200": 0.61
+   }
+  },
+  "SMI": {
+   "nome": "SMI",
+   "composizione": "oggi",
+   "limiti": false,
+   "breadthDal": "2001-01-03",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 6484,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2001-12-21 → 2001-12-27 (6 giorni)",
+    "2003-12-23 → 2003-12-29 (6 giorni)",
+    "2003-12-30 → 2004-01-05 (6 giorni)",
+    "2007-12-21 → 2007-12-27 (6 giorni)",
+    "2007-12-28 → 2008-01-03 (6 giorni)",
+    "2012-12-21 → 2012-12-27 (6 giorni)",
+    "2012-12-28 → 2013-01-03 (6 giorni)",
+    "2014-12-23 → 2014-12-29 (6 giorni)",
+    "2014-12-30 → 2015-01-05 (6 giorni)",
+    "2018-12-21 → 2018-12-27 (6 giorni)",
+    "2018-12-28 → 2019-01-03 (6 giorni)",
+    "2020-12-30 → 2021-01-05 (6 giorni)",
+    "2025-12-23 → 2025-12-29 (6 giorni)",
+    "2025-12-30 → 2026-01-05 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 251,
+   "membri": {
+    "primo": 20,
+    "ultimo": 20
+   },
+   "nMediana": 16,
+   "puntiPerTitolo": 6.3,
+   "nMin": 14,
+   "copertura": {
+    "inizio": 0.7,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1319,
+    "primaSopra80": "2006-03-24",
+    "primaSopra90": "2023-10-03"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.8
+   },
+   "ricopiate": {
+    "conteggiUguali": 669,
+    "conPrezzoUguale": 3,
+    "prezzoUguale": 6,
+    "festeTipiche": 10,
+    "esempi": [
+     "2026-02-18",
+     "2026-03-09",
+     "2026-03-13",
+     "2026-03-20",
+     "2026-03-23",
+     "2026-04-24",
+     "2026-04-27",
+     "2026-04-30",
+     "2026-05-08",
+     "2026-06-30",
+     "2026-07-03",
+     "2026-07-16",
+     "2026-08-07",
+     "2026-09-28",
+     "2026-10-20"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 6.7,
+     "data": "2001-05-23"
+    },
+    "max200": {
+     "quota": 10.5,
+     "data": "2024-03-21"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 245,
+    "sedute200sopra10": 82,
+    "nInizio": 14,
+    "nFine": 20,
+    "membri": 20
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.6,
+    "d20_retPrima": 0.03,
+    "d20_retDopo": 0.02,
+    "d50_ret0": 0.55
+   },
+   "salti": {
+    "p99": 26.9,
+    "max": 75,
+    "grandi": 65,
+    "strani": 5,
+    "esempiStrani": [
+     {
+      "data": "2018-08-13",
+      "dPct50": -31.2,
+      "rendimento": -0.29,
+      "dN": 0
+     },
+     {
+      "data": "2005-03-31",
+      "dPct50": 26.7,
+      "rendimento": -0.05,
+      "dN": 0
+     },
+     {
+      "data": "2002-01-03",
+      "dPct50": 26.7,
+      "rendimento": 0.13,
+      "dN": 0
+     },
+     {
+      "data": "2010-07-21",
+      "dPct50": 25,
+      "rendimento": 0.15,
+      "dN": 0
+     },
+     {
+      "data": "2026-09-03",
+      "dPct50": 25,
+      "rendimento": 0.22,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 22,
+    "fine": "2004-02-18",
+    "valore": 93.3
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -43.7,
+     "p99": 52.9,
+     "estremo": {
+      "valore": 87.5,
+      "data": "2011-08-31"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -56.2,
+     "p99": 68.8,
+     "estremo": {
+      "valore": 87.5,
+      "data": "2011-10-11"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.62
+   }
+  },
+  "RUT": {
+   "nome": "Russell 2000",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2017-09-01",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 2303,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 251.5,
+   "membri": {
+    "primo": 1976,
+    "ultimo": 1969
+   },
+   "nMediana": 1738,
+   "puntiPerTitolo": 0.1,
+   "nMin": 1242,
+   "copertura": {
+    "inizio": 0.63,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 897,
+    "primaSopra80": "2021-03-29",
+    "primaSopra90": "2023-06-28"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.6
+   },
+   "ricopiate": {
+    "conteggiUguali": 0,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 2,
+    "festeTipiche": 0,
+    "esempi": []
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 3.2,
+     "data": "2020-11-24"
+    },
+    "max200": {
+     "quota": 10.4,
+     "data": "2021-07-01"
+    },
+    "mediana50": 0.8,
+    "mediana200": 3.1,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 30,
+    "nInizio": 1242,
+    "nFine": 1960,
+    "membri": 1969
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.81,
+    "d20_retPrima": -0.04,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.81
+   },
+   "salti": {
+    "p99": 15.1,
+    "max": 22.6,
+    "grandi": 4,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 2,
+    "fine": "2017-10-20",
+    "valore": 75.9
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -30.6,
+     "p99": 41.3,
+     "estremo": {
+      "valore": 72.3,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -27.1,
+     "p99": 45.3,
+     "estremo": {
+      "valore": 60.4,
+      "data": "2020-05-27"
+     }
+    },
+    "corr20_50": 0.77,
+    "corr50_200": 0.63
+   }
+  },
+  "TSX60": {
+   "nome": "S&P/TSX 60",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2000-02-01",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 6719,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 251,
+   "membri": {
+    "primo": 60,
+    "ultimo": 60
+   },
+   "nMediana": 53,
+   "puntiPerTitolo": 1.9,
+   "nMin": 37,
+   "copertura": {
+    "inizio": 0.62,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1974,
+    "primaSopra80": "2007-12-03",
+    "primaSopra90": "2014-01-07"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.4
+   },
+   "ricopiate": {
+    "conteggiUguali": 57,
+    "conPrezzoUguale": 3,
+    "prezzoUguale": 216,
+    "festeTipiche": 1,
+    "esempi": [
+     "2018-04-04",
+     "2018-04-12",
+     "2018-04-13",
+     "2018-09-05",
+     "2021-04-21",
+     "2021-05-06",
+     "2021-08-31",
+     "2021-09-15",
+     "2022-10-11",
+     "2023-09-22",
+     "2024-02-23",
+     "2024-08-21",
+     "2025-07-16",
+     "2025-08-18",
+     "2026-04-14"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 6.5,
+     "data": "2004-12-10"
+    },
+    "max200": {
+     "quota": 6.5,
+     "data": "2004-12-10"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 66,
+    "sedute200sopra10": 0,
+    "nInizio": 37,
+    "nFine": 60,
+    "membri": 60
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.61,
+    "d20_retPrima": 0,
+    "d20_retDopo": 0.02,
+    "d50_ret0": 0.57
+   },
+   "salti": {
+    "p99": 18.6,
+    "max": 28.8,
+    "grandi": 42,
+    "strani": 4,
+    "esempiStrani": [
+     {
+      "data": "2001-01-04",
+      "dPct50": -17.9,
+      "rendimento": 0,
+      "dN": 0
+     },
+     {
+      "data": "2011-01-24",
+      "dPct50": 17,
+      "rendimento": 0.16,
+      "dN": 0
+     },
+     {
+      "data": "2008-08-08",
+      "dPct50": 16.3,
+      "rendimento": 0.1,
+      "dN": 0
+     },
+     {
+      "data": "2000-10-24",
+      "dPct50": 15.4,
+      "rendimento": -1.14,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 5,
+    "fine": "2005-08-11",
+    "valore": 80.4
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -30.8,
+     "p99": 33.9,
+     "estremo": {
+      "valore": 76.3,
+      "data": "2020-04-08"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -39.9,
+     "p99": 38.9,
+     "estremo": {
+      "valore": -56.9,
+      "data": "2009-10-29"
+     }
+    },
+    "corr20_50": 0.76,
+    "corr50_200": 0.65
+   }
+  },
+  "SX5E": {
+   "nome": "Euro Stoxx 50",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2007-04-02",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 4909,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2008-03-19 → 2008-03-25 (6 giorni)",
+    "2012-12-21 → 2012-12-27 (6 giorni)",
+    "2012-12-28 → 2013-01-03 (6 giorni)",
+    "2014-12-23 → 2014-12-30 (7 giorni)",
+    "2014-12-30 → 2015-01-05 (6 giorni)",
+    "2018-12-21 → 2018-12-27 (6 giorni)",
+    "2018-12-28 → 2019-01-03 (6 giorni)",
+    "2025-12-23 → 2025-12-29 (6 giorni)",
+    "2025-12-30 → 2026-01-05 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 250.5,
+   "membri": {
+    "primo": 50,
+    "ultimo": 50
+   },
+   "nMediana": 47,
+   "puntiPerTitolo": 2.1,
+   "nMin": 44,
+   "copertura": {
+    "inizio": 0.88,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2007-04-02",
+    "primaSopra90": "2008-10-24"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.6
+   },
+   "ricopiate": {
+    "conteggiUguali": 69,
+    "conPrezzoUguale": 1,
+    "prezzoUguale": 5,
+    "festeTipiche": 3,
+    "esempi": [
+     "2020-03-20",
+     "2020-03-23",
+     "2021-02-09",
+     "2021-08-11",
+     "2021-11-29",
+     "2022-01-05",
+     "2023-01-17",
+     "2023-04-24",
+     "2024-01-25",
+     "2024-05-15",
+     "2024-09-16",
+     "2025-03-03",
+     "2025-06-05",
+     "2026-06-16",
+     "2026-07-15"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 2.2,
+     "data": "2008-10-24"
+    },
+    "max200": {
+     "quota": 2.2,
+     "data": "2008-10-24"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 44,
+    "nFine": 50,
+    "membri": 50
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.74,
+    "d20_retPrima": -0.03,
+    "d20_retDopo": -0.01,
+    "d50_ret0": 0.71
+   },
+   "salti": {
+    "p99": 27.3,
+    "max": 57.4,
+    "grandi": 50,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 20,
+    "fine": "2011-08-30",
+    "valore": 2.2
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -42.2,
+     "p99": 48,
+     "estremo": {
+      "valore": 87.8,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -55.6,
+     "p99": 62.2,
+     "estremo": {
+      "valore": -80,
+      "data": "2009-11-03"
+     }
+    },
+    "corr20_50": 0.77,
+    "corr50_200": 0.61
+   }
+  },
+  "FTSEMIB": {
+   "nome": "FTSE MIB",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2005-04-01",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5483,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2007-12-21 → 2007-12-27 (6 giorni)",
+    "2008-12-23 → 2008-12-29 (6 giorni)",
+    "2012-12-21 → 2012-12-27 (6 giorni)",
+    "2014-12-23 → 2014-12-29 (6 giorni)",
+    "2018-12-21 → 2018-12-27 (6 giorni)",
+    "2025-12-23 → 2025-12-29 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 254,
+   "membri": {
+    "primo": 40,
+    "ultimo": 40
+   },
+   "nMediana": 36,
+   "puntiPerTitolo": 2.8,
+   "nMin": 25,
+   "copertura": {
+    "inizio": 0.63,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 2353,
+    "primaSopra80": "2014-07-03",
+    "primaSopra90": "2016-01-04"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.4
+   },
+   "ricopiate": {
+    "conteggiUguali": 175,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 8,
+    "festeTipiche": 9,
+    "esempi": [
+     "2024-02-22",
+     "2024-02-23",
+     "2024-05-24",
+     "2024-09-18",
+     "2024-12-12",
+     "2025-03-03",
+     "2025-03-27",
+     "2025-05-06",
+     "2025-05-09",
+     "2025-08-11",
+     "2025-10-30",
+     "2025-12-02",
+     "2026-04-15",
+     "2026-06-29",
+     "2026-09-15"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 6.3,
+     "data": "2014-07-03"
+    },
+    "max200": {
+     "quota": 11.1,
+     "data": "2016-01-04"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 72,
+    "sedute200sopra10": 63,
+    "nInizio": 25,
+    "nFine": 40,
+    "membri": 40
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.69,
+    "d20_retPrima": -0.01,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.65
+   },
+   "salti": {
+    "p99": 24.3,
+    "max": 48.3,
+    "grandi": 57,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 10,
+    "fine": "2010-06-09",
+    "valore": 10.7
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -42.1,
+     "p99": 50,
+     "estremo": {
+      "valore": 84.2,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -53.8,
+     "p99": 57.1,
+     "estremo": {
+      "valore": 78.6,
+      "data": "2011-10-11"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.63
+   }
+  },
+  "IBEX": {
+   "nome": "IBEX 35",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2007-03-01",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5022,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2007-12-21 → 2007-12-27 (6 giorni)",
+    "2008-12-23 → 2008-12-29 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 255,
+   "membri": {
+    "primo": 35,
+    "ultimo": 35
+   },
+   "nMediana": 32,
+   "puntiPerTitolo": 3.1,
+   "nMin": 22,
+   "copertura": {
+    "inizio": 0.63,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 990,
+    "primaSopra80": "2011-01-24",
+    "primaSopra90": "2015-05-07"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.3
+   },
+   "ricopiate": {
+    "conteggiUguali": 173,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 4,
+    "festeTipiche": 6,
+    "esempi": [
+     "2023-03-23",
+     "2023-03-27",
+     "2023-07-10",
+     "2023-12-29",
+     "2024-03-19",
+     "2024-03-20",
+     "2024-04-17",
+     "2024-07-23",
+     "2024-08-06",
+     "2024-10-07",
+     "2025-01-08",
+     "2025-07-14",
+     "2025-08-20",
+     "2026-01-16",
+     "2026-08-13"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 11.5,
+     "data": "2007-12-05"
+    },
+    "max200": {
+     "quota": 15.4,
+     "data": "2007-12-10"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 88,
+    "sedute200sopra10": 156,
+    "nInizio": 22,
+    "nFine": 35,
+    "membri": 35
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.68,
+    "d20_retPrima": 0.01,
+    "d20_retDopo": 0.02,
+    "d50_ret0": 0.64
+   },
+   "salti": {
+    "p99": 25,
+    "max": 42.3,
+    "grandi": 51,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 18,
+    "fine": "2010-06-08",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -42.1,
+     "p99": 46.6,
+     "estremo": {
+      "valore": 88.9,
+      "data": "2010-06-15"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -50,
+     "p99": 62.5,
+     "estremo": {
+      "valore": 81.8,
+      "data": "2020-06-10"
+     }
+    },
+    "corr20_50": 0.76,
+    "corr50_200": 0.6
+   }
+  },
+  "HSI": {
+   "nome": "Hang Seng",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2008-09-01",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 4474,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2009-01-23 → 2009-01-29 (6 giorni)",
+    "2010-04-01 → 2010-04-07 (6 giorni)",
+    "2012-01-20 → 2012-01-26 (6 giorni)",
+    "2013-02-08 → 2013-02-14 (6 giorni)",
+    "2015-04-02 → 2015-04-08 (6 giorni)",
+    "2016-02-05 → 2016-02-11 (6 giorni)",
+    "2021-04-01 → 2021-04-07 (6 giorni)",
+    "2023-01-20 → 2023-01-26 (6 giorni)",
+    "2025-01-28 → 2025-02-03 (6 giorni)",
+    "2026-04-02 → 2026-04-08 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 246,
+   "membri": {
+    "primo": 85,
+    "ultimo": 85
+   },
+   "nMediana": 63,
+   "puntiPerTitolo": 1.6,
+   "nMin": 52,
+   "copertura": {
+    "inizio": 0.61,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 2537,
+    "primaSopra80": "2018-12-13",
+    "primaSopra90": "2020-12-09"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.6
+   },
+   "ricopiate": {
+    "conteggiUguali": 30,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 0,
+    "festeTipiche": 0,
+    "esempi": [
+     "2017-09-12",
+     "2017-09-20",
+     "2017-12-12",
+     "2018-01-18",
+     "2019-09-24",
+     "2020-03-03",
+     "2020-03-19",
+     "2021-03-10",
+     "2021-05-17",
+     "2021-08-27",
+     "2022-01-31",
+     "2024-05-07",
+     "2024-10-04",
+     "2025-02-07",
+     "2026-09-16"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 6.3,
+     "data": "2021-02-05"
+    },
+    "max200": {
+     "quota": 12.3,
+     "data": "2021-03-23"
+    },
+    "mediana50": 0,
+    "mediana200": 1.6,
+    "sedute50sopra5": 41,
+    "sedute200sopra10": 169,
+    "nInizio": 52,
+    "nFine": 85,
+    "membri": 85
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.72,
+    "d20_retPrima": -0.01,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.69
+   },
+   "salti": {
+    "p99": 19.2,
+    "max": 43.5,
+    "grandi": 37,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 8,
+    "fine": "2009-05-14",
+    "valore": 94.2
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -43.7,
+     "p99": 48.2,
+     "estremo": {
+      "valore": 66.2,
+      "data": "2020-04-08"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -44.6,
+     "p99": 56.5,
+     "estremo": {
+      "valore": 82.7,
+      "data": "2009-01-02"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.62
+   }
+  },
+  "CSI300": {
+   "nome": "CSI 300 (Cina)",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2012-06-01",
+   "breadthAl": "2026-10-29",
+   "prezzoAl": "2026-10-29",
+   "sedute": 3497,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2012-09-28 → 2012-10-08 (10 giorni)",
+    "2013-02-08 → 2013-02-18 (10 giorni)",
+    "2013-04-26 → 2013-05-02 (6 giorni)",
+    "2013-06-07 → 2013-06-13 (6 giorni)",
+    "2013-09-30 → 2013-10-08 (8 giorni)",
+    "2014-01-30 → 2014-02-07 (8 giorni)",
+    "2014-09-30 → 2014-10-08 (8 giorni)",
+    "2015-02-17 → 2015-02-25 (8 giorni)",
+    "2015-09-30 → 2015-10-08 (8 giorni)",
+    "2016-02-05 → 2016-02-15 (10 giorni)",
+    "2016-09-30 → 2016-10-10 (10 giorni)",
+    "2017-01-26 → 2017-02-03 (8 giorni)",
+    "2017-09-29 → 2017-10-09 (10 giorni)",
+    "2018-02-14 → 2018-02-22 (8 giorni)",
+    "2018-09-28 → 2018-10-08 (10 giorni)",
+    "2019-02-01 → 2019-02-11 (10 giorni)",
+    "2019-04-26 → 2019-05-06 (10 giorni)",
+    "2019-09-30 → 2019-10-08 (8 giorni)",
+    "2020-01-23 → 2020-02-03 (11 giorni)",
+    "2020-04-30 → 2020-05-06 (6 giorni)",
+    "2020-09-30 → 2020-10-09 (9 giorni)",
+    "2021-02-10 → 2021-02-18 (8 giorni)",
+    "2021-04-30 → 2021-05-06 (6 giorni)",
+    "2021-09-30 → 2021-10-08 (8 giorni)",
+    "2022-01-28 → 2022-02-07 (10 giorni)",
+    "2022-04-29 → 2022-05-05 (6 giorni)",
+    "2022-09-30 → 2022-10-10 (10 giorni)",
+    "2023-01-20 → 2023-01-30 (10 giorni)",
+    "2023-04-28 → 2023-05-04 (6 giorni)",
+    "2023-09-28 → 2023-10-09 (11 giorni)",
+    "2024-02-08 → 2024-02-19 (11 giorni)",
+    "2024-04-30 → 2024-05-06 (6 giorni)",
+    "2024-09-30 → 2024-10-08 (8 giorni)",
+    "2025-01-27 → 2025-02-05 (9 giorni)",
+    "2025-04-30 → 2025-05-06 (6 giorni)",
+    "2025-09-30 → 2025-10-09 (9 giorni)",
+    "2026-02-13 → 2026-02-24 (11 giorni)",
+    "2026-04-30 → 2026-05-06 (6 giorni)",
+    "2026-09-30 → 2026-10-08 (8 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 243,
+   "membri": {
+    "primo": 300,
+    "ultimo": 300
+   },
+   "nMediana": 259,
+   "puntiPerTitolo": 0.4,
+   "nMin": 194,
+   "copertura": {
+    "inizio": 0.65,
+    "fine": 0.99,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1442,
+    "primaSopra80": "2018-05-08",
+    "primaSopra90": "2020-04-20"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.8
+   },
+   "ricopiate": {
+    "conteggiUguali": 3,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 56,
+    "festeTipiche": 0,
+    "esempi": [
+     "2014-03-31",
+     "2015-03-31",
+     "2020-07-31"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 3.3,
+     "data": "2015-03-23"
+    },
+    "max200": {
+     "quota": 6.5,
+     "data": "2015-06-26"
+    },
+    "mediana50": 0.5,
+    "mediana200": 2.8,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 194,
+    "nFine": 297,
+    "membri": 300
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.73,
+    "d20_retPrima": 0.02,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.72
+   },
+   "salti": {
+    "p99": 18.6,
+    "max": 35.5,
+    "grandi": 30,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 5,
+    "fine": "2014-09-10",
+    "valore": 96.1
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -40.7,
+     "p99": 41.9,
+     "estremo": {
+      "valore": 79.1,
+      "data": "2016-02-22"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -45.5,
+     "p99": 50,
+     "estremo": {
+      "valore": 73.2,
+      "data": "2016-03-21"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.64
+   }
+  },
+  "KOSPI200": {
+   "nome": "KOSPI 200 (Corea)",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2006-12-01",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 4901,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2007-09-21 → 2007-09-27 (6 giorni)",
+    "2008-02-05 → 2008-02-11 (6 giorni)",
+    "2011-02-01 → 2011-02-07 (6 giorni)",
+    "2013-09-17 → 2013-09-23 (6 giorni)",
+    "2014-09-05 → 2014-09-11 (6 giorni)",
+    "2015-02-17 → 2015-02-23 (6 giorni)",
+    "2016-02-05 → 2016-02-11 (6 giorni)",
+    "2016-09-13 → 2016-09-19 (6 giorni)",
+    "2017-09-29 → 2017-10-10 (11 giorni)",
+    "2018-09-21 → 2018-09-27 (6 giorni)",
+    "2019-02-01 → 2019-02-07 (6 giorni)",
+    "2020-09-29 → 2020-10-05 (6 giorni)",
+    "2021-09-17 → 2021-09-23 (6 giorni)",
+    "2022-01-28 → 2022-02-03 (6 giorni)",
+    "2023-09-27 → 2023-10-04 (7 giorni)",
+    "2024-09-13 → 2024-09-19 (6 giorni)",
+    "2025-01-24 → 2025-01-31 (7 giorni)",
+    "2025-10-02 → 2025-10-10 (8 giorni)",
+    "2026-02-13 → 2026-02-19 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 246,
+   "membri": {
+    "primo": 200,
+    "ultimo": 200
+   },
+   "nMediana": 159,
+   "puntiPerTitolo": 0.6,
+   "nMin": 121,
+   "copertura": {
+    "inizio": 0.61,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 2462,
+    "primaSopra80": "2016-11-11",
+    "primaSopra90": "2021-01-25"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.7
+   },
+   "ricopiate": {
+    "conteggiUguali": 5,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 2,
+    "festeTipiche": 0,
+    "esempi": [
+     "2009-06-24",
+     "2010-07-28",
+     "2010-08-20",
+     "2017-09-26",
+     "2025-09-19"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 3.6,
+     "data": "2017-07-07"
+    },
+    "max200": {
+     "quota": 5.5,
+     "data": "2011-06-30"
+    },
+    "mediana50": 0.5,
+    "mediana200": 1.6,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 121,
+    "nFine": 200,
+    "membri": 200
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.67,
+    "d20_retPrima": 0,
+    "d20_retDopo": -0.04,
+    "d50_ret0": 0.66
+   },
+   "salti": {
+    "p99": 15.6,
+    "max": 43,
+    "grandi": 16,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 4,
+    "fine": "2007-07-18",
+    "valore": 90.2
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -28.4,
+     "p99": 38.9,
+     "estremo": {
+      "valore": 79.1,
+      "data": "2020-04-07"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -37.7,
+     "p99": 51.9,
+     "estremo": {
+      "valore": 72.1,
+      "data": "2009-01-07"
+     }
+    },
+    "corr20_50": 0.74,
+    "corr50_200": 0.61
+   }
+  },
+  "TWN": {
+   "nome": "Taiwan (MSCI)",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2003-01-02",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5838,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2003-01-28 → 2003-02-06 (9 giorni)",
+    "2004-01-16 → 2004-01-27 (11 giorni)",
+    "2005-02-03 → 2005-02-14 (11 giorni)",
+    "2006-01-25 → 2006-02-03 (9 giorni)",
+    "2006-10-05 → 2006-10-11 (6 giorni)",
+    "2007-02-14 → 2007-02-26 (12 giorni)",
+    "2008-02-01 → 2008-02-12 (11 giorni)",
+    "2009-01-21 → 2009-02-02 (12 giorni)",
+    "2010-02-10 → 2010-02-22 (12 giorni)",
+    "2011-01-28 → 2011-02-08 (11 giorni)",
+    "2012-01-18 → 2012-01-30 (12 giorni)",
+    "2013-02-06 → 2013-02-18 (12 giorni)",
+    "2014-01-27 → 2014-02-05 (9 giorni)",
+    "2015-02-13 → 2015-02-24 (11 giorni)",
+    "2016-02-03 → 2016-02-15 (12 giorni)",
+    "2017-01-24 → 2017-02-02 (9 giorni)",
+    "2018-02-12 → 2018-02-21 (9 giorni)",
+    "2018-04-03 → 2018-04-09 (6 giorni)",
+    "2019-01-30 → 2019-02-11 (12 giorni)",
+    "2020-01-20 → 2020-01-30 (10 giorni)",
+    "2021-02-05 → 2021-02-17 (12 giorni)",
+    "2021-04-01 → 2021-04-07 (6 giorni)",
+    "2022-01-26 → 2022-02-07 (12 giorni)",
+    "2023-01-17 → 2023-01-30 (13 giorni)",
+    "2023-03-31 → 2023-04-06 (6 giorni)",
+    "2024-02-05 → 2024-02-15 (10 giorni)",
+    "2025-01-22 → 2025-02-03 (12 giorni)",
+    "2026-02-11 → 2026-02-23 (12 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 245,
+   "membri": {
+    "primo": 76,
+    "ultimo": 76
+   },
+   "nMediana": 71,
+   "puntiPerTitolo": 1.4,
+   "nMin": 50,
+   "copertura": {
+    "inizio": 0.66,
+    "fine": 0.97,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1352,
+    "primaSopra80": "2008-06-25",
+    "primaSopra90": "2012-10-05"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.7
+   },
+   "ricopiate": {
+    "conteggiUguali": 39,
+    "conPrezzoUguale": 1,
+    "prezzoUguale": 2,
+    "festeTipiche": 2,
+    "esempi": [
+     "2013-03-06",
+     "2013-05-09",
+     "2013-09-12",
+     "2016-01-14",
+     "2016-07-08",
+     "2017-04-17",
+     "2017-10-19",
+     "2018-04-12",
+     "2020-03-23",
+     "2020-04-13",
+     "2020-06-04",
+     "2022-05-23",
+     "2024-06-19",
+     "2025-08-01",
+     "2026-01-15"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 8.3,
+     "data": "2007-12-31"
+    },
+    "max200": {
+     "quota": 9.8,
+     "data": "2008-06-25"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 49,
+    "sedute200sopra10": 0,
+    "nInizio": 50,
+    "nFine": 74,
+    "membri": 76
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.72,
+    "d20_retPrima": 0,
+    "d20_retDopo": 0.05,
+    "d50_ret0": 0.69
+   },
+   "salti": {
+    "p99": 20.8,
+    "max": 63,
+    "grandi": 61,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 1,
+    "esempiSaltiDiN": [
+     {
+      "data": "2007-12-31",
+      "dPct50": -1.8,
+      "rendimento": 1.3,
+      "dN": 4
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 15,
+    "fine": "2008-10-29",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -35.6,
+     "p99": 46,
+     "estremo": {
+      "valore": 80.8,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -45.2,
+     "p99": 53.2,
+     "estremo": {
+      "valore": 80.6,
+      "data": "2009-03-23"
+     }
+    },
+    "corr20_50": 0.76,
+    "corr50_200": 0.63
+   }
+  },
+  "NIFTY50": {
+   "nome": "Nifty 50 (India)",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2007-10-01",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 4681,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2014-10-01 → 2014-10-07 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 245,
+   "membri": {
+    "primo": 50,
+    "ultimo": 50
+   },
+   "nMediana": 45,
+   "puntiPerTitolo": 2.2,
+   "nMin": 40,
+   "copertura": {
+    "inizio": 0.8,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2007-10-01",
+    "primaSopra90": "2017-02-03"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.5
+   },
+   "ricopiate": {
+    "conteggiUguali": 51,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 4,
+    "festeTipiche": 2,
+    "esempi": [
+     "2020-03-19",
+     "2020-04-20",
+     "2020-06-12",
+     "2021-01-20",
+     "2021-02-23",
+     "2022-03-23",
+     "2022-07-05",
+     "2023-12-05",
+     "2023-12-28",
+     "2024-01-09",
+     "2024-01-15",
+     "2024-03-06",
+     "2025-03-18",
+     "2025-04-24",
+     "2026-07-16"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 4.8,
+     "data": "2007-12-11"
+    },
+    "max200": {
+     "quota": 6.4,
+     "data": "2017-11-17"
+    },
+    "mediana50": 0,
+    "mediana200": 0,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 40,
+    "nFine": 50,
+    "membri": 50
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.66,
+    "d20_retPrima": 0.02,
+    "d20_retDopo": 0.04,
+    "d50_ret0": 0.61
+   },
+   "salti": {
+    "p99": 19,
+    "max": 34,
+    "grandi": 41,
+    "strani": 1,
+    "esempiStrani": [
+     {
+      "data": "2022-07-13",
+      "dPct50": 16.3,
+      "rendimento": -0.57,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 9,
+    "fine": "2008-11-25",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -37.8,
+     "p99": 39.5,
+     "estremo": {
+      "valore": 76.6,
+      "data": "2020-04-17"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -50,
+     "p99": 53.5,
+     "estremo": {
+      "valore": 76.2,
+      "data": "2009-01-05"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.64
+   }
+  },
+  "ASX200": {
+   "nome": "S&P/ASX 200",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2008-05-01",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 4675,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2011-04-21 → 2011-04-27 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 253,
+   "membri": {
+    "primo": 200,
+    "ultimo": 200
+   },
+   "nMediana": 165,
+   "puntiPerTitolo": 0.6,
+   "nMin": 126,
+   "copertura": {
+    "inizio": 0.63,
+    "fine": 0.98,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 2002,
+    "primaSopra80": "2016-04-11",
+    "primaSopra90": "2021-07-01"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 3.5
+   },
+   "ricopiate": {
+    "conteggiUguali": 1,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 3,
+    "festeTipiche": 0,
+    "esempi": [
+     "2016-11-30"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 3.6,
+     "data": "2010-12-15"
+    },
+    "max200": {
+     "quota": 5.7,
+     "data": "2011-08-30"
+    },
+    "mediana50": 0,
+    "mediana200": 1.8,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 126,
+    "nFine": 195,
+    "membri": 200
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.75,
+    "d20_retPrima": -0.02,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.73
+   },
+   "salti": {
+    "p99": 14.2,
+    "max": 28.8,
+    "grandi": 6,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 4,
+    "fine": "2013-05-21",
+    "valore": 59.6
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -24.8,
+     "p99": 33,
+     "estremo": {
+      "valore": 73.4,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -31.2,
+     "p99": 46.5,
+     "estremo": {
+      "valore": 63,
+      "data": "2020-05-27"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.62
+   }
+  },
+  "EEM": {
+   "nome": "MSCI Emerging Markets",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2011-03-01",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 3942,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 1182,
+    "ultimo": 1180
+   },
+   "nMediana": 937.5,
+   "puntiPerTitolo": 0.1,
+   "nMin": 466,
+   "copertura": {
+    "inizio": 0.63,
+    "fine": 0.95,
+    "sedutaSotto60": 67,
+    "sedutaSotto80": 2019,
+    "primaSopra80": "2019-01-08",
+    "primaSopra90": "2022-04-20"
+   },
+   "caliCopertura": {
+    "sedute": 68,
+    "esempi": [
+     {
+      "date": "2011-10-06",
+      "n": 525,
+      "mediana": 760
+     },
+     {
+      "date": "2011-10-07",
+      "n": 525,
+      "mediana": 760
+     },
+     {
+      "date": "2012-01-26",
+      "n": 466,
+      "mediana": 780
+     },
+     {
+      "date": "2012-01-27",
+      "n": 466,
+      "mediana": 780
+     },
+     {
+      "date": "2012-10-04",
+      "n": 538,
+      "mediana": 789
+     },
+     {
+      "date": "2012-10-05",
+      "n": 539,
+      "mediana": 789
+     },
+     {
+      "date": "2013-02-14",
+      "n": 473,
+      "mediana": 795
+     },
+     {
+      "date": "2013-02-15",
+      "n": 474,
+      "mediana": 795
+     },
+     {
+      "date": "2013-10-07",
+      "n": 545,
+      "mediana": 799
+     },
+     {
+      "date": "2014-02-05",
+      "n": 547,
+      "mediana": 805
+     },
+     {
+      "date": "2014-02-06",
+      "n": 547,
+      "mediana": 805
+     },
+     {
+      "date": "2014-10-06",
+      "n": 553,
+      "mediana": 814
+     }
+    ],
+    "saltoMedioEntrataUscita": 7,
+    "saltoMedioTutte": 2.6
+   },
+   "ricopiate": {
+    "conteggiUguali": 0,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 29,
+    "festeTipiche": 0,
+    "esempi": []
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 3.2,
+     "data": "2012-01-26"
+    },
+    "max200": {
+     "quota": 7.9,
+     "data": "2012-01-26"
+    },
+    "mediana50": 0.5,
+    "mediana200": 2.1,
+    "sedute50sopra5": 0,
+    "sedute200sopra10": 0,
+    "nInizio": 739,
+    "nFine": 1122,
+    "membri": 1180
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.44,
+    "d20_retPrima": 0.29,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.43
+   },
+   "salti": {
+    "p99": 11.3,
+    "max": 24.9,
+    "grandi": 2,
+    "strani": 6,
+    "esempiStrani": [
+     {
+      "data": "2012-01-26",
+      "dPct50": 16.4,
+      "rendimento": -0.4,
+      "dN": -247
+     },
+     {
+      "data": "2015-10-06",
+      "dPct50": 16.4,
+      "rendimento": -0.17,
+      "dN": -280
+     },
+     {
+      "data": "2024-10-07",
+      "dPct50": -16.3,
+      "rendimento": 0.83,
+      "dN": -415
+     },
+     {
+      "data": "2015-10-08",
+      "dPct50": -16.2,
+      "rendimento": 1.07,
+      "dN": 280
+     },
+     {
+      "data": "2013-02-14",
+      "dPct50": -15.2,
+      "rendimento": -0.05,
+      "dN": -253
+     },
+     {
+      "data": "2016-09-12",
+      "dPct50": -15.2,
+      "rendimento": 0.68,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 93,
+    "esempiSaltiDiN": [
+     {
+      "data": "2011-10-06",
+      "dPct50": 8.9,
+      "rendimento": 3.31,
+      "dN": -235
+     },
+     {
+      "data": "2011-10-10",
+      "dPct50": -3,
+      "rendimento": 4.47,
+      "dN": 235
+     },
+     {
+      "data": "2012-01-24",
+      "dPct50": -0.1,
+      "rendimento": 0.14,
+      "dN": -67
+     },
+     {
+      "data": "2012-01-26",
+      "dPct50": 16.4,
+      "rendimento": -0.4,
+      "dN": -247
+     },
+     {
+      "data": "2012-01-30",
+      "dPct50": -17,
+      "rendimento": -1.44,
+      "dN": 314
+     },
+     {
+      "data": "2012-10-04",
+      "dPct50": 12,
+      "rendimento": 1.04,
+      "dN": -251
+     },
+     {
+      "data": "2012-10-08",
+      "dPct50": -16.9,
+      "rendimento": -0.88,
+      "dN": 252
+     },
+     {
+      "data": "2013-02-12",
+      "dPct50": -1,
+      "rendimento": 0.27,
+      "dN": -69
+     },
+     {
+      "data": "2013-02-14",
+      "dPct50": -15.2,
+      "rendimento": -0.05,
+      "dN": -253
+     },
+     {
+      "data": "2013-02-19",
+      "dPct50": 11.4,
+      "rendimento": 0.2,
+      "dN": 322
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 3,
+    "fine": "2024-05-13",
+    "valore": 63.4
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -22.2,
+     "p99": 29,
+     "estremo": {
+      "valore": 56.6,
+      "data": "2020-04-09"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -25.8,
+     "p99": 36.1,
+     "estremo": {
+      "valore": 49.5,
+      "data": "2016-03-21"
+     }
+    },
+    "corr20_50": 0.76,
+    "corr50_200": 0.63
+   }
+  },
+  "IBOV": {
+   "nome": "Ibovespa (Brasile)",
+   "composizione": "oggi",
+   "limiti": true,
+   "breadthDal": "2008-11-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 4458,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [
+    "2012-02-17 → 2012-02-23 (6 giorni)"
+   ],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 248,
+   "membri": {
+    "primo": 76,
+    "ultimo": 76
+   },
+   "nMediana": 62,
+   "puntiPerTitolo": 1.6,
+   "nMin": 49,
+   "copertura": {
+    "inizio": 0.64,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1583,
+    "primaSopra80": "2015-04-02",
+    "primaSopra90": "2021-02-02"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.7
+   },
+   "ricopiate": {
+    "conteggiUguali": 32,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 2,
+    "festeTipiche": 1,
+    "esempi": [
+     "2017-02-07",
+     "2018-01-05",
+     "2018-01-31",
+     "2018-02-16",
+     "2018-03-01",
+     "2019-12-10",
+     "2020-03-19",
+     "2020-03-24",
+     "2022-05-27",
+     "2023-04-17",
+     "2023-08-18",
+     "2024-03-26",
+     "2025-12-26",
+     "2026-01-28",
+     "2026-06-19"
+    ]
+   },
+   "giovani": {
+    "metodo": "nuovi massimi di n nelle ultime 49 (199) sedute, in % di n; le prime 49 (199) sedute della serie non si misurano",
+    "max50": {
+     "quota": 7.5,
+     "data": "2009-12-17"
+    },
+    "max200": {
+     "quota": 9.6,
+     "data": "2021-07-14"
+    },
+    "mediana50": 0,
+    "mediana200": 1.6,
+    "sedute50sopra5": 39,
+    "sedute200sopra10": 0,
+    "nInizio": 49,
+    "nFine": 76,
+    "membri": 76
+   },
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.72,
+    "d20_retPrima": -0.02,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.68
+   },
+   "salti": {
+    "p99": 21.3,
+    "max": 68.4,
+    "grandi": 46,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 8,
+    "fine": "2020-03-31",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -37.4,
+     "p99": 43.3,
+     "estremo": {
+      "valore": 87.7,
+      "data": "2020-04-14"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -43.2,
+     "p99": 53.1,
+     "estremo": {
+      "valore": 69.4,
+      "data": "2009-01-05"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.63
+   }
+  }
+ },
+ "aggiornato": {
+  "copertura": "2026-10-31",
+  "settori": "2026-10-31",
+  "fonteEsterna": "2026-10-31",
+  "ricalcolo": "2026-10-31",
+  "bias": "2026-10-31"
+ },
+ "settori": {
+  "XLK": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 40,
+    "ultimo": 75
+   },
+   "nMediana": 46,
+   "puntiPerTitolo": 2.2,
+   "nMin": 31,
+   "copertura": {
+    "inizio": 0.78,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1148,
+    "primaSopra80": "2009-07-27",
+    "primaSopra90": "2016-02-01"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.4
+   },
+   "ricopiate": {
+    "conteggiUguali": 93,
+    "conPrezzoUguale": 3,
+    "prezzoUguale": 156,
+    "festeTipiche": 5,
+    "esempi": [
+     "2022-04-27",
+     "2022-05-12",
+     "2022-08-15",
+     "2022-09-26",
+     "2022-09-30",
+     "2023-02-14",
+     "2023-12-18",
+     "2023-12-19",
+     "2023-12-26",
+     "2023-12-29",
+     "2024-05-17",
+     "2024-10-18",
+     "2025-11-26",
+     "2025-12-09",
+     "2026-05-21"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.69,
+    "d20_retPrima": -0.05,
+    "d20_retDopo": -0.01,
+    "d50_ret0": 0.66
+   },
+   "salti": {
+    "p99": 25.4,
+    "max": 52.2,
+    "grandi": 55,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 11,
+    "fine": "2008-10-17",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -42.9,
+     "p99": 48.8,
+     "estremo": {
+      "valore": 78.9,
+      "data": "2008-11-04"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -49,
+     "p99": 59,
+     "estremo": {
+      "valore": 94.9,
+      "data": "2009-01-06"
+     }
+    },
+    "corr20_50": 0.79,
+    "corr50_200": 0.64
+   }
+  },
+  "XLC": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 15,
+    "ultimo": 22
+   },
+   "nMediana": 21,
+   "puntiPerTitolo": 4.8,
+   "nMin": 11,
+   "copertura": {
+    "inizio": 0.73,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 2427,
+    "primaSopra80": "2005-12-05",
+    "primaSopra90": "2019-03-12"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.7
+   },
+   "ricopiate": {
+    "conteggiUguali": 430,
+    "conPrezzoUguale": 341,
+    "prezzoUguale": 3400,
+    "festeTipiche": 16,
+    "esempi": [
+     "2025-08-25",
+     "2025-10-31",
+     "2025-11-04",
+     "2025-11-12",
+     "2025-11-17",
+     "2025-11-20",
+     "2025-12-16",
+     "2025-12-30",
+     "2026-06-08",
+     "2026-06-26",
+     "2026-07-14",
+     "2026-07-21",
+     "2026-08-14",
+     "2026-08-21",
+     "2026-10-22"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.6,
+    "d20_retPrima": -0.01,
+    "d20_retDopo": -0.02,
+    "d50_ret0": 0.54
+   },
+   "salti": {
+    "p99": 28.6,
+    "max": 54.2,
+    "grandi": 58,
+    "strani": 2,
+    "esempiStrani": [
+     {
+      "data": "2019-03-13",
+      "dPct50": -25.1,
+      "rendimento": 0.3,
+      "dN": 1
+     },
+     {
+      "data": "2018-12-03",
+      "dPct50": 23.8,
+      "rendimento": 0.17,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 18,
+    "fine": "2008-07-16",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -42.9,
+     "p99": 52,
+     "estremo": {
+      "valore": 82.4,
+      "data": "2011-08-30"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -52.9,
+     "p99": 58.3,
+     "estremo": {
+      "valore": 87.5,
+      "data": "2009-04-14"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.64
+   }
+  },
+  "XLY": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 43,
+    "ultimo": 47
+   },
+   "nMediana": 53,
+   "puntiPerTitolo": 1.9,
+   "nMin": 33,
+   "copertura": {
+    "inizio": 0.77,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1221,
+    "primaSopra80": "2009-11-06",
+    "primaSopra90": "2014-06-20"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.2
+   },
+   "ricopiate": {
+    "conteggiUguali": 77,
+    "conPrezzoUguale": 3,
+    "prezzoUguale": 100,
+    "festeTipiche": 2,
+    "esempi": [
+     "2020-12-24",
+     "2021-04-16",
+     "2022-06-14",
+     "2022-06-17",
+     "2022-12-01",
+     "2023-07-18",
+     "2023-07-21",
+     "2024-03-05",
+     "2024-05-20",
+     "2025-02-05",
+     "2025-02-24",
+     "2025-07-18",
+     "2025-08-07",
+     "2025-08-27",
+     "2026-09-29"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.67,
+    "d20_retPrima": -0.02,
+    "d20_retDopo": 0.01,
+    "d50_ret0": 0.66
+   },
+   "salti": {
+    "p99": 22.8,
+    "max": 46,
+    "grandi": 56,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 11,
+    "fine": "2020-03-25",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -42.1,
+     "p99": 45.2,
+     "estremo": {
+      "valore": 94.9,
+      "data": "2020-04-08"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -47.8,
+     "p99": 61,
+     "estremo": {
+      "valore": 81,
+      "data": "2009-01-05"
+     }
+    },
+    "corr20_50": 0.77,
+    "corr50_200": 0.61
+   }
+  },
+  "XLP": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 27,
+    "ultimo": 34
+   },
+   "nMediana": 36,
+   "puntiPerTitolo": 2.8,
+   "nMin": 25,
+   "copertura": {
+    "inizio": 0.93,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2005-01-03",
+    "primaSopra90": "2005-01-03"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.4
+   },
+   "ricopiate": {
+    "conteggiUguali": 125,
+    "conPrezzoUguale": 3,
+    "prezzoUguale": 126,
+    "festeTipiche": 7,
+    "esempi": [
+     "2022-10-31",
+     "2022-12-19",
+     "2023-01-23",
+     "2023-04-19",
+     "2023-05-12",
+     "2023-08-10",
+     "2023-09-13",
+     "2023-10-03",
+     "2024-06-14",
+     "2024-06-18",
+     "2024-09-04",
+     "2025-07-10",
+     "2026-02-09",
+     "2026-10-07",
+     "2026-10-26"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.72,
+    "d20_retPrima": -0.07,
+    "d20_retDopo": -0.03,
+    "d50_ret0": 0.69
+   },
+   "salti": {
+    "p99": 22.9,
+    "max": 48.6,
+    "grandi": 56,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 7,
+    "fine": "2005-06-06",
+    "valore": 68
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -37.1,
+     "p99": 40,
+     "estremo": {
+      "valore": 69.4,
+      "data": "2020-04-13"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -47.2,
+     "p99": 51.4,
+     "estremo": {
+      "valore": -80,
+      "data": "2013-06-21"
+     }
+    },
+    "corr20_50": 0.77,
+    "corr50_200": 0.63
+   }
+  },
+  "XLE": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 19,
+    "ultimo": 21
+   },
+   "nMediana": 27,
+   "puntiPerTitolo": 3.7,
+   "nMin": 17,
+   "copertura": {
+    "inizio": 0.89,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2005-01-03",
+    "primaSopra90": "2005-03-14"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6.4
+   },
+   "ricopiate": {
+    "conteggiUguali": 405,
+    "conPrezzoUguale": 11,
+    "prezzoUguale": 89,
+    "festeTipiche": 10,
+    "esempi": [
+     "2026-02-12",
+     "2026-02-13",
+     "2026-02-19",
+     "2026-02-24",
+     "2026-02-26",
+     "2026-03-27",
+     "2026-03-30",
+     "2026-05-05",
+     "2026-05-19",
+     "2026-07-14",
+     "2026-07-20",
+     "2026-08-13",
+     "2026-08-18",
+     "2026-08-21",
+     "2026-08-24"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.66,
+    "d20_retPrima": -0.03,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.61
+   },
+   "salti": {
+    "p99": 31.9,
+    "max": 66.7,
+    "grandi": 55,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 2,
+    "esempiSaltiDiN": [
+     {
+      "data": "2015-03-23",
+      "dPct50": -11.9,
+      "rendimento": -0.37,
+      "dN": -2
+     },
+     {
+      "data": "2017-07-26",
+      "dPct50": -2.7,
+      "rendimento": 0.13,
+      "dN": -2
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 39,
+    "fine": "2005-08-03",
+    "valore": 100
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -60.1,
+     "p99": 63,
+     "estremo": {
+      "valore": 96.2,
+      "data": "2020-04-07"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -78.9,
+     "p99": 75.8,
+     "estremo": {
+      "valore": 96.3,
+      "data": "2009-01-06"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.58
+   }
+  },
+  "XLF": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 51,
+    "ultimo": 76
+   },
+   "nMediana": 67,
+   "puntiPerTitolo": 1.5,
+   "nMin": 49,
+   "copertura": {
+    "inizio": 0.96,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2005-01-03",
+    "primaSopra90": "2005-01-03"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6
+   },
+   "ricopiate": {
+    "conteggiUguali": 38,
+    "conPrezzoUguale": 1,
+    "prezzoUguale": 131,
+    "festeTipiche": 2,
+    "esempi": [
+     "2018-03-15",
+     "2018-05-01",
+     "2020-03-23",
+     "2020-12-17",
+     "2021-05-07",
+     "2021-07-07",
+     "2022-06-17",
+     "2022-09-27",
+     "2023-09-27",
+     "2023-12-26",
+     "2024-01-26",
+     "2024-03-05",
+     "2024-08-27",
+     "2025-08-29",
+     "2026-04-16"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.65,
+    "d20_retPrima": -0.07,
+    "d20_retDopo": -0.04,
+    "d50_ret0": 0.64
+   },
+   "salti": {
+    "p99": 29.8,
+    "max": 51.4,
+    "grandi": 55,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 10,
+    "fine": "2016-01-21",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -47.7,
+     "p99": 55.3,
+     "estremo": {
+      "valore": 91.8,
+      "data": "2020-04-08"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -60.6,
+     "p99": 65.1,
+     "estremo": {
+      "valore": 85.7,
+      "data": "2009-04-02"
+     }
+    },
+    "corr20_50": 0.77,
+    "corr50_200": 0.62
+   }
+  },
+  "XLV": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 40,
+    "ultimo": 60
+   },
+   "nMediana": 56,
+   "puntiPerTitolo": 1.8,
+   "nMin": 39,
+   "copertura": {
+    "inizio": 0.98,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2005-01-03",
+    "primaSopra90": "2005-01-03"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.1
+   },
+   "ricopiate": {
+    "conteggiUguali": 45,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 91,
+    "festeTipiche": 2,
+    "esempi": [
+     "2017-09-26",
+     "2017-10-11",
+     "2020-01-10",
+     "2020-12-30",
+     "2021-10-06",
+     "2022-08-04",
+     "2022-12-02",
+     "2024-02-16",
+     "2024-05-21",
+     "2024-05-24",
+     "2024-11-26",
+     "2024-11-29",
+     "2025-07-29",
+     "2025-11-12",
+     "2026-03-20"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.72,
+    "d20_retPrima": -0.05,
+    "d20_retDopo": 0,
+    "d50_ret0": 0.69
+   },
+   "salti": {
+    "p99": 22.6,
+    "max": 45.2,
+    "grandi": 55,
+    "strani": 2,
+    "esempiStrani": [
+     {
+      "data": "2007-08-17",
+      "dPct50": 27.9,
+      "rendimento": 0.25,
+      "dN": 0
+     },
+     {
+      "data": "2012-10-18",
+      "dPct50": -19.6,
+      "rendimento": 0,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 9,
+    "fine": "2008-10-17",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -37.5,
+     "p99": 43.4,
+     "estremo": {
+      "valore": 83.7,
+      "data": "2011-08-29"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -49.2,
+     "p99": 50,
+     "estremo": {
+      "valore": 67.4,
+      "data": "2009-04-17"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.64
+   }
+  },
+  "XLI": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 45,
+    "ultimo": 83
+   },
+   "nMediana": 63,
+   "puntiPerTitolo": 1.6,
+   "nMin": 42,
+   "copertura": {
+    "inizio": 0.93,
+    "fine": 0.99,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2005-01-03",
+    "primaSopra90": "2005-01-03"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 5.5
+   },
+   "ricopiate": {
+    "conteggiUguali": 81,
+    "conPrezzoUguale": 1,
+    "prezzoUguale": 69,
+    "festeTipiche": 6,
+    "esempi": [
+     "2016-01-19",
+     "2016-01-27",
+     "2016-08-30",
+     "2017-08-09",
+     "2017-10-05",
+     "2019-04-16",
+     "2019-05-09",
+     "2019-11-06",
+     "2020-03-20",
+     "2020-05-28",
+     "2020-11-17",
+     "2022-02-14",
+     "2022-06-22",
+     "2023-12-07",
+     "2024-03-04"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.71,
+    "d20_retPrima": -0.03,
+    "d20_retDopo": -0.01,
+    "d50_ret0": 0.7
+   },
+   "salti": {
+    "p99": 26.2,
+    "max": 46.9,
+    "grandi": 55,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 20,
+    "fine": "2008-10-29",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -48.2,
+     "p99": 52.8,
+     "estremo": {
+      "valore": 86.8,
+      "data": "2011-08-30"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -58.5,
+     "p99": 66.7,
+     "estremo": {
+      "valore": 90,
+      "data": "2009-01-06"
+     }
+    },
+    "corr20_50": 0.77,
+    "corr50_200": 0.61
+   }
+  },
+  "XLB": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 23,
+    "ultimo": 24
+   },
+   "nMediana": 25,
+   "puntiPerTitolo": 4,
+   "nMin": 20,
+   "copertura": {
+    "inizio": 0.87,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2005-01-03",
+    "primaSopra90": "2012-09-05"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6
+   },
+   "ricopiate": {
+    "conteggiUguali": 301,
+    "conPrezzoUguale": 9,
+    "prezzoUguale": 134,
+    "festeTipiche": 15,
+    "esempi": [
+     "2025-09-08",
+     "2025-09-25",
+     "2025-10-07",
+     "2026-01-13",
+     "2026-01-26",
+     "2026-02-10",
+     "2026-02-26",
+     "2026-03-20",
+     "2026-03-26",
+     "2026-03-27",
+     "2026-07-01",
+     "2026-07-06",
+     "2026-07-07",
+     "2026-07-09",
+     "2026-10-22"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.67,
+    "d20_retPrima": -0.04,
+    "d20_retDopo": 0.01,
+    "d50_ret0": 0.61
+   },
+   "salti": {
+    "p99": 29.2,
+    "max": 60.9,
+    "grandi": 56,
+    "strani": 1,
+    "esempiStrani": [
+     {
+      "data": "2025-01-27",
+      "dPct50": 26.9,
+      "rendimento": 0.05,
+      "dN": 0
+     }
+    ],
+    "saltiDiN": 1,
+    "esempiSaltiDiN": [
+     {
+      "data": "2025-03-24",
+      "dPct50": 1,
+      "rendimento": 1.37,
+      "dN": -2
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 29,
+    "fine": "2008-11-12",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -46.2,
+     "p99": 54.5,
+     "estremo": {
+      "valore": 92.3,
+      "data": "2020-04-07"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -60,
+     "p99": 56.5,
+     "estremo": {
+      "valore": 90.9,
+      "data": "2009-04-02"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.6
+   }
+  },
+  "XLRE": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 5,
+    "ultimo": 30
+   },
+   "nMediana": 22,
+   "puntiPerTitolo": 4.5,
+   "nMin": 3,
+   "copertura": {
+    "inizio": 0.6,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 810,
+    "primaSopra80": "2006-11-10",
+    "primaSopra90": "2016-02-22"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6.8
+   },
+   "ricopiate": {
+    "conteggiUguali": 701,
+    "conPrezzoUguale": 578,
+    "prezzoUguale": 2758,
+    "festeTipiche": 25,
+    "esempi": [
+     "2025-03-28",
+     "2025-06-02",
+     "2025-07-14",
+     "2025-11-06",
+     "2025-11-10",
+     "2025-11-24",
+     "2025-12-29",
+     "2026-03-17",
+     "2026-03-30",
+     "2026-05-11",
+     "2026-05-22",
+     "2026-07-01",
+     "2026-09-29",
+     "2026-10-01",
+     "2026-10-08"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.66,
+    "d20_retPrima": -0.03,
+    "d20_retDopo": 0.01,
+    "d50_ret0": 0.65
+   },
+   "salti": {
+    "p99": 41.7,
+    "max": 66.7,
+    "grandi": 57,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 3,
+    "esempiSaltiDiN": [
+     {
+      "data": "2006-04-03",
+      "dPct50": -14.3,
+      "rendimento": 0,
+      "dN": 2
+     },
+     {
+      "data": "2015-03-23",
+      "dPct50": -2.3,
+      "rendimento": 0,
+      "dN": 2
+     },
+     {
+      "data": "2022-09-19",
+      "dPct50": 2.8,
+      "rendimento": -0.2,
+      "dN": 2
+     }
+    ]
+   },
+   "pct50Costante": {
+    "len": 43,
+    "fine": "2008-12-04",
+    "valore": 0
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -60,
+     "p99": 60.2,
+     "estremo": {
+      "valore": 90.9,
+      "data": "2008-12-08"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -82.4,
+     "p99": 71.4,
+     "estremo": {
+      "valore": -100,
+      "data": "2005-01-13"
+     }
+    },
+    "corr20_50": 0.75,
+    "corr50_200": 0.57
+   }
+  },
+  "XLU": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 23,
+    "ultimo": 31
+   },
+   "nMediana": 28,
+   "puntiPerTitolo": 3.6,
+   "nMin": 22,
+   "copertura": {
+    "inizio": 0.96,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 0,
+    "primaSopra80": "2005-01-03",
+    "primaSopra90": "2005-01-03"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 6.7
+   },
+   "ricopiate": {
+    "conteggiUguali": 402,
+    "conPrezzoUguale": 25,
+    "prezzoUguale": 172,
+    "festeTipiche": 12,
+    "esempi": [
+     "2025-12-26",
+     "2026-02-17",
+     "2026-02-24",
+     "2026-08-12",
+     "2026-09-02",
+     "2026-09-16",
+     "2026-09-21",
+     "2026-09-22",
+     "2026-09-23",
+     "2026-09-25",
+     "2026-09-28",
+     "2026-09-29",
+     "2026-09-30",
+     "2026-10-02",
+     "2026-10-07"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.65,
+    "d20_retPrima": -0.07,
+    "d20_retDopo": -0.01,
+    "d50_ret0": 0.63
+   },
+   "salti": {
+    "p99": 39.3,
+    "max": 66.7,
+    "grandi": 56,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 27,
+    "fine": "2013-05-08",
+    "valore": 100
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -64.3,
+     "p99": 67.9,
+     "estremo": {
+      "valore": 100,
+      "data": "2020-04-08"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -71.4,
+     "p99": 65.2,
+     "estremo": {
+      "valore": -89.3,
+      "data": "2016-08-16"
+     }
+    },
+    "corr20_50": 0.74,
+    "corr50_200": 0.6
+   }
+  },
+  "SPX": {
+   "breadthDal": "2005-01-03",
+   "breadthAl": "2026-10-30",
+   "prezzoAl": "2026-10-30",
+   "sedute": 5492,
+   "senzaBreadthDentro": 0,
+   "intervalliLunghi": [],
+   "anniConPocheSedute": [],
+   "sedutePerAnnoMediana": 252,
+   "membri": {
+    "primo": 500,
+    "ultimo": 503
+   },
+   "nMediana": 462,
+   "puntiPerTitolo": 0.2,
+   "nMin": 320,
+   "copertura": {
+    "inizio": 0.64,
+    "fine": 1,
+    "sedutaSotto60": 0,
+    "sedutaSotto80": 1131,
+    "primaSopra80": "2009-07-01",
+    "primaSopra90": "2013-12-02"
+   },
+   "caliCopertura": {
+    "sedute": 0,
+    "esempi": [],
+    "saltoMedioEntrataUscita": null,
+    "saltoMedioTutte": 4.3
+   },
+   "ricopiate": {
+    "conteggiUguali": 1,
+    "conPrezzoUguale": 0,
+    "prezzoUguale": 2,
+    "festeTipiche": 0,
+    "esempi": [
+     "2013-02-12"
+    ]
+   },
+   "giovani": null,
+   "valoriImpossibili": 0,
+   "allineamento": {
+    "d20_ret0": 0.74,
+    "d20_retPrima": -0.06,
+    "d20_retDopo": -0.03,
+    "d50_ret0": 0.75
+   },
+   "salti": {
+    "p99": 19.3,
+    "max": 39.7,
+    "grandi": 50,
+    "strani": 0,
+    "esempiStrani": [],
+    "saltiDiN": 0,
+    "esempiSaltiDiN": []
+   },
+   "pct50Costante": {
+    "len": 3,
+    "fine": "2005-06-21",
+    "valore": 82.6
+   },
+   "relazioni": {
+    "pct20MenoPct50": {
+     "p1": -34.5,
+     "p99": 40.8,
+     "estremo": {
+      "valore": 81.8,
+      "data": "2020-04-13"
+     }
+    },
+    "pct50MenoPct200": {
+     "p1": -42.4,
+     "p99": 49.7,
+     "estremo": {
+      "valore": 77.3,
+      "data": "2009-01-06"
+     }
+    },
+    "corr20_50": 0.78,
+    "corr50_200": 0.63
+   }
+  }
+ },
+ "fonteEsterna": {
+  "fonte": "First Trust Portfolios, «A Snapshot of Moving Averages» (dati Bloomberg), valori interi; trascritti a mano dai post pubblici, nessuno scraping",
+  "sp500": [
+   {
+    "data": "2018-05-09",
+    "p50": 44,
+    "p200": 51,
+    "url": "https://www.ftportfolios.com/Blogs/MarketBlog/2018/5/10/a-snapshot-of-moving-averages",
+    "app50": 51.1,
+    "app200": 55.2,
+    "diff50": 7.1,
+    "diff200": 4.2
+   },
+   {
+    "data": "2018-09-12",
+    "p50": 62,
+    "p200": 63,
+    "url": "https://www.ftportfolios.com/blogs/MarketBlog/2018/9/13/a-snapshot-of-moving-averages",
+    "app50": 65.2,
+    "app200": 63.6,
+    "diff50": 3.2,
+    "diff200": 0.6
+   },
+   {
+    "data": "2019-08-12",
+    "p50": 36,
+    "p200": 54,
+    "url": "https://www.ftportfolios.com/blogs/MarketBlog/2019/8/13/a-snapshot-of-moving-averages",
+    "app50": 36.8,
+    "app200": 56.5,
+    "diff50": 0.8,
+    "diff200": 2.5
+   },
+   {
+    "data": "2019-10-11",
+    "p50": 61,
+    "p200": 62,
+    "url": "https://www.ftportfolios.com/Blogs/MarketBlog/2019/10/15/a-snapshot-of-moving-averages",
+    "app50": 59.9,
+    "app200": 61.7,
+    "diff50": -1.1,
+    "diff200": -0.3
+   },
+   {
+    "data": "2020-08-31",
+    "p50": 75,
+    "p200": 61,
+    "url": "https://www.ftportfolios.com/blogs/MarketBlog/2020/9/1/a-snapshot-of-moving-averages",
+    "app50": 74.8,
+    "app200": 61.1,
+    "diff50": -0.2,
+    "diff200": 0.1
+   },
+   {
+    "data": "2018-02-16",
+    "p50": 46,
+    "p200": 69,
+    "incerta": "data dei valori non scritta (post del 20/02/2018, «On 2/16/18» per i cali)",
+    "url": "https://www.ftportfolios.com/blogs/MarketBlog/2018/2/20/a-snapshot-of-moving-averages",
+    "app50": 45.9,
+    "app200": 68.9,
+    "diff50": -0.1,
+    "diff200": -0.1,
+    "app50Prima": 46.3,
+    "app200Prima": 68.3
+   },
+   {
+    "data": "2017-05-15",
+    "p50": 57,
+    "p200": 70,
+    "incerta": "data non scritta: post del 16/05/2017 alle 12:37, si usa la chiusura del 15/05",
+    "url": "https://www.ftportfolios.com/blogs/MarketBlog/2017/5/16/a-snapshot-of-moving-averages",
+    "app50": 58.6,
+    "app200": 70.1,
+    "diff50": 1.6,
+    "diff200": 0.1,
+    "app50Prima": 54.3,
+    "app200Prima": 69.1
+   },
+   {
+    "data": "2020-05-05",
+    "p50": 64,
+    "p200": 24,
+    "incerta": "intraday, 9:33 CST del 05/05/2020",
+    "url": "https://www.ftportfolios.com/blogs/MarketBlog/2020/5/5/a-snapshot-of-moving-averages",
+    "app50": 58.2,
+    "app200": 23.8,
+    "diff50": -5.8,
+    "diff200": -0.2,
+    "app50Prima": 54.5,
+    "app200Prima": 21
+   },
+   {
+    "data": "2021-09-20",
+    "p50": 27,
+    "p200": 61,
+    "incerta": "intraday, 12:00 CST del 20/09/2021",
+    "url": "https://ftportfolios.com/Commentary/MarketCommentary/2021/9/21/a-snapshot-of-moving-averages",
+    "app50": 31.2,
+    "app200": 64.6,
+    "diff50": 4.2,
+    "diff200": 3.6,
+    "app50Prima": 42.9,
+    "app200Prima": 68.8
+   }
+  ],
+  "riassunto": {
+   "date": 5,
+   "diff50": [
+    7.1,
+    3.2,
+    0.8,
+    -1.1,
+    -0.2
+   ],
+   "mediaAss50": 2.5,
+   "maxAss50": 7.1,
+   "diff200": [
+    4.2,
+    0.6,
+    2.5,
+    -0.3,
+    0.1
+   ],
+   "mediaAss200": 1.5
+  },
+  "settori50": [
+   {
+    "data": "2018-05-09",
+    "pubblicato": {
+     "min": [
+      "XLP",
+      18
+     ],
+     "max": [
+      "XLE",
+      97
+     ]
+    },
+    "app": {
+     "XLP": 16.7,
+     "XLE": 96.6
+    },
+    "appMin": [
+     "XLP",
+     16.7
+    ],
+    "appMax": [
+     "XLE",
+     96.6
+    ],
+    "nota": "nell'app ci sono 11 settori GICS di oggi; nel post anche Telecom (prima del 2018)"
+   },
+   {
+    "data": "2019-08-12",
+    "pubblicato": {
+     "min": [
+      "XLE",
+      18
+     ],
+     "max": [
+      "XLU",
+      57
+     ]
+    },
+    "app": {
+     "XLE": 14.8,
+     "XLU": 57.1
+    },
+    "appMin": [
+     "XLE",
+     14.8
+    ],
+    "appMax": [
+     "XLRE",
+     70
+    ],
+    "nota": "nell'app ci sono 11 settori GICS di oggi; nel post anche Telecom (prima del 2018)"
+   },
+   {
+    "data": "2019-10-11",
+    "pubblicato": {
+     "min": [
+      "XLE",
+      36
+     ],
+     "max": [
+      "XLU",
+      75
+     ]
+    },
+    "app": {
+     "XLE": 33.3,
+     "XLU": 75
+    },
+    "appMin": [
+     "XLE",
+     33.3
+    ],
+    "appMax": [
+     "XLU",
+     75
+    ],
+    "nota": "nell'app ci sono 11 settori GICS di oggi; nel post anche Telecom (prima del 2018)"
+   },
+   {
+    "data": "2020-08-31",
+    "pubblicato": {
+     "min": [
+      "XLE",
+      27
+     ],
+     "max": [
+      "XLI",
+      92
+     ]
+    },
+    "app": {
+     "XLE": 28,
+     "XLI": 90.7
+    },
+    "appMin": [
+     "XLE",
+     28
+    ],
+    "appMax": [
+     "XLI",
+     90.7
+    ],
+    "nota": "nell'app ci sono 11 settori GICS di oggi; nel post anche Telecom (prima del 2018)"
+   },
+   {
+    "data": "2016-10-24",
+    "pubblicato": {
+     "min": [
+      "XLU",
+      3
+     ],
+     "max": [
+      "XLE",
+      66
+     ]
+    },
+    "app": {
+     "XLU": 7.1,
+     "XLE": 71.9
+    },
+    "appMin": [
+     "XLU",
+     7.1
+    ],
+    "appMax": [
+     "XLE",
+     71.9
+    ],
+    "nota": "nell'app ci sono 11 settori GICS di oggi; nel post anche Telecom (prima del 2018)"
+   }
+  ],
+  "nota": "Bloomberg può usare chiusure diverse (dividendi, eventi straordinari) e arrotonda all'intero: scarti di 1-2 punti sono attesi."
+ },
+ "ricalcolo": {
+  "DAX": {
+   "membri": 40,
+   "senzaPrezzi": [],
+   "sedute": 6559,
+   "dal": "2001-01-02",
+   "al": "2026-10-29",
+   "nUguale": 6559,
+   "a50Uguale": 6559,
+   "a20Uguale": 6559,
+   "a200Uguale": 6559,
+   "tuttoUguale": 6559,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 553,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 553
+   },
+   "pct50MediaAssPerAnno": {
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2001-01-02",
+     "app": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-03",
+     "app": {
+      "n": 28,
+      "a20": 19,
+      "a50": 11,
+      "a200": 13
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 19,
+      "a50": 11,
+      "a200": 13
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-04",
+     "app": {
+      "n": 28,
+      "a20": 16,
+      "a50": 12,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 16,
+      "a50": 12,
+      "a200": 11
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-05",
+     "app": {
+      "n": 28,
+      "a20": 17,
+      "a50": 11,
+      "a200": 12
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 17,
+      "a50": 11,
+      "a200": 12
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-08",
+     "app": {
+      "n": 28,
+      "a20": 15,
+      "a50": 12,
+      "a200": 13
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 15,
+      "a50": 12,
+      "a200": 13
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-09",
+     "app": {
+      "n": 28,
+      "a20": 14,
+      "a50": 11,
+      "a200": 12
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 14,
+      "a50": 11,
+      "a200": 12
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-10",
+     "app": {
+      "n": 28,
+      "a20": 12,
+      "a50": 9,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 12,
+      "a50": 9,
+      "a200": 11
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-11",
+     "app": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "ricalcolo": {
+      "n": 28,
+      "a20": 14,
+      "a50": 10,
+      "a200": 11
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "CAC": {
+   "membri": 40,
+   "senzaPrezzi": [],
+   "sedute": 6604,
+   "dal": "2001-01-02",
+   "al": "2026-10-29",
+   "nUguale": 6604,
+   "a50Uguale": 6604,
+   "a20Uguale": 6604,
+   "a200Uguale": 6604,
+   "tuttoUguale": 6604,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-02"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 586,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 586
+   },
+   "pct50MediaAssPerAnno": {
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2001-01-02",
+     "app": {
+      "n": 31,
+      "a20": 20,
+      "a50": 17,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 20,
+      "a50": 17,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-03",
+     "app": {
+      "n": 31,
+      "a20": 15,
+      "a50": 14,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 15,
+      "a50": 14,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-04",
+     "app": {
+      "n": 31,
+      "a20": 16,
+      "a50": 15,
+      "a200": 18
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 16,
+      "a50": 15,
+      "a200": 18
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-05",
+     "app": {
+      "n": 31,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-08",
+     "app": {
+      "n": 31,
+      "a20": 14,
+      "a50": 11,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 14,
+      "a50": 11,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-09",
+     "app": {
+      "n": 31,
+      "a20": 9,
+      "a50": 12,
+      "a200": 16
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 9,
+      "a50": 12,
+      "a200": 16
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-10",
+     "app": {
+      "n": 31,
+      "a20": 10,
+      "a50": 12,
+      "a200": 16
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 10,
+      "a50": 12,
+      "a200": 16
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-11",
+     "app": {
+      "n": 31,
+      "a20": 11,
+      "a50": 10,
+      "a200": 15
+     },
+     "ricalcolo": {
+      "n": 31,
+      "a20": 11,
+      "a50": 10,
+      "a200": 15
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "SMI": {
+   "membri": 20,
+   "senzaPrezzi": [],
+   "sedute": 6484,
+   "dal": "2001-01-03",
+   "al": "2026-10-29",
+   "nUguale": 6484,
+   "a50Uguale": 6484,
+   "a20Uguale": 6484,
+   "a200Uguale": 6484,
+   "tuttoUguale": 6484,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-03"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-03"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2001-01-03"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 679,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 679
+   },
+   "pct50MediaAssPerAnno": {
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2001-01-03",
+     "app": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 8
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 8
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-04",
+     "app": {
+      "n": 14,
+      "a20": 8,
+      "a50": 8,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 8,
+      "a50": 8,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-05",
+     "app": {
+      "n": 14,
+      "a20": 8,
+      "a50": 7,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 8,
+      "a50": 7,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-08",
+     "app": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 7,
+      "a50": 7,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-09",
+     "app": {
+      "n": 14,
+      "a20": 6,
+      "a50": 6,
+      "a200": 7
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 6,
+      "a50": 6,
+      "a200": 7
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-10",
+     "app": {
+      "n": 14,
+      "a20": 5,
+      "a50": 6,
+      "a200": 6
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 5,
+      "a50": 6,
+      "a200": 6
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-11",
+     "app": {
+      "n": 14,
+      "a20": 4,
+      "a50": 6,
+      "a200": 6
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 4,
+      "a50": 6,
+      "a200": 6
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2001-01-12",
+     "app": {
+      "n": 14,
+      "a20": 5,
+      "a50": 5,
+      "a200": 6
+     },
+     "ricalcolo": {
+      "n": 14,
+      "a20": 5,
+      "a50": 5,
+      "a200": 6
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "DJI": {
+   "simboli": 48,
+   "senzaPrezzi": [],
+   "scartati": [],
+   "sedute": 6748,
+   "dal": "2000-01-03",
+   "al": "2026-10-30",
+   "nUguale": 6748,
+   "a50Uguale": 6748,
+   "a20Uguale": 6748,
+   "a200Uguale": 6748,
+   "tuttoUguale": 6748,
+   "pct20": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2000-01-03"
+   },
+   "pct50": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2000-01-03"
+   },
+   "pct200": {
+    "mediaAss": 0,
+    "p95Ass": 0,
+    "maxAss": 0,
+    "media": 0,
+    "sedutaMax": "2000-01-03"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 455,
+    "pct50MediaAss": 0,
+    "pct20MediaAss": 0,
+    "a50Uguale": 455
+   },
+   "pct50MediaAssPerAnno": {
+    "2000": 0,
+    "2001": 0,
+    "2002": 0,
+    "2003": 0,
+    "2004": 0,
+    "2005": 0,
+    "2006": 0,
+    "2007": 0,
+    "2008": 0,
+    "2009": 0,
+    "2010": 0,
+    "2011": 0,
+    "2012": 0,
+    "2013": 0,
+    "2014": 0,
+    "2015": 0,
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0,
+    "2025": 0,
+    "2026": 0
+   },
+   "peggiori": [
+    {
+     "data": "2000-01-03",
+     "app": {
+      "n": 26,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 13,
+      "a50": 13,
+      "a200": 15
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-04",
+     "app": {
+      "n": 26,
+      "a20": 9,
+      "a50": 12,
+      "a200": 13
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 9,
+      "a50": 12,
+      "a200": 13
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-05",
+     "app": {
+      "n": 26,
+      "a20": 9,
+      "a50": 14,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 9,
+      "a50": 14,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-06",
+     "app": {
+      "n": 26,
+      "a20": 10,
+      "a50": 15,
+      "a200": 17
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 10,
+      "a50": 15,
+      "a200": 17
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-07",
+     "app": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 19
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 19
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-10",
+     "app": {
+      "n": 26,
+      "a20": 18,
+      "a50": 18,
+      "a200": 19
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 18,
+      "a50": 18,
+      "a200": 19
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-11",
+     "app": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 18
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 18,
+      "a50": 20,
+      "a200": 18
+     },
+     "dPct50": 0
+    },
+    {
+     "data": "2000-01-12",
+     "app": {
+      "n": 26,
+      "a20": 19,
+      "a50": 22,
+      "a200": 21
+     },
+     "ricalcolo": {
+      "n": 26,
+      "a20": 19,
+      "a50": 22,
+      "a200": 21
+     },
+     "dPct50": 0
+    }
+   ]
+  },
+  "SPX": {
+   "simboli": 551,
+   "senzaPrezzi": [
+    "ANSS",
+    "CMA",
+    "CTLT",
+    "CTRA",
+    "DAY",
+    "DFS",
+    "HES",
+    "HOLX",
+    "IPG",
+    "JNPR",
+    "K",
+    "MRO",
+    "WBA"
+   ],
+   "nota": "composizione da data/sp500_history.json (Wikipedia, date di efficacia); i titoli usciti senza prezzi su Yahoo mancano nel ricalcolo",
+   "sedute": 606,
+   "dal": "2024-06-03",
+   "al": "2026-10-30",
+   "nUguale": 79,
+   "a50Uguale": 57,
+   "a20Uguale": 104,
+   "a200Uguale": 50,
+   "tuttoUguale": 10,
+   "pct20": {
+    "mediaAss": 0.29,
+    "p95Ass": 0.7,
+    "maxAss": 1.7,
+    "media": -0.04,
+    "sedutaMax": "2024-09-11"
+   },
+   "pct50": {
+    "mediaAss": 0.33,
+    "p95Ass": 0.9,
+    "maxAss": 1.2,
+    "media": -0.02,
+    "sedutaMax": "2024-06-18"
+   },
+   "pct200": {
+    "mediaAss": 0.34,
+    "p95Ass": 0.8,
+    "maxAss": 1.2,
+    "media": 0.07,
+    "sedutaMax": "2024-09-13"
+   },
+   "vicinoAiMinimi": {
+    "sedute": 5,
+    "pct50MediaAss": 0.08,
+    "pct20MediaAss": 0.13,
+    "a50Uguale": 1
+   },
+   "pct50MediaAssPerAnno": {
+    "2024": 0.48,
+    "2025": 0.33,
+    "2026": 0.23
+   },
+   "peggiori": [
+    {
+     "data": "2024-06-18",
+     "app": {
+      "n": 499,
+      "a20": 231,
+      "a50": 237,
+      "a200": 324
+     },
+     "ricalcolo": {
+      "n": 487,
+      "a20": 227,
+      "a50": 237,
+      "a200": 320
+     },
+     "dPct50": 1.2
+    },
+    {
+     "data": "2024-09-12",
+     "app": {
+      "n": 499,
+      "a20": 267,
+      "a50": 339,
+      "a200": 346
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 268,
+      "a50": 337,
+      "a200": 344
+     },
+     "dPct50": 1.1
+    },
+    {
+     "data": "2024-09-25",
+     "app": {
+      "n": 499,
+      "a20": 320,
+      "a50": 369,
+      "a200": 368
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 316,
+      "a50": 366,
+      "a200": 365
+     },
+     "dPct50": 1.1
+    },
+    {
+     "data": "2024-09-27",
+     "app": {
+      "n": 499,
+      "a20": 363,
+      "a50": 412,
+      "a200": 396
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 354,
+      "a50": 408,
+      "a200": 392
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2024-06-20",
+     "app": {
+      "n": 499,
+      "a20": 261,
+      "a50": 252,
+      "a200": 333
+     },
+     "ricalcolo": {
+      "n": 487,
+      "a20": 257,
+      "a50": 251,
+      "a200": 328
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2024-06-14",
+     "app": {
+      "n": 499,
+      "a20": 159,
+      "a50": 210,
+      "a200": 316
+     },
+     "ricalcolo": {
+      "n": 487,
+      "a20": 158,
+      "a50": 210,
+      "a200": 312
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2024-09-09",
+     "app": {
+      "n": 499,
+      "a20": 264,
+      "a50": 319,
+      "a200": 344
+     },
+     "ricalcolo": {
+      "n": 488,
+      "a20": 261,
+      "a50": 317,
+      "a200": 341
+     },
+     "dPct50": 1
+    },
+    {
+     "data": "2025-11-20",
+     "app": {
+      "n": 499,
+      "a20": 138,
+      "a50": 156,
+      "a200": 237
+     },
+     "ricalcolo": {
+      "n": 496,
+      "a20": 133,
+      "a50": 150,
+      "a200": 232
+     },
+     "dPct50": -1
+    }
+   ]
+  }
+ },
+ "bias": {
+  "metodo": "scarto = breadth con i membri di oggi (regola dell'app per gli indici «oggi») − breadth d'epoca dell'app, in punti",
+  "NDX": {
+   "membriOggi": 101,
+   "senzaPrezzi": [],
+   "sedute": 4738,
+   "dal": "2008-01-02",
+   "al": "2026-10-30",
+   "coperturaOggiInizio": 0.69,
+   "scarto": {
+    "pct20": {
+     "media": 1.8,
+     "mediana": 1.7,
+     "p5": -6.2,
+     "p95": 10.1
+    },
+    "pct50": {
+     "media": 2.7,
+     "mediana": 2.6,
+     "p5": -5.5,
+     "p95": 10.5
+    },
+    "pct200": {
+     "media": 3.8,
+     "mediana": 3.8,
+     "p5": -4.3,
+     "p95": 11.7
+    }
+   },
+   "perLivello": {
+    "pct20": {
+     "sotto10": {
+      "sedute": 196,
+      "media": 2.2,
+      "mediana": 1.2
+     },
+     "10-20": {
+      "sedute": 322,
+      "media": 2.6,
+      "mediana": 2.2
+     },
+     "20-50": {
+      "sedute": 1235,
+      "media": 2.8,
+      "mediana": 2.4
+     },
+     "50-80": {
+      "sedute": 2247,
+      "media": 1.9,
+      "mediana": 2
+     },
+     "sopra80": {
+      "sedute": 738,
+      "media": -0.6,
+      "mediana": -0.5
+     }
+    },
+    "pct50": {
+     "sotto10": {
+      "sedute": 170,
+      "media": 2,
+      "mediana": 1.4
+     },
+     "10-20": {
+      "sedute": 224,
+      "media": 3.2,
+      "mediana": 2.4
+     },
+     "20-50": {
+      "sedute": 1203,
+      "media": 3.7,
+      "mediana": 3.5
+     },
+     "50-80": {
+      "sedute": 2321,
+      "media": 3.4,
+      "mediana": 3.6
+     },
+     "sopra80": {
+      "sedute": 820,
+      "media": -0.5,
+      "mediana": -0.3
+     }
+    },
+    "pct200": {
+     "sotto10": {
+      "sedute": 122,
+      "media": 0.1,
+      "mediana": -0.3
+     },
+     "10-20": {
+      "sedute": 173,
+      "media": 2.2,
+      "mediana": 1.7
+     },
+     "20-50": {
+      "sedute": 826,
+      "media": 3.7,
+      "mediana": 3.2
+     },
+     "50-80": {
+      "sedute": 2597,
+      "media": 5.6,
+      "mediana": 5.9
+     },
+     "sopra80": {
+      "sedute": 1020,
+      "media": 0,
+      "mediana": -0.2
+     }
+    }
+   },
+   "perAnno": {
+    "2008": {
+     "pct20": 2.3,
+     "pct50": 2.5,
+     "pct200": 2.6,
+     "coperturaOggi": 0.7
+    },
+    "2009": {
+     "pct20": 0.1,
+     "pct50": -0.1,
+     "pct200": -2.7,
+     "coperturaOggi": 0.71
+    },
+    "2010": {
+     "pct20": -0.1,
+     "pct50": -0.9,
+     "pct200": -0.8,
+     "coperturaOggi": 0.73
+    },
+    "2011": {
+     "pct20": 2.9,
+     "pct50": 3.8,
+     "pct200": 3.1,
+     "coperturaOggi": 0.74
+    },
+    "2012": {
+     "pct20": -0.1,
+     "pct50": -0.4,
+     "pct200": 6,
+     "coperturaOggi": 0.76
+    },
+    "2013": {
+     "pct20": 0.7,
+     "pct50": 1.4,
+     "pct200": -0.2,
+     "coperturaOggi": 0.79
+    },
+    "2014": {
+     "pct20": 2.5,
+     "pct50": 4,
+     "pct200": 4.8,
+     "coperturaOggi": 0.79
+    },
+    "2015": {
+     "pct20": 1.5,
+     "pct50": 2.4,
+     "pct200": 1.7,
+     "coperturaOggi": 0.81
+    },
+    "2016": {
+     "pct20": 3.6,
+     "pct50": 5.5,
+     "pct200": 10.3,
+     "coperturaOggi": 0.82
+    },
+    "2017": {
+     "pct20": 3,
+     "pct50": 4.6,
+     "pct200": 5.4,
+     "coperturaOggi": 0.82
+    },
+    "2018": {
+     "pct20": 3.1,
+     "pct50": 4.9,
+     "pct200": 7.3,
+     "coperturaOggi": 0.83
+    },
+    "2019": {
+     "pct20": 2.1,
+     "pct50": 4.3,
+     "pct200": 7.8,
+     "coperturaOggi": 0.85
+    },
+    "2020": {
+     "pct20": 1.3,
+     "pct50": 1.6,
+     "pct200": 2.5,
+     "coperturaOggi": 0.87
+    },
+    "2021": {
+     "pct20": 2.3,
+     "pct50": 3.2,
+     "pct200": 2.8,
+     "coperturaOggi": 0.91
+    },
+    "2022": {
+     "pct20": 0.5,
+     "pct50": 1.3,
+     "pct200": 1.2,
+     "coperturaOggi": 0.92
+    },
+    "2023": {
+     "pct20": 2.1,
+     "pct50": 4.1,
+     "pct200": 5.9,
+     "coperturaOggi": 0.93
+    },
+    "2024": {
+     "pct20": 2.6,
+     "pct50": 3.9,
+     "pct200": 6.6,
+     "coperturaOggi": 0.95
+    },
+    "2025": {
+     "pct20": 2.4,
+     "pct50": 3.5,
+     "pct200": 4.1,
+     "coperturaOggi": 0.98
+    },
+    "2026": {
+     "pct20": 1.5,
+     "pct50": 2.3,
+     "pct200": 3.2,
+     "coperturaOggi": 0.99
+    }
+   },
+   "minimi": {
+    "numero": 20,
+    "riassunto": {
+     "pct20": {
+      "scartoAlMinimo": {
+       "media": 1.8,
+       "mediana": 0.1,
+       "p5": -2.4,
+       "p95": 6.4
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 0.9,
+       "mediana": 0,
+       "p5": -1.1,
+       "p95": 4.8
+      },
+      "stessaSeduta": 12
+     },
+     "pct50": {
+      "scartoAlMinimo": {
+       "media": 1.7,
+       "mediana": 1.1,
+       "p5": -3.1,
+       "p95": 9.3
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.2,
+       "mediana": 0.8,
+       "p5": -3.6,
+       "p95": 6.2
+      },
+      "stessaSeduta": 12
+     },
+     "pct200": {
+      "scartoAlMinimo": {
+       "media": 3,
+       "mediana": 2.8,
+       "p5": -1.6,
+       "p95": 7.4
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 3.4,
+       "mediana": 2.8,
+       "p5": -1.6,
+       "p95": 10.3
+      },
+      "stessaSeduta": 17
+     }
+    },
+    "elenco": [
+     {
+      "data": "2009-03-09",
+      "calo": -49.2,
+      "epoca20": 12.9,
+      "oggi20": 12.7,
+      "scarto20": -0.2,
+      "minEpoca20": 3.2,
+      "minOggi20": 4.2,
+      "sfasamento20": 0,
+      "epoca50": 16.1,
+      "oggi50": 16.9,
+      "scarto50": 0.8,
+      "minEpoca50": 14.5,
+      "minOggi50": 11.3,
+      "sfasamento50": 1,
+      "epoca200": 3.2,
+      "oggi200": 4.2,
+      "scarto200": 1,
+      "minEpoca200": 3.2,
+      "minOggi200": 4.2,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2010-07-02",
+      "calo": -15.9,
+      "epoca20": 6.5,
+      "oggi20": 4.1,
+      "scarto20": -2.4,
+      "minEpoca20": 0,
+      "minOggi20": 4.1,
+      "sfasamento20": 2,
+      "epoca50": 6.5,
+      "oggi50": 5.4,
+      "scarto50": -1,
+      "minEpoca50": 4.8,
+      "minOggi50": 5.4,
+      "sfasamento50": 2,
+      "epoca200": 27.4,
+      "oggi200": 29.7,
+      "scarto200": 2.3,
+      "minEpoca200": 27.4,
+      "minOggi200": 29.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2011-08-19",
+      "calo": -16.1,
+      "epoca20": 4.5,
+      "oggi20": 9.3,
+      "scarto20": 4.8,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -2,
+      "epoca50": 0,
+      "oggi50": 1.3,
+      "scarto50": 1.3,
+      "minEpoca50": 0,
+      "minOggi50": 1.3,
+      "sfasamento50": 0,
+      "epoca200": 16.7,
+      "oggi200": 13.3,
+      "scarto200": -3.3,
+      "minEpoca200": 13.6,
+      "minOggi200": 9.3,
+      "sfasamento200": 10
+     },
+     {
+      "data": "2012-06-01",
+      "calo": -11.7,
+      "epoca20": 4.5,
+      "oggi20": 9.2,
+      "scarto20": 4.7,
+      "minEpoca20": 4.5,
+      "minOggi20": 9.2,
+      "sfasamento20": 9,
+      "epoca50": 10.6,
+      "oggi50": 14.5,
+      "scarto50": 3.9,
+      "minEpoca50": 10.6,
+      "minOggi50": 14.5,
+      "sfasamento50": 0,
+      "epoca200": 45.5,
+      "oggi200": 48.7,
+      "scarto200": 3.2,
+      "minEpoca200": 43.9,
+      "minOggi200": 47.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2012-11-15",
+      "calo": -11.9,
+      "epoca20": 22.7,
+      "oggi20": 20,
+      "scarto20": -2.7,
+      "minEpoca20": 19.7,
+      "minOggi20": 18.8,
+      "sfasamento20": -13,
+      "epoca50": 19.7,
+      "oggi50": 20,
+      "scarto50": 0.3,
+      "minEpoca50": 19.7,
+      "minOggi50": 20,
+      "sfasamento50": 0,
+      "epoca200": 36.4,
+      "oggi200": 37.5,
+      "scarto200": 1.1,
+      "minEpoca200": 27.3,
+      "minOggi200": 37.5,
+      "sfasamento200": 1
+     },
+     {
+      "data": "2015-08-25",
+      "calo": -14.2,
+      "epoca20": 0,
+      "oggi20": 1.2,
+      "scarto20": 1.2,
+      "minEpoca20": 0,
+      "minOggi20": 1.2,
+      "sfasamento20": 0,
+      "epoca50": 1.3,
+      "oggi50": 6,
+      "scarto50": 4.8,
+      "minEpoca50": 0,
+      "minOggi50": 6,
+      "sfasamento50": 1,
+      "epoca200": 20.3,
+      "oggi200": 22.9,
+      "scarto200": 2.6,
+      "minEpoca200": 20.3,
+      "minOggi200": 22.9,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2016-02-09",
+      "calo": -16.3,
+      "epoca20": 12.7,
+      "oggi20": 31.3,
+      "scarto20": 18.7,
+      "minEpoca20": 2.5,
+      "minOggi20": 2.4,
+      "sfasamento20": 1,
+      "epoca50": 6.3,
+      "oggi50": 15.7,
+      "scarto50": 9.3,
+      "minEpoca50": 3.8,
+      "minOggi50": 4.8,
+      "sfasamento50": 1,
+      "epoca200": 15.2,
+      "oggi200": 19.3,
+      "scarto200": 4.1,
+      "minEpoca200": 15.2,
+      "minOggi200": 18.1,
+      "sfasamento200": -1
+     },
+     {
+      "data": "2016-06-27",
+      "calo": -11,
+      "epoca20": 6.3,
+      "oggi20": 12,
+      "scarto20": 5.8,
+      "minEpoca20": 6.3,
+      "minOggi20": 12,
+      "sfasamento20": 0,
+      "epoca50": 18.8,
+      "oggi50": 22.9,
+      "scarto50": 4.1,
+      "minEpoca50": 18.8,
+      "minOggi50": 22.9,
+      "sfasamento50": 0,
+      "epoca200": 38.8,
+      "oggi200": 50.6,
+      "scarto200": 11.9,
+      "minEpoca200": 38.8,
+      "minOggi200": 50.6,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-02-08",
+      "calo": -10.2,
+      "epoca20": 3.5,
+      "oggi20": 2.4,
+      "scarto20": -1.1,
+      "minEpoca20": 3.5,
+      "minOggi20": 2.4,
+      "sfasamento20": 0,
+      "epoca50": 20.9,
+      "oggi50": 16.9,
+      "scarto50": -4.1,
+      "minEpoca50": 20.9,
+      "minOggi50": 16.9,
+      "sfasamento50": 0,
+      "epoca200": 55.8,
+      "oggi200": 59,
+      "scarto200": 3.2,
+      "minEpoca200": 55.8,
+      "minOggi200": 59,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-12-24",
+      "calo": -23,
+      "epoca20": 1.1,
+      "oggi20": 0,
+      "scarto20": -1.1,
+      "minEpoca20": 1.1,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 3.3,
+      "oggi50": 3.5,
+      "scarto50": 0.3,
+      "minEpoca50": 3.3,
+      "minOggi50": 3.5,
+      "sfasamento50": 0,
+      "epoca200": 6.5,
+      "oggi200": 10.6,
+      "scarto200": 4.1,
+      "minEpoca200": 6.5,
+      "minOggi200": 10.6,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2019-06-03",
+      "calo": -11.1,
+      "epoca20": 13.8,
+      "oggi20": 18.8,
+      "scarto20": 5,
+      "minEpoca20": 10.6,
+      "minOggi20": 15.3,
+      "sfasamento20": 2,
+      "epoca50": 18.1,
+      "oggi50": 28.2,
+      "scarto50": 10.2,
+      "minEpoca50": 18.1,
+      "minOggi50": 28.2,
+      "sfasamento50": 0,
+      "epoca200": 52.1,
+      "oggi200": 58.8,
+      "scarto200": 6.7,
+      "minEpoca200": 52.1,
+      "minOggi200": 58.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2020-03-20",
+      "calo": -28,
+      "epoca20": 0,
+      "oggi20": 1.1,
+      "scarto20": 1.1,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -6,
+      "epoca50": 2.2,
+      "oggi50": 3.4,
+      "scarto50": 1.3,
+      "minEpoca50": 2.2,
+      "minOggi50": 3.4,
+      "sfasamento50": 0,
+      "epoca200": 9.8,
+      "oggi200": 12.6,
+      "scarto200": 2.9,
+      "minEpoca200": 7.6,
+      "minOggi200": 10.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2021-03-08",
+      "calo": -10.9,
+      "epoca20": 25,
+      "oggi20": 29.7,
+      "scarto20": 4.7,
+      "minEpoca20": 9.8,
+      "minOggi20": 9.9,
+      "sfasamento20": 0,
+      "epoca50": 30.4,
+      "oggi50": 34.1,
+      "scarto50": 3.6,
+      "minEpoca50": 19.6,
+      "minOggi50": 23.1,
+      "sfasamento50": 0,
+      "epoca200": 64.1,
+      "oggi200": 62.6,
+      "scarto200": -1.5,
+      "minEpoca200": 64.1,
+      "minOggi200": 62.6,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-06-16",
+      "calo": -32.9,
+      "epoca20": 3.1,
+      "oggi20": 2.2,
+      "scarto20": -1,
+      "minEpoca20": 3.1,
+      "minOggi20": 2.2,
+      "sfasamento20": 0,
+      "epoca50": 5.2,
+      "oggi50": 2.2,
+      "scarto50": -3.1,
+      "minEpoca50": 4.2,
+      "minOggi50": 2.2,
+      "sfasamento50": 3,
+      "epoca200": 5.2,
+      "oggi200": 6.5,
+      "scarto200": 1.2,
+      "minEpoca200": 5.2,
+      "minOggi200": 6.5,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-12-28",
+      "calo": -35.3,
+      "epoca20": 5.3,
+      "oggi20": 5.3,
+      "scarto20": 0.1,
+      "minEpoca20": 5.3,
+      "minOggi20": 5.3,
+      "sfasamento20": 0,
+      "epoca50": 32.6,
+      "oggi50": 35.1,
+      "scarto50": 2.5,
+      "minEpoca50": 28.4,
+      "minOggi50": 29.8,
+      "sfasamento50": 0,
+      "epoca200": 37.9,
+      "oggi200": 38.3,
+      "scarto200": 0.4,
+      "minEpoca200": 37.9,
+      "minOggi200": 38.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2023-10-26",
+      "calo": -10.9,
+      "epoca20": 17.7,
+      "oggi20": 18.9,
+      "scarto20": 1.2,
+      "minEpoca20": 14.6,
+      "minOggi20": 17.9,
+      "sfasamento20": 0,
+      "epoca50": 13.5,
+      "oggi50": 15.8,
+      "scarto50": 2.2,
+      "minEpoca50": 12.5,
+      "minOggi50": 15.8,
+      "sfasamento50": -1,
+      "epoca200": 44.8,
+      "oggi200": 51.6,
+      "scarto200": 6.8,
+      "minEpoca200": 41.7,
+      "minOggi200": 48.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2024-08-07",
+      "calo": -13.6,
+      "epoca20": 21.4,
+      "oggi20": 20.8,
+      "scarto20": -0.6,
+      "minEpoca20": 17.3,
+      "minOggi20": 15.6,
+      "sfasamento20": 0,
+      "epoca50": 28.6,
+      "oggi50": 28.1,
+      "scarto50": -0.4,
+      "minEpoca50": 28.6,
+      "minOggi50": 25,
+      "sfasamento50": -2,
+      "epoca200": 44.9,
+      "oggi200": 52.1,
+      "scarto200": 7.2,
+      "minEpoca200": 40.8,
+      "minOggi200": 49,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2025-04-08",
+      "calo": -22.9,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 4.1,
+      "oggi50": 4,
+      "scarto50": 0,
+      "minEpoca50": 4.1,
+      "minOggi50": 4,
+      "sfasamento50": 0,
+      "epoca200": 16.3,
+      "oggi200": 17.2,
+      "scarto200": 0.8,
+      "minEpoca200": 16.3,
+      "minOggi200": 17.2,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2026-03-30",
+      "calo": -12.1,
+      "epoca20": 12.1,
+      "oggi20": 10.1,
+      "scarto20": -2,
+      "minEpoca20": 10.1,
+      "minOggi20": 10.1,
+      "sfasamento20": 1,
+      "epoca50": 15.2,
+      "oggi50": 14.1,
+      "scarto50": -1,
+      "minEpoca50": 14.1,
+      "minOggi50": 14.1,
+      "sfasamento50": 1,
+      "epoca200": 38.4,
+      "oggi200": 43.4,
+      "scarto200": 5.1,
+      "minEpoca200": 38.4,
+      "minOggi200": 43.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2026-07-29",
+      "calo": -11.3,
+      "epoca20": 47.5,
+      "oggi20": 46.5,
+      "scarto20": -1,
+      "minEpoca20": 30.7,
+      "minOggi20": 29.7,
+      "sfasamento20": 0,
+      "epoca50": 47.5,
+      "oggi50": 46.5,
+      "scarto50": -1,
+      "minEpoca50": 37.6,
+      "minOggi50": 36.6,
+      "sfasamento50": 0,
+      "epoca200": 62.4,
+      "oggi200": 62.4,
+      "scarto200": 0,
+      "minEpoca200": 56.4,
+      "minOggi200": 56.4,
+      "sfasamento200": 0
+     }
+    ]
+   },
+   "eventi": {
+    "pct50sotto10": {
+     "epoca": 20,
+     "oggi": 18,
+     "comuni": 16,
+     "ritardoMediano": 0
+    },
+    "pct50sotto20": {
+     "epoca": 38,
+     "oggi": 36,
+     "comuni": 28,
+     "ritardoMediano": 0
+    },
+    "pct20sotto10": {
+     "epoca": 45,
+     "oggi": 36,
+     "comuni": 29,
+     "ritardoMediano": 0
+    },
+    "pct200sotto15": {
+     "epoca": 13,
+     "oggi": 10,
+     "comuni": 9,
+     "ritardoMediano": 1
+    }
+   },
+   "correlazioneVariazioni": {
+    "pct20": 0.95,
+    "pct50": 0.92,
+    "pct200": 0.87
+   },
+   "provaTrimestrale": {
+    "readme": {
+     "date": 76,
+     "membriOggi": 101,
+     "listaAl": "2026-10-20",
+     "media": 4.5,
+     "mediana": 4.8,
+     "min": -6.1,
+     "max": 19,
+     "sotto20": {
+      "date": 5,
+      "media": 1.3
+     }
+    },
+    "stesseDate": {
+     "date": 76,
+     "mediaPct200": 3.6,
+     "mediaPct50": 1.8,
+     "mediaPct20": 0.5
+    },
+    "nota": "ricerca/indici/script/membri_oggi_ndx.mjs esclude dal denominatore i titoli con meno di 200 sedute; qui contano (regola dell'app)"
+   }
+  },
+  "SPX": {
+   "membriOggi": 503,
+   "senzaPrezzi": [],
+   "sedute": 5492,
+   "dal": "2005-01-03",
+   "al": "2026-10-30",
+   "coperturaOggiInizio": 0.76,
+   "scarto": {
+    "pct20": {
+     "media": 1.1,
+     "mediana": 1.1,
+     "p5": -2.7,
+     "p95": 5.3
+    },
+    "pct50": {
+     "media": 1.9,
+     "mediana": 1.8,
+     "p5": -1.9,
+     "p95": 5.8
+    },
+    "pct200": {
+     "media": 3.1,
+     "mediana": 2.9,
+     "p5": -0.7,
+     "p95": 7.5
+    }
+   },
+   "perLivello": {
+    "pct20": {
+     "sotto10": {
+      "sedute": 178,
+      "media": 0.7,
+      "mediana": 0.6
+     },
+     "10-20": {
+      "sedute": 331,
+      "media": 1.3,
+      "mediana": 1.2
+     },
+     "20-50": {
+      "sedute": 1512,
+      "media": 1.5,
+      "mediana": 1.4
+     },
+     "50-80": {
+      "sedute": 2760,
+      "media": 1.2,
+      "mediana": 1.2
+     },
+     "sopra80": {
+      "sedute": 711,
+      "media": 0.2,
+      "mediana": 0.2
+     }
+    },
+    "pct50": {
+     "sotto10": {
+      "sedute": 138,
+      "media": 0.9,
+      "mediana": 0.5
+     },
+     "10-20": {
+      "sedute": 226,
+      "media": 1.6,
+      "mediana": 1.6
+     },
+     "20-50": {
+      "sedute": 1482,
+      "media": 2.3,
+      "mediana": 2.3
+     },
+     "50-80": {
+      "sedute": 2958,
+      "media": 1.9,
+      "mediana": 1.9
+     },
+     "sopra80": {
+      "sedute": 688,
+      "media": 0.8,
+      "mediana": 0.8
+     }
+    },
+    "pct200": {
+     "sotto10": {
+      "sedute": 140,
+      "media": 1.1,
+      "mediana": 1
+     },
+     "10-20": {
+      "sedute": 134,
+      "media": 1.7,
+      "mediana": 1.7
+     },
+     "20-50": {
+      "sedute": 1105,
+      "media": 3.8,
+      "mediana": 3.5
+     },
+     "50-80": {
+      "sedute": 3207,
+      "media": 3.8,
+      "mediana": 3.7
+     },
+     "sopra80": {
+      "sedute": 906,
+      "media": 0.3,
+      "mediana": 0.1
+     }
+    }
+   },
+   "perAnno": {
+    "2005": {
+     "pct20": 1.5,
+     "pct50": 2.5,
+     "pct200": 4.6,
+     "coperturaOggi": 0.77
+    },
+    "2006": {
+     "pct20": 1.2,
+     "pct50": 2.1,
+     "pct200": 4.4,
+     "coperturaOggi": 0.78
+    },
+    "2007": {
+     "pct20": 1.9,
+     "pct50": 3.1,
+     "pct200": 4.3,
+     "coperturaOggi": 0.8
+    },
+    "2008": {
+     "pct20": 1.3,
+     "pct50": 1.6,
+     "pct200": 3.7,
+     "coperturaOggi": 0.82
+    },
+    "2009": {
+     "pct20": 0.3,
+     "pct50": 0.9,
+     "pct200": 1,
+     "coperturaOggi": 0.82
+    },
+    "2010": {
+     "pct20": 0.8,
+     "pct50": 2.1,
+     "pct200": 3.1,
+     "coperturaOggi": 0.84
+    },
+    "2011": {
+     "pct20": 0.9,
+     "pct50": 1.8,
+     "pct200": 1.3,
+     "coperturaOggi": 0.86
+    },
+    "2012": {
+     "pct20": 0.9,
+     "pct50": 1.7,
+     "pct200": 5.1,
+     "coperturaOggi": 0.87
+    },
+    "2013": {
+     "pct20": 0.6,
+     "pct50": 0.6,
+     "pct200": -0.1,
+     "coperturaOggi": 0.89
+    },
+    "2014": {
+     "pct20": 0.9,
+     "pct50": 1.6,
+     "pct200": 1.6,
+     "coperturaOggi": 0.9
+    },
+    "2015": {
+     "pct20": 1.9,
+     "pct50": 3,
+     "pct200": 5.3,
+     "coperturaOggi": 0.91
+    },
+    "2016": {
+     "pct20": 1.5,
+     "pct50": 2.2,
+     "pct200": 4.1,
+     "coperturaOggi": 0.93
+    },
+    "2017": {
+     "pct20": 2.3,
+     "pct50": 4.1,
+     "pct200": 6.5,
+     "coperturaOggi": 0.94
+    },
+    "2018": {
+     "pct20": 1.6,
+     "pct50": 2.3,
+     "pct200": 4.3,
+     "coperturaOggi": 0.94
+    },
+    "2019": {
+     "pct20": 1.4,
+     "pct50": 2.3,
+     "pct200": 5.2,
+     "coperturaOggi": 0.95
+    },
+    "2020": {
+     "pct20": 1.5,
+     "pct50": 1.8,
+     "pct200": 3.5,
+     "coperturaOggi": 0.96
+    },
+    "2021": {
+     "pct20": 0.7,
+     "pct50": 1,
+     "pct200": 0.3,
+     "coperturaOggi": 0.97
+    },
+    "2022": {
+     "pct20": 0.1,
+     "pct50": 0.4,
+     "pct200": 0.9,
+     "coperturaOggi": 0.98
+    },
+    "2023": {
+     "pct20": 1,
+     "pct50": 1.9,
+     "pct200": 3.7,
+     "coperturaOggi": 0.98
+    },
+    "2024": {
+     "pct20": 1.4,
+     "pct50": 1.9,
+     "pct200": 3,
+     "coperturaOggi": 0.99
+    },
+    "2025": {
+     "pct20": 0.7,
+     "pct50": 1.1,
+     "pct200": 2.1,
+     "coperturaOggi": 0.99
+    },
+    "2026": {
+     "pct20": 0.3,
+     "pct50": 0.5,
+     "pct200": 0.7,
+     "coperturaOggi": 1
+    }
+   },
+   "minimi": {
+    "numero": 17,
+    "riassunto": {
+     "pct20": {
+      "scartoAlMinimo": {
+       "media": 0.4,
+       "mediana": 0.1,
+       "p5": -0.7,
+       "p95": 1.9
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 0.3,
+       "mediana": 0.1,
+       "p5": -1.1,
+       "p95": 1.9
+      },
+      "stessaSeduta": 15
+     },
+     "pct50": {
+      "scartoAlMinimo": {
+       "media": 0.9,
+       "mediana": 0.6,
+       "p5": -0.6,
+       "p95": 2.8
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 0.7,
+       "mediana": 0.6,
+       "p5": -1.5,
+       "p95": 2.6
+      },
+      "stessaSeduta": 13
+     },
+     "pct200": {
+      "scartoAlMinimo": {
+       "media": 1.6,
+       "mediana": 0.7,
+       "p5": -0.4,
+       "p95": 5.5
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.8,
+       "mediana": 0.9,
+       "p5": -0.4,
+       "p95": 5.6
+      },
+      "stessaSeduta": 16
+     }
+    },
+    "elenco": [
+     {
+      "data": "2008-03-10",
+      "calo": -18.6,
+      "epoca20": 5,
+      "oggi20": 8.3,
+      "scarto20": 3.3,
+      "minEpoca20": 5,
+      "minOggi20": 8.3,
+      "sfasamento20": 0,
+      "epoca50": 12.5,
+      "oggi50": 14.5,
+      "scarto50": 2,
+      "minEpoca50": 12.5,
+      "minOggi50": 14.5,
+      "sfasamento50": 0,
+      "epoca200": 13,
+      "oggi200": 13.5,
+      "scarto200": 0.5,
+      "minEpoca200": 13,
+      "minOggi200": 13.5,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-07-15",
+      "calo": -22.4,
+      "epoca20": 14.6,
+      "oggi20": 14.5,
+      "scarto20": -0.1,
+      "minEpoca20": 8.4,
+      "minOggi20": 9,
+      "sfasamento20": 0,
+      "epoca50": 10.7,
+      "oggi50": 10.7,
+      "scarto50": -0.1,
+      "minEpoca50": 8.6,
+      "minOggi50": 8.5,
+      "sfasamento50": 0,
+      "epoca200": 18.5,
+      "oggi200": 21.3,
+      "scarto200": 2.8,
+      "minEpoca200": 18.5,
+      "minOggi200": 21.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-11-20",
+      "calo": -50.4,
+      "epoca20": 1,
+      "oggi20": 0.5,
+      "scarto20": -0.5,
+      "minEpoca20": 1,
+      "minOggi20": 0.5,
+      "sfasamento20": 0,
+      "epoca50": 0.5,
+      "oggi50": 0.5,
+      "scarto50": 0,
+      "minEpoca50": 0.5,
+      "minOggi50": 0.5,
+      "sfasamento50": 0,
+      "epoca200": 1,
+      "oggi200": 0.7,
+      "scarto200": -0.3,
+      "minEpoca200": 1,
+      "minOggi200": 0.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2009-03-09",
+      "calo": -52.6,
+      "epoca20": 5,
+      "oggi20": 6.5,
+      "scarto20": 1.5,
+      "minEpoca20": 2.8,
+      "minOggi20": 3.4,
+      "sfasamento20": 1,
+      "epoca50": 5,
+      "oggi50": 7.3,
+      "scarto50": 2.2,
+      "minEpoca50": 4.5,
+      "minOggi50": 6.5,
+      "sfasamento50": 0,
+      "epoca200": 1.3,
+      "oggi200": 1.5,
+      "scarto200": 0.2,
+      "minEpoca200": 0.8,
+      "minOggi200": 1.5,
+      "sfasamento200": 5
+     },
+     {
+      "data": "2009-07-10",
+      "calo": -32.7,
+      "epoca20": 18.8,
+      "oggi20": 19.6,
+      "scarto20": 0.9,
+      "minEpoca20": 16.6,
+      "minOggi20": 17.7,
+      "sfasamento20": 11,
+      "epoca50": 24.5,
+      "oggi50": 29.8,
+      "scarto50": 5.3,
+      "minEpoca50": 24.5,
+      "minOggi50": 29.3,
+      "sfasamento50": -2,
+      "epoca200": 54,
+      "oggi200": 53.5,
+      "scarto200": -0.5,
+      "minEpoca200": 49.5,
+      "minOggi200": 51.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2010-07-02",
+      "calo": -16,
+      "epoca20": 6.5,
+      "oggi20": 7.3,
+      "scarto20": 0.8,
+      "minEpoca20": 5.6,
+      "minOggi20": 6.4,
+      "sfasamento20": 0,
+      "epoca50": 5.6,
+      "oggi50": 6.6,
+      "scarto50": 1.1,
+      "minEpoca50": 5.3,
+      "minOggi50": 6.1,
+      "sfasamento50": 0,
+      "epoca200": 23.2,
+      "oggi200": 29.8,
+      "scarto200": 6.6,
+      "minEpoca200": 23.2,
+      "minOggi200": 29.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2011-10-03",
+      "calo": -19.4,
+      "epoca20": 4,
+      "oggi20": 3,
+      "scarto20": -1,
+      "minEpoca20": 4,
+      "minOggi20": 3,
+      "sfasamento20": 0,
+      "epoca50": 10.4,
+      "oggi50": 8.8,
+      "scarto50": -1.6,
+      "minEpoca50": 10.4,
+      "minOggi50": 8.8,
+      "sfasamento50": 0,
+      "epoca200": 12.5,
+      "oggi200": 12.9,
+      "scarto200": 0.5,
+      "minEpoca200": 12.5,
+      "minOggi200": 12.9,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2015-08-25",
+      "calo": -12.4,
+      "epoca20": 0.9,
+      "oggi20": 0.4,
+      "scarto20": -0.4,
+      "minEpoca20": 0.9,
+      "minOggi20": 0.4,
+      "sfasamento20": 0,
+      "epoca50": 3.5,
+      "oggi50": 4.1,
+      "scarto50": 0.6,
+      "minEpoca50": 3.5,
+      "minOggi50": 4.1,
+      "sfasamento50": 0,
+      "epoca200": 16.3,
+      "oggi200": 19.1,
+      "scarto200": 2.7,
+      "minEpoca200": 16.3,
+      "minOggi200": 19.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2016-02-11",
+      "calo": -14.2,
+      "epoca20": 28.9,
+      "oggi20": 30,
+      "scarto20": 1,
+      "minEpoca20": 7.5,
+      "minOggi20": 6,
+      "sfasamento20": 0,
+      "epoca50": 19.9,
+      "oggi50": 20.5,
+      "scarto50": 0.6,
+      "minEpoca50": 10.8,
+      "minOggi50": 9.3,
+      "sfasamento50": 0,
+      "epoca200": 18.2,
+      "oggi200": 19.6,
+      "scarto200": 1.4,
+      "minEpoca200": 16.6,
+      "minOggi200": 18.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-02-08",
+      "calo": -10.2,
+      "epoca20": 3,
+      "oggi20": 3.8,
+      "scarto20": 0.8,
+      "minEpoca20": 3,
+      "minOggi20": 3.8,
+      "sfasamento20": 0,
+      "epoca50": 13.2,
+      "oggi50": 15.2,
+      "scarto50": 2,
+      "minEpoca50": 13.2,
+      "minOggi50": 15.2,
+      "sfasamento50": 0,
+      "epoca200": 52.2,
+      "oggi200": 56.9,
+      "scarto200": 4.6,
+      "minEpoca200": 52.2,
+      "minOggi200": 56.9,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-12-24",
+      "calo": -19.8,
+      "epoca20": 0.2,
+      "oggi20": 0.2,
+      "scarto20": 0,
+      "minEpoca20": 0.2,
+      "minOggi20": 0.2,
+      "sfasamento20": 0,
+      "epoca50": 1,
+      "oggi50": 1.3,
+      "scarto50": 0.2,
+      "minEpoca50": 1,
+      "minOggi50": 1.3,
+      "sfasamento50": 0,
+      "epoca200": 9.4,
+      "oggi200": 10.1,
+      "scarto200": 0.7,
+      "minEpoca200": 9.4,
+      "minOggi200": 10.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2020-03-23",
+      "calo": -33.9,
+      "epoca20": 0.8,
+      "oggi20": 1.2,
+      "scarto20": 0.4,
+      "minEpoca20": 0.2,
+      "minOggi20": 0.2,
+      "sfasamento20": 0,
+      "epoca50": 1.2,
+      "oggi50": 1.4,
+      "scarto50": 0.2,
+      "minEpoca50": 1,
+      "minOggi50": 1.4,
+      "sfasamento50": 7,
+      "epoca200": 3,
+      "oggi200": 3.5,
+      "scarto200": 0.5,
+      "minEpoca200": 3,
+      "minOggi200": 3.5,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-06-16",
+      "calo": -23.6,
+      "epoca20": 1.6,
+      "oggi20": 1.8,
+      "scarto20": 0.2,
+      "minEpoca20": 1.6,
+      "minOggi20": 1.8,
+      "sfasamento20": 0,
+      "epoca50": 2,
+      "oggi50": 2,
+      "scarto50": 0,
+      "minEpoca50": 2,
+      "minOggi50": 2,
+      "sfasamento50": 0,
+      "epoca200": 11.8,
+      "oggi200": 11.8,
+      "scarto200": -0.1,
+      "minEpoca200": 11,
+      "minOggi200": 10.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-10-12",
+      "calo": -25.4,
+      "epoca20": 20.7,
+      "oggi20": 20.1,
+      "scarto20": -0.6,
+      "minEpoca20": 2,
+      "minOggi20": 1.6,
+      "sfasamento20": 0,
+      "epoca50": 10.7,
+      "oggi50": 10.4,
+      "scarto50": -0.3,
+      "minEpoca50": 2.8,
+      "minOggi50": 3.5,
+      "sfasamento50": -4,
+      "epoca200": 15.7,
+      "oggi200": 16.7,
+      "scarto200": 1,
+      "minEpoca200": 10.3,
+      "minOggi200": 11.2,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2023-03-13",
+      "calo": -16.8,
+      "epoca20": 9.7,
+      "oggi20": 9.5,
+      "scarto20": -0.1,
+      "minEpoca20": 6,
+      "minOggi20": 7.5,
+      "sfasamento20": 0,
+      "epoca50": 15.9,
+      "oggi50": 18.1,
+      "scarto50": 2.2,
+      "minEpoca50": 15.9,
+      "minOggi50": 17.4,
+      "sfasamento50": -1,
+      "epoca200": 38.8,
+      "oggi200": 41,
+      "scarto200": 2.1,
+      "minEpoca200": 37.1,
+      "minOggi200": 39.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2023-10-27",
+      "calo": -10.3,
+      "epoca20": 14.6,
+      "oggi20": 14.7,
+      "scarto20": 0.1,
+      "minEpoca20": 14.6,
+      "minOggi20": 14.7,
+      "sfasamento20": 0,
+      "epoca50": 10,
+      "oggi50": 10.7,
+      "scarto50": 0.7,
+      "minEpoca50": 10,
+      "minOggi50": 10.7,
+      "sfasamento50": 0,
+      "epoca200": 23.4,
+      "oggi200": 28.7,
+      "scarto200": 5.2,
+      "minEpoca200": 23.4,
+      "minOggi200": 28.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2025-04-08",
+      "calo": -18.9,
+      "epoca20": 2.2,
+      "oggi20": 2.2,
+      "scarto20": 0,
+      "minEpoca20": 2.2,
+      "minOggi20": 2.2,
+      "sfasamento20": 0,
+      "epoca50": 5.2,
+      "oggi50": 5.2,
+      "scarto50": 0,
+      "minEpoca50": 5.2,
+      "minOggi50": 5.2,
+      "sfasamento50": 0,
+      "epoca200": 17.6,
+      "oggi200": 17.2,
+      "scarto200": -0.4,
+      "minEpoca200": 17.6,
+      "minOggi200": 17.2,
+      "sfasamento200": 0
+     }
+    ]
+   },
+   "eventi": {
+    "pct50sotto10": {
+     "epoca": 18,
+     "oggi": 18,
+     "comuni": 16,
+     "ritardoMediano": 0
+    },
+    "pct50sotto20": {
+     "epoca": 39,
+     "oggi": 36,
+     "comuni": 31,
+     "ritardoMediano": 0
+    },
+    "pct20sotto10": {
+     "epoca": 38,
+     "oggi": 36,
+     "comuni": 34,
+     "ritardoMediano": 0
+    },
+    "pct200sotto15": {
+     "epoca": 10,
+     "oggi": 9,
+     "comuni": 9,
+     "ritardoMediano": 0
+    }
+   },
+   "correlazioneVariazioni": {
+    "pct20": 0.99,
+    "pct50": 0.99,
+    "pct200": 0.98
+   }
+  },
+  "DJI": {
+   "membriOggi": 30,
+   "senzaPrezzi": [],
+   "sedute": 6748,
+   "dal": "2000-01-03",
+   "al": "2026-10-30",
+   "coperturaOggiInizio": 0.9,
+   "scarto": {
+    "pct20": {
+     "media": 1.5,
+     "mediana": 0.5,
+     "p5": -10,
+     "p95": 13.3
+    },
+    "pct50": {
+     "media": 2.5,
+     "mediana": 3.3,
+     "p5": -8.2,
+     "p95": 13.3
+    },
+    "pct200": {
+     "media": 4,
+     "mediana": 3.3,
+     "p5": -5.8,
+     "p95": 14.8
+    }
+   },
+   "perLivello": {
+    "pct20": {
+     "sotto10": {
+      "sedute": 344,
+      "media": 3.8,
+      "mediana": 3.2
+     },
+     "10-20": {
+      "sedute": 417,
+      "media": 3.8,
+      "mediana": 3.3
+     },
+     "20-50": {
+      "sedute": 1809,
+      "media": 3,
+      "mediana": 3.3
+     },
+     "50-80": {
+      "sedute": 2871,
+      "media": 1.3,
+      "mediana": 1.1
+     },
+     "sopra80": {
+      "sedute": 1307,
+      "media": -1.3,
+      "mediana": 0
+     }
+    },
+    "pct50": {
+     "sotto10": {
+      "sedute": 261,
+      "media": 5,
+      "mediana": 3.3
+     },
+     "10-20": {
+      "sedute": 321,
+      "media": 5.2,
+      "mediana": 3.7
+     },
+     "20-50": {
+      "sedute": 1766,
+      "media": 3.9,
+      "mediana": 3.3
+     },
+     "50-80": {
+      "sedute": 3137,
+      "media": 2.1,
+      "mediana": 3.3
+     },
+     "sopra80": {
+      "sedute": 1263,
+      "media": 0.1,
+      "mediana": 0
+     }
+    },
+    "pct200": {
+     "sotto10": {
+      "sedute": 198,
+      "media": 5.9,
+      "mediana": 6.6
+     },
+     "10-20": {
+      "sedute": 281,
+      "media": 7.8,
+      "mediana": 7.4
+     },
+     "20-50": {
+      "sedute": 1345,
+      "media": 6.4,
+      "mediana": 6
+     },
+     "50-80": {
+      "sedute": 3332,
+      "media": 3.7,
+      "mediana": 3.4
+     },
+     "sopra80": {
+      "sedute": 1592,
+      "media": 1.8,
+      "mediana": 0.4
+     }
+    }
+   },
+   "perAnno": {
+    "2000": {
+     "pct20": 0.3,
+     "pct50": 1,
+     "pct200": 0.3,
+     "coperturaOggi": 0.9
+    },
+    "2001": {
+     "pct20": 1.4,
+     "pct50": 3.3,
+     "pct200": 0.4,
+     "coperturaOggi": 0.9
+    },
+    "2002": {
+     "pct20": 0.2,
+     "pct50": 1.7,
+     "pct200": 7,
+     "coperturaOggi": 0.9
+    },
+    "2003": {
+     "pct20": 0.9,
+     "pct50": 1.8,
+     "pct200": 3.2,
+     "coperturaOggi": 0.9
+    },
+    "2004": {
+     "pct20": 1.8,
+     "pct50": 3.5,
+     "pct200": -0.2,
+     "coperturaOggi": 0.93
+    },
+    "2005": {
+     "pct20": 3,
+     "pct50": 6,
+     "pct200": 10.1,
+     "coperturaOggi": 0.97
+    },
+    "2006": {
+     "pct20": -0.5,
+     "pct50": -1.1,
+     "pct200": -1.3,
+     "coperturaOggi": 0.97
+    },
+    "2007": {
+     "pct20": 1.1,
+     "pct50": 1.3,
+     "pct200": 3.2,
+     "coperturaOggi": 0.97
+    },
+    "2008": {
+     "pct20": 1.6,
+     "pct50": 1.6,
+     "pct200": 5.6,
+     "coperturaOggi": 0.99
+    },
+    "2009": {
+     "pct20": 3.5,
+     "pct50": 4.2,
+     "pct200": 9.7,
+     "coperturaOggi": 1
+    },
+    "2010": {
+     "pct20": 1.1,
+     "pct50": 3,
+     "pct200": 6.8,
+     "coperturaOggi": 1
+    },
+    "2011": {
+     "pct20": 1.2,
+     "pct50": 1.9,
+     "pct200": 3.5,
+     "coperturaOggi": 1
+    },
+    "2012": {
+     "pct20": 2.6,
+     "pct50": 3.5,
+     "pct200": 3.6,
+     "coperturaOggi": 1
+    },
+    "2013": {
+     "pct20": 1.1,
+     "pct50": 2.2,
+     "pct200": 3.9,
+     "coperturaOggi": 1
+    },
+    "2014": {
+     "pct20": 1.4,
+     "pct50": 3.3,
+     "pct200": 4.1,
+     "coperturaOggi": 1
+    },
+    "2015": {
+     "pct20": 3.1,
+     "pct50": 4.1,
+     "pct200": 9.5,
+     "coperturaOggi": 1
+    },
+    "2016": {
+     "pct20": 0,
+     "pct50": 0.6,
+     "pct200": -0.3,
+     "coperturaOggi": 1
+    },
+    "2017": {
+     "pct20": 5,
+     "pct50": 6.6,
+     "pct200": 9.1,
+     "coperturaOggi": 1
+    },
+    "2018": {
+     "pct20": 1.9,
+     "pct50": 1.4,
+     "pct200": 4.8,
+     "coperturaOggi": 1
+    },
+    "2019": {
+     "pct20": 1.3,
+     "pct50": 3.4,
+     "pct200": 4.1,
+     "coperturaOggi": 1
+    },
+    "2020": {
+     "pct20": 2.9,
+     "pct50": 4,
+     "pct200": 8.4,
+     "coperturaOggi": 1
+    },
+    "2021": {
+     "pct20": 2,
+     "pct50": 3.9,
+     "pct200": 5.8,
+     "coperturaOggi": 1
+    },
+    "2022": {
+     "pct20": -1.2,
+     "pct50": -1.8,
+     "pct200": -0.8,
+     "coperturaOggi": 1
+    },
+    "2023": {
+     "pct20": 1.8,
+     "pct50": 2.6,
+     "pct200": 3.6,
+     "coperturaOggi": 1
+    },
+    "2024": {
+     "pct20": 2.1,
+     "pct50": 2.5,
+     "pct200": 3.4,
+     "coperturaOggi": 1
+    },
+    "2025": {
+     "pct20": 0.5,
+     "pct50": 0.9,
+     "pct200": 0.5,
+     "coperturaOggi": 1
+    },
+    "2026": {
+     "pct20": 0,
+     "pct50": 0.3,
+     "pct200": 0.3,
+     "coperturaOggi": 1
+    }
+   },
+   "minimi": {
+    "numero": 24,
+    "riassunto": {
+     "pct20": {
+      "scartoAlMinimo": {
+       "media": 2.3,
+       "mediana": 0,
+       "p5": -3.6,
+       "p95": 10.9
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.4,
+       "mediana": 0,
+       "p5": -3.7,
+       "p95": 10.4
+      },
+      "stessaSeduta": 18
+     },
+     "pct50": {
+      "scartoAlMinimo": {
+       "media": 1.9,
+       "mediana": 0,
+       "p5": -3.4,
+       "p95": 11.1
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 1.2,
+       "mediana": 0,
+       "p5": -3.8,
+       "p95": 10.9
+      },
+      "stessaSeduta": 20
+     },
+     "pct200": {
+      "scartoAlMinimo": {
+       "media": 5.1,
+       "mediana": 6.7,
+       "p5": -3.6,
+       "p95": 14.6
+      },
+      "scartoDelMinimoBreadth": {
+       "media": 4.3,
+       "mediana": 3.6,
+       "p5": -3.7,
+       "p95": 13
+      },
+      "stessaSeduta": 18
+     }
+    },
+    "elenco": [
+     {
+      "data": "2001-03-22",
+      "calo": -17,
+      "epoca20": 3.7,
+      "oggi20": 11.1,
+      "scarto20": 7.4,
+      "minEpoca20": 0,
+      "minOggi20": 11.1,
+      "sfasamento20": 1,
+      "epoca50": 0,
+      "oggi50": 11.1,
+      "scarto50": 11.1,
+      "minEpoca50": 0,
+      "minOggi50": 11.1,
+      "sfasamento50": 0,
+      "epoca200": 14.8,
+      "oggi200": 22.2,
+      "scarto200": 7.4,
+      "minEpoca200": 14.8,
+      "minOggi200": 18.5,
+      "sfasamento200": -5
+     },
+     {
+      "data": "2001-09-21",
+      "calo": -27.4,
+      "epoca20": 3.7,
+      "oggi20": 0,
+      "scarto20": -3.7,
+      "minEpoca20": 3.7,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 7.4,
+      "oggi50": 0,
+      "scarto50": -7.4,
+      "minEpoca50": 7.4,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 7.4,
+      "oggi200": 3.7,
+      "scarto200": -3.7,
+      "minEpoca200": 7.4,
+      "minOggi200": 3.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2002-01-29",
+      "calo": -15.2,
+      "epoca20": 22.2,
+      "oggi20": 29.6,
+      "scarto20": 7.4,
+      "minEpoca20": 18.5,
+      "minOggi20": 18.5,
+      "sfasamento20": 0,
+      "epoca50": 22.2,
+      "oggi50": 29.6,
+      "scarto50": 7.4,
+      "minEpoca50": 22.2,
+      "minOggi50": 29.6,
+      "sfasamento50": 0,
+      "epoca200": 25.9,
+      "oggi200": 40.7,
+      "scarto200": 14.8,
+      "minEpoca200": 25.9,
+      "minOggi200": 37,
+      "sfasamento200": 5
+     },
+     {
+      "data": "2002-07-23",
+      "calo": -27.6,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 0,
+      "oggi200": 7.4,
+      "scarto200": 7.4,
+      "minEpoca200": 0,
+      "minOggi200": 7.4,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2002-10-09",
+      "calo": -31.5,
+      "epoca20": 7.4,
+      "oggi20": 18.5,
+      "scarto20": 11.1,
+      "minEpoca20": 0,
+      "minOggi20": 3.7,
+      "sfasamento20": 0,
+      "epoca50": 7.4,
+      "oggi50": 18.5,
+      "scarto50": 11.1,
+      "minEpoca50": 3.7,
+      "minOggi50": 7.4,
+      "sfasamento50": 0,
+      "epoca200": 7.4,
+      "oggi200": 14.8,
+      "scarto200": 7.4,
+      "minEpoca200": 3.7,
+      "minOggi200": 11.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2003-03-11",
+      "calo": -29.3,
+      "epoca20": 7.4,
+      "oggi20": 22.2,
+      "scarto20": 14.8,
+      "minEpoca20": 7.4,
+      "minOggi20": 22.2,
+      "sfasamento20": 0,
+      "epoca50": 7.4,
+      "oggi50": 22.2,
+      "scarto50": 14.8,
+      "minEpoca50": 3.7,
+      "minOggi50": 18.5,
+      "sfasamento50": 0,
+      "epoca200": 3.7,
+      "oggi200": 14.8,
+      "scarto200": 11.1,
+      "minEpoca200": 0,
+      "minOggi200": 11.1,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-03-10",
+      "calo": -17.1,
+      "epoca20": 10.3,
+      "oggi20": 13.8,
+      "scarto20": 3.4,
+      "minEpoca20": 6.9,
+      "minOggi20": 10.3,
+      "sfasamento20": 0,
+      "epoca50": 10.3,
+      "oggi50": 6.9,
+      "scarto50": -3.4,
+      "minEpoca50": 10.3,
+      "minOggi50": 6.9,
+      "sfasamento50": 0,
+      "epoca200": 10.3,
+      "oggi200": 13.8,
+      "scarto200": 3.4,
+      "minEpoca200": 10.3,
+      "minOggi200": 13.8,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-07-15",
+      "calo": -22.6,
+      "epoca20": 13.8,
+      "oggi20": 16.7,
+      "scarto20": 2.9,
+      "minEpoca20": 0,
+      "minOggi20": 6.7,
+      "sfasamento20": 0,
+      "epoca50": 3.4,
+      "oggi50": 6.7,
+      "scarto50": 3.2,
+      "minEpoca50": 0,
+      "minOggi50": 3.3,
+      "sfasamento50": 0,
+      "epoca200": 13.8,
+      "oggi200": 23.3,
+      "scarto200": 9.5,
+      "minEpoca200": 10.3,
+      "minOggi200": 16.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2008-11-20",
+      "calo": -45,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 0,
+      "oggi200": 0,
+      "scarto200": 0,
+      "minEpoca200": 0,
+      "minOggi200": 0,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2009-03-09",
+      "calo": -49.9,
+      "epoca20": 0,
+      "oggi20": 6.7,
+      "scarto20": 6.7,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -5,
+      "epoca50": 0,
+      "oggi50": 10,
+      "scarto50": 10,
+      "minEpoca50": 0,
+      "minOggi50": 6.7,
+      "sfasamento50": -4,
+      "epoca200": 0,
+      "oggi200": 0,
+      "scarto200": 0,
+      "minEpoca200": 0,
+      "minOggi200": 0,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2009-07-10",
+      "calo": -30.9,
+      "epoca20": 16.7,
+      "oggi20": 26.7,
+      "scarto20": 10,
+      "minEpoca20": 13.3,
+      "minOggi20": 6.7,
+      "sfasamento20": 0,
+      "epoca50": 33.3,
+      "oggi50": 36.7,
+      "scarto50": 3.3,
+      "minEpoca50": 33.3,
+      "minOggi50": 30,
+      "sfasamento50": -12,
+      "epoca200": 46.7,
+      "oggi200": 66.7,
+      "scarto200": 20,
+      "minEpoca200": 36.7,
+      "minOggi200": 53.3,
+      "sfasamento200": -2
+     },
+     {
+      "data": "2010-07-02",
+      "calo": -13.6,
+      "epoca20": 6.7,
+      "oggi20": 3.3,
+      "scarto20": -3.3,
+      "minEpoca20": 3.3,
+      "minOggi20": 3.3,
+      "sfasamento20": -1,
+      "epoca50": 3.3,
+      "oggi50": 0,
+      "scarto50": -3.3,
+      "minEpoca50": 3.3,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 6.7,
+      "oggi200": 20,
+      "scarto200": 13.3,
+      "minEpoca200": 6.7,
+      "minOggi200": 20,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2011-10-03",
+      "calo": -16.8,
+      "epoca20": 13.3,
+      "oggi20": 10,
+      "scarto20": -3.3,
+      "minEpoca20": 3.3,
+      "minOggi20": 10,
+      "sfasamento20": 7,
+      "epoca50": 13.3,
+      "oggi50": 16.7,
+      "scarto50": 3.3,
+      "minEpoca50": 3.3,
+      "minOggi50": 13.3,
+      "sfasamento50": 0,
+      "epoca200": 10,
+      "oggi200": 16.7,
+      "scarto200": 6.7,
+      "minEpoca200": 10,
+      "minOggi200": 16.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2015-08-25",
+      "calo": -14.4,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 6.7,
+      "oggi200": 13.3,
+      "scarto200": 6.7,
+      "minEpoca200": 6.7,
+      "minOggi200": 13.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2016-02-11",
+      "calo": -14.5,
+      "epoca20": 30,
+      "oggi20": 23.3,
+      "scarto20": -6.7,
+      "minEpoca20": 6.7,
+      "minOggi20": 3.3,
+      "sfasamento20": 0,
+      "epoca50": 20,
+      "oggi50": 16.7,
+      "scarto50": -3.3,
+      "minEpoca50": 10,
+      "minOggi50": 6.7,
+      "sfasamento50": 0,
+      "epoca200": 20,
+      "oggi200": 23.3,
+      "scarto200": 3.3,
+      "minEpoca200": 20,
+      "minOggi200": 23.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2018-03-23",
+      "calo": -11.6,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 3.3,
+      "oggi50": 3.3,
+      "scarto50": 0,
+      "minEpoca50": 3.3,
+      "minOggi50": 0,
+      "sfasamento50": 3,
+      "epoca200": 43.3,
+      "oggi200": 56.7,
+      "scarto200": 13.3,
+      "minEpoca200": 43.3,
+      "minOggi200": 53.3,
+      "sfasamento200": 2
+     },
+     {
+      "data": "2018-12-24",
+      "calo": -18.8,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 20.7,
+      "oggi200": 13.3,
+      "scarto200": -7.4,
+      "minEpoca200": 20.7,
+      "minOggi200": 13.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2020-03-23",
+      "calo": -37.1,
+      "epoca20": 0,
+      "oggi20": 3.3,
+      "scarto20": 3.3,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": -14,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 0,
+      "oggi200": 6.7,
+      "scarto200": 6.7,
+      "minEpoca200": 0,
+      "minOggi200": 0,
+      "sfasamento200": -5
+     },
+     {
+      "data": "2020-10-30",
+      "calo": -10.3,
+      "epoca20": 3.4,
+      "oggi20": 10,
+      "scarto20": 6.6,
+      "minEpoca20": 3.4,
+      "minOggi20": 3.3,
+      "sfasamento20": -2,
+      "epoca50": 6.9,
+      "oggi50": 10,
+      "scarto50": 3.1,
+      "minEpoca50": 6.9,
+      "minOggi50": 10,
+      "sfasamento50": 0,
+      "epoca200": 51.7,
+      "oggi200": 60,
+      "scarto200": 8.3,
+      "minEpoca200": 48.3,
+      "minOggi200": 56.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-03-08",
+      "calo": -11.3,
+      "epoca20": 20.7,
+      "oggi20": 20,
+      "scarto20": -0.7,
+      "minEpoca20": 3.4,
+      "minOggi20": 3.3,
+      "sfasamento20": 0,
+      "epoca50": 17.2,
+      "oggi50": 16.7,
+      "scarto50": -0.6,
+      "minEpoca50": 17.2,
+      "minOggi50": 13.3,
+      "sfasamento50": -9,
+      "epoca200": 31,
+      "oggi200": 30,
+      "scarto200": -1,
+      "minEpoca200": 24.1,
+      "minOggi200": 26.7,
+      "sfasamento200": -1
+     },
+     {
+      "data": "2022-06-17",
+      "calo": -18.8,
+      "epoca20": 3.4,
+      "oggi20": 3.3,
+      "scarto20": -0.1,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 3.4,
+      "oggi50": 3.3,
+      "scarto50": -0.1,
+      "minEpoca50": 3.4,
+      "minOggi50": 3.3,
+      "sfasamento50": 0,
+      "epoca200": 17.2,
+      "oggi200": 16.7,
+      "scarto200": -0.6,
+      "minEpoca200": 17.2,
+      "minOggi200": 16.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2022-09-30",
+      "calo": -21.9,
+      "epoca20": 0,
+      "oggi20": 0,
+      "scarto20": 0,
+      "minEpoca20": 0,
+      "minOggi20": 0,
+      "sfasamento20": 0,
+      "epoca50": 0,
+      "oggi50": 0,
+      "scarto50": 0,
+      "minEpoca50": 0,
+      "minOggi50": 0,
+      "sfasamento50": 0,
+      "epoca200": 6.9,
+      "oggi200": 6.7,
+      "scarto200": -0.2,
+      "minEpoca200": 6.9,
+      "minOggi200": 6.7,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2025-04-08",
+      "calo": -16.4,
+      "epoca20": 3.3,
+      "oggi20": 3.3,
+      "scarto20": 0,
+      "minEpoca20": 3.3,
+      "minOggi20": 3.3,
+      "sfasamento20": 0,
+      "epoca50": 3.3,
+      "oggi50": 3.3,
+      "scarto50": 0,
+      "minEpoca50": 3.3,
+      "minOggi50": 3.3,
+      "sfasamento50": 0,
+      "epoca200": 20,
+      "oggi200": 16.7,
+      "scarto200": -3.3,
+      "minEpoca200": 16.7,
+      "minOggi200": 13.3,
+      "sfasamento200": 0
+     },
+     {
+      "data": "2026-03-27",
+      "calo": -10,
+      "epoca20": 10,
+      "oggi20": 10,
+      "scarto20": 0,
+      "minEpoca20": 6.7,
+      "minOggi20": 6.7,
+      "sfasamento20": 0,
+      "epoca50": 16.7,
+      "oggi50": 13.3,
+      "scarto50": -3.3,
+      "minEpoca50": 13.3,
+      "minOggi50": 10,
+      "sfasamento50": 0,
+      "epoca200": 40,
+      "oggi200": 40,
+      "scarto200": 0,
+      "minEpoca200": 40,
+      "minOggi200": 40,
+      "sfasamento200": 0
+     }
+    ]
+   },
+   "eventi": {
+    "pct50sotto10": {
+     "epoca": 33,
+     "oggi": 33,
+     "comuni": 23,
+     "ritardoMediano": 0
+    },
+    "pct50sotto20": {
+     "epoca": 68,
+     "oggi": 65,
+     "comuni": 53,
+     "ritardoMediano": 0
+    },
+    "pct20sotto10": {
+     "epoca": 76,
+     "oggi": 62,
+     "comuni": 52,
+     "ritardoMediano": 0
+    },
+    "pct200sotto15": {
+     "epoca": 22,
+     "oggi": 17,
+     "comuni": 7,
+     "ritardoMediano": 1
+    }
+   },
+   "correlazioneVariazioni": {
+    "pct20": 0.92,
+    "pct50": 0.88,
+    "pct200": 0.84
+   }
+  }
+ }
+}

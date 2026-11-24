@@ -1,0 +1,11 @@
+const { chromium } = require('playwright');
+(async () => { const b = await chromium.launch(); const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+await ctx.addInitScript(() => { try { localStorage.setItem('sm.introSeen', 'true'); } catch {} });
+await ctx.route('**/config/emerging.json', (r) => r.fulfill({ status: 404, body: '' }));
+const p = await ctx.newPage(); const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+await p.goto('http://127.0.0.1:8817/#mon'); await p.waitForSelector('#boardTable tbody tr'); await p.waitForTimeout(500);
+await p.keyboard.press('8'); await p.waitForTimeout(500);
+console.log(JSON.stringify(await p.evaluate(() => ({ hash: location.hash, emgVisible: !document.querySelector('#v-emg').hidden, monVisible: !document.querySelector('#v-mon').hidden, text: document.querySelector('#v-emg').innerText.trim().slice(0, 80), loading: !document.querySelector('#emLoading').hidden, body: !document.querySelector('#emBody').hidden }))), errs);
+await p.fill('#cmd', 'EMG'); await p.press('#cmd', 'Enter'); await p.waitForTimeout(400);
+console.log('comando EMG', JSON.stringify(await p.evaluate(() => ({ hash: location.hash, emgVisible: !document.querySelector('#v-emg').hidden }))));
+await b.close(); })();

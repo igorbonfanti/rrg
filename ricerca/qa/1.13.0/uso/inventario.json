@@ -1,0 +1,366 @@
+{
+ "mon": [
+  {
+   "label": "Spiegazione: Settori da osservare",
+   "exp": "false",
+   "guide": "mon-osservare",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: regole degli stati",
+   "exp": "false",
+   "guide": "stati",
+   "src": "stateHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "rrg": [
+  {
+   "label": "Spiegazione: Portafoglio di riferimento",
+   "exp": "false",
+   "guide": "portafoglio",
+   "src": "",
+   "vis": false,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: dati e limiti degli asset reali",
+   "exp": "false",
+   "guide": "asset-reali",
+   "src": "mxHelp",
+   "vis": false,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: colonne della tabella",
+   "exp": "false",
+   "guide": "rrg-tabelle",
+   "src": "rotHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "btm": [
+  {
+   "label": "Spiegazione: avvicinamento",
+   "exp": "false",
+   "guide": "avvicinamento",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: come si legge la mappa",
+   "exp": "false",
+   "guide": "btm",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Distanza dal livello blu",
+   "exp": "false",
+   "guide": "btm-distanza",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "XLK": [
+  {
+   "label": "Spiegazione: Episodi in zona blu",
+   "exp": "false",
+   "guide": "sec-episodi",
+   "src": "secEpiHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": true,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Per confronto",
+   "exp": "false",
+   "guide": "sec-episodi",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Cali forti",
+   "exp": "false",
+   "guide": "cali",
+   "src": "secCapHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": true,
+   "text": "i"
+  }
+ ],
+ "SOXX": [
+  {
+   "label": "Spiegazione: Episodi in zona blu",
+   "exp": "false",
+   "guide": "sec-episodi",
+   "src": "secEpiHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": true,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Per confronto",
+   "exp": "false",
+   "guide": "sec-episodi",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Cali forti",
+   "exp": "false",
+   "guide": "cali",
+   "src": "secCapHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": true,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: come è costruita questa storia",
+   "exp": "false",
+   "guide": "industrie",
+   "src": "secQualityHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "tit": [
+  {
+   "label": "Spiegazione: Grandi contro piccoli",
+   "exp": "false",
+   "guide": "tit-grandi",
+   "src": "titGrandiHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Storia della divergenza",
+   "exp": "false",
+   "guide": "tit-storia",
+   "src": "titHistHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Titoli del settore",
+   "exp": "false",
+   "guide": "tit-bolle",
+   "src": "titBubHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: I più in pena",
+   "exp": "false",
+   "guide": "tit-bolle",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "idx": [
+  {
+   "label": "Spiegazione: Indici, stato dei bottom",
+   "exp": "false",
+   "guide": "idx",
+   "src": "ixHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: avvicinamento",
+   "exp": "false",
+   "guide": "idx-avvicinamento",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Distanza dal livello blu",
+   "exp": "false",
+   "guide": "idx-distanza",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Episodi in zona blu dell'indice",
+   "exp": "false",
+   "guide": "idx-episodi",
+   "src": "ixEpiHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": true,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Per confronto",
+   "exp": "false",
+   "guide": "idx-episodi",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Cali forti dell'indice",
+   "exp": "false",
+   "guide": "cali",
+   "src": "ixCapHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": true,
+   "text": "i"
+  }
+ ],
+ "emg": [
+  {
+   "label": "Spiegazione: Emergenti, valuta e dollaro",
+   "exp": "false",
+   "guide": "emg-leggere",
+   "src": "emValHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: grafico degli emergenti",
+   "exp": "false",
+   "guide": "emg-dettaglio",
+   "src": "emChartHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Forza relativa",
+   "exp": "false",
+   "guide": "emg-forza",
+   "src": "emRSHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "vix": [
+  {
+   "label": "Spiegazione: Dopo i picchi del VIX",
+   "exp": "false",
+   "guide": "vix-picchi",
+   "src": "vxTabHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: VIX e rendimento a 12 mesi",
+   "exp": "false",
+   "guide": "vix-scatter",
+   "src": "vxScHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "alr": [],
+ "ath": [
+  {
+   "label": "Spiegazione: Distanza dal massimo",
+   "exp": "false",
+   "guide": "massimi",
+   "src": "athHelp",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: grafico e profilo dei volumi",
+   "exp": "false",
+   "guide": "profilo-volumi",
+   "src": "athVpHelp",
+   "vis": false,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  },
+  {
+   "label": "Spiegazione: Linea del tempo dei massimi",
+   "exp": "false",
+   "guide": "linea-massimi",
+   "src": "",
+   "vis": true,
+   "inTh": false,
+   "inSum": false,
+   "text": "i"
+  }
+ ],
+ "universi": [
+  "Settori S&P 500",
+  "MAG7",
+  "1 · Asset class",
+  "2 · Fattori",
+  "3 · Regioni",
+  "4 · Paesi",
+  "6 · Indici",
+  "5 · Asset reali"
+ ],
+ "help": 0,
+ "thInfo": 0,
+ "errs": []
+}

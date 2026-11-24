@@ -1,0 +1,1093 @@
+[
+ {
+  "k": "1440-chiaro apertura vista (ms, con caricamento dati)",
+  "v": 487
+ },
+ {
+  "k": "1440-chiaro clic soglia 20 (ms)",
+  "v": 52
+ },
+ {
+  "k": "1440-chiaro clic Nasdaq-100 (ms)",
+  "v": 43
+ },
+ {
+  "k": "1440-chiaro clic MAX (ms)",
+  "v": 62
+ },
+ {
+  "k": "1440-chiaro clic S&P 500 (ms)",
+  "v": 54
+ },
+ {
+  "k": "1440-chiaro clic 10A (ms)",
+  "v": 41
+ },
+ {
+  "k": "1440-chiaro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   1380,
+   1380
+  ]
+ },
+ {
+  "k": "1440-chiaro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi",
+   "Andamento del VIX",
+   "VIX quel giorno",
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "3 mesi",
+   "6 mesi",
+   "12 mesi",
+   "calo dopo"
+  ]
+ },
+ {
+  "k": "1440-chiaro colonne nascoste",
+  "v": []
+ },
+ {
+  "k": "title intestazioni",
+  "v": [
+   "Primo giorno a 40 o più => Primo giorno dell'episodio: la prima chiusura del VIX a 40 o più dopo almeno 63 sedute sotto",
+   "Crisi => (nessun title)",
+   "Andamento del VIX => Il VIX da 3 mesi prima del primo giorno a un mese dopo l'ultimo giorno a 40 o più: linea tratteggiata la soglia, colorati i tratti a 40 o più, punto pieno il primo giorno, cerchio il massimo, tacca l'ultimo giorno. Ogni mini-grafico ha la sua scala di tempo e di valori: per confrontare la durata guarda la colonna Sedute",
+   "VIX quel giorno => Chiusura del VIX nel primo giorno dell'episodio",
+   "Massimo => Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi",
+   "Ultimo giorno a 40 o più => Ultima chiusura del VIX a 40 o più prima di 63 sedute di fila sotto (l'episodio in corso non è ancora finito)",
+   "Sedute => Sedute dal primo all'ultimo giorno a 40 o più (in mezzo il VIX può essere sceso sotto la soglia)",
+   "1 mese => (nessun title)",
+   "3 mesi => (nessun title)",
+   "6 mesi => (nessun title)",
+   "12 mesi => (nessun title)",
+   "calo dopo => (nessun title)"
+  ]
+ },
+ {
+  "k": "1440-chiaro scorrimento orizzontale pagina",
+  "v": [
+   1440,
+   1440
+  ]
+ },
+ {
+  "k": "1440-chiaro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "1440-chiaro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "1440-chiaro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E VOLATILITÀ REALIZZATA DELL'S&P 500 (21 SEDUTE, ANNUALIZZATA)",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 40 O PIÙ DELLA TABELLA",
+   "PREMIO PER LA PAURA (VIX − REALIZZATA)",
+   "STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)",
+   "CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)"
+  ]
+ },
+ {
+  "k": "1440-chiaro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "1440-chiaro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "1440-chiaro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "1440-chiaro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "1440-chiaro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "1440-chiaro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "1440-chiaro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "1440-chiaro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 20 O PIÙ DELLA TABELLA"
+  ]
+ },
+ {
+  "k": "1440-chiaro scorrimento orizzontale pagina (fine)",
+  "v": [
+   1440,
+   1440
+  ]
+ },
+ {
+  "k": "1440-chiaro errori console",
+  "v": []
+ },
+ {
+  "k": "1440-scuro apertura vista (ms, con caricamento dati)",
+  "v": 410
+ },
+ {
+  "k": "1440-scuro clic soglia 20 (ms)",
+  "v": 48
+ },
+ {
+  "k": "1440-scuro clic Nasdaq-100 (ms)",
+  "v": 56
+ },
+ {
+  "k": "1440-scuro clic MAX (ms)",
+  "v": 59
+ },
+ {
+  "k": "1440-scuro clic S&P 500 (ms)",
+  "v": 51
+ },
+ {
+  "k": "1440-scuro clic 10A (ms)",
+  "v": 39
+ },
+ {
+  "k": "1440-scuro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   1380,
+   1380
+  ]
+ },
+ {
+  "k": "1440-scuro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi",
+   "Andamento del VIX",
+   "VIX quel giorno",
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "3 mesi",
+   "6 mesi",
+   "12 mesi",
+   "calo dopo"
+  ]
+ },
+ {
+  "k": "1440-scuro colonne nascoste",
+  "v": []
+ },
+ {
+  "k": "1440-scuro scorrimento orizzontale pagina",
+  "v": [
+   1440,
+   1440
+  ]
+ },
+ {
+  "k": "1440-scuro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "1440-scuro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "1440-scuro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E VOLATILITÀ REALIZZATA DELL'S&P 500 (21 SEDUTE, ANNUALIZZATA)",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 40 O PIÙ DELLA TABELLA",
+   "PREMIO PER LA PAURA (VIX − REALIZZATA)",
+   "STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)",
+   "CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)"
+  ]
+ },
+ {
+  "k": "1440-scuro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "1440-scuro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "1440-scuro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "1440-scuro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "1440-scuro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "1440-scuro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "1440-scuro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "1440-scuro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 20 O PIÙ DELLA TABELLA"
+  ]
+ },
+ {
+  "k": "1440-scuro scorrimento orizzontale pagina (fine)",
+  "v": [
+   1440,
+   1440
+  ]
+ },
+ {
+  "k": "1440-scuro errori console",
+  "v": []
+ },
+ {
+  "k": "1280-chiaro apertura vista (ms, con caricamento dati)",
+  "v": 427
+ },
+ {
+  "k": "1280-chiaro clic soglia 20 (ms)",
+  "v": 39
+ },
+ {
+  "k": "1280-chiaro clic Nasdaq-100 (ms)",
+  "v": 41
+ },
+ {
+  "k": "1280-chiaro clic MAX (ms)",
+  "v": 94
+ },
+ {
+  "k": "1280-chiaro clic S&P 500 (ms)",
+  "v": 73
+ },
+ {
+  "k": "1280-chiaro clic 10A (ms)",
+  "v": 39
+ },
+ {
+  "k": "1280-chiaro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   1262,
+   1220
+  ]
+ },
+ {
+  "k": "1280-chiaro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi",
+   "Andamento del VIX",
+   "VIX quel giorno",
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "3 mesi",
+   "6 mesi",
+   "12 mesi"
+  ]
+ },
+ {
+  "k": "1280-chiaro colonne nascoste",
+  "v": []
+ },
+ {
+  "k": "1280-chiaro scorrimento orizzontale pagina",
+  "v": [
+   1280,
+   1280
+  ]
+ },
+ {
+  "k": "1280-chiaro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "1280-chiaro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "1280-chiaro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E VOLATILITÀ REALIZZATA DELL'S&P 500 (21 SEDUTE, ANNUALIZZATA)",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 40 O PIÙ DELLA TABELLA",
+   "PREMIO PER LA PAURA (VIX − REALIZZATA)",
+   "STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)",
+   "CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)"
+  ]
+ },
+ {
+  "k": "1280-chiaro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "1280-chiaro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "1280-chiaro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "1280-chiaro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "1280-chiaro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "1280-chiaro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "1280-chiaro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "1280-chiaro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 20 O PIÙ DELLA TABELLA"
+  ]
+ },
+ {
+  "k": "1280-chiaro scorrimento orizzontale pagina (fine)",
+  "v": [
+   1280,
+   1280
+  ]
+ },
+ {
+  "k": "1280-chiaro errori console",
+  "v": []
+ },
+ {
+  "k": "1280-scuro apertura vista (ms, con caricamento dati)",
+  "v": 411
+ },
+ {
+  "k": "1280-scuro clic soglia 20 (ms)",
+  "v": 52
+ },
+ {
+  "k": "1280-scuro clic Nasdaq-100 (ms)",
+  "v": 50
+ },
+ {
+  "k": "1280-scuro clic MAX (ms)",
+  "v": 95
+ },
+ {
+  "k": "1280-scuro clic S&P 500 (ms)",
+  "v": 47
+ },
+ {
+  "k": "1280-scuro clic 10A (ms)",
+  "v": 37
+ },
+ {
+  "k": "1280-scuro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   1262,
+   1220
+  ]
+ },
+ {
+  "k": "1280-scuro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi",
+   "Andamento del VIX",
+   "VIX quel giorno",
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "3 mesi",
+   "6 mesi",
+   "12 mesi"
+  ]
+ },
+ {
+  "k": "1280-scuro colonne nascoste",
+  "v": []
+ },
+ {
+  "k": "1280-scuro scorrimento orizzontale pagina",
+  "v": [
+   1280,
+   1280
+  ]
+ },
+ {
+  "k": "1280-scuro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "1280-scuro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "1280-scuro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E VOLATILITÀ REALIZZATA DELL'S&P 500 (21 SEDUTE, ANNUALIZZATA)",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 40 O PIÙ DELLA TABELLA",
+   "PREMIO PER LA PAURA (VIX − REALIZZATA)",
+   "STRUTTURA A TERMINE: VIX / VIX3M (DA 1 IN SU BACKWARDATION)",
+   "CREDITO HIGH YIELD: HYG CONTRO IEF, DISTANZA DAL MASSIMO DI 12 MESI (%)"
+  ]
+ },
+ {
+  "k": "1280-scuro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "1280-scuro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "1280-scuro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "1280-scuro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "1280-scuro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "1280-scuro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "1280-scuro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "1280-scuro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 (SCALA LOGARITMICA) · IN COLORE GLI EPISODI CON IL VIX A 20 O PIÙ DELLA TABELLA"
+  ]
+ },
+ {
+  "k": "1280-scuro scorrimento orizzontale pagina (fine)",
+  "v": [
+   1280,
+   1280
+  ]
+ },
+ {
+  "k": "1280-scuro errori console",
+  "v": []
+ },
+ {
+  "k": "390-chiaro apertura vista (ms, con caricamento dati)",
+  "v": 454
+ },
+ {
+  "k": "390-chiaro clic soglia 20 (ms)",
+  "v": 73
+ },
+ {
+  "k": "390-chiaro clic Nasdaq-100 (ms)",
+  "v": 49
+ },
+ {
+  "k": "390-chiaro clic MAX (ms)",
+  "v": 57
+ },
+ {
+  "k": "390-chiaro clic S&P 500 (ms)",
+  "v": 55
+ },
+ {
+  "k": "390-chiaro clic 10A (ms)",
+  "v": 32
+ },
+ {
+  "k": "390-chiaro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   704,
+   330
+  ]
+ },
+ {
+  "k": "390-chiaro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi"
+  ]
+ },
+ {
+  "k": "390-chiaro colonne nascoste",
+  "v": [
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "6 mesi"
+  ]
+ },
+ {
+  "k": "390-chiaro scorrimento orizzontale pagina",
+  "v": [
+   390,
+   390
+  ]
+ },
+ {
+  "k": "390-chiaro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "390-chiaro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "390-chiaro tocco su «Andamento del VIX»: tooltip visibili",
+  "v": []
+ },
+ {
+  "k": "390-chiaro colonna «Sedute» visibile (citata nel title del mini-grafico)",
+  "v": false
+ },
+ {
+  "k": "390-chiaro mini-grafico: px per unità x/y",
+  "v": [
+   0.61,
+   1
+  ]
+ },
+ {
+  "k": "390-chiaro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E REALIZZATA (21 SEDUTE)",
+   "NASDAQ-100 · EPISODI A 40 O PIÙ",
+   "PREMIO PER LA PAURA",
+   "VIX / VIX3M",
+   "CREDITO: HYG/IEF DAL MASSIMO"
+  ]
+ },
+ {
+  "k": "390-chiaro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "390-chiaro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "390-chiaro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "390-chiaro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "390-chiaro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "390-chiaro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "390-chiaro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "390-chiaro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 · EPISODI A 20 O PIÙ"
+  ]
+ },
+ {
+  "k": "390-chiaro scorrimento orizzontale pagina (fine)",
+  "v": [
+   390,
+   390
+  ]
+ },
+ {
+  "k": "390-chiaro errori console",
+  "v": []
+ },
+ {
+  "k": "390-scuro apertura vista (ms, con caricamento dati)",
+  "v": 476
+ },
+ {
+  "k": "390-scuro clic soglia 20 (ms)",
+  "v": 54
+ },
+ {
+  "k": "390-scuro clic Nasdaq-100 (ms)",
+  "v": 60
+ },
+ {
+  "k": "390-scuro clic MAX (ms)",
+  "v": 75
+ },
+ {
+  "k": "390-scuro clic S&P 500 (ms)",
+  "v": 57
+ },
+ {
+  "k": "390-scuro clic 10A (ms)",
+  "v": 37
+ },
+ {
+  "k": "390-scuro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   704,
+   330
+  ]
+ },
+ {
+  "k": "390-scuro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi"
+  ]
+ },
+ {
+  "k": "390-scuro colonne nascoste",
+  "v": [
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "6 mesi"
+  ]
+ },
+ {
+  "k": "390-scuro scorrimento orizzontale pagina",
+  "v": [
+   390,
+   390
+  ]
+ },
+ {
+  "k": "390-scuro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "390-scuro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "390-scuro tocco su «Andamento del VIX»: tooltip visibili",
+  "v": []
+ },
+ {
+  "k": "390-scuro colonna «Sedute» visibile (citata nel title del mini-grafico)",
+  "v": false
+ },
+ {
+  "k": "390-scuro mini-grafico: px per unità x/y",
+  "v": [
+   0.61,
+   1
+  ]
+ },
+ {
+  "k": "390-scuro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E REALIZZATA (21 SEDUTE)",
+   "NASDAQ-100 · EPISODI A 40 O PIÙ",
+   "PREMIO PER LA PAURA",
+   "VIX / VIX3M",
+   "CREDITO: HYG/IEF DAL MASSIMO"
+  ]
+ },
+ {
+  "k": "390-scuro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "390-scuro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "390-scuro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "390-scuro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "390-scuro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "390-scuro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "390-scuro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "390-scuro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 · EPISODI A 20 O PIÙ"
+  ]
+ },
+ {
+  "k": "390-scuro scorrimento orizzontale pagina (fine)",
+  "v": [
+   390,
+   390
+  ]
+ },
+ {
+  "k": "390-scuro errori console",
+  "v": []
+ },
+ {
+  "k": "360-chiaro apertura vista (ms, con caricamento dati)",
+  "v": 399
+ },
+ {
+  "k": "360-chiaro clic soglia 20 (ms)",
+  "v": 49
+ },
+ {
+  "k": "360-chiaro clic Nasdaq-100 (ms)",
+  "v": 39
+ },
+ {
+  "k": "360-chiaro clic MAX (ms)",
+  "v": 54
+ },
+ {
+  "k": "360-chiaro clic S&P 500 (ms)",
+  "v": 65
+ },
+ {
+  "k": "360-chiaro clic 10A (ms)",
+  "v": 40
+ },
+ {
+  "k": "360-chiaro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   704,
+   300
+  ]
+ },
+ {
+  "k": "360-chiaro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi"
+  ]
+ },
+ {
+  "k": "360-chiaro colonne nascoste",
+  "v": [
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "6 mesi"
+  ]
+ },
+ {
+  "k": "360-chiaro scorrimento orizzontale pagina",
+  "v": [
+   360,
+   360
+  ]
+ },
+ {
+  "k": "360-chiaro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "360-chiaro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "360-chiaro tocco su «Andamento del VIX»: tooltip visibili",
+  "v": []
+ },
+ {
+  "k": "360-chiaro colonna «Sedute» visibile (citata nel title del mini-grafico)",
+  "v": false
+ },
+ {
+  "k": "360-chiaro mini-grafico: px per unità x/y",
+  "v": [
+   0.61,
+   1
+  ]
+ },
+ {
+  "k": "360-chiaro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E REALIZZATA (21 SEDUTE)",
+   "NASDAQ-100 · EPISODI A 40 O PIÙ",
+   "PREMIO PER LA PAURA",
+   "VIX / VIX3M",
+   "CREDITO: HYG/IEF DAL MASSIMO"
+  ]
+ },
+ {
+  "k": "360-chiaro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "360-chiaro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "360-chiaro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "360-chiaro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "360-chiaro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "360-chiaro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "360-chiaro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "360-chiaro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 · EPISODI A 20 O PIÙ"
+  ]
+ },
+ {
+  "k": "360-chiaro scorrimento orizzontale pagina (fine)",
+  "v": [
+   360,
+   360
+  ]
+ },
+ {
+  "k": "360-chiaro errori console",
+  "v": []
+ },
+ {
+  "k": "360-scuro apertura vista (ms, con caricamento dati)",
+  "v": 452
+ },
+ {
+  "k": "360-scuro clic soglia 20 (ms)",
+  "v": 47
+ },
+ {
+  "k": "360-scuro clic Nasdaq-100 (ms)",
+  "v": 51
+ },
+ {
+  "k": "360-scuro clic MAX (ms)",
+  "v": 77
+ },
+ {
+  "k": "360-scuro clic S&P 500 (ms)",
+  "v": 58
+ },
+ {
+  "k": "360-scuro clic 10A (ms)",
+  "v": 41
+ },
+ {
+  "k": "360-scuro tabella episodi scrollWidth/clientWidth",
+  "v": [
+   704,
+   300
+  ]
+ },
+ {
+  "k": "360-scuro colonne visibili senza scorrere",
+  "v": [
+   "Primo giorno a 40 o più",
+   "Crisi"
+  ]
+ },
+ {
+  "k": "360-scuro colonne nascoste",
+  "v": [
+   "Massimo",
+   "Ultimo giorno a 40 o più",
+   "Sedute",
+   "1 mese",
+   "6 mesi"
+  ]
+ },
+ {
+  "k": "360-scuro scorrimento orizzontale pagina",
+  "v": [
+   360,
+   360
+  ]
+ },
+ {
+  "k": "360-scuro testo visibile spiega il mini-grafico (tratteggiata/punto pieno/cerchio/tacca)",
+  "v": "tratteggiat:false punto pieno:false cerchio:false tacca:false"
+ },
+ {
+  "k": "360-scuro testo visibile spiega «Sedute»/«Ultimo giorno»/asterisco",
+  "v": "Sedute:false Ultimo giorno:false asterisco:false"
+ },
+ {
+  "k": "360-scuro tocco su «Andamento del VIX»: tooltip visibili",
+  "v": []
+ },
+ {
+  "k": "360-scuro colonna «Sedute» visibile (citata nel title del mini-grafico)",
+  "v": false
+ },
+ {
+  "k": "360-scuro mini-grafico: px per unità x/y",
+  "v": [
+   0.61,
+   1
+  ]
+ },
+ {
+  "k": "360-scuro titoli dei pannelli (NDX, 40, MAX)",
+  "v": [
+   "VIX E REALIZZATA (21 SEDUTE)",
+   "NASDAQ-100 · EPISODI A 40 O PIÙ",
+   "PREMIO PER LA PAURA",
+   "VIX / VIX3M",
+   "CREDITO: HYG/IEF DAL MASSIMO"
+  ]
+ },
+ {
+  "k": "360-scuro titolo del riquadro",
+  "v": "VIX e indice nel tempo · struttura a termine e credito"
+ },
+ {
+  "k": "360-scuro legenda",
+  "v": "VIX (implicita, prossimi 30 giorni)\nrealizzata delle ultime 21 sedute\nNasdaq-100\nepisodi con il VIX a 40 o più (dal primo all'ultimo giorno), nel colore della crisi\npremio per la paura\npremio oltre l'80° percentile della sua storia\nVIX / VIX3M\nbackwardation (VIX ≥ VIX3M)\nultimo valore (pieno se in backwardation)\nHYG/IEF: distanza dal massimo di 12 mesi"
+ },
+ {
+  "k": "360-scuro titoli dei pannelli più larghi del grafico",
+  "v": []
+ },
+ {
+  "k": "360-scuro riquadro a destra (fine grafico, NDX 40)",
+  "v": "23/10/2026 | Nasdaq-100 28.958 | VIX | 19,45 | Realizzata 21 sedute | 9,9 | Premio per la paura | +9,6 | Percentile del premio | 92° | VIX3M | 20,48 | VIX / VIX3M | 0,95 contango | HYG/IEF dal massimo 12 mesi | −2,5%"
+ },
+ {
+  "k": "360-scuro riquadro a destra (fine grafico, NDX 20, episodio in corso)",
+  "v": null
+ },
+ {
+  "k": "360-scuro riquadro a destra (3A, NDX 20)",
+  "v": null
+ },
+ {
+  "k": "360-scuro dopo NDX/20: titolo episodi / meta tabella / meta scatter",
+  "v": [
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "Nasdaq-100 · solo prezzo · dal 02/01/1990 · ingresso alla chiusura della seduta dopo il segnale",
+   "Nasdaq-100 · ogni punto è una seduta con il VIX a 30 o più · in orizzontale il VIX, in verticale il rendimento a 12 mesi dalla chiusura della seduta dopo"
+  ]
+ },
+ {
+  "k": "360-scuro dopo ricarica: indice/soglia/periodo",
+  "v": [
+   "Nasdaq-100",
+   "Episodi con il VIX a 20 o più · Nasdaq-100",
+   "MAX",
+   "NASDAQ-100 · EPISODI A 20 O PIÙ"
+  ]
+ },
+ {
+  "k": "360-scuro scorrimento orizzontale pagina (fine)",
+  "v": [
+   360,
+   360
+  ]
+ },
+ {
+  "k": "360-scuro errori console",
+  "v": []
+ }
+]

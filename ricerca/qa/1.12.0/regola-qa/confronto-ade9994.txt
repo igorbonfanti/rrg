@@ -1,0 +1,2 @@
+NON MOSTRATO (non e un massimo di 52 settimane) (record mai superato con calo >= 15%): massimo 2000-03-24 (massimo di 52 settimane: False) in 64 tagli, da 2002-01-31 a 2007-04-30
+tagli 311, differenze 0, problemi dei controlli 2 0

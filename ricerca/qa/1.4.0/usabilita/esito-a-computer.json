@@ -1,0 +1,1018 @@
+[
+ {
+  "name": "[1440 dark] emerging.json non scaricato all'avvio",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/js/emerging.js",
+   "http://127.0.0.1:8794/js/emerging-view.js",
+   "http://127.0.0.1:8794/config/emerging.json"
+  ]
+ },
+ {
+  "name": "[1440 dark] scheda «8 Emergenti» visibile",
+  "ok": true,
+  "detail": "8 Emergenti"
+ },
+ {
+  "name": "[1440 dark] vista aperta con il clic in < 3 s",
+  "ok": true,
+  "detail": "382 ms"
+ },
+ {
+  "name": "[1440 dark] emerging.json scaricato alla prima apertura",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 dark] indirizzo #emg-<indice>",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-CSI300"
+ },
+ {
+  "name": "[1440 dark] 7 righe nel tabellone nell'ordine atteso",
+  "ok": true,
+  "detail": [
+   "CSI300",
+   "NIFTY50",
+   "IBOV",
+   "KOSPI200",
+   "TWN",
+   "HSI",
+   "EEM"
+  ]
+ },
+ {
+  "name": "[1440 dark] 5 riquadri",
+  "ok": true,
+  "detail": [
+   "DOLLARO CONTRO EMERGENTI 130,9 sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+   "EMERGENTI IN ZONA BLU 1 / 7 KOSPI200",
+   "IN ATTENZIONE 2 / 7 CSI300 · IBOV",
+   "VALUTE IN CALO FORTE 1 / 5 con dati IBOV",
+   "VALUTE FERME DOPO UN CALO 2 / 5 con dati NIFTY50 · KOSPI200"
+  ]
+ },
+ {
+  "name": "[1440 dark] nessuno scroll orizzontale della pagina",
+  "ok": true,
+  "detail": {
+   "sw": 1440,
+   "cw": 1440,
+   "over": []
+  }
+ },
+ {
+  "name": "[1440 dark] tabellone senza scroll interno a 1440",
+  "ok": true,
+  "detail": {
+   "sw": 1028,
+   "cw": 1028
+  }
+ },
+ {
+  "name": "[1440 dark] clic sulla riga KOSPI200 apre il dettaglio",
+  "ok": true,
+  "detail": "KOSPI200 · KOSPI 200"
+ },
+ {
+  "name": "[1440 dark] indirizzo #emg-KOSPI200 dopo il clic",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-KOSPI200"
+ },
+ {
+  "name": "[1440 dark] riga KOSPI200 evidenziata",
+  "ok": true,
+  "detail": {
+   "sel": true,
+   "aria": null,
+   "txt": "KOSPI200 ZONA BLU 17,5% 15% −37,6% HA SMESSO DI SCENDERE −13,8% −8,8% LAGGING"
+  }
+ },
+ {
+  "name": "[1440 dark] stato della valuta KRW con spiegazione al passaggio",
+  "ok": true,
+  "detail": {
+   "txt": "Ha smesso di scendere",
+   "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+  }
+ },
+ {
+  "name": "[1440 dark] stato KOSPI ha una spiegazione al passaggio",
+  "ok": false,
+  "detail": {
+   "txt": "ZONA BLU",
+   "title": ""
+  }
+ },
+ {
+  "name": "[1440 dark] riquadro dei valori sul grafico al passaggio",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "txt": "23/01/2026 KOSPI200 · normale Prezzo 4990 In dollari (base 100) 178,2 Sopra media 200 80,0% KRW per dollaro 1463,26 Valuta Normale Dollaro vs emergenti 128,94"
+  }
+ },
+ {
+  "name": "[1440 dark] riquadro dei valori dentro la finestra",
+  "ok": true,
+  "detail": {
+   "x": 763.59375,
+   "y": 612.421875,
+   "width": 227.203125,
+   "height": 121
+  }
+ },
+ {
+  "name": "[1440 dark] periodo 10A premuto",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 dark] periodo MAX premuto",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 dark] periodo 3A premuto",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 dark] ricarica su #emg-KOSPI200 riapre KOSPI200",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-KOSPI200"
+ },
+ {
+  "name": "[1440 dark] periodo 10A ricordato dopo la ricarica",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 dark] Indietro torna a IBOV",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-IBOV",
+   "IBOV · Ibovespa"
+  ]
+ },
+ {
+  "name": "[1440 dark] Indietro di nuovo torna a KOSPI200",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 dark] dopo Indietro la riga evidenziata coincide con il dettaglio",
+  "ok": true,
+  "detail": "KOSPI200"
+ },
+ {
+  "name": "[1440 dark] Avanti torna a IBOV",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 dark] «Apri nella vista 6» apre IBOV nella vista 6",
+  "ok": true,
+  "detail": {
+   "hash": "#idx",
+   "h": "IBOV · Ibovespa (Brasile)"
+  }
+ },
+ {
+  "name": "[1440 dark] nella vista 6 un collegamento alla vista 8",
+  "ok": true,
+  "detail": [
+   {
+    "t": "Cambio e dollaro: vista 8 Emergenti →",
+    "tag": "A",
+    "href": "#emg-IBOV"
+   }
+  ]
+ },
+ {
+  "name": "[1440 dark] link della vista 6 riapre la vista 8 su IBOV",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 dark] Indietro dalla vista 8 torna alla vista 6",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#idx"
+ },
+ {
+  "name": "[1440 dark] Indietro ancora torna alla vista 8",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 dark] clic sul punto HSI del quadrante seleziona HSI",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-HSI"
+ },
+ {
+  "name": "[1440 dark] 7 punti nel quadrante",
+  "ok": true,
+  "detail": [
+   {
+    "k": "CSI300",
+    "bb": [
+     1148,
+     120,
+     32,
+     13
+    ],
+    "lab": "ASHRCSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)"
+   },
+   {
+    "k": "NIFTY50",
+    "bb": [
+     1181,
+     7,
+     32,
+     13
+    ],
+    "lab": "INDANIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)"
+   },
+   {
+    "k": "IBOV",
+    "bb": [
+     1235,
+     91,
+     26,
+     13
+    ],
+    "lab": "EWZIBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)"
+   },
+   {
+    "k": "KOSPI200",
+    "bb": [
+     1238,
+     137,
+     26,
+     13
+    ],
+    "lab": "EWYKOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)"
+   },
+   {
+    "k": "TWN",
+    "bb": [
+     1288,
+     159,
+     26,
+     13
+    ],
+    "lab": "EWTTWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)"
+   },
+   {
+    "k": "HSI",
+    "bb": [
+     1218,
+     34,
+     27,
+     13
+    ],
+    "lab": "EWHHSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)"
+   },
+   {
+    "k": "EEM",
+    "bb": [
+     1209,
+     137,
+     26,
+     13
+    ],
+    "lab": "EEMEEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   }
+  ]
+ },
+ {
+  "name": "[1440 dark] punti/etichette del quadrante non sovrapposti",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 dark] tasto 1 apre mon",
+  "ok": true,
+  "detail": [
+   "v-mon"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto 2 apre rrg",
+  "ok": true,
+  "detail": [
+   "v-rrg"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto 3 apre btm",
+  "ok": true,
+  "detail": [
+   "v-btm"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto 4 apre sec",
+  "ok": true,
+  "detail": [
+   "v-sec"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto 5 apre alr",
+  "ok": true,
+  "detail": [
+   "v-alr"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto 6 apre idx",
+  "ok": true,
+  "detail": [
+   "v-idx"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto 7 apre tit",
+  "ok": true,
+  "detail": [
+   "v-tit"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto 8 apre emg",
+  "ok": true,
+  "detail": [
+   "v-emg"
+  ]
+ },
+ {
+  "name": "[1440 dark] comando «EMG»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-HSI"
+  ]
+ },
+ {
+  "name": "[1440 dark] comando «emergenti»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-HSI"
+  ]
+ },
+ {
+  "name": "[1440 dark] comando «MON»",
+  "ok": true,
+  "detail": [
+   [
+    "v-mon"
+   ],
+   "http://127.0.0.1:8794/#mon"
+  ]
+ },
+ {
+  "name": "[1440 dark] comando «CSI300 EMG»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-CSI300"
+  ]
+ },
+ {
+  "name": "[1440 dark] comando «nifty50 emg»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-NIFTY50"
+  ]
+ },
+ {
+  "name": "[1440 dark] comando «KOSPI200 EMG»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-KOSPI200"
+  ]
+ },
+ {
+  "name": "[1440 dark] [esplorativo] comando «KOSPI EMG»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"KOSPI EMG\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 dark] [esplorativo] comando «EMG KOSPI200»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"EMG KOSPI200\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 dark] [esplorativo] comando «IBOVESPA EMG»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"IBOVESPA EMG\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 dark] [esplorativo] comando «NIFTY EMG»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"NIFTY EMG\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 dark] indirizzo #emg-IBOV",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-IBOV",
+   "IBOV · Ibovespa"
+  ]
+ },
+ {
+  "name": "[1440 dark] indirizzo #emg-kospi200",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 dark] indirizzo #emg",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 dark] indirizzo #emg-FOO",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 dark] tasto ? apre la guida rapida",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 dark] link «Guida completa» punta a guida.html#emg",
+  "ok": true,
+  "detail": "guida.html#emg"
+ },
+ {
+  "name": "[1440 dark] guida rapida cita la vista 8",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 dark] guida.html#emg scorre alla sezione",
+  "ok": true,
+  "detail": {
+   "top": 12,
+   "h2": "8 Emergenti",
+   "open": "./#emg"
+  }
+ },
+ {
+  "name": "[1440 dark] «Apri gli Emergenti» dalla guida apre la vista 8",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 dark] console senza errori né avvisi",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 light] emerging.json non scaricato all'avvio",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/js/emerging.js",
+   "http://127.0.0.1:8794/js/emerging-view.js",
+   "http://127.0.0.1:8794/config/emerging.json"
+  ]
+ },
+ {
+  "name": "[1440 light] scheda «8 Emergenti» visibile",
+  "ok": true,
+  "detail": "8 Emergenti"
+ },
+ {
+  "name": "[1440 light] vista aperta con il clic in < 3 s",
+  "ok": true,
+  "detail": "464 ms"
+ },
+ {
+  "name": "[1440 light] emerging.json scaricato alla prima apertura",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 light] indirizzo #emg-<indice>",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-CSI300"
+ },
+ {
+  "name": "[1440 light] 7 righe nel tabellone nell'ordine atteso",
+  "ok": true,
+  "detail": [
+   "CSI300",
+   "NIFTY50",
+   "IBOV",
+   "KOSPI200",
+   "TWN",
+   "HSI",
+   "EEM"
+  ]
+ },
+ {
+  "name": "[1440 light] 5 riquadri",
+  "ok": true,
+  "detail": [
+   "DOLLARO CONTRO EMERGENTI 130,9 sopra la media 200 · +2,0% in 3 mesi · non favorevole · FRED al 30/10/2026",
+   "EMERGENTI IN ZONA BLU 1 / 7 KOSPI200",
+   "IN ATTENZIONE 2 / 7 CSI300 · IBOV",
+   "VALUTE IN CALO FORTE 1 / 5 con dati IBOV",
+   "VALUTE FERME DOPO UN CALO 2 / 5 con dati NIFTY50 · KOSPI200"
+  ]
+ },
+ {
+  "name": "[1440 light] nessuno scroll orizzontale della pagina",
+  "ok": true,
+  "detail": {
+   "sw": 1440,
+   "cw": 1440,
+   "over": []
+  }
+ },
+ {
+  "name": "[1440 light] tabellone senza scroll interno a 1440",
+  "ok": true,
+  "detail": {
+   "sw": 1028,
+   "cw": 1028
+  }
+ },
+ {
+  "name": "[1440 light] clic sulla riga KOSPI200 apre il dettaglio",
+  "ok": true,
+  "detail": "KOSPI200 · KOSPI 200"
+ },
+ {
+  "name": "[1440 light] indirizzo #emg-KOSPI200 dopo il clic",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-KOSPI200"
+ },
+ {
+  "name": "[1440 light] riga KOSPI200 evidenziata",
+  "ok": true,
+  "detail": {
+   "sel": true,
+   "aria": null,
+   "txt": "KOSPI200 ZONA BLU 17,5% 15% −37,6% HA SMESSO DI SCENDERE −13,8% −8,8% LAGGING"
+  }
+ },
+ {
+  "name": "[1440 light] stato della valuta KRW con spiegazione al passaggio",
+  "ok": true,
+  "detail": {
+   "txt": "Ha smesso di scendere",
+   "title": "Dopo un calo forte negli ultimi 6 mesi, il cambio si è allontanato dal massimo delle ultime 13 settimane: la valuta ha smesso di scendere. Nel campione succede spesso nei rimbalzi falliti prima del vero minimo: non è un segnale d'ingresso."
+  }
+ },
+ {
+  "name": "[1440 light] stato KOSPI ha una spiegazione al passaggio",
+  "ok": false,
+  "detail": {
+   "txt": "ZONA BLU",
+   "title": ""
+  }
+ },
+ {
+  "name": "[1440 light] riquadro dei valori sul grafico al passaggio",
+  "ok": true,
+  "detail": {
+   "hidden": false,
+   "txt": "23/01/2026 KOSPI200 · normale Prezzo 4990 In dollari (base 100) 178,2 Sopra media 200 80,0% KRW per dollaro 1463,26 Valuta Normale Dollaro vs emergenti 128,94"
+  }
+ },
+ {
+  "name": "[1440 light] riquadro dei valori dentro la finestra",
+  "ok": true,
+  "detail": {
+   "x": 763.59375,
+   "y": 612.421875,
+   "width": 227.203125,
+   "height": 121
+  }
+ },
+ {
+  "name": "[1440 light] periodo 10A premuto",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 light] periodo MAX premuto",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 light] periodo 3A premuto",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 light] ricarica su #emg-KOSPI200 riapre KOSPI200",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-KOSPI200"
+ },
+ {
+  "name": "[1440 light] periodo 10A ricordato dopo la ricarica",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 light] Indietro torna a IBOV",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-IBOV",
+   "IBOV · Ibovespa"
+  ]
+ },
+ {
+  "name": "[1440 light] Indietro di nuovo torna a KOSPI200",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 light] dopo Indietro la riga evidenziata coincide con il dettaglio",
+  "ok": true,
+  "detail": "KOSPI200"
+ },
+ {
+  "name": "[1440 light] Avanti torna a IBOV",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 light] «Apri nella vista 6» apre IBOV nella vista 6",
+  "ok": true,
+  "detail": {
+   "hash": "#idx",
+   "h": "IBOV · Ibovespa (Brasile)"
+  }
+ },
+ {
+  "name": "[1440 light] nella vista 6 un collegamento alla vista 8",
+  "ok": true,
+  "detail": [
+   {
+    "t": "Cambio e dollaro: vista 8 Emergenti →",
+    "tag": "A",
+    "href": "#emg-IBOV"
+   }
+  ]
+ },
+ {
+  "name": "[1440 light] link della vista 6 riapre la vista 8 su IBOV",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 light] Indietro dalla vista 8 torna alla vista 6",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#idx"
+ },
+ {
+  "name": "[1440 light] Indietro ancora torna alla vista 8",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 light] clic sul punto HSI del quadrante seleziona HSI",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-HSI"
+ },
+ {
+  "name": "[1440 light] 7 punti nel quadrante",
+  "ok": true,
+  "detail": [
+   {
+    "k": "CSI300",
+    "bb": [
+     1148,
+     120,
+     32,
+     13
+    ],
+    "lab": "ASHRCSI300 · ASHR contro ACWI al 04/11/2026: RS-Ratio 97,7, RS-Momentum 98,8 (Lagging)"
+   },
+   {
+    "k": "NIFTY50",
+    "bb": [
+     1181,
+     7,
+     32,
+     13
+    ],
+    "lab": "INDANIFTY50 · INDA contro ACWI al 04/11/2026: RS-Ratio 98,6, RS-Momentum 101,7 (Improving)"
+   },
+   {
+    "k": "IBOV",
+    "bb": [
+     1235,
+     91,
+     26,
+     13
+    ],
+    "lab": "EWZIBOV · EWZ contro ACWI al 04/11/2026: RS-Ratio 99,9, RS-Momentum 99,5 (Lagging)"
+   },
+   {
+    "k": "KOSPI200",
+    "bb": [
+     1238,
+     137,
+     26,
+     13
+    ],
+    "lab": "EWYKOSPI200 · EWY contro ACWI al 04/11/2026: RS-Ratio 100,0, RS-Momentum 98,4 (Lagging)"
+   },
+   {
+    "k": "TWN",
+    "bb": [
+     1288,
+     159,
+     26,
+     13
+    ],
+    "lab": "EWTTWN · EWT contro ACWI al 04/11/2026: RS-Ratio 101,3, RS-Momentum 97,8 (Weakening)"
+   },
+   {
+    "k": "HSI",
+    "bb": [
+     1218,
+     34,
+     27,
+     13
+    ],
+    "lab": "EWHHSI · EWH contro ACWI al 04/11/2026: RS-Ratio 99,5, RS-Momentum 101,0 (Improving)"
+   },
+   {
+    "k": "EEM",
+    "bb": [
+     1209,
+     137,
+     26,
+     13
+    ],
+    "lab": "EEMEEM · EEM contro ACWI al 04/11/2026: RS-Ratio 99,3, RS-Momentum 98,4 (Lagging)"
+   }
+  ]
+ },
+ {
+  "name": "[1440 light] punti/etichette del quadrante non sovrapposti",
+  "ok": true,
+  "detail": []
+ },
+ {
+  "name": "[1440 light] tasto 1 apre mon",
+  "ok": true,
+  "detail": [
+   "v-mon"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto 2 apre rrg",
+  "ok": true,
+  "detail": [
+   "v-rrg"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto 3 apre btm",
+  "ok": true,
+  "detail": [
+   "v-btm"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto 4 apre sec",
+  "ok": true,
+  "detail": [
+   "v-sec"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto 5 apre alr",
+  "ok": true,
+  "detail": [
+   "v-alr"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto 6 apre idx",
+  "ok": true,
+  "detail": [
+   "v-idx"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto 7 apre tit",
+  "ok": true,
+  "detail": [
+   "v-tit"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto 8 apre emg",
+  "ok": true,
+  "detail": [
+   "v-emg"
+  ]
+ },
+ {
+  "name": "[1440 light] comando «EMG»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-HSI"
+  ]
+ },
+ {
+  "name": "[1440 light] comando «emergenti»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-HSI"
+  ]
+ },
+ {
+  "name": "[1440 light] comando «MON»",
+  "ok": true,
+  "detail": [
+   [
+    "v-mon"
+   ],
+   "http://127.0.0.1:8794/#mon"
+  ]
+ },
+ {
+  "name": "[1440 light] comando «CSI300 EMG»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-CSI300"
+  ]
+ },
+ {
+  "name": "[1440 light] comando «nifty50 emg»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-NIFTY50"
+  ]
+ },
+ {
+  "name": "[1440 light] comando «KOSPI200 EMG»",
+  "ok": true,
+  "detail": [
+   [
+    "v-emg"
+   ],
+   "http://127.0.0.1:8794/#emg-KOSPI200"
+  ]
+ },
+ {
+  "name": "[1440 light] [esplorativo] comando «KOSPI EMG»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"KOSPI EMG\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 light] [esplorativo] comando «EMG KOSPI200»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"EMG KOSPI200\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 light] [esplorativo] comando «IBOVESPA EMG»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"IBOVESPA EMG\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 light] [esplorativo] comando «NIFTY EMG»",
+  "ok": false,
+  "detail": [
+   "http://127.0.0.1:8794/#mon",
+   "\"NIFTY EMG\" non trovato. Prova un ticker (XLU, SWDA), un nome (ORO, TESLA), MON, ROT o HELP"
+  ]
+ },
+ {
+  "name": "[1440 light] indirizzo #emg-IBOV",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-IBOV",
+   "IBOV · Ibovespa"
+  ]
+ },
+ {
+  "name": "[1440 light] indirizzo #emg-kospi200",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 light] indirizzo #emg",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 light] indirizzo #emg-FOO",
+  "ok": true,
+  "detail": [
+   "http://127.0.0.1:8794/#emg-KOSPI200",
+   "KOSPI200 · KOSPI 200"
+  ]
+ },
+ {
+  "name": "[1440 light] tasto ? apre la guida rapida",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 light] link «Guida completa» punta a guida.html#emg",
+  "ok": true,
+  "detail": "guida.html#emg"
+ },
+ {
+  "name": "[1440 light] guida rapida cita la vista 8",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "name": "[1440 light] guida.html#emg scorre alla sezione",
+  "ok": true,
+  "detail": {
+   "top": 12,
+   "h2": "8 Emergenti",
+   "open": "./#emg"
+  }
+ },
+ {
+  "name": "[1440 light] «Apri gli Emergenti» dalla guida apre la vista 8",
+  "ok": true,
+  "detail": "http://127.0.0.1:8794/#emg-IBOV"
+ },
+ {
+  "name": "[1440 light] console senza errori né avvisi",
+  "ok": true,
+  "detail": []
+ }
+]

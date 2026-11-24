@@ -1,0 +1,222 @@
+{
+ "SPX 20": {
+  "title": "Episodi con il VIX sopra 20 · S&P 500",
+  "big": "il primo giorno di ogni episodio con il VIX a 30 o più (con la soglia 20 della tabella i primi giorni sono sotto 30 e lo scatter non li mostra)",
+  "head": [
+   [
+    "Primo giorno a 20 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 20 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "SPX 25": {
+  "title": "Episodi con il VIX sopra 25 · S&P 500",
+  "big": "il primo giorno di ogni episodio con il VIX a 30 o più (con la soglia 25 della tabella i primi giorni sono sotto 30 e lo scatter non li mostra)",
+  "head": [
+   [
+    "Primo giorno a 25 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 25 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "SPX 30": {
+  "title": "Episodi con il VIX sopra 30 · S&P 500",
+  "big": "il primo giorno di ogni episodio con il VIX a 30 o più, lo stesso della colonna «Primo giorno a 30 o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)",
+  "head": [
+   [
+    "Primo giorno a 30 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 30 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "SPX 40": {
+  "title": "Episodi con il VIX sopra 40 · S&P 500",
+  "big": "il primo giorno di ogni episodio con il VIX a 40 o più, lo stesso della colonna «Primo giorno a 40 o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)",
+  "head": [
+   [
+    "Primo giorno a 40 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 40 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "SPX 50": {
+  "title": "Episodi con il VIX sopra 50 · S&P 500",
+  "big": "il primo giorno di ogni episodio con il VIX a 50 o più, lo stesso della colonna «Primo giorno a 50 o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)",
+  "head": [
+   [
+    "Primo giorno a 50 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 50 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "NDX 20": {
+  "title": "Episodi con il VIX sopra 20 · Nasdaq-100",
+  "big": "il primo giorno di ogni episodio con il VIX a 30 o più (con la soglia 20 della tabella i primi giorni sono sotto 30 e lo scatter non li mostra)",
+  "head": [
+   [
+    "Primo giorno a 20 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 20 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "NDX 25": {
+  "title": "Episodi con il VIX sopra 25 · Nasdaq-100",
+  "big": "il primo giorno di ogni episodio con il VIX a 30 o più (con la soglia 25 della tabella i primi giorni sono sotto 30 e lo scatter non li mostra)",
+  "head": [
+   [
+    "Primo giorno a 25 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 25 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "NDX 30": {
+  "title": "Episodi con il VIX sopra 30 · Nasdaq-100",
+  "big": "il primo giorno di ogni episodio con il VIX a 30 o più, lo stesso della colonna «Primo giorno a 30 o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)",
+  "head": [
+   [
+    "Primo giorno a 30 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 30 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "NDX 40": {
+  "title": "Episodi con il VIX sopra 40 · Nasdaq-100",
+  "big": "il primo giorno di ogni episodio con il VIX a 40 o più, lo stesso della colonna «Primo giorno a 40 o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)",
+  "head": [
+   [
+    "Primo giorno a 40 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 40 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ },
+ "NDX 50": {
+  "title": "Episodi con il VIX sopra 50 · Nasdaq-100",
+  "big": "il primo giorno di ogni episodio con il VIX a 50 o più, lo stesso della colonna «Primo giorno a 50 o più» della tabella (gli episodi senza ancora 12 mesi di dati non hanno punti)",
+  "head": [
+   [
+    "Primo giorno a 50 o più",
+    "Primo giorno dell'episodio: la prima chiusura del VIX a 50 o più dopo almeno 63 sedute sotto"
+   ],
+   [
+    "Crisi",
+    ""
+   ],
+   [
+    "VIX quel giorno",
+    "Chiusura del VIX nel primo giorno dell'episodio"
+   ],
+   [
+    "VIX massimo dell'episodio",
+    "Chiusura più alta del VIX nell'episodio, con la sua data. Un episodio finisce solo quando il VIX resta sotto la soglia per 63 sedute di fila: alle soglie basse può durare anni e comprendere più crisi"
+   ]
+  ]
+ }
+}

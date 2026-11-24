@@ -1,0 +1,20 @@
+KRW=X: n=944 · scarto mediano contro BCE 14:15 CET 0.342% · contro FRED mezzogiorno NY 0.322% · contro FRED del giorno prima 0.163%
+BRL=X: n=944 · scarto mediano contro BCE 14:15 CET 0.223% · contro FRED mezzogiorno NY 0.406% · contro FRED del giorno prima 0.212%
+INR=X: n=944 · scarto mediano contro BCE 14:15 CET 0.097% · contro FRED mezzogiorno NY 0.102% · contro FRED del giorno prima 0.053%
+CNY=X: n=944 · scarto mediano contro BCE 14:15 CET 0.087% · contro FRED mezzogiorno NY 0.099% · contro FRED del giorno prima 0.008%
+--- sfasamento (scarto mediano %, FRED t-1 / t / t+1) ---
+CNY=X estate: n=505 · t-1 0.006 · t 0.086 · t+1 0.124
+CNY=X inverno: n=279 · t-1 0.014 · t 0.113 · t+1 0.185
+KRW=X estate: n=505 · t-1 0.155 · t 0.327 · t+1 0.473
+KRW=X inverno: n=279 · t-1 0.172 · t 0.327 · t+1 0.436
+INR=X estate: n=505 · t-1 0.052 · t 0.110 · t+1 0.161
+INR=X inverno: n=279 · t-1 0.056 · t 0.097 · t+1 0.135
+TWD=X estate: n=505 · t-1 0.115 · t 0.177 · t+1 0.259
+TWD=X inverno: n=279 · t-1 0.137 · t 0.182 · t+1 0.281
+BRL=X estate: n=505 · t-1 0.213 · t 0.397 · t+1 0.610
+BRL=X inverno: n=279 · t-1 0.210 · t 0.422 · t+1 0.636
+--- BCE t-1 / t / t+1 contro Yahoo(t) (scarto mediano %) ---
+CNY=X: n=981 · BCE t-1 0.039 · t 0.088 · t+1 0.136
+KRW=X: n=981 · BCE t-1 0.198 · t 0.342 · t+1 0.474
+INR=X: n=981 · BCE t-1 0.051 · t 0.096 · t+1 0.157
+BRL=X: n=981 · BCE t-1 0.404 · t 0.222 · t+1 0.488

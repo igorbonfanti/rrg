@@ -1,0 +1,21 @@
+VIX3M FRED 2007-12-04 → 2026-11-05 4761 valori; Cboe 2009-09-18 → 2026-11-06
+FRED contro Cboe: 4310 comuni, 4310 uguali; max null
+Yahoo ^VIX3M 60 g: {"dal":"2026-09-07","comuni":44,"uguali_al_centesimo":44,"diversi":[],"solo_yahoo":[]}
+Periodo comune struttura { dal: '2007-12-04', al: '2026-11-05', sedute: 4761 } concordanza {
+  sedute_uguali: 4336,
+  quota: 0.9107,
+  entrambi_backwardation: 424,
+  solo_vix_vix3m: 54,
+  solo_vx1_vx2: 371,
+  disaccordi_con_un_rapporto_entro_2pc_da_1: 306
+} corr {
+  livelli: 0.8548,
+  variazioni_1_seduta: 0.5856,
+  coppie_variazioni: 4760,
+  variazioni_senza_giorni_di_roll: 0.7147,
+  coppie_senza_roll: 4533
+}
+Ingressi {"vix_vix3m":{"n":132,"abbinati":69,"ritardi":{"0":40,"1":9,"2":3,"-2":6,"-1":11}},"vx1_vx2":{"n":126,"abbinati":64,"ritardi":{"0":40,"1":9,"2":4,"-2":1,"-1":10}},"filtrati_10_sedute":{"vix_vix3m":{"n":58,"abbinati":29,"ritardi":{"0":21,"1":2,"2":2,"-2":0,"-1":4}},"vx1_vx2":{"n":63,"abbinati":29,"ritardi":{"0":21,"1":4,"2":0,"-2":2,"-1":2}}},"altro_in_backwardation_entro_2_sedute":{"ingressi_vix_vix3m":115,"ingressi_vx1_vx2":68,"filtrati_vix_vix3m":47,"filtrati_vx1_vx2":35},"nota":"abbinati = l'altro rapporto ha un ingresso (dello stesso tipo) entro ±2 sedute; ritardi = sedute dell'altro dopo questo"}
+Disaccordi 185 18
+Credito {"IG OAS (BAMLC0A0CM)":{"livelli":{"r":0.9287,"n":751},"variazioni_5_sedute":{"r":0.822,"n":745},"variazioni_21_sedute":{"r":0.8843,"n":729}},"BAA10Y":{"livelli":{"r":0.4401,"n":747},"variazioni_5_sedute":{"r":0.6876,"n":737},"variazioni_21_sedute":{"r":0.6736,"n":723}},"AAA10Y":{"livelli":{"r":-0.1782,"n":747},"variazioni_5_sedute":{"r":0.629,"n":737},"variazioni_21_sedute":{"r":0.5475,"n":723}},"Baa-Aaa (BAA10Y-AAA10Y)":{"livelli":{"r":0.7005,"n":747},"variazioni_5_sedute":{"r":0.1277,"n":737},"variazioni_21_sedute":{"r":0.4376,"n":723}},"-ln(HYG/IEF)x100 (Yahoo)":{"livelli":{"r":0.6921,"n":752},"variazioni_5_sedute":{"r":0.6986,"n":747},"variazioni_21_sedute":{"r":0.7062,"n":731}},"NFCICREDIT (settimanale)":{"settimane":156,"livelli":0.8171,"variazioni_1_settimana":0.3572,"variazioni_4_settimane":0.7007}}
+Peso {"file_attuale_kb":253.22,"file_attuale_kb_gzip":78.5,"aggiunte":{"VIX3M_FRED_dal_2007":{"valori":4761,"ps":10000,"kb":30.9,"kb_gzip":7.52,"solo_2_decimali":true,"kb_con_ps100":21.68,"kb_gzip_con_ps100":6.7},"VX1_dal_2007_12":{"valori":4762,"ps":10000,"kb":31.23,"kb_gzip":8.66,"solo_2_decimali":false},"VX2_dal_2007_12":{"valori":4762,"ps":10000,"kb":30.46,"kb_gzip":8.33,"solo_2_decimali":false},"HY_OAS_3_anni":{"valori":752,"ps":10000,"kb":4.05,"kb_gzip":0.94,"solo_2_decimali":true,"kb_con_ps100":2.71,"kb_gzip_con_ps100":0.75},"BAA10Y_dal_1990":{"valori":9201,"ps":10000,"kb":45.66,"kb_gzip":6.78,"solo_2_decimali":true,"kb_con_ps100":30.93,"kb_gzip_con_ps100":6.15},"AAA10Y_dal_1990":{"valori":9201,"ps":10000,"kb":45.63,"kb_gzip":6.92,"solo_2_decimali":true,"kb_con_ps100":30.91,"kb_gzip_con_ps100":6.3},"VIX3M + BAA10Y":{"kb":76.59,"kb_gzip":14.19,"file_kb":329.81,"file_kb_gzip":92.69},"VIX3M + VX1 + VX2 + BAA10Y":{"kb":138.31,"kb_gzip":30.84,"file_kb":391.53,"file_kb_gzip":109.33}}}
