@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T05:02:04.761Z",
+ "generated": "2026-11-25T20:37:46.409Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
  "asOf": "2026-11-24",
  "missing": [],
@@ -12,23 +12,23 @@
    "note": "Quotato 7 giorni su 7: chiusura del giorno UTC (Yahoo), solo giorni già chiusi.",
    "stats": {
     "start": "2014-09-17",
-    "from": "2023-11-23",
-    "last": 61210.9844,
-    "lastDate": "2026-11-23",
+    "from": "2023-11-24",
+    "last": 59747.7656,
+    "lastDate": "2026-11-24",
     "ref": 124752.5313,
     "refDate": "2025-10-06",
-    "distPct": -50.93,
-    "days": 413,
+    "distPct": -52.11,
+    "days": 414,
     "cycleLow": 58558.8594,
     "cycleLowDate": "2026-06-30",
     "cycleLowPct": -53.06,
-    "fromLowPct": 4.53,
+    "fromLowPct": 2.03,
     "belowZero": null,
     "intradayRef": 126198.0703,
     "intradayRefDate": "2025-10-06",
     "ath": 124752.5313,
     "athDate": "2025-10-06",
-    "athDistPct": -50.93
+    "athDistPct": -52.11
    }
   },
   {
