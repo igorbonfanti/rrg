@@ -1,7 +1,7 @@
 {
- "generated": "2026-11-26T04:22:48.057Z",
+ "generated": "2026-11-26T20:30:12.872Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
- "asOf": "2026-11-25",
+ "asOf": "2026-11-26",
  "missing": [],
  "markets": [
   {
@@ -12,23 +12,23 @@
    "note": "Quotato 7 giorni su 7: chiusura del giorno UTC (Yahoo), solo giorni già chiusi.",
    "stats": {
     "start": "2014-09-17",
-    "from": "2023-11-24",
-    "last": 59747.7656,
-    "lastDate": "2026-11-24",
+    "from": "2023-11-25",
+    "last": 60378.1992,
+    "lastDate": "2026-11-25",
     "ref": 124752.5313,
     "refDate": "2025-10-06",
-    "distPct": -52.11,
-    "days": 414,
+    "distPct": -51.6,
+    "days": 415,
     "cycleLow": 58558.8594,
     "cycleLowDate": "2026-06-30",
     "cycleLowPct": -53.06,
-    "fromLowPct": 2.03,
+    "fromLowPct": 3.11,
     "belowZero": null,
     "intradayRef": 126198.0703,
     "intradayRefDate": "2025-10-06",
     "ath": 124752.5313,
     "athDate": "2025-10-06",
-    "athDistPct": -52.11
+    "athDistPct": -51.6
    }
   },
   {
@@ -39,23 +39,23 @@
    "note": "Future continuo del Comex (Yahoo, GC=F): la chiusura è il prezzo di regolamento, verso le 13:30 di New York, non le 16:00 degli indici. A ogni cambio di contratto (ogni due mesi) il livello si sposta, di solito verso l'alto: da un massimo lontano il calo risulta un po' più piccolo di quello dell'oro fisico (scelta dell'utente del 13/11/2026: prima si usava l'ETF GLD).",
    "stats": {
     "start": "2000-08-30",
-    "from": "2023-11-24",
-    "last": 3561.8999,
-    "lastDate": "2026-11-24",
+    "from": "2023-11-26",
+    "last": 3593.3999,
+    "lastDate": "2026-11-26",
     "ref": 5318.3999,
     "refDate": "2026-01-29",
-    "distPct": -33.03,
-    "days": 299,
+    "distPct": -32.43,
+    "days": 301,
     "cycleLow": 3515.3999,
     "cycleLowDate": "2026-11-20",
     "cycleLowPct": -33.9,
-    "fromLowPct": 1.32,
+    "fromLowPct": 2.22,
     "belowZero": null,
     "intradayRef": 5586.2002,
     "intradayRefDate": "2026-01-29",
     "ath": 5318.3999,
     "athDate": "2026-01-29",
-    "athDistPct": -33.03
+    "athDistPct": -32.43
    }
   },
   {
@@ -66,23 +66,23 @@
    "note": "Future continuo del Comex (Yahoo, SI=F), contratto del mese più vicino (si scambia poco, ma il prezzo è quello ufficiale): la chiusura è il prezzo di regolamento, verso le 13:30 di New York. Il 26/01/2026, giorno del massimo, l'argento è crollato nel pomeriggio: l'ETF SLV, che chiude alle 16:00, ha il massimo il 28/01. A ogni cambio di contratto (ogni mese) il livello si sposta un po' (scelta dell'utente del 13/11/2026: prima si usava l'ETF SLV).",
    "stats": {
     "start": "2000-08-30",
-    "from": "2023-11-24",
-    "last": 40.76,
-    "lastDate": "2026-11-24",
+    "from": "2023-11-26",
+    "last": 41.75,
+    "lastDate": "2026-11-26",
     "ref": 115.08,
     "refDate": "2026-01-26",
-    "distPct": -64.58,
-    "days": 302,
-    "cycleLow": 40.76,
-    "cycleLowDate": "2026-11-24",
-    "cycleLowPct": -64.58,
-    "fromLowPct": 0,
+    "distPct": -63.72,
+    "days": 304,
+    "cycleLow": 40.052,
+    "cycleLowDate": "2026-11-25",
+    "cycleLowPct": -65.2,
+    "fromLowPct": 4.24,
     "belowZero": null,
     "intradayRef": 121.3,
     "intradayRefDate": "2026-01-29",
     "ath": 115.08,
     "athDate": "2026-01-26",
-    "athDistPct": -64.58
+    "athDistPct": -63.72
    }
   },
   {
@@ -93,23 +93,23 @@
    "note": "Future continuo del Comex (Yahoo): ai cambi di contratto il livello si sposta un po'.",
    "stats": {
     "start": "2000-08-30",
-    "from": "2023-11-24",
-    "last": 5.3625,
-    "lastDate": "2026-11-24",
+    "from": "2023-11-26",
+    "last": 5.4335,
+    "lastDate": "2026-11-26",
     "ref": 6.8035,
     "refDate": "2026-09-09",
-    "distPct": -21.18,
-    "days": 76,
-    "cycleLow": 5.3625,
-    "cycleLowDate": "2026-11-24",
-    "cycleLowPct": -21.18,
-    "fromLowPct": 0,
+    "distPct": -20.14,
+    "days": 78,
+    "cycleLow": 5.3325,
+    "cycleLowDate": "2026-11-25",
+    "cycleLowPct": -21.62,
+    "fromLowPct": 1.89,
     "belowZero": null,
     "intradayRef": 6.83,
     "intradayRefDate": "2026-09-22",
     "ath": 6.8035,
     "athDate": "2026-09-09",
-    "athDistPct": -21.18
+    "athDistPct": -20.14
    }
   },
   {
@@ -120,23 +120,23 @@
    "note": "Future continuo del Nymex (Yahoo): ai cambi di contratto il livello si sposta un po'. Non si usa l'ETF USO, che a ogni rinnovo dei contratti perde valore; il suo massimo non è quello del petrolio.",
    "stats": {
     "start": "2000-08-23",
-    "from": "2023-11-24",
-    "last": 82.05,
-    "lastDate": "2026-11-24",
+    "from": "2023-11-26",
+    "last": 84.91,
+    "lastDate": "2026-11-26",
     "ref": 112.95,
     "refDate": "2026-04-07",
-    "distPct": -27.36,
-    "days": 231,
+    "distPct": -24.83,
+    "days": 233,
     "cycleLow": 68.55,
     "cycleLowDate": "2026-07-06",
     "cycleLowPct": -39.31,
-    "fromLowPct": 19.69,
+    "fromLowPct": 23.87,
     "belowZero": null,
     "intradayRef": 119.48,
     "intradayRefDate": "2026-03-09",
     "ath": 145.29,
     "athDate": "2008-07-03",
-    "athDistPct": -43.53
+    "athDistPct": -41.56
    }
   },
   {
@@ -147,7 +147,7 @@
    "stats": {
     "start": "1985-10-01",
     "from": "2023-11-25",
-    "last": 26046.8965,
+    "last": 26046.9004,
     "lastDate": "2026-11-25",
     "ref": 31224.4707,
     "refDate": "2026-10-06",
