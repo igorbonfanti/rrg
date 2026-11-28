@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T20:16:39.758Z",
+ "generated": "2026-11-28T04:14:00.856Z",
  "method": "Riferimento: massimo di chiusura degli ultimi 3 anni (dalla stessa data di 3 anni prima dell'ultima seduta), dalla serie di Yahoo, solo prezzo, nella valuta di quotazione; distanza = ultima chiusura / massimo − 1; giorni di calendario dal massimo all'ultima seduta; calo massimo = minimo di chiusura dopo il massimo (non calcolato se una chiusura è ≤ 0); ath = massimo di chiusura dall'inizio della serie.",
  "asOf": "2026-11-27",
  "missing": [],
@@ -226,23 +226,23 @@
    "note": "Indice KOSPI intero, in won: per chi investe in euro o in dollari il calo è diverso (conta anche il cambio). Le feste coreane possono fermarlo fino a 11 giorni.",
    "stats": {
     "start": "1996-12-11",
-    "from": "2023-11-26",
-    "last": 4711.21,
-    "lastDate": "2026-11-26",
+    "from": "2023-11-27",
+    "last": 4915.6802,
+    "lastDate": "2026-11-27",
     "ref": 9114.5498,
     "refDate": "2026-06-22",
-    "distPct": -48.31,
-    "days": 157,
+    "distPct": -46.07,
+    "days": 158,
     "cycleLow": 4697.5098,
     "cycleLowDate": "2026-11-25",
     "cycleLowPct": -48.46,
-    "fromLowPct": 0.29,
+    "fromLowPct": 4.64,
     "belowZero": null,
     "intradayRef": 9385.5898,
     "intradayRefDate": "2026-06-19",
     "ath": 9114.5498,
     "athDate": "2026-06-22",
-    "athDistPct": -48.31
+    "athDistPct": -46.07
    }
   }
  ]
